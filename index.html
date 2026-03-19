@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neda Bagheri | Product Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F0; --surface: #FFFFFF; --dark: #1A1A1A; --mid: #555555; --light: #999999;
+    --accent: #2D5BE3; --accent-light: #EEF2FD; --border: #E8E4DC;
+    --serif: 'DM Serif Display', Georgia, serif; --sans: 'Open Sans', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--dark); font-size: 16px; line-height: 1.7; }
+
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(247,245,240,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-name { font-family: var(--serif); font-size: 20px; color: var(--dark); text-decoration: none; }
+  .nav-links { display: flex; gap: 36px; align-items: center; }
+  .nav-links a { font-size: 14px; font-weight: 500; color: var(--mid); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cv { background: var(--dark); color: white !important; padding: 8px 20px; border-radius: 6px; font-size: 13px !important; }
+
+  .hero { text-align: center; padding: 100px 48px 60px; max-width: 680px; margin: 0 auto; }
+  .hero h1 { font-family: var(--serif); font-size: clamp(36px, 5vw, 52px); line-height: 1.15; color: var(--dark); margin-bottom: 20px; }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero p { font-size: 17px; color: var(--mid); font-weight: 300; max-width: 460px; margin: 0 auto; }
+
+  .projects { max-width: 960px; margin: 0 auto; padding: 20px 48px 100px; }
+
+  .project-item { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; padding: 72px 0; border-bottom: 1px solid var(--border); text-decoration: none; color: inherit; cursor: pointer; }
+  .project-item:last-child { border-bottom: none; }
+  .project-item:nth-child(even) .proj-image-wrap { order: 2; }
+  .project-item:nth-child(even) .proj-text { order: 1; }
+
+  .proj-image-wrap { border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; position: relative; transition: transform 0.4s ease; }
+  .project-item:hover .proj-image-wrap { transform: scale(1.02); }
+  .proj-image-wrap::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 32px, rgba(255,255,255,0.04) 32px, rgba(255,255,255,0.04) 33px), repeating-linear-gradient(90deg, transparent, transparent 32px, rgba(255,255,255,0.04) 32px, rgba(255,255,255,0.04) 33px); }
+
+  .proj-image-label { z-index: 1; text-align: center; padding: 24px; }
+  .proj-image-label span { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 10px; }
+  .proj-image-label strong { display: block; font-family: var(--serif); font-size: 20px; font-weight: 400; color: rgba(255,255,255,0.85); line-height: 1.3; }
+
+  .bg-blue   { background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #2D5BE3 100%); }
+  .bg-dark   { background: linear-gradient(135deg, #111 0%, #222 50%, #444 100%); }
+  .bg-green  { background: linear-gradient(135deg, #0A1628 0%, #0F3D2E 50%, #1A7A4A 100%); }
+  .bg-purple { background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 50%, #0e5f8a 100%); }
+
+  .proj-text { padding: 8px 0; }
+  .proj-meta { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin-bottom: 12px; }
+  .proj-title { font-family: var(--serif); font-size: 28px; color: var(--dark); line-height: 1.2; margin-bottom: 14px; }
+  .proj-desc { font-size: 15px; color: var(--mid); font-weight: 300; line-height: 1.7; margin-bottom: 20px; }
+  .proj-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .tag { font-size: 12px; font-weight: 600; color: var(--accent); background: var(--accent-light); padding: 4px 12px; border-radius: 20px; }
+  .tag.gray { color: var(--mid); background: #EEEAE4; }
+  .proj-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--accent); }
+  .proj-link::after { content: '→'; }
+  .project-item:hover .proj-link { gap: 14px; }
+
+  .footer-strip { background: var(--dark); padding: 64px 48px; text-align: center; }
+  .footer-strip h2 { font-family: var(--serif); font-size: 32px; color: white; margin-bottom: 12px; }
+  .footer-strip p { font-size: 15px; color: rgba(255,255,255,0.5); font-weight: 300; margin-bottom: 28px; }
+  .footer-strip a { display: inline-block; background: var(--accent); color: white; font-size: 14px; font-weight: 600; padding: 13px 30px; border-radius: 7px; text-decoration: none; }
+
+  footer { padding: 28px 48px; display: flex; justify-content: space-between; border-top: 1px solid var(--border); }
+  footer p { font-size: 13px; color: var(--light); }
+  footer a { font-size: 13px; color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 680px) {
+    nav { padding: 16px 24px; }
+    .hero { padding: 60px 24px 40px; }
+    .projects { padding: 0 24px 60px; }
+    .project-item { grid-template-columns: 1fr; gap: 24px; padding: 40px 0; }
+    .project-item:nth-child(even) .proj-image-wrap { order: 0; }
+    .project-item:nth-child(even) .proj-text { order: 0; }
+    footer { padding: 24px; flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-name" href="index.html">Neda Bagheri</a>
+  <div class="nav-links">
+    <a href="index.html">Portfolio</a>
+    <a href="about.html">About</a>
+    <a href="#" class="nav-cv">Download CV</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Neda Bagheri |<br><em>Product Designer</em></h1>
+  <p>Designing intuitive, accessible experiences across fintech, retail, SaaS, and e-health — for web, mobile, and everything in between.</p>
+</div>
+
+<div class="projects">
+
+  <a class="project-item" href="backoffice.html">
+    <div class="proj-image-wrap bg-blue">
+      <div class="proj-image-label">
+        <span>B2B SaaS · Retail Tech</span>
+        <strong>Focalpay Back-office Dashboard</strong>
+      </div>
+    </div>
+    <div class="proj-text">
+      <div class="proj-meta">Focalpay AB · 2023–2024</div>
+      <h2 class="proj-title">Focalpay Back-office Dashboard</h2>
+      <p class="proj-desc">A cloud-based command centre managing thousands of SKUs, complex pricing logic, and real-time sync for Scandinavia's largest grocery chains.</p>
+      <div class="proj-tags">
+        <span class="tag">UX Research</span>
+        <span class="tag">Interaction Design</span>
+        <span class="tag gray">Figma</span>
+        <span class="tag gray">B2B SaaS</span>
+      </div>
+      <span class="proj-link">View Project</span>
+    </div>
+  </a>
+
+  <a class="project-item" href="pos-app.html">
+    <div class="proj-image-wrap bg-dark">
+      <div class="proj-image-label">
+        <span>B2B · Retail Tech</span>
+        <strong>Cashier POS & Payment App</strong>
+      </div>
+    </div>
+    <div class="proj-text">
+      <div class="proj-meta">Focalpay AB · 2023–2024</div>
+      <h2 class="proj-title">Cashier POS & Payment App</h2>
+      <p class="proj-desc">Redesigning a high-frequency point-of-sale app to make every transaction faster and more intuitive for store staff under real-world pressure.</p>
+      <div class="proj-tags">
+        <span class="tag">Interaction Design</span>
+        <span class="tag">Usability Testing</span>
+        <span class="tag gray">iOS & Android</span>
+      </div>
+      <span class="proj-link">View Project</span>
+    </div>
+  </a>
+
+  <a class="project-item" href="mobile-app.html">
+    <div class="proj-image-wrap bg-green">
+      <div class="proj-image-label">
+        <span>B2C · Mobile</span>
+        <strong>Mobile Customer Shopping App</strong>
+      </div>
+    </div>
+    <div class="proj-text">
+      <div class="proj-meta">Focalpay AB · 2023–2024</div>
+      <h2 class="proj-title">Mobile Customer Shopping App</h2>
+      <p class="proj-desc">Redesigning the onboarding and checkout journey for a B2C mobile app — creating a frictionless, personal experience across iOS and Android.</p>
+      <div class="proj-tags">
+        <span class="tag">Mobile UX</span>
+        <span class="tag">A/B Testing</span>
+        <span class="tag gray">iOS & Android</span>
+      </div>
+      <span class="proj-link">View Project</span>
+    </div>
+  </a>
+
+  <a class="project-item" href="healthcare.html">
+    <div class="proj-image-wrap bg-purple">
+      <div class="proj-image-label">
+        <span>B2B · E-Health</span>
+        <strong>Healthcare Provider Survey App</strong>
+      </div>
+    </div>
+    <div class="proj-text">
+      <div class="proj-meta">Focalpay AB · 2023–2024</div>
+      <h2 class="proj-title">Healthcare Provider Survey Application</h2>
+      <p class="proj-desc">Transforming manual survey processes into a streamlined digital platform for healthcare providers — cutting administrative work by 40%.</p>
+      <div class="proj-tags">
+        <span class="tag">Accessibility</span>
+        <span class="tag">UX/UI Design</span>
+        <span class="tag gray">WCAG · AI-assisted</span>
+      </div>
+      <span class="proj-link">View Project</span>
+    </div>
+  </a>
+
+</div>
+
+<div class="footer-strip">
+  <h2>Let's work together</h2>
+  <p>Based in Stockholm · Open to new opportunities</p>
+  <a href="mailto:nedabagheri.nz@gmail.com">Get in touch</a>
+</div>
+
+<footer>
+  <p>© 2026 Neda Bagheri · Stockholm, Sweden</p>
+  <a href="mailto:nedabagheri.nz@gmail.com">nedabagheri.nz@gmail.com</a>
+</footer>
+
+</body>
+</html>
