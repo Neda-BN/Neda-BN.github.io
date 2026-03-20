@@ -90,8 +90,12 @@
   .screens-section { margin-top: 32px; }
   .screens-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin-bottom: 16px; }
   .screens-grid { display: grid; gap: 16px; }
-  .screens-grid.col-2 { grid-template-columns: 1fr 1fr; }
-  .screens-grid.col-3 { grid-template-columns: 1fr 1fr 1fr; }
+  /* Two-column rows: each cell matches the width of one cell in a three-column row (same gap math as col-3). */
+  .screens-grid.col-2 {
+    grid-template-columns: repeat(2, minmax(0, calc((100% - 32px) / 3)));
+    justify-content: start;
+  }
+  .screens-grid.col-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .screen-item { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
   .screen-wrap { border-radius: 20px; overflow: hidden; border: 1px solid var(--border); background: var(--surface); box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
   .screen-wrap img { width: 100%; display: block; }
@@ -139,7 +143,8 @@
     .section-chapter { font-size: clamp(1.65rem, 6vw, 2.35rem); }
     .pain-grid, .results-grid { grid-template-columns: 1fr; }
     .screens-grid.col-3 { grid-template-columns: 1fr 1fr; }
-    .screens-grid.col-2, .ab-grid { grid-template-columns: 1fr; }
+    .screens-grid.col-2 { grid-template-columns: 1fr; justify-content: stretch; }
+    .ab-grid { grid-template-columns: 1fr; }
     .meta-strip { flex-direction: column; }
     .meta-item { border-right: none; border-bottom: 1px solid var(--border); }
     .meta-item:last-child { border-bottom: none; }
