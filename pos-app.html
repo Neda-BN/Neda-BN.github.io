@@ -96,19 +96,16 @@
     overflow: hidden;
     background: #0a0a0a;
   }
-  .hero-video-wrap .scroll-viewport--hero-loop img {
+  .hero-video-wrap .scroll-viewport--hero-loop img.hero-scroll-img {
     width: 100%;
     height: auto;
     display: block;
-    animation: hero-home-scroll 22s linear infinite alternate;
+    transform: translateY(0);
     will-change: transform;
-  }
-  @keyframes hero-home-scroll {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(calc(-100% + 100cqh)); }
+    backface-visibility: hidden;
   }
   @media (prefers-reduced-motion: reduce) {
-    .hero-video-wrap .scroll-viewport--hero-loop img { animation: none; }
+    .hero-video-wrap .scroll-viewport--hero-loop img.hero-scroll-img { will-change: auto; }
   }
   .hero-media__placeholder {
     display: flex;
@@ -553,6 +550,114 @@
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  (function heroScrollLoop() {
+    const img = document.querySelector('.hero-scroll-img');
+    const viewport = document.querySelector('.scroll-viewport--hero-loop');
+    if (!img || !viewport) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const easing = 'cubic-bezier(0.33, 0, 0.2, 1)';
+    const scrollMs = 1000;
+    const pauseBetweenScreens = 500;
+    const pauseAtBottom = 900;
+    const pauseAtTop = 600;
+
+    function buildStops(max, vh) {
+      if (max <= 1) return [0];
+      const stops = [0];
+      let y = vh;
+      while (y < max - 1) {
+        stops.push(y);
+        y += vh;
+      }
+      if (stops[stops.length - 1] < max - 0.5) stops.push(max);
+      return stops;
+    }
+
+    function delay(ms) {
+      return new Promise(function (resolve) { setTimeout(resolve, ms); });
+    }
+
+    function animateSegment(fromY, toY) {
+      return new Promise(function (resolve) {
+        img.style.transform = 'translateY(' + (-fromY) + 'px)';
+        if (Math.abs(fromY - toY) < 0.5) {
+          resolve();
+          return;
+        }
+        if (!img.animate) {
+          img.style.transform = 'translateY(' + (-toY) + 'px)';
+          resolve();
+          return;
+        }
+        var anim = img.animate(
+          [
+            { transform: 'translateY(' + (-fromY) + 'px)' },
+            { transform: 'translateY(' + (-toY) + 'px)' }
+          ],
+          { duration: scrollMs, easing: easing, fill: 'forwards' }
+        );
+        anim.onfinish = function () {
+          img.style.transform = 'translateY(' + (-toY) + 'px)';
+          resolve();
+        };
+      });
+    }
+
+    var generation = 0;
+
+    async function run() {
+      var myGen = ++generation;
+      while (myGen === generation) {
+        var maxScroll = Math.max(0, img.offsetHeight - viewport.clientHeight);
+        var vh = viewport.clientHeight;
+        var stops = buildStops(maxScroll, vh);
+        if (stops.length < 2) {
+          await delay(400);
+          continue;
+        }
+        var i;
+        for (i = 0; i < stops.length - 1; i++) {
+          if (myGen !== generation) return;
+          await animateSegment(stops[i], stops[i + 1]);
+          await delay(pauseBetweenScreens);
+        }
+        if (myGen !== generation) return;
+        await delay(pauseAtBottom);
+        for (i = stops.length - 1; i > 0; i--) {
+          if (myGen !== generation) return;
+          await animateSegment(stops[i], stops[i - 1]);
+          await delay(pauseBetweenScreens);
+        }
+        if (myGen !== generation) return;
+        await delay(pauseAtTop);
+      }
+    }
+
+    function bump() {
+      generation++;
+      img.getAnimations().forEach(function (a) { a.cancel(); });
+      img.style.transform = 'translateY(0)';
+      requestAnimationFrame(function () { run(); });
+    }
+
+    function start() {
+      run();
+    }
+
+    if (img.complete && img.naturalHeight) start();
+    else img.addEventListener('load', start, { once: true });
+
+    if (typeof ResizeObserver !== 'undefined') {
+      var resizeTimer;
+      var ro = new ResizeObserver(function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(bump, 200);
+      });
+      ro.observe(viewport);
+    }
+  })();
 </script>
 </body>
 </html>
