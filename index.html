@@ -19,6 +19,7 @@
   .nav-links { display: flex; gap: 36px; align-items: center; }
   .nav-links a { font-size: 14px; font-weight: 500; color: var(--mid); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--accent); }
+  .nav-links a[aria-current="page"] { color: var(--accent); font-weight: 600; }
   .nav-cv { background: var(--dark); color: white !important; padding: 8px 20px; border-radius: 6px; font-size: 13px !important; }
 
   .hero { text-align: center; padding: 100px 48px 60px; max-width: 680px; margin: 0 auto; }
@@ -84,7 +85,7 @@
 <nav>
   <a class="nav-name" href="index.html">Neda Bagheri</a>
   <div class="nav-links">
-    <a href="index.html">Portfolio</a>
+    <a href="index.html" aria-current="page">Portfolio</a>
     <a href="about.html">About</a>
     <a href="#" class="nav-cv">Download CV</a>
   </div>

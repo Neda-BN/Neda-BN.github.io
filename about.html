@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About · Neda Bagheri</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F0; --surface: #FFFFFF; --dark: #1A1A1A; --mid: #555555; --light: #999999;
+    --accent: #2D5BE3; --accent-light: #EEF2FD; --border: #E8E4DC;
+    --serif: 'DM Serif Display', Georgia, serif; --sans: 'Open Sans', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--dark); font-size: 16px; line-height: 1.7; }
+
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(247,245,240,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-name { font-family: var(--serif); font-size: 20px; color: var(--dark); text-decoration: none; }
+  .nav-links { display: flex; gap: 36px; align-items: center; }
+  .nav-links a { font-size: 14px; font-weight: 500; color: var(--mid); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a[aria-current="page"] { color: var(--accent); font-weight: 600; }
+  .nav-cv { background: var(--dark); color: white !important; padding: 8px 20px; border-radius: 6px; font-size: 13px !important; }
+
+  main { max-width: 640px; margin: 0 auto; padding: 72px 48px 100px; }
+  h1 { font-family: var(--serif); font-size: clamp(32px, 4vw, 42px); line-height: 1.2; margin-bottom: 24px; }
+  h1 em { font-style: italic; color: var(--accent); }
+  .lead { font-size: 18px; color: var(--mid); font-weight: 300; margin-bottom: 28px; }
+  p { color: var(--mid); font-weight: 300; margin-bottom: 18px; }
+  p strong { color: var(--dark); font-weight: 600; }
+
+  .case-list { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+  .case-list h2 { font-family: var(--serif); font-size: 22px; margin-bottom: 20px; color: var(--dark); }
+  .case-list ul { list-style: none; }
+  .case-list li { margin-bottom: 12px; }
+  .case-list a { color: var(--accent); font-weight: 600; text-decoration: none; font-size: 15px; }
+  .case-list a:hover { text-decoration: underline; }
+
+  footer { padding: 28px 48px; display: flex; justify-content: space-between; border-top: 1px solid var(--border); max-width: 960px; margin: 0 auto; }
+  footer p { font-size: 13px; color: var(--light); margin: 0; }
+  footer a { font-size: 13px; color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 680px) {
+    nav { padding: 16px 24px; }
+    main { padding: 48px 24px 72px; }
+    footer { padding: 24px; flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-name" href="index.html">Neda Bagheri</a>
+  <div class="nav-links">
+    <a href="index.html">Portfolio</a>
+    <a href="about.html" aria-current="page">About</a>
+    <a href="#" class="nav-cv">Download CV</a>
+  </div>
+</nav>
+
+<main>
+  <h1>About <em>Neda</em></h1>
+  <p class="lead">Product designer based in Stockholm — focused on clear, accessible experiences for fintech, retail, and health.</p>
+  <p>I work end-to-end from research and IA to interaction design and handoff, often in complex B2B and regulated environments. This site collects selected case studies from my recent work.</p>
+  <p>Open to new roles and collaborations. <a href="mailto:nedabagheri.nz@gmail.com" style="color:var(--accent);font-weight:600;text-decoration:none;">Get in touch</a> if you’d like to connect.</p>
+
+  <section class="case-list" aria-label="Case studies">
+    <h2>Case studies</h2>
+    <ul>
+      <li><a href="backoffice.html">Focalpay Back-office Dashboard</a></li>
+      <li><a href="pos-app.html">Cashier POS &amp; Payment App</a></li>
+      <li><a href="mobile-app.html">Mobile Customer Shopping App</a></li>
+      <li><a href="healthcare.html">Healthcare Provider Survey Application</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 Neda Bagheri · Stockholm</p>
+  <a href="mailto:nedabagheri.nz@gmail.com">nedabagheri.nz@gmail.com</a>
+</footer>
+
+</body>
+</html>
