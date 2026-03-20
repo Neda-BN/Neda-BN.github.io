@@ -67,17 +67,13 @@
   }
   .content{max-width:820px;margin:0 auto;padding:0 48px 40px;}
   .section{margin-bottom:56px;}
-  /* Case-study section titles: large chapter + subtitle, separated from body (inspired by editorial portfolio layouts) */
+  /* Case-study section titles: large chapter + subtitle; sits on page background (no card frame) */
   .section-header{
     display:flex;
     align-items:flex-start;
     gap:22px;
-    padding:28px 26px 32px;
-    margin-bottom:36px;
-    background:var(--surface);
-    border:1px solid var(--border);
-    border-radius:14px;
-    box-shadow:0 2px 14px rgba(26,26,26,0.05);
+    padding:0 0 32px 0;
+    margin-bottom:0;
   }
   .section-headings{flex:1;min-width:0;display:flex;flex-direction:column;gap:14px;}
   .section-chapter{
@@ -177,7 +173,7 @@
   footer{border-top:1px solid var(--border);padding:32px 48px;display:flex;justify-content:space-between;max-width:820px;margin:0 auto;}
   footer p{font-size:13px;color:var(--light);}
   footer a{font-size:13px;color:var(--mid);text-decoration:none;}
-  @media(max-width:640px){nav,.back-btn,.hero,.hero-image,.content,.bottom-back,footer{padding-left:24px;padding-right:24px;}.pain-grid,.results-grid,.ab-grid{grid-template-columns:1fr;}.meta-strip{flex-direction:column;}.meta-item{border-right:none;border-bottom:1px solid var(--border);}.meta-item:last-child{border-bottom:none;}.section-header{flex-direction:column;gap:18px;padding:22px 20px 26px;}.section-icon{width:52px;height:52px;}.section-icon svg{width:24px;height:24px;}.section-chapter{font-size:clamp(1.65rem,6vw,2.35rem);}}
+  @media(max-width:640px){nav,.back-btn,.hero,.hero-image,.content,.bottom-back,footer{padding-left:24px;padding-right:24px;}.pain-grid,.results-grid,.ab-grid{grid-template-columns:1fr;}.meta-strip{flex-direction:column;}.meta-item{border-right:none;border-bottom:1px solid var(--border);}.meta-item:last-child{border-bottom:none;}.section-header{flex-direction:column;gap:18px;padding:0 0 24px 0;}.section-icon{width:52px;height:52px;}.section-icon svg{width:24px;height:24px;}.section-chapter{font-size:clamp(1.65rem,6vw,2.35rem);}}
 </style>
 </head>
 <body>
