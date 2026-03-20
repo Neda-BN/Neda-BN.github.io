@@ -3,113 +3,126 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Healthcare Survey App · Neda Bagheri</title>
+<title>Healthcare Provider Survey App · Neda Bagheri</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #F7F5F0; --surface: #FFFFFF; --dark: #1A1A1A; --mid: #555555; --light: #999999;
-    --accent: #0e5f8a; --accent-light: #E8F4FA; --border: #E8E4DC;
-    --serif: 'DM Serif Display', Georgia, serif; --sans: 'Open Sans', sans-serif;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: var(--sans); background: var(--bg); color: var(--dark); font-size: 16px; line-height: 1.7; }
-  nav { position: sticky; top: 0; z-index: 100; background: rgba(247,245,240,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; }
-  .nav-name { font-family: var(--serif); font-size: 20px; color: var(--dark); text-decoration: none; }
-  .nav-links { display: flex; gap: 36px; align-items: center; }
-  .nav-links a { font-size: 14px; font-weight: 500; color: var(--mid); text-decoration: none; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--dark); }
-  .nav-cv { background: var(--dark); color: white !important; padding: 8px 20px; border-radius: 6px; font-size: 13px !important; }
-  .hero { max-width: 820px; margin: 80px auto 0; padding: 0 48px; }
-  .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--dark); text-decoration: none; margin-bottom: 48px; opacity: 0.5; transition: opacity 0.2s; }
-  .back-link:hover { opacity: 1; }
-  .back-link::before { content: '←'; }
-  .hero-tag { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); background: var(--accent-light); padding: 6px 14px; border-radius: 4px; margin-bottom: 24px; }
-  .hero h1 { font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); line-height: 1.15; color: var(--dark); margin-bottom: 24px; }
-  .hero h1 em { font-style: italic; color: var(--accent); }
-  .hero-subtitle { font-size: 18px; color: var(--mid); font-weight: 300; max-width: 600px; margin-bottom: 40px; }
-  .meta-strip { display: flex; gap: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--surface); margin-bottom: 64px; }
-  .meta-item { flex: 1; padding: 20px 24px; border-right: 1px solid var(--border); }
-  .meta-item:last-child { border-right: none; }
-  .meta-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin-bottom: 6px; }
-  .meta-value { font-size: 14px; font-weight: 500; color: var(--dark); }
-  .hero-image { max-width: 820px; margin: 0 auto 80px; padding: 0 48px; }
-  .image-placeholder { width: 100%; aspect-ratio: 16/8; background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 40%, #1a3a5c 70%, #0e5f8a 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-  .image-placeholder::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.03) 40px, rgba(255,255,255,0.03) 41px), repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,0.03) 40px, rgba(255,255,255,0.03) 41px); }
-  .image-label { font-family: var(--serif); font-size: 22px; color: rgba(255,255,255,0.7); text-align: center; z-index: 1; }
-  .content { max-width: 820px; margin: 0 auto; padding: 0 48px 120px; }
-  .section { margin-bottom: 72px; }
-  .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
-  .section-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .section-icon svg { width: 18px; height: 18px; fill: none; stroke: white; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light); display: block; margin-bottom: 2px; }
-  .section-title { font-family: var(--serif); font-size: 28px; color: var(--dark); line-height: 1.2; }
-  .divider { width: 100%; height: 1px; background: var(--border); margin: 64px 0; }
-  p { color: var(--mid); margin-bottom: 16px; font-weight: 300; }
-  p strong { color: var(--dark); font-weight: 600; }
-  p:last-child { margin-bottom: 0; }
-  .role-block { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 28px 32px; margin-bottom: 24px; }
-  .role-block h4 { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dark); margin-bottom: 14px; }
-  .role-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .role-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: var(--mid); font-weight: 300; }
-  .role-list li::before { content: '→'; color: var(--accent); font-weight: 600; flex-shrink: 0; margin-top: 1px; }
-  .pain-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 24px; }
-  .pain-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
-  .pain-card .pain-number { font-family: var(--serif); font-size: 36px; color: var(--accent); opacity: 0.3; line-height: 1; margin-bottom: 10px; }
-  .pain-card h4 { font-size: 14px; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
-  .pain-card p { font-size: 14px; color: var(--mid); margin: 0; }
-  .quote-block { border-left: 3px solid var(--accent); padding: 20px 28px; background: var(--accent-light); border-radius: 0 12px 12px 0; margin: 24px 0; }
-  .quote-block p { font-family: var(--serif); font-size: 18px; font-style: italic; color: var(--dark); margin-bottom: 8px; }
-  .quote-block cite { font-size: 13px; color: var(--mid); font-style: normal; font-weight: 500; }
-  .process-steps { display: flex; flex-direction: column; gap: 0; margin-top: 24px; }
-  .process-step { display: flex; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--border); }
-  .process-step:last-child { border-bottom: none; }
-  .step-number { font-family: var(--serif); font-size: 14px; color: var(--accent); opacity: 0.6; flex-shrink: 0; width: 24px; padding-top: 2px; }
-  .step-content h4 { font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
-  .step-content p { font-size: 14px; margin: 0; }
-  .findings-list { display: flex; flex-direction: column; gap: 14px; margin-top: 24px; }
-  .finding-item { display: flex; gap: 16px; padding: 20px 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; align-items: flex-start; }
-  .finding-icon { width: 32px; height: 32px; background: var(--accent-light); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 16px; }
-  .finding-text { font-size: 14px; color: var(--mid); font-style: italic; font-weight: 300; line-height: 1.6; }
-  .finding-stat { font-size: 11px; font-weight: 600; color: var(--accent); margin-top: 4px; }
-  .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0; }
-  .result-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 28px 24px; text-align: center; }
-  .result-number { font-family: var(--serif); font-size: 44px; color: var(--accent); line-height: 1; margin-bottom: 8px; }
-  .result-label { font-size: 13px; color: var(--mid); font-weight: 400; line-height: 1.4; }
-  .lessons-list { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
-  .lesson-item { display: flex; gap: 20px; padding: 22px 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; }
-  .lesson-num { font-family: var(--serif); font-size: 22px; color: var(--accent); opacity: 0.4; flex-shrink: 0; line-height: 1.2; }
-  .lesson-text h4 { font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
-  .lesson-text p { font-size: 14px; margin: 0; }
-  footer { border-top: 1px solid var(--border); padding: 40px 48px; display: flex; justify-content: space-between; align-items: center; max-width: 820px; margin: 0 auto; }
-  footer p { font-size: 14px; color: var(--light); margin: 0; }
-  footer a { font-size: 14px; font-weight: 500; color: var(--dark); text-decoration: none; }
-  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
-  .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-  /* BACK BUTTON */
-  .back-top {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--dark);
-    text-decoration: none;
-    padding: 12px 0;
-    opacity: 0.55;
-    transition: opacity 0.2s;
-    max-width: 820px;
-    margin: 0 auto;
-    display: block;
-    padding: 24px 48px 0;
-  }
-  .back-top:hover { opacity: 1; }
-
-  .back-btn{display:block;padding:24px 48px;font-size:14px;font-weight:600;color:var(--dark);text-decoration:none;opacity:0.55;transition:opacity 0.2s;}
+  :root { --bg:#F7F5F0;--surface:#FFFFFF;--dark:#1A1A1A;--mid:#555;--light:#999;--accent:#2D5BE3;--accent-light:#EEF2FD;--border:#E8E4DC;--serif:'DM Serif Display',Georgia,serif;--sans:'Open Sans',sans-serif; }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--sans);background:var(--bg);color:var(--dark);font-size:16px;line-height:1.7;}
+  nav{position:sticky;top:0;z-index:100;background:rgba(247,245,240,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:20px 48px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-name{font-family:var(--serif);font-size:20px;color:var(--dark);text-decoration:none;}
+  .nav-links{display:flex;gap:36px;align-items:center;}
+  .nav-links a{font-size:14px;font-weight:500;color:var(--mid);text-decoration:none;}
+  .nav-links a:hover{color:var(--accent);}
+  .nav-cv{background:var(--dark);color:white!important;padding:8px 20px;border-radius:6px;font-size:13px!important;}
+  .back-btn{display:block;font-size:14px;font-weight:600;color:var(--dark);text-decoration:none;opacity:0.55;transition:opacity 0.2s;padding:24px 48px;}
   .back-btn:hover{opacity:1;}
+  .hero{max-width:820px;margin:0 auto;padding:0 48px;}
+  .hero-tag{display:inline-block;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);padding:6px 14px;border-radius:4px;margin-bottom:24px;}
+  .hero h1{font-family:var(--serif);font-size:clamp(36px,5vw,52px);line-height:1.15;color:var(--dark);margin-bottom:24px;}
+  .hero h1 em{font-style:italic;color:var(--accent);}
+  .hero-subtitle{font-size:18px;color:var(--mid);font-weight:300;max-width:600px;margin-bottom:40px;}
+  .meta-strip{display:flex;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--surface);margin-bottom:48px;}
+  .meta-item{flex:1;padding:20px 24px;border-right:1px solid var(--border);}
+  .meta-item:last-child{border-right:none;}
+  .meta-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--light);margin-bottom:6px;}
+  .meta-value{font-size:14px;font-weight:500;color:var(--dark);}
+  .hero-image{max-width:820px;margin:0 auto 64px;padding:0 48px;}
+  .image-placeholder{width:100%;aspect-ratio:16/8;background:linear-gradient(135deg,#0F2027 0%,#203A43 40%,#0D7A5F 70%,#10B981 100%);border-radius:16px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+  .image-placeholder::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(255,255,255,0.03) 40px,rgba(255,255,255,0.03) 41px),repeating-linear-gradient(90deg,transparent,transparent 40px,rgba(255,255,255,0.03) 40px,rgba(255,255,255,0.03) 41px);}
+  .image-placeholder img{width:100%;height:100%;object-fit:cover;border-radius:16px;display:block;}
+  .image-label{font-family:var(--serif);font-size:22px;color:rgba(255,255,255,0.7);text-align:center;z-index:1;}
+  .image-placeholder-sm{width:100%;aspect-ratio:16/7;background:linear-gradient(135deg,#0F2027 0%,#203A43 50%,#0D7A5F 100%);border-radius:12px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;margin-top:28px;}
+  .image-placeholder-sm::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(255,255,255,0.03) 40px,rgba(255,255,255,0.03) 41px),repeating-linear-gradient(90deg,transparent,transparent 40px,rgba(255,255,255,0.03) 40px,rgba(255,255,255,0.03) 41px);}
+  .image-placeholder-sm img{width:100%;height:100%;object-fit:cover;border-radius:12px;display:block;}
+  .image-caption{font-size:12px;color:var(--light);text-align:center;margin-top:10px;font-style:italic;}
+  .content{max-width:820px;margin:0 auto;padding:0 48px 40px;}
+  .section{margin-bottom:64px;}
+  .section-header{display:flex;align-items:center;gap:16px;margin-bottom:28px;}
+  .section-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .section-icon svg{width:18px;height:18px;fill:none;stroke:white;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+  .section-label{font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--light);display:block;margin-bottom:2px;}
+  .section-title{font-family:var(--serif);font-size:26px;color:var(--dark);line-height:1.2;}
+  .divider{width:100%;height:1px;background:var(--border);margin:56px 0;}
+  p{color:var(--mid);margin-bottom:16px;font-weight:300;}
+  p strong{color:var(--dark);font-weight:600;}
+  p:last-child{margin-bottom:0;}
+  .role-block{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin-top:24px;}
+  .role-block h4{font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--dark);margin-bottom:14px;}
+  .role-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .role-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--mid);font-weight:300;}
+  .role-list li::before{content:'→';color:var(--accent);font-weight:600;flex-shrink:0;}
+  .pain-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:24px;}
+  .pain-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;}
+  .pain-number{font-family:var(--serif);font-size:32px;color:var(--accent);opacity:0.3;line-height:1;margin-bottom:10px;}
+  .pain-card h4{font-size:14px;font-weight:600;color:var(--dark);margin-bottom:8px;}
+  .pain-card p{font-size:14px;margin:0;}
+  .quote-block{border-left:3px solid var(--accent);padding:20px 28px;background:var(--accent-light);border-radius:0 12px 12px 0;margin:24px 0;}
+  .quote-block p{font-family:var(--serif);font-size:18px;font-style:italic;color:var(--dark);margin-bottom:8px;}
+  .quote-block cite{font-size:13px;color:var(--mid);font-style:normal;font-weight:500;}
+  .process-steps{display:flex;flex-direction:column;margin-top:24px;}
+  .process-step{display:flex;gap:24px;padding:20px 0;border-bottom:1px solid var(--border);}
+  .process-step:last-child{border-bottom:none;}
+  .step-number{font-family:var(--serif);font-size:14px;color:var(--accent);opacity:0.5;flex-shrink:0;width:24px;padding-top:2px;}
+  .step-content h4{font-size:15px;font-weight:600;color:var(--dark);margin-bottom:6px;}
+  .step-content p{font-size:14px;margin:0;}
+  .findings-list{display:flex;flex-direction:column;gap:14px;margin-top:24px;}
+  .finding-item{display:flex;gap:16px;padding:20px 24px;background:var(--surface);border:1px solid var(--border);border-radius:10px;}
+  .finding-icon{width:32px;height:32px;background:var(--accent-light);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;}
+  .finding-text{font-size:14px;color:var(--mid);font-style:italic;font-weight:300;line-height:1.6;}
+  .finding-stat{font-size:11px;font-weight:600;color:var(--accent);margin-top:4px;}
+  .data-table{width:100%;border-collapse:collapse;margin-top:24px;background:var(--surface);border-radius:12px;overflow:hidden;border:1px solid var(--border);font-size:14px;}
+  .data-table th{background:var(--dark);color:white;padding:14px 20px;text-align:left;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;}
+  .data-table td{padding:14px 20px;border-bottom:1px solid var(--border);color:var(--mid);vertical-align:top;}
+  .data-table tr:last-child td{border-bottom:none;}
+  .data-table tr:nth-child(even) td{background:#FAFAF8;}
+  .data-table td strong{color:var(--dark);font-weight:600;}
+  .ab-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;}
+  .ab-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;}
+  .ab-card.winner{border-color:#1A7A4A;background:#E8F5EE;}
+  .ab-label{font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--light);margin-bottom:12px;}
+  .ab-card.winner .ab-label{color:#1A7A4A;}
+  .ab-stat{font-family:var(--serif);font-size:32px;color:var(--dark);margin-bottom:4px;}
+  .ab-card.winner .ab-stat{color:#1A7A4A;}
+  .ab-desc{font-size:13px;color:var(--mid);margin:0;}
+  .results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0;}
+  .result-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 24px;text-align:center;}
+  .result-number{font-family:var(--serif);font-size:44px;color:var(--accent);line-height:1;margin-bottom:8px;}
+  .result-label{font-size:13px;color:var(--mid);font-weight:400;line-height:1.4;}
+  .lessons-list{display:flex;flex-direction:column;gap:16px;margin-top:24px;}
+  .lesson-item{display:flex;gap:20px;padding:22px 24px;background:var(--surface);border:1px solid var(--border);border-radius:10px;}
+  .lesson-num{font-family:var(--serif);font-size:22px;color:var(--accent);opacity:0.4;flex-shrink:0;line-height:1.2;}
+  .lesson-text h4{font-size:15px;font-weight:600;color:var(--dark);margin-bottom:6px;}
+  .lesson-text p{font-size:14px;margin:0;}
+  .persona-block{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin-top:24px;display:flex;gap:28px;align-items:flex-start;}
+  .persona-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#0D7A5F,#10B981);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:24px;color:white;flex-shrink:0;}
+  .persona-info h4{font-size:16px;font-weight:600;color:var(--dark);margin-bottom:4px;}
+  .persona-info .persona-role{font-size:13px;color:var(--accent);font-weight:500;margin-bottom:12px;}
+  .persona-info p{font-size:14px;margin-bottom:0;}
+  .wizard-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px;}
+  .wizard-step{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px 16px;text-align:center;}
+  .wizard-step-num{font-family:var(--serif);font-size:28px;color:var(--accent);opacity:0.35;line-height:1;margin-bottom:8px;}
+  .wizard-step h4{font-size:13px;font-weight:600;color:var(--dark);margin-bottom:4px;}
+  .wizard-step p{font-size:12px;margin:0;line-height:1.5;}
+  .bottom-back{padding:0 48px 48px;max-width:820px;margin:0 auto;}
+  .bottom-back a{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--dark);text-decoration:none;opacity:0.55;transition:opacity 0.2s;}
+  .bottom-back a:hover{opacity:1;}
+  footer{border-top:1px solid var(--border);padding:32px 48px;display:flex;justify-content:space-between;max-width:820px;margin:0 auto;}
+  footer p{font-size:13px;color:var(--light);}
+  footer a{font-size:13px;color:var(--mid);text-decoration:none;}
+  @media(max-width:640px){
+    nav,.back-btn,.hero,.hero-image,.content,.bottom-back,footer{padding-left:24px;padding-right:24px;}
+    .pain-grid,.results-grid,.wizard-steps{grid-template-columns:1fr;}
+    .ab-grid{grid-template-columns:1fr;}
+    .meta-strip{flex-direction:column;}
+    .meta-item{border-right:none;border-bottom:1px solid var(--border);}
+    .meta-item:last-child{border-bottom:none;}
+    .persona-block{flex-direction:column;}
+  }
 </style>
 </head>
 <body>
+
 <nav>
   <a class="nav-name" href="index.html">Neda Bagheri</a>
   <div class="nav-links">
@@ -118,153 +131,274 @@
     <a href="#" class="nav-cv">Download CV</a>
   </div>
 </nav>
-<a class="back-top" href="index.html">← Back to Portfolio</a>
+
+<a class="back-btn" href="index.html">← Back to Portfolio</a>
 
 <section class="hero">
   <div class="hero-tag">Case Study · B2B · E-Health</div>
-  <h1>Healthcare Provider<br><em>Survey Application</em></h1>
-  <p class="hero-subtitle">Transforming manual, paper-based survey processes into a streamlined digital platform — cutting administrative work by 40% for healthcare providers.</p>
+  <h1>Healthcare Provider <em>Survey</em><br>Application</h1>
+  <p class="hero-subtitle">Transforming manual, fragmented survey workflows into a centralised digital platform — helping Swedish healthcare administrators save hours every week.</p>
   <div class="meta-strip">
-    <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Product Designer (Lead)</div></div>
-    <div class="meta-item"><div class="meta-label">Context</div><div class="meta-value">B2B · E-Health · Focalpay</div></div>
-    <div class="meta-item"><div class="meta-label">Tools</div><div class="meta-value">Figma · Cursor AI · Zeplin</div></div>
-    <div class="meta-item"><div class="meta-label">Methods</div><div class="meta-value">User Research · WCAG</div></div>
+    <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Lead UX/UI Designer</div></div>
+    <div class="meta-item"><div class="meta-label">Context</div><div class="meta-value">B2B SaaS · E-Health</div></div>
+    <div class="meta-item"><div class="meta-label">Tools</div><div class="meta-value">Figma · Cursor AI</div></div>
+    <div class="meta-item"><div class="meta-label">Platform</div><div class="meta-value">Mobile · Tablet · Desktop</div></div>
   </div>
 </section>
 
+<!-- HERO IMAGE PLACEHOLDER 1 -->
 <div class="hero-image">
   <div class="image-placeholder">
-    <div class="image-label">Healthcare Provider Survey Application</div>
+    <div class="image-label">Healthcare Survey Platform · Overview</div>
   </div>
 </div>
 
 <div class="content">
 
-  <section class="section fade-in">
+  <!-- INTRODUCTION -->
+  <section class="section">
     <div class="section-header">
-      <div class="section-icon" style="background:#0e5f8a;">
-        <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      <div class="section-icon" style="background:#0D7A5F;">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
       </div>
-      <div><span class="section-label">Introduction</span><h2 class="section-title">From Paper to Platform</h2></div>
+      <div><span class="section-label">Introduction</span><h2 class="section-title">From Spreadsheets to a Smart Platform</h2></div>
     </div>
-    <p>Healthcare providers were spending hours every week on manual, paper-based surveys — collecting patient data, compliance information, and operational feedback through processes that hadn't changed in years.</p>
-    <p>I led the <strong>end-to-end UX/UI design</strong> of a digital platform that transformed this entirely — making surveys faster to complete, easier to analyse, and fully accessible to providers across different technical skill levels.</p>
-    <div class="role-block" style="margin-top:28px;">
+    <p>In Sweden, healthcare providers regularly send surveys to municipalities to evaluate the quality of care services. But the process was <strong>slow, fragmented, and entirely manual</strong> — relying on emails, Excel spreadsheets, and shared document folders.</p>
+    <p>This project focused on designing a <strong>B2B SaaS platform</strong> that lets healthcare administrators create surveys, distribute them to municipalities, track responses in real time, and analyse results in one centralised place.</p>
+    <div class="role-block">
       <h4>My Responsibilities</h4>
       <ul class="role-list">
-        <li>End-to-end UX/UI design from research to production-ready handoff</li>
-        <li>User interviews with healthcare administrators and providers</li>
-        <li>Designing accessible, WCAG-compliant interfaces for diverse users</li>
-        <li>Building complex user flows for multi-step survey processes</li>
-        <li>AI-assisted prototyping using Cursor AI for faster iteration</li>
-        <li>Full developer handoff with interaction specifications</li>
+        <li>Lead UX/UI Designer and front-end developer (via Cursor AI)</li>
+        <li>Stakeholder interviews with healthcare administrators</li>
+        <li>Workflow analysis and full survey lifecycle mapping</li>
+        <li>Information architecture for a complex Swedish healthcare hierarchy</li>
+        <li>Designing a guided 6-step survey distribution wizard</li>
+        <li>Usability testing with 5 healthcare administrators</li>
+        <li>WCAG accessibility compliance across all screens</li>
       </ul>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <section class="section fade-in">
+  <!-- PROBLEM -->
+  <section class="section">
     <div class="section-header">
       <div class="section-icon" style="background:#DC2626;">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
       </div>
-      <div><span class="section-label">The Problem</span><h2 class="section-title">Paperwork Was Slowing Patient Care</h2></div>
+      <div><span class="section-label">Discover</span><h2 class="section-title">The Fragmented Workflow Problem</h2></div>
     </div>
-    <p>Healthcare providers were frustrated. The time spent on administrative surveys was time taken away from patients. The tools they had were slow, confusing, and not built for how they actually worked.</p>
+    <p>Healthcare administrators were responsible for collecting survey responses from <strong>30+ municipalities</strong>, but there was no central system. Information was scattered across Outlook, Excel, and shared folders — creating a constant battle against missed deadlines and invisible progress.</p>
     <div class="pain-grid">
-      <div class="pain-card"><div class="pain-number">01</div><h4>Manual Processes</h4><p>Paper forms and spreadsheets meant hours of data entry, duplication, and error-prone record keeping every week.</p></div>
-      <div class="pain-card"><div class="pain-number">02</div><h4>No Accessibility</h4><p>Existing digital tools ignored accessibility standards — leaving providers with visual or motor impairments behind.</p></div>
-      <div class="pain-card"><div class="pain-number">03</div><h4>Complex Workflows</h4><p>Multi-step surveys with branching logic were nearly impossible to navigate without making mistakes.</p></div>
+      <div class="pain-card"><div class="pain-number">01</div><h4>Manual Chaos</h4><p>Surveys sent by email, responses tracked in multiple Excel files. Deadlines missed due to no oversight.</p></div>
+      <div class="pain-card"><div class="pain-number">02</div><h4>The Black Box</h4><p>No clear view of which municipalities had responded, which were pending, or which needed follow-up.</p></div>
+      <div class="pain-card"><div class="pain-number">03</div><h4>Analysis Fatigue</h4><p>Quarterly reports required gathering data manually across spreadsheets — a process taking up to two weeks.</p></div>
+    </div>
+    <div class="quote-block" style="margin-top:28px;">
+      <p>"I spend more time chasing people for replies than actually analysing the quality of care."</p>
+      <cite>— Healthcare Administrator, Stockholm</cite>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <section class="section fade-in">
+  <!-- USER RESEARCH -->
+  <section class="section">
     <div class="section-header">
       <div class="section-icon" style="background:#7C3AED;">
-        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
       </div>
-      <div><span class="section-label">Research</span><h2 class="section-title">Listening to Healthcare Providers</h2></div>
+      <div><span class="section-label">User Research</span><h2 class="section-title">4 Methods · 1 Clear Picture</h2></div>
     </div>
-    <p>I conducted <strong>in-depth interviews</strong> with healthcare administrators, nurses, and survey coordinators to understand their daily workflows and where the pain points were most acute.</p>
+    <p>I conducted lightweight but focused research to understand the exact shape of the problem before designing anything. The goal was to map the full survey lifecycle and identify where time was being lost.</p>
     <div class="findings-list">
-      <div class="finding-item"><div class="finding-icon">📋</div><div><p class="finding-text">"I spend two hours every Friday just transferring data from paper forms into the system."</p><div class="finding-stat">Average of 2.5 hours per week lost to manual data transfer per provider</div></div></div>
-      <div class="finding-item"><div class="finding-icon">🔀</div><div><p class="finding-text">"The branching logic in our surveys is so complex — I never know which question comes next."</p><div class="finding-stat">34% of surveys were completed incorrectly due to navigation errors</div></div></div>
-      <div class="finding-item"><div class="finding-icon">♿</div><div><p class="finding-text">"I use a screen reader and the current system is completely unusable for me."</p><div class="finding-stat">Accessibility was rated 2/10 by providers with disabilities</div></div></div>
+      <div class="finding-item"><div class="finding-icon">🗣️</div><div><p class="finding-text">"We need to see long-term trends, not just individual survey answers."</p><div class="finding-stat">Stakeholder interviews with 4 healthcare quality managers</div></div></div>
+      <div class="finding-item"><div class="finding-icon">📊</div><div><p class="finding-text">Administrators spent 8–10 hours per week manually tracking responses across 30+ municipalities.</p><div class="finding-stat">Workflow analysis · Survey lifecycle from creation to reporting</div></div></div>
+      <div class="finding-item"><div class="finding-icon">📋</div><div><p class="finding-text">Quarterly reports required gathering data from multiple spreadsheets — taking up to two weeks to prepare.</p><div class="finding-stat">Document review of existing spreadsheets and email templates</div></div></div>
+      <div class="finding-item"><div class="finding-icon">👀</div><div><p class="finding-text">Administrators frequently switched between Outlook, Excel, and shared folder systems mid-task.</p><div class="finding-stat">Usability observation of existing manual workflows</div></div></div>
+    </div>
+
+    <!-- USER PERSONA -->
+    <div class="persona-block">
+      <div class="persona-avatar">A</div>
+      <div class="persona-info">
+        <h4>Anna Andersson</h4>
+        <div class="persona-role">Quality Assurance Manager · Stockholm, Sweden</div>
+        <p>"We live in a world of advanced technology especially in Sweden. I honestly don't understand why our survey process is still manual. It wastes so much time."</p>
+      </div>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <section class="section fade-in">
+  <!-- DESIGN PROCESS -->
+  <section class="section">
     <div class="section-header">
       <div class="section-icon" style="background:#0891B2;">
-        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
       </div>
-      <div><span class="section-label">Design Process</span><h2 class="section-title">Accessible by Default</h2></div>
+      <div><span class="section-label">Design Process</span><h2 class="section-title">Clarity First, Complexity Second</h2></div>
     </div>
-    <p>Accessibility wasn't an afterthought — it was the foundation. Every design decision was made with <strong>WCAG 2.1 AA compliance</strong> in mind from the first wireframe.</p>
+    <p>The platform needed to handle <strong>complex Swedish healthcare hierarchies</strong> — providers, municipalities, districts, and social workers — without overwhelming users. My process focused on reducing cognitive load at every step.</p>
     <div class="process-steps">
-      <div class="process-step"><div class="step-number">01</div><div class="step-content"><h4>User Interviews & Journey Mapping</h4><p>Mapped the full survey workflow from assignment to submission, identifying every manual step and error-prone moment.</p></div></div>
-      <div class="process-step"><div class="step-number">02</div><div class="step-content"><h4>Information Architecture</h4><p>Designed a clear IA for multi-step surveys with branching logic — making complex flows feel simple and linear to the user.</p></div></div>
-      <div class="process-step"><div class="step-number">03</div><div class="step-content"><h4>Accessibility-First UI</h4><p>Designed with WCAG 2.1 AA compliance as the baseline — colour contrast, keyboard navigation, screen reader support, and focus states built in from day one.</p></div></div>
-      <div class="process-step"><div class="step-number">04</div><div class="step-content"><h4>AI-Assisted Prototyping</h4><p>Used Cursor AI to accelerate prototyping cycles — iterating faster while maintaining design quality and consistency.</p></div></div>
-      <div class="process-step"><div class="step-number">05</div><div class="step-content"><h4>Production Handoff</h4><p>Delivered production-ready UI with full Zeplin specs and interaction documentation — ensuring design intent was preserved through development.</p></div></div>
-    </div>
-
-    <div class="quote-block" style="margin-top:32px;">
-      <p>"This is the first digital tool we've used that actually works the way our brains work."</p>
-      <cite>— Healthcare Administrator, pilot user</cite>
+      <div class="process-step"><div class="step-number">01</div><div class="step-content"><h4>Research & Workflow Mapping</h4><p>Mapped the full survey lifecycle from creation to reporting. Identified 3 major bottlenecks: distribution, tracking, and analysis.</p></div></div>
+      <div class="process-step"><div class="step-number">02</div><div class="step-content"><h4>Information Architecture</h4><p>Structured the platform into three clear sections — Surveys, Analysis, Reports — matching the mental model of administrators.</p></div></div>
+      <div class="process-step"><div class="step-number">03</div><div class="step-content"><h4>Wireframes & Hierarchy Design</h4><p>Designed an accordion-based navigation system to handle the Swedish healthcare hierarchy without showing all levels at once.</p></div></div>
+      <div class="process-step"><div class="step-number">04</div><div class="step-content"><h4>Guided Wizard Design</h4><p>Created the 6-step "Power Send" wizard to remove the friction of selecting and filtering 30+ municipalities manually.</p></div></div>
+      <div class="process-step"><div class="step-number">05</div><div class="step-content"><h4>Usability Testing</h4><p>Tested with 5 healthcare administrators. Identified a critical issue with the "Select All" button visibility and iterated.</p></div></div>
+      <div class="process-step"><div class="step-number">06</div><div class="step-content"><h4>Build with Cursor AI</h4><p>Used prompt engineering to build the platform with Cursor AI — guiding the AI to handle nested healthcare logic and WCAG compliance.</p></div></div>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <section class="section fade-in">
+  <!-- DESIGN CHALLENGE I — IMAGE PLACEHOLDER 2 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:#DC2626;">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M9 9h6M9 12h6M9 15h4"></path></svg>
+      </div>
+      <div><span class="section-label">Design Challenge I</span><h2 class="section-title">Taming the Healthcare Hierarchy</h2></div>
+    </div>
+    <p>The Swedish healthcare system has multiple levels — <strong>Provider → Municipality → District → Social Worker</strong>. Showing all of this at once created overwhelming lists that paralysed users.</p>
+    <table class="data-table">
+      <thead><tr><th>Level</th><th>Description</th><th>Design Solution</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Provider</strong></td><td>Top-level healthcare organisation</td><td>Always visible in persistent sidebar</td></tr>
+        <tr><td><strong>Municipality</strong></td><td>30+ municipalities per provider</td><td>Accordion — expand on click</td></tr>
+        <tr><td><strong>District</strong></td><td>Sub-units within each municipality</td><td>Nested accordion, one level at a time</td></tr>
+        <tr><td><strong>Social Worker</strong></td><td>Individual respondents</td><td>Shown only when district is selected</td></tr>
+      </tbody>
+    </table>
+    <!-- IMAGE PLACEHOLDER 2 -->
+    <div class="image-placeholder-sm">
+      <div class="image-label">Information Architecture · Hierarchy Navigation</div>
+    </div>
+    <p class="image-caption">Accordion-based navigation system — reducing visual clutter across 30+ municipalities</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- DESIGN CHALLENGE II — IMAGE PLACEHOLDER 3 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:#D97706;">
+        <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+      </div>
+      <div><span class="section-label">Design Challenge II</span><h2 class="section-title">The 6-Step "Power Send" Wizard</h2></div>
+    </div>
+    <p>Sending surveys manually required selecting recipients from long lists, managing email addresses, and reviewing details multiple times. I replaced this with a <strong>guided distribution wizard</strong> that walks administrators through the process step by step.</p>
+    <div class="wizard-steps">
+      <div class="wizard-step"><div class="wizard-step-num">01</div><h4>Select Survey</h4><p>Choose the survey template to distribute</p></div>
+      <div class="wizard-step"><div class="wizard-step-num">02</div><h4>Choose Recipients</h4><p>Filter and select municipalities</p></div>
+      <div class="wizard-step"><div class="wizard-step-num">03</div><h4>Set Language</h4><p>Choose survey language per region</p></div>
+      <div class="wizard-step"><div class="wizard-step-num">04</div><h4>Set Deadline</h4><p>Define response deadlines</p></div>
+      <div class="wizard-step"><div class="wizard-step-num">05</div><h4>Review</h4><p>Check everything before sending</p></div>
+      <div class="wizard-step"><div class="wizard-step-num">06</div><h4>Send</h4><p>Distribute to all selected recipients</p></div>
+    </div>
+    <!-- IMAGE PLACEHOLDER 3 -->
+    <div class="image-placeholder-sm">
+      <div class="image-label">Power Send Wizard · Step-by-Step Flow</div>
+    </div>
+    <p class="image-caption">The guided wizard reduced distribution errors and made the process faster for every administrator</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- DESIGN CHALLENGE III — Traffic Light + IMAGE PLACEHOLDER 4 -->
+  <section class="section">
     <div class="section-header">
       <div class="section-icon" style="background:#059669;">
-        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="12" cy="19" r="2"></circle></svg>
+      </div>
+      <div><span class="section-label">Design Challenge III</span><h2 class="section-title">Traffic-Light Performance Scoring</h2></div>
+    </div>
+    <p>Managers needed to quickly understand healthcare performance across 30+ municipalities without reading through large data tables. I introduced a <strong>colour-based scoring system</strong> that makes status instantly readable.</p>
+    <table class="data-table">
+      <thead><tr><th>Colour</th><th>Meaning</th><th>Action Required</th></tr></thead>
+      <tbody>
+        <tr><td><strong style="color:#1A7A4A;">● Green</strong></td><td>Good performance — above target</td><td>No immediate action needed</td></tr>
+        <tr><td><strong style="color:#92400E;">● Yellow</strong></td><td>Needs attention — approaching threshold</td><td>Monitor and follow up</td></tr>
+        <tr><td><strong style="color:#B91C1C;">● Red</strong></td><td>Critical — below acceptable threshold</td><td>Immediate intervention required</td></tr>
+      </tbody>
+    </table>
+    <!-- IMAGE PLACEHOLDER 4 -->
+    <div class="image-placeholder-sm">
+      <div class="image-label">Analytics Dashboard · Traffic-Light Scoring</div>
+    </div>
+    <p class="image-caption">Real-time performance overview — managers can instantly identify which municipalities need attention</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- USABILITY TESTING -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:#2D5BE3;">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <div><span class="section-label">Validation</span><h2 class="section-title">Usability Testing · 5 Administrators</h2></div>
+    </div>
+    <p>I conducted moderated usability testing with <strong>5 healthcare administrators</strong> who regularly manage survey workflows. Participants were asked to create and send a survey to multiple municipalities using the platform.</p>
+    <div class="findings-list">
+      <div class="finding-item"><div class="finding-icon">🔍</div><div><p class="finding-text">Users had difficulty finding the "Select All" option when selecting districts from long hierarchical lists — many selected items one by one.</p><div class="finding-stat">Key issue identified · Select All button not visually prominent enough</div></div></div>
+    </div>
+    <div class="ab-grid" style="margin-top:24px;">
+      <div class="ab-card"><div class="ab-label">Before Iteration</div><div class="ab-stat">~8 min</div><p class="ab-desc">Time to select all districts. Select All was low contrast and easy to miss.</p></div>
+      <div class="ab-card winner"><div class="ab-label">✓ After Iteration</div><div class="ab-stat">~5 min</div><p class="ab-desc">30% faster. Button repositioned, contrast improved, selection counter added.</p></div>
+    </div>
+    <div class="quote-block" style="margin-top:24px;">
+      <p>"Now I can actually see what I've selected. Before I was never sure if I got everyone."</p>
+      <cite>— Healthcare Administrator, Usability Testing Session</cite>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- RESULTS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:#2D5BE3;">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
       </div>
       <div><span class="section-label">Results</span><h2 class="section-title">Measurable Impact</h2></div>
     </div>
     <div class="results-grid">
-      <div class="result-card"><div class="result-number">40%</div><div class="result-label">Reduction in administrative work per week</div></div>
-      <div class="result-card"><div class="result-number">WCAG</div><div class="result-label">2.1 AA compliant — fully accessible platform</div></div>
-      <div class="result-card"><div class="result-number">↓34%</div><div class="result-label">Fewer survey completion errors</div></div>
+      <div class="result-card"><div class="result-number">85%</div><div class="result-label">Faster survey creation — from 2 hours to 15 minutes</div></div>
+      <div class="result-card"><div class="result-number">80%</div><div class="result-label">More responses — better tracking improved municipality engagement</div></div>
+      <div class="result-card"><div class="result-number">70%</div><div class="result-label">Faster reports — 2-week process now available in real time</div></div>
     </div>
-    <p>The platform was delivered production-ready with zero accessibility regressions in QA — the first product in the client's portfolio to meet full WCAG 2.1 AA compliance.</p>
+    <p>The platform replaced a slow, fragmented manual workflow with a centralised digital system — giving administrators a clear overview of all municipalities, real-time tracking, and instant report generation.</p>
   </section>
 
   <div class="divider"></div>
 
-  <section class="section fade-in">
+  <!-- LESSONS LEARNED -->
+  <section class="section">
     <div class="section-header">
       <div class="section-icon" style="background:#6D28D9;">
-        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
       </div>
       <div><span class="section-label">Lessons Learned</span><h2 class="section-title">What This Project Taught Me</h2></div>
     </div>
     <div class="lessons-list">
-      <div class="lesson-item"><div class="lesson-num">01</div><div class="lesson-text"><h4>Accessibility is not a feature — it's the foundation</h4><p>Building WCAG compliance in from day one was easier and better than retrofitting it. Accessible design is just good design.</p></div></div>
-      <div class="lesson-item"><div class="lesson-num">02</div><div class="lesson-text"><h4>Complex logic needs simple language</h4><p>Branching survey flows are inherently complex. The design job was to hide that complexity completely — so users never had to think about it.</p></div></div>
-      <div class="lesson-item"><div class="lesson-num">03</div><div class="lesson-text"><h4>AI tools accelerate without replacing judgment</h4><p>Using Cursor AI to prototype faster gave me more time to think about the hard problems — not fewer. Speed is only valuable if it's pointed in the right direction.</p></div></div>
+      <div class="lesson-item"><div class="lesson-num">01</div><div class="lesson-text"><h4>Good UX organises complexity — it doesn't hide it</h4><p>The hierarchy problem wasn't solved by removing levels. It was solved by revealing them progressively, one at a time, so each step felt manageable.</p></div></div>
+      <div class="lesson-item"><div class="lesson-num">02</div><div class="lesson-text"><h4>Guided flows build confidence in complex domains</h4><p>Healthcare administrators are not tech-averse — they simply need clear guidance in high-stakes environments. The wizard gave them that confidence.</p></div></div>
+      <div class="lesson-item"><div class="lesson-num">03</div><div class="lesson-text"><h4>AI-assisted development is a design superpower</h4><p>Using Cursor AI for implementation meant I could focus entirely on UX quality — using prompt engineering as a design tool to enforce consistency and accessibility at every step.</p></div></div>
     </div>
   </section>
 
 </div>
 
-<footer>
-  <p>Neda Bagheri · Product Designer · Stockholm</p>
+<div class="bottom-back">
   <a href="index.html">← Back to Portfolio</a>
+</div>
+
+<footer>
+  <p>© 2026 Neda Bagheri · Stockholm</p>
+  <p><a href="mailto:nedabagheri.nz@gmail.com">nedabagheri.nz@gmail.com</a></p>
 </footer>
 
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
 </body>
 </html>
