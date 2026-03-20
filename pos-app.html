@@ -46,34 +46,34 @@
   .meta-value { font-size: 14px; font-weight: 500; color: var(--dark); }
 
   .hero-image { max-width: 820px; margin: 0 auto 80px; padding: 0 48px; }
-  .hero-dual { display: flex; gap: 16px; align-items: stretch; width: 100%; }
-  .hero-dual .image-placeholder { flex: 1; min-width: 0; width: auto; }
-  .scroll-pan {
-    flex: 1;
-    min-width: 0;
-    aspect-ratio: 16/8;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    background-color: #0f0f0f;
-    background-image: url('pos-home-full-scroll.png');
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    background-position: 50% 0%;
-    animation: hero-scroll-pan 18s linear infinite;
-  }
-  @keyframes hero-scroll-pan {
-    0% { background-position: 50% 0%; }
-    50% { background-position: 50% 100%; }
-    100% { background-position: 50% 0%; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .scroll-pan { animation: none; background-position: 50% 0%; }
-  }
   .image-placeholder { width: 100%; aspect-ratio: 16/8; background: linear-gradient(135deg, #0F0F0F 0%, #1A1A1A 40%, #2A2A2A 70%, #404040 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .image-placeholder.image-placeholder--screen { aspect-ratio: 572 / 1024; border-radius: 0; }
+  .screen-wrap > .image-placeholder.image-placeholder--screen { min-height: 0; }
   .image-placeholder::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.03) 40px, rgba(255,255,255,0.03) 41px), repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,0.03) 40px, rgba(255,255,255,0.03) 41px); }
   .image-placeholder img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; display: block; position: relative; z-index: 1; }
-  .image-label { font-family: var(--serif); font-size: 22px; color: rgba(255,255,255,0.7); text-align: center; z-index: 1; position: relative; }
+  .image-label { font-family: var(--serif); font-size: clamp(12px, 2.2vw, 18px); color: rgba(255,255,255,0.7); text-align: center; z-index: 1; position: relative; padding: 8px; line-height: 1.25; }
+
+  /* Hero trio: same cell geometry as .screens-grid.col-3; center = auto-scrolling long capture */
+  .scroll-viewport {
+    container-type: size;
+    aspect-ratio: 572 / 1024;
+    overflow: hidden;
+    background: #0a0a0a;
+  }
+  .scroll-viewport img {
+    width: 100%;
+    height: auto;
+    display: block;
+    animation: hero-home-scroll 22s linear infinite alternate;
+    will-change: transform;
+  }
+  @keyframes hero-home-scroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(calc(-100% + 100cqh)); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-viewport img { animation: none; }
+  }
 
   .content { max-width: 820px; margin: 0 auto; padding: 0 48px 120px; }
   .section { margin-bottom: 56px; }
@@ -167,12 +167,12 @@
     .section-chapter { font-size: clamp(1.65rem, 6vw, 2.35rem); }
     .pain-grid, .results-grid { grid-template-columns: 1fr; }
     .screens-grid.col-3 { grid-template-columns: 1fr 1fr; }
+    .hero-image .screens-grid.col-3 { grid-template-columns: 1fr; }
     .screens-grid.col-2 { grid-template-columns: 1fr; justify-content: stretch; }
     .ab-grid { grid-template-columns: 1fr; }
     .meta-strip { flex-direction: column; }
     .meta-item { border-right: none; border-bottom: 1px solid var(--border); }
     .meta-item:last-child { border-bottom: none; }
-    .hero-dual { flex-direction: column; }
   }
 </style>
 </head>
@@ -201,11 +201,28 @@
 </section>
 
 <div class="hero-image">
-  <div class="hero-dual">
-    <div class="image-placeholder">
-      <div class="image-label">Cashier POS · Full Application Overview</div>
+  <div class="screens-grid col-3">
+    <div class="screen-item">
+      <div class="screen-wrap">
+        <img src="Add_product_to_cart.png" alt="Empty cart with product list" loading="eager" decoding="async">
+      </div>
+      <p class="screen-caption">Empty cart — product grid visible below</p>
     </div>
-    <div class="scroll-pan" role="img" aria-label="Cashier POS home screen, scrolling through the full interface"></div>
+    <div class="screen-item">
+      <div class="screen-wrap">
+        <div class="scroll-viewport" role="img" aria-label="Animated vertical scroll through the full home screen">
+          <img src="pos-home-full-scroll.png" alt="Full home screen, vertical scroll" loading="eager" decoding="async">
+        </div>
+      </div>
+      <p class="screen-caption">Home screen — full scroll (loop)</p>
+    </div>
+    <div class="screen-item">
+      <div class="screen-wrap">
+        <div class="image-placeholder image-placeholder--screen">
+          <div class="image-label">Cashier POS · Full Application Overview</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
