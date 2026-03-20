@@ -53,7 +53,7 @@
   .image-placeholder img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; display: block; position: relative; z-index: 1; }
   .image-label { font-family: var(--serif); font-size: clamp(12px, 2.2vw, 18px); color: rgba(255,255,255,0.7); text-align: center; z-index: 1; position: relative; padding: 8px; line-height: 1.25; }
 
-  /* Hero: video (left) + empty frame (right, image later) */
+  /* Hero: scroll loop (left) + empty frame (right, image later) */
   .hero-media {
     display: grid;
     grid-template-columns: minmax(0, clamp(232px, 30%, 320px)) minmax(0, 1fr);
@@ -88,24 +88,27 @@
     border: 1px solid var(--border);
     box-shadow: 0 4px 20px rgba(0,0,0,0.07);
   }
-  .hero-video-wrap.is-static .hero-video { display: none; }
-  .hero-video-fallback {
+  /* Scroll loop (long PNG) inside the same phone frame as before */
+  .hero-video-wrap .scroll-viewport--hero-loop {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-    pointer-events: none;
-  }
-  .hero-video {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    container-type: size;
+    overflow: hidden;
     background: #0a0a0a;
+  }
+  .hero-video-wrap .scroll-viewport--hero-loop img {
+    width: 100%;
+    height: auto;
+    display: block;
+    animation: hero-home-scroll 22s linear infinite alternate;
+    will-change: transform;
+  }
+  @keyframes hero-home-scroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(calc(-100% + 100cqh)); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-video-wrap .scroll-viewport--hero-loop img { animation: none; }
   }
   .hero-media__placeholder {
     display: flex;
@@ -259,11 +262,9 @@
     <div class="hero-media__video">
       <div class="screen-wrap screen-wrap--hero-video">
         <div class="hero-video-wrap">
-          <img class="hero-video-fallback" src="Add_product_to_cart.png" alt="" aria-hidden="true">
-          <video class="hero-video" muted playsinline loop autoplay preload="metadata" poster="Add_product_to_cart.png" aria-label="Cashier POS interaction preview">
-            <source src="pos-hero.webm" type="video/webm">
-            <source src="pos-hero.mp4" type="video/mp4">
-          </video>
+          <div class="scroll-viewport scroll-viewport--hero-loop" role="img" aria-label="Home screen scrolling vertically on loop">
+            <img src="pos-home-full-scroll.png" alt="Full home screen, vertical scroll" loading="eager" decoding="async">
+          </div>
         </div>
       </div>
       <p class="screen-caption">Cashier POS — interaction preview</p>
@@ -541,12 +542,6 @@
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-  document.querySelectorAll('.hero-video-wrap').forEach((wrap) => {
-    const v = wrap.querySelector('.hero-video');
-    if (!v) return;
-    v.addEventListener('error', () => { wrap.classList.add('is-static'); });
-    v.addEventListener('loadeddata', () => { wrap.classList.remove('is-static'); });
-  });
 </script>
 </body>
 </html>
