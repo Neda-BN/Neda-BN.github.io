@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cashier POS App · Neda Bagheri</title>
+<title>Cashier POS &amp; Payment App · Neda Bagheri</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -37,7 +37,7 @@
   .hero-tag { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dark); background: var(--accent-light); padding: 6px 14px; border-radius: 4px; margin-bottom: 24px; }
   .hero h1 { font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); line-height: 1.15; color: var(--dark); margin-bottom: 24px; }
   .hero h1 em { font-style: italic; color: #555; }
-  .hero-subtitle { font-size: 18px; color: var(--mid); font-weight: 300; max-width: 600px; margin-bottom: 40px; }
+  .hero-subtitle { font-size: 18px; color: var(--mid); font-weight: 300; max-width: 640px; margin-bottom: 40px; }
 
   .meta-strip { display: flex; gap: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--surface); margin-bottom: 64px; }
   .meta-item { flex: 1; padding: 20px 24px; border-right: 1px solid var(--border); }
@@ -72,11 +72,11 @@
   }
   .image-placeholder { width: 100%; aspect-ratio: 16/8; background: linear-gradient(135deg, #0F0F0F 0%, #1A1A1A 40%, #2A2A2A 70%, #404040 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
   .image-placeholder::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.03) 40px, rgba(255,255,255,0.03) 41px), repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,0.03) 40px, rgba(255,255,255,0.03) 41px); }
-  .image-label { font-family: var(--serif); font-size: 22px; color: rgba(255,255,255,0.7); text-align: center; z-index: 1; }
+  .image-placeholder img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; display: block; position: relative; z-index: 1; }
+  .image-label { font-family: var(--serif); font-size: 22px; color: rgba(255,255,255,0.7); text-align: center; z-index: 1; position: relative; }
 
   .content { max-width: 820px; margin: 0 auto; padding: 0 48px 120px; }
   .section { margin-bottom: 56px; }
-  /* Case-study section titles — same pattern as backoffice.html */
   .section-header { display: flex; align-items: flex-start; gap: 22px; padding: 0 0 32px 0; margin-bottom: 0; }
   .section-headings { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
   .section-chapter { font-family: var(--sans); font-size: clamp(2rem, 4vw + 1rem, 2.95rem); font-weight: 600; letter-spacing: -0.04em; line-height: 1.08; color: var(--dark); margin: 0; }
@@ -89,7 +89,7 @@
   p strong { color: var(--dark); font-weight: 600; }
   p:last-child { margin-bottom: 0; }
 
-  .role-block { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 28px 32px; margin-bottom: 24px; }
+  .role-block { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 28px 32px; margin-top: 24px; }
   .role-block h4 { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dark); margin-bottom: 14px; }
   .role-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
   .role-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: var(--mid); font-weight: 300; }
@@ -105,18 +105,34 @@
   .quote-block p { font-family: var(--serif); font-size: 18px; font-style: italic; color: var(--dark); margin-bottom: 8px; }
   .quote-block cite { font-size: 13px; color: var(--mid); font-style: normal; font-weight: 500; }
 
-  .process-steps { display: flex; flex-direction: column; gap: 0; margin-top: 24px; }
-  .process-step { display: flex; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--border); }
-  .process-step:last-child { border-bottom: none; }
-  .step-number { font-family: var(--serif); font-size: 14px; color: var(--dark); opacity: 0.4; flex-shrink: 0; width: 24px; padding-top: 2px; }
-  .step-content h4 { font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
-  .step-content p { font-size: 14px; margin: 0; }
-
   .findings-list { display: flex; flex-direction: column; gap: 14px; margin-top: 24px; }
   .finding-item { display: flex; gap: 16px; padding: 20px 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; align-items: flex-start; }
   .finding-icon { width: 32px; height: 32px; background: var(--accent-light); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 16px; }
   .finding-text { font-size: 14px; color: var(--mid); font-style: italic; font-weight: 300; line-height: 1.6; }
   .finding-stat { font-size: 11px; font-weight: 600; color: var(--dark); margin-top: 4px; }
+
+  .screens-section { margin-top: 32px; }
+  .screens-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin-bottom: 16px; }
+  .screens-grid { display: grid; gap: 16px; }
+  /* Two-column rows: each cell matches the width of one cell in a three-column row (same gap math as col-3). */
+  .screens-grid.col-2 {
+    grid-template-columns: repeat(2, minmax(0, calc((100% - 32px) / 3)));
+    justify-content: start;
+  }
+  .screens-grid.col-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .screen-item { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+  .screen-wrap { border-radius: 20px; overflow: hidden; border: 1px solid var(--border); background: var(--surface); box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+  .screen-wrap img { width: 100%; display: block; }
+  .screen-caption { font-size: 12px; color: var(--light); text-align: center; padding: 0 4px; margin: 0; font-style: italic; line-height: 1.45; }
+
+  .ab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+  .ab-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+  .ab-card.winner { border-color: #1A7A4A; background: #E8F5EE; }
+  .ab-label { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin-bottom: 12px; }
+  .ab-card.winner .ab-label { color: #1A7A4A; }
+  .ab-stat { font-family: var(--serif); font-size: 32px; color: var(--dark); margin-bottom: 4px; }
+  .ab-card.winner .ab-stat { color: #1A7A4A; }
+  .ab-desc { font-size: 13px; color: var(--mid); margin: 0; }
 
   .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0; }
   .result-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 28px 24px; text-align: center; }
@@ -129,43 +145,33 @@
   .lesson-text h4 { font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
   .lesson-text p { font-size: 14px; margin: 0; }
 
-  .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--dark); text-decoration: none; margin-bottom: 48px; opacity: 0.5; transition: opacity 0.2s; }
-  .back-link:hover { opacity: 1; }
-  .back-link::before { content: '←'; }
+  .back-top { display: block; font-size: 14px; font-weight: 600; color: var(--dark); text-decoration: none; padding: 24px 48px 0; max-width: 820px; margin: 0 auto 48px; opacity: 0.55; transition: opacity 0.2s; }
+  .back-top:hover { opacity: 1; }
 
-  footer { border-top: 1px solid var(--border); padding: 40px 48px; display: flex; justify-content: space-between; align-items: center; max-width: 820px; margin: 0 auto; }
-  footer p { font-size: 14px; color: var(--light); margin: 0; }
-  footer a { font-size: 14px; font-weight: 500; color: var(--dark); text-decoration: none; }
+  .bottom-back { padding: 0 48px 48px; max-width: 820px; margin: 0 auto; }
+  .bottom-back a { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--dark); text-decoration: none; opacity: 0.55; transition: opacity 0.2s; }
+  .bottom-back a:hover { opacity: 1; }
+
+  footer { border-top: 1px solid var(--border); padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; max-width: 820px; margin: 0 auto; flex-wrap: wrap; gap: 12px; }
+  footer p { font-size: 13px; color: var(--light); margin: 0; }
+  footer a { font-size: 13px; color: var(--mid); text-decoration: none; }
 
   .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-  /* BACK BUTTON */
-  .back-top {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--dark);
-    text-decoration: none;
-    padding: 12px 0;
-    opacity: 0.55;
-    transition: opacity 0.2s;
-    max-width: 820px;
-    margin: 0 auto;
-    display: block;
-    padding: 24px 48px 0;
-  }
-  .back-top:hover { opacity: 1; }
-
-  .back-btn{display:block;padding:24px 48px;font-size:14px;font-weight:600;color:var(--dark);text-decoration:none;opacity:0.55;transition:opacity 0.2s;}
-  .back-btn:hover{opacity:1;}
   @media (max-width: 640px) {
+    nav, .back-top, .hero, .hero-image, .content, .bottom-back, footer { padding-left: 24px; padding-right: 24px; }
     .section-header { flex-direction: column; gap: 18px; padding: 0 0 24px 0; }
     .section-icon { width: 52px; height: 52px; }
     .section-icon svg { width: 24px; height: 24px; }
     .section-chapter { font-size: clamp(1.65rem, 6vw, 2.35rem); }
+    .pain-grid, .results-grid { grid-template-columns: 1fr; }
+    .screens-grid.col-3 { grid-template-columns: 1fr 1fr; }
+    .screens-grid.col-2 { grid-template-columns: 1fr; justify-content: stretch; }
+    .ab-grid { grid-template-columns: 1fr; }
+    .meta-strip { flex-direction: column; }
+    .meta-item { border-right: none; border-bottom: 1px solid var(--border); }
+    .meta-item:last-child { border-bottom: none; }
     .hero-dual { flex-direction: column; }
   }
 </style>
@@ -184,20 +190,20 @@
 
 <section class="hero">
   <div class="hero-tag">Case Study · B2B · Retail Tech</div>
-  <h1>Cashier POS &<br><em>Payment App</em></h1>
-  <p class="hero-subtitle">Redesigning a high-frequency point-of-sale app to make every transaction faster and more intuitive for store staff under real-world pressure.</p>
+  <h1>Cashier POS &amp; <em>Payment</em><br>Application</h1>
+  <p class="hero-subtitle">Redesigning a high-frequency point-of-sale app to make every transaction faster and more intuitive for store staff — on any device, under real-world pressure.</p>
   <div class="meta-strip">
-    <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Product Designer</div></div>
-    <div class="meta-item"><div class="meta-label">Context</div><div class="meta-value">B2B · Focalpay AB</div></div>
-    <div class="meta-item"><div class="meta-label">Platforms</div><div class="meta-value">iOS & Android</div></div>
-    <div class="meta-item"><div class="meta-label">Tools</div><div class="meta-value">Figma · Zeplin</div></div>
+    <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Lead UX/UI Designer</div></div>
+    <div class="meta-item"><div class="meta-label">Company</div><div class="meta-value">Focalpay AB · 2023–2024</div></div>
+    <div class="meta-item"><div class="meta-label">Platform</div><div class="meta-value">iOS · Android · Browser</div></div>
+    <div class="meta-item"><div class="meta-label">Methods</div><div class="meta-value">Research · Usability Testing</div></div>
   </div>
 </section>
 
 <div class="hero-image">
   <div class="hero-dual">
     <div class="image-placeholder">
-      <div class="image-label">Cashier POS · Payment App</div>
+      <div class="image-label">Cashier POS · Full Application Overview</div>
     </div>
     <div class="scroll-pan" role="img" aria-label="Cashier POS home screen, scrolling through the full interface"></div>
   </div>
@@ -210,16 +216,18 @@
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Introduction</h2><p class="section-subtitle">Speed is the Product</p></div>
     </div>
-    <p>The Focalpay Cashier POS app is used by store staff during every transaction — dozens of times a day, under pressure, with queues forming. When the interface slows them down, the whole store slows down.</p>
-    <p>I was brought in to redesign the core checkout experience, focusing on <strong>information hierarchy, interaction patterns, and mobile-first flows</strong> that work equally well on iOS and Android.</p>
-    <div class="role-block" style="margin-top:28px;">
+    <p>Traditional POS terminals are heavy, expensive, and inflexible. The Focalpay cashier application was built to change that — a <strong>lightweight, device-agnostic system</strong> that runs on any smartphone, tablet, or touchscreen terminal, with no bulky hardware required.</p>
+    <p>The core idea: give small and medium-sized stores a complete point-of-sale solution that is <strong>faster, greener, and easier</strong> than legacy infrastructure — with everything from product management to daily reports built into a single scrollable interface.</p>
+    <div class="role-block">
       <h4>My Responsibilities</h4>
       <ul class="role-list">
-        <li>Contextual research with cashiers on the store floor</li>
-        <li>Rethinking information hierarchy for the checkout flow</li>
-        <li>Designing interaction patterns and micro-interactions</li>
-        <li>Usability testing with store staff during live shifts</li>
-        <li>Figma prototyping and iterative developer handoff</li>
+        <li>Lead UX/UI Designer — end to end, from research to final screens</li>
+        <li>Stakeholder interviews and workshops with store owners</li>
+        <li>Moderated usability testing sessions in real store environments</li>
+        <li>Designing the scrollable home screen architecture and all core flows</li>
+        <li>Introducing the "Add Product" feature — allowing product management without a back-office</li>
+        <li>WCAG accessibility compliance across all screens</li>
+        <li>Interaction design for barcode scanning, discounts, refunds, and reporting</li>
       </ul>
     </div>
   </section>
@@ -231,11 +239,15 @@
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Discover</h2><p class="section-subtitle">Every Second Counts</p></div>
     </div>
-    <p>Cashiers were losing time on every transaction — not because the system was broken, but because the interface forced them to think when they should just be acting.</p>
+    <p>Cashiers work fast. Every extra tap, every screen transition, every moment of confusion costs real time — and frustrated customers. The core design challenge was presenting <strong>a large amount of functionality on a small screen</strong> without slowing down the transaction flow.</p>
     <div class="pain-grid">
-      <div class="pain-card"><div class="pain-number">01</div><h4>Poor Hierarchy</h4><p>Critical actions were buried. Cashiers had to hunt for buttons they used 50+ times a day.</p></div>
-      <div class="pain-card"><div class="pain-number">02</div><h4>No Platform Feel</h4><p>The app ignored iOS and Android conventions — interactions felt unfamiliar and slow.</p></div>
-      <div class="pain-card"><div class="pain-number">03</div><h4>Error Recovery</h4><p>Mistakes during checkout required multiple steps to fix, stalling the queue.</p></div>
+      <div class="pain-card"><div class="pain-number">01</div><h4>Too Many Screens</h4><p>Legacy POS systems required navigating multiple pages to complete a single transaction, breaking the cashier's flow.</p></div>
+      <div class="pain-card"><div class="pain-number">02</div><h4>No Product Management</h4><p>Stores had to rely on a separate back-office system to add or edit products — a slow, disconnected workflow.</p></div>
+      <div class="pain-card"><div class="pain-number">03</div><h4>Heavy Infrastructure</h4><p>Traditional terminals were expensive and energy-intensive. Stores wanted a leaner, mobile-first alternative.</p></div>
+    </div>
+    <div class="quote-block" style="margin-top:28px;">
+      <p>"We want something that just works — fast. Our staff shouldn't need training to use a cashier app."</p>
+      <cite>— Store Owner, Usability Research Session</cite>
     </div>
   </section>
 
@@ -246,11 +258,12 @@
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Research</h2><p class="section-subtitle">Watching Cashiers Work</p></div>
     </div>
-    <p>I conducted <strong>contextual observation sessions</strong> with cashiers during live shifts — watching where they hesitated, where they made errors, and what workarounds they had developed.</p>
+    <p>I combined qualitative and observational research methods, including testing the application in an <strong>actual live store environment</strong> — one of the most valuable inputs in the entire process.</p>
     <div class="findings-list">
-      <div class="finding-item"><div class="finding-icon">⏱️</div><div><p class="finding-text">"I know what I need to press — I just can't always find it fast enough."</p><div class="finding-stat">Average of 3 unnecessary taps per transaction identified</div></div></div>
-      <div class="finding-item"><div class="finding-icon">📱</div><div><p class="finding-text">Cashiers used their thumbs almost exclusively — but key actions were placed at the top of the screen.</p><div class="finding-stat">Thumb zone analysis showed 60% of actions were out of comfortable reach</div></div></div>
-      <div class="finding-item"><div class="finding-icon">🔄</div><div><p class="finding-text">"When I make a mistake, I have to start the whole thing over sometimes."</p><div class="finding-stat">Error recovery took an average of 45 seconds — longer than the transaction itself</div></div></div>
+      <div class="finding-item"><div class="finding-icon">🏪</div><div><p class="finding-text">Real-world store testing revealed that cashiers rarely look at the screen during a transaction — they rely on muscle memory and peripheral vision.</p><div class="finding-stat">In-store observation · Live cashier sessions</div></div></div>
+      <div class="finding-item"><div class="finding-icon">🗣️</div><div><p class="finding-text">"We need the cart front and centre, always. Everything else is secondary."</p><div class="finding-stat">Store owner interviews · 3 sessions</div></div></div>
+      <div class="finding-item"><div class="finding-icon">🧪</div><div><p class="finding-text">Usability testing showed users wanted to add products, apply discounts, and scan barcodes without ever leaving the home screen.</p><div class="finding-stat">Moderated usability testing · 5 participants</div></div></div>
+      <div class="finding-item"><div class="finding-icon">🤝</div><div><p class="finding-text">Stakeholder workshops revealed that product management was a major blocker — stores needed it built into the POS, not a separate system.</p><div class="finding-stat">Stakeholder workshops · Product &amp; Engineering teams</div></div></div>
     </div>
   </section>
 
@@ -261,12 +274,142 @@
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Process</h2><p class="section-subtitle">Fast, Tested, Iterated</p></div>
     </div>
-    <div class="process-steps">
-      <div class="process-step"><div class="step-number">01</div><div class="step-content"><h4>Contextual Research</h4><p>Observed cashiers during live shifts. Mapped every tap, hesitation, and error in the existing flow.</p></div></div>
-      <div class="process-step"><div class="step-number">02</div><div class="step-content"><h4>Thumb Zone Mapping</h4><p>Mapped iOS and Android thumb zones and repositioned all primary actions into the comfortable reach area.</p></div></div>
-      <div class="process-step"><div class="step-number">03</div><div class="step-content"><h4>Interaction Design</h4><p>Designed micro-interactions and haptic feedback patterns that make the app feel fast and reliable.</p></div></div>
-      <div class="process-step"><div class="step-number">04</div><div class="step-content"><h4>Prototype & Test</h4><p>Built mid-fi Figma prototypes and tested with 8 cashiers during actual shifts — not in a lab.</p></div></div>
-      <div class="process-step"><div class="step-number">05</div><div class="step-content"><h4>Stakeholder Alignment</h4><p>Used iterative Figma prototypes to align developers and product managers before any code was written.</p></div></div>
+    <p>Instead of a fragmented multi-page system, I designed the application around a <strong>single scrollable home screen</strong>. The cart, product list, quick actions, and daily summary all live on one page — reducing taps and keeping cashiers in a continuous flow.</p>
+    <p>The persistent <strong>Purchase button and quick-action row</strong> (Scan · Add bag · Add discount) are always visible, no matter how many items are in the cart.</p>
+
+    <div class="screens-section">
+      <div class="screens-label">Design Solution I · One Scrollable Home — Everything in Reach</div>
+      <div class="screens-grid col-3">
+        <div class="screen-item">
+          <div class="screen-wrap">
+          <img src="Add_product_to_cart.png" alt="Empty cart with product list" loading="lazy" decoding="async">
+          </div>
+          <p class="screen-caption">Empty cart — product grid visible below</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap">
+          <img src="Add_product_to_cart22.png" alt="Cart with items and purchase button" loading="lazy" decoding="async">
+          </div>
+          <p class="screen-caption">Items in cart — Purchase CTA always visible</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap">
+          <img src="items_in_the_cart.png" alt="Expanded cart list" loading="lazy" decoding="async">
+          </div>
+          <p class="screen-caption">Expanded cart — all items visible</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screens-section">
+      <div class="screens-label">Design Solution II · Scan, Add, Manage — Without Leaving the App</div>
+      <p>Barcode scanning turns any smartphone camera into a product scanner. When a product is found, it's added to the cart instantly. When it's <strong>not found</strong>, the app prompts the cashier to add it on the spot — eliminating the need to go to a separate system.</p>
+      <p>The <strong>"Add New Product"</strong> flow is a key innovation of this project. It lets store staff create new products directly from the POS — with name, EAN, sales account, and an optional product image — all in two steps.</p>
+      <div class="screens-grid col-3" style="margin-top:24px;">
+        <div class="screen-item">
+          <div class="screen-wrap">
+          <img src="Add_product_by_scanning.png" alt="Scanning mode active" loading="lazy" decoding="async">
+          </div>
+          <p class="screen-caption">Scanning mode — camera active, product list visible</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap">
+          <img src="Add_product_by_scanning-1.png" alt="Product not found modal" loading="lazy" decoding="async">
+          </div>
+          <p class="screen-caption">"Product not found" — prompt to add it instantly</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap">
+          <img src="Add_new_Product.png" alt="Add new product form" loading="lazy" decoding="async">
+          </div>
+          <p class="screen-caption">Add new product — Name, EAN, Sales account</p>
+        </div>
+      </div>
+      <div class="screens-grid col-2" style="margin-top:16px;">
+        <div class="screen-item">
+          <div class="screen-wrap">
+          <img src="Add_new_Product-2.png" alt="Add product image step" loading="lazy" decoding="async">
+          </div>
+          <p class="screen-caption">Step 2 — Upload product image</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap">
+          <img src="Product_list.png" alt="Product list with search" loading="lazy" decoding="async">
+          </div>
+          <p class="screen-caption">Product list — search by EAN or name</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screens-section">
+      <div class="screens-label">Design Solution III · Flexible Discounts — Per Product or Entire Cart</div>
+      <p>Discounts needed to work at two levels: applied to a <strong>single product</strong> (shown as a badge on that item) or to the <strong>entire receipt</strong>. Cashiers can choose between SEK amount or percentage, making the flow adaptable to any promotional scenario.</p>
+      <p>The discount screen uses a <strong>large-format numeric keypad</strong> — optimised for touchscreen use, even with gloves — with clearly segmented toggle buttons for type and scope.</p>
+      <div class="screens-grid col-2" style="margin-top:24px;">
+        <div class="screen-item">
+          <div class="screen-wrap">
+          <img src="Discount.png" alt="Discount keypad screen" loading="lazy" decoding="async">
+          </div>
+          <p class="screen-caption">Discount input — SEK or %, receipt or product</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap">
+          <img src="Add_discount_to_cart.png" alt="Cart with discount applied" loading="lazy" decoding="async">
+          </div>
+          <p class="screen-caption">Discount applied — shown as banner in cart</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screens-section">
+      <div class="screens-label">Design Solution IV · Refunds — Refundable vs. Non-Refundable</div>
+      <p>The refund flow separates items into two clear tabs: <strong>Refundable</strong> and <strong>Non-refundable</strong> — helping cashiers quickly identify what can be returned. Items are selected with a single tap, the total updates in real time, and a "Do refund" button finalises the process.</p>
+      <div class="screens-grid col-3" style="margin-top:24px;">
+        <div class="screen-item">
+          <div class="screen-wrap">
+          <img src="Refund.png" alt="Refund screen - refundable tab" loading="lazy" decoding="async">
+          </div>
+          <p class="screen-caption">Refundable items — tap + to select</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap">
+          <img src="Non_Refunable.png" alt="Non-refundable tab" loading="lazy" decoding="async">
+          </div>
+          <p class="screen-caption">Non-refundable — clearly separated</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap">
+          <img src="Refund-1.png" alt="Refund confirmation" loading="lazy" decoding="async">
+          </div>
+          <p class="screen-caption">Selected items — total &amp; "Do refund" CTA</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screens-section">
+      <div class="screens-label">Design Solution V · Transactions &amp; Daily Reports — No Back-Office Needed</div>
+      <p>One of the biggest differentiators of this application is that <strong>reporting is built directly into the POS</strong>. Cashiers can view the day's transactions, fetch the daily report, review register vs. control check data, and submit — all without switching to a separate system.</p>
+      <p>The <strong>"Coming up"</strong> feature shows upcoming report deadlines, allowing store managers to submit empty reports for days with no transactions — preventing gaps in the reporting chain.</p>
+      <div class="screens-grid col-3" style="margin-top:24px;">
+        <div class="screen-item">
+          <div class="screen-wrap">
+          <img src="Latest_transactions.png" alt="Transactions list with filter" loading="lazy" decoding="async">
+          </div>
+          <p class="screen-caption">Transactions — filter by method or date</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap">
+          <img src="Report-_Register.png" alt="Daily report with summary table" loading="lazy" decoding="async">
+          </div>
+          <p class="screen-caption">Daily report — register vs. control check</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap">
+          <img src="Report-_Register-1.png" alt="Daily report fetch screen" loading="lazy" decoding="async">
+          </div>
+          <p class="screen-caption">Fetch today's transactions before submitting</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -277,14 +420,27 @@
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Results</h2><p class="section-subtitle">Measurable Impact</p></div>
     </div>
-    <div class="results-grid">
-      <div class="result-card"><div class="result-number">30%</div><div class="result-label">Faster cashier task time per transaction</div></div>
-      <div class="result-card"><div class="result-number">0</div><div class="result-label">Design system regressions in QA</div></div>
-      <div class="result-card"><div class="result-number">↓3</div><div class="result-label">Unnecessary taps eliminated per transaction</div></div>
+    <p>Beyond lab-based usability sessions, the application was tested <strong>in a live store</strong> — the most demanding environment possible. This revealed issues that no prototype test could surface: how cashiers behave under time pressure, with real customers waiting.</p>
+    <div class="ab-grid">
+      <div class="ab-card">
+        <div class="ab-label">Before Redesign</div>
+        <div class="ab-stat">4+ taps</div>
+        <p class="ab-desc">Average taps to complete a basic transaction. Multiple page navigations required.</p>
+      </div>
+      <div class="ab-card winner">
+        <div class="ab-label">✓ After Redesign</div>
+        <div class="ab-stat">1–2 taps</div>
+        <p class="ab-desc">Cart, product list, Purchase and quick actions all on one scrollable screen.</p>
+      </div>
     </div>
-    <div class="quote-block">
-      <p>"It just flows now. I don't have to think about the app anymore — I just focus on the customer."</p>
-      <cite>— Cashier, Focalpay pilot store</cite>
+    <div class="quote-block" style="margin-top:24px;">
+      <p>"The scroll feels natural. I don't have to think about where anything is."</p>
+      <cite>— Cashier, In-Store Usability Test</cite>
+    </div>
+    <div class="results-grid">
+      <div class="result-card"><div class="result-number">60%</div><div class="result-label">Fewer taps per transaction — from 4+ steps to 1–2</div></div>
+      <div class="result-card"><div class="result-number">0</div><div class="result-label">Extra systems needed — product management built into the POS</div></div>
+      <div class="result-card"><div class="result-number">WCAG</div><div class="result-label">AA compliant — accessible on all screen sizes and devices</div></div>
     </div>
   </section>
 
@@ -296,17 +452,21 @@
       <div class="section-headings"><h2 class="section-chapter">Reflection</h2><p class="section-subtitle">What This Project Taught Me</p></div>
     </div>
     <div class="lessons-list">
-      <div class="lesson-item"><div class="lesson-num">01</div><div class="lesson-text"><h4>Test where the work actually happens</h4><p>Lab testing would have missed everything. Watching cashiers during real shifts revealed pain points no interview could surface.</p></div></div>
-      <div class="lesson-item"><div class="lesson-num">02</div><div class="lesson-text"><h4>Micro-interactions are not decoration</h4><p>In a high-frequency app, the feeling of speed is as important as actual speed. Haptics and transitions reduced perceived wait time.</p></div></div>
-      <div class="lesson-item"><div class="lesson-num">03</div><div class="lesson-text"><h4>Platform conventions exist for a reason</h4><p>Following iOS and Android thumb zone guidelines wasn't a constraint — it was the fastest path to an interface that felt natural.</p></div></div>
+      <div class="lesson-item"><div class="lesson-num">01</div><div class="lesson-text"><h4>Speed is a UX requirement, not a feature</h4><p>In a cashier context, every extra second matters. Designing for speed means eliminating navigation, reducing cognitive load, and making the most frequent actions zero-effort.</p></div></div>
+      <div class="lesson-item"><div class="lesson-num">02</div><div class="lesson-text"><h4>Real-world testing is irreplaceable</h4><p>Testing in a live store revealed behaviours that no usability lab could simulate. Cashiers under real pressure interact with interfaces very differently than they do in controlled sessions.</p></div></div>
+      <div class="lesson-item"><div class="lesson-num">03</div><div class="lesson-text"><h4>Reducing systems reduces errors</h4><p>By integrating product management and reporting directly into the POS, we eliminated an entire category of user error — the mistakes that happen when people switch between disconnected tools.</p></div></div>
     </div>
   </section>
 
 </div>
 
-<footer>
-  <p>Neda Bagheri · Product Designer · Stockholm</p>
+<div class="bottom-back">
   <a href="index.html">← Back to Portfolio</a>
+</div>
+
+<footer>
+  <p>© 2026 Neda Bagheri · Stockholm</p>
+  <p><a href="mailto:nedabagheri.nz@gmail.com">nedabagheri.nz@gmail.com</a></p>
 </footer>
 
 <script>
