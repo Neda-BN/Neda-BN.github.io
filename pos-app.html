@@ -92,9 +92,10 @@
   .screens-grid { display: grid; gap: 16px; }
   .screens-grid.col-2 { grid-template-columns: 1fr 1fr; }
   .screens-grid.col-3 { grid-template-columns: 1fr 1fr 1fr; }
+  .screen-item { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
   .screen-wrap { border-radius: 20px; overflow: hidden; border: 1px solid var(--border); background: var(--surface); box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
   .screen-wrap img { width: 100%; display: block; }
-  .screen-caption { font-size: 12px; color: var(--light); text-align: center; padding: 10px 8px; border-top: 1px solid var(--border); font-style: italic; }
+  .screen-caption { font-size: 12px; color: var(--light); text-align: center; padding: 0 4px; margin: 0; font-style: italic; line-height: 1.45; }
 
   .ab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
   .ab-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
@@ -246,17 +247,23 @@
     <div class="screens-section">
       <div class="screens-label">Design Solution I · One Scrollable Home — Everything in Reach</div>
       <div class="screens-grid col-3">
-        <div class="screen-wrap">
+        <div class="screen-item">
+          <div class="screen-wrap">
           <img src="Add_product_to_cart.png" alt="Empty cart with product list" loading="lazy" decoding="async">
-          <div class="screen-caption">Empty cart — product grid visible below</div>
+          </div>
+          <p class="screen-caption">Empty cart — product grid visible below</p>
         </div>
-        <div class="screen-wrap">
+        <div class="screen-item">
+          <div class="screen-wrap">
           <img src="Add_product_to_cart22.png" alt="Cart with items and purchase button" loading="lazy" decoding="async">
-          <div class="screen-caption">Items in cart — Purchase CTA always visible</div>
+          </div>
+          <p class="screen-caption">Items in cart — Purchase CTA always visible</p>
         </div>
-        <div class="screen-wrap">
+        <div class="screen-item">
+          <div class="screen-wrap">
           <img src="items_in_the_cart.png" alt="Expanded cart list" loading="lazy" decoding="async">
-          <div class="screen-caption">Expanded cart — all items visible</div>
+          </div>
+          <p class="screen-caption">Expanded cart — all items visible</p>
         </div>
       </div>
     </div>
@@ -266,33 +273,45 @@
       <p>Barcode scanning turns any smartphone camera into a product scanner. When a product is found, it's added to the cart instantly. When it's <strong>not found</strong>, the app prompts the cashier to add it on the spot — eliminating the need to go to a separate system.</p>
       <p>The <strong>"Add New Product"</strong> flow is a key innovation of this project. It lets store staff create new products directly from the POS — with name, EAN, sales account, and an optional product image — all in two steps.</p>
       <div class="screens-grid col-2" style="margin-top:24px;">
-        <div class="screen-wrap">
+        <div class="screen-item">
+          <div class="screen-wrap">
           <img src="Add_product_by_scanning.png" alt="Scanning mode active" loading="lazy" decoding="async">
-          <div class="screen-caption">Scanning mode — camera active, product list visible</div>
+          </div>
+          <p class="screen-caption">Scanning mode — camera active, product list visible</p>
         </div>
-        <div class="screen-wrap">
+        <div class="screen-item">
+          <div class="screen-wrap">
           <img src="Add_product_by_scanning-1.png" alt="Product not found modal" loading="lazy" decoding="async">
-          <div class="screen-caption">"Product not found" — prompt to add it instantly</div>
+          </div>
+          <p class="screen-caption">"Product not found" — prompt to add it instantly</p>
         </div>
       </div>
       <div class="screens-grid col-2" style="margin-top:16px;">
-        <div class="screen-wrap">
+        <div class="screen-item">
+          <div class="screen-wrap">
           <img src="Add_new_Product.png" alt="Add new product form" loading="lazy" decoding="async">
-          <div class="screen-caption">Add new product — Name, EAN, Sales account</div>
+          </div>
+          <p class="screen-caption">Add new product — Name, EAN, Sales account</p>
         </div>
-        <div class="screen-wrap">
+        <div class="screen-item">
+          <div class="screen-wrap">
           <img src="Add_new_Product-2.png" alt="Add product image step" loading="lazy" decoding="async">
-          <div class="screen-caption">Step 2 — Upload product image</div>
+          </div>
+          <p class="screen-caption">Step 2 — Upload product image</p>
         </div>
       </div>
       <div class="screens-grid col-2" style="margin-top:16px;">
-        <div class="screen-wrap">
+        <div class="screen-item">
+          <div class="screen-wrap">
           <img src="Product_list.png" alt="Product list with search" loading="lazy" decoding="async">
-          <div class="screen-caption">Product list — search by EAN or name</div>
+          </div>
+          <p class="screen-caption">Product list — search by EAN or name</p>
         </div>
-        <div class="screen-wrap">
+        <div class="screen-item">
+          <div class="screen-wrap">
           <img src="Bag.png" alt="Bag selection screen" loading="lazy" decoding="async">
-          <div class="screen-caption">Add bag — choose bag type and price</div>
+          </div>
+          <p class="screen-caption">Add bag — choose bag type and price</p>
         </div>
       </div>
     </div>
@@ -302,13 +321,17 @@
       <p>Discounts needed to work at two levels: applied to a <strong>single product</strong> (shown as a badge on that item) or to the <strong>entire receipt</strong>. Cashiers can choose between SEK amount or percentage, making the flow adaptable to any promotional scenario.</p>
       <p>The discount screen uses a <strong>large-format numeric keypad</strong> — optimised for touchscreen use, even with gloves — with clearly segmented toggle buttons for type and scope.</p>
       <div class="screens-grid col-2" style="margin-top:24px;">
-        <div class="screen-wrap">
+        <div class="screen-item">
+          <div class="screen-wrap">
           <img src="Discount.png" alt="Discount keypad screen" loading="lazy" decoding="async">
-          <div class="screen-caption">Discount input — SEK or %, receipt or product</div>
+          </div>
+          <p class="screen-caption">Discount input — SEK or %, receipt or product</p>
         </div>
-        <div class="screen-wrap">
+        <div class="screen-item">
+          <div class="screen-wrap">
           <img src="Add_discount_to_cart.png" alt="Cart with discount applied" loading="lazy" decoding="async">
-          <div class="screen-caption">Discount applied — shown as banner in cart</div>
+          </div>
+          <p class="screen-caption">Discount applied — shown as banner in cart</p>
         </div>
       </div>
     </div>
@@ -317,27 +340,37 @@
       <div class="screens-label">Design Solution IV · Refunds — Refundable vs. Non-Refundable</div>
       <p>The refund flow separates items into two clear tabs: <strong>Refundable</strong> and <strong>Non-refundable</strong> — helping cashiers quickly identify what can be returned. Items are selected with a single tap, the total updates in real time, and a "Do refund" button finalises the process.</p>
       <div class="screens-grid col-3" style="margin-top:24px;">
-        <div class="screen-wrap">
+        <div class="screen-item">
+          <div class="screen-wrap">
           <img src="Refund.png" alt="Refund screen - refundable tab" loading="lazy" decoding="async">
-          <div class="screen-caption">Refundable items — tap + to select</div>
+          </div>
+          <p class="screen-caption">Refundable items — tap + to select</p>
         </div>
-        <div class="screen-wrap">
+        <div class="screen-item">
+          <div class="screen-wrap">
           <img src="Non_Refunable.png" alt="Non-refundable tab" loading="lazy" decoding="async">
-          <div class="screen-caption">Non-refundable — clearly separated</div>
+          </div>
+          <p class="screen-caption">Non-refundable — clearly separated</p>
         </div>
-        <div class="screen-wrap">
+        <div class="screen-item">
+          <div class="screen-wrap">
           <img src="Refund-1.png" alt="Refund confirmation" loading="lazy" decoding="async">
-          <div class="screen-caption">Selected items — total &amp; "Do refund" CTA</div>
+          </div>
+          <p class="screen-caption">Selected items — total &amp; "Do refund" CTA</p>
         </div>
       </div>
       <div class="screens-grid col-2" style="margin-top:16px;">
-        <div class="screen-wrap">
+        <div class="screen-item">
+          <div class="screen-wrap">
           <img src="Non_Refunable-1.png" alt="Non-refundable items list" loading="lazy" decoding="async">
-          <div class="screen-caption">Non-refundable items listed clearly</div>
+          </div>
+          <p class="screen-caption">Non-refundable items listed clearly</p>
         </div>
-        <div class="screen-wrap">
+        <div class="screen-item">
+          <div class="screen-wrap">
           <img src="Latest_transaction.png" alt="Latest transactions with search" loading="lazy" decoding="async">
-          <div class="screen-caption">Latest transactions — searchable log</div>
+          </div>
+          <p class="screen-caption">Latest transactions — searchable log</p>
         </div>
       </div>
     </div>
@@ -347,30 +380,40 @@
       <p>One of the biggest differentiators of this application is that <strong>reporting is built directly into the POS</strong>. Cashiers can view the day's transactions, fetch the daily report, review register vs. control check data, and submit — all without switching to a separate system.</p>
       <p>The <strong>"Coming up"</strong> feature shows upcoming report deadlines, allowing store managers to submit empty reports for days with no transactions — preventing gaps in the reporting chain.</p>
       <div class="screens-grid col-3" style="margin-top:24px;">
-        <div class="screen-wrap">
+        <div class="screen-item">
+          <div class="screen-wrap">
           <img src="Latest_transactions.png" alt="Transactions list with filter" loading="lazy" decoding="async">
-          <div class="screen-caption">Transactions — filter by method or date</div>
+          </div>
+          <p class="screen-caption">Transactions — filter by method or date</p>
         </div>
-        <div class="screen-wrap">
+        <div class="screen-item">
+          <div class="screen-wrap">
           <img src="Report-_Register.png" alt="Daily report with summary table" loading="lazy" decoding="async">
-          <div class="screen-caption">Daily report — register vs. control check</div>
+          </div>
+          <p class="screen-caption">Daily report — register vs. control check</p>
         </div>
-        <div class="screen-wrap">
+        <div class="screen-item">
+          <div class="screen-wrap">
           <img src="Report-_Register-1.png" alt="Daily report fetch screen" loading="lazy" decoding="async">
-          <div class="screen-caption">Fetch today's transactions before submitting</div>
+          </div>
+          <p class="screen-caption">Fetch today's transactions before submitting</p>
         </div>
       </div>
       <div class="screens-grid col-2" style="margin-top:16px;">
-        <div class="screen-wrap">
+        <div class="screen-item">
+          <div class="screen-wrap">
           <img src="Upcoming_report.png" alt="Coming up — upcoming reports list" loading="lazy" decoding="async">
-          <div class="screen-caption">"Coming up" — upcoming report deadlines</div>
+          </div>
+          <p class="screen-caption">"Coming up" — upcoming report deadlines</p>
         </div>
-        <div class="screen-wrap" style="display:flex;align-items:center;justify-content:center;background:var(--accent-light);border-radius:20px;border:1px solid var(--border);padding:32px;">
-          <div style="text-align:center;">
-            <div style="font-family:var(--serif);font-size:48px;color:var(--dark);line-height:1;margin-bottom:12px;">12,305</div>
-            <div style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--light);">SEK · Today's Total</div>
-            <div style="margin-top:16px;font-size:36px;font-family:var(--serif);color:var(--dark);">84</div>
-            <div style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--light);">Total Transactions</div>
+        <div class="screen-item">
+          <div class="screen-wrap" style="display:flex;align-items:center;justify-content:center;background:var(--accent-light);border-radius:20px;border:1px solid var(--border);padding:32px;">
+            <div style="text-align:center;">
+              <div style="font-family:var(--serif);font-size:48px;color:var(--dark);line-height:1;margin-bottom:12px;">12,305</div>
+              <div style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--light);">SEK · Today's Total</div>
+              <div style="margin-top:16px;font-size:36px;font-family:var(--serif);color:var(--dark);">84</div>
+              <div style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--light);">Total Transactions</div>
+            </div>
           </div>
         </div>
       </div>
