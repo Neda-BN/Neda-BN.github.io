@@ -253,6 +253,21 @@
   }
   .content--pos-ds .ds-sheet-figure + .screen-caption { margin-top: -8px; }
 
+  /* Research: wide user journey infographic (high-res export) */
+  .research-journey-figure { margin: 28px 0 0 0; }
+  .research-journey-figure .research-journey-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    image-rendering: auto;
+    transform: none;
+    filter: none;
+  }
+
   .ab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
   .ab-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
   .ab-card.winner { border-color: #1A7A4A; background: #E8F5EE; }
@@ -445,6 +460,24 @@
       <div class="finding-item"><div class="finding-icon">🗣️</div><div><p class="finding-text">"We need the cart front and centre, always. Everything else is secondary."</p><div class="finding-stat">Store owner interviews · 3 sessions</div></div></div>
       <div class="finding-item"><div class="finding-icon">🧪</div><div><p class="finding-text">Usability testing showed users wanted to add products, apply discounts, and scan barcodes without ever leaving the home screen.</p><div class="finding-stat">Moderated usability testing · 5 participants</div></div></div>
       <div class="finding-item"><div class="finding-icon">🤝</div><div><p class="finding-text">Stakeholder workshops revealed that product management was a major blocker — stores needed it built into the POS, not a separate system.</p><div class="finding-stat">Stakeholder workshops · Product &amp; Engineering teams</div></div></div>
+    </div>
+
+    <div class="screens-section">
+      <div class="screens-label">User journey map</div>
+      <figure class="research-journey-figure">
+        <img
+          class="research-journey-img"
+          src="pos-user-journey-map.png"
+          srcset="pos-user-journey-map.png 12800w"
+          sizes="(max-width: 640px) calc(100vw - 48px), min(820px, 100vw - 96px)"
+          width="12800"
+          height="8290"
+          alt="Cashier POS user journey map — Erik (cashier / store owner), emotion curve from login through purchase, refund, and daily report; Focalpay AB 2023–2024"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
+      <p class="screen-caption">Emotion curve across a full transaction day — from login and scanning to refunds and submitting the daily report</p>
     </div>
   </section>
 
