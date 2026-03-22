@@ -231,6 +231,28 @@
   .screen-wrap img { width: 100%; display: block; }
   .screen-caption { font-size: 12px; color: var(--light); text-align: center; padding: 0 4px; margin: 0; font-style: italic; line-height: 1.45; }
 
+  /* POS design system: full-width export PNGs (10500w) — same pattern as backoffice case study */
+  .content--pos-ds { max-width: min(100%, 1024px); }
+  .content--pos-ds img { transform: none; filter: none; }
+  .ds-sheet-figure { margin: 0 0 32px 0; }
+  .ds-sheet-figure:last-child { margin-bottom: 0; }
+  .ds-sheet-figure figcaption { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin-bottom: 16px; }
+  .ds-sheet-figure.ds-cap-10500 { max-width: min(100%, 10500px); margin-left: auto; margin-right: auto; }
+  .ds-sheet-figure .ds-img {
+    width: 100%;
+    max-width: min(100%, 10500px);
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    image-rendering: auto;
+    transform: none;
+    filter: none;
+  }
+  .content--pos-ds .ds-sheet-figure + .screen-caption { margin-top: -8px; }
+
   .ab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
   .ab-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
   .ab-card.winner { border-color: #1A7A4A; background: #E8F5EE; }
@@ -266,7 +288,7 @@
   .fade-in.visible { opacity: 1; transform: translateY(0); }
 
   @media (max-width: 640px) {
-    nav, .back-top, .hero, .hero-image, .content, .bottom-back, footer { padding-left: 24px; padding-right: 24px; }
+    nav, .back-top, .hero, .hero-image, .content, .content--pos-ds, .bottom-back, footer { padding-left: 24px; padding-right: 24px; }
     .section-header { flex-direction: column; gap: 18px; padding: 0 0 24px 0; }
     .section-icon { width: 52px; height: 52px; }
     .section-icon svg { width: 24px; height: 24px; }
@@ -426,7 +448,11 @@
     </div>
   </section>
 
+</div>
+
   <div class="divider"></div>
+
+  <div class="content content--pos-ds">
 
   <section class="section fade-in">
     <div class="section-header">
@@ -435,28 +461,24 @@
     </div>
     <p>Before detailing individual journeys, I defined a shared <strong>Focalpay POS design system</strong> — colour, typography, spacing, radii, and component states — so design and engineering could scale the interface consistently. The cashier experience is built for <strong>light mode only</strong> in this release: there is no dark theme, which kept contrast, legibility, and peripheral scanning predictable under bright store lighting and varied devices.</p>
 
-    <div class="screens-section">
-      <div class="screens-label">Sheet 01 · Foundations — Colour, Typography, Spacing &amp; States</div>
-      <div class="screen-item">
-        <div class="screen-wrap">
-          <img src="pos-design-system-01.png" width="775" height="1024" alt="Focalpay POS design system sheet 01: brand colours, neutrals, semantic tokens, typography scale, spacing, border radius, and button state matrix" loading="lazy" decoding="async">
-        </div>
-        <p class="screen-caption">Brand palette, type scale, spacing, radii, and scalable button states</p>
-      </div>
-    </div>
+    <figure class="ds-sheet-figure ds-cap-10500">
+      <figcaption>Sheet 01 · Foundations — Colour, Typography, Spacing &amp; States</figcaption>
+      <img class="ds-img" src="pos-design-system-01.png" srcset="pos-design-system-01.png 10500w" sizes="(max-width: 640px) calc(100vw - 48px), min(1024px, 100vw - 96px)" alt="Focalpay POS design system sheet 01: brand colours, neutrals, semantic tokens, typography scale, spacing, border radius, and button state matrix" width="10500" height="13865" loading="lazy" decoding="async">
+    </figure>
+    <p class="screen-caption">Brand palette, type scale, spacing, radii, and scalable button states</p>
 
-    <div class="screens-section">
-      <div class="screens-label">Sheet 02 · Core Components — Buttons, Inputs, Cards &amp; Patterns</div>
-      <div class="screen-item">
-        <div class="screen-wrap">
-          <img src="pos-design-system-02.png" width="872" height="1024" alt="Focalpay POS design system sheet 02: primary and outline buttons, refund flow pattern, inputs, segmented controls, and search with scan" loading="lazy" decoding="async">
-        </div>
-        <p class="screen-caption">Buttons, refund flow pattern, inputs, segmented controls, and search + scanning</p>
-      </div>
-    </div>
+    <figure class="ds-sheet-figure ds-cap-10500">
+      <figcaption>Sheet 02 · Core Components — Buttons, Inputs, Cards &amp; Patterns</figcaption>
+      <img class="ds-img" src="pos-design-system-02.png" srcset="pos-design-system-02.png 10500w" sizes="(max-width: 640px) calc(100vw - 48px), min(1024px, 100vw - 96px)" alt="Focalpay POS design system sheet 02: primary and outline buttons, refund flow pattern, inputs, segmented controls, and search with scan" width="10500" height="12327" loading="lazy" decoding="async">
+    </figure>
+    <p class="screen-caption">Buttons, refund flow pattern, inputs, segmented controls, and search + scanning</p>
   </section>
 
+  </div>
+
   <div class="divider"></div>
+
+  <div class="content">
 
   <section class="section fade-in">
     <div class="section-header">
