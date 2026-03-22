@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cashier POS &amp; Payment App · Neda Bagheri</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -426,19 +426,89 @@
     font-weight: 400;
     font-style: italic;
   }
-  /* Research: wide user journey infographic (high-res export) */
-  .research-journey-figure { margin: 20px 0 0 0; }
-  .research-journey-figure .research-journey-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 20px;
+  /* POS user journey map (embedded SVG — Open Sans) */
+  .pos-ujm-strip {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1240px, calc(100vw - 24px));
+    max-width: none;
+    box-sizing: border-box;
+  }
+  .pos-ujm-strip-inner { width: 100%; }
+  .pos-ujm {
+    font-family: 'Open Sans', var(--sans), sans-serif;
+    color: #1a1a1a;
+    background: #fff;
+    border-radius: 16px;
     border: 1px solid var(--border);
-    background: var(--surface);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
-    image-rendering: auto;
-    transform: none;
-    filter: none;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+  .pos-ujm * { box-sizing: border-box; }
+  .pos-ujm-page { padding: clamp(24px, 4vw, 52px) clamp(16px, 4vw, 64px) clamp(28px, 4vw, 60px); }
+  .pos-ujm-header { margin-bottom: clamp(24px, 3vw, 40px); }
+  .pos-ujm-header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
+  .pos-ujm-title { font-size: clamp(18px, 2.5vw, 22px); font-weight: 700; color: #1a1a1a; letter-spacing: -0.3px; }
+  .pos-ujm-subtitle { font-size: 13px; color: #999; font-weight: 400; margin-top: 4px; }
+  .pos-ujm-persona-pill {
+    display: flex; align-items: center; gap: 10px;
+    background: #F5F3FF; border: 1px solid #E0DBFF; border-radius: 100px;
+    padding: 8px 18px 8px 12px; flex-shrink: 0;
+  }
+  .pos-ujm-persona-avatar {
+    width: 32px; height: 32px; border-radius: 50%; background: #7C3AED; color: #fff;
+    font-size: 15px; display: flex; align-items: center; justify-content: center; font-weight: 700;
+  }
+  .pos-ujm-persona-name { font-size: 13px; font-weight: 600; color: #4C1D95; }
+  .pos-ujm-persona-role { font-size: 11px; color: #7C3AED; font-weight: 400; }
+  .pos-ujm-legend { display: flex; gap: clamp(12px, 2vw, 24px); margin-bottom: clamp(24px, 3vw, 36px); flex-wrap: wrap; }
+  .pos-ujm-legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #888; }
+  .pos-ujm-legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+  .pos-ujm-chart-wrap { display: flex; align-items: stretch; gap: 0; }
+  .pos-ujm-y-axis {
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 20px 0 60px; width: clamp(56px, 9vw, 90px); flex-shrink: 0;
+  }
+  .pos-ujm-y-label { display: flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 600; color: #aaa; letter-spacing: 0.04em; text-transform: uppercase; }
+  .pos-ujm-y-emoji {
+    width: 32px; height: 32px; border-radius: 50%; border: 2px solid;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .pos-ujm-y-emoji--happy { border-color: #86C540; background: #F2FAEB; }
+  .pos-ujm-y-emoji--neutral { border-color: #F5C842; background: #FEFAE9; }
+  .pos-ujm-y-emoji--sad { border-color: #EE5A52; background: #FEF0EF; }
+  .pos-ujm-chart-svg-wrap { flex: 1; position: relative; min-width: 0; align-self: flex-start; width: 100%; }
+  svg.pos-ujm-journey { width: 100%; display: block; overflow: visible; height: auto; }
+  .pos-ujm-label-box {
+    position: absolute; border-radius: 6px; padding: 7px 11px; font-size: clamp(10px, 1.1vw, 11.5px);
+    font-weight: 600; line-height: 1.35; max-width: clamp(100px, 12vw, 130px); text-align: center;
+    pointer-events: none; white-space: normal;
+  }
+  .pos-ujm-label-box--green { background: #8DC63F; color: #fff; }
+  .pos-ujm-label-box--yellow { background: #F5C842; color: #5a3e00; }
+  .pos-ujm-label-box--red { background: #EE5A52; color: #fff; }
+  .pos-ujm-label-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+  .pos-ujm-step-row {
+    display: grid;
+    grid-template-columns: repeat(11, minmax(0, 1fr));
+    gap: 4px 2px;
+    padding-left: clamp(48px, 9vw, 90px);
+    margin-top: 16px;
+  }
+  .pos-ujm-step-cell { font-size: clamp(8px, 1.5vw, 12px); font-weight: 600; color: #aaa; text-align: center; line-height: 1.25; min-width: 0; word-break: break-word; }
+  .pos-ujm-axis-line { margin-left: clamp(48px, 9vw, 90px); margin-top: 10px; height: 2px; background: #ebebeb; border-radius: 1px; }
+  .pos-ujm-footer {
+    margin-top: 32px; display: flex; justify-content: space-between; align-items: center;
+    gap: 12px; flex-wrap: wrap;
+  }
+  .pos-ujm-footer span { font-size: 11px; color: #ccc; }
+  @media (max-width: 900px) {
+    .pos-ujm-step-row { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+  @media (max-width: 520px) {
+    .pos-ujm-step-row { grid-template-columns: repeat(2, minmax(0, 1fr)); padding-left: 8px; }
+    .pos-ujm-axis-line { margin-left: 8px; }
   }
 
   .ab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
@@ -726,19 +796,127 @@
 
     <div class="screens-section">
       <div class="screens-label">User journey map</div>
-      <figure class="research-journey-figure">
-        <img
-          class="research-journey-img"
-          src="pos-user-journey-map.png"
-          srcset="pos-user-journey-map.png 1024w"
-          sizes="(max-width: 640px) calc(100vw - 48px), min(820px, 100vw - 96px)"
-          width="1024"
-          height="453"
-          alt="Cashier POS user journey map — Erik (cashier / store owner), emotion curve from login through purchase, refund, and daily report; Focalpay AB 2023–2024"
-          loading="eager"
-          decoding="async"
-        >
-      </figure>
+      <div class="pos-ujm-strip">
+        <div class="pos-ujm-strip-inner">
+          <div class="pos-ujm" role="img" aria-label="Cashier POS user journey map — Erik (cashier / store owner), emotion curve from login through purchase, refund, and daily report; Focalpay AB 2023–2024">
+            <div class="pos-ujm-page">
+              <div class="pos-ujm-header">
+                <div class="pos-ujm-header-top">
+                  <div>
+                    <div class="pos-ujm-title">Cashier POS — User Journey Map</div>
+                    <div class="pos-ujm-subtitle">Focalpay AB · 2023–2024 · Emotion curve across a full transaction day</div>
+                  </div>
+                  <div class="pos-ujm-persona-pill">
+                    <div class="pos-ujm-persona-avatar" aria-hidden="true">E</div>
+                    <div>
+                      <div class="pos-ujm-persona-name">Erik</div>
+                      <div class="pos-ujm-persona-role">Cashier / Store Owner</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="pos-ujm-legend">
+                <div class="pos-ujm-legend-item"><div class="pos-ujm-legend-dot" style="background:#8DC63F;"></div>Happy / confident</div>
+                <div class="pos-ujm-legend-item"><div class="pos-ujm-legend-dot" style="background:#F5C842;"></div>Neutral / cautious</div>
+                <div class="pos-ujm-legend-item"><div class="pos-ujm-legend-dot" style="background:#EE5A52;"></div>Frustrated / struggling</div>
+              </div>
+              <div class="pos-ujm-chart-wrap">
+                <div class="pos-ujm-y-axis" aria-hidden="true">
+                  <div class="pos-ujm-y-label">
+                    <div class="pos-ujm-y-emoji pos-ujm-y-emoji--happy">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#86C540" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9" stroke-width="3" stroke-linecap="round"/><line x1="15" y1="9" x2="15.01" y2="9" stroke-width="3" stroke-linecap="round"/></svg>
+                    </div>
+                    Happy
+                  </div>
+                  <div class="pos-ujm-y-label">
+                    <div class="pos-ujm-y-emoji pos-ujm-y-emoji--neutral">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F5C842" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="9" y1="9" x2="9.01" y2="9" stroke-width="3" stroke-linecap="round"/><line x1="15" y1="9" x2="15.01" y2="9" stroke-width="3" stroke-linecap="round"/></svg>
+                    </div>
+                    Neutral
+                  </div>
+                  <div class="pos-ujm-y-label">
+                    <div class="pos-ujm-y-emoji pos-ujm-y-emoji--sad">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EE5A52" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M16 16s-1.5-2-4-2-4 2-4 2"/><line x1="9" y1="9" x2="9.01" y2="9" stroke-width="3" stroke-linecap="round"/><line x1="15" y1="9" x2="15.01" y2="9" stroke-width="3" stroke-linecap="round"/></svg>
+                    </div>
+                    Sad
+                  </div>
+                </div>
+                <div class="pos-ujm-chart-svg-wrap" id="posChartWrap">
+                  <svg class="pos-ujm-journey" id="posJourneySvg" viewBox="0 0 1200 340" preserveAspectRatio="none" aria-hidden="true">
+                    <line x1="0" y1="60" x2="1200" y2="60" stroke="#EBEBEB" stroke-width="1" stroke-dasharray="4 4"/>
+                    <line x1="0" y1="170" x2="1200" y2="170" stroke="#EBEBEB" stroke-width="1" stroke-dasharray="4 4"/>
+                    <line x1="0" y1="280" x2="1200" y2="280" stroke="#EBEBEB" stroke-width="1" stroke-dasharray="4 4"/>
+                    <line x1="109" y1="20" x2="109" y2="300" stroke="#F0F0F0" stroke-width="1" stroke-dasharray="3 5"/>
+                    <line x1="218" y1="20" x2="218" y2="300" stroke="#F0F0F0" stroke-width="1" stroke-dasharray="3 5"/>
+                    <line x1="327" y1="20" x2="327" y2="300" stroke="#F0F0F0" stroke-width="1" stroke-dasharray="3 5"/>
+                    <line x1="436" y1="20" x2="436" y2="300" stroke="#F0F0F0" stroke-width="1" stroke-dasharray="3 5"/>
+                    <line x1="545" y1="20" x2="545" y2="300" stroke="#F0F0F0" stroke-width="1" stroke-dasharray="3 5"/>
+                    <line x1="654" y1="20" x2="654" y2="300" stroke="#F0F0F0" stroke-width="1" stroke-dasharray="3 5"/>
+                    <line x1="763" y1="20" x2="763" y2="300" stroke="#F0F0F0" stroke-width="1" stroke-dasharray="3 5"/>
+                    <line x1="872" y1="20" x2="872" y2="300" stroke="#F0F0F0" stroke-width="1" stroke-dasharray="3 5"/>
+                    <line x1="981" y1="20" x2="981" y2="300" stroke="#F0F0F0" stroke-width="1" stroke-dasharray="3 5"/>
+                    <line x1="1090" y1="20" x2="1090" y2="300" stroke="#F0F0F0" stroke-width="1" stroke-dasharray="3 5"/>
+                    <polyline points="54,195 163,145 272,80 381,80 490,260 599,120 708,100 817,70 926,240 1035,155 1144,75" fill="none" stroke="#CCCCCC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="54" cy="195" r="9" fill="#F5C842" stroke="white" stroke-width="2.5"/>
+                    <circle cx="163" cy="145" r="9" fill="#F5C842" stroke="white" stroke-width="2.5"/>
+                    <circle cx="272" cy="80" r="9" fill="#8DC63F" stroke="white" stroke-width="2.5"/>
+                    <circle cx="381" cy="80" r="9" fill="#8DC63F" stroke="white" stroke-width="2.5"/>
+                    <circle cx="490" cy="260" r="9" fill="#EE5A52" stroke="white" stroke-width="2.5"/>
+                    <circle cx="599" cy="120" r="9" fill="#8DC63F" stroke="white" stroke-width="2.5"/>
+                    <circle cx="708" cy="100" r="9" fill="#8DC63F" stroke="white" stroke-width="2.5"/>
+                    <circle cx="817" cy="70" r="9" fill="#8DC63F" stroke="white" stroke-width="2.5"/>
+                    <circle cx="926" cy="240" r="9" fill="#EE5A52" stroke="white" stroke-width="2.5"/>
+                    <circle cx="1035" cy="155" r="9" fill="#F5C842" stroke="white" stroke-width="2.5"/>
+                    <circle cx="1144" cy="75" r="9" fill="#8DC63F" stroke="white" stroke-width="2.5"/>
+                    <line x1="54" y1="204" x2="54" y2="298" stroke="#CCCCCC" stroke-width="1" stroke-dasharray="4 4"/>
+                    <line x1="163" y1="136" x2="163" y2="60" stroke="#CCCCCC" stroke-width="1" stroke-dasharray="4 4"/>
+                    <line x1="272" y1="71" x2="272" y2="30" stroke="#CCCCCC" stroke-width="1" stroke-dasharray="4 4"/>
+                    <line x1="381" y1="71" x2="381" y2="30" stroke="#CCCCCC" stroke-width="1" stroke-dasharray="4 4"/>
+                    <line x1="490" y1="269" x2="490" y2="298" stroke="#CCCCCC" stroke-width="1" stroke-dasharray="4 4"/>
+                    <line x1="599" y1="111" x2="599" y2="50" stroke="#CCCCCC" stroke-width="1" stroke-dasharray="4 4"/>
+                    <line x1="708" y1="91" x2="708" y2="30" stroke="#CCCCCC" stroke-width="1" stroke-dasharray="4 4"/>
+                    <line x1="817" y1="61" x2="817" y2="20" stroke="#CCCCCC" stroke-width="1" stroke-dasharray="4 4"/>
+                    <line x1="926" y1="249" x2="926" y2="298" stroke="#CCCCCC" stroke-width="1" stroke-dasharray="4 4"/>
+                    <line x1="1035" y1="146" x2="1035" y2="70" stroke="#CCCCCC" stroke-width="1" stroke-dasharray="4 4"/>
+                    <line x1="1144" y1="66" x2="1144" y2="20" stroke="#CCCCCC" stroke-width="1" stroke-dasharray="4 4"/>
+                  </svg>
+                  <div class="pos-ujm-label-layer">
+                    <div class="pos-ujm-label-box pos-ujm-label-box--yellow" style="left:calc(54/1200*100% - 52px); top:calc(205/340*100%);">Open the<br>Focalpay app</div>
+                    <div class="pos-ujm-label-box pos-ujm-label-box--yellow" style="left:calc(163/1200*100% - 60px); top:calc(30/340*100%);">Add products<br>to the system<br>manually</div>
+                    <div class="pos-ujm-label-box pos-ujm-label-box--green" style="left:calc(272/1200*100% - 55px); top:calc(2/340*100% - 2px);">Browse the<br>product grid</div>
+                    <div class="pos-ujm-label-box pos-ujm-label-box--green" style="left:calc(381/1200*100% - 55px); top:calc(2/340*100% - 2px);">Scan item<br>barcode</div>
+                    <div class="pos-ujm-label-box pos-ujm-label-box--red" style="left:calc(490/1200*100% - 55px); top:calc(272/340*100%);">Unknown barcode —<br>product not found</div>
+                    <div class="pos-ujm-label-box pos-ujm-label-box--green" style="left:calc(599/1200*100% - 55px); top:calc(18/340*100%);">Add product from<br>product list<br>to the cart</div>
+                    <div class="pos-ujm-label-box pos-ujm-label-box--green" style="left:calc(708/1200*100% - 55px); top:calc(2/340*100%);">Apply discount<br>to item or cart</div>
+                    <div class="pos-ujm-label-box pos-ujm-label-box--green" style="left:calc(817/1200*100% - 52px); top:calc(2/340*100% - 2px);">Tap Purchase —<br>transaction done</div>
+                    <div class="pos-ujm-label-box pos-ujm-label-box--red" style="left:calc(926/1200*100% - 60px); top:calc(272/340*100%);">Process a<br>partial refund</div>
+                    <div class="pos-ujm-label-box pos-ujm-label-box--yellow" style="left:calc(1035/1200*100% - 60px); top:calc(35/340*100%);">Fetch &amp; review<br>daily report</div>
+                    <div class="pos-ujm-label-box pos-ujm-label-box--green" style="left:calc(1144/1200*100% - 55px); top:calc(2/340*100% - 2px);">Submit report —<br>day complete</div>
+                  </div>
+                </div>
+              </div>
+              <div class="pos-ujm-step-row">
+                <div class="pos-ujm-step-cell">Login</div>
+                <div class="pos-ujm-step-cell">Open app</div>
+                <div class="pos-ujm-step-cell">Browse products</div>
+                <div class="pos-ujm-step-cell">Scan item</div>
+                <div class="pos-ujm-step-cell">Unknown barcode</div>
+                <div class="pos-ujm-step-cell">Add to cart</div>
+                <div class="pos-ujm-step-cell">Discount</div>
+                <div class="pos-ujm-step-cell">Purchase</div>
+                <div class="pos-ujm-step-cell">Refund</div>
+                <div class="pos-ujm-step-cell">View report</div>
+                <div class="pos-ujm-step-cell">Submit report</div>
+              </div>
+              <div class="pos-ujm-axis-line" aria-hidden="true"></div>
+              <div class="pos-ujm-footer">
+                <span>Focalpay AB · Cashier POS &amp; Payment App · UX Research 2023–2024</span>
+                <span>Lead UX Designer: Neda Bagheri · neda-bn.github.io</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <p class="screen-caption">Emotion curve across a full transaction day — from login and scanning to refunds and submitting the daily report</p>
     </div>
   </section>
