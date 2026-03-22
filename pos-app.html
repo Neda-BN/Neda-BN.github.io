@@ -283,50 +283,19 @@
     pointer-events: none;
     z-index: 0;
   }
-  .pos-aff-everything { position: relative; z-index: 1; }
-  .pos-aff-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 20px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-  }
-  .pos-aff-board-label {
+  .pos-aff-heading {
     font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(0,0,0,0.35);
-    margin-bottom: 8px;
-  }
-  .pos-aff-board-title {
-    font-family: 'DM Sans', sans-serif;
-    font-size: clamp(22px, 4vw, 28px);
+    font-size: 14px;
     font-weight: 600;
-    color: rgba(0,0,0,0.85);
-    letter-spacing: -0.5px;
-    line-height: 1.1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.48);
+    text-align: center;
+    margin: 0 0 28px 0;
+    position: relative;
+    z-index: 1;
+    line-height: 1.35;
   }
-  .pos-aff-board-title span { color: #6C5CE7; }
-  .pos-aff-board-sub {
-    font-size: 13px;
-    color: rgba(0,0,0,0.4);
-    margin-top: 6px;
-    font-weight: 300;
-  }
-  .pos-aff-meta-pills { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-  .pos-aff-meta-pill {
-    background: rgba(0,0,0,0.05);
-    border: 1px solid rgba(0,0,0,0.10);
-    border-radius: 100px;
-    padding: 7px 16px;
-    font-size: 12px;
-    color: rgba(0,0,0,0.45);
-    font-weight: 400;
-  }
-  .pos-aff-meta-pill strong { color: rgba(0,0,0,0.75); font-weight: 500; }
   .pos-aff-board-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -462,19 +431,6 @@
     font-weight: 400;
     font-style: italic;
   }
-  .pos-aff-footer {
-    margin-top: 36px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(0,0,0,0.10);
-  }
-  .pos-aff-footer-left,
-  .pos-aff-footer-right { font-size: 11px; color: rgba(0,0,0,0.30); font-weight: 300; }
-
   /* Research: wide user journey infographic (high-res export) */
   .research-journey-figure { margin: 28px 0 0 0; }
   .research-journey-figure .research-journey-img {
@@ -525,7 +481,6 @@
   .fade-in.visible { opacity: 1; transform: translateY(0); }
 
   @media (max-width: 640px) {
-    .pos-aff-header { flex-direction: column; align-items: flex-start; }
     nav, .back-top, .hero, .hero-image, .content, .content--pos-ds, .bottom-back, footer { padding-left: 24px; padding-right: 24px; }
     .section-header { flex-direction: column; gap: 18px; padding: 0 0 24px 0; }
     .section-icon { width: 52px; height: 52px; }
@@ -674,19 +629,7 @@
 
   <div class="pos-affinity-embed" role="region" aria-label="Affinity mapping and card sorting synthesis">
     <div class="pos-affinity-wrap fade-in">
-      <div class="pos-aff-everything">
-        <div class="pos-aff-header">
-          <div>
-            <div class="pos-aff-board-label">Affinity mapping · Card sorting</div>
-            <div class="pos-aff-board-title">Focalpay <span>POS Terminal</span></div>
-            <div class="pos-aff-board-sub">Research synthesis from store owner &amp; cashier interviews · 2023–2024</div>
-          </div>
-          <div class="pos-aff-meta-pills">
-            <div class="pos-aff-meta-pill"><strong>4</strong> themes</div>
-            <div class="pos-aff-meta-pill"><strong>17</strong> insights</div>
-            <div class="pos-aff-meta-pill"><strong>Lead UX</strong> Neda Bagheri</div>
-          </div>
-        </div>
+        <h3 class="pos-aff-heading">Affinity mapping · Card sorting</h3>
 
         <div class="pos-aff-board-grid">
           <div class="pos-aff-cluster pos-aff-cluster-speed">
@@ -766,12 +709,6 @@
             </div>
           </div>
         </div>
-
-        <div class="pos-aff-footer">
-          <div class="pos-aff-footer-left">Focalpay AB · Cashier POS &amp; Payment App · UX Research 2023–2024</div>
-          <div class="pos-aff-footer-right">Lead UX Designer: Neda Bagheri · neda-bn.github.io</div>
-        </div>
-      </div>
     </div>
   </div>
 
