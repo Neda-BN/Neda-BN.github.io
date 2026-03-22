@@ -76,22 +76,17 @@
   .finding-stat{font-size:11px;font-weight:600;color:var(--accent);margin-top:4px;}
   .screens-section{margin-top:28px;}
   .screens-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--light);margin-bottom:16px;}
-  /* Full-bleed strip: wider than .content (820px) — journey map only */
+  /* Wider than .content (820px), centered in the viewport (same axis as the page column) */
   .hc-ujm-strip{
-    width:100vw;
-    max-width:100%;
     position:relative;
     left:50%;
-    right:50%;
-    margin-left:-50vw;
-    margin-right:-50vw;
-    padding:0 clamp(12px,3vw,28px);
+    transform:translateX(-50%);
+    width:min(1240px,calc(100vw - 24px));
+    max-width:none;
     box-sizing:border-box;
   }
   .hc-ujm-strip-inner{
     width:100%;
-    max-width:min(1240px,calc(100vw - 24px));
-    margin:0 auto;
   }
   /* Embedded user journey map (scoped — DM Sans) */
   .hc-ujm{font-family:'DM Sans',var(--sans),sans-serif;color:#1A1A1A;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#fff;box-shadow:0 4px 20px rgba(0,0,0,0.07);}
