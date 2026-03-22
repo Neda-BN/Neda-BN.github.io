@@ -73,6 +73,10 @@
   .finding-icon{width:32px;height:32px;background:var(--accent-light);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;}
   .finding-text{font-size:14px;color:var(--mid);font-style:italic;font-weight:300;line-height:1.6;}
   .finding-stat{font-size:11px;font-weight:600;color:var(--accent);margin-top:4px;}
+  .screens-section{margin-top:28px;}
+  .screens-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--light);margin-bottom:16px;}
+  .research-journey-figure{margin:0;}
+  .research-journey-figure .research-journey-img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--border);background:var(--surface);box-shadow:0 4px 20px rgba(0,0,0,0.07);image-rendering:auto;}
   .data-table{width:100%;border-collapse:collapse;margin-top:24px;background:var(--surface);border-radius:12px;overflow:hidden;border:1px solid var(--border);font-size:14px;}
   .data-table th{background:var(--dark);color:white;padding:14px 20px;text-align:left;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;}
   .data-table td{padding:14px 20px;border-bottom:1px solid var(--border);color:var(--mid);vertical-align:top;}
@@ -224,6 +228,24 @@
       <div class="finding-item"><div class="finding-icon">🗺️</div><div><p class="finding-text">Survey creation, distribution, tracking, and analysis were handled in entirely separate tools — with no handoff or continuity between them.</p><div class="finding-stat">B · Workflow analysis mapping the full survey lifecycle end to end</div></div></div>
       <div class="finding-item"><div class="finding-icon">📋</div><div><p class="finding-text">Existing spreadsheet templates showed heavy manual formatting and annotation — signs of a system stretched far beyond its intended purpose.</p><div class="finding-stat">C · Document review of spreadsheets, email templates, and reporting docs</div></div></div>
       <div class="finding-item"><div class="finding-icon">👀</div><div><p class="finding-text">Administrators switched between Outlook, Excel, and shared folders mid-task — sometimes losing their place and having to restart their entire tracking process.</p><div class="finding-stat">D · Usability observation of existing manual workflows in real sessions</div></div></div>
+    </div>
+
+    <div class="screens-section">
+      <div class="screens-label">User journey map</div>
+      <figure class="research-journey-figure">
+        <img
+          class="research-journey-img"
+          src="healthcare-user-journey-map.png"
+          srcset="healthcare-user-journey-map.png 1024w"
+          sizes="(max-width: 640px) calc(100vw - 48px), min(820px, 100vw - 96px)"
+          width="1024"
+          height="482"
+          alt="Healthcare Provider Survey Application — user journey map, emotion curve from login through create survey, Power Send, monitoring responses, analytics, and report submission; E-Health 2025"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
+      <p class="image-caption">Emotion curve across a full survey cycle — from creation to report submission.</p>
     </div>
   </section>
 
