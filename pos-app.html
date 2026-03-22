@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cashier POS &amp; Payment App · Neda Bagheri</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #F7F5F0;
@@ -253,6 +254,228 @@
   }
   .content--pos-ds .ds-sheet-figure + .screen-caption { margin-top: -8px; }
 
+  /* Affinity mapping / card sorting board (embedded between Discover & Research) */
+  .pos-affinity-embed {
+    margin: 8px 0 40px;
+    width: min(1200px, calc(100vw - 48px));
+    max-width: none;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+  }
+  .pos-affinity-wrap {
+    --pos-aff-board: #F0EEE9;
+    font-family: 'DM Sans', sans-serif;
+    background: var(--pos-aff-board);
+    padding: 36px 28px 44px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  .pos-affinity-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background-image: radial-gradient(circle, rgba(0,0,0,0.10) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .pos-aff-everything { position: relative; z-index: 1; }
+  .pos-aff-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  .pos-aff-board-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.35);
+    margin-bottom: 8px;
+  }
+  .pos-aff-board-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(22px, 4vw, 28px);
+    font-weight: 600;
+    color: rgba(0,0,0,0.85);
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+  }
+  .pos-aff-board-title span { color: #6C5CE7; }
+  .pos-aff-board-sub {
+    font-size: 13px;
+    color: rgba(0,0,0,0.4);
+    margin-top: 6px;
+    font-weight: 300;
+  }
+  .pos-aff-meta-pills { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .pos-aff-meta-pill {
+    background: rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.10);
+    border-radius: 100px;
+    padding: 7px 16px;
+    font-size: 12px;
+    color: rgba(0,0,0,0.45);
+    font-weight: 400;
+  }
+  .pos-aff-meta-pill strong { color: rgba(0,0,0,0.75); font-weight: 500; }
+  .pos-aff-board-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  @media (min-width: 640px) {
+    .pos-aff-board-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (min-width: 1024px) {
+    .pos-aff-board-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+  }
+  .pos-aff-cluster { display: flex; flex-direction: column; gap: 0; min-width: 0; }
+  .pos-aff-cluster-header {
+    border-radius: 10px 10px 0 0;
+    padding: 14px 16px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  }
+  .pos-aff-cluster-icon { font-size: 20px; line-height: 1; }
+  .pos-aff-cluster-name {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.2px;
+  }
+  .pos-aff-cluster-count {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 500;
+    opacity: 0.7;
+    background: rgba(0,0,0,0.15);
+    border-radius: 100px;
+    padding: 3px 9px;
+  }
+  .pos-aff-notes-pile {
+    background: rgba(0,0,0,0.05);
+    border-radius: 0 0 12px 12px;
+    padding: 12px 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-top: none;
+  }
+  .pos-aff-note {
+    border-radius: 6px;
+    padding: 11px 12px 12px;
+    font-family: 'Caveat', cursive;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.45;
+    position: relative;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.25), 0 1px 2px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .pos-aff-note:hover {
+    transform: translateY(-2px) rotate(0deg) !important;
+    box-shadow: 3px 6px 16px rgba(0,0,0,0.35), 0 1px 2px rgba(0,0,0,0.2);
+    z-index: 10;
+  }
+  .pos-aff-note:nth-child(1) { transform: rotate(-1.2deg); }
+  .pos-aff-note:nth-child(2) { transform: rotate(0.8deg); }
+  .pos-aff-note:nth-child(3) { transform: rotate(-0.5deg); }
+  .pos-aff-note:nth-child(4) { transform: rotate(1deg); }
+  .pos-aff-note:nth-child(5) { transform: rotate(-0.7deg); }
+  .pos-aff-note-quote {
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin-top: 4px;
+    border-left: 3px solid;
+    font-family: 'Caveat', cursive;
+    font-size: 14.5px;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1.5;
+    opacity: 0.9;
+  }
+  .pos-aff-note::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.20);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  }
+  .pos-aff-cluster-speed .pos-aff-cluster-header { background: #6C5CE7; }
+  .pos-aff-cluster-speed .pos-aff-cluster-name,
+  .pos-aff-cluster-speed .pos-aff-cluster-count { color: #fff; }
+  .pos-aff-cluster-speed .pos-aff-note { background: #ede9ff; color: #2d2460; }
+  .pos-aff-cluster-speed .pos-aff-note::before { background: #4a3ab5; }
+  .pos-aff-cluster-speed .pos-aff-note-quote { background: rgba(108,92,231,0.10); border-color: #6C5CE7; color: #4a3ab5; }
+  .pos-aff-cluster-products .pos-aff-cluster-header { background: #00B894; }
+  .pos-aff-cluster-products .pos-aff-cluster-name,
+  .pos-aff-cluster-products .pos-aff-cluster-count { color: #fff; }
+  .pos-aff-cluster-products .pos-aff-note { background: #e0faf4; color: #0a4a3c; }
+  .pos-aff-cluster-products .pos-aff-note::before { background: #007a62; }
+  .pos-aff-cluster-products .pos-aff-note-quote { background: rgba(0,184,148,0.10); border-color: #00B894; color: #006e57; }
+  .pos-aff-cluster-discounts .pos-aff-cluster-header { background: #FDCB6E; }
+  .pos-aff-cluster-discounts .pos-aff-cluster-name,
+  .pos-aff-cluster-discounts .pos-aff-cluster-count { color: #3d2600; }
+  .pos-aff-cluster-discounts .pos-aff-note { background: #fff8e1; color: #4a3000; }
+  .pos-aff-cluster-discounts .pos-aff-note::before { background: #c8900a; }
+  .pos-aff-cluster-discounts .pos-aff-note-quote { background: rgba(253,203,110,0.18); border-color: #FDCB6E; color: #7a5500; }
+  .pos-aff-cluster-reports .pos-aff-cluster-header { background: #E17055; }
+  .pos-aff-cluster-reports .pos-aff-cluster-name,
+  .pos-aff-cluster-reports .pos-aff-cluster-count { color: #fff; }
+  .pos-aff-cluster-reports .pos-aff-note { background: #fef0ec; color: #5c1a0a; }
+  .pos-aff-cluster-reports .pos-aff-note::before { background: #b54a30; }
+  .pos-aff-cluster-reports .pos-aff-note-quote { background: rgba(225,112,85,0.10); border-color: #E17055; color: #b84a2a; }
+  .pos-aff-insight-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 6px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+  .pos-aff-insight-arrow { font-size: 14px; flex-shrink: 0; margin-top: 1px; color: rgba(0,0,0,0.4); }
+  .pos-aff-insight-text {
+    font-size: 11.5px;
+    color: rgba(0,0,0,0.45);
+    line-height: 1.5;
+    font-weight: 400;
+    font-style: italic;
+  }
+  .pos-aff-footer {
+    margin-top: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0,0,0,0.10);
+  }
+  .pos-aff-footer-left,
+  .pos-aff-footer-right { font-size: 11px; color: rgba(0,0,0,0.30); font-weight: 300; }
+
   /* Research: wide user journey infographic (high-res export) */
   .research-journey-figure { margin: 28px 0 0 0; }
   .research-journey-figure .research-journey-img {
@@ -303,6 +526,8 @@
   .fade-in.visible { opacity: 1; transform: translateY(0); }
 
   @media (max-width: 640px) {
+    .pos-affinity-embed { width: 100%; margin-left: 0; transform: none; }
+    .pos-aff-header { flex-direction: column; align-items: flex-start; }
     nav, .back-top, .hero, .hero-image, .content, .content--pos-ds, .bottom-back, footer { padding-left: 24px; padding-right: 24px; }
     .section-header { flex-direction: column; gap: 18px; padding: 0 0 24px 0; }
     .section-icon { width: 52px; height: 52px; }
@@ -446,6 +671,111 @@
       <cite>— Store Owner, Usability Research Session</cite>
     </div>
   </section>
+
+  <div class="divider"></div>
+
+  <div class="pos-affinity-embed fade-in" role="region" aria-label="Affinity mapping and card sorting synthesis">
+    <div class="pos-affinity-wrap">
+      <div class="pos-aff-everything">
+        <div class="pos-aff-header">
+          <div>
+            <div class="pos-aff-board-label">Affinity mapping · Card sorting</div>
+            <div class="pos-aff-board-title">Focalpay <span>POS Terminal</span></div>
+            <div class="pos-aff-board-sub">Research synthesis from store owner &amp; cashier interviews · 2023–2024</div>
+          </div>
+          <div class="pos-aff-meta-pills">
+            <div class="pos-aff-meta-pill"><strong>4</strong> themes</div>
+            <div class="pos-aff-meta-pill"><strong>17</strong> insights</div>
+            <div class="pos-aff-meta-pill"><strong>Lead UX</strong> Neda Bagheri</div>
+          </div>
+        </div>
+
+        <div class="pos-aff-board-grid">
+          <div class="pos-aff-cluster pos-aff-cluster-speed">
+            <div class="pos-aff-cluster-header">
+              <div class="pos-aff-cluster-icon" aria-hidden="true">⚡</div>
+              <div class="pos-aff-cluster-name">Speed &amp; Flow</div>
+              <div class="pos-aff-cluster-count">5 notes</div>
+            </div>
+            <div class="pos-aff-notes-pile">
+              <div class="pos-aff-note">Every extra tap costs real time when a customer is waiting</div>
+              <div class="pos-aff-note">Cashiers rarely look at the screen — they rely on muscle memory</div>
+              <div class="pos-aff-note">Legacy POS needed 4+ taps just to complete one purchase</div>
+              <div class="pos-aff-note">The cart must always be visible — never hidden behind navigation</div>
+              <div class="pos-aff-note">Quick actions (scan, bag, discount) must be one gesture away</div>
+              <div class="pos-aff-note-quote">"We want something that just works — fast. Staff shouldn't need training."</div>
+            </div>
+            <div class="pos-aff-insight-row">
+              <div class="pos-aff-insight-arrow" aria-hidden="true">→</div>
+              <div class="pos-aff-insight-text">Single scrollable home screen eliminates all secondary navigation for core flows</div>
+            </div>
+          </div>
+
+          <div class="pos-aff-cluster pos-aff-cluster-products">
+            <div class="pos-aff-cluster-header">
+              <div class="pos-aff-cluster-icon" aria-hidden="true">📦</div>
+              <div class="pos-aff-cluster-name">Product Management</div>
+              <div class="pos-aff-cluster-count">4 notes</div>
+            </div>
+            <div class="pos-aff-notes-pile">
+              <div class="pos-aff-note">Stores needed a separate back-office just to add products — a real blocker</div>
+              <div class="pos-aff-note">Unknown barcodes created dead-ends at the till — no recovery path</div>
+              <div class="pos-aff-note">Staff wanted to create new products directly from the POS camera</div>
+              <div class="pos-aff-note">Search by EAN or name needed — not all items have scannable codes</div>
+              <div class="pos-aff-note-quote">"We shouldn't need two systems. Everything should be in one place."</div>
+            </div>
+            <div class="pos-aff-insight-row">
+              <div class="pos-aff-insight-arrow" aria-hidden="true">→</div>
+              <div class="pos-aff-insight-text">In-app product creation from unknown scan removes back-office dependency entirely</div>
+            </div>
+          </div>
+
+          <div class="pos-aff-cluster pos-aff-cluster-discounts">
+            <div class="pos-aff-cluster-header">
+              <div class="pos-aff-cluster-icon" aria-hidden="true">%</div>
+              <div class="pos-aff-cluster-name">Discounts &amp; Refunds</div>
+              <div class="pos-aff-cluster-count">4 notes</div>
+            </div>
+            <div class="pos-aff-notes-pile">
+              <div class="pos-aff-note">Discounts must apply to a single product OR the whole receipt</div>
+              <div class="pos-aff-note">SEK vs % toggle needed — different promo types for different stores</div>
+              <div class="pos-aff-note">Refundable vs non-refundable distinction causes major cashier confusion</div>
+              <div class="pos-aff-note">Large keypad keys are critical — cashiers sometimes wear gloves</div>
+              <div class="pos-aff-note-quote">"Make it simple — 2 choices max. I don't have time to read options."</div>
+            </div>
+            <div class="pos-aff-insight-row">
+              <div class="pos-aff-insight-arrow" aria-hidden="true">→</div>
+              <div class="pos-aff-insight-text">2 scope × 2 type toggle — maximum flexibility with minimum decisions</div>
+            </div>
+          </div>
+
+          <div class="pos-aff-cluster pos-aff-cluster-reports">
+            <div class="pos-aff-cluster-header">
+              <div class="pos-aff-cluster-icon" aria-hidden="true">📊</div>
+              <div class="pos-aff-cluster-name">Reports &amp; End-of-Day</div>
+              <div class="pos-aff-cluster-count">4 notes</div>
+            </div>
+            <div class="pos-aff-notes-pile">
+              <div class="pos-aff-note">Store owners need daily totals without switching to another app</div>
+              <div class="pos-aff-note">Report gaps occur when empty days go unsubmitted — a compliance risk</div>
+              <div class="pos-aff-note">Register vs control-check view is mandatory for end-of-day audits</div>
+              <div class="pos-aff-note">Transaction history must be searchable and filterable by payment method</div>
+              <div class="pos-aff-note-quote">"Done in 2 minutes. No spreadsheet, no second app — finally."</div>
+            </div>
+            <div class="pos-aff-insight-row">
+              <div class="pos-aff-insight-arrow" aria-hidden="true">→</div>
+              <div class="pos-aff-insight-text">"Coming up" feature prevents gaps; integrated reporting removes the #1 reason to switch tools</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pos-aff-footer">
+          <div class="pos-aff-footer-left">Focalpay AB · Cashier POS &amp; Payment App · UX Research 2023–2024</div>
+          <div class="pos-aff-footer-right">Lead UX Designer: Neda Bagheri · neda-bn.github.io</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="divider"></div>
 
