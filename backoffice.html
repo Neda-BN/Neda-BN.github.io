@@ -203,7 +203,7 @@
   .ds-sheet-figure.ds-cap-882{max-width:min(100%,882px);margin-left:auto;margin-right:auto;}
   .ds-sheet-figure .ds-img{
     width:100%;
-    max-width:100%;
+    max-width:min(100%,3350px);
     height:auto;
     display:block;
     border-radius:14px;
@@ -211,6 +211,8 @@
     background:var(--surface);
     box-shadow:0 12px 40px rgba(26,26,26,0.1);
     image-rendering:auto;
+    transform:none;
+    filter:none;
   }
   .ds-theme-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px;}
   .ds-theme-item{display:flex;flex-direction:column;gap:12px;margin:0;min-width:0;}
