@@ -65,10 +65,14 @@
     max-width:22em;
     letter-spacing:0.01em;
   }
+  .hero-image picture{display:block;}
   .hero-image .case-hero-img{
     width:100%;
+    max-width:1024px;
     height:auto;
     display:block;
+    margin-left:auto;
+    margin-right:auto;
     border-radius:16px;
     box-shadow:0 4px 24px rgba(26,42,90,0.12);
   }
@@ -173,16 +177,20 @@
   .case-study-figure{margin:0 0 40px 0;}
   .case-study-figure:last-child{margin-bottom:0;}
   .case-study-figure figcaption{font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--light);margin-bottom:14px;}
-  .case-study-figure img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--border);background:var(--surface);box-shadow:0 8px 28px rgba(26,26,26,0.07);}
-  .content--design-system{max-width:1100px;}
+  .case-study-figure picture{display:block;}
+  .case-study-figure img,.case-study-figure picture img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--border);background:var(--surface);box-shadow:0 8px 28px rgba(26,26,26,0.07);}
+  /* Native pixel bounds: never upscale low-res exports (avoids blur on large viewports) */
+  .content--design-system{max-width:min(100%,1024px);}
   .ds-sheet-figure{margin:0 0 48px 0;}
   .ds-sheet-figure:last-child{margin-bottom:0;}
   .ds-sheet-figure figcaption{font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--light);margin-bottom:14px;}
-  .ds-sheet-figure img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--border);background:var(--surface);box-shadow:0 12px 40px rgba(26,26,26,0.1);}
+  .ds-sheet-figure picture{display:block;}
+  .ds-sheet-figure picture img{width:auto;max-width:100%;height:auto;display:block;margin-left:auto;margin-right:auto;border-radius:14px;border:1px solid var(--border);background:var(--surface);box-shadow:0 12px 40px rgba(26,26,26,0.1);}
   .ds-theme-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px;}
   .ds-theme-item{display:flex;flex-direction:column;gap:12px;margin:0;}
   .ds-theme-title{font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--light);margin:0;}
-  .ds-theme-item img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--border);background:var(--surface);box-shadow:0 8px 28px rgba(26,26,26,0.07);}
+  .ds-theme-item picture{display:block;}
+  .ds-theme-item img,.ds-theme-item picture img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--border);background:var(--surface);box-shadow:0 8px 28px rgba(26,26,26,0.07);}
   .bottom-back{padding:0 48px 48px;max-width:820px;margin:0 auto;}
   .bottom-back a{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--dark);text-decoration:none;opacity:0.55;transition:opacity 0.2s;}
   .bottom-back a:hover{opacity:1;}
@@ -218,7 +226,10 @@
 </section>
 
 <div class="hero-image">
-  <img class="case-hero-img" src="backoffice-dashboard-hero.png" alt="Focalpay Back-office — dashboard on laptop and mobile in a grocery retail setting" width="1024" height="512" loading="eager" decoding="async" />
+  <picture>
+    <source type="image/webp" srcset="backoffice-dashboard-hero.webp">
+    <img class="case-hero-img" src="backoffice-dashboard-hero.png" alt="Focalpay Back-office — dashboard on laptop and mobile in a grocery retail setting" width="1024" height="512" loading="eager" decoding="async" fetchpriority="high">
+  </picture>
 </div>
 
 <div class="content">
@@ -295,7 +306,10 @@
 </div>
 
 <div class="hero-image">
-  <img class="case-hero-img" src="backoffice-design-process.png" alt="Focalpay Back-office design process: Product &amp; Campaign mapping — card sorting, product hierarchy, and campaign template analysis on a whiteboard" width="1024" height="571" loading="lazy" decoding="async" />
+  <picture>
+    <source type="image/webp" srcset="backoffice-design-process.webp">
+    <img class="case-hero-img" src="backoffice-design-process.png" alt="Focalpay Back-office design process: Product &amp; Campaign mapping — card sorting, product hierarchy, and campaign template analysis on a whiteboard" width="1024" height="571" loading="lazy" decoding="async">
+  </picture>
 </div>
 
 <div class="content">
@@ -400,24 +414,39 @@
     <p>Below are five specification sheets from the project: foundations (colour, typography, spacing, radius), buttons, inputs and forms, then the product detail pattern shown in both themes.</p>
     <figure class="ds-sheet-figure">
       <figcaption>Sheet 01 — Foundations · Colour, typography, spacing, radius</figcaption>
-      <img src="backoffice-ds-01-foundations.png" alt="Design system foundations: brand and semantic colours, typography scale, spacing scale, border radius" width="947" height="1024" loading="lazy" decoding="async" sizes="(max-width: 1100px) 100vw, 1100px">
+      <picture>
+        <source type="image/webp" srcset="backoffice-ds-01-foundations.webp">
+        <img src="backoffice-ds-01-foundations.png" alt="Design system foundations: brand and semantic colours, typography scale, spacing scale, border radius" width="947" height="1024" loading="lazy" decoding="async" sizes="(max-width: 1024px) 100vw, 947px">
+      </picture>
     </figure>
     <figure class="ds-sheet-figure">
       <figcaption>Sheet 02 — Buttons · Primary, secondary, tertiary, states, sizes</figcaption>
-      <img src="backoffice-ds-02-buttons.png" alt="Design system: button components — primary, secondary, tertiary, all states and sizes" width="924" height="1024" loading="lazy" decoding="async" sizes="(max-width: 1100px) 100vw, 1100px">
+      <picture>
+        <source type="image/webp" srcset="backoffice-ds-02-buttons.webp">
+        <img src="backoffice-ds-02-buttons.png" alt="Design system: button components — primary, secondary, tertiary, all states and sizes" width="924" height="1024" loading="lazy" decoding="async" sizes="(max-width: 1024px) 100vw, 924px">
+      </picture>
     </figure>
     <figure class="ds-sheet-figure">
       <figcaption>Sheet 03 — Forms · Text input, checkbox, radio, keypad, pagination, tabs, breadcrumb</figcaption>
-      <img src="backoffice-ds-03-forms.png" alt="Design system: form inputs, checkboxes, radio, keypad, pagination, tabs, breadcrumb" width="882" height="1024" loading="lazy" decoding="async" sizes="(max-width: 1100px) 100vw, 1100px">
+      <picture>
+        <source type="image/webp" srcset="backoffice-ds-03-forms.webp">
+        <img src="backoffice-ds-03-forms.png" alt="Design system: form inputs, checkboxes, radio, keypad, pagination, tabs, breadcrumb" width="882" height="1024" loading="lazy" decoding="async" sizes="(max-width: 1024px) 100vw, 882px">
+      </picture>
     </figure>
     <div class="ds-theme-row" role="group" aria-label="Product detail screen in dark and light themes">
       <div class="ds-theme-item">
         <p class="ds-theme-title">Dark mode</p>
-        <img src="backoffice-ds-04-dark-mode.png" alt="Back-office product detail UI in dark mode" width="1024" height="576" loading="lazy" decoding="async" sizes="(max-width: 640px) 100vw, 530px">
+        <picture>
+          <source type="image/webp" srcset="backoffice-ds-04-dark-mode.webp">
+          <img src="backoffice-ds-04-dark-mode.png" alt="Back-office product detail UI in dark mode" width="1024" height="576" loading="lazy" decoding="async" sizes="(max-width: 640px) 100vw, 50vw">
+        </picture>
       </div>
       <div class="ds-theme-item">
         <p class="ds-theme-title">Light mode</p>
-        <img src="backoffice-ds-05-light-mode.png" alt="Back-office product detail UI in light mode" width="1024" height="576" loading="lazy" decoding="async" sizes="(max-width: 640px) 100vw, 530px">
+        <picture>
+          <source type="image/webp" srcset="backoffice-ds-05-light-mode.webp">
+          <img src="backoffice-ds-05-light-mode.png" alt="Back-office product detail UI in light mode" width="1024" height="576" loading="lazy" decoding="async" sizes="(max-width: 640px) 100vw, 50vw">
+        </picture>
       </div>
     </div>
   </section>
@@ -436,11 +465,17 @@
     <p>Representative UI from the modules described above: the <strong>product catalogue and detail views</strong> where information hierarchy was redesigned, followed by <strong>weighted campaigns</strong> — list, creation flow, and overview.</p>
     <figure class="case-study-figure">
       <figcaption>Product list &amp; details</figcaption>
-      <img src="backoffice-product-list-details.png" alt="Back-office UI: product list, product details tabs for information, supplier, and categories" width="1994" height="4878" loading="lazy" decoding="async" sizes="(max-width: 900px) 100vw, 820px">
+      <picture>
+        <source type="image/webp" srcset="backoffice-product-list-details.webp">
+        <img src="backoffice-product-list-details.png" alt="Back-office UI: product list, product details tabs for information, supplier, and categories" width="1994" height="4878" loading="lazy" decoding="async" sizes="(max-width: 900px) 100vw, 820px">
+      </picture>
     </figure>
     <figure class="case-study-figure">
       <figcaption>Weight campaigns</figcaption>
-      <img src="backoffice-weight-campaigns.png" alt="Back-office UI: product list in category, campaign creation flow, and campaigns overview" width="1994" height="4878" loading="lazy" decoding="async" sizes="(max-width: 900px) 100vw, 820px">
+      <picture>
+        <source type="image/webp" srcset="backoffice-weight-campaigns.webp">
+        <img src="backoffice-weight-campaigns.png" alt="Back-office UI: product list in category, campaign creation flow, and campaigns overview" width="1994" height="4878" loading="lazy" decoding="async" sizes="(max-width: 900px) 100vw, 820px">
+      </picture>
     </figure>
   </section>
 
