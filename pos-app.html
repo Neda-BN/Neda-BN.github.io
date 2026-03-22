@@ -254,19 +254,27 @@
   }
   .content--pos-ds .ds-sheet-figure + .screen-caption { margin-top: -8px; }
 
-  /* Affinity mapping / card sorting board — same horizontal band as .content (no viewport centering hack) */
+  /* Affinity board: wider than .content (820px) — isolated strip, no horizontal scroll */
+  .pos-affinity-strip {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 24px;
+    display: flex;
+    justify-content: center;
+  }
   .pos-affinity-embed {
     margin: 8px 0 40px;
     width: 100%;
-    max-width: 100%;
+    max-width: min(1200px, calc(100vw - 48px));
     position: relative;
     box-sizing: border-box;
+    flex-shrink: 0;
   }
   .pos-affinity-wrap {
     --pos-aff-board: #F0EEE9;
     font-family: 'DM Sans', sans-serif;
     background: var(--pos-aff-board);
-    padding: 36px 28px 44px;
+    padding: 36px clamp(20px, 2.5vw, 36px) 44px;
     border-radius: 20px;
     border: 1px solid var(--border);
     position: relative;
@@ -625,8 +633,11 @@
     </div>
   </section>
 
+</div>
+
   <div class="divider"></div>
 
+  <div class="pos-affinity-strip">
   <div class="pos-affinity-embed" role="region" aria-label="Affinity mapping and card sorting synthesis">
     <div class="pos-affinity-wrap fade-in">
         <h3 class="pos-aff-heading">Affinity mapping · Card sorting</h3>
@@ -711,8 +722,11 @@
         </div>
     </div>
   </div>
+  </div>
 
   <div class="divider"></div>
+
+  <div class="content">
 
   <section class="section fade-in">
     <div class="section-header">
