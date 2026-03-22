@@ -20,7 +20,7 @@
     --sans: 'Open Sans', sans-serif;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: var(--sans); background: var(--bg); color: var(--dark); font-size: 16px; line-height: 1.7; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--dark); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
 
   nav {
     position: sticky; top: 0; z-index: 100;
@@ -254,14 +254,13 @@
   }
   .content--pos-ds .ds-sheet-figure + .screen-caption { margin-top: -8px; }
 
-  /* Affinity mapping / card sorting board (embedded between Discover & Research) */
+  /* Affinity mapping / card sorting board — same horizontal band as .content (no viewport centering hack) */
   .pos-affinity-embed {
     margin: 8px 0 40px;
-    width: min(1200px, calc(100vw - 48px));
-    max-width: none;
-    margin-left: 50%;
-    transform: translateX(-50%);
+    width: 100%;
+    max-width: 100%;
     position: relative;
+    box-sizing: border-box;
   }
   .pos-affinity-wrap {
     --pos-aff-board: #F0EEE9;
@@ -526,7 +525,6 @@
   .fade-in.visible { opacity: 1; transform: translateY(0); }
 
   @media (max-width: 640px) {
-    .pos-affinity-embed { width: 100%; margin-left: 0; transform: none; }
     .pos-aff-header { flex-direction: column; align-items: flex-start; }
     nav, .back-top, .hero, .hero-image, .content, .content--pos-ds, .bottom-back, footer { padding-left: 24px; padding-right: 24px; }
     .section-header { flex-direction: column; gap: 18px; padding: 0 0 24px 0; }
