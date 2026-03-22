@@ -19,6 +19,7 @@
     --sans: 'Open Sans', sans-serif;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  img { max-width: 100%; height: auto; }
   body { font-family: var(--sans); background: var(--bg); color: var(--dark); font-size: 16px; line-height: 1.7; }
 
   nav {
@@ -50,7 +51,7 @@
   .image-placeholder.image-placeholder--screen { aspect-ratio: 572 / 1024; border-radius: 0; }
   .screen-wrap > .image-placeholder.image-placeholder--screen { min-height: 0; }
   .image-placeholder::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.03) 40px, rgba(255,255,255,0.03) 41px), repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,0.03) 40px, rgba(255,255,255,0.03) 41px); }
-  .image-placeholder img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; display: block; position: relative; z-index: 1; }
+  .image-placeholder img { width: 100%; max-width: 100%; height: auto; object-fit: contain; object-position: center; border-radius: 16px; display: block; position: relative; z-index: 1; }
   .image-label { font-family: var(--serif); font-size: clamp(12px, 2.2vw, 18px); color: rgba(255,255,255,0.7); text-align: center; z-index: 1; position: relative; padding: 8px; line-height: 1.25; }
 
   /* Hero: scroll loop (left) + empty frame (right, image later) */
@@ -205,7 +206,7 @@
   .screens-grid.col-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .screen-item { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
   .screen-wrap { border-radius: 20px; overflow: hidden; border: 1px solid var(--border); background: var(--surface); box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
-  .screen-wrap img { width: 100%; display: block; }
+  .screen-wrap img { width: 100%; max-width: 100%; height: auto; display: block; }
   .screen-caption { font-size: 12px; color: var(--light); text-align: center; padding: 0 4px; margin: 0; font-style: italic; line-height: 1.45; }
 
   .ab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
