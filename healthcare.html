@@ -304,8 +304,73 @@
       <div class="finding-item"><div class="finding-icon">👀</div><div><p class="finding-text">Administrators switched between Outlook, Excel, and shared folders mid-task — sometimes losing their place and having to restart their entire tracking process.</p><div class="finding-stat">D · Usability observation of existing manual workflows in real sessions</div></div></div>
     </div>
 
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- DESIGN PROCESS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">Process</h2><p class="section-subtitle">Clarity first, complexity second</p></div>
+    </div>
+    <p>The platform had to handle complex Swedish healthcare hierarchies — <strong>providers, municipalities, districts, and individual social workers</strong> — without overwhelming users who are already stretched thin. Every design decision was oriented around reducing cognitive load at each step of the workflow.</p>
+    <div class="process-steps">
+      <div class="process-step"><div class="step-number">01</div><div class="step-content"><h4>Research & workflow mapping</h4><p>Mapped the full survey lifecycle from creation through reporting. Identified three major bottlenecks: distribution setup, response tracking, and quarterly analysis.</p></div></div>
+      <div class="process-step"><div class="step-number">02</div><div class="step-content"><h4>Information architecture</h4><p>Structured the platform into three clear sections — Surveys, Analysis, Reports — matching the mental model administrators already had for their day-to-day work.</p></div></div>
+      <div class="process-step"><div class="step-number">03</div><div class="step-content"><h4>Hierarchy design</h4><p>Designed an accordion-based navigation system to surface the Provider → Municipality → District → Social Worker hierarchy progressively, one level at a time.</p></div></div>
+      <div class="process-step"><div class="step-number">04</div><div class="step-content"><h4>Wizard design</h4><p>Created the 6-step "Power Send" distribution wizard to replace the error-prone manual process of selecting recipients, managing email lists, and reviewing send details.</p></div></div>
+      <div class="process-step"><div class="step-number">05</div><div class="step-content"><h4>Usability testing</h4><p>Moderated task-based testing with 5 healthcare administrators. Uncovered a critical visibility issue with the "Select All" control and iterated to fix it.</p></div></div>
+      <div class="process-step"><div class="step-number">06</div><div class="step-content"><h4>Build with Cursor AI</h4><p>Implemented the platform using Cursor AI with structured prompt engineering to enforce design consistency, accessibility standards, and handle complex nested data structures.</p></div></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- DESIGN CHALLENGE I — IMAGE PLACEHOLDER 2 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">Hierarchy</h2><p class="section-subtitle">Taming the Healthcare Hierarchy</p></div>
+    </div>
+    <p>The Swedish healthcare system has multiple administrative levels. Showing all of them simultaneously created long, impenetrable lists — the exact kind of overwhelming complexity that had eroded administrators' trust in digital tools before this platform existed.</p>
+    <table class="data-table">
+      <thead><tr><th>Level</th><th>Description</th><th>Design solution</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Provider</strong></td><td>Top-level healthcare organisation</td><td>Always visible in the persistent collapsible sidebar</td></tr>
+        <tr><td><strong>Municipality</strong></td><td>30+ municipalities per provider</td><td>Accordion — expand on tap to reveal districts beneath</td></tr>
+        <tr><td><strong>District</strong></td><td>Sub-units within each municipality</td><td>Nested accordion, revealed one level at a time</td></tr>
+        <tr><td><strong>Social Worker</strong></td><td>Individual survey respondents</td><td>Only surfaced when a specific district is selected</td></tr>
+      </tbody>
+    </table>
+    <div class="hc-case-study-media hc-case-study-media--2x">
+      <img src="healthcare-process-card-sorting.png?v=20260324" alt="Design workshop: card sorting and mapping the healthcare provider hierarchy for navigation structure." width="1024" height="653" loading="lazy" decoding="async" sizes="(max-width:900px) 200vw, 1640px">
+    </div>
+    <p class="image-caption">Accordion-based navigation system — reducing visual clutter across 30+ municipalities</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- DESIGN CHALLENGE II — IMAGE PLACEHOLDER 3 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">Wizard</h2><p class="section-subtitle">The 6-Step "Power Send" Wizard</p></div>
+    </div>
+    <p>Before this platform, sending a survey to 30+ municipalities required selecting recipients manually, managing email lists, and reviewing everything across separate documents. One missed municipality could invalidate an entire reporting cycle.</p>
+    <p>I replaced this with a <strong>guided distribution wizard</strong> that breaks the process into six clear, linear steps — each one verified before the next becomes available.</p>
+    <div class="wizard-steps">
+      <div class="wizard-step"><div class="wizard-step-num">01</div><h4>Select survey</h4><p>Choose the template to distribute to municipalities</p></div>
+      <div class="wizard-step"><div class="wizard-step-num">02</div><h4>Choose recipients</h4><p>Filter and select municipalities from the hierarchy</p></div>
+      <div class="wizard-step"><div class="wizard-step-num">03</div><h4>Set language</h4><p>Choose survey language per municipality or region</p></div>
+      <div class="wizard-step"><div class="wizard-step-num">04</div><h4>Set deadline</h4><p>Define response deadlines for each recipient group</p></div>
+      <div class="wizard-step"><div class="wizard-step-num">05</div><h4>Review</h4><p>Confirm all details before the survey goes out</p></div>
+      <div class="wizard-step"><div class="wizard-step-num">06</div><h4>Send</h4><p>Distribute to all selected recipients simultaneously</p></div>
+    </div>
+
+
     <div class="screens-section">
-      <div class="screens-label">User journey map</div>
+      <div class="screens-label">User Journey Map · E-Health · 2025</div>
       <div class="hc-ujm-strip">
         <div class="hc-ujm-strip-inner">
       <div class="hc-ujm" role="img" aria-label="User journey map: emotion curve across a full survey cycle from login to report submission. Ten steps including Power Send, monitoring responses, and analytics.">
@@ -423,69 +488,6 @@
       </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- DESIGN PROCESS -->
-  <section class="section">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Process</h2><p class="section-subtitle">Clarity first, complexity second</p></div>
-    </div>
-    <p>The platform had to handle complex Swedish healthcare hierarchies — <strong>providers, municipalities, districts, and individual social workers</strong> — without overwhelming users who are already stretched thin. Every design decision was oriented around reducing cognitive load at each step of the workflow.</p>
-    <div class="process-steps">
-      <div class="process-step"><div class="step-number">01</div><div class="step-content"><h4>Research & workflow mapping</h4><p>Mapped the full survey lifecycle from creation through reporting. Identified three major bottlenecks: distribution setup, response tracking, and quarterly analysis.</p></div></div>
-      <div class="process-step"><div class="step-number">02</div><div class="step-content"><h4>Information architecture</h4><p>Structured the platform into three clear sections — Surveys, Analysis, Reports — matching the mental model administrators already had for their day-to-day work.</p></div></div>
-      <div class="process-step"><div class="step-number">03</div><div class="step-content"><h4>Hierarchy design</h4><p>Designed an accordion-based navigation system to surface the Provider → Municipality → District → Social Worker hierarchy progressively, one level at a time.</p></div></div>
-      <div class="process-step"><div class="step-number">04</div><div class="step-content"><h4>Wizard design</h4><p>Created the 6-step "Power Send" distribution wizard to replace the error-prone manual process of selecting recipients, managing email lists, and reviewing send details.</p></div></div>
-      <div class="process-step"><div class="step-number">05</div><div class="step-content"><h4>Usability testing</h4><p>Moderated task-based testing with 5 healthcare administrators. Uncovered a critical visibility issue with the "Select All" control and iterated to fix it.</p></div></div>
-      <div class="process-step"><div class="step-number">06</div><div class="step-content"><h4>Build with Cursor AI</h4><p>Implemented the platform using Cursor AI with structured prompt engineering to enforce design consistency, accessibility standards, and handle complex nested data structures.</p></div></div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- DESIGN CHALLENGE I — IMAGE PLACEHOLDER 2 -->
-  <section class="section">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Hierarchy</h2><p class="section-subtitle">Taming the Healthcare Hierarchy</p></div>
-    </div>
-    <p>The Swedish healthcare system has multiple administrative levels. Showing all of them simultaneously created long, impenetrable lists — the exact kind of overwhelming complexity that had eroded administrators' trust in digital tools before this platform existed.</p>
-    <table class="data-table">
-      <thead><tr><th>Level</th><th>Description</th><th>Design solution</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Provider</strong></td><td>Top-level healthcare organisation</td><td>Always visible in the persistent collapsible sidebar</td></tr>
-        <tr><td><strong>Municipality</strong></td><td>30+ municipalities per provider</td><td>Accordion — expand on tap to reveal districts beneath</td></tr>
-        <tr><td><strong>District</strong></td><td>Sub-units within each municipality</td><td>Nested accordion, revealed one level at a time</td></tr>
-        <tr><td><strong>Social Worker</strong></td><td>Individual survey respondents</td><td>Only surfaced when a specific district is selected</td></tr>
-      </tbody>
-    </table>
-    <div class="hc-case-study-media hc-case-study-media--2x">
-      <img src="healthcare-process-card-sorting.png?v=20260324" alt="Design workshop: card sorting and mapping the healthcare provider hierarchy for navigation structure." width="1024" height="653" loading="lazy" decoding="async" sizes="(max-width:900px) 200vw, 1640px">
-    </div>
-    <p class="image-caption">Accordion-based navigation system — reducing visual clutter across 30+ municipalities</p>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- DESIGN CHALLENGE II — IMAGE PLACEHOLDER 3 -->
-  <section class="section">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Wizard</h2><p class="section-subtitle">The 6-Step "Power Send" Wizard</p></div>
-    </div>
-    <p>Before this platform, sending a survey to 30+ municipalities required selecting recipients manually, managing email lists, and reviewing everything across separate documents. One missed municipality could invalidate an entire reporting cycle.</p>
-    <p>I replaced this with a <strong>guided distribution wizard</strong> that breaks the process into six clear, linear steps — each one verified before the next becomes available.</p>
-    <div class="wizard-steps">
-      <div class="wizard-step"><div class="wizard-step-num">01</div><h4>Select survey</h4><p>Choose the template to distribute to municipalities</p></div>
-      <div class="wizard-step"><div class="wizard-step-num">02</div><h4>Choose recipients</h4><p>Filter and select municipalities from the hierarchy</p></div>
-      <div class="wizard-step"><div class="wizard-step-num">03</div><h4>Set language</h4><p>Choose survey language per municipality or region</p></div>
-      <div class="wizard-step"><div class="wizard-step-num">04</div><h4>Set deadline</h4><p>Define response deadlines for each recipient group</p></div>
-      <div class="wizard-step"><div class="wizard-step-num">05</div><h4>Review</h4><p>Confirm all details before the survey goes out</p></div>
-      <div class="wizard-step"><div class="wizard-step-num">06</div><h4>Send</h4><p>Distribute to all selected recipients simultaneously</p></div>
     </div>
     <p class="image-caption">The guided wizard reduced distribution errors and made the process faster for every administrator</p>
   </section>
