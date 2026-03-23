@@ -93,7 +93,7 @@
   }
   /* Full-width strip image (same width as UJM) — Validation hi-fi composite */
   .hc-validation-proto-frame{width:100%;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:var(--surface);box-shadow:0 4px 20px rgba(0,0,0,0.07);}
-  .hc-validation-proto-frame img{width:100%;height:auto;display:block;object-fit:contain;image-rendering:auto;}
+  .hc-validation-proto-frame video{width:100%;height:auto;display:block;background:#0f1419;}
   /* Embedded user journey map (scoped — DM Sans) */
   .hc-ujm{font-family:'DM Sans',var(--sans),sans-serif;color:#1A1A1A;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#fff;box-shadow:0 4px 20px rgba(0,0,0,0.07);}
   .hc-ujm *{box-sizing:border-box;}
@@ -551,7 +551,9 @@
     <div class="hc-ujm-strip" style="margin-top:28px;">
       <div class="hc-ujm-strip-inner">
         <div class="hc-validation-proto-frame">
-          <img src="healthcare-validation-hifi-prototype.png" alt="High-fidelity prototype composite: administrative platform screens and mobile survey template for the healthcare provider survey application." width="598" height="1024" loading="lazy" decoding="async">
+          <video controls playsinline preload="metadata" aria-label="High-fidelity prototype walkthrough: administrative platform screens and mobile survey template for the healthcare provider survey application.">
+            <source src="healthcare-validation-hifi-prototype.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
     </div>
