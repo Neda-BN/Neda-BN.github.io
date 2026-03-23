@@ -91,7 +91,7 @@
   .hc-ujm-strip-inner{
     width:100%;
   }
-  /* Full-width strip image (same width as UJM) — Validation hi-fi composite */
+  /* Full-width strip (same width as UJM) — Validation hi-fi video */
   .hc-validation-proto-frame{width:100%;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:var(--surface);box-shadow:0 4px 20px rgba(0,0,0,0.07);}
   .hc-validation-proto-frame video{width:100%;height:auto;display:block;background:#0f1419;}
   /* Embedded user journey map (scoped — DM Sans) */
@@ -551,7 +551,7 @@
     <div class="hc-ujm-strip" style="margin-top:28px;">
       <div class="hc-ujm-strip-inner">
         <div class="hc-validation-proto-frame">
-          <video controls playsinline preload="metadata" aria-label="High-fidelity prototype walkthrough: administrative platform screens and mobile survey template for the healthcare provider survey application.">
+          <video id="hc-validation-video" controls playsinline muted preload="metadata" aria-label="High-fidelity prototype walkthrough: administrative platform screens and mobile survey template for the healthcare provider survey application.">
             <source src="healthcare-validation-hifi-prototype.mp4" type="video/mp4">
           </video>
         </div>
@@ -601,6 +601,27 @@
   <p>© 2026 Neda Bagheri · Stockholm</p>
   <p><a href="mailto:nedabagheri.nz@gmail.com">nedabagheri.nz@gmail.com</a></p>
 </footer>
+
+<script>
+(function () {
+  var v = document.getElementById('hc-validation-video');
+  if (!v || !window.IntersectionObserver) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var p = v.play();
+        if (p && typeof p.catch === 'function') p.catch(function () {});
+      } else {
+        v.pause();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  io.observe(v);
+})();
+</script>
 
 </body>
 </html>
