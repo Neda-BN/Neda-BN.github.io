@@ -230,17 +230,13 @@
   .screen-item { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
   .screen-wrap { border-radius: 20px; overflow: hidden; border: 1px solid var(--border); background: var(--surface); box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
   .screen-wrap img { width: 100%; display: block; }
-  /* Results hero photo: intrinsic 1024×565 — correct layout box so the image is not stretched */
-  .screen-wrap.screen-wrap--results-impact {
+  /* Real photos (not fixed phone mock aspect): never stretch — follow file aspect ratio */
+  .screen-wrap.screen-wrap--natural-photo { width: 100%; }
+  .screen-wrap.screen-wrap--natural-photo img {
     width: 100%;
-    max-width: min(100%, 1024px);
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .screen-wrap.screen-wrap--results-impact img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
-    display: block;
+    object-fit: contain;
   }
   .screen-caption { font-size: 12px; color: var(--light); text-align: center; padding: 0 4px; margin: 0; font-style: italic; line-height: 1.45; }
 
@@ -1129,7 +1125,7 @@
       <div class="result-card"><div class="result-number">WCAG</div><div class="result-label">AA compliant — accessible on all screen sizes and devices</div></div>
     </div>
     <div class="screens-section" style="margin-top:28px;">
-      <div class="screen-wrap screen-wrap--results-impact">
+      <div class="screen-wrap screen-wrap--natural-photo">
         <img src="pos-results-measurable-impact.png" alt="Cashier using a handheld mobile POS to scan a QR code on a fabric sample in a retail showroom, with cart and purchase actions on screen." width="1024" height="565" loading="lazy" decoding="async">
       </div>
       <p class="screen-caption">Live store validation — handheld POS in use during in-store usability testing</p>
