@@ -13,8 +13,7 @@
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: var(--sans); background: var(--bg); color: var(--dark); font-size: 16px; line-height: 1.7; }
-  nav { position: sticky; top: 0; z-index: 100; background: rgba(247,245,240,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; }
-  .nav-name { font-family: var(--serif); font-size: 20px; color: var(--dark); text-decoration: none; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(247,245,240,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 20px 48px; display: flex; align-items: center; justify-content: flex-end; }
   .nav-links { display: flex; gap: 36px; align-items: center; }
   .nav-links a { font-size: 14px; font-weight: 500; color: var(--mid); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--dark); }
@@ -118,7 +117,6 @@
 </head>
 <body>
 <nav>
-  <a class="nav-name" href="index.html">Neda Bagheri</a>
   <div class="nav-links">
     <a href="index.html">Portfolio</a>
     <a href="about.html">About</a>
