@@ -35,6 +35,9 @@
   .hc-media-frame img{width:100%;max-width:100%;height:auto;display:block;vertical-align:middle;}
   .hc-case-study-media{margin-top:28px;width:100%;max-width:100%;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:var(--surface);}
   .hc-case-study-media img{width:100%;max-width:100%;height:auto;display:block;vertical-align:middle;}
+  /* 2× displayed size vs column width; same asset, intrinsic aspect ratio; centered breakout */
+  .hc-case-study-media--2x{overflow:visible;border:none;background:transparent;padding:0;}
+  .hc-case-study-media--2x img{width:200%;max-width:none;height:auto;margin-left:-50%;border-radius:12px;border:1px solid var(--border);background:var(--surface);box-sizing:border-box;}
   .hc-video-figure{margin-top:28px;}
   .hc-validation-video{width:100%;max-width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--border);background:#0f172a;vertical-align:middle;}
   .image-caption{font-size:12px;color:var(--light);text-align:center;margin-top:10px;font-style:italic;}
@@ -460,8 +463,8 @@
         <tr><td><strong>Social Worker</strong></td><td>Individual survey respondents</td><td>Only surfaced when a specific district is selected</td></tr>
       </tbody>
     </table>
-    <div class="hc-case-study-media">
-      <img src="healthcare-process-card-sorting.png?v=20260324" alt="Design workshop: card sorting and mapping the healthcare provider hierarchy for navigation structure." width="1024" height="653" loading="lazy" decoding="async" sizes="(max-width:900px) 100vw, 820px">
+    <div class="hc-case-study-media hc-case-study-media--2x">
+      <img src="healthcare-process-card-sorting.png?v=20260324" alt="Design workshop: card sorting and mapping the healthcare provider hierarchy for navigation structure." width="1024" height="653" loading="lazy" decoding="async" sizes="(max-width:900px) 200vw, 1640px">
     </div>
     <p class="image-caption">Accordion-based navigation system — reducing visual clutter across 30+ municipalities</p>
   </section>
