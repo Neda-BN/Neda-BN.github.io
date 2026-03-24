@@ -12,7 +12,9 @@
     --serif: 'DM Serif Display', Georgia, serif; --sans: 'Open Sans', sans-serif;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: var(--sans); background: var(--bg); color: var(--dark); font-size: 16px; line-height: 1.7; }
+  html { overflow-x: clip; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--dark); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+  img, video { max-width: 100%; height: auto; }
   nav { position: sticky; top: 0; z-index: 100; background: rgba(247,245,240,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 20px 48px; display: flex; align-items: center; justify-content: flex-end; }
   .nav-links { display: flex; gap: 36px; align-items: center; }
   .nav-links a { font-size: 14px; font-weight: 500; color: var(--mid); text-decoration: none; transition: color 0.2s; }
@@ -114,6 +116,39 @@
   .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
 
+  /* Full case study: kept in DOM for future completion; not shown to visitors */
+  .mobile-case-study-deferred {
+    display: none !important;
+  }
+
+  .mobile-coming-soon {
+    max-width: 820px;
+    margin: 0 auto 96px;
+    padding: 0 48px;
+    text-align: center;
+  }
+  .mobile-coming-soon__title {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 0;
+    font-family: var(--serif);
+    font-size: clamp(1.85rem, 4.5vw, 2.5rem);
+    font-weight: 400;
+    color: var(--dark);
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+  }
+  .mobile-coming-soon__icon {
+    flex-shrink: 0;
+    width: 1.15em;
+    height: 1.15em;
+    color: #b8b3a8;
+    stroke: currentColor;
+    fill: none;
+  }
+
   /* BACK BUTTON */
   .back-top {
     display: inline-flex;
@@ -136,6 +171,7 @@
   .back-btn{display:block;padding:24px 48px;font-size:14px;font-weight:600;color:var(--dark);text-decoration:none;opacity:0.55;transition:opacity 0.2s;}
   .back-btn:hover{opacity:1;}
   @media (max-width: 640px) {
+    .mobile-coming-soon { padding: 0 24px; margin-bottom: 72px; }
     .section-header { flex-direction: column; gap: 18px; padding: 0 0 24px 0; }
     .section-icon { width: 52px; height: 52px; }
     .section-icon svg { width: 24px; height: 24px; }
@@ -171,6 +207,15 @@
   </div>
 </div>
 
+<section class="mobile-coming-soon" aria-labelledby="mobile-coming-soon-title">
+  <h2 id="mobile-coming-soon-title" class="mobile-coming-soon__title">
+    <svg class="mobile-coming-soon__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Coming Soon
+  </h2>
+</section>
+
+<!-- Full case study sections preserved in repo; hidden until ready to publish -->
+<div class="mobile-case-study-deferred" aria-hidden="true">
 <div class="content">
 
   <section class="section fade-in">
@@ -270,6 +315,7 @@
     </div>
   </section>
 
+</div>
 </div>
 
 <footer>

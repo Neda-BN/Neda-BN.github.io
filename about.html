@@ -12,7 +12,9 @@
     --serif: 'DM Serif Display', Georgia, serif; --sans: 'Open Sans', sans-serif;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: var(--sans); background: var(--bg); color: var(--dark); font-size: 16px; line-height: 1.7; }
+  html { overflow-x: clip; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--dark); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+  img, video { max-width: 100%; height: auto; }
 
   nav { position: sticky; top: 0; z-index: 100; background: rgba(247,245,240,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 20px 48px; display: flex; align-items: center; justify-content: flex-end; }
   .nav-links { display: flex; gap: 36px; align-items: center; }
