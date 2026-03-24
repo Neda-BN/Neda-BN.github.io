@@ -20,7 +20,9 @@
     --sans: 'Open Sans', sans-serif;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { overflow-x: clip; }
   body { font-family: var(--sans); background: var(--bg); color: var(--dark); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+  img, video { max-width: 100%; height: auto; }
 
   nav {
     position: sticky; top: 0; z-index: 100;
@@ -473,6 +475,21 @@
   .pos-ujm-legend { display: flex; gap: clamp(12px, 2vw, 24px); margin-bottom: clamp(24px, 3vw, 36px); flex-wrap: wrap; }
   .pos-ujm-legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #888; }
   .pos-ujm-legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+  /* Horizontal scroll on narrow viewports keeps journey map + labels at readable scale */
+  .pos-ujm-chart-scroll {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scrollbar-gutter: stable;
+    margin-bottom: 4px;
+  }
+  .pos-ujm-chart-scroll-inner {
+    min-width: max(100%, 720px);
+    padding-bottom: 4px;
+  }
   .pos-ujm-chart-wrap { display: flex; align-items: stretch; gap: 0; }
   .pos-ujm-y-axis {
     display: flex; flex-direction: column; justify-content: space-between;
@@ -487,11 +504,26 @@
   .pos-ujm-y-emoji--neutral { border-color: #F5C842; background: #FEFAE9; }
   .pos-ujm-y-emoji--sad { border-color: #EE5A52; background: #FEF0EF; }
   .pos-ujm-chart-svg-wrap { flex: 1; position: relative; min-width: 0; align-self: flex-start; width: 100%; }
-  svg.pos-ujm-journey { width: 100%; display: block; overflow: visible; height: auto; }
+  svg.pos-ujm-journey {
+    width: 100%;
+    display: block;
+    overflow: visible;
+    height: auto;
+    aspect-ratio: 1200 / 340;
+  }
   .pos-ujm-label-box {
-    position: absolute; border-radius: 6px; padding: 7px 11px; font-size: clamp(10px, 1.1vw, 11.5px);
-    font-weight: 600; line-height: 1.35; max-width: clamp(100px, 12vw, 130px); text-align: center;
-    pointer-events: none; white-space: normal;
+    position: absolute;
+    transform: translateX(-50%);
+    border-radius: 6px;
+    padding: 7px 9px;
+    font-size: clamp(9px, 1.05vw, 11.5px);
+    font-weight: 600;
+    line-height: 1.35;
+    max-width: min(118px, 16%);
+    text-align: center;
+    pointer-events: none;
+    white-space: normal;
+    box-sizing: border-box;
   }
   .pos-ujm-label-box--green { background: #8DC63F; color: #fff; }
   .pos-ujm-label-box--yellow { background: #F5C842; color: #5a3e00; }
@@ -506,12 +538,13 @@
   }
   .pos-ujm-step-cell { font-size: clamp(8px, 1.5vw, 12px); font-weight: 600; color: #aaa; text-align: center; line-height: 1.25; min-width: 0; word-break: break-word; }
   .pos-ujm-axis-line { margin-left: clamp(48px, 9vw, 90px); margin-top: 10px; height: 2px; background: #ebebeb; border-radius: 1px; }
-  @media (max-width: 900px) {
-    .pos-ujm-step-row { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  /* Journey map scroll region: step labels stay aligned with chart columns */
+  .pos-ujm-chart-scroll-inner .pos-ujm-step-row {
+    grid-template-columns: repeat(11, minmax(0, 1fr));
+    padding-left: clamp(48px, 9vw, 90px);
   }
-  @media (max-width: 520px) {
-    .pos-ujm-step-row { grid-template-columns: repeat(2, minmax(0, 1fr)); padding-left: 8px; }
-    .pos-ujm-axis-line { margin-left: 8px; }
+  .pos-ujm-chart-scroll-inner .pos-ujm-axis-line {
+    margin-left: clamp(48px, 9vw, 90px);
   }
 
   .ab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
@@ -606,7 +639,7 @@
   <p class="hero-subtitle">Redesigning a high-frequency point-of-sale app to make every transaction faster and more intuitive for store staff — on any device, under real-world pressure.</p>
   <div class="meta-strip">
     <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Lead UX/UI Designer</div></div>
-    <div class="meta-item"><div class="meta-label">Company</div><div class="meta-value">Focalpay AB · 2023–2024</div></div>
+    <div class="meta-item"><div class="meta-label">Company</div><div class="meta-value">Focalpay AB · 2024–2025</div></div>
     <div class="meta-item"><div class="meta-label">Platform</div><div class="meta-value">iOS · Android · Browser</div></div>
     <div class="meta-item"><div class="meta-label">Methods</div><div class="meta-value">Research · Usability Testing</div></div>
   </div>
@@ -822,13 +855,13 @@
       <div class="screens-label">User journey map</div>
       <div class="pos-ujm-strip">
         <div class="pos-ujm-strip-inner">
-          <div class="pos-ujm" role="img" aria-label="Cashier POS user journey map — Erik (cashier / store owner), emotion curve from login through purchase, refund, and daily report; Focalpay AB 2023–2024">
+          <div class="pos-ujm" role="img" aria-label="Cashier POS user journey map — Erik (cashier / store owner), emotion curve from login through purchase, refund, and daily report; Focalpay AB 2024–2025">
             <div class="pos-ujm-page">
               <div class="pos-ujm-header">
                 <div class="pos-ujm-header-top">
                   <div>
                     <div class="pos-ujm-title">Cashier POS — User Journey Map</div>
-                    <div class="pos-ujm-subtitle">Focalpay AB · 2023–2024 · Emotion curve across a full transaction day</div>
+                    <div class="pos-ujm-subtitle">Focalpay AB · 2024–2025 · Emotion curve across a full transaction day</div>
                   </div>
                   <div class="pos-ujm-persona-pill">
                     <div class="pos-ujm-persona-avatar" aria-hidden="true">E</div>
@@ -844,6 +877,8 @@
                 <div class="pos-ujm-legend-item"><div class="pos-ujm-legend-dot" style="background:#F5C842;"></div>Neutral / cautious</div>
                 <div class="pos-ujm-legend-item"><div class="pos-ujm-legend-dot" style="background:#EE5A52;"></div>Frustrated / struggling</div>
               </div>
+              <div class="pos-ujm-chart-scroll" role="region" aria-label="User journey map — scroll horizontally on small screens">
+              <div class="pos-ujm-chart-scroll-inner">
               <div class="pos-ujm-chart-wrap">
                 <div class="pos-ujm-y-axis" aria-hidden="true">
                   <div class="pos-ujm-y-label">
@@ -866,7 +901,7 @@
                   </div>
                 </div>
                 <div class="pos-ujm-chart-svg-wrap" id="posChartWrap">
-                  <svg class="pos-ujm-journey" id="posJourneySvg" viewBox="0 0 1200 340" preserveAspectRatio="none" aria-hidden="true">
+                  <svg class="pos-ujm-journey" id="posJourneySvg" viewBox="0 0 1200 340" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
                     <line x1="0" y1="60" x2="1200" y2="60" stroke="#EBEBEB" stroke-width="1" stroke-dasharray="4 4"/>
                     <line x1="0" y1="170" x2="1200" y2="170" stroke="#EBEBEB" stroke-width="1" stroke-dasharray="4 4"/>
                     <line x1="0" y1="280" x2="1200" y2="280" stroke="#EBEBEB" stroke-width="1" stroke-dasharray="4 4"/>
@@ -905,17 +940,17 @@
                     <line x1="1144" y1="66" x2="1144" y2="20" stroke="#CCCCCC" stroke-width="1" stroke-dasharray="4 4"/>
                   </svg>
                   <div class="pos-ujm-label-layer">
-                    <div class="pos-ujm-label-box pos-ujm-label-box--yellow" style="left:calc(54/1200*100% - 52px); top:calc(205/340*100%);">Open the<br>Focalpay app</div>
-                    <div class="pos-ujm-label-box pos-ujm-label-box--yellow" style="left:calc(163/1200*100% - 60px); top:calc(30/340*100%);">Add products<br>to the system<br>manually</div>
-                    <div class="pos-ujm-label-box pos-ujm-label-box--green" style="left:calc(272/1200*100% - 55px); top:calc(2/340*100% - 2px);">Browse the<br>product grid</div>
-                    <div class="pos-ujm-label-box pos-ujm-label-box--green" style="left:calc(381/1200*100% - 55px); top:calc(2/340*100% - 2px);">Scan item<br>barcode</div>
-                    <div class="pos-ujm-label-box pos-ujm-label-box--red" style="left:calc(490/1200*100% - 55px); top:calc(272/340*100%);">Unknown barcode —<br>product not found</div>
-                    <div class="pos-ujm-label-box pos-ujm-label-box--green" style="left:calc(599/1200*100% - 55px); top:calc(18/340*100%);">Add product from<br>product list<br>to the cart</div>
-                    <div class="pos-ujm-label-box pos-ujm-label-box--green" style="left:calc(708/1200*100% - 55px); top:calc(2/340*100%);">Apply discount<br>to item or cart</div>
-                    <div class="pos-ujm-label-box pos-ujm-label-box--green" style="left:calc(817/1200*100% - 52px); top:calc(2/340*100% - 2px);">Tap Purchase —<br>transaction done</div>
-                    <div class="pos-ujm-label-box pos-ujm-label-box--red" style="left:calc(926/1200*100% - 60px); top:calc(272/340*100%);">Process a<br>partial refund</div>
-                    <div class="pos-ujm-label-box pos-ujm-label-box--yellow" style="left:calc(1035/1200*100% - 60px); top:calc(35/340*100%);">Fetch &amp; review<br>daily report</div>
-                    <div class="pos-ujm-label-box pos-ujm-label-box--green" style="left:calc(1144/1200*100% - 55px); top:calc(2/340*100% - 2px);">Submit report —<br>day complete</div>
+                    <div class="pos-ujm-label-box pos-ujm-label-box--yellow" style="left:calc(54/1200*100%); top:calc(205/340*100%);">Open the<br>Focalpay app</div>
+                    <div class="pos-ujm-label-box pos-ujm-label-box--yellow" style="left:calc(163/1200*100%); top:calc(30/340*100%);">Add products<br>to the system<br>manually</div>
+                    <div class="pos-ujm-label-box pos-ujm-label-box--green" style="left:calc(272/1200*100%); top:calc(2/340*100%);">Browse the<br>product grid</div>
+                    <div class="pos-ujm-label-box pos-ujm-label-box--green" style="left:calc(381/1200*100%); top:calc(2/340*100%);">Scan item<br>barcode</div>
+                    <div class="pos-ujm-label-box pos-ujm-label-box--red" style="left:calc(490/1200*100%); top:calc(272/340*100%);">Unknown barcode —<br>product not found</div>
+                    <div class="pos-ujm-label-box pos-ujm-label-box--green" style="left:calc(599/1200*100%); top:calc(18/340*100%);">Add product from<br>product list<br>to the cart</div>
+                    <div class="pos-ujm-label-box pos-ujm-label-box--green" style="left:calc(708/1200*100%); top:calc(2/340*100%);">Apply discount<br>to item or cart</div>
+                    <div class="pos-ujm-label-box pos-ujm-label-box--green" style="left:calc(817/1200*100%); top:calc(2/340*100%);">Tap Purchase —<br>transaction done</div>
+                    <div class="pos-ujm-label-box pos-ujm-label-box--red" style="left:calc(926/1200*100%); top:calc(272/340*100%);">Process a<br>partial refund</div>
+                    <div class="pos-ujm-label-box pos-ujm-label-box--yellow" style="left:calc(1035/1200*100%); top:calc(35/340*100%);">Fetch &amp; review<br>daily report</div>
+                    <div class="pos-ujm-label-box pos-ujm-label-box--green" style="left:calc(1144/1200*100%); top:calc(2/340*100%);">Submit report —<br>day complete</div>
                   </div>
                 </div>
               </div>
@@ -933,6 +968,8 @@
                 <div class="pos-ujm-step-cell">Submit report</div>
               </div>
               <div class="pos-ujm-axis-line" aria-hidden="true"></div>
+              </div>
+              </div>
             </div>
           </div>
         </div>
