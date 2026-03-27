@@ -97,21 +97,20 @@
   .result-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 24px;text-align:center;}
   .result-number{font-family:var(--serif);font-size:44px;color:var(--accent);line-height:1;margin-bottom:8px;}
   .result-label{font-size:13px;color:var(--mid);font-weight:400;line-height:1.4;}
-  /* Full-height product showcase — same treatment as Backoffice Interface figures (intrinsic resolution preserved; cap matches large exports) */
-  .case-study-figure{margin:32px 0 48px 0;}
+  /* Interface figures — aligned with backoffice.html (product screenshots) */
+  .case-study-figure{margin:0 0 40px 0;}
+  .case-study-figure:last-child{margin-bottom:0;}
   .case-study-figure figcaption{font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--light);margin-bottom:14px;}
-  .case-study-figure img{
+  .case-study-figure picture{display:block;}
+  .case-study-figure img,.case-study-figure picture img{
     width:auto;
-    max-width:min(100%,1994px);
+    max-width:min(100%,6000px);
     height:auto;
     display:block;
     border-radius:14px;
     border:1px solid var(--border);
     background:var(--surface);
     box-shadow:0 8px 28px rgba(26,26,26,0.07);
-    image-rendering:auto;
-    -webkit-backface-visibility:hidden;
-    backface-visibility:hidden;
     transform:none;
     filter:none;
   }
@@ -496,10 +495,22 @@
     <p>The Replenishments module gives store managers a single place to see everything that matters about their inventory — what's out of stock, what's on its way, what's overdue, and what still needs to be configured. Every flow connects to the others, and the notification centre ensures nothing falls through the cracks.</p>
   </section>
 
-  <figure class="case-study-figure">
-    <figcaption>Interface · Replenishments flows in product</figcaption>
-    <img src="replenishments-module-screens.png" alt="Replenishments back-office UI: overview dashboard, filters, tables, order detail, confirm receipt, and status views — composite of key screens" width="260" height="1024" loading="lazy" decoding="async" sizes="(max-width: 900px) 100vw, 820px">
-  </figure>
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+      <div class="section-headings">
+        <h2 class="section-chapter">Interface</h2>
+        <p class="section-subtitle">Screens from the back-office</p>
+      </div>
+    </div>
+    <p>Representative UI from the Replenishments module: <strong>overview, filters, and tables</strong>; <strong>order and receipt flows</strong>; and <strong>status views</strong> across the seven connected flows.</p>
+    <figure class="case-study-figure">
+      <figcaption>Replenishments flows in product</figcaption>
+      <img src="replenishments-module-screens.png" alt="Replenishments back-office UI: overview dashboard, filters, tables, order detail, confirm receipt, and status views — composite of key screens" width="4170" height="16422" loading="lazy" decoding="async" sizes="(max-width: 900px) 100vw, 820px">
+    </figure>
+  </section>
 
   <div class="divider"></div>
 
