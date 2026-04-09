@@ -143,9 +143,83 @@
   .finding-icon{width:32px;height:32px;background:var(--accent-light);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;}
   .finding-text{font-size:14px;color:var(--mid);font-style:italic;font-weight:300;line-height:1.6;}
   .finding-stat{font-size:11px;font-weight:600;color:var(--accent);margin-top:4px;}
+  /* Methods & Research · Persona (standout panel + definition-style table) */
+  .hc-methods-persona{margin-top:32px;padding-top:28px;border-top:1px solid var(--border);}
+  .hc-persona-subsection-title{
+    font-family:var(--serif);
+    font-size:1.22rem;
+    font-weight:600;
+    color:var(--dark);
+    margin:0 0 14px;
+    letter-spacing:-.02em;
+    line-height:1.25;
+  }
+  .hc-persona-panel{
+    position:relative;
+    padding:24px 26px 22px;
+    border-radius:14px;
+    border:1px solid rgba(196,98,45,.22);
+    background:linear-gradient(148deg,rgba(245,235,227,.48) 0%,rgba(255,255,255,.97) 50%,rgba(232,248,245,.35) 100%);
+    box-shadow:0 10px 36px rgba(26,26,26,.07);
+    overflow:hidden;
+  }
+  .hc-persona-panel::before{
+    content:'';
+    position:absolute;
+    left:0;top:0;bottom:0;width:4px;
+    background:linear-gradient(180deg,#0D7A5F 0%,var(--accent) 100%);
+    border-radius:14px 0 0 14px;
+  }
+  .hc-persona-panel .flow-callout{margin-bottom:12px;}
+  .hc-persona-panel__kicker{
+    font-family:var(--serif);
+    font-size:clamp(1.05rem,2vw,1.2rem);
+    font-weight:600;
+    color:var(--dark);
+    margin:0 0 18px;
+    letter-spacing:-.02em;
+    line-height:1.3;
+  }
+  .hc-persona-table-wrap{margin:0;overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:10px;}
+  .hc-persona-table{width:100%;border-collapse:collapse;margin:0;background:var(--surface);border-radius:10px;overflow:hidden;border:1px solid var(--border);font-size:14px;}
+  .hc-persona-table th[scope="row"]{
+    background:#EEF6F4;
+    color:#0d5c4d;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    text-align:left;
+    padding:14px 16px;
+    width:30%;
+    max-width:200px;
+    vertical-align:top;
+    border-bottom:1px solid var(--border);
+    border-right:1px solid var(--border);
+  }
+  .hc-persona-table td{
+    padding:14px 18px;
+    border-bottom:1px solid var(--border);
+    color:#3a3a3a;
+    vertical-align:top;
+    line-height:1.55;
+    font-weight:400;
+  }
+  .hc-persona-table tr:last-child th,.hc-persona-table tr:last-child td{border-bottom:none;}
+  .hc-persona-table tr:nth-child(even) th{background:#E4F0EC;}
+  .hc-persona-table tr:nth-child(even) td{background:#FAFAF8;}
+  .hc-persona-quote{
+    font-family:var(--serif);
+    font-size:16px;
+    font-style:italic;
+    color:var(--dark);
+    line-height:1.55;
+    margin:0;
+  }
   .screens-section{margin-top:28px;}
   /* Match POS #user-journey .screens-section rhythm */
   .hc-reveal-journey .screens-section{margin-top:24px;}
+  #user-journey > p{margin-top:28px;margin-bottom:0;}
   .screens-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--light);margin-bottom:16px;}
   /* Wider than .content (820px), centered in the viewport (same axis as the page column) */
   .hc-ujm-strip{
@@ -253,6 +327,68 @@
   .result-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 24px;text-align:center;}
   .result-number{font-family:var(--serif);font-size:44px;color:var(--accent);line-height:1;margin-bottom:8px;}
   .result-label{font-size:13px;color:var(--mid);font-weight:400;line-height:1.4;}
+  /* Results & Measurable Impact — narrative outcomes (scoped, does not affect Discover metrics grid) */
+  .hc-results-impact-lede{
+    font-size:15px;
+    line-height:1.65;
+    color:#3a3a3a;
+    margin:0 0 22px;
+    padding:18px 22px;
+    background:rgba(245,235,227,.5);
+    border-left:3px solid var(--accent);
+    border-radius:0 12px 12px 0;
+  }
+  .hc-results-impact-stack{display:flex;flex-direction:column;gap:14px;margin:0 0 28px;}
+  .hc-results-impact-card{
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+    padding:22px 24px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:12px;
+    box-shadow:0 6px 24px rgba(26,26,26,.06);
+    position:relative;
+    overflow:hidden;
+  }
+  .hc-results-impact-card::before{
+    content:'';
+    position:absolute;
+    left:0;top:0;bottom:0;width:3px;
+    background:linear-gradient(180deg,#0D7A5F 0%,var(--accent) 100%);
+    opacity:0.9;
+  }
+  .hc-results-impact-card__num{
+    flex-shrink:0;
+    width:42px;height:42px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#0D7A5F,#1a9d7a);
+    color:#fff;
+    font-family:var(--serif);
+    font-size:17px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    line-height:1;
+    margin-left:2px;
+  }
+  .hc-results-impact-card__main{min-width:0;flex:1;}
+  .hc-results-impact-card__title{
+    font-family:var(--serif);
+    font-size:clamp(1.03rem,1.9vw,1.16rem);
+    font-weight:600;
+    color:var(--dark);
+    margin:0 0 10px;
+    line-height:1.38;
+    letter-spacing:-.02em;
+  }
+  .hc-results-impact-card__text{
+    font-size:14px;
+    line-height:1.62;
+    color:#3a3a3a;
+    margin:0;
+  }
   .lessons-list{display:flex;flex-direction:column;gap:16px;margin-top:24px;}
   .lesson-item{display:flex;gap:20px;padding:22px 24px;background:var(--surface);border:1px solid var(--border);border-radius:10px;}
   .lesson-num{font-family:var(--serif);font-size:22px;color:var(--accent);opacity:0.4;flex-shrink:0;line-height:1.2;}
@@ -300,6 +436,8 @@
     .meta-item{border-right:none;border-bottom:1px solid var(--border);}
     .meta-item:last-child{border-bottom:none;}
     .persona-block{flex-direction:column;}
+    .hc-results-impact-card{flex-direction:column;gap:14px;}
+    .hc-results-impact-card__num{margin-left:0;}
     .section-header{flex-direction:column;gap:18px;padding:0 0 24px 0;}
     .section-icon{width:52px;height:52px;}
     .section-icon svg{width:24px;height:24px;}
@@ -405,6 +543,43 @@
       <div class="finding-item"><div class="finding-icon">📋</div><div><p class="finding-text">Existing spreadsheet templates showed heavy manual formatting and annotation — signs of a system stretched far beyond its intended purpose.</p><div class="finding-stat">C · Document review of spreadsheets, email templates, and reporting docs</div></div></div>
       <div class="finding-item"><div class="finding-icon">👀</div><div><p class="finding-text">Administrators switched between Outlook, Excel, and shared folders mid-task — sometimes losing their place and having to restart their entire tracking process.</p><div class="finding-stat">D · Usability observation of existing manual workflows in real sessions</div></div></div>
     </div>
+    <div class="hc-methods-persona">
+      <h3 class="hc-persona-subsection-title" id="hc-methods-persona-heading">Persona</h3>
+      <aside class="hc-persona-panel" aria-labelledby="hc-persona-kicker">
+        <div class="flow-callout" aria-hidden="true">Research · Primary persona</div>
+        <p class="hc-persona-panel__kicker" id="hc-persona-kicker">Anna Andersson · Primary Persona</p>
+        <div class="hc-persona-table-wrap">
+        <table class="hc-persona-table">
+          <tbody>
+            <tr>
+              <th scope="row">Role</th>
+              <td>Quality Assurance Manager, Stockholm healthcare provider</td>
+            </tr>
+            <tr>
+              <th scope="row">Responsible for</th>
+              <td>Sending quarterly surveys to 30+ municipalities, tracking responses, and preparing performance reports for leadership</td>
+            </tr>
+            <tr>
+              <th scope="row">Current tools</th>
+              <td>Outlook, Excel, shared folder system — no dedicated software</td>
+            </tr>
+            <tr>
+              <th scope="row">Biggest frustration</th>
+              <td>Spends 8–10 hours per week tracking who has and hasn't responded. Quarterly reports take up to two weeks to compile manually.</td>
+            </tr>
+            <tr>
+              <th scope="row">Goal</th>
+              <td>Spend time analysing the quality of care — not chasing email replies</td>
+            </tr>
+            <tr>
+              <th scope="row">Quote</th>
+              <td><p class="hc-persona-quote">"We live in a world of advanced technology especially in Sweden. I honestly don't understand why our survey process is still manual. It wastes so much time."</p></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </aside>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -434,10 +609,13 @@
 
   <div class="divider"></div>
 
-  <div class="hc-reveal-journey reveal reveal-media" id="hc-journey-block">
-    <div class="flow-callout" aria-hidden="true">Journey · Full survey lifecycle</div>
+  <section class="section fade-in reveal case-anchor" id="user-journey">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">User Journey</h2><p class="section-subtitle">Emotion curve across a full survey cycle — from creation to report submission</p></div>
+    </div>
+    <div class="hc-reveal-journey reveal reveal-media" id="hc-journey-block">
     <div class="screens-section">
-      <div class="screens-label">User journey map</div>
       <div class="hc-ujm-strip">
         <div class="hc-ujm-strip-inner">
       <div class="hc-ujm" role="img" aria-label="User journey map: emotion curve across a full survey cycle from login to report submission. Ten steps including Power Send, monitoring responses, and analytics.">
@@ -561,12 +739,6 @@
       </div>
     </div>
   </div>
-
-  <section class="section fade-in reveal case-anchor" id="user-journey">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">User Journey</h2><p class="section-subtitle">Emotion curve across a full survey cycle — from creation to report submission</p></div>
-    </div>
     <p>The map above traces how a quality manager moves through ten steps — from login and template setup through Power Send, monitoring responses, reminders, analytics, and final report submission. Peaks align with guided flows and clear feedback; the steepest dips mark manual recipient handling and the stretch where responses were effectively invisible in the old toolchain.</p>
   </section>
 
@@ -714,10 +886,29 @@
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Results &amp; Measurable Impact</h2><p class="section-subtitle">Measurable Impact</p></div>
     </div>
-    <div class="results-grid">
-      <div class="result-card"><div class="result-number">85%</div><div class="result-label">Faster survey creation — from 2 hours to 15 minutes</div></div>
-      <div class="result-card"><div class="result-number">80%</div><div class="result-label">Increase in response rates — real-time tracking improved follow-up quality</div></div>
-      <div class="result-card"><div class="result-number">70%</div><div class="result-label">Faster reports — 2-week process now available in real time</div></div>
+    <p class="hc-results-impact-lede">The three headline improvements below are based on a combination of usability testing task timing, workflow analysis comparing the old manual process to the designed platform, and estimates provided by healthcare administrators during research sessions. They represent the projected impact of the full platform at scale, not post-launch analytics.</p>
+    <div class="hc-results-impact-stack">
+      <article class="hc-results-impact-card">
+        <div class="hc-results-impact-card__num" aria-hidden="true">1</div>
+        <div class="hc-results-impact-card__main">
+          <h3 class="hc-results-impact-card__title">From 2 hours to ~15 minutes — survey creation</h3>
+          <p class="hc-results-impact-card__text">In the original workflow, creating and distributing a survey required composing individual emails, attaching documents, and logging recipients manually. The 6-step wizard reduced this to a guided, single-session flow. Timing was measured during usability testing with 5 administrators completing the same task on both the manual workflow and the prototype.</p>
+        </div>
+      </article>
+      <article class="hc-results-impact-card">
+        <div class="hc-results-impact-card__num" aria-hidden="true">2</div>
+        <div class="hc-results-impact-card__main">
+          <h3 class="hc-results-impact-card__title">Select All iteration — 30% faster municipality selection</h3>
+          <p class="hc-results-impact-card__text">A specific, validated improvement from usability testing: the "Select All" button for district selection was initially low-contrast and frequently missed. After repositioning and improving contrast, average task time dropped from ~8 minutes to ~5 minutes across the same 5 participants.</p>
+        </div>
+      </article>
+      <article class="hc-results-impact-card">
+        <div class="hc-results-impact-card__num" aria-hidden="true">3</div>
+        <div class="hc-results-impact-card__main">
+          <h3 class="hc-results-impact-card__title">Quarterly reports: from 2 weeks to real-time</h3>
+          <p class="hc-results-impact-card__text">Administrators estimated spending up to two weeks per quarter manually compiling response data from spreadsheets. The analytics dashboard aggregates responses in real time, making the reporting step near-instant. This is an administrator estimate validated during research interviews, not yet measured post-launch.</p>
+        </div>
+      </article>
     </div>
     <p>The platform replaced a fragmented, error-prone manual workflow with a single centralised system. Administrators went from managing 30+ separate email threads to having a real-time view of every municipality's response status — with instant report generation replacing two weeks of spreadsheet aggregation.</p>
   </section>
@@ -733,7 +924,7 @@
     <div class="lessons-list">
       <div class="lesson-item"><div class="lesson-num">01</div><div class="lesson-text"><h4>Good UX organises complexity — it doesn't hide it</h4><p>The hierarchy problem wasn't solved by flattening the structure. It was solved by revealing it progressively, one level at a time, so each step felt manageable rather than overwhelming.</p></div></div>
       <div class="lesson-item"><div class="lesson-num">02</div><div class="lesson-text"><h4>Guided flows build confidence in high-stakes environments</h4><p>Healthcare administrators aren't tech-averse — they're risk-averse. A wizard that verifies each step before moving forward gave them the confidence that nothing would fall through the cracks.</p></div></div>
-      <div class="lesson-item"><div class="lesson-num">03</div><div class="lesson-text"><h4>AI-assisted development is a design superpower — when guided well</h4><p>Using Cursor AI for implementation freed me to focus entirely on UX quality. The key was treating prompt engineering as a design discipline — precise, specific prompts produced consistent, accessible output at every iteration.</p></div></div>
+      <div class="lesson-item"><div class="lesson-num">03</div><div class="lesson-text"><h4>AI-assisted development changed what one designer can ship.</h4><p>Using Cursor AI for front-end implementation didn't mean handing off control — it meant I stayed in control of every detail while moving faster. I wrote detailed prompts that specified exact spacing, colour tokens, accessibility requirements, and component behaviour. When the output didn't match the spec, I debugged through the prompt, not through guesswork. The result was a fully built, WCAG-compliant platform designed and implemented by one person. That's a different kind of design skill — and one I'm actively developing.</p></div></div>
     </div>
   </section>
 
