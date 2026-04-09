@@ -198,6 +198,84 @@
   .result-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 24px;text-align:center;}
   .result-number{font-family:var(--serif);font-size:44px;color:var(--accent);line-height:1;margin-bottom:8px;}
   .result-label{font-size:13px;color:var(--mid);font-weight:400;line-height:1.4;}
+  /* Validation outcomes: full-width readable metric rows (stat + prose) */
+  .results-grid--bo-outcomes{display:flex;flex-direction:column;gap:14px;margin:28px 0;}
+  .result-card--bo{
+    display:grid;
+    grid-template-columns:minmax(76px,104px) 1fr;
+    gap:12px 26px;
+    align-items:start;
+    text-align:left;
+    padding:22px 24px;
+    margin:0;
+  }
+  .result-card--bo .result-card__stat{
+    font-family:var(--serif);
+    font-size:clamp(34px,5.5vw,46px);
+    font-weight:600;
+    color:var(--accent);
+    line-height:1;
+    margin:0;
+    padding-top:4px;
+    letter-spacing:-0.02em;
+  }
+  .result-card__bo-text{
+    font-size:15px;
+    line-height:1.65;
+    color:#3a3a3a;
+    font-weight:400;
+    margin:0;
+    max-width:62ch;
+  }
+  .result-card__bo-text strong{color:var(--dark);font-weight:600;}
+  .result-card--bo-nostat{grid-template-columns:1fr;}
+  .result-card--bo-nostat .result-card__lead{
+    font-family:var(--serif);
+    font-size:clamp(17px,2vw,19px);
+    font-weight:600;
+    color:var(--dark);
+    margin:0 0 10px;
+    line-height:1.35;
+    letter-spacing:-0.02em;
+  }
+  .result-card--bo-nostat .result-card__detail{
+    font-size:15px;
+    line-height:1.65;
+    color:#3a3a3a;
+    margin:0;
+    max-width:68ch;
+  }
+  /* Validation: standout insight between quote and metrics (accent frame + gradient) */
+  .bo-validation-insight{
+    position:relative;
+    margin:28px 0;
+    padding:24px 26px 22px 26px;
+    border-radius:14px;
+    border:1px solid rgba(196,98,45,0.28);
+    background:linear-gradient(148deg,rgba(245,235,227,.58) 0%,rgba(255,255,255,.97) 45%,rgba(245,235,227,.22) 100%);
+    box-shadow:0 10px 36px rgba(26,26,26,.07);
+    overflow:hidden;
+  }
+  .bo-validation-insight::before{
+    content:'';
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    width:4px;
+    background:linear-gradient(180deg,var(--accent) 0%,#d4784a 100%);
+    border-radius:14px 0 0 14px;
+  }
+  .bo-validation-insight .flow-callout{margin-bottom:14px;}
+  .bo-validation-insight__text{
+    font-size:15px;
+    line-height:1.68;
+    color:#3a3a3a;
+    font-weight:400;
+    margin:0;
+    max-width:68ch;
+  }
+  .bo-validation-insight__text strong{color:var(--dark);font-weight:600;}
   .lessons-list{display:flex;flex-direction:column;gap:16px;margin-top:24px;}
   .lesson-item{display:flex;gap:20px;padding:22px 24px;background:var(--surface);border:1px solid var(--border);border-radius:10px;}
   .lesson-num{font-family:var(--serif);font-size:22px;color:var(--accent);opacity:0.4;flex-shrink:0;line-height:1.2;}
@@ -277,7 +355,7 @@
     .back-btn:hover,.back-btn:focus-visible,.bottom-back a:hover,.bottom-back a:focus-visible{transform:none;}
     .fade-in,.fade-in.visible{opacity:1;transform:none;transition:none;}
   }
-  @media(max-width:640px){nav,.back-btn,.hero,.hero-image,.content,.content--design-system,.bottom-back,footer{padding-left:24px;padding-right:24px;}.pain-grid,.results-grid,.ab-grid,.ds-theme-row{grid-template-columns:1fr;}.meta-strip{flex-direction:column;}.meta-item{border-right:none;border-bottom:1px solid var(--border);}.meta-item:last-child{border-bottom:none;}.section-header{flex-direction:column;gap:18px;padding:0 0 24px 0;}.section-icon{width:52px;height:52px;}.section-icon svg{width:24px;height:24px;}.section-chapter{font-size:clamp(1.65rem,6vw,2.35rem);}}
+  @media(max-width:640px){nav,.back-btn,.hero,.hero-image,.content,.content--design-system,.bottom-back,footer{padding-left:24px;padding-right:24px;}.pain-grid,.results-grid,.ab-grid,.ds-theme-row{grid-template-columns:1fr;}.result-card--bo{grid-template-columns:1fr;gap:10px;}.result-card--bo .result-card__stat{padding-top:0;}.meta-strip{flex-direction:column;}.meta-item{border-right:none;border-bottom:1px solid var(--border);}.meta-item:last-child{border-bottom:none;}.section-header{flex-direction:column;gap:18px;padding:0 0 24px 0;}.section-icon{width:52px;height:52px;}.section-icon svg{width:24px;height:24px;}.section-chapter{font-size:clamp(1.65rem,6vw,2.35rem);}}
 </style>
 </head>
 <body>
@@ -319,7 +397,7 @@
       <div class="section-headings"><h2 class="section-chapter">Introduction &amp; Context</h2><p class="section-subtitle">Command centre for catalogue and pricing</p></div>
     </div>
     <p>The Focalpay Back-office is the command centre where all business logic — from product catalogues to pricing — is defined before being executed by the POS terminals.</p>
-    <p>I joined <strong>mid-project</strong> to lead UX for <strong>Product Management</strong> and <strong>weighted campaign flows</strong> — the two areas where store teams spent the most time in the back-office.</p>
+    <p>I joined mid-project — the core dashboard shell and navigation patterns already existed when I came in. My scope was the two modules where store teams spent the most time and made the most errors: <strong>Product Management</strong> (adding and editing SKUs) and <strong>weighted campaign creation</strong>. I inherited an established design system and was responsible for extending it without introducing regressions, while meaningfully improving the UX of both modules.</p>
   </section>
 
   <div class="divider"></div>
@@ -476,10 +554,23 @@
       <p>"The campaign builder finally speaks our language."</p>
       <cite>— Store Manager, Icebug</cite>
     </div>
-    <div class="results-grid">
-      <div class="result-card"><div class="result-number">25%</div><div class="result-label">Faster campaign creation</div></div>
-      <div class="result-card"><div class="result-number">78%</div><div class="result-label">Fewer errors in usability testing</div></div>
-      <div class="result-card"><div class="result-number">1</div><div class="result-label">Click to check stock (down from 4)</div></div>
+    <aside class="bo-validation-insight" aria-label="Why template language mattered in the A/B test">
+      <div class="flow-callout" aria-hidden="true">Insight · Vocabulary &amp; framing</div>
+      <p class="bo-validation-insight__text">The difference wasn't just speed — it was <strong>vocabulary</strong>. The tabular form (Variant A) used field names from the database: &quot;Base unit price,&quot; &quot;Threshold quantity,&quot; &quot;Discount type.&quot; The template builder (Variant B) used the language store managers already used in their daily work: &quot;Bulk purchase deal&quot; and &quot;Premium small-portion price.&quot; Same logic, completely different framing. Five out of five managers said they'd use Variant B daily — not because it was simpler, but because it felt like it was designed for them rather than for the system behind it.</p>
+    </aside>
+    <div class="results-grid results-grid--bo-outcomes">
+      <article class="result-card result-card--bo">
+        <div class="result-card__stat">25%</div>
+        <p class="result-card__bo-text">Faster campaign creation — average task time reduced from 4m 20s (Variant A) to 3m 14s (Variant B) across 10 store managers in A/B testing.</p>
+      </article>
+      <article class="result-card result-card--bo">
+        <div class="result-card__stat">78%</div>
+        <p class="result-card__bo-text">Fewer errors — error rate dropped from 3.6 errors per session (Variant A) to 0.8 (Variant B) in the same testing sessions.</p>
+      </article>
+      <article class="result-card result-card--bo result-card--bo-nostat">
+        <p class="result-card__lead">Stock level visible in 1 click</p>
+        <p class="result-card__detail">Previously required navigating 4 levels; now surfaced in the primary product form based on card sorting results. One assistant manager at Matvärlden estimated this saves approximately 20 minutes per day across their team.</p>
+      </article>
     </div>
   </section>
 
@@ -491,7 +582,7 @@
       <div class="section-headings"><h2 class="section-chapter">Reflection &amp; Lessons Learned</h2><p class="section-subtitle">Lessons learned</p></div>
     </div>
     <div class="lessons-list">
-      <div class="lesson-item"><div class="lesson-num">01</div><div class="lesson-text"><h4>In B2B design, language is UX</h4><p>The template-based builder succeeded because it used the vocabulary managers already used — not because it had fewer fields.</p></div></div>
+      <div class="lesson-item"><div class="lesson-num">01</div><div class="lesson-text"><h4>In B2B design, language is UX.</h4><p>The template builder didn't win because it had fewer fields — it won because it used the words store managers already used. "Bulk purchase deal" is not a UX pattern, it's a vocabulary choice. But it changed how confident people felt using the tool. If your interface uses the language of the database, it will always feel like a backend tool, no matter how polished the components are. If it uses the language of the person's job, it will feel like their tool.</p></div></div>
       <div class="lesson-item"><div class="lesson-num">02</div><div class="lesson-text"><h4>Joining mid-project is an underrated skill</h4><p>Being a "guardian of consistency" — extending without reinventing — is as valuable as building from scratch.</p></div></div>
       <div class="lesson-item"><div class="lesson-num">03</div><div class="lesson-text"><h4>The best UX win was the simplest</h4><p>Moving "Stock Level" 200 pixels up the form saved managers 20 minutes a day. Radical improvements often live in the smallest changes.</p></div></div>
     </div>
