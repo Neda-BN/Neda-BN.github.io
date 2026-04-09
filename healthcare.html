@@ -79,6 +79,8 @@
   .reveal-media.is-visible .hc-media-frame img,.reveal-media.is-visible .hc-figure-process-board img,.reveal-media.is-visible .hc-case-study-media img,.reveal-media.is-visible .hc-wizard-hero img{transform:translateZ(10px);box-shadow:0 18px 48px rgba(26,26,26,.1);}
   .flow-callout{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);padding:8px 14px;border-radius:100px;margin-bottom:16px;border:1px solid rgba(196,98,45,.2);}
   .flow-emphasis{border-radius:14px;padding:18px 18px 6px;margin-bottom:10px;border:1px solid rgba(196,98,45,.22);background:linear-gradient(165deg,rgba(245,235,227,.32) 0%,transparent 55%);}
+  /* Journey map block: no outer emphasis frame (labels + diagram only) */
+  .hc-reveal-journey{margin-bottom:24px;}
   .process-step{transition:transform .35s var(--ease-spring),box-shadow .35s var(--ease-soft),border-color .25s ease;border-radius:12px;margin:0 -8px;padding-left:8px;padding-right:8px;}
   .process-step:hover,.process-step:focus-within{transform:translateY(-3px) translateZ(6px);box-shadow:0 12px 32px rgba(26,26,26,.06);}
   .process-step--flow{border-left:3px solid var(--accent);}
@@ -142,6 +144,8 @@
   .finding-text{font-size:14px;color:var(--mid);font-style:italic;font-weight:300;line-height:1.6;}
   .finding-stat{font-size:11px;font-weight:600;color:var(--accent);margin-top:4px;}
   .screens-section{margin-top:28px;}
+  /* Match POS #user-journey .screens-section rhythm */
+  .hc-reveal-journey .screens-section{margin-top:24px;}
   .screens-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--light);margin-bottom:16px;}
   /* Wider than .content (820px), centered in the viewport (same axis as the page column) */
   .hc-ujm-strip{
@@ -154,10 +158,6 @@
   }
   .hc-ujm-strip-inner{
     width:100%;
-  }
-  /* Wizard only: larger journey map (vector SVG — scales sharply; aspect ratio unchanged) */
-  .hc-ujm-strip.hc-ujm-strip--large{
-    width:min(1860px,calc(100vw - 24px));
   }
   .hc-ujm-chart-scroll{
     width:100%;
@@ -175,11 +175,11 @@
   }
   .hc-ujm-chart-scroll-inner .hc-ujm-steps{
     grid-template-columns:repeat(10,minmax(0,1fr));
-    gap:10px 6px;
-    padding-left:clamp(40px,7vw,80px);
-    padding-right:clamp(8px,2vw,20px);
-    margin-top:14px;
-    padding-bottom:28px;
+    gap:4px 2px;
+    padding-left:clamp(48px,9vw,90px);
+    padding-right:0;
+    margin-top:16px;
+    padding-bottom:4px;
   }
   /* Embedded user journey map (scoped — DM Sans) */
   .hc-ujm{font-family:'DM Sans',var(--sans),sans-serif;color:#1A1A1A;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#fff;box-shadow:0 4px 20px rgba(0,0,0,0.07);}
@@ -197,15 +197,16 @@
   .hc-ujm-legend-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#8A9BB5;margin-right:8px;}
   .hc-ujm-legend-item{display:flex;align-items:center;gap:8px;font-size:12px;color:#5A6E8A;}
   .hc-ujm-legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
-  .hc-ujm-chart-area{padding:clamp(20px,3vw,40px) clamp(12px,5vw,64px) 0;display:flex;align-items:flex-start;}
-  .hc-ujm-y-axis{display:flex;flex-direction:column;justify-content:space-between;padding:24px 0 64px;width:clamp(48px,10vw,80px);flex-shrink:0;}
+  /* Chart row: match POS .pos-ujm-chart-wrap + .pos-ujm-page horizontal rhythm */
+  .hc-ujm-chart-area{padding:clamp(24px,3vw,36px) clamp(16px,4vw,64px) 0;display:flex;align-items:stretch;gap:0;}
+  .hc-ujm-y-axis{display:flex;flex-direction:column;justify-content:space-between;padding:20px 0 60px;width:clamp(56px,9vw,90px);flex-shrink:0;}
   .hc-ujm-chart-svg-wrap{flex:1;position:relative;min-width:0;align-self:flex-start;width:100%;}
   .hc-ujm-y-label{display:flex;align-items:center;gap:8px;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#B0BDD0;}
   .hc-ujm-y-face{width:28px;height:28px;border-radius:50%;border:1.5px solid;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
   .hc-ujm-y-face--happy{border-color:#3DBB7F;background:#F0FBF6;}
   .hc-ujm-y-face--neutral{border-color:#F0A500;background:#FFFBF0;}
   .hc-ujm-y-face--sad{border-color:#E05252;background:#FFF4F4;}
-  svg.hc-ujm-journey{width:100%;display:block;overflow:visible;height:auto;aspect-ratio:1200/340;}
+  svg.hc-ujm-journey{width:100%;display:block;overflow:visible;height:auto;aspect-ratio:1200 / 340;}
   .hc-ujm-label-pill{position:absolute;transform:translateX(-50%);border-radius:10px;padding:6px 8px;font-size:clamp(9px,1.05vw,11px);font-weight:600;line-height:1.35;text-align:center;pointer-events:none;white-space:normal;max-width:min(130px,16%);box-sizing:border-box;}
   .hc-ujm-label-pill--green{background:#E8FAF2;color:#1A7A52;border:1.5px solid #3DBB7F;}
   .hc-ujm-label-pill--yellow{background:#FFF8E6;color:#8A5800;border:1.5px solid #F0A500;}
@@ -214,12 +215,12 @@
   .hc-ujm-steps{
     display:grid;
     grid-template-columns:repeat(10,minmax(0,1fr));
-    gap:10px 6px;
+    gap:4px 2px;
     align-items:start;
-    padding-left:clamp(40px,7vw,80px);
-    padding-right:clamp(8px,2vw,20px);
-    margin-top:14px;
-    padding-bottom:28px;
+    padding-left:clamp(48px,9vw,90px);
+    padding-right:0;
+    margin-top:16px;
+    padding-bottom:4px;
   }
   .hc-ujm-step-col{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0;}
   .hc-ujm-step-num{width:22px;height:22px;border-radius:50%;background:#EEF2F7;color:#8A9BB5;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
@@ -433,11 +434,11 @@
 
   <div class="divider"></div>
 
-  <div class="hc-reveal-journey reveal reveal-media flow-emphasis" id="hc-journey-block">
+  <div class="hc-reveal-journey reveal reveal-media" id="hc-journey-block">
     <div class="flow-callout" aria-hidden="true">Journey · Full survey lifecycle</div>
     <div class="screens-section">
       <div class="screens-label">User journey map</div>
-      <div class="hc-ujm-strip hc-ujm-strip--large">
+      <div class="hc-ujm-strip">
         <div class="hc-ujm-strip-inner">
       <div class="hc-ujm" role="img" aria-label="User journey map: emotion curve across a full survey cycle from login to report submission. Ten steps including Power Send, monitoring responses, and analytics.">
         <div class="hc-ujm-page">
