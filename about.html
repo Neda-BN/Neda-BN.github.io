@@ -159,6 +159,35 @@
   p { color: var(--mid); font-weight: 300; margin-bottom: 18px; }
   p strong { color: var(--dark); font-weight: 600; }
 
+  .about-skills,
+  .about-working-note { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+  .about-skills h2,
+  .about-working-note h2 { font-family: var(--serif); font-size: 22px; margin-bottom: 24px; color: var(--dark); }
+  .about-working-note p {
+    font-size: 15px;
+    color: var(--mid);
+    font-weight: 300;
+    line-height: 1.65;
+    margin: 0;
+  }
+  .about-skills__group { margin-bottom: 22px; }
+  .about-skills__group:last-child { margin-bottom: 0; }
+  .about-skills__title {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--dark);
+    margin: 0 0 8px;
+    letter-spacing: -0.02em;
+  }
+  .about-skills__text {
+    font-size: 15px;
+    color: var(--mid);
+    font-weight: 300;
+    line-height: 1.65;
+    margin: 0;
+  }
+
   .case-list { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
   .case-list h2 { font-family: var(--serif); font-size: 22px; margin-bottom: 20px; color: var(--dark); }
   .case-list ul { list-style: none; }
@@ -293,6 +322,31 @@
     <p>I work in Agile cross-functional teams and use AI tools — Claude, Cursor, Lovable — to move faster without losing quality. Originally from Iran, I moved to Stockholm and I'm actively building my Swedish.</p>
     <p>Outside of work I cook, dance, and spend time in nature. Cooking especially — it's how I reset, and it's not entirely unlike design.</p>
     <p>Open to new roles and collaborations. <a href="mailto:nedabagheri.nz@gmail.com" style="color:var(--accent);font-weight:600;text-decoration:none;">Get in touch</a> if you'd like to connect.</p>
+  </section>
+
+  <section class="about-skills" aria-labelledby="skills-tools-heading">
+    <h2 id="skills-tools-heading">Skills &amp; Tools</h2>
+    <div class="about-skills__group">
+      <h3 class="about-skills__title">Design &amp; Research</h3>
+      <p class="about-skills__text">UX Research · Usability Testing · User Interviews · Journey Mapping · Card Sorting · A/B Testing · Information Architecture · Interaction Design · Design Systems · WCAG Accessibility</p>
+    </div>
+    <div class="about-skills__group">
+      <h3 class="about-skills__title">Tools</h3>
+      <p class="about-skills__text">Figma (Expert), Miro, FigJam, Adobe Creative Suite, Claude AI, Cursor AI, Lovable AI, Contentful, Canva</p>
+    </div>
+    <div class="about-skills__group">
+      <h3 class="about-skills__title">Domains</h3>
+      <p class="about-skills__text">Fintech · B2B SaaS · Retail Tech · E-Health · B2C Mobile</p>
+    </div>
+    <div class="about-skills__group">
+      <h3 class="about-skills__title">Platforms</h3>
+      <p class="about-skills__text">iOS · Android · Responsive Web · Desktop</p>
+    </div>
+  </section>
+
+  <section class="about-working-note" aria-labelledby="working-style-heading">
+    <h2 id="working-style-heading">Working Style Note</h2>
+    <p>I tend to ask "why does this matter to the user?" before "how should this look?" — and I've found that slowing down at the problem definition stage almost always saves time later. I enjoy working closely with product managers and engineers, and I prefer decisions made from evidence over ones made from assumption.</p>
   </section>
 
   <section class="case-list" aria-label="Case studies">
