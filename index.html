@@ -13,33 +13,381 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
-<title>Neda Bagheri | Product Designer</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Neda Bagheri · Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #F7F5F0; --surface: #FFFFFF; --dark: #1A1A1A; --mid: #555555; --light: #999999;
-    --accent: #C4622D; --accent-light: #F5EBE3; --border: #E8E4DC;
-    --serif: 'DM Serif Display', Georgia, serif; --sans: 'Open Sans', sans-serif;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { overflow-x: clip; }
-  body { font-family: var(--sans); background: var(--bg); color: var(--dark); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
-  img, video { max-width: 100%; height: auto; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  nav { position: sticky; top: 0; z-index: 100; background: rgba(247,245,240,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 20px 48px; display: flex; align-items: center; justify-content: flex-end; }
-  .nav-links { display: flex; gap: 36px; align-items: center; }
-  .nav-links a { font-size: 14px; font-weight: 500; color: var(--mid); text-decoration: none; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--accent); }
-  .nav-links a[aria-current="page"] { color: var(--accent); font-weight: 600; }
-  .nav-cv { background: var(--dark); color: white !important; padding: 8px 20px; border-radius: 6px; font-size: 13px !important; }
-  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-  .footer-strip a:focus-visible { outline-color: #fff; }
+:root {
+  --bg:          #f9f7f4;
+  --bg2:         #f0ede8;
+  --bg3:         #e8e3dc;
+  --ink:         #1a1814;
+  --ink2:        #6b6760;
+  --ink3:        #9e9b96;
+  --warm:        #c8622a;
+  --line:        rgba(26,24,20,0.09);
+  --line2:       rgba(26,24,20,0.05);
+  --surface:     #FFFFFF;
+  --dark:        var(--ink);
+  --mid:         var(--ink2);
+  --light:       var(--ink3);
+  --accent:      var(--warm);
+  --accent-light:#F5EBE3;
+  --border:      #E8E4DC;
+  --serif:       'DM Serif Display', Georgia, serif;
+  --sans:        'DM Sans', sans-serif;
+}
 
-  .hero { text-align: center; padding: 100px 48px 60px; max-width: 680px; margin: 0 auto; }
-  .hero h1 { font-family: var(--serif); font-size: clamp(36px, 5vw, 52px); line-height: 1.15; color: var(--dark); margin-bottom: 20px; }
-  .hero h1 em { font-style: italic; color: var(--accent); }
-  .hero p { font-size: 17px; color: var(--mid); font-weight: 300; max-width: 460px; margin: 0 auto; }
+html { overflow-x: clip; }
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+body { font-size: 16px; line-height: 1.7; }
+img, video { max-width: 100%; height: auto; }
 
+a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
+.footer-strip a:focus-visible { outline-color: #fff; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: flex-end;
+  padding: 20px 48px;
+  background: rgba(249,247,244,0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+  opacity: 0; animation: fadeDown 0.6s 0.1s ease forwards;
+}
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  font-family: 'Sora', sans-serif;
+  font-size: 13px; font-weight: 400; color: var(--ink2);
+  text-decoration: none; letter-spacing: 0.02em; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a[aria-current="page"] { color: var(--ink); font-weight: 500; }
+.nav-cta {
+  font-size: 13px !important; font-weight: 500 !important;
+  background: var(--ink); color: var(--bg) !important;
+  padding: 10px 22px; border-radius: 100px;
+  transition: background 0.2s, transform 0.2s !important;
+}
+.nav-cta:hover { background: var(--warm) !important; transform: translateY(-1px); }
+
+/* ── HERO GRID ── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle noise texture overlay */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  pointer-events: none;
+}
+
+/* ── LEFT ── */
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 52px 80px 48px;
+  position: relative; z-index: 2;
+}
+
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Sora', sans-serif;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink3); margin-bottom: 32px;
+  opacity: 0; animation: fadeUp 0.7s 0.4s ease forwards;
+}
+.hero-eyebrow::before {
+  content: ''; display: block; width: 22px; height: 1px; background: var(--ink3);
+}
+/* blinking availability dot */
+.avail-dot {
+  display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+  background: #5cba8a; margin-left: 4px;
+  animation: blink 2.4s ease-in-out infinite;
+}
+
+/* ── TITLE ── */
+.hero-title {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(40px, 4.8vw, 66px);
+  font-weight: 700;
+  line-height: 1.07;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin-bottom: 28px;
+}
+.hero-title em {
+  font-family: 'Sora', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--warm);
+  position: relative;
+}
+/* underline swipe on em */
+.hero-title em::after {
+  content: '';
+  position: absolute; left: 0; bottom: -3px;
+  height: 2px; width: 0; background: var(--warm);
+  border-radius: 1px;
+  animation: underlineGrow 0.7s 1.3s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+
+.title-line { display: block; overflow: hidden; }
+.title-line span {
+  display: block;
+  transform: translateY(110%);
+  animation: slideUp 0.88s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+.title-line:nth-child(1) span { animation-delay: 0.45s; }
+.title-line:nth-child(2) span { animation-delay: 0.60s; }
+.title-line:nth-child(3) span { animation-delay: 0.75s; }
+
+/* ── DESC ── */
+.hero-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16.5px; line-height: 1.7; color: var(--ink2); font-weight: 300;
+  max-width: 410px; margin-bottom: 44px;
+  opacity: 0; animation: fadeUp 0.7s 1.05s ease forwards;
+}
+
+/* ── ACTIONS ── */
+.hero-actions {
+  display: flex; align-items: center; gap: 20px;
+  opacity: 0; animation: fadeUp 0.7s 1.2s ease forwards;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--ink); color: var(--bg);
+  font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 500;
+  padding: 14px 28px; border-radius: 100px; text-decoration: none;
+  letter-spacing: 0.02em; transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.btn-primary:hover { background: var(--warm); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200,98,42,0.22); }
+.btn-primary svg { transition: transform 0.2s; }
+.btn-primary:hover svg { transform: translate(2px,-2px); }
+
+.btn-ghost {
+  font-family: 'Sora', sans-serif;
+  font-size: 13px; color: var(--ink2); text-decoration: none;
+  display: flex; align-items: center; gap: 6px;
+  letter-spacing: 0.02em; transition: color 0.2s;
+}
+.btn-ghost:hover { color: var(--ink); }
+
+/* ── SCROLL HINT ── */
+.scroll-hint {
+  position: absolute; bottom: 40px; left: 48px;
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Sora', sans-serif;
+  font-size: 10px; color: var(--ink3); letter-spacing: 0.1em; text-transform: uppercase;
+  opacity: 0; animation: fadeUp 0.6s 1.8s ease forwards;
+}
+.scroll-mouse {
+  width: 20px; height: 32px;
+  border: 1.5px solid rgba(26,24,20,0.25); border-radius: 10px;
+  position: relative; flex-shrink: 0;
+}
+.scroll-mouse::after {
+  content: ''; position: absolute; top: 5px; left: 50%; transform: translateX(-50%);
+  width: 3px; height: 6px; background: var(--ink3); border-radius: 2px;
+  animation: scrollDot 1.8s ease-in-out infinite;
+}
+
+/* ── RIGHT ── */
+.hero-right {
+  position: relative; display: flex; align-items: center; justify-content: center;
+  padding: 80px 48px;
+  overflow: hidden;
+}
+
+/* Large soft circle BG */
+.bg-circle {
+  position: absolute; z-index: 0;
+  width: 440px; height: 440px; border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, #ece7e0 0%, var(--bg2) 60%, transparent 100%);
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
+  opacity: 0; animation: scaleIn 1s 0.3s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+
+/* ── TOOL PILLS (floating only, no orbit) ── */
+/* Stack: bg(0) < metrics(12) < pills(14) < centre-card(15) — pills clear metrics; profile stays on top */
+.tool-pill {
+  position: absolute;
+  z-index: 14;
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.96);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  padding: 9px 16px 9px 10px;
+  font-family: 'Sora', sans-serif; font-size: 12px; font-weight: 500; color: var(--ink);
+  box-shadow: 0 2px 16px rgba(26,24,20,0.07), 0 0 0 0 rgba(26,24,20,0);
+  white-space: nowrap; cursor: default;
+  opacity: 0;
+  transition: box-shadow 0.25s, transform 0.2s;
+  backdrop-filter: blur(8px);
+}
+.tool-pill:hover {
+  box-shadow: 0 8px 28px rgba(26,24,20,0.12);
+  transform: translateY(-3px) scale(1.03) !important;
+  z-index: 18;
+}
+.pill-icon {
+  width: 22px; height: 22px; border-radius: 6px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+
+/* Each pill: unique float speed & amplitude, staggered delay — spaced so pills never stack on each other or metrics */
+.tp-figma   {
+  top: 4%; left: 22%;
+  animation: fadeIn 0.5s 1.0s ease forwards, floatA 4.2s 1.0s ease-in-out infinite;
+}
+.tp-user    {
+  top: 4%; right: 20%;
+  animation: fadeIn 0.5s 1.15s ease forwards, floatB 5.0s 1.15s ease-in-out infinite;
+}
+/* WCAG: upper-mid left — clears Cursor (kept low-left) and centre card */
+.tp-wcag    {
+  top: 36%; left: 5%;
+  animation: fadeIn 0.5s 1.3s ease forwards, floatC 3.8s 1.3s ease-in-out infinite;
+}
+/* Cursor: low-left band only — well below WCAG vertical band */
+.tp-cursor  {
+  bottom: 14%; left: 6%;
+  animation: fadeIn 0.5s 1.45s ease forwards, floatA 4.6s 1.45s ease-in-out infinite;
+}
+/* Research: mid-right, inward — clears m-br; bottom % large enough to sit above Claude */
+.tp-research {
+  bottom: 45%; right: 24%;
+  animation: fadeIn 0.5s 1.6s ease forwards, floatB 5.4s 1.6s ease-in-out infinite;
+}
+/* Claude: below Research band, still mid-right */
+.tp-claude  {
+  top: 62%; right: 6%;
+  animation: fadeIn 0.5s 1.75s ease forwards, floatC 4.0s 1.75s ease-in-out infinite;
+}
+
+/* ── CENTRE CARD ── */
+.centre-card {
+  position: relative; z-index: 15;
+  width: 192px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 28px 22px 24px;
+  text-align: center;
+  box-shadow: 0 6px 48px rgba(26,24,20,0.09);
+  opacity: 0;
+  animation: scaleIn 0.75s 0.85s cubic-bezier(0.22,1,0.36,1) forwards, floatCentre 5.5s 1.6s ease-in-out infinite;
+}
+.pulse-ring {
+  position: absolute; inset: -16px; border-radius: 36px;
+  border: 1px solid rgba(26,24,20,0.06);
+  animation: pulse 2.8s ease-out infinite;
+}
+.pulse-ring:nth-child(2) { inset: -28px; border-radius: 44px; animation-delay: 0.9s; }
+.centre-avatar {
+  width: 62px; height: 62px; border-radius: 50%;
+  background: linear-gradient(135deg, #ede5da 0%, #d6c9bc 100%);
+  margin: 0 auto 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Sora', sans-serif; font-size: 19px; font-weight: 700; color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.centre-name {
+  font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 600;
+  color: var(--ink); margin-bottom: 2px;
+}
+.centre-role {
+  font-family: 'Sora', sans-serif; font-size: 10px; color: var(--ink3);
+  letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px;
+}
+.dot-row { display: flex; justify-content: center; gap: 5px; }
+.dot { width: 6px; height: 6px; border-radius: 50%; }
+
+/* ── METRIC CARDS ── */
+.metric {
+  position: absolute; z-index: 12;
+  background: rgba(255,255,255,0.96);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 14px 18px;
+  box-shadow: 0 3px 22px rgba(26,24,20,0.07);
+  min-width: 148px; max-width: 168px;
+  backdrop-filter: blur(8px);
+  opacity: 0;
+}
+.metric-label {
+  font-family: 'Sora', sans-serif;
+  font-size: 9px; font-weight: 600; color: var(--ink3);
+  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 5px;
+}
+.metric-value {
+  font-family: 'Sora', sans-serif;
+  font-size: 27px; font-weight: 700; color: var(--ink);
+  letter-spacing: -0.04em; line-height: 1;
+}
+.metric-sub {
+  font-family: 'Sora', sans-serif;
+  font-size: 11px; color: var(--ink3); margin-top: 3px; font-weight: 300;
+}
+.metric-bar { height: 3px; border-radius: 2px; background: var(--bg2); margin-top: 10px; overflow: hidden; }
+.metric-fill {
+  height: 100%; border-radius: 2px;
+  background: linear-gradient(90deg, var(--ink) 0%, var(--warm) 100%);
+  width: 0;
+  transition: width 1.4s 2.2s cubic-bezier(0.22,1,0.36,1);
+}
+
+/* Metric positions & float animations — inset slightly so pills can sit in corner bands without covering copy */
+.m-tl {
+  top: 11%; left: 6%;
+  animation: fadeIn 0.6s 1.3s ease forwards, floatB 4.8s 1.3s ease-in-out infinite;
+}
+.m-br {
+  bottom: 11%; right: 6%;
+  animation: fadeIn 0.6s 1.5s ease forwards, floatA 5.2s 1.5s ease-in-out infinite;
+}
+.m-tr {
+  top: 17%; right: 6%;
+  animation: fadeIn 0.6s 1.7s ease forwards, floatC 4.2s 1.7s ease-in-out infinite;
+}
+
+/* ── KEYFRAMES ── */
+@keyframes fadeDown    { from{opacity:0;transform:translateY(-12px)} to{opacity:1;transform:none} }
+@keyframes fadeUp      { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:none} }
+@keyframes fadeIn      { from{opacity:0} to{opacity:1} }
+@keyframes slideUp     { from{transform:translateY(110%)} to{transform:none} }
+@keyframes scaleIn     { from{opacity:0;transform:scale(0.86)} to{opacity:1;transform:scale(1)} }
+@keyframes pulse       { 0%{opacity:0.6;transform:scale(1)} 100%{opacity:0;transform:scale(1.5)} }
+@keyframes scrollDot   { 0%,100%{opacity:1;transform:translateX(-50%) translateY(0)} 60%{opacity:0;transform:translateX(-50%) translateY(10px)} }
+@keyframes blink       { 0%,100%{opacity:1} 50%{opacity:0.35} }
+@keyframes underlineGrow { from{width:0} to{width:100%} }
+
+/* Three distinct float patterns for variety */
+@keyframes floatA { 0%,100%{transform:translateY(0px)}    50%{transform:translateY(-11px)} }
+@keyframes floatB { 0%,100%{transform:translateY(-5px)}   50%{transform:translateY(6px)} }
+@keyframes floatC { 0%,100%{transform:translateY(-3px)}   50%{transform:translateY(9px)} }
+@keyframes floatCentre { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+
+  #projects { scroll-margin-top: 96px; }
   .projects { max-width: 960px; margin: 0 auto; padding: 20px 48px 100px; }
 
   .project-item { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; padding: 72px 0; border-bottom: 1px solid var(--border); text-decoration: none; color: inherit; cursor: pointer; }
@@ -103,9 +451,14 @@
   .footer-social svg { width: 20px; height: 20px; flex-shrink: 0; }
   .footer-social__beh svg { width: 18px; height: 18px; }
 
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 60px 24px; }
+    nav { padding: 16px 24px; justify-content: flex-end; }
+    .scroll-hint { left: 24px; }
+  }
   @media (max-width: 680px) {
-    nav { padding: 16px 24px; }
-    .hero { padding: 60px 24px 40px; }
     .projects { padding: 0 24px 60px; }
     .project-item { grid-template-columns: 1fr; gap: 24px; padding: 40px 0; }
     .project-item:nth-child(even) .proj-image-wrap { order: 0; }
@@ -120,16 +473,156 @@
   <div class="nav-links">
     <a href="index.html" aria-current="page">Portfolio</a>
     <a href="about.html">About</a>
-    <a href="#" class="nav-cv">Download CV</a>
+    <a href="mailto:nedabagheri.nz@gmail.com" class="nav-cta">Get in touch</a>
   </div>
 </nav>
 
-<div class="hero">
-  <h1>Neda Bagheri |<br><em>Product Designer</em></h1>
-  <p>Designing intuitive, accessible experiences across fintech, retail, SaaS, and e-health — for web, mobile, and everything in between.</p>
-</div>
+<section class="hero">
 
-<div class="projects">
+  <div class="hero-left">
+
+    <div class="hero-eyebrow">
+      Product Designer · Stockholm
+      <span class="avail-dot"></span>
+    </div>
+
+    <h1 class="hero-title">
+      <span class="title-line"><span>Design that</span></span>
+      <span class="title-line"><span><em>actually</em></span></span>
+      <span class="title-line"><span>matters.</span></span>
+    </h1>
+
+    <p class="hero-desc">
+      I'm Neda — a product designer who makes complex systems feel simple. From fintech to healthcare, my work is grounded in real research, built for real people, and shipped with care.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">
+        View my work
+        <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="mailto:nedabagheri.nz@gmail.com" class="btn-ghost">
+        Get in touch
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="scroll-mouse"></div>
+      Scroll to explore
+    </div>
+
+  </div>
+
+  <div class="hero-right">
+
+    <div class="bg-circle"></div>
+
+    <div class="tool-pill tp-figma">
+      <span class="pill-icon" style="background:#1e1e1e">
+        <svg width="13" height="13" viewBox="0 0 38 57" fill="none" aria-hidden="true">
+          <path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#1ABCFE"/>
+          <path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#0ACF83"/>
+          <path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" fill="#FF7262"/>
+          <path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#F24E1E"/>
+          <path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#A259FF"/>
+        </svg>
+      </span>
+      Figma
+    </div>
+
+    <div class="tool-pill tp-user">
+      <span class="pill-icon" style="background:#e8f0fe">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="8" r="4" stroke="#4285F4" stroke-width="1.8"/>
+          <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#4285F4" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </span>
+      User Testing
+    </div>
+
+    <div class="tool-pill tp-wcag">
+      <span class="pill-icon" style="background:#e8f4e8">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" stroke="#2e7d32" stroke-width="1.8"/>
+          <path d="M9 12l2 2 4-4" stroke="#2e7d32" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      WCAG
+    </div>
+
+    <div class="tool-pill tp-cursor">
+      <span class="pill-icon" style="background:#000">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 2l16 9-9 2-4 9L4 2z" fill="#fff"/>
+        </svg>
+      </span>
+      Cursor AI
+    </div>
+
+    <div class="tool-pill tp-research">
+      <span class="pill-icon" style="background:#fff3e0">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" stroke="#e65100" stroke-width="1.8"/>
+          <path d="M16.5 16.5L21 21" stroke="#e65100" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </span>
+      Research
+    </div>
+
+    <div class="tool-pill tp-claude">
+      <span class="pill-icon" style="background:#d4a27f">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9-4-9-9-9z" fill="none" stroke="#fff" stroke-width="1.6"/>
+          <path d="M9 10.5c0-1.66 1.34-3 3-3s3 1.34 3 3c0 1.2-.7 2.24-1.72 2.74L12 16" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="12" cy="18.5" r="0.9" fill="#fff"/>
+        </svg>
+      </span>
+      Claude AI
+    </div>
+
+    <div class="centre-card">
+      <div class="pulse-ring"></div>
+      <div class="pulse-ring"></div>
+      <div class="centre-avatar">NB</div>
+      <div class="centre-name">Neda Bagheri</div>
+      <div class="centre-role">Product Designer</div>
+      <div class="dot-row">
+        <div class="dot" style="background:#1a1814"></div>
+        <div class="dot" style="background:#c8622a"></div>
+        <div class="dot" style="background:#9e9b96"></div>
+      </div>
+    </div>
+
+    <div class="metric m-tl">
+      <div class="metric-label">Task time saved</div>
+      <div class="metric-value">−30%</div>
+      <div class="metric-sub">POS redesign</div>
+      <div class="metric-bar"><div class="metric-fill" id="f1"></div></div>
+    </div>
+
+    <div class="metric m-br">
+      <div class="metric-label">Checkout completion</div>
+      <div class="metric-value">+25%</div>
+      <div class="metric-sub">Mobile app</div>
+      <div class="metric-bar"><div class="metric-fill" id="f2"></div></div>
+    </div>
+
+    <div class="metric m-tr">
+      <div class="metric-label">Admin time cut</div>
+      <div class="metric-value">−40%</div>
+      <div class="metric-sub">Healthcare</div>
+      <div class="metric-bar"><div class="metric-fill" id="f3"></div></div>
+    </div>
+
+  </div>
+</section>
+
+<div class="projects" id="projects">
 
   <a class="project-item" href="pos-app.html">
     <div class="proj-image-wrap proj-image-wrap--photo">
@@ -247,6 +740,52 @@
     </li>
   </ul>
 </footer>
+
+<script>
+  setTimeout(() => {
+    document.getElementById('f1').style.width = '70%';
+    document.getElementById('f2').style.width = '85%';
+    document.getElementById('f3').style.width = '60%';
+  }, 2200);
+
+  document.addEventListener('mousemove', e => {
+    const cx = window.innerWidth / 2;
+    const cy = window.innerHeight / 2;
+    const dx = (e.clientX - cx) / cx;
+    const dy = (e.clientY - cy) / cy;
+
+    document.querySelectorAll('.tool-pill').forEach((pill, i) => {
+      const depth = 0.8 + (i % 3) * 0.4;
+      const x = dx * depth * 6;
+      const y = dy * depth * 6;
+      pill.style.setProperty('--px', `${x}px`);
+      pill.style.setProperty('--py', `${y}px`);
+    });
+
+    document.querySelectorAll('.metric').forEach((m, i) => {
+      const depth = 0.5 + (i % 2) * 0.3;
+      const x = dx * depth * 4;
+      const y = dy * depth * 4;
+      m.style.setProperty('--px', `${x}px`);
+      m.style.setProperty('--py', `${y}px`);
+    });
+
+    const cc = document.querySelector('.centre-card');
+    cc.style.setProperty('--px', `${dx * 3}px`);
+    cc.style.setProperty('--py', `${dy * 3}px`);
+  });
+
+  function applyParallax() {
+    document.querySelectorAll('.tool-pill, .metric, .centre-card').forEach(el => {
+      const px = parseFloat(el.style.getPropertyValue('--px')) || 0;
+      const py = parseFloat(el.style.getPropertyValue('--py')) || 0;
+      el.style.marginLeft = px + 'px';
+      el.style.marginTop  = py + 'px';
+    });
+    requestAnimationFrame(applyParallax);
+  }
+  applyParallax();
+</script>
 
 </body>
 </html>
