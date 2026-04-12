@@ -521,26 +521,22 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
     .hero-v2 .side-tag { display: none; }
   }
   @media (max-width: 680px) {
-    /* Hero: first row shrinks so row 2 (CTA strip) stays in the first screen */
+    /* Stack headline + CTA; center the group in the viewport (desktop layout unchanged above 680px) */
     .hero-v2 {
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: minmax(0, 1fr) auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: stretch;
       min-height: 100vh;
       min-height: 100svh;
       max-height: 100svh;
     }
-    .hero-v2 #particles {
-      grid-column: 1;
-      grid-row: 1 / -1;
-    }
     .hero-v2-main {
-      grid-column: 1;
-      grid-row: 1;
+      flex: 0 0 auto;
       min-height: 0;
-      align-self: stretch;
+      width: 100%;
       justify-content: flex-start;
-      padding: 10px 20px 6px;
+      padding: 0 20px 0;
       padding-left: max(20px, env(safe-area-inset-left, 0px));
       padding-right: max(20px, env(safe-area-inset-right, 0px));
     }
@@ -548,9 +544,10 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
       gap: max(10px, 0.5rem);
     }
     .hero-v2 .strip {
-      grid-column: 1;
-      grid-row: 2;
       position: relative;
+      flex: 0 0 auto;
+      width: 100%;
+      margin-top: 14px;
       bottom: auto;
       left: auto;
       right: auto;
@@ -624,9 +621,12 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
     }
     .hero-v2-main {
       min-height: 0;
-      padding-top: 6px;
+      padding-top: 0;
       padding-left: max(16px, env(safe-area-inset-left, 0px));
       padding-right: max(16px, env(safe-area-inset-right, 0px));
+    }
+    .hero-v2 .strip {
+      margin-top: 12px;
     }
     .headline {
       gap: max(8px, 0.42rem);
