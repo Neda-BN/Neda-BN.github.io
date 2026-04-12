@@ -4,28 +4,97 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
+<link rel="stylesheet" href="fonts/sora.css">
+<link href="https://fonts.googleapis.com/css2?family=Sora:ital,wght@1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 <title>About · Neda Bagheri</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #F7F5F0; --surface: #FFFFFF; --dark: #1A1A1A; --mid: #555555; --light: #999999;
     --accent: #C4622D; --accent-light: #F5EBE3; --border: #E8E4DC;
-    --serif: 'DM Serif Display', Georgia, serif; --sans: 'Open Sans', sans-serif;
+    --serif: 'Sora', sans-serif; --sans: 'Open Sans', sans-serif;
+    --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-cv: 0 6px 20px rgba(26, 26, 26, 0.18);
+    --shadow-cv-hover: 0 16px 36px rgba(26, 26, 26, 0.22), 0 6px 16px rgba(196, 98, 45, 0.12);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { overflow-x: clip; }
-  body { font-family: var(--sans); background: var(--bg); color: var(--dark); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--dark); font-size: 16px; line-height: 1.7; overflow-x: hidden; position: relative; }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 88% 55% at 50% -8%, rgba(196, 98, 45, 0.045) 0%, transparent 52%),
+      radial-gradient(ellipse 65% 45% at 102% 88%, rgba(232, 228, 220, 0.5) 0%, transparent 48%),
+      radial-gradient(ellipse 50% 40% at -5% 75%, rgba(245, 235, 227, 0.35) 0%, transparent 50%);
+    opacity: 0.95;
+  }
   img, video { max-width: 100%; height: auto; }
-
-  nav { position: sticky; top: 0; z-index: 100; background: rgba(247,245,240,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 20px 48px; display: flex; align-items: center; justify-content: flex-end; }
-  .nav-links { display: flex; gap: 36px; align-items: center; }
-  .nav-links a { font-size: 14px; font-weight: 500; color: var(--mid); text-decoration: none; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--accent); }
-  .nav-links a[aria-current="page"] { color: var(--accent); font-weight: 600; }
-  .nav-cv { background: var(--dark); color: white !important; padding: 8px 20px; border-radius: 6px; font-size: 13px !important; }
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 52px; height: 64px;
+    background: rgba(249,247,244,0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .n-logo {
+    font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: -0.01em;
+    color: var(--dark); text-decoration: none;
+  }
+  .n-links { display: flex; gap: 32px; align-items: center; perspective: 900px; }
+  .n-links a {
+    font-family: 'Sora', sans-serif; font-size: 12px; font-weight: 400; color: var(--mid);
+    text-decoration: none; letter-spacing: 0.04em;
+  }
+  .n-links a:not(.n-btn) {
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s var(--ease-soft), transform 0.4s var(--ease-spring);
+  }
+  .n-links a:not(.n-btn)::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 1px;
+    transform: scaleX(0);
+    transform-origin: center;
+    opacity: 0.88;
+    transition: transform 0.4s var(--ease-spring);
+    pointer-events: none;
+  }
+  .n-links a:not(.n-btn):hover,
+  .n-links a:not(.n-btn):focus-visible {
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .n-links a:not(.n-btn):hover::after,
+  .n-links a:not(.n-btn):focus-visible::after { transform: scaleX(1); }
+  .n-links a:not(.n-btn)[aria-current="page"]::after { transform: scaleX(1); }
+  .n-links a:not(.n-btn)[aria-current="page"] { color: var(--accent); font-weight: 600; }
+  .n-btn {
+    font-family: 'Sora', sans-serif; font-size: 11px !important; font-weight: 600 !important; letter-spacing: 0.08em !important;
+    text-transform: uppercase; background: var(--dark); color: #f9f7f4 !important;
+    padding: 9px 20px; border-radius: 100px;
+    transition: background 0.25s, transform 0.2s !important;
+  }
+  .n-btn:hover { background: var(--accent) !important; transform: translateY(-1px); }
   a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-  main { max-width: 920px; margin: 0 auto; padding: 72px 48px 100px; }
+  main {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 72px 48px 100px;
+    perspective: 1600px;
+    transform-style: preserve-3d;
+  }
 
   /* Intro: portrait (1:1) + copy — photo left on desktop; stacks on small screens */
   .about-intro {
@@ -59,6 +128,12 @@
     background: var(--surface);
     border: 1px solid var(--border);
     box-shadow: 0 4px 24px rgba(26, 26, 26, 0.06);
+    transition: transform 0.45s var(--ease-spring), box-shadow 0.45s var(--ease-soft);
+  }
+  .about-intro__figure:hover .about-intro__photo,
+  .about-intro__figure:focus-within .about-intro__photo {
+    transform: perspective(800px) rotateY(-2.5deg) translateY(-4px);
+    box-shadow: 0 18px 42px rgba(26, 26, 26, 0.11);
   }
   .about-intro__photo img {
     width: 100%;
@@ -77,16 +152,60 @@
   p { color: var(--mid); font-weight: 300; margin-bottom: 18px; }
   p strong { color: var(--dark); font-weight: 600; }
 
+  .about-skills,
+  .about-working-note { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+  .about-skills h2,
+  .about-working-note h2 { font-family: var(--serif); font-size: 22px; margin-bottom: 24px; color: var(--dark); }
+  .about-working-note p {
+    font-size: 15px;
+    color: var(--mid);
+    font-weight: 300;
+    line-height: 1.65;
+    margin: 0;
+  }
+  .about-skills__group { margin-bottom: 22px; }
+  .about-skills__group:last-child { margin-bottom: 0; }
+  .about-skills__title {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--dark);
+    margin: 0 0 8px;
+    letter-spacing: -0.02em;
+  }
+  .about-skills__text {
+    font-size: 15px;
+    color: var(--mid);
+    font-weight: 300;
+    line-height: 1.65;
+    margin: 0;
+  }
+
   .case-list { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
   .case-list h2 { font-family: var(--serif); font-size: 22px; margin-bottom: 20px; color: var(--dark); }
   .case-list ul { list-style: none; }
   .case-list li { margin-bottom: 12px; }
-  .case-list a { color: var(--accent); font-weight: 600; text-decoration: none; font-size: 15px; }
-  .case-list a:hover { text-decoration: underline; }
-
+  .case-list a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.25s, transform 0.4s var(--ease-spring);
+  }
+  .case-list a::after { content: '→'; font-weight: 600; transition: transform 0.4s var(--ease-spring); }
+  .case-list a:hover,
+  .case-list a:focus-visible {
+    transform: translateX(5px);
+  }
+  .case-list a:hover::after,
+  .case-list a:focus-visible::after { transform: translateX(4px); }
   footer { padding: 28px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; border-top: 1px solid var(--border); max-width: 960px; margin: 0 auto; }
   footer p { font-size: 13px; color: var(--light); margin: 0; }
   .footer-social { display: flex; align-items: center; gap: 8px; list-style: none; margin: 0; padding: 0; }
+  .footer-social li { perspective: 500px; }
   .footer-social a {
     display: inline-flex;
     align-items: center;
@@ -98,16 +217,58 @@
     color: var(--mid);
     background: var(--surface);
     text-decoration: none;
-    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    transform-style: preserve-3d;
+    transition:
+      color 0.3s var(--ease-soft),
+      border-color 0.3s var(--ease-soft),
+      background 0.3s var(--ease-soft),
+      transform 0.35s var(--ease-spring),
+      box-shadow 0.35s var(--ease-soft);
   }
   .footer-social a:hover {
     color: var(--accent);
     border-color: var(--accent);
     background: var(--accent-light);
+    transform: translateY(-4px) rotateX(10deg);
+    box-shadow: 0 12px 26px rgba(26, 26, 26, 0.1);
   }
-  .footer-social a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .footer-social a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    transform: translateY(-3px) rotateX(6deg);
+    box-shadow: 0 10px 22px rgba(26, 26, 26, 0.08);
+  }
+  .footer-social a:active {
+    transform: translateY(-1px) rotateX(3deg) scale(0.96);
+    transition-duration: 0.1s;
+  }
   .footer-social svg { width: 20px; height: 20px; flex-shrink: 0; }
   .footer-social__beh svg { width: 18px; height: 18px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .n-links a:not(.n-btn),
+    .n-btn,
+    .footer-social a,
+    .about-intro__photo,
+    .case-list a,
+    .case-list a::after {
+      transition: none !important;
+    }
+    .n-links a:not(.n-btn):hover,
+    .n-links a:not(.n-btn):focus-visible { transform: none; }
+    .n-btn:hover,
+    .n-btn:focus-visible,
+    .n-btn:active { transform: none; }
+    .about-intro__figure:hover .about-intro__photo,
+    .about-intro__figure:focus-within .about-intro__photo { transform: none; box-shadow: 0 4px 24px rgba(26, 26, 26, 0.06); }
+    .case-list a:hover,
+    .case-list a:focus-visible { transform: none; }
+    .case-list a:hover::after,
+    .case-list a:focus-visible::after { transform: none; }
+    .footer-social a:hover,
+    .footer-social a:focus-visible,
+    .footer-social a:active { transform: none; box-shadow: none; }
+  }
 
   @media (max-width: 720px) {
     .about-intro {
@@ -119,7 +280,7 @@
   }
 
   @media (max-width: 680px) {
-    nav { padding: 16px 24px; }
+    nav { padding: 0 24px; height: 60px; }
     main { padding: 48px 24px 72px; }
     footer { padding: 24px; flex-direction: column; align-items: flex-start; gap: 20px; }
   }
@@ -128,10 +289,11 @@
 <body>
 
 <nav>
-  <div class="nav-links">
+  <a class="n-logo" href="index.html">NB.</a>
+  <div class="n-links">
     <a href="index.html">Portfolio</a>
     <a href="about.html" aria-current="page">About</a>
-    <a href="#" class="nav-cv">Download CV</a>
+    <a href="mailto:nedabagheri.nz@gmail.com?subject=CV%20request" class="n-btn">Download CV</a>
   </div>
 </nav>
 
@@ -153,6 +315,31 @@
     <p>I work in Agile cross-functional teams and use AI tools — Claude, Cursor, Lovable — to move faster without losing quality. Originally from Iran, I moved to Stockholm and I'm actively building my Swedish.</p>
     <p>Outside of work I cook, dance, and spend time in nature. Cooking especially — it's how I reset, and it's not entirely unlike design.</p>
     <p>Open to new roles and collaborations. <a href="mailto:nedabagheri.nz@gmail.com" style="color:var(--accent);font-weight:600;text-decoration:none;">Get in touch</a> if you'd like to connect.</p>
+  </section>
+
+  <section class="about-skills" aria-labelledby="skills-tools-heading">
+    <h2 id="skills-tools-heading">Skills &amp; Tools</h2>
+    <div class="about-skills__group">
+      <h3 class="about-skills__title">Design &amp; Research</h3>
+      <p class="about-skills__text">UX Research · Usability Testing · User Interviews · Journey Mapping · Card Sorting · A/B Testing · Information Architecture · Interaction Design · Design Systems · WCAG Accessibility</p>
+    </div>
+    <div class="about-skills__group">
+      <h3 class="about-skills__title">Tools</h3>
+      <p class="about-skills__text">Figma (Expert), Miro, FigJam, Adobe Creative Suite, Claude AI, Cursor AI, Lovable AI, Contentful, Canva</p>
+    </div>
+    <div class="about-skills__group">
+      <h3 class="about-skills__title">Domains</h3>
+      <p class="about-skills__text">Fintech · B2B SaaS · Retail Tech · E-Health · B2C Mobile</p>
+    </div>
+    <div class="about-skills__group">
+      <h3 class="about-skills__title">Platforms</h3>
+      <p class="about-skills__text">iOS · Android · Responsive Web · Desktop</p>
+    </div>
+  </section>
+
+  <section class="about-working-note" aria-labelledby="working-style-heading">
+    <h2 id="working-style-heading">Working Style Note</h2>
+    <p>I tend to ask "why does this matter to the user?" before "how should this look?" — and I've found that slowing down at the problem definition stage almost always saves time later. I enjoy working closely with product managers and engineers, and I prefer decisions made from evidence over ones made from assumption.</p>
   </section>
 
   <section class="case-list" aria-label="Case studies">
