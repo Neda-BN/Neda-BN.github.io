@@ -13,6 +13,7 @@
   :root {
     --bg: #F7F5F0; --surface: #FFFFFF; --dark: #1A1A1A; --mid: #555555; --light: #999999;
     --accent: #C4622D; --accent-light: #F5EBE3; --border: #E8E4DC;
+    --bg2: #EFECE6; --line: #E8E4DC; --ink: #1A1A1A; --ink2: #555555; --ink3: #A8A299; --warm: #C4622D;
     --serif: 'Sora', sans-serif; --sans: 'Open Sans', sans-serif;
     --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
     --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
@@ -22,6 +23,7 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { color-scheme: light; overflow-x: clip; }
   body { font-family: var(--sans); background: var(--bg); color: var(--dark); font-size: 16px; line-height: 1.7; overflow-x: hidden; position: relative; }
+  body.hero-cursor-none { cursor: none; }
   body::before {
     content: '';
     position: fixed;
@@ -87,7 +89,34 @@
     transition: background 0.25s, transform 0.2s !important;
   }
   .n-btn:hover { background: var(--accent) !important; transform: translateY(-1px); }
+  .n-btn--cv-soon { cursor: default; user-select: none; -webkit-user-select: none; }
   a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  /* Custom cursor (matches portfolio index.html) */
+  #dot {
+    position: fixed;
+    z-index: 9999;
+    pointer-events: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--warm);
+    transform: translate(-50%, -50%);
+    mix-blend-mode: multiply;
+  }
+  #ring {
+    position: fixed;
+    z-index: 9998;
+    pointer-events: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(200, 98, 42, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.35s, height 0.35s, border-color 0.3s;
+  }
+  body.lh #dot { transform: translate(-50%, -50%) scale(2); opacity: 0.5; }
+  body.lh #ring { width: 60px; height: 60px; border-color: rgba(200, 98, 42, 0.5); }
 
   main {
     max-width: 920px;
@@ -153,9 +182,11 @@
   p { color: var(--mid); font-weight: 300; margin-bottom: 18px; }
   p strong { color: var(--dark); font-weight: 600; }
 
-  .about-skills,
-  .about-working-note { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
-  .about-skills h2,
+  .about-working-note {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
   .about-working-note h2 { font-family: var(--serif); font-size: 22px; margin-bottom: 24px; color: var(--dark); }
   .about-working-note p {
     font-size: 15px;
@@ -164,45 +195,146 @@
     line-height: 1.65;
     margin: 0;
   }
-  .about-skills__group { margin-bottom: 22px; }
-  .about-skills__group:last-child { margin-bottom: 0; }
-  .about-skills__title {
-    font-family: var(--serif);
+
+  /* SKILLS SECTION & CASE STUDIES */
+  .skills-section { margin-bottom: 80px; }
+  .sec-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--ink3);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .sec-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .skill-group {
+    padding: 28px 24px;
+    background: var(--bg2);
+    border: 1px solid var(--line);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  }
+  .skill-group:first-child { border-radius: 12px 0 0 12px; }
+  .skill-group:last-child { border-radius: 0 12px 12px 0; }
+  .skill-group:hover {
+    background: #fff;
+    box-shadow: 0 8px 32px rgba(26, 24, 20, 0.08);
+    transform: translateY(-2px);
+    z-index: 1;
+    position: relative;
+  }
+  .sg-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--warm);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .sg-items { display: flex; flex-direction: column; gap: 8px; }
+  .sg-item {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--ink2);
+    padding-left: 12px;
+    position: relative;
+    line-height: 1.4;
+  }
+  .sg-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(26, 24, 20, 0.2);
+  }
+
+  .divider {
+    margin: 28px 0 0;
+    height: 1px;
+    background: var(--line);
+    border: 0;
+  }
+
+  .cs-section { margin-bottom: 60px; }
+  .cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  .cs-card {
+    display: block;
+    text-decoration: none;
+    padding: 28px 28px;
+    background: var(--bg2);
+    border: 1px solid var(--line);
+    transition: background 0.2s, transform 0.25s, box-shadow 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .cs-card:first-child { border-radius: 12px 0 0 12px; }
+  .cs-card:last-child { border-radius: 0 12px 12px 0; }
+  .cs-card:hover {
+    background: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(26, 24, 20, 0.08);
+  }
+  .cs-card::after {
+    content: '→';
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: var(--ink3);
+    transition: color 0.2s, transform 0.2s;
+  }
+  .cs-card:hover::after {
+    color: var(--warm);
+    transform: translateY(-50%) translateX(4px);
+  }
+  .cs-card,
+  .cs-card:visited { color: inherit; }
+  .cs-tag {
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--ink3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .cs-title {
     font-size: 15px;
     font-weight: 600;
-    color: var(--dark);
-    margin: 0 0 8px;
-    letter-spacing: -0.02em;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+    line-height: 1.3;
   }
-  .about-skills__text {
-    font-size: 15px;
-    color: var(--mid);
+  .cs-desc {
+    font-size: 12px;
     font-weight: 300;
-    line-height: 1.65;
+    color: var(--ink2);
+    line-height: 1.6;
+    max-width: 280px;
     margin: 0;
   }
 
-  .case-list { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
-  .case-list h2 { font-family: var(--serif); font-size: 22px; margin-bottom: 20px; color: var(--dark); }
-  .case-list ul { list-style: none; }
-  .case-list li { margin-bottom: 12px; }
-  .case-list a {
-    color: var(--accent);
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 15px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: color 0.25s, transform 0.4s var(--ease-spring);
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.7s var(--ease-soft), transform 0.7s var(--ease-spring);
   }
-  .case-list a::after { content: '→'; font-weight: 600; transition: transform 0.4s var(--ease-spring); }
-  .case-list a:hover,
-  .case-list a:focus-visible {
-    transform: translateX(5px);
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
-  .case-list a:hover::after,
-  .case-list a:focus-visible::after { transform: translateX(4px); }
   footer { padding: 28px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; border-top: 1px solid var(--border); max-width: 960px; margin: 0 auto; }
   footer p { font-size: 13px; color: var(--light); margin: 0; }
   .footer-social { display: flex; align-items: center; gap: 8px; list-style: none; margin: 0; padding: 0; }
@@ -247,12 +379,22 @@
   .footer-social__beh svg { width: 18px; height: 18px; }
 
   @media (prefers-reduced-motion: reduce) {
+    body.hero-cursor-none { cursor: auto; }
+    #dot,
+    #ring { display: none !important; }
     .n-links a:not(.n-btn),
     .n-btn,
     .footer-social a,
     .about-intro__photo,
-    .case-list a,
-    .case-list a::after {
+    .skill-group,
+    .cs-card,
+    .cs-card::after {
+      transition: none !important;
+    }
+    .reveal,
+    .reveal.is-visible {
+      opacity: 1 !important;
+      transform: none !important;
       transition: none !important;
     }
     .n-links a:not(.n-btn):hover,
@@ -262,10 +404,13 @@
     .n-btn:active { transform: none; }
     .about-intro__figure:hover .about-intro__photo,
     .about-intro__figure:focus-within .about-intro__photo { transform: none; box-shadow: 0 4px 24px rgba(26, 26, 26, 0.06); }
-    .case-list a:hover,
-    .case-list a:focus-visible { transform: none; }
-    .case-list a:hover::after,
-    .case-list a:focus-visible::after { transform: none; }
+    .skill-group:hover {
+      transform: none;
+      box-shadow: none;
+      background: var(--bg2);
+    }
+    .cs-card:hover { transform: none; box-shadow: none; }
+    .cs-card:hover::after { transform: translateY(-50%); }
     .footer-social a:hover,
     .footer-social a:focus-visible,
     .footer-social a:active { transform: none; box-shadow: none; }
@@ -278,6 +423,14 @@
       gap: 32px;
     }
     .about-intro__photo { max-width: min(280px, 72vw); }
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+    .skill-group:first-child { border-radius: 12px 12px 0 0; }
+    .skill-group:last-child { border-radius: 0 0 12px 12px; }
+    .cs-grid { grid-template-columns: 1fr; }
+    .cs-card:first-child { border-radius: 12px 12px 0 0; }
+    .cs-card:last-child { border-radius: 0 0 12px 12px; }
   }
 
   @media (max-width: 680px) {
@@ -287,14 +440,17 @@
   }
 </style>
 </head>
-<body>
+<body class="hero-cursor-none">
+
+<div id="dot" aria-hidden="true"></div>
+<div id="ring" aria-hidden="true"></div>
 
 <nav>
   <a class="n-logo" href="index.html">NB.</a>
   <div class="n-links">
     <a href="index.html">Portfolio</a>
     <a href="about.html" aria-current="page">About</a>
-    <a href="mailto:nedabagheri.nz@gmail.com?subject=CV%20request" class="n-btn">Download CV</a>
+    <span class="n-btn n-btn--cv-soon" role="button" tabindex="-1" aria-disabled="true" title="CV coming soon">Download CV</span>
   </div>
 </nav>
 
@@ -318,41 +474,89 @@
     <p>Open to new roles and collaborations. <a href="mailto:nedabagheri.nz@gmail.com" style="color:var(--accent);font-weight:600;text-decoration:none;">Get in touch</a> if you'd like to connect.</p>
   </section>
 
-  <section class="about-skills" aria-labelledby="skills-tools-heading">
-    <h2 id="skills-tools-heading">Skills &amp; Tools</h2>
-    <div class="about-skills__group">
-      <h3 class="about-skills__title">Design &amp; Research</h3>
-      <p class="about-skills__text">UX Research · Usability Testing · User Interviews · Journey Mapping · Card Sorting · A/B Testing · Information Architecture · Interaction Design · Design Systems · WCAG Accessibility</p>
+  <!-- SKILLS -->
+  <div class="skills-section reveal">
+    <div class="sec-label">Skills &amp; tools</div>
+    <div class="skills-grid">
+
+      <div class="skill-group">
+        <div class="sg-title">Research</div>
+        <div class="sg-items">
+          <div class="sg-item">User Interviews</div>
+          <div class="sg-item">Usability Testing</div>
+          <div class="sg-item">Contextual Research</div>
+          <div class="sg-item">A/B Testing</div>
+          <div class="sg-item">Card Sorting</div>
+          <div class="sg-item">Affinity Mapping</div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="sg-title">Design</div>
+        <div class="sg-items">
+          <div class="sg-item">Interaction Design</div>
+          <div class="sg-item">Information Architecture</div>
+          <div class="sg-item">Design Systems</div>
+          <div class="sg-item">Wireframing &amp; Prototyping</div>
+          <div class="sg-item">WCAG Accessibility</div>
+          <div class="sg-item">Multi-platform Design</div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="sg-title">Tools</div>
+        <div class="sg-items">
+          <div class="sg-item">Figma — Expert</div>
+          <div class="sg-item">FigJam · Miro</div>
+          <div class="sg-item">Cursor AI · Claude AI</div>
+          <div class="sg-item">Jira · Agile / Scrum</div>
+          <div class="sg-item">Adobe Creative Suite</div>
+          <div class="sg-item">Contentful</div>
+        </div>
+      </div>
+
     </div>
-    <div class="about-skills__group">
-      <h3 class="about-skills__title">Tools</h3>
-      <p class="about-skills__text">Figma (Expert), Miro, FigJam, Adobe Creative Suite, Claude AI, Cursor AI, Lovable AI, Contentful, Canva</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- CASE STUDIES -->
+  <div class="cs-section reveal">
+    <div class="sec-label">Selected case studies</div>
+    <div class="cs-grid">
+
+      <a href="pos-app.html" class="cs-card">
+        <div class="cs-tag">B2B · Retail · 2024–2025</div>
+        <div class="cs-title">Cashier POS &amp; Payment App</div>
+        <div class="cs-desc">Redesigning a high-frequency point-of-sale app for real-world speed and reliability.</div>
+      </a>
+
+      <a href="backoffice.html" class="cs-card">
+        <div class="cs-tag">B2B SaaS · 2023–2024</div>
+        <div class="cs-title">Focalpay Back-office Dashboard</div>
+        <div class="cs-desc">A cloud-based command centre managing thousands of SKUs and complex pricing logic.</div>
+      </a>
+
+      <a href="healthcare.html" class="cs-card">
+        <div class="cs-tag">B2B · E-Health · 2025–2026</div>
+        <div class="cs-title">Healthcare Provider Survey App</div>
+        <div class="cs-desc">Replacing manual email-and-spreadsheet workflows with a centralised digital platform.</div>
+      </a>
+
+      <a href="mobile-app.html" class="cs-card">
+        <div class="cs-tag">B2C · Mobile · Coming soon</div>
+        <div class="cs-title">Mobile Customer Shopping App</div>
+        <div class="cs-desc">Redesigning the onboarding and checkout journey for a B2C mobile app.</div>
+      </a>
+
     </div>
-    <div class="about-skills__group">
-      <h3 class="about-skills__title">Domains</h3>
-      <p class="about-skills__text">Fintech · B2B SaaS · Retail Tech · E-Health · B2C Mobile</p>
-    </div>
-    <div class="about-skills__group">
-      <h3 class="about-skills__title">Platforms</h3>
-      <p class="about-skills__text">iOS · Android · Responsive Web · Desktop</p>
-    </div>
-  </section>
+  </div>
 
   <section class="about-working-note" aria-labelledby="working-style-heading">
     <h2 id="working-style-heading">Working Style Note</h2>
     <p>I tend to ask "why does this matter to the user?" before "how should this look?" — and I've found that slowing down at the problem definition stage almost always saves time later. I enjoy working closely with product managers and engineers, and I prefer decisions made from evidence over ones made from assumption.</p>
   </section>
 
-  <section class="case-list" aria-label="Case studies">
-    <h2>Case studies</h2>
-    <ul>
-      <li><a href="pos-app.html">Cashier POS &amp; Payment App</a></li>
-      <li><a href="backoffice.html">Focalpay Back-office Dashboard</a></li>
-      <li><a href="healthcare.html">Healthcare Provider Survey Application</a></li>
-      <!-- TEMP UNPUBLISHED: <li><a href="replenishments.html">Backoffice Replenishments Module</a></li> -->
-      <li><a href="mobile-app.html">Mobile Customer Shopping App</a></li>
-    </ul>
-  </section>
 </main>
 
 <footer>
@@ -375,6 +579,68 @@
     </li>
   </ul>
 </footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !window.IntersectionObserver) {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
+    return;
+  }
+  document.querySelectorAll('.reveal').forEach(function (el) {
+    var io = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
+    io.observe(el);
+  });
+})();
+
+(function () {
+  var dot = document.getElementById('dot');
+  var ring = document.getElementById('ring');
+  if (!dot || !ring) return;
+  var reduce = false;
+  try {
+    reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  } catch (e1) {}
+  if (reduce) {
+    dot.style.display = 'none';
+    ring.style.display = 'none';
+    document.body.classList.remove('hero-cursor-none');
+    return;
+  }
+  var mx = window.innerWidth / 2;
+  var my = window.innerHeight / 2;
+  var rx = mx;
+  var ry = my;
+  dot.style.left = mx + 'px';
+  dot.style.top = my + 'px';
+  ring.style.left = rx + 'px';
+  ring.style.top = ry + 'px';
+
+  document.addEventListener('mousemove', function (e) {
+    mx = e.clientX;
+    my = e.clientY;
+    dot.style.left = mx + 'px';
+    dot.style.top = my + 'px';
+  });
+  (function ar() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+    requestAnimationFrame(ar);
+  })();
+  document.querySelectorAll('a, button').forEach(function (el) {
+    el.addEventListener('mouseenter', function () { document.body.classList.add('lh'); });
+    el.addEventListener('mouseleave', function () { document.body.classList.remove('lh'); });
+  });
+})();
+</script>
 
 </body>
 </html>

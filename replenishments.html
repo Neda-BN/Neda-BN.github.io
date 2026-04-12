@@ -38,6 +38,7 @@
   .n-links a:not(.n-btn)[aria-current="page"]{color:var(--accent);font-weight:600;}
   .n-btn{font-family:var(--serif);font-size:11px!important;font-weight:600!important;letter-spacing:.08em!important;text-transform:uppercase;background:var(--dark);color:#f9f7f4!important;padding:9px 20px;border-radius:100px;transition:background .25s,transform .2s!important;}
   .n-btn:hover{background:var(--accent)!important;transform:translateY(-1px);}
+  .n-btn--cv-soon{cursor:default;user-select:none;-webkit-user-select:none;}
   a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   .back-btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--dark);text-decoration:none;opacity:0.55;transition:opacity .25s,transform .35s var(--ease-spring);padding:24px 48px;display:block;}
   .back-btn:hover,.back-btn:focus-visible{opacity:1;transform:translateX(-5px);}
@@ -174,7 +175,7 @@
   <div class="n-links">
     <a href="index.html" aria-current="page">Portfolio</a>
     <a href="about.html">About</a>
-    <a href="mailto:nedabagheri.nz@gmail.com?subject=CV%20request" class="n-btn">Download CV</a>
+    <span class="n-btn n-btn--cv-soon" role="button" tabindex="-1" aria-disabled="true" title="CV coming soon">Download CV</span>
   </div>
 </nav>
 <a class="back-btn" href="index.html">← Back to Portfolio</a>
