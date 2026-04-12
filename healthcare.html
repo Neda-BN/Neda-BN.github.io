@@ -4,22 +4,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
-<title>Healthcare Provider Survey App · Neda Bagheri</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fonts/sora.css">
+<link href="https://fonts.googleapis.com/css2?family=Sora:ital,wght@1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<title>Healthcare Provider Survey Application · Neda Bagheri</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="healthcare-survey-platform-overview.png?v=20260324" fetchpriority="high">
 <style>
-  :root { --bg:#F7F5F0;--surface:#FFFFFF;--dark:#1A1A1A;--mid:#555;--light:#999;--accent:#C4622D;--accent-light:#F5EBE3;--border:#E8E4DC;--serif:'DM Serif Display',Georgia,serif;--sans:'Open Sans',sans-serif; }
+  :root { --bg:#F7F5F0;--surface:#FFFFFF;--dark:#1A1A1A;--mid:#555;--light:#999;--accent:#C4622D;--accent-light:#F5EBE3;--border:#E8E4DC;--serif:'Sora',sans-serif;--sans:'Open Sans',sans-serif;--ease-spring:cubic-bezier(0.22,1,0.36,1);--ease-soft:cubic-bezier(0.4,0,0.2,1);--shadow-cv:0 6px 20px rgba(26,26,26,0.18);--shadow-cv-hover:0 16px 36px rgba(26,26,26,0.22),0 6px 16px rgba(196,98,45,0.12); }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{overflow-x:hidden;overflow-x:clip;}
-  body{font-family:var(--sans);background:var(--bg);color:var(--dark);font-size:16px;line-height:1.7;overflow-x:hidden;overflow-x:clip;}
-  nav{position:sticky;top:0;z-index:100;background:rgba(247,245,240,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:20px 48px;display:flex;align-items:center;justify-content:flex-end;}
-  .nav-links{display:flex;gap:36px;align-items:center;}
-  .nav-links a{font-size:14px;font-weight:500;color:var(--mid);text-decoration:none;}
-  .nav-links a:hover{color:var(--accent);}
-  .nav-cv{background:var(--dark);color:white!important;padding:8px 20px;border-radius:6px;font-size:13px!important;}
+  body{font-family:var(--sans);background:var(--bg);color:var(--dark);font-size:16px;line-height:1.7;overflow-x:hidden;overflow-x:clip;position:relative;}
+  body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.95;background:radial-gradient(ellipse 88% 55% at 50% -8%,rgba(196,98,45,.045) 0%,transparent 52%),radial-gradient(ellipse 65% 45% at 102% 88%,rgba(232,228,220,.5) 0%,transparent 48%),radial-gradient(ellipse 50% 40% at -5% 75%,rgba(245,235,227,.35) 0%,transparent 50%);}
+  nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:64px;background:rgba(249,247,244,0.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+  .n-logo{font-family:var(--serif);font-size:13px;font-weight:700;letter-spacing:-.01em;color:var(--dark);text-decoration:none;}
+  .n-links{display:flex;gap:32px;align-items:center;perspective:900px;}
+  .n-links a{font-family:var(--serif);font-size:12px;font-weight:400;color:var(--mid);text-decoration:none;letter-spacing:.04em;}
+  .n-links a:not(.n-btn){position:relative;display:inline-block;transition:color .3s var(--ease-soft),transform .4s var(--ease-spring);}
+  .n-links a:not(.n-btn)::after{content:'';position:absolute;left:0;bottom:-5px;width:100%;height:2px;background:var(--accent);border-radius:1px;transform:scaleX(0);transform-origin:center;opacity:.88;transition:transform .4s var(--ease-spring);pointer-events:none;}
+  .n-links a:not(.n-btn):hover,.n-links a:not(.n-btn):focus-visible{color:var(--accent);transform:translateY(-2px);}
+  .n-links a:not(.n-btn):hover::after,.n-links a:not(.n-btn):focus-visible::after{transform:scaleX(1);}
+  .n-links a:not(.n-btn)[aria-current="page"]::after{transform:scaleX(1);}
+  .n-links a:not(.n-btn)[aria-current="page"]{color:var(--accent);font-weight:600;}
+  .n-btn{font-family:var(--serif);font-size:11px!important;font-weight:600!important;letter-spacing:.08em!important;text-transform:uppercase;background:var(--dark);color:#f9f7f4!important;padding:9px 20px;border-radius:100px;transition:background .25s,transform .2s!important;}
+  .n-btn:hover{background:var(--accent)!important;transform:translateY(-1px);}
   a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
-  .back-btn{display:block;font-size:14px;font-weight:600;color:var(--dark);text-decoration:none;opacity:0.55;transition:opacity 0.2s;padding:24px 48px;}
-  .back-btn:hover{opacity:1;}
+  .back-btn{display:block;font-size:14px;font-weight:600;color:var(--dark);text-decoration:none;opacity:0.55;transition:opacity .25s,transform .35s var(--ease-spring);padding:24px 48px;}
+  .back-btn:hover,.back-btn:focus-visible{opacity:1;transform:translateX(-5px);}
   .hero{max-width:820px;margin:0 auto;padding:0 48px;}
   .hero-tag{display:inline-block;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);padding:6px 14px;border-radius:4px;margin-bottom:24px;}
   .hero h1{font-family:var(--serif);font-size:clamp(36px,5vw,52px);line-height:1.15;color:var(--dark);margin-bottom:24px;}
@@ -57,12 +67,52 @@
   .hc-video-figure{margin-top:28px;}
   .hc-validation-video{width:100%;max-width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--border);background:#0f172a;vertical-align:middle;}
   .image-caption{font-size:12px;color:var(--light);text-align:center;margin-top:10px;font-style:italic;}
-  .content{max-width:820px;margin:0 auto;padding:0 48px 40px;}
+  .content{max-width:820px;margin:0 auto;padding:0 48px 40px;perspective:1600px;transform-style:preserve-3d;}
+  .case-main{perspective:1600px;transform-style:preserve-3d;}
+  .case-anchor{scroll-margin-top:100px;}
+  .fade-in{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
+  .fade-in.visible{opacity:1;transform:translateY(0);}
+  .reveal{opacity:0;transform:translateY(32px);transition:opacity .75s var(--ease-soft),transform .75s var(--ease-spring);}
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+  .hc-reveal-journey.reveal{transform:translateY(36px);}
+  .hc-reveal-journey.reveal.is-visible{transform:translateY(0);}
+  .reveal-media .hc-media-frame img,.reveal-media .hc-figure-process-board img,.reveal-media .hc-case-study-media img,.reveal-media .hc-wizard-hero img{transition:transform .85s var(--ease-spring),box-shadow .85s var(--ease-soft);}
+  .reveal-media.is-visible .hc-media-frame img,.reveal-media.is-visible .hc-figure-process-board img,.reveal-media.is-visible .hc-case-study-media img,.reveal-media.is-visible .hc-wizard-hero img{transform:translateZ(10px);box-shadow:0 18px 48px rgba(26,26,26,.1);}
+  .flow-callout{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);padding:8px 14px;border-radius:100px;margin-bottom:16px;border:1px solid rgba(196,98,45,.2);}
+  .flow-emphasis{border-radius:14px;padding:18px 18px 6px;margin-bottom:10px;border:1px solid rgba(196,98,45,.22);background:linear-gradient(165deg,rgba(245,235,227,.32) 0%,transparent 55%);}
+  /* Journey map block: no outer emphasis frame (labels + diagram only) */
+  .hc-reveal-journey{margin-bottom:24px;}
+  .process-step{transition:transform .35s var(--ease-spring),box-shadow .35s var(--ease-soft),border-color .25s ease;border-radius:12px;margin:0 -8px;padding-left:8px;padding-right:8px;}
+  .process-step:hover,.process-step:focus-within{transform:translateY(-3px) translateZ(6px);box-shadow:0 12px 32px rgba(26,26,26,.06);}
+  .process-step--flow{border-left:3px solid var(--accent);}
+  .wizard-step{transition:transform .35s var(--ease-spring),box-shadow .35s var(--ease-soft),border-color .25s ease;transform-style:preserve-3d;}
+  .wizard-step:hover,.wizard-step:focus-within{transform:translateY(-4px) translateZ(8px) rotateX(4deg);box-shadow:0 14px 36px rgba(26,26,26,.08);border-color:rgba(196,98,45,.35);}
+  .hc-wizard-hero{margin-bottom:24px;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:var(--surface);}
+  .hc-wizard-hero img{width:100%;height:auto;display:block;vertical-align:middle;}
+  .hc-scoring-wrap{margin-bottom:28px;}
+  .hc-scoring-dash{transition:box-shadow .7s var(--ease-soft);}
+  .reveal-media.hc-scoring-wrap.is-visible .hc-case-study-media,.hc-scoring-wrap.is-visible .hc-case-study-media{box-shadow:0 0 0 2px rgba(196,98,45,.22),0 20px 56px rgba(26,26,26,.1);}
+  @keyframes hcWizStepIn{
+    from{opacity:.9;transform:translateY(10px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+  .wizard-steps.is-steps-visible .wizard-step{animation:hcWizStepIn .5s var(--ease-spring) both;}
+  .wizard-steps.is-steps-visible .wizard-step:nth-child(1){animation-delay:35ms;}
+  .wizard-steps.is-steps-visible .wizard-step:nth-child(2){animation-delay:70ms;}
+  .wizard-steps.is-steps-visible .wizard-step:nth-child(3){animation-delay:105ms;}
+  .wizard-steps.is-steps-visible .wizard-step:nth-child(4){animation-delay:140ms;}
+  .wizard-steps.is-steps-visible .wizard-step:nth-child(5){animation-delay:175ms;}
+  .wizard-steps.is-steps-visible .wizard-step:nth-child(6){animation-delay:210ms;}
+  .reveal-media.is-visible .hc-ujm{box-shadow:0 18px 48px rgba(26,26,26,.1);}
+  @media (prefers-reduced-motion:reduce){
+    .wizard-steps.is-steps-visible .wizard-step{animation:none!important;}
+    .hc-scoring-dash{transition:none;}
+  }
   .section{margin-bottom:56px;}
   /* Case-study section titles: large chapter + subtitle; outline icon in circle */
   .section-header{display:flex;align-items:flex-start;gap:22px;padding:0 0 32px 0;margin-bottom:0;}
   .section-headings{flex:1;min-width:0;display:flex;flex-direction:column;gap:14px;}
-  .section-chapter{font-family:var(--sans);font-size:clamp(2rem,4vw + 1rem,2.95rem);font-weight:600;letter-spacing:-0.04em;line-height:1.08;color:var(--dark);margin:0;}
+  .section-chapter{font-family:var(--serif);font-size:clamp(2rem,4vw + 1rem,2.95rem);font-weight:600;letter-spacing:-0.04em;line-height:1.08;color:var(--dark);margin:0;}
   .section-subtitle{font-family:var(--serif);font-size:clamp(1.05rem,1.5vw + 0.75rem,1.3rem);font-weight:400;font-style:italic;color:var(--mid);line-height:1.45;margin:0;max-width:38em;}
   .section-icon{flex-shrink:0;width:56px;height:56px;border-radius:50%;border:1.5px solid var(--border);background:var(--bg);color:#6b6b6b;display:flex;align-items:center;justify-content:center;}
   .section-icon svg{width:26px;height:26px;flex-shrink:0;}
@@ -71,14 +121,14 @@
   p strong{color:var(--dark);font-weight:600;}
   p:last-child{margin-bottom:0;}
   .role-block{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin-top:24px;}
-  .role-block h4{font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--dark);margin-bottom:14px;}
+  .role-block h4{font-family:var(--serif);font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--dark);margin-bottom:14px;}
   .role-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
   .role-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--mid);font-weight:300;}
   .role-list li::before{content:'→';color:var(--accent);font-weight:600;flex-shrink:0;}
   .pain-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:24px;}
   .pain-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;}
   .pain-number{font-family:var(--serif);font-size:32px;color:var(--accent);opacity:0.3;line-height:1;margin-bottom:10px;}
-  .pain-card h4{font-size:14px;font-weight:600;color:var(--dark);margin-bottom:8px;}
+  .pain-card h4{font-family:var(--serif);font-size:14px;font-weight:600;color:var(--dark);margin-bottom:8px;}
   .pain-card p{font-size:14px;margin:0;}
   .quote-block{border-left:3px solid var(--accent);padding:20px 28px;background:var(--accent-light);border-radius:0 12px 12px 0;margin:24px 0;}
   .quote-block p{font-family:var(--serif);font-size:18px;font-style:italic;color:var(--dark);margin-bottom:8px;}
@@ -87,14 +137,90 @@
   .process-step{display:flex;gap:24px;padding:20px 0;border-bottom:1px solid var(--border);}
   .process-step:last-child{border-bottom:none;}
   .step-number{font-family:var(--serif);font-size:14px;color:var(--accent);opacity:0.5;flex-shrink:0;width:24px;padding-top:2px;}
-  .step-content h4{font-size:15px;font-weight:600;color:var(--dark);margin-bottom:6px;}
+  .step-content h4{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--dark);margin-bottom:6px;}
   .step-content p{font-size:14px;margin:0;}
   .findings-list{display:flex;flex-direction:column;gap:14px;margin-top:24px;}
   .finding-item{display:flex;gap:16px;padding:20px 24px;background:var(--surface);border:1px solid var(--border);border-radius:10px;}
   .finding-icon{width:32px;height:32px;background:var(--accent-light);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;}
   .finding-text{font-size:14px;color:var(--mid);font-style:italic;font-weight:300;line-height:1.6;}
   .finding-stat{font-size:11px;font-weight:600;color:var(--accent);margin-top:4px;}
+  /* Methods & Research · Persona (standout panel + definition-style table) */
+  .hc-methods-persona{margin-top:32px;padding-top:28px;border-top:1px solid var(--border);}
+  .hc-persona-subsection-title{
+    font-family:var(--serif);
+    font-size:1.22rem;
+    font-weight:600;
+    color:var(--dark);
+    margin:0 0 14px;
+    letter-spacing:-.02em;
+    line-height:1.25;
+  }
+  .hc-persona-panel{
+    position:relative;
+    padding:24px 26px 22px;
+    border-radius:14px;
+    border:1px solid rgba(196,98,45,.22);
+    background:linear-gradient(148deg,rgba(245,235,227,.48) 0%,rgba(255,255,255,.97) 50%,rgba(232,248,245,.35) 100%);
+    box-shadow:0 10px 36px rgba(26,26,26,.07);
+    overflow:hidden;
+  }
+  .hc-persona-panel::before{
+    content:'';
+    position:absolute;
+    left:0;top:0;bottom:0;width:4px;
+    background:linear-gradient(180deg,#0D7A5F 0%,var(--accent) 100%);
+    border-radius:14px 0 0 14px;
+  }
+  .hc-persona-panel .flow-callout{margin-bottom:12px;}
+  .hc-persona-panel__kicker{
+    font-family:var(--serif);
+    font-size:clamp(1.05rem,2vw,1.2rem);
+    font-weight:600;
+    color:var(--dark);
+    margin:0 0 18px;
+    letter-spacing:-.02em;
+    line-height:1.3;
+  }
+  .hc-persona-table-wrap{margin:0;overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:10px;}
+  .hc-persona-table{width:100%;border-collapse:collapse;margin:0;background:var(--surface);border-radius:10px;overflow:hidden;border:1px solid var(--border);font-size:14px;}
+  .hc-persona-table th[scope="row"]{
+    background:#EEF6F4;
+    color:#0d5c4d;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    text-align:left;
+    padding:14px 16px;
+    width:30%;
+    max-width:200px;
+    vertical-align:top;
+    border-bottom:1px solid var(--border);
+    border-right:1px solid var(--border);
+  }
+  .hc-persona-table td{
+    padding:14px 18px;
+    border-bottom:1px solid var(--border);
+    color:#3a3a3a;
+    vertical-align:top;
+    line-height:1.55;
+    font-weight:400;
+  }
+  .hc-persona-table tr:last-child th,.hc-persona-table tr:last-child td{border-bottom:none;}
+  .hc-persona-table tr:nth-child(even) th{background:#E4F0EC;}
+  .hc-persona-table tr:nth-child(even) td{background:#FAFAF8;}
+  .hc-persona-quote{
+    font-family:var(--serif);
+    font-size:16px;
+    font-style:italic;
+    color:var(--dark);
+    line-height:1.55;
+    margin:0;
+  }
   .screens-section{margin-top:28px;}
+  /* Match POS #user-journey .screens-section rhythm */
+  .hc-reveal-journey .screens-section{margin-top:24px;}
+  #user-journey > p{margin-top:28px;margin-bottom:0;}
   .screens-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--light);margin-bottom:16px;}
   /* Wider than .content (820px), centered in the viewport (same axis as the page column) */
   .hc-ujm-strip{
@@ -107,10 +233,6 @@
   }
   .hc-ujm-strip-inner{
     width:100%;
-  }
-  /* Wizard only: larger journey map (vector SVG — scales sharply; aspect ratio unchanged) */
-  .hc-ujm-strip.hc-ujm-strip--large{
-    width:min(1860px,calc(100vw - 24px));
   }
   .hc-ujm-chart-scroll{
     width:100%;
@@ -128,18 +250,18 @@
   }
   .hc-ujm-chart-scroll-inner .hc-ujm-steps{
     grid-template-columns:repeat(10,minmax(0,1fr));
-    gap:10px 6px;
-    padding-left:clamp(40px,7vw,80px);
-    padding-right:clamp(8px,2vw,20px);
-    margin-top:14px;
-    padding-bottom:28px;
+    gap:4px 2px;
+    padding-left:clamp(48px,9vw,90px);
+    padding-right:0;
+    margin-top:16px;
+    padding-bottom:4px;
   }
   /* Embedded user journey map (scoped — DM Sans) */
   .hc-ujm{font-family:'DM Sans',var(--sans),sans-serif;color:#1A1A1A;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#fff;box-shadow:0 4px 20px rgba(0,0,0,0.07);}
   .hc-ujm *{box-sizing:border-box;}
   .hc-ujm-page{width:100%;max-width:100%;background:#fff;border-radius:0;overflow:hidden;}
   .hc-ujm-banner{background:#008075;padding:clamp(20px,4vw,36px) clamp(16px,5vw,64px) clamp(18px,3vw,32px);display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;}
-  .hc-ujm-banner-title{font-family:var(--serif),Georgia,serif;font-size:clamp(22px,4vw,30px);color:#fff;line-height:1.15;letter-spacing:-0.3px;margin-bottom:6px;}
+  .hc-ujm-banner-title{font-family:var(--serif);font-size:clamp(22px,4vw,30px);color:#fff;line-height:1.15;letter-spacing:-0.3px;margin-bottom:6px;}
   .hc-ujm-banner-title em{font-style:italic;color:#B2F0E8;}
   .hc-ujm-banner-sub{font-size:13px;color:rgba(255,255,255,0.4);font-weight:300;}
   .hc-ujm-persona-pill{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:100px;padding:10px 20px 10px 10px;flex-shrink:0;}
@@ -150,15 +272,16 @@
   .hc-ujm-legend-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#8A9BB5;margin-right:8px;}
   .hc-ujm-legend-item{display:flex;align-items:center;gap:8px;font-size:12px;color:#5A6E8A;}
   .hc-ujm-legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
-  .hc-ujm-chart-area{padding:clamp(20px,3vw,40px) clamp(12px,5vw,64px) 0;display:flex;align-items:flex-start;}
-  .hc-ujm-y-axis{display:flex;flex-direction:column;justify-content:space-between;padding:24px 0 64px;width:clamp(48px,10vw,80px);flex-shrink:0;}
+  /* Chart row: match POS .pos-ujm-chart-wrap + .pos-ujm-page horizontal rhythm */
+  .hc-ujm-chart-area{padding:clamp(24px,3vw,36px) clamp(16px,4vw,64px) 0;display:flex;align-items:stretch;gap:0;}
+  .hc-ujm-y-axis{display:flex;flex-direction:column;justify-content:space-between;padding:20px 0 60px;width:clamp(56px,9vw,90px);flex-shrink:0;}
   .hc-ujm-chart-svg-wrap{flex:1;position:relative;min-width:0;align-self:flex-start;width:100%;}
   .hc-ujm-y-label{display:flex;align-items:center;gap:8px;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#B0BDD0;}
   .hc-ujm-y-face{width:28px;height:28px;border-radius:50%;border:1.5px solid;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
   .hc-ujm-y-face--happy{border-color:#3DBB7F;background:#F0FBF6;}
   .hc-ujm-y-face--neutral{border-color:#F0A500;background:#FFFBF0;}
   .hc-ujm-y-face--sad{border-color:#E05252;background:#FFF4F4;}
-  svg.hc-ujm-journey{width:100%;display:block;overflow:visible;height:auto;aspect-ratio:1200/340;}
+  svg.hc-ujm-journey{width:100%;display:block;overflow:visible;height:auto;aspect-ratio:1200 / 340;}
   .hc-ujm-label-pill{position:absolute;transform:translateX(-50%);border-radius:10px;padding:6px 8px;font-size:clamp(9px,1.05vw,11px);font-weight:600;line-height:1.35;text-align:center;pointer-events:none;white-space:normal;max-width:min(130px,16%);box-sizing:border-box;}
   .hc-ujm-label-pill--green{background:#E8FAF2;color:#1A7A52;border:1.5px solid #3DBB7F;}
   .hc-ujm-label-pill--yellow{background:#FFF8E6;color:#8A5800;border:1.5px solid #F0A500;}
@@ -167,12 +290,12 @@
   .hc-ujm-steps{
     display:grid;
     grid-template-columns:repeat(10,minmax(0,1fr));
-    gap:10px 6px;
+    gap:4px 2px;
     align-items:start;
-    padding-left:clamp(40px,7vw,80px);
-    padding-right:clamp(8px,2vw,20px);
-    margin-top:14px;
-    padding-bottom:28px;
+    padding-left:clamp(48px,9vw,90px);
+    padding-right:0;
+    margin-top:16px;
+    padding-bottom:4px;
   }
   .hc-ujm-step-col{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0;}
   .hc-ujm-step-num{width:22px;height:22px;border-radius:50%;background:#EEF2F7;color:#8A9BB5;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
@@ -205,10 +328,72 @@
   .result-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 24px;text-align:center;}
   .result-number{font-family:var(--serif);font-size:44px;color:var(--accent);line-height:1;margin-bottom:8px;}
   .result-label{font-size:13px;color:var(--mid);font-weight:400;line-height:1.4;}
+  /* Results & Measurable Impact — narrative outcomes (scoped, does not affect Discover metrics grid) */
+  .hc-results-impact-lede{
+    font-size:15px;
+    line-height:1.65;
+    color:#3a3a3a;
+    margin:0 0 22px;
+    padding:18px 22px;
+    background:rgba(245,235,227,.5);
+    border-left:3px solid var(--accent);
+    border-radius:0 12px 12px 0;
+  }
+  .hc-results-impact-stack{display:flex;flex-direction:column;gap:14px;margin:0 0 28px;}
+  .hc-results-impact-card{
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+    padding:22px 24px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:12px;
+    box-shadow:0 6px 24px rgba(26,26,26,.06);
+    position:relative;
+    overflow:hidden;
+  }
+  .hc-results-impact-card::before{
+    content:'';
+    position:absolute;
+    left:0;top:0;bottom:0;width:3px;
+    background:linear-gradient(180deg,#0D7A5F 0%,var(--accent) 100%);
+    opacity:0.9;
+  }
+  .hc-results-impact-card__num{
+    flex-shrink:0;
+    width:42px;height:42px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#0D7A5F,#1a9d7a);
+    color:#fff;
+    font-family:var(--serif);
+    font-size:17px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    line-height:1;
+    margin-left:2px;
+  }
+  .hc-results-impact-card__main{min-width:0;flex:1;}
+  .hc-results-impact-card__title{
+    font-family:var(--serif);
+    font-size:clamp(1.03rem,1.9vw,1.16rem);
+    font-weight:600;
+    color:var(--dark);
+    margin:0 0 10px;
+    line-height:1.38;
+    letter-spacing:-.02em;
+  }
+  .hc-results-impact-card__text{
+    font-size:14px;
+    line-height:1.62;
+    color:#3a3a3a;
+    margin:0;
+  }
   .lessons-list{display:flex;flex-direction:column;gap:16px;margin-top:24px;}
   .lesson-item{display:flex;gap:20px;padding:22px 24px;background:var(--surface);border:1px solid var(--border);border-radius:10px;}
   .lesson-num{font-family:var(--serif);font-size:22px;color:var(--accent);opacity:0.4;flex-shrink:0;line-height:1.2;}
-  .lesson-text h4{font-size:15px;font-weight:600;color:var(--dark);margin-bottom:6px;}
+  .lesson-text h4{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--dark);margin-bottom:6px;}
   .lesson-text p{font-size:14px;margin:0;}
   .persona-block{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin-top:24px;display:flex;gap:28px;align-items:flex-start;}
   .persona-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#0D7A5F,#10B981);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:24px;color:white;flex-shrink:0;}
@@ -218,28 +403,43 @@
   .wizard-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px;}
   .wizard-step{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px 16px;text-align:center;}
   .wizard-step-num{font-family:var(--serif);font-size:28px;color:var(--accent);opacity:0.35;line-height:1;margin-bottom:8px;}
-  .wizard-step h4{font-size:13px;font-weight:600;color:var(--dark);margin-bottom:4px;}
+  .wizard-step h4{font-family:var(--serif);font-size:13px;font-weight:600;color:var(--dark);margin-bottom:4px;}
   .wizard-step p{font-size:12px;margin:0;line-height:1.5;}
   .bottom-back{padding:0 48px 48px;max-width:820px;margin:0 auto;}
-  .bottom-back a{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--dark);text-decoration:none;opacity:0.55;transition:opacity 0.2s;}
-  .bottom-back a:hover{opacity:1;}
+  .bottom-back a{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--dark);text-decoration:none;opacity:0.55;transition:opacity .25s,transform .35s var(--ease-spring);}
+  .bottom-back a:hover,.bottom-back a:focus-visible{opacity:1;transform:translateX(-5px);}
   footer{border-top:1px solid var(--border);padding:32px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;max-width:820px;margin:0 auto;}
   footer p{font-size:13px;color:var(--light);margin:0;}
   .footer-social{display:flex;align-items:center;gap:8px;list-style:none;margin:0;padding:0;}
-  .footer-social a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:8px;border:1px solid var(--border);color:var(--mid);background:var(--surface);text-decoration:none;transition:color .2s ease,border-color .2s ease,background .2s ease;}
-  .footer-social a:hover{color:var(--accent);border-color:var(--accent);background:var(--accent-light);}
-  .footer-social a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
-  .footer-social li{display:flex;align-items:center;}
+  .footer-social li{display:flex;align-items:center;perspective:500px;}
+  .footer-social a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:8px;border:1px solid var(--border);color:var(--mid);background:var(--surface);text-decoration:none;transform-style:preserve-3d;transition:color .3s var(--ease-soft),border-color .3s var(--ease-soft),background .3s var(--ease-soft),transform .35s var(--ease-spring),box-shadow .35s var(--ease-soft);}
+  .footer-social a:hover{color:var(--accent);border-color:var(--accent);background:var(--accent-light);transform:translateY(-4px) rotateX(10deg);box-shadow:0 12px 26px rgba(26,26,26,0.1);}
+  .footer-social a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;transform:translateY(-3px) rotateX(6deg);box-shadow:0 10px 22px rgba(26,26,26,0.08);}
+  .footer-social a:active{transform:translateY(-1px) rotateX(3deg) scale(.96);transition-duration:.1s;}
   .footer-social svg{width:20px;height:20px;min-width:20px;min-height:20px;flex-shrink:0;display:block;overflow:visible;}
   .footer-social__beh svg{width:18px;height:18px;min-width:18px;min-height:18px;}
+  @media (prefers-reduced-motion:reduce){
+    .reveal,.reveal.is-visible,.hc-reveal-journey,.hc-reveal-journey.is-visible{opacity:1!important;transform:none!important;transition:none!important;}
+    .reveal-media .hc-media-frame img,.reveal-media .hc-figure-process-board img,.reveal-media .hc-case-study-media img,.reveal-media .hc-wizard-hero img{transform:none!important;transition:none!important;}
+    .process-step,.wizard-step,.process-step:hover,.process-step:focus-within,.wizard-step:hover,.wizard-step:focus-within{transform:none!important;box-shadow:none!important;}
+    .n-links a:not(.n-btn),.n-btn,.footer-social a,.back-btn,.bottom-back a{transition:none!important;}
+    .n-links a:not(.n-btn):hover,.n-links a:not(.n-btn):focus-visible{transform:none;}
+    .n-btn:hover,.n-btn:focus-visible,.n-btn:active{transform:none;}
+    .footer-social a:hover,.footer-social a:focus-visible,.footer-social a:active{transform:none;box-shadow:none;}
+    .back-btn:hover,.back-btn:focus-visible,.bottom-back a:hover,.bottom-back a:focus-visible{transform:none;}
+    .fade-in,.fade-in.visible{opacity:1;transform:none;transition:none;}
+  }
   @media(max-width:640px){
-    nav,.back-btn,.hero,.hero-image,.content,.bottom-back,footer{padding-left:24px;padding-right:24px;}
+    nav{padding:0 24px;height:60px;}
+    .back-btn,.hero,.hero-image,.content,.bottom-back,footer{padding-left:24px;padding-right:24px;}
     .pain-grid,.results-grid,.wizard-steps{grid-template-columns:1fr;}
     .ab-grid{grid-template-columns:1fr;}
     .meta-strip{flex-direction:column;}
     .meta-item{border-right:none;border-bottom:1px solid var(--border);}
     .meta-item:last-child{border-bottom:none;}
     .persona-block{flex-direction:column;}
+    .hc-results-impact-card{flex-direction:column;gap:14px;}
+    .hc-results-impact-card__num{margin-left:0;}
     .section-header{flex-direction:column;gap:18px;padding:0 0 24px 0;}
     .section-icon{width:52px;height:52px;}
     .section-icon svg{width:24px;height:24px;}
@@ -250,10 +450,11 @@
 <body>
 
 <nav>
-  <div class="nav-links">
-    <a href="index.html">Portfolio</a>
+  <a class="n-logo" href="index.html">NB.</a>
+  <div class="n-links">
+    <a href="index.html" aria-current="page">Portfolio</a>
     <a href="about.html">About</a>
-    <a href="#" class="nav-cv">Download CV</a>
+    <a href="mailto:nedabagheri.nz@gmail.com?subject=CV%20request" class="n-btn">Download CV</a>
   </div>
 </nav>
 
@@ -261,8 +462,8 @@
 
 <section class="hero">
   <div class="hero-tag">Case Study · B2B · E-Health</div>
-  <h1>Healthcare Provider <em>Survey</em><br>Application</h1>
-  <p class="hero-subtitle">Replacing fragmented email-and-spreadsheet workflows with a centralised digital platform — helping Swedish healthcare administrators reclaim hours every week.</p>
+  <h1>Healthcare Provider Survey Application</h1>
+  <p class="hero-subtitle">Replacing fragmented email-and-spreadsheet workflows with a centralised digital platform</p>
   <div class="meta-strip">
     <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Lead UX/UI Designer</div></div>
     <div class="meta-item"><div class="meta-label">Industry</div><div class="meta-value">B2B SaaS · E-Health</div></div>
@@ -273,23 +474,32 @@
 </section>
 
 <!-- Hero: Healthcare Survey Platform overview -->
-<div class="hero-image">
+<div class="hero-image reveal reveal-media" id="hc-overview">
+  <p class="image-caption" style="margin-bottom:12px;">Healthcare Survey Platform · Overview</p>
   <div class="hc-media-frame">
     <img src="healthcare-survey-platform-overview.png?v=20260324" alt="Colleagues in an office reviewing a healthcare survey platform dashboard on a monitor, with charts and response metrics on screen." width="1024" height="682" loading="eager" decoding="async">
   </div>
-  <p class="image-caption">Healthcare Survey Platform · Overview</p>
 </div>
 
-<div class="content">
+<div class="content case-main">
 
   <!-- INTRODUCTION -->
-  <section class="section">
+  <section class="section fade-in reveal case-anchor" id="introduction">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Introduction</h2><p class="section-subtitle">A broken process hiding in plain sight</p></div>
     </div>
     <p>In Sweden, healthcare providers are required to send regular quality surveys to the municipalities they serve. It sounds simple — but the reality was anything but. Administrators were managing responses from <strong>30+ municipalities</strong> using a patchwork of Outlook emails, Excel spreadsheets, and shared folder systems that were never designed to work together.</p>
     <p>This project set out to design a <strong>B2B SaaS platform</strong> that consolidates the entire survey lifecycle — creation, distribution, real-time tracking, and analysis — into one place. The primary goal: <strong>cut administrative workload by 50%</strong> without sacrificing the quality of the data collected.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section fade-in reveal case-anchor" id="role">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">My Role &amp; Responsibilities</h2><p class="section-subtitle">Lead UX/UI, research, and implementation</p></div>
+    </div>
     <div class="role-block">
       <h4>My Responsibilities</h4>
       <ul class="role-list">
@@ -307,11 +517,81 @@
 
   <div class="divider"></div>
 
+  <section class="section fade-in reveal case-anchor" id="industry-platform">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">Industry &amp; Platform</h2><p class="section-subtitle">Context for the work</p></div>
+    </div>
+    <div class="meta-strip" style="margin-top:0;">
+      <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Lead UX/UI Designer</div></div>
+      <div class="meta-item"><div class="meta-label">Industry</div><div class="meta-value">B2B SaaS · E-Health</div></div>
+      <div class="meta-item"><div class="meta-label">Tools</div><div class="meta-value">Figma · Cursor AI</div></div>
+      <div class="meta-item"><div class="meta-label">Platform</div><div class="meta-value">Mobile · Tablet · Desktop</div></div>
+      <div class="meta-item"><div class="meta-label">Year</div><div class="meta-value">2025–2026</div></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- METHODS & RESEARCH -->
+  <section class="section fade-in reveal case-anchor" id="methods-research">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">Methods &amp; Research</h2><p class="section-subtitle">4 methods · 1 clear picture</p></div>
+    </div>
+    <p>I ran lightweight but targeted research to understand how administrators actually experience the survey process — not how it looks on paper. The goal was to identify where time was being lost and why existing tools were consistently failing them.</p>
+    <div class="findings-list">
+      <div class="finding-item"><div class="finding-icon">🗣️</div><div><p class="finding-text">"We need to see long-term trends across municipalities — not just individual survey answers."</p><div class="finding-stat">A · Stakeholder interviews with 4 healthcare quality managers</div></div></div>
+      <div class="finding-item"><div class="finding-icon">🗺️</div><div><p class="finding-text">Survey creation, distribution, tracking, and analysis were handled in entirely separate tools — with no handoff or continuity between them.</p><div class="finding-stat">B · Workflow analysis mapping the full survey lifecycle end to end</div></div></div>
+      <div class="finding-item"><div class="finding-icon">📋</div><div><p class="finding-text">Existing spreadsheet templates showed heavy manual formatting and annotation — signs of a system stretched far beyond its intended purpose.</p><div class="finding-stat">C · Document review of spreadsheets, email templates, and reporting docs</div></div></div>
+      <div class="finding-item"><div class="finding-icon">👀</div><div><p class="finding-text">Administrators switched between Outlook, Excel, and shared folders mid-task — sometimes losing their place and having to restart their entire tracking process.</p><div class="finding-stat">D · Usability observation of existing manual workflows in real sessions</div></div></div>
+    </div>
+    <div class="hc-methods-persona">
+      <h3 class="hc-persona-subsection-title" id="hc-methods-persona-heading">Persona</h3>
+      <aside class="hc-persona-panel" aria-labelledby="hc-persona-kicker">
+        <div class="flow-callout" aria-hidden="true">Research · Primary persona</div>
+        <p class="hc-persona-panel__kicker" id="hc-persona-kicker">Anna Andersson · Primary Persona</p>
+        <div class="hc-persona-table-wrap">
+        <table class="hc-persona-table">
+          <tbody>
+            <tr>
+              <th scope="row">Role</th>
+              <td>Quality Assurance Manager, Stockholm healthcare provider</td>
+            </tr>
+            <tr>
+              <th scope="row">Responsible for</th>
+              <td>Sending quarterly surveys to 30+ municipalities, tracking responses, and preparing performance reports for leadership</td>
+            </tr>
+            <tr>
+              <th scope="row">Current tools</th>
+              <td>Outlook, Excel, shared folder system — no dedicated software</td>
+            </tr>
+            <tr>
+              <th scope="row">Biggest frustration</th>
+              <td>Spends 8–10 hours per week tracking who has and hasn't responded. Quarterly reports take up to two weeks to compile manually.</td>
+            </tr>
+            <tr>
+              <th scope="row">Goal</th>
+              <td>Spend time analysing the quality of care — not chasing email replies</td>
+            </tr>
+            <tr>
+              <th scope="row">Quote</th>
+              <td><p class="hc-persona-quote">"We live in a world of advanced technology especially in Sweden. I honestly don't understand why our survey process is still manual. It wastes so much time."</p></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <!-- PROBLEM -->
-  <section class="section">
+  <section class="section fade-in reveal case-anchor" id="discover">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Discover</h2><p class="section-subtitle">Three problems, one broken system</p></div>
+      <div class="section-headings"><h2 class="section-chapter">Discover</h2><p class="section-subtitle">Challenges · Three problems, one broken system</p></div>
     </div>
     <p>Before this platform existed, every survey cycle required administrators to coordinate across multiple tools simultaneously — with no visibility into the overall picture. The pain concentrated in three distinct areas.</p>
     <div class="pain-grid">
@@ -332,23 +612,14 @@
 
   <div class="divider"></div>
 
-  <!-- USER RESEARCH -->
-  <section class="section">
+  <section class="section fade-in reveal case-anchor" id="user-journey">
     <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Research</h2><p class="section-subtitle">4 methods · 1 clear picture</p></div>
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">User Journey</h2><p class="section-subtitle">Emotion curve across a full survey cycle — from creation to report submission</p></div>
     </div>
-    <p>I ran lightweight but targeted research to understand how administrators actually experience the survey process — not how it looks on paper. The goal was to identify where time was being lost and why existing tools were consistently failing them.</p>
-    <div class="findings-list">
-      <div class="finding-item"><div class="finding-icon">🗣️</div><div><p class="finding-text">"We need to see long-term trends across municipalities — not just individual survey answers."</p><div class="finding-stat">A · Stakeholder interviews with 4 healthcare quality managers</div></div></div>
-      <div class="finding-item"><div class="finding-icon">🗺️</div><div><p class="finding-text">Survey creation, distribution, tracking, and analysis were handled in entirely separate tools — with no handoff or continuity between them.</p><div class="finding-stat">B · Workflow analysis mapping the full survey lifecycle end to end</div></div></div>
-      <div class="finding-item"><div class="finding-icon">📋</div><div><p class="finding-text">Existing spreadsheet templates showed heavy manual formatting and annotation — signs of a system stretched far beyond its intended purpose.</p><div class="finding-stat">C · Document review of spreadsheets, email templates, and reporting docs</div></div></div>
-      <div class="finding-item"><div class="finding-icon">👀</div><div><p class="finding-text">Administrators switched between Outlook, Excel, and shared folders mid-task — sometimes losing their place and having to restart their entire tracking process.</p><div class="finding-stat">D · Usability observation of existing manual workflows in real sessions</div></div></div>
-    </div>
-
+    <div class="hc-reveal-journey reveal reveal-media" id="hc-journey-block">
     <div class="screens-section">
-      <div class="screens-label">User journey map</div>
-      <div class="hc-ujm-strip hc-ujm-strip--large">
+      <div class="hc-ujm-strip">
         <div class="hc-ujm-strip-inner">
       <div class="hc-ujm" role="img" aria-label="User journey map: emotion curve across a full survey cycle from login to report submission. Ten steps including Power Send, monitoring responses, and analytics.">
         <div class="hc-ujm-page">
@@ -470,34 +741,53 @@
         </div>
       </div>
     </div>
+  </div>
+    <p>The map above traces how a quality manager moves through ten steps — from login and template setup through Power Send, monitoring responses, reminders, analytics, and final report submission. Peaks align with guided flows and clear feedback; the steepest dips mark manual recipient handling and the stretch where responses were effectively invisible in the old toolchain.</p>
   </section>
 
   <div class="divider"></div>
 
-  <!-- DESIGN PROCESS -->
-  <section class="section">
+  <!-- PROCESS & WORKFLOW -->
+  <section class="section fade-in reveal case-anchor" id="process-workflow">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Process</h2><p class="section-subtitle">Clarity first, complexity second</p></div>
+      <div class="section-headings"><h2 class="section-chapter">Process &amp; Workflow</h2><p class="section-subtitle">Clarity first, complexity second</p></div>
     </div>
+    <div class="flow-callout" aria-hidden="true">Workflow · Research to build</div>
     <p>The platform had to handle complex Swedish healthcare hierarchies — <strong>providers, municipalities, districts, and individual social workers</strong> — without overwhelming users who are already stretched thin. Every design decision was oriented around reducing cognitive load at each step of the workflow.</p>
     <div class="process-steps">
-      <div class="process-step"><div class="step-number">01</div><div class="step-content"><h4>Research & workflow mapping</h4><p>Mapped the full survey lifecycle from creation through reporting. Identified three major bottlenecks: distribution setup, response tracking, and quarterly analysis.</p></div></div>
-      <div class="process-step"><div class="step-number">02</div><div class="step-content"><h4>Information architecture</h4><p>Structured the platform into three clear sections — Surveys, Analysis, Reports — matching the mental model administrators already had for their day-to-day work.</p></div></div>
-      <div class="process-step"><div class="step-number">03</div><div class="step-content"><h4>Hierarchy design</h4><p>Designed an accordion-based navigation system to surface the Provider → Municipality → District → Social Worker hierarchy progressively, one level at a time.</p></div></div>
-      <div class="process-step"><div class="step-number">04</div><div class="step-content"><h4>Wizard design</h4><p>Created the 6-step "Power Send" distribution wizard to replace the error-prone manual process of selecting recipients, managing email lists, and reviewing send details.</p></div></div>
-      <div class="process-step"><div class="step-number">05</div><div class="step-content"><h4>Usability testing</h4><p>Moderated task-based testing with 5 healthcare administrators. Uncovered a critical visibility issue with the "Select All" control and iterated to fix it.</p></div></div>
+      <div class="process-step process-step--flow"><div class="step-number">01</div><div class="step-content"><h4>Research & workflow mapping</h4><p>Mapped the full survey lifecycle from creation through reporting. Identified three major bottlenecks: distribution setup, response tracking, and quarterly analysis.</p></div></div>
+      <div class="process-step process-step--flow"><div class="step-number">02</div><div class="step-content"><h4>Information architecture</h4><p>Structured the platform into three clear sections — Surveys, Analysis, Reports — matching the mental model administrators already had for their day-to-day work.</p></div></div>
+      <div class="process-step process-step--flow"><div class="step-number">03</div><div class="step-content"><h4>Hierarchy design</h4><p>Designed an accordion-based navigation system to surface the Provider → Municipality → District → Social Worker hierarchy progressively, one level at a time.</p></div></div>
+      <div class="process-step process-step--flow"><div class="step-number">04</div><div class="step-content"><h4>Wizard design</h4><p>Created the 6-step "Power Send" distribution wizard to replace the error-prone manual process of selecting recipients, managing email lists, and reviewing send details.</p></div></div>
+      <div class="process-step process-step--flow"><div class="step-number">05</div><div class="step-content"><h4>Usability testing</h4><p>Moderated task-based testing with 5 healthcare administrators. Uncovered a critical visibility issue with the "Select All" control and iterated to fix it.</p></div></div>
       <div class="process-step"><div class="step-number">06</div><div class="step-content"><h4>Build with Cursor AI</h4><p>Implemented the platform using Cursor AI with structured prompt engineering to enforce design consistency, accessibility standards, and handle complex nested data structures.</p></div></div>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- DESIGN CHALLENGE I — IMAGE PLACEHOLDER 2 -->
-  <section class="section">
+  <!-- HIERARCHY DESIGN -->
+  <section class="section fade-in reveal case-anchor" id="hierarchy-design">
+    <div class="flow-callout" aria-hidden="true">Hierarchy · Accordion navigation</div>
+    <div class="reveal reveal-media" style="margin-bottom:8px;">
+      <figure class="hc-figure-process-board">
+        <img
+          src="healthcare-process-card-sorting.png?v=20260325"
+          srcset="healthcare-process-card-sorting.png 1024w"
+          sizes="(max-width: 640px) calc(100vw - 48px), min(820px, 100vw - 96px)"
+          width="1024"
+          height="653"
+          alt="Design workshop: brainstorm sticky notes, sorted groups (Building the Survey, Sending it Out, Keeping Track, Reading the Results), and Must / Should / Could prioritisation for the healthcare survey platform."
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
+    </div>
+    <p class="image-caption" style="margin-bottom:28px;">Accordion-based navigation system — reducing visual clutter across 30+ municipalities</p>
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Hierarchy</h2><p class="section-subtitle">Taming the Healthcare Hierarchy</p></div>
+      <div class="section-headings"><h2 class="section-chapter">Hierarchy Design</h2><p class="section-subtitle">Taming the Healthcare Hierarchy</p></div>
     </div>
     <p>The Swedish healthcare system has multiple administrative levels. Showing all of them simultaneously created long, impenetrable lists — the exact kind of overwhelming complexity that had eroded administrators' trust in digital tools before this platform existed.</p>
     <table class="data-table">
@@ -509,32 +799,24 @@
         <tr><td><strong>Social Worker</strong></td><td>Individual survey respondents</td><td>Only surfaced when a specific district is selected</td></tr>
       </tbody>
     </table>
-    <figure class="hc-figure-process-board">
-      <img
-        src="healthcare-process-card-sorting.png?v=20260325"
-        srcset="healthcare-process-card-sorting.png 1024w"
-        sizes="(max-width: 640px) calc(100vw - 48px), min(820px, 100vw - 96px)"
-        width="1024"
-        height="653"
-        alt="Design workshop: brainstorm sticky notes, sorted groups (Building the Survey, Sending it Out, Keeping Track, Reading the Results), and Must / Should / Could prioritisation for the healthcare survey platform."
-        loading="lazy"
-        decoding="async"
-      >
-    </figure>
-    <p class="image-caption">Accordion-based navigation system — reducing visual clutter across 30+ municipalities</p>
   </section>
 
   <div class="divider"></div>
 
-  <!-- DESIGN CHALLENGE II — IMAGE PLACEHOLDER 3 -->
-  <section class="section">
+  <!-- WIZARD DESIGN -->
+  <section class="section fade-in reveal case-anchor" id="wizard-design">
+    <div class="flow-callout" aria-hidden="true">Wizard · Power Send flow</div>
+    <div class="hc-wizard-hero reveal reveal-media">
+      <img src="healthcare-validation-hifi-prototype.png" alt="High-fidelity prototype of the healthcare survey platform showing survey distribution and hierarchy UI used in usability testing." width="598" height="1024" loading="lazy" decoding="async" sizes="(max-width:900px) 100vw, 820px">
+    </div>
+    <p class="image-caption" style="margin-bottom:28px;">High-fidelity prototype — distribution and hierarchy patterns tested with administrators</p>
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Wizard</h2><p class="section-subtitle">The 6-Step "Power Send" Wizard</p></div>
+      <div class="section-headings"><h2 class="section-chapter">Wizard Design</h2><p class="section-subtitle">The 6-Step "Power Send" Wizard</p></div>
     </div>
     <p>Before this platform, sending a survey to 30+ municipalities required selecting recipients manually, managing email lists, and reviewing everything across separate documents. One missed municipality could invalidate an entire reporting cycle.</p>
     <p>I replaced this with a <strong>guided distribution wizard</strong> that breaks the process into six clear, linear steps — each one verified before the next becomes available.</p>
-    <div class="wizard-steps">
+    <div class="wizard-steps" id="hc-wizard-steps">
       <div class="wizard-step"><div class="wizard-step-num">01</div><h4>Select survey</h4><p>Choose the template to distribute to municipalities</p></div>
       <div class="wizard-step"><div class="wizard-step-num">02</div><h4>Choose recipients</h4><p>Filter and select municipalities from the hierarchy</p></div>
       <div class="wizard-step"><div class="wizard-step-num">03</div><h4>Set language</h4><p>Choose survey language per municipality or region</p></div>
@@ -547,11 +829,18 @@
 
   <div class="divider"></div>
 
-  <!-- DESIGN CHALLENGE III — Traffic Light + IMAGE PLACEHOLDER 4 -->
-  <section class="section">
+  <!-- SCORING SYSTEM -->
+  <section class="section fade-in reveal case-anchor" id="scoring-system">
+    <div class="flow-callout" aria-hidden="true">Scoring · Traffic-light dashboard</div>
+    <div class="hc-scoring-wrap hc-scoring-dash reveal reveal-media">
+      <div class="hc-case-study-media">
+        <img src="healthcare-scoring-traffic-light-dashboard.png?v=20260324" alt="Analytics dashboard with traffic-light performance scoring across municipalities." width="1024" height="673" loading="lazy" decoding="async" sizes="(max-width:900px) 100vw, 820px">
+      </div>
+    </div>
+    <p class="image-caption" style="margin-bottom:28px;">Real-time performance overview — managers can instantly identify which municipalities need attention</p>
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Scoring</h2><p class="section-subtitle">Traffic-Light Performance Scoring</p></div>
+      <div class="section-headings"><h2 class="section-chapter">Scoring System</h2><p class="section-subtitle">Traffic-Light Performance Scoring</p></div>
     </div>
     <p>Managers needed to assess healthcare performance across 30+ municipalities quickly — but dense tables of numbers were exhausting to read under time pressure. The solution: a <strong>colour-coded scoring system</strong> that communicates status at a glance, without any mental arithmetic required.</p>
     <table class="data-table">
@@ -562,19 +851,15 @@
         <tr><td><strong style="color:#B91C1C;">Critical</strong></td><td>Below acceptable threshold — requires immediate review</td><td>Escalate — intervene now</td></tr>
       </tbody>
     </table>
-    <div class="hc-case-study-media">
-      <img src="healthcare-scoring-traffic-light-dashboard.png?v=20260324" alt="Analytics dashboard with traffic-light performance scoring across municipalities." width="1024" height="673" loading="lazy" decoding="async" sizes="(max-width:900px) 100vw, 820px">
-    </div>
-    <p class="image-caption">Real-time performance overview — managers can instantly identify which municipalities need attention</p>
   </section>
 
   <div class="divider"></div>
 
-  <!-- USABILITY TESTING -->
-  <section class="section">
+  <!-- VALIDATION & USABILITY TESTING -->
+  <section class="section fade-in reveal case-anchor" id="validation-usability">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Validation</h2><p class="section-subtitle">Usability Testing · 5 Administrators</p></div>
+      <div class="section-headings"><h2 class="section-chapter">Validation &amp; Usability Testing</h2><p class="section-subtitle">Usability Testing · 5 Administrators</p></div>
     </div>
     <p>I conducted moderated task-based testing with <strong>5 healthcare administrators</strong> who regularly manage survey workflows. Each participant was asked to create a survey and distribute it to multiple municipalities — a direct reflection of their real day-to-day work.</p>
     <div class="hc-video-figure">
@@ -598,24 +883,43 @@
 
   <div class="divider"></div>
 
-  <!-- RESULTS -->
-  <section class="section">
+  <!-- RESULTS & MEASURABLE IMPACT -->
+  <section class="section fade-in reveal case-anchor" id="results-impact">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Results</h2><p class="section-subtitle">Measurable Impact</p></div>
+      <div class="section-headings"><h2 class="section-chapter">Results &amp; Measurable Impact</h2><p class="section-subtitle">Measurable Impact</p></div>
     </div>
-    <div class="results-grid">
-      <div class="result-card"><div class="result-number">85%</div><div class="result-label">Faster survey creation — from 2 hours to 15 minutes</div></div>
-      <div class="result-card"><div class="result-number">80%</div><div class="result-label">Increase in response rates — real-time tracking improved follow-up quality</div></div>
-      <div class="result-card"><div class="result-number">70%</div><div class="result-label">Faster reports — 2-week process now available in real time</div></div>
+    <p class="hc-results-impact-lede">The three headline improvements below are based on a combination of usability testing task timing, workflow analysis comparing the old manual process to the designed platform, and estimates provided by healthcare administrators during research sessions. They represent the projected impact of the full platform at scale, not post-launch analytics.</p>
+    <div class="hc-results-impact-stack">
+      <article class="hc-results-impact-card">
+        <div class="hc-results-impact-card__num" aria-hidden="true">1</div>
+        <div class="hc-results-impact-card__main">
+          <h3 class="hc-results-impact-card__title">From 2 hours to ~15 minutes — survey creation</h3>
+          <p class="hc-results-impact-card__text">In the original workflow, creating and distributing a survey required composing individual emails, attaching documents, and logging recipients manually. The 6-step wizard reduced this to a guided, single-session flow. Timing was measured during usability testing with 5 administrators completing the same task on both the manual workflow and the prototype.</p>
+        </div>
+      </article>
+      <article class="hc-results-impact-card">
+        <div class="hc-results-impact-card__num" aria-hidden="true">2</div>
+        <div class="hc-results-impact-card__main">
+          <h3 class="hc-results-impact-card__title">Select All iteration — 30% faster municipality selection</h3>
+          <p class="hc-results-impact-card__text">A specific, validated improvement from usability testing: the "Select All" button for district selection was initially low-contrast and frequently missed. After repositioning and improving contrast, average task time dropped from ~8 minutes to ~5 minutes across the same 5 participants.</p>
+        </div>
+      </article>
+      <article class="hc-results-impact-card">
+        <div class="hc-results-impact-card__num" aria-hidden="true">3</div>
+        <div class="hc-results-impact-card__main">
+          <h3 class="hc-results-impact-card__title">Quarterly reports: from 2 weeks to real-time</h3>
+          <p class="hc-results-impact-card__text">Administrators estimated spending up to two weeks per quarter manually compiling response data from spreadsheets. The analytics dashboard aggregates responses in real time, making the reporting step near-instant. This is an administrator estimate validated during research interviews, not yet measured post-launch.</p>
+        </div>
+      </article>
     </div>
     <p>The platform replaced a fragmented, error-prone manual workflow with a single centralised system. Administrators went from managing 30+ separate email threads to having a real-time view of every municipality's response status — with instant report generation replacing two weeks of spreadsheet aggregation.</p>
   </section>
 
   <div class="divider"></div>
 
-  <!-- LESSONS LEARNED -->
-  <section class="section">
+  <!-- REFLECTION -->
+  <section class="section fade-in reveal case-anchor" id="reflection">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Reflection</h2><p class="section-subtitle">What This Project Taught Me</p></div>
@@ -623,7 +927,7 @@
     <div class="lessons-list">
       <div class="lesson-item"><div class="lesson-num">01</div><div class="lesson-text"><h4>Good UX organises complexity — it doesn't hide it</h4><p>The hierarchy problem wasn't solved by flattening the structure. It was solved by revealing it progressively, one level at a time, so each step felt manageable rather than overwhelming.</p></div></div>
       <div class="lesson-item"><div class="lesson-num">02</div><div class="lesson-text"><h4>Guided flows build confidence in high-stakes environments</h4><p>Healthcare administrators aren't tech-averse — they're risk-averse. A wizard that verifies each step before moving forward gave them the confidence that nothing would fall through the cracks.</p></div></div>
-      <div class="lesson-item"><div class="lesson-num">03</div><div class="lesson-text"><h4>AI-assisted development is a design superpower — when guided well</h4><p>Using Cursor AI for implementation freed me to focus entirely on UX quality. The key was treating prompt engineering as a design discipline — precise, specific prompts produced consistent, accessible output at every iteration.</p></div></div>
+      <div class="lesson-item"><div class="lesson-num">03</div><div class="lesson-text"><h4>AI-assisted development changed what one designer can ship.</h4><p>Using Cursor AI for front-end implementation didn't mean handing off control — it meant I stayed in control of every detail while moving faster. I wrote detailed prompts that specified exact spacing, colour tokens, accessibility requirements, and component behaviour. When the output didn't match the spec, I debugged through the prompt, not through guesswork. The result was a fully built, WCAG-compliant platform designed and implemented by one person. That's a different kind of design skill — and one I'm actively developing.</p></div></div>
     </div>
   </section>
 
@@ -681,6 +985,44 @@
   }, { threshold: 0.2, rootMargin: '0px 0px 120px 0px' });
 
   io.observe(v);
+})();
+
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var seen = new Set();
+  function revealAll() {
+    document.querySelectorAll('.fade-in').forEach(function (el) { el.classList.add('visible'); });
+    document.querySelectorAll('.reveal, .reveal-media').forEach(function (el) { el.classList.add('is-visible'); });
+    document.querySelectorAll('.wizard-steps').forEach(function (el) { el.classList.add('is-steps-visible'); });
+  }
+  if (reduce || !window.IntersectionObserver) {
+    revealAll();
+    return;
+  }
+  document.querySelectorAll('.fade-in, .reveal, .reveal-media').forEach(function (el) {
+    if (seen.has(el)) return;
+    seen.add(el);
+    var io = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var t = entry.target;
+        if (t.classList.contains('fade-in')) t.classList.add('visible');
+        if (t.classList.contains('reveal') || t.classList.contains('reveal-media')) t.classList.add('is-visible');
+        obs.unobserve(t);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
+    io.observe(el);
+  });
+  var ws = document.getElementById('hc-wizard-steps');
+  if (ws) {
+    var wio = new IntersectionObserver(function (entries, obs) {
+      if (entries[0].isIntersecting) {
+        ws.classList.add('is-steps-visible');
+        obs.disconnect();
+      }
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    wio.observe(ws);
+  }
 })();
 </script>
 
