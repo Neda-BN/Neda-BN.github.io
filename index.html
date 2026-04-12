@@ -521,13 +521,14 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
     .hero-v2 .side-tag { display: none; }
   }
   @media (max-width: 680px) {
-    /* Hero: keep “Selected projects” in the first screen — grid reserves a bottom row */
+    /* Hero: first row shrinks so row 2 (CTA strip) stays in the first screen */
     .hero-v2 {
       display: grid;
       grid-template-columns: 1fr;
-      grid-template-rows: 1fr auto;
+      grid-template-rows: minmax(0, 1fr) auto;
       min-height: 100vh;
       min-height: 100svh;
+      max-height: 100svh;
     }
     .hero-v2 #particles {
       grid-column: 1;
@@ -538,8 +539,8 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
       grid-row: 1;
       min-height: 0;
       align-self: stretch;
-      justify-content: center;
-      padding: 0 20px 8px;
+      justify-content: flex-start;
+      padding: 10px 20px 6px;
       padding-left: max(20px, env(safe-area-inset-left, 0px));
       padding-right: max(20px, env(safe-area-inset-right, 0px));
     }
@@ -553,7 +554,7 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
       bottom: auto;
       left: auto;
       right: auto;
-      padding: 10px 20px max(12px, env(safe-area-inset-bottom, 0px));
+      padding: 8px 16px max(10px, env(safe-area-inset-bottom, 0px));
     }
     .hl-dim .mag-word,
     .hl-lit .mag-word {
@@ -622,8 +623,8 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
       padding-top: 56px;
     }
     .hero-v2-main {
-      min-height: calc(100vh - 56px);
-      min-height: calc(100svh - 56px);
+      min-height: 0;
+      padding-top: 6px;
       padding-left: max(16px, env(safe-area-inset-left, 0px));
       padding-right: max(16px, env(safe-area-inset-right, 0px));
     }
