@@ -174,17 +174,64 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
   overflow: hidden;
 }
 .headline {
-  display: flex; flex-direction: column; gap: 0.04em; user-select: none; position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: max(8px, 0.35rem);
+  user-select: none;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
 }
-.headline-title { position: relative; }
-.hl-dim { position: relative; z-index: 1; }
+#hl-wrap {
+  --hero-hed-scale: 1;
+}
+.headline-title {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+.hl-dim {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 100%;
+}
 .hl-lit {
-  position: absolute; top: 0; left: 0; z-index: 2; pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 .word-row { display: flex; line-height: 1; overflow: hidden; }
+.headline-title .word-row.wr1 {
+  overflow: visible;
+  padding-right: 0.4em;
+  padding-bottom: 0.34em;
+  line-height: 1.12;
+  box-sizing: content-box;
+}
+.headline-title .word-row.wr2 {
+  display: block;
+  width: 100%;
+  flex-shrink: 0;
+  overflow: visible;
+  padding-bottom: 0.22em;
+}
 .hl-dim .mag-word {
   font-family: 'Sora', sans-serif;
-  font-size: clamp(72px, 10.5vw, 156px); font-weight: 900; letter-spacing: -0.055em;
+  font-size: calc(clamp(72px, 10.5vw, 156px) * var(--hero-hed-scale, 1));
+  font-weight: 900;
+  letter-spacing: -0.055em;
   color: rgba(26,24,20,0.45); display: inline-block;
   cursor: default; opacity: 0;
 }
@@ -194,23 +241,62 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
 }
 .hl-lit .mag-word {
   font-family: 'Sora', sans-serif;
-  font-size: clamp(72px, 10.5vw, 156px); font-weight: 900; letter-spacing: -0.055em;
+  font-size: calc(clamp(72px, 10.5vw, 156px) * var(--hero-hed-scale, 1));
+  font-weight: 900;
+  letter-spacing: -0.055em;
   color: var(--ink); display: inline-block;
   cursor: default; opacity: 0;
 }
 .hl-lit .mag-word.italic {
   font-style: italic; font-weight: 700; letter-spacing: -0.04em; color: var(--warm);
 }
-/* Optical kern: “clarity” — subtle gap before t (rit cluster) */
+/* Optical kern: “clarity” (accent word) — subtle gap before t (rit cluster) */
 .hl-dim .mag-word .mag-word-kern-t,
 .hl-lit .mag-word .mag-word-kern-t { margin-left: 0.02em; }
 .headline-title .wr1 .mag-word { animation: wordUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.3s forwards; }
-.headline-title .wr2 .mag-word { animation: wordUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.44s forwards; }
-.wr3 .mag-word { animation: wordUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.58s forwards; }
-.hero-v2 .sub-line {
+.headline-title .wr2 .hero-hed-secondary { animation: wordUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.44s forwards; }
+.hl-dim .hero-hed-secondary,
+.hl-lit .hero-hed-secondary {
   font-family: 'Sora', sans-serif;
-  font-size: clamp(14px, 1.4vw, 22px); font-weight: 300; letter-spacing: 0.01em; color: var(--ink2);
-  margin-top: 0.55em; opacity: 0; animation: wordUp 0.8s 0.72s ease forwards;
+  font-size: calc(clamp(22px, 5.5vw, 88px) * var(--hero-hed-scale, 1));
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  white-space: nowrap;
+  cursor: default;
+  opacity: 0;
+  padding-top: 0.06em;
+}
+.hl-dim .hero-hed-secondary {
+  color: rgba(26, 24, 20, 0.45);
+}
+.hl-lit .hero-hed-secondary {
+  color: var(--ink);
+}
+.wr3 .mag-word { animation: wordUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.58s forwards; }
+.headline .word-row.wr3 {
+  display: block;
+  align-self: flex-start;
+  width: max-content;
+  max-width: 100%;
+}
+.hero-v2 .sub-line {
+  display: block;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(14px, 1.4vw, 22px);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+  color: var(--ink2);
+  margin-top: calc(0.55em + 8px);
+  opacity: 0;
+  animation: wordUp 0.8s 0.72s ease forwards;
 }
 .hero-v2 .strip {
   position: absolute; bottom: 14px; left: 0; right: 0; z-index: 10;
@@ -409,9 +495,28 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
   .footer-social svg { width: 20px; height: 20px; flex-shrink: 0; }
   .footer-social__beh svg { width: 18px; height: 18px; }
 
+  @media (max-width: 1024px) {
+    .headline {
+      gap: max(10px, 0.4rem);
+    }
+    .hero-v2 .sub-line {
+      font-size: clamp(13px, 1.45vw, 20px);
+      line-height: 1.48;
+      margin-top: calc(0.5em + 10px);
+    }
+    .hl-dim .hero-hed-secondary,
+    .hl-lit .hero-hed-secondary {
+      font-size: calc(clamp(16px, 2.75vw, 56px) * var(--hero-hed-scale, 1));
+      line-height: 1.14;
+    }
+  }
   @media (max-width: 900px) {
     nav { padding: 0 24px; }
-    .hero-v2-main { padding: 0 24px 120px; }
+    .hero-v2-main {
+      padding: 0 24px 120px;
+      padding-left: max(24px, env(safe-area-inset-left, 0px));
+      padding-right: max(24px, env(safe-area-inset-right, 0px));
+    }
     .hero-v2 .strip { padding: 16px 24px 18px; bottom: 12px; }
     .hero-v2 .side-tag { display: none; }
   }
@@ -435,6 +540,11 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
       align-self: stretch;
       justify-content: center;
       padding: 0 20px 8px;
+      padding-left: max(20px, env(safe-area-inset-left, 0px));
+      padding-right: max(20px, env(safe-area-inset-right, 0px));
+    }
+    .headline {
+      gap: max(10px, 0.5rem);
     }
     .hero-v2 .strip {
       grid-column: 1;
@@ -445,23 +555,24 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
       right: auto;
       padding: 10px 20px max(12px, env(safe-area-inset-bottom, 0px));
     }
-    .headline-title .wr2 {
-      flex-wrap: wrap;
-      column-gap: 0.03em;
-      row-gap: 0.04em;
-    }
     .hl-dim .mag-word,
     .hl-lit .mag-word {
-      font-size: clamp(46px, 17.5vw, 112px);
+      font-size: calc(clamp(46px, 17.5vw, 112px) * var(--hero-hed-scale, 1));
     }
     .hl-dim .mag-word.italic,
     .hl-lit .mag-word.italic {
       letter-spacing: -0.045em;
     }
     .hero-v2 .sub-line {
-      font-size: clamp(12px, 3.1vw, 16px);
-      margin-top: 0.38em;
-      line-height: 1.4;
+      font-size: clamp(12px, 3.2vw, 16px);
+      margin-top: calc(0.48em + 10px);
+      line-height: 1.48;
+    }
+    .hl-dim .hero-hed-secondary,
+    .hl-lit .hero-hed-secondary {
+      font-size: calc(clamp(13px, 4.2vw, 48px) * var(--hero-hed-scale, 1));
+      line-height: 1.12;
+      letter-spacing: -0.028em;
     }
     .strip-cta-btn {
       padding: 13px 28px 13px 30px;
@@ -478,10 +589,65 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
   @media (max-width: 680px) and (max-height: 560px) {
     .hl-dim .mag-word,
     .hl-lit .mag-word {
-      font-size: clamp(36px, 12.5vw, 76px);
+      font-size: calc(clamp(36px, 12.5vw, 76px) * var(--hero-hed-scale, 1));
     }
     .hero-v2 .sub-line {
+      font-size: clamp(11px, 2.9vw, 13px);
+      margin-top: calc(0.4em + 8px);
+      line-height: 1.42;
+    }
+    .headline {
+      gap: max(8px, 0.35rem);
+    }
+  }
+  @media (max-width: 480px) {
+    nav {
+      height: 56px;
+      padding: 0 14px;
+      padding-left: max(14px, env(safe-area-inset-left, 0px));
+      padding-right: max(14px, env(safe-area-inset-right, 0px));
+    }
+    .n-logo { font-size: 12px; }
+    .n-links { gap: 10px; }
+    .n-links a {
       font-size: 11px;
+      letter-spacing: 0.03em;
+    }
+    .n-btn {
+      padding: 8px 12px;
+      font-size: 9px !important;
+      letter-spacing: 0.06em !important;
+    }
+    .hero-v2 {
+      padding-top: 56px;
+    }
+    .hero-v2-main {
+      min-height: calc(100vh - 56px);
+      min-height: calc(100svh - 56px);
+      padding-left: max(16px, env(safe-area-inset-left, 0px));
+      padding-right: max(16px, env(safe-area-inset-right, 0px));
+    }
+    .headline {
+      gap: max(8px, 0.42rem);
+    }
+    .hero-v2 .sub-line {
+      font-size: clamp(11.5px, 3.4vw, 15px);
+      margin-top: calc(0.42em + 10px);
+      line-height: 1.46;
+      letter-spacing: 0.008em;
+    }
+    .hl-dim .mag-word,
+    .hl-lit .mag-word {
+      font-size: calc(clamp(40px, 15vw, 96px) * var(--hero-hed-scale, 1));
+    }
+    .hl-dim .hero-hed-secondary,
+    .hl-lit .hero-hed-secondary {
+      font-size: calc(clamp(12px, 3.8vw, 40px) * var(--hero-hed-scale, 1));
+    }
+    .strip-cta-btn {
+      padding: 12px 22px 12px 24px;
+      font-size: 9px;
+      letter-spacing: 0.12em;
     }
   }
 </style>
@@ -604,19 +770,21 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
     <div class="headline" id="hl-wrap">
       <div class="headline-title">
         <div class="hl-dim" id="hl-dim" aria-hidden="true">
-          <div class="word-row wr1"><span class="mag-word">Designing</span></div>
+          <div class="word-row wr1">
+            <span class="mag-word">Designing </span>
+            <span class="mag-word italic">clari<span class="mag-word-kern-t">t</span>y</span>
+          </div>
           <div class="word-row wr2">
-            <span class="mag-word">clari<span class="mag-word-kern-t">t</span>y</span>
-            <span class="mag-word italic" style="margin-left:.18em">&amp;</span>
-            <span class="mag-word" style="margin-left:.42em">trust.</span>
+            <span class="hero-hed-secondary">in complex systems</span>
           </div>
         </div>
         <div class="hl-lit" id="hl-lit" aria-hidden="true">
-          <div class="word-row wr1"><span class="mag-word">Designing</span></div>
+          <div class="word-row wr1">
+            <span class="mag-word">Designing </span>
+            <span class="mag-word italic">clari<span class="mag-word-kern-t">t</span>y</span>
+          </div>
           <div class="word-row wr2">
-            <span class="mag-word">clari<span class="mag-word-kern-t">t</span>y</span>
-            <span class="mag-word italic" style="margin-left:.18em">&amp;</span>
-            <span class="mag-word" style="margin-left:.42em">trust.</span>
+            <span class="hero-hed-secondary">in complex systems</span>
           </div>
         </div>
       </div>
@@ -624,7 +792,7 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
         <span class="sub-line">Product Designer · Stockholm · several years across fintech, Retail, Healthcare, B2B, B2C and SaaS</span>
       </div>
     </div>
-    <h1 class="visually-hidden">Designing clarity &amp; trust. Product Designer, Stockholm, several years across fintech, Retail, Healthcare, B2B, B2C and SaaS.</h1>
+    <h1 class="visually-hidden">Designing clarity in complex systems. Product Designer, Stockholm, several years across fintech, Retail, Healthcare, B2B, B2C and SaaS.</h1>
   </div>
 
   <a href="#projects" class="strip" aria-label="Jump to selected projects">
@@ -788,7 +956,179 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
 
   const hlLit = document.getElementById('hl-lit');
   let smx = mx, smy = my;
-  var SPOT_R = 240;
+
+  (function heroHeadlineFit() {
+    var meas = document.createElement('span');
+    meas.setAttribute('aria-hidden', 'true');
+    meas.style.cssText = 'position:absolute;left:-9999px;top:0;visibility:hidden;pointer-events:none;white-space:nowrap;font-family:Sora,sans-serif;font-weight:600;letter-spacing:-0.03em;padding:0;margin:0;border:0';
+    document.body.appendChild(meas);
+
+    function clearHeroSecondaryInline() {
+      document.querySelectorAll('#hl-dim .hero-hed-secondary, #hl-lit .hero-hed-secondary').forEach(function (el) {
+        el.style.fontSize = '';
+      });
+    }
+
+    /** Rightmost painted edge of the sub-line (all lines if wrapped), distance from #hl-wrap’s left — not the last line only. */
+    function sublineTargetPx(wrap, sub) {
+      var wl = wrap.getBoundingClientRect().left;
+      var rects = sub.getClientRects();
+      var maxR = 0;
+      var i;
+      if (rects && rects.length > 0) {
+        for (i = 0; i < rects.length; i++) {
+          maxR = Math.max(maxR, rects[i].right - wl);
+        }
+        return Math.ceil(maxR);
+      }
+      var b = sub.getBoundingClientRect();
+      return Math.ceil(b.right - wl);
+    }
+
+    /** Max painted right edge of headline rows (dim layer), distance from wrap’s left — catches italic overshoot scrollWidth misses. */
+    function headlineRightFromWrapLeft(wrap, title) {
+      var wl = wrap.getBoundingClientRect().left;
+      var dim = title.querySelector('.hl-dim');
+      if (!dim) return 0;
+      var maxR = 0;
+      dim.querySelectorAll('.wr1 .mag-word').forEach(function (el) {
+        maxR = Math.max(maxR, el.getBoundingClientRect().right - wl);
+      });
+      var sec = dim.querySelector('.wr2 .hero-hed-secondary');
+      if (sec) maxR = Math.max(maxR, sec.getBoundingClientRect().right - wl);
+      return Math.ceil(maxR);
+    }
+
+    function fitHeadlineToSubline() {
+      var wrap = document.getElementById('hl-wrap');
+      var sub = wrap && wrap.querySelector('.sub-line');
+      var title = wrap && wrap.querySelector('.headline-title');
+      if (!wrap || !sub || !title) return;
+      title.style.maxWidth = '';
+      wrap.style.setProperty('--hero-hed-scale', '1');
+      void title.offsetWidth;
+      var subW = sublineTargetPx(wrap, sub);
+      var cap = Math.floor(wrap.getBoundingClientRect().width);
+      var target = Math.min(subW, cap);
+      if (target < 160) return;
+      var tol = 2;
+      var maxScale = 4;
+      var i;
+      var mid;
+      var lo;
+      var hi;
+      var best;
+
+      function widthAt(scale) {
+        wrap.style.setProperty('--hero-hed-scale', String(scale));
+        void title.offsetWidth;
+        return headlineRightFromWrapLeft(wrap, title);
+      }
+
+      var w1 = widthAt(1);
+      if (w1 > target + tol) {
+        /* Headline wider than sub at scale 1 — shrink scale to fit (max scale in [0.25, 1] with width <= target). */
+        lo = 0.25;
+        hi = 1;
+        best = lo;
+        for (i = 0; i < 48; i++) {
+          mid = (lo + hi) / 2;
+          if (widthAt(mid) <= target + tol) {
+            best = mid;
+            lo = mid;
+          } else {
+            hi = mid;
+          }
+        }
+      } else {
+        /* Headline narrower than sub at scale 1 — grow scale (up to maxScale) until right edge reaches target. */
+        best = 1;
+        var wHi = widthAt(maxScale);
+        if (wHi <= target + tol) {
+          best = maxScale;
+        } else {
+          lo = 1;
+          hi = maxScale;
+          for (i = 0; i < 48; i++) {
+            mid = (lo + hi) / 2;
+            if (widthAt(mid) <= target + tol) {
+              best = mid;
+              lo = mid;
+            } else {
+              hi = mid;
+            }
+          }
+        }
+      }
+
+      var scaled = Math.max(0.25, Math.round(best * 1000) / 1000);
+      wrap.style.setProperty('--hero-hed-scale', String(scaled));
+      void title.offsetWidth;
+      title.style.maxWidth = target + 'px';
+    }
+
+    function fitHeroSecondary() {
+      var hed = document.querySelector('#hl-dim .hero-hed-secondary');
+      var row1 = document.querySelector('#hl-dim .word-row.wr1');
+      var lit = document.querySelector('#hl-lit .hero-hed-secondary');
+      if (!hed || !row1) return;
+      var tw = row1.getBoundingClientRect().width - 2;
+      if (tw < 32) return;
+      meas.textContent = hed.textContent.trim();
+      var lo = 10;
+      var hi = 280;
+      var mid;
+      var best = 12;
+      var i;
+      for (i = 0; i < 42; i++) {
+        mid = (lo + hi) / 2;
+        meas.style.fontSize = mid + 'px';
+        if (meas.offsetWidth <= tw) {
+          best = mid;
+          lo = mid;
+        } else {
+          hi = mid;
+        }
+      }
+      var px = Math.max(12, Math.round(best * 10) / 10) + 'px';
+      hed.style.fontSize = px;
+      if (lit) lit.style.fontSize = px;
+    }
+
+    function fitAll() {
+      clearHeroSecondaryInline();
+      var w = document.getElementById('hl-wrap');
+      if (w) void w.offsetWidth;
+      fitHeadlineToSubline();
+      fitHeroSecondary();
+    }
+
+    var rt;
+    function scheduleFit() {
+      clearTimeout(rt);
+      rt = setTimeout(function () {
+        requestAnimationFrame(function () {
+          requestAnimationFrame(fitAll);
+        });
+      }, 60);
+    }
+
+    function kick() {
+      scheduleFit();
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(kick);
+    } else {
+      window.addEventListener('load', kick);
+    }
+    window.addEventListener('resize', scheduleFit);
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', kick);
+    } else {
+      kick();
+    }
+  })();
 
   function updateMask() {
     smx += (mx - smx) * 0.08;
@@ -800,7 +1140,11 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
     var r = hlLit.getBoundingClientRect();
     var x = smx - r.left;
     var y = smy - r.top;
-    var grad = 'radial-gradient(circle ' + SPOT_R + 'px at ' + x + 'px ' + y + 'px, black 0%, black 44%, rgba(0,0,0,0.72) 56%, rgba(0,0,0,0.35) 72%, transparent 100%)';
+    var narrow = r.width < 520;
+    var spotR = narrow
+      ? Math.max(110, Math.min(240, 0.22 * (r.width + r.height)))
+      : Math.max(150, Math.min(380, 0.26 * (r.width + r.height)));
+    var grad = 'radial-gradient(circle ' + spotR + 'px at ' + x + 'px ' + y + 'px, black 0%, black 28%, rgba(0,0,0,0.75) 42%, rgba(0,0,0,0.32) 62%, transparent 100%)';
     hlLit.style.maskImage = grad;
     hlLit.style.webkitMaskImage = hlLit.style.maskImage;
     requestAnimationFrame(updateMask);
