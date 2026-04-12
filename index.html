@@ -120,7 +120,8 @@ nav {
   padding: 9px 20px; border-radius: 100px;
   transition: background 0.25s, transform 0.2s !important;
 }
-.n-btn:hover { background: var(--warm) !important; transform: translateY(-1px); }
+  .n-btn:hover { background: var(--warm) !important; transform: translateY(-1px); }
+  .n-btn--cv-soon { cursor: default; user-select: none; -webkit-user-select: none; }
 
 @media (prefers-reduced-motion: reduce) {
   .n-links a:not(.n-btn),
@@ -592,7 +593,7 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
   <div class="n-links">
     <a href="index.html" aria-current="page">Portfolio</a>
     <a href="about.html">About</a>
-    <a href="mailto:nedabagheri.nz@gmail.com?subject=CV%20request" class="n-btn">Download CV</a>
+    <span class="n-btn n-btn--cv-soon" role="button" tabindex="-1" aria-disabled="true" title="CV coming soon">Download CV</span>
   </div>
 </nav>
 
