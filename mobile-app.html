@@ -666,6 +666,32 @@
   .mob-layer-badge--h { background: #f3f0ff; color: #5b21b6; }
   .mob-layer-badge--a { background: #dcfce7; color: #166534; }
   .mob-layer-t { font-size: 14px; color: var(--mid); line-height: 1.65; }
+  .mob-insight + .mob-scan-feedback { margin-top: 24px; }
+  .mob-scan-feedback {
+    margin-top: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: #0f172a;
+    box-shadow: 0 10px 32px rgba(26, 26, 26, 0.12);
+  }
+  .mob-scan-feedback img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    vertical-align: bottom;
+  }
+  .mob-scan-feedback-cap {
+    font-size: 12px;
+    color: var(--mid);
+    line-height: 1.5;
+    padding: 12px 16px 14px;
+    margin: 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+  }
   .mob-journey-wrap {
     margin-top: 24px;
     background: var(--surface);
@@ -1218,6 +1244,10 @@
         <div class="mob-layer-t">A subtle sound cue confirms the scan — aligned with WCAG, which requires that state changes not rely on vision alone. Critical for users with low vision and effective in noisy retail environments.</div>
       </div>
     </div>
+    <figure class="mob-scan-feedback reveal reveal-media">
+      <img src="mobile-scan-three-layer-feedback.gif" alt="In-app demonstration of three-layer scan feedback: barcode scan on Coca-Cola, vibration and sound cues, and the product animating into the cart" width="800" height="695" loading="lazy" decoding="async">
+      <figcaption class="mob-scan-feedback-cap">In-app flow: scan confirmation with haptic, audio, and the product dropping into the cart.</figcaption>
+    </figure>
     <div class="quote-block">
       <p>“Users stopped hesitating. They scanned and moved — confident the app had done its job. That shift in body language was visible in real time during testing.”</p>
       <cite>— Usability testing observation notes</cite>
