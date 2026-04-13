@@ -813,7 +813,22 @@
   .mob-ref-t { font-family: var(--serif); font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
   .mob-ref-b { font-size: 14px; color: var(--mid); line-height: 1.65; margin: 0; }
 
-  .bottom-back { padding: 0 48px 56px; max-width: 820px; margin: 0 auto; }
+  .back-top {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark);
+    text-decoration: none;
+    padding: 24px 48px 0;
+    max-width: 820px;
+    margin: 0 auto 48px;
+    opacity: 0.55;
+    transition: opacity 0.25s, transform 0.4s var(--ease-spring);
+  }
+  .back-top:hover,
+  .back-top:focus-visible { opacity: 1; transform: translateX(-5px); }
+
+  .bottom-back { padding: 0 48px 48px; max-width: 820px; margin: 0 auto; }
   .bottom-back a {
     display: inline-flex;
     align-items: center;
@@ -841,6 +856,7 @@
     .n-links a:not(.n-btn),
     .n-btn,
     .footer-social a,
+    .back-top,
     .bottom-back a {
       transition: none !important;
     }
@@ -849,6 +865,8 @@
     .n-btn:hover,
     .n-btn:focus-visible,
     .n-btn:active { transform: none; }
+    .back-top:hover,
+    .back-top:focus-visible,
     .bottom-back a:hover,
     .bottom-back a:focus-visible { transform: none; }
     .footer-social a:hover,
@@ -862,6 +880,7 @@
 
   @media (max-width: 640px) {
     nav { padding: 0 24px; height: 60px; }
+    .back-top, .hero, .hero-image, .content, .bottom-back, footer { padding-left: 24px; padding-right: 24px; }
     .bottom-back { padding: 0 24px 48px; }
     .section-header { flex-direction: column; gap: 18px; padding: 0 0 24px 0; }
     .section-icon { width: 52px; height: 52px; }
@@ -892,6 +911,7 @@
     <span class="n-btn n-btn--cv-soon" role="button" tabindex="-1" aria-disabled="true" title="CV coming soon">Download CV</span>
   </div>
 </nav>
+<a class="back-top" href="index.html">← Back to Portfolio</a>
 
 <section class="hero">
   <div class="hero-tag">Case Study · B2C · Retail · Mobile</div>
