@@ -7,7 +7,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
 <link rel="stylesheet" href="fonts/sora.css">
 <link href="https://fonts.googleapis.com/css2?family=Sora:ital,wght@1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-<title>Mobile Customer App · Neda Bagheri</title>
+<title>Mobile Customer Shopping App · Neda Bagheri</title>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -113,7 +113,6 @@
     perspective: 1600px;
     transform-style: preserve-3d;
   }
-  .content--mobile-lead { padding-bottom: 40px; }
   .case-anchor { scroll-margin-top: 96px; }
   .section { margin-bottom: 56px; }
   .section-header { display: flex; align-items: flex-start; gap: 22px; padding: 0 0 32px 0; margin-bottom: 0; }
@@ -131,12 +130,12 @@
   .role-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
   .role-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: var(--mid); font-weight: 300; }
   .role-list li::before { content: '→'; color: var(--accent); font-weight: 600; flex-shrink: 0; margin-top: 1px; }
-  .pain-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 24px; }
+  .pain-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 24px; }
   .pain-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
   .pain-card .pain-number { font-family: var(--serif); font-size: 36px; color: var(--accent); opacity: 0.3; line-height: 1; margin-bottom: 10px; }
   .pain-card h4 { font-family: var(--serif); font-size: 14px; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
   .pain-card p { font-size: 14px; color: var(--mid); margin: 0; }
-  .quote-block { border-left: 3px solid var(--accent); padding: 20px 28px; background: var(--accent-light); border-radius: 0 12px 12px 0; margin: 24px 0; }
+  .quote-block { border-left: 3px solid var(--dark); padding: 20px 28px; background: var(--accent-light); border-radius: 0 12px 12px 0; margin: 24px 0; }
   .quote-block p { font-family: var(--serif); font-size: 18px; font-style: italic; color: var(--dark); margin-bottom: 8px; }
   .quote-block cite { font-size: 13px; color: var(--mid); font-style: normal; font-weight: 500; }
   .process-steps { display: flex; flex-direction: column; gap: 0; margin-top: 24px; }
@@ -205,37 +204,574 @@
   .fade-in.visible { opacity: 1; transform: translateY(0); }
 
   /* Full case study: kept in DOM for future completion; not shown to visitors */
-  .mobile-case-study-deferred {
-    display: none !important;
+  .case-main { perspective: 1600px; transform-style: preserve-3d; }
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.75s var(--ease-soft), transform 0.75s var(--ease-spring);
   }
-
-  .mobile-coming-soon {
-    max-width: 820px;
-    margin: 0 auto 40px;
-    padding: 0 48px;
-    text-align: center;
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .reveal-media .screen-wrap {
+    transition: transform 0.85s var(--ease-spring), box-shadow 0.85s var(--ease-soft);
   }
-  .mobile-coming-soon__title {
+  /* translateZ(0) only — avoids subpixel blur on hi-res PNGs from 3D compositing */
+  .reveal-media.is-visible .screen-wrap {
+    transform: translateY(0) translateZ(0);
+    box-shadow: 0 16px 44px rgba(26, 26, 26, 0.1);
+  }
+  .flow-callout {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 14px;
-    margin: 0;
-    font-family: var(--serif);
-    font-size: clamp(1.85rem, 4.5vw, 2.5rem);
-    font-weight: 400;
-    color: var(--dark);
-    letter-spacing: -0.03em;
-    line-height: 1.2;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 8px 14px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(196, 98, 45, 0.2);
   }
-  .mobile-coming-soon__icon {
+  .flow-emphasis {
+    border-radius: 14px;
+    padding: 18px 18px 6px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(196, 98, 45, 0.22);
+    background: linear-gradient(165deg, rgba(245, 235, 227, 0.32) 0%, transparent 55%);
+  }
+  .screens-section { margin-top: 28px; }
+  .screens-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 16px;
+  }
+  .screens-grid { display: grid; gap: 16px; }
+  .screens-grid.col-2 {
+    grid-template-columns: repeat(2, minmax(0, calc((100% - 16px) / 3)));
+    justify-content: start;
+  }
+  .screens-grid.col-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .mob-onboard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .screen-item { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+  .screen-wrap {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+  }
+  .screens-section.flow-emphasis .screen-wrap { border-color: rgba(196, 98, 45, 0.35); }
+  .screen-wrap img {
+    width: 100%;
+    display: block;
+    height: auto;
+    image-rendering: auto;
+    -ms-interpolation-mode: bicubic;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  .screen-caption { font-size: 12px; color: var(--light); text-align: center; padding: 0 4px; margin: 0; font-style: italic; line-height: 1.45; }
+  .mob-findings-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 24px;
+  }
+  .mob-finding-cell {
+    background: var(--surface);
+    padding: 24px 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .mob-donut {
     flex-shrink: 0;
-    width: 1.15em;
-    height: 1.15em;
-    color: #b8b3a8;
-    stroke: currentColor;
-    fill: none;
+    position: relative;
+    width: 90px;
+    height: 90px;
+    color: var(--accent);
   }
+  .mob-donut svg { width: 90px; height: 90px; transform: rotate(-90deg); }
+  .mob-donut-bg { fill: none; stroke: var(--border); stroke-width: 8; }
+  .mob-donut-arc { fill: none; stroke: currentColor; stroke-width: 8; stroke-linecap: round; }
+  .mob-donut-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .mob-finding-text h4 {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+  .mob-finding-text p { font-size: 14px; color: var(--mid); line-height: 1.65; margin: 0; }
+  .mob-logo-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 24px; }
+  .mob-logo-pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 14px;
+    min-width: 88px;
+  }
+  .mob-logo-ica { color: #e41b17; }
+  .mob-logo-coop { color: #009e4f; }
+  .mob-logo-willys { color: #e41b17; }
+  .mob-logo-lidl { color: #0050aa; }
+  .mob-logo-hemkop { color: #e00022; }
+  .mob-comp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .mob-comp-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .mob-comp-title {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--dark);
+  }
+  .mob-comp-row { margin-bottom: 12px; }
+  .mob-comp-row:last-child { margin-bottom: 0; }
+  .mob-comp-k {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--light);
+    margin-bottom: 4px;
+  }
+  .mob-comp-v { font-size: 14px; color: var(--mid); line-height: 1.6; }
+  .mob-comp-row--opp .mob-comp-v { color: var(--accent); font-weight: 600; }
+  .mob-card-sort {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-top: 28px;
+    padding: 28px 28px 30px;
+    border-radius: 20px;
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.97) 0%, rgba(248, 250, 252, 0.92) 42%, rgba(236, 253, 245, 0.35) 100%),
+      linear-gradient(120deg, rgba(224, 231, 255, 0.22) 0%, transparent 55%);
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.8) inset,
+      0 18px 48px rgba(15, 23, 42, 0.07),
+      0 6px 16px rgba(16, 185, 129, 0.06);
+  }
+  .mob-cs-h {
+    font-family: var(--serif);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--dark);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(16, 185, 129, 0.35);
+  }
+  .mob-card-sort > div:last-child .mob-cs-h {
+    border-bottom-color: rgba(99, 102, 241, 0.4);
+  }
+  .mob-cs-cards { display: flex; flex-direction: column; gap: 12px; }
+  .mob-cs-card {
+    position: relative;
+    padding: 16px 18px 16px 20px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    border: 2px solid transparent;
+    transition: transform 0.22s var(--ease-spring), box-shadow 0.28s var(--ease-soft);
+  }
+  .mob-cs-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    bottom: 12px;
+    width: 4px;
+    border-radius: 0 4px 4px 0;
+    opacity: 0.95;
+  }
+  .mob-cs-card:hover {
+    transform: translateY(-3px);
+  }
+  .mob-cs-card--hi {
+    color: #064e3b;
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 45%, #a7f3d0 100%);
+    border-color: rgba(52, 211, 153, 0.85);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.65) inset,
+      0 8px 24px rgba(16, 185, 129, 0.22),
+      0 2px 8px rgba(5, 150, 105, 0.12);
+  }
+  .mob-cs-card--hi::before {
+    background: linear-gradient(180deg, #34d399, #059669);
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
+  }
+  .mob-cs-card--hi:hover {
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.7) inset,
+      0 16px 36px rgba(16, 185, 129, 0.3),
+      0 4px 12px rgba(5, 150, 105, 0.15);
+  }
+  .mob-cs-card--med {
+    color: #1e1b4b;
+    background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 50%, #c7d2fe 100%);
+    border-color: rgba(129, 140, 248, 0.9);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.7) inset,
+      0 8px 24px rgba(99, 102, 241, 0.2),
+      0 2px 8px rgba(79, 70, 229, 0.12);
+  }
+  .mob-cs-card--med::before {
+    background: linear-gradient(180deg, #818cf8, #4f46e5);
+    box-shadow: 0 0 12px rgba(99, 102, 241, 0.45);
+  }
+  .mob-cs-card--med:hover {
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.65) inset,
+      0 16px 36px rgba(99, 102, 241, 0.28),
+      0 4px 12px rgba(79, 70, 229, 0.14);
+  }
+  .mob-priority-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--dark);
+    margin-bottom: 10px;
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .mob-card-sort > div:last-child > .mob-priority-label:nth-child(2) { margin-top: 0; }
+  .mob-priority-label::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .mob-card-sort > div:last-child > .mob-priority-label:nth-child(2)::before {
+    background: linear-gradient(135deg, #34d399, #059669);
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
+  }
+  .mob-card-sort > div:last-child > .mob-priority-label:nth-child(4)::before {
+    background: linear-gradient(135deg, #818cf8, #6366f1);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.22);
+  }
+  .mob-priority-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+  .mob-pill {
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    border: 2px solid transparent;
+    transition: transform 0.2s var(--ease-spring), box-shadow 0.25s var(--ease-soft);
+  }
+  .mob-pill:hover {
+    transform: translateY(-2px);
+  }
+  .mob-pill--hi {
+    color: #064e3b;
+    background: linear-gradient(135deg, #ecfdf5, #bbf7d0);
+    border-color: rgba(52, 211, 153, 0.9);
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.2);
+  }
+  .mob-pill--hi:hover {
+    box-shadow: 0 8px 22px rgba(16, 185, 129, 0.28);
+  }
+  .mob-pill--med {
+    color: #312e81;
+    background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+    border-color: rgba(165, 180, 252, 0.95);
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.18);
+  }
+  .mob-pill--med:hover {
+    box-shadow: 0 8px 22px rgba(99, 102, 241, 0.26);
+  }
+  .mob-decision {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 24px;
+  }
+  .mob-decision-k {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--light);
+    margin-bottom: 12px;
+  }
+  .mob-persona-photo {
+    margin-top: 24px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-cv);
+    background: var(--surface);
+  }
+  .mob-persona-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    vertical-align: bottom;
+  }
+  .mob-persona {
+    margin-top: 22px;
+    padding: 28px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+  .mob-persona-name { font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--dark); margin-bottom: 4px; }
+  .mob-persona-role { font-size: 13px; color: var(--accent); font-weight: 600; margin-bottom: 14px; }
+  .mob-persona-quote {
+    font-style: italic;
+    color: var(--mid);
+    font-size: 15px;
+    line-height: 1.65;
+    border-left: 2px solid var(--accent);
+    padding-left: 16px;
+    margin-bottom: 14px;
+  }
+  .mob-persona-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .mob-persona-tag {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: var(--bg);
+    color: var(--mid);
+    border: 1px solid var(--border);
+  }
+  .mob-methods-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 24px;
+  }
+  .mob-method-cell { background: var(--surface); padding: 22px 20px; }
+  .mob-method-ico { font-size: 1.2rem; margin-bottom: 8px; }
+  .mob-method-t {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+  .mob-method-d { font-size: 14px; color: var(--mid); line-height: 1.65; margin: 0; }
+  .mob-solution-list { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
+  .mob-solution {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 24px;
+  }
+  .mob-sol-head { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .mob-sol-ico {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: var(--accent-light);
+    border: 1px solid rgba(196, 98, 45, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--accent);
+  }
+  .mob-sol-ico svg { width: 20px; height: 20px; }
+  .mob-sol-title { font-family: var(--serif); font-size: 16px; font-weight: 600; color: var(--dark); margin-bottom: 4px; }
+  .mob-sol-tag {
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .mob-sol-body { font-size: 15px; color: var(--mid); line-height: 1.75; margin: 0; }
+  .mob-insight {
+    background: var(--surface);
+    border: 1px solid rgba(196, 98, 45, 0.28);
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 24px;
+  }
+  .mob-insight-k {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .mob-insight-lede { font-size: 14px; color: var(--mid); margin-bottom: 16px; }
+  .mob-layer { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 12px; }
+  .mob-layer:last-child { margin-bottom: 0; }
+  .mob-layer-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .mob-layer-badge--v { background: #e8f0fe; color: #1e40af; }
+  .mob-layer-badge--h { background: #f3f0ff; color: #5b21b6; }
+  .mob-layer-badge--a { background: #dcfce7; color: #166534; }
+  .mob-layer-t { font-size: 14px; color: var(--mid); line-height: 1.65; }
+  .mob-journey-wrap {
+    margin-top: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    overflow-x: auto;
+  }
+  .mob-journey-top { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+  .mob-journey-av {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    border: 1.5px solid rgba(196, 98, 45, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    flex-shrink: 0;
+  }
+  .mob-journey-name { font-family: var(--serif); font-size: 15px; font-weight: 600; color: var(--dark); }
+  .mob-journey-desc { font-size: 13px; color: var(--mid); }
+  .mob-journey-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+    font-size: 13px;
+  }
+  .mob-journey-table th {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--light);
+    font-weight: 600;
+    padding: 0 10px 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .mob-journey-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: var(--mid);
+  }
+  .mob-journey-table tr:last-child td { border-bottom: none; }
+  .mob-step-name { font-weight: 600; color: var(--dark); font-family: var(--serif); font-size: 13px; margin-bottom: 4px; }
+  .mob-emotion { display: inline-flex; align-items: center; gap: 6px; }
+  .mob-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .mob-dot--g { background: #16a34a; }
+  .mob-dot--a { background: #d97706; }
+  .mob-dot--r { background: #dc2626; }
+  .mob-pain { color: #dc2626; font-size: 12px; line-height: 1.5; }
+  .mob-oppty { color: var(--accent); font-size: 12px; line-height: 1.5; font-weight: 600; }
+  .mob-neutral { color: var(--mid); font-size: 12px; line-height: 1.5; }
+  .mob-curve { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); }
+  .mob-curve-k {
+    font-size: 11px;
+    color: var(--light);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .mob-curve svg { width: 100%; height: auto; min-width: 560px; display: block; }
+  .mob-results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 24px;
+  }
+  .mob-result-cell { background: var(--surface); padding: 24px 20px; }
+  .mob-result-num {
+    font-family: var(--serif);
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .mob-result-lab { font-size: 13px; color: var(--mid); line-height: 1.5; }
+  .mob-reflection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .mob-reflection {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+  }
+  .mob-ref-num {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--border);
+    margin-bottom: 10px;
+  }
+  .mob-ref-t { font-family: var(--serif); font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
+  .mob-ref-b { font-size: 14px; color: var(--mid); line-height: 1.65; margin: 0; }
 
   .bottom-back { padding: 0 48px 56px; max-width: 820px; margin: 0 auto; }
   .bottom-back a {
@@ -252,6 +788,16 @@
   .bottom-back a:hover,
   .bottom-back a:focus-visible { opacity: 1; transform: translateX(-5px); }
   @media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal.is-visible {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    .reveal-media .screen-wrap {
+      transform: none !important;
+      transition: none !important;
+    }
     .n-links a:not(.n-btn),
     .n-btn,
     .footer-social a,
@@ -268,16 +814,32 @@
     .footer-social a:hover,
     .footer-social a:focus-visible,
     .footer-social a:active { transform: none; box-shadow: none; }
+    .mob-cs-card,
+    .mob-pill { transition: none !important; }
+    .mob-cs-card:hover,
+    .mob-pill:hover { transform: none !important; }
   }
 
   @media (max-width: 640px) {
     nav { padding: 0 24px; height: 60px; }
-    .mobile-coming-soon { padding: 0 24px; margin-bottom: 32px; }
     .bottom-back { padding: 0 24px 48px; }
     .section-header { flex-direction: column; gap: 18px; padding: 0 0 24px 0; }
     .section-icon { width: 52px; height: 52px; }
     .section-icon svg { width: 24px; height: 24px; }
     .section-chapter { font-size: clamp(1.65rem, 6vw, 2.35rem); }
+    .mob-findings-row,
+    .mob-comp-grid,
+    .mob-card-sort,
+    .mob-methods-grid { grid-template-columns: 1fr; }
+    .mob-card-sort { padding: 22px 20px 24px; gap: 22px; }
+    .screens-grid.col-3 { grid-template-columns: 1fr 1fr; }
+    .mob-onboard-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .screens-grid.col-2 { grid-template-columns: 1fr; justify-content: stretch; }
+    .pain-grid { grid-template-columns: 1fr; }
+    .results-grid { grid-template-columns: 1fr; }
+    .meta-strip { flex-direction: column; }
+    .meta-item { border-right: none; border-bottom: 1px solid var(--border); }
+    .meta-item:last-child { border-bottom: none; }
   }
 </style>
 </head>
@@ -292,147 +854,589 @@
 </nav>
 
 <section class="hero">
-  <div class="hero-tag">Case Study · B2C · Mobile</div>
+  <div class="hero-tag">Case Study · B2C · Retail · Mobile</div>
   <h1>Mobile Customer<br><em>Shopping App</em></h1>
-  <p class="hero-subtitle">Redesigning the onboarding and checkout journey for a B2C mobile app — creating a frictionless, personal experience across iOS and Android.</p>
+  <p class="hero-subtitle">Letting shoppers scan, pay, and walk out — without touching a cashier terminal or standing in a queue.</p>
   <div class="meta-strip">
-    <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Product Designer</div></div>
-    <div class="meta-item"><div class="meta-label">Context</div><div class="meta-value">B2C · Focalpay AB</div></div>
-    <div class="meta-item"><div class="meta-label">Platforms</div><div class="meta-value">iOS & Android</div></div>
-    <div class="meta-item"><div class="meta-label">Methods</div><div class="meta-value">A/B Testing · UX Research</div></div>
+    <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Lead UX/UI Designer</div></div>
+    <div class="meta-item"><div class="meta-label">Company</div><div class="meta-value">Focalpay AB · 2023–2024</div></div>
+    <div class="meta-item"><div class="meta-label">Platform</div><div class="meta-value">iOS · Web (PWA)</div></div>
+    <div class="meta-item"><div class="meta-label">Methods</div><div class="meta-value">Research · Usability Testing</div></div>
   </div>
 </section>
 
 <div class="hero-image">
   <div class="image-placeholder">
-    <img src="mobile-customer-shopping-app.png" alt="Mobile Customer Shopping App — three phone screens: barcode scan, cart with products, and checkout summary with Apple Pay and card payment" width="1024" height="767" loading="eager" decoding="async">
+    <img src="mobile-customer-shopping-app.png" alt="Shopper in a grocery store holding a phone showing the Focalpay cart screen with items, totals in kr, and Go to payment — groceries in a basket in the background" width="1024" height="682" loading="eager" decoding="async">
   </div>
 </div>
 
-<div class="content content--mobile-lead">
-  <section class="section fade-in case-anchor" id="introduction">
+<div class="content case-main">
+
+  <section class="section fade-in reveal case-anchor" id="introduction">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Introduction</h2><p class="section-subtitle">Context, analytics, and redesign scope</p></div>
+      <div class="section-headings"><h2 class="section-chapter">Introduction</h2><p class="section-subtitle">Shopping shouldn’t mean waiting</p></div>
     </div>
-    <p>The Focalpay mobile customer app connects shoppers directly to the store — browse, scan, pay, and collect. The product existed when I joined, but analytics showed two serious drop-off problems: 47% of users abandoned onboarding before completing it, and checkout completion was significantly below industry benchmarks for mobile retail apps.</p>
-    <p>I led the redesign of both journeys — onboarding and checkout — across iOS and Android. The goal was not just to reduce steps, but to make the experience feel native, personal, and worth coming back to.</p>
+    <p>Large retail chains like Willys, Coop, ICA, and Lidl have long relied on cashier queues and shared handheld scanning devices. For many shoppers, both create friction — and for some, they are a genuine barrier.</p>
+    <p>The Focalpay mobile shopping app reimagines the entire in-store journey. Shoppers open the app, scan products directly with their own phone as they shop, and check out by scanning a single QR code mounted on the store wall — from anywhere in the store, no queue required. If they want to pay cash, one tap transfers their cart to the cashier terminal.</p>
+    <p>I owned this project end-to-end: from competitor research and user interviews through to final screens, interaction design, and usability validation with real shoppers in live store environments.</p>
   </section>
-</div>
 
-<section class="mobile-coming-soon" aria-labelledby="mobile-coming-soon-title">
-  <h2 id="mobile-coming-soon-title" class="mobile-coming-soon__title">
-    <svg class="mobile-coming-soon__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    Coming Soon
-  </h2>
-</section>
+  <div class="divider"></div>
+
+  <section class="section fade-in reveal case-anchor" id="onboarding">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">Onboarding</h2><p class="section-subtitle">Setting expectations before the first scan</p></div>
+    </div>
+    <p>Before someone scans their first product, they need to understand how this store’s flow works — where to scan, when to pay, and how they leave with a receipt. A short, skippable carousel walks new shoppers through the journey in plain language so the physical steps feel familiar before they rely on the app under time pressure.</p>
+    <div class="screens-section flow-emphasis reveal reveal-media">
+      <div class="flow-callout" aria-hidden="true">Onboarding screens</div>
+      <div class="mob-onboard-grid">
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-onboarding-01.png" alt="Onboarding step 1 — How to shop in 3 steps: add product to cart by scanning the barcode with the camera" width="472" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">Step 1 · Add product to cart</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-onboarding-02.png" alt="Onboarding step 2 — scan the checkout QR code at the cashier area to continue to payment" width="472" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">Step 2 · Scan checkout QR</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-onboarding-03.png" alt="Onboarding step 3 — pay and get a digital receipt" width="472" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">Step 3 · Pay and get receipt</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-onboarding-04.png" alt="Onboarding step 4 — Done: exit the store with a barcode at the gate; Start shopping" width="472" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">Step 4 · Done — start shopping</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section fade-in reveal case-anchor" id="research-findings">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.94A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">User Experience Research Findings</h2><p class="section-subtitle">What the numbers told us</p></div>
+    </div>
+    <p>We surveyed eight frequent shoppers in Swedish retail stores to validate the hypothesis that existing self-checkout solutions were failing real users. The data confirmed two distinct pain points — and pointed directly to the solution.</p>
+    <div class="mob-findings-row">
+      <div class="mob-finding-cell">
+        <div class="mob-donut" aria-hidden="true">
+          <svg viewBox="0 0 90 90"><circle class="mob-donut-bg" cx="45" cy="45" r="34"/><circle class="mob-donut-arc" cx="45" cy="45" r="34" stroke-dasharray="47 170" stroke-dashoffset="0"/></svg>
+          <div class="mob-donut-label">22%</div>
+        </div>
+        <div class="mob-finding-text">
+          <h4>Cumbersome self-scanning devices</h4>
+          <p>22% of users reported dissatisfaction with carrying a separate self-scanning device, finding it disruptive to their shopping experience. They expressed a strong preference for scanning items directly with their smartphone.</p>
+        </div>
+      </div>
+      <div class="mob-finding-cell">
+        <div class="mob-donut" aria-hidden="true">
+          <svg viewBox="0 0 90 90"><circle class="mob-donut-bg" cx="45" cy="45" r="34"/><circle class="mob-donut-arc" cx="45" cy="45" r="34" stroke-dasharray="77 140" stroke-dashoffset="0"/></svg>
+          <div class="mob-donut-label">36%</div>
+        </div>
+        <div class="mob-finding-text">
+          <h4>Frustrating checkout queues</h4>
+          <p>36% of users identified long checkout queues as a major pain point, expressing a clear desire for a quicker, mobile-based checkout process that would eliminate the need to wait in line.</p>
+        </div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p>“While some were surprised by the idea of using a self-scanning by mobile, others were more accepting — noting that the convenience of having it directly in their pocket made it an appealing option.”</p>
+      <cite>— Survey synthesis · 8 participants · Swedish retail stores</cite>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section fade-in reveal case-anchor" id="competitor-analysis">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">Competitor Analysis</h2><p class="section-subtitle">Addressing retail pain points</p></div>
+    </div>
+    <p>Before designing the first prototype, I mapped the existing self-checkout landscape across Swedish grocery retail — identifying where competitors were creating new problems as much as solving old ones.</p>
+    <div class="mob-logo-row">
+      <div class="mob-logo-pill mob-logo-ica">ICA Maxi</div>
+      <div class="mob-logo-pill mob-logo-coop">Coop</div>
+      <div class="mob-logo-pill mob-logo-willys">Willys</div>
+      <div class="mob-logo-pill mob-logo-lidl">Lidl</div>
+      <div class="mob-logo-pill mob-logo-hemkop">Hemköp</div>
+    </div>
+    <div class="mob-comp-grid">
+      <div class="mob-comp-card">
+        <div class="mob-comp-title">1. Traditional self-scanning systems</div>
+        <div class="mob-comp-row"><div class="mob-comp-k">Competitors</div><div class="mob-comp-v">ICA and Coop currently rely on dedicated self-scanning devices distributed at store entrances.</div></div>
+        <div class="mob-comp-row"><div class="mob-comp-k">Weakness</div><div class="mob-comp-v">These systems require customers to manage an additional device, which many find inconvenient — especially parents with strollers or shoppers with accessibility needs.</div></div>
+        <div class="mob-comp-row mob-comp-row--opp"><div class="mob-comp-k">Opportunity</div><div class="mob-comp-v">Integrating scanning directly into customers’ own smartphones delivers a far more seamless and inclusive experience.</div></div>
+      </div>
+      <div class="mob-comp-card">
+        <div class="mob-comp-title">2. Mobile checkout solutions</div>
+        <div class="mob-comp-row"><div class="mob-comp-k">Competitors</div><div class="mob-comp-v">Amazon’s “Just Walk Out” technology offers an advanced frictionless checkout — but at massive infrastructure cost.</div></div>
+        <div class="mob-comp-row"><div class="mob-comp-k">Weakness</div><div class="mob-comp-v">Solutions like these require significant store overhauls, making them inaccessible to most Swedish retail chains.</div></div>
+        <div class="mob-comp-row mob-comp-row--opp"><div class="mob-comp-k">Opportunity</div><div class="mob-comp-v">A flexible, scalable app-based approach can be adopted by any retail store — no structural changes, no expensive hardware.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section fade-in reveal case-anchor" id="card-sorting">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">Affinity Mapping · Card Sorting</h2><p class="section-subtitle">Brainstorming &amp; prioritisation</p></div>
+    </div>
+    <p>After synthesising research findings, I ran a card sorting session with the product team to organise feature ideas by user need. This helped us move from a long list of possibilities to a clear, prioritised roadmap — ensuring we built the things that mattered most first.</p>
+    <div class="mob-card-sort">
+      <div>
+        <div class="mob-cs-h">Key features brainstormed</div>
+        <div class="mob-cs-cards">
+          <div class="mob-cs-card mob-cs-card--hi">Integrated mobile payment options</div>
+          <div class="mob-cs-card mob-cs-card--hi">Smartphone-based barcode scanning</div>
+          <div class="mob-cs-card mob-cs-card--hi">Real-time cart management</div>
+          <div class="mob-cs-card mob-cs-card--med">Detailed product information display</div>
+        </div>
+      </div>
+      <div>
+        <div class="mob-cs-h">Prioritisation result</div>
+        <div class="mob-priority-label">High priority</div>
+        <div class="mob-priority-pills">
+          <span class="mob-pill mob-pill--hi">Barcode scanning</span>
+          <span class="mob-pill mob-pill--hi">Mobile payment integration</span>
+          <span class="mob-pill mob-pill--hi">Real-time cart updates</span>
+        </div>
+        <div class="mob-priority-label">Medium priority</div>
+        <div class="mob-priority-pills">
+          <span class="mob-pill mob-pill--med">Detailed product information</span>
+        </div>
+      </div>
+    </div>
+    <div class="mob-decision">
+      <div class="mob-decision-k">Decision moment</div>
+      <p>One early tension: <strong>should we ask users to sign up before they can shop?</strong> The data said no. Forcing account creation at entry is a well-documented conversion killer. We deferred it to checkout — when the user is already invested and motivated to complete the purchase. This single decision had the largest measurable impact on funnel completion rates.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section fade-in reveal case-anchor" id="persona">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">User Research · Persona</h2><p class="section-subtitle">The shopper we designed for</p></div>
+    </div>
+    <p>Research revealed a clear segment that existing solutions were failing: parents shopping with young children, particularly those managing additional accessibility needs. Their pain was structural — a fundamental mismatch between the shopping environment and their daily reality.</p>
+    <div class="mob-persona-photo reveal reveal-media">
+      <img src="mobile-persona-hero.png" alt="Parent grocery shopping with three children in a supermarket aisle, using a phone while managing the cart" width="1024" height="682" loading="lazy" decoding="async">
+    </div>
+    <div class="mob-persona">
+      <div>
+        <div class="mob-persona-name">Sara, 40</div>
+        <div class="mob-persona-role">Parent of three · Including one child with autism</div>
+        <div class="mob-persona-quote">“I always come to the store with the kids. I need one hand for the stroller, one eye on the other two — and I keep my shopping list on my phone. There’s no room for a handheld scanner. And standing in a queue with an autistic child is one of the hardest parts of my week.”</div>
+        <div class="mob-persona-tags">
+          <span class="mob-persona-tag">Heavy mobile user</span>
+          <span class="mob-persona-tag">Avoids queues</span>
+          <span class="mob-persona-tag">Needs both hands free</span>
+          <span class="mob-persona-tag">Shopping list on phone</span>
+          <span class="mob-persona-tag">Sensory-aware environments</span>
+        </div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p>“I used to dread grocery shopping with the kids. Now I just open the app, scan as I go, and I’m done before I even reach the exit.”</p>
+      <cite>— Sara, post-launch interview</cite>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section fade-in reveal case-anchor" id="methods">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">Methods &amp; Research</h2><p class="section-subtitle">Understanding the real friction</p></div>
+    </div>
+    <p>Research started with competitor analysis — studying existing self-checkout flows at ICA, Coop, Willys, and Lidl. That baseline informed the first prototype, which was then tested with real shoppers in actual store environments.</p>
+    <div class="mob-methods-grid">
+      <div class="mob-method-cell">
+        <div class="mob-method-ico" aria-hidden="true">🏪</div>
+        <div class="mob-method-t">Competitor analysis</div>
+        <p class="mob-method-d">ICA, Coop, Willys, Lidl, Hemköp — mapped their self-checkout models, flow structures, and known usability failures from public data and in-store observation.</p>
+      </div>
+      <div class="mob-method-cell">
+        <div class="mob-method-ico" aria-hidden="true">📋</div>
+        <div class="mob-method-t">Surveys · 8 participants</div>
+        <p class="mob-method-d">Surveyed frequent shoppers in Swedish retail stores to quantify pain points around handheld devices and checkout queues — validating the hypothesis with concrete data before designing.</p>
+      </div>
+      <div class="mob-method-cell">
+        <div class="mob-method-ico" aria-hidden="true">🗣️</div>
+        <div class="mob-method-t">User interviews</div>
+        <p class="mob-method-d">Recruited shoppers with specific needs — parents with young children, users with accessibility requirements — to surface pain points that standard personas miss.</p>
+      </div>
+      <div class="mob-method-cell">
+        <div class="mob-method-ico" aria-hidden="true">🧪</div>
+        <div class="mob-method-t">Usability testing · Live store</div>
+        <p class="mob-method-d">Tested prototypes with real users in actual stores. Observed behaviours under genuine shopping conditions — not a lab, not a simulation. Key features like manual barcode entry emerged here.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section fade-in reveal case-anchor" id="discover">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">Discover</h2><p class="section-subtitle">What was actually broken</p></div>
+    </div>
+    <p>Traditional in-store checkout systems were designed around infrastructure, not people. The problems weren’t minor inconveniences — for many shoppers, they were real barriers to completing a purchase.</p>
+    <div class="pain-grid">
+      <div class="pain-card"><div class="pain-number">01</div><h4>Shared devices, shared problems</h4><p>Store-provided handheld scanners require a free hand and full attention. For parents with strollers or shopping lists on their phone, they are practically unusable.</p></div>
+      <div class="pain-card"><div class="pain-number">02</div><h4>Queue as a barrier</h4><p>For shoppers with sensory-sensitive children, chronic pain, or time pressure, standing in a cashier queue is not just inconvenient — it’s a reason to shop elsewhere.</p></div>
+      <div class="pain-card"><div class="pain-number">03</div><h4>Silent scan failures</h4><p>In a busy store, users couldn’t tell if a scan had worked. Products were scanned twice. Users gave up. The interface gave no meaningful feedback across any sensory channel.</p></div>
+      <div class="pain-card"><div class="pain-number">04</div><h4>Unreadable barcodes, dead ends</h4><p>When a barcode wouldn’t scan, the app offered no recovery path. Users were stranded. This only surfaced during real-world testing — lab conditions never revealed it.</p></div>
+    </div>
+    <div class="quote-block">
+      <p>“We want something that just works. Our customers shouldn’t have to think about the checkout — it should just happen.”</p>
+      <cite>— Store Manager, Usability Research Session</cite>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section fade-in reveal case-anchor" id="design-solutions">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">Design Solutions</h2><p class="section-subtitle">Fast, tested, iterated</p></div>
+    </div>
+    <p>Every screen was designed around one principle: the phone already in the shopper’s hand should be the only device they need — even while pushing a stroller, checking a list, and keeping an eye on two children at the same time.</p>
+    <div class="mob-solution-list">
+      <div class="mob-solution">
+        <div class="mob-sol-head">
+          <div class="mob-sol-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+          <div>
+            <div class="mob-sol-title">Camera-first home screen</div>
+            <div class="mob-sol-tag">Core flow</div>
+          </div>
+        </div>
+        <p class="mob-sol-body">The moment a user opens the app, the camera is live and the cart is visible — no navigation required. Scanning a product adds it instantly. The cart, total, and key actions (Add bag, Baked goods, Manual barcode entry) are always one tap away. There is no separate “scan mode” — the entire experience is the scan mode.</p>
+      </div>
+      <div class="mob-solution">
+        <div class="mob-sol-head">
+          <div class="mob-sol-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+          <div>
+            <div class="mob-sol-title">Add bag · Baked goods · Manual barcode entry</div>
+            <div class="mob-sol-tag">Accessibility shortcuts</div>
+          </div>
+        </div>
+        <p class="mob-sol-body">Three accessibility shortcuts live permanently on the home screen. Bags can be added without scanning. Baked goods — which often lack machine-readable codes — have their own browsable category. Manual barcode entry was added directly as a result of usability testing: users who encountered damaged barcodes had no recovery path in v1. The fix was a simple numeric input — discovered through observing real shoppers, not invented in a brief.</p>
+      </div>
+      <div class="mob-solution">
+        <div class="mob-sol-head">
+          <div class="mob-sol-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+          <div>
+            <div class="mob-sol-title">QR checkout — from anywhere in the store</div>
+            <div class="mob-sol-tag">Checkout innovation</div>
+          </div>
+        </div>
+        <p class="mob-sol-body">When ready to pay, the user taps “Go to payment” and the camera opens to scan the large QR code mounted on the store wall. The code is designed to be readable from up to 10 metres away — meaning a shopper can check out without ever joining a queue or reaching the checkout area. One scan. No waiting.</p>
+      </div>
+      <div class="mob-solution">
+        <div class="mob-sol-head">
+          <div class="mob-sol-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+          <div>
+            <div class="mob-sol-title">Multiple payment methods — including cash</div>
+            <div class="mob-sol-tag">Payment flow</div>
+          </div>
+        </div>
+        <p class="mob-sol-body">The app supports Apple Pay, Swish, card (scan or manual entry), and cash. Cash users are not excluded — one button transfers their cart to the nearest cashier terminal instantly, with no re-scanning. Card onboarding is deferred to checkout: sign-up friction was deliberately removed from the entry experience to keep top-of-funnel abandonment low.</p>
+      </div>
+      <div class="mob-solution">
+        <div class="mob-sol-head">
+          <div class="mob-sol-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div>
+            <div class="mob-sol-title">Exit QR — theft prevention without friction</div>
+            <div class="mob-sol-tag">Post-purchase</div>
+          </div>
+        </div>
+        <p class="mob-sol-body">After payment, the receipt screen displays a QR code for the store exit gate. The shopper scans it on the way out — the gate opens. Simple, invisible security. The receipt is also stored in purchase history with product details, total, and discount breakdown available later.</p>
+      </div>
+    </div>
+    <div class="screens-section flow-emphasis reveal reveal-media">
+      <div class="flow-callout" aria-hidden="true">Product screens</div>
+      <div class="screens-grid col-3">
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="Shop.png" alt="Focalpay — camera scanning a product with cart sheet, product list, and Go to payment" width="472" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">Home · scanner + cart</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="Add_bag.png" alt="Bag flow — choose paper, plastic, or eco bag with prices and Continue" width="393" height="852" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">Add bag flow</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="Shop-1.png" alt="Baked goods category — search, product list with thumbnails, Add to cart" width="472" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">Baked goods category</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="Add_bag-Prototype.png" alt="Manual barcode entry — numeric keypad and matched product" width="393" height="852" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">Manual barcode entry</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="Payment_summary.png" alt="Payment summary — totals, discounts, and pay with card or Apple Pay" width="472" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">Payment summary</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="Purchase-_receipt.png" alt="Digital receipt — full transaction receipt with line items and totals" width="473" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">Digital receipt</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section fade-in reveal case-anchor" id="scan-insight">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">Key Insight · Usability Testing</h2><p class="section-subtitle">The silent scan problem</p></div>
+    </div>
+    <p>During testing, we noticed something that looked like hesitation but was actually confusion. Users would scan a product and then pause — staring at the screen, unsure if it had actually worked. Some scanned the same item twice. Some stopped shopping altogether.</p>
+    <p>The interface was too quiet. In a busy store with ambient noise, trolleys, children, and movement, a visual-only confirmation is nearly invisible. We needed the scan to <strong>feel</strong> like it worked — not just look like it.</p>
+    <div class="mob-insight">
+      <div class="mob-insight-k">Solution · Three-layer scan feedback system</div>
+      <p class="mob-insight-lede">Designed to confirm a successful scan across every sensory channel — following WCAG guidance that state changes must never rely on a single modality.</p>
+      <div class="mob-layer">
+        <span class="mob-layer-badge mob-layer-badge--v">Visual</span>
+        <div class="mob-layer-t">A smooth animation shows the product “dropping” into the cart icon — an immediate, spatial confirmation that works even when the user is looking away from the product list.</div>
+      </div>
+      <div class="mob-layer">
+        <span class="mob-layer-badge mob-layer-badge--h">Haptic</span>
+        <div class="mob-layer-t">A short vibration fires on successful scan. This was the most impactful change: many users don’t look at the screen while scanning. The haptic tells them it worked without requiring visual attention at all.</div>
+      </div>
+      <div class="mob-layer">
+        <span class="mob-layer-badge mob-layer-badge--a">Audio</span>
+        <div class="mob-layer-t">A subtle sound cue confirms the scan — aligned with WCAG, which requires that state changes not rely on vision alone. Critical for users with low vision and effective in noisy retail environments.</div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p>“Users stopped hesitating. They scanned and moved — confident the app had done its job. That shift in body language was visible in real time during testing.”</p>
+      <cite>— Usability testing observation notes</cite>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section fade-in reveal case-anchor" id="user-journey">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">User Journey Map</h2><p class="section-subtitle">From entrance to exit gate</p></div>
+    </div>
+    <p>Mapped across Sara’s full shopping journey — from opening the app in the car park to scanning the exit gate QR. Emotion peaks and troughs informed where design intervention mattered most.</p>
+    <div class="mob-journey-wrap">
+      <div class="mob-journey-top">
+        <div class="mob-journey-av" aria-hidden="true">👩‍👧</div>
+        <div>
+          <div class="mob-journey-name">Sara · Parent of three, including one child with autism</div>
+          <div class="mob-journey-desc">Mobile-first shopper · Avoids queues · Hands always full</div>
+        </div>
+      </div>
+      <table class="mob-journey-table">
+        <thead>
+          <tr>
+            <th style="width:12%;">Stage</th>
+            <th style="width:18%;">Action</th>
+            <th style="width:12%;">Emotion</th>
+            <th style="width:28%;">Pain point</th>
+            <th style="width:30%;">Design response</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="mob-step-name">App open</div></td>
+            <td>Opens app, camera activates immediately</td>
+            <td><span class="mob-emotion"><span class="mob-dot mob-dot--g"></span> Confident</span></td>
+            <td><span class="mob-neutral">None — no forced sign-up, camera is live instantly</span></td>
+            <td><span class="mob-oppty">Camera-first experience removes all entry friction</span></td>
+          </tr>
+          <tr>
+            <td><div class="mob-step-name">Scanning products</div></td>
+            <td>Scans barcodes while shopping, one hand on stroller</td>
+            <td><span class="mob-emotion"><span class="mob-dot mob-dot--g"></span> Engaged</span></td>
+            <td><span class="mob-pain">Uncertain if scan worked — looks for visual confirmation</span></td>
+            <td><span class="mob-oppty">3-layer feedback: animation + haptic vibration + audio cue</span></td>
+          </tr>
+          <tr>
+            <td><div class="mob-step-name">Unreadable barcode</div></td>
+            <td>Tries to scan damaged barcode, camera fails</td>
+            <td><span class="mob-emotion"><span class="mob-dot mob-dot--r"></span> Frustrated</span></td>
+            <td><span class="mob-pain">No recovery path in v1 — user is stranded with no clear next step</span></td>
+            <td><span class="mob-oppty">Manual barcode entry added after usability testing revealed this dead end</span></td>
+          </tr>
+          <tr>
+            <td><div class="mob-step-name">Baked goods</div></td>
+            <td>Taps “Baked goods” for items without scannable codes</td>
+            <td><span class="mob-emotion"><span class="mob-dot mob-dot--g"></span> Relieved</span></td>
+            <td><span class="mob-neutral">Baked items rarely have reliable barcodes — previously a dead end</span></td>
+            <td><span class="mob-oppty">Dedicated category accessible directly from home screen</span></td>
+          </tr>
+          <tr>
+            <td><div class="mob-step-name">Cart review</div></td>
+            <td>Reviews cart, adjusts quantities, checks total</td>
+            <td><span class="mob-emotion"><span class="mob-dot mob-dot--g"></span> In control</span></td>
+            <td><span class="mob-neutral">Wants to confirm everything before committing to checkout</span></td>
+            <td><span class="mob-oppty">Cart always visible on home screen — no navigation required</span></td>
+          </tr>
+          <tr>
+            <td><div class="mob-step-name">QR checkout</div></td>
+            <td>Taps “Go to payment”, scans store wall QR from distance</td>
+            <td><span class="mob-emotion"><span class="mob-dot mob-dot--g"></span> Delighted</span></td>
+            <td><span class="mob-neutral">Expected a queue — surprised by 10m scan range</span></td>
+            <td><span class="mob-oppty">Large-format QR readable from distance — zero queue experience</span></td>
+          </tr>
+          <tr>
+            <td><div class="mob-step-name">Payment</div></td>
+            <td>Pays via Apple Pay, card scan, Swish, or cash transfer</td>
+            <td><span class="mob-emotion"><span class="mob-dot mob-dot--g"></span> Satisfied</span></td>
+            <td><span class="mob-pain">Card details needed — deferred from onboarding, now required</span></td>
+            <td><span class="mob-oppty">Card scan via camera or manual entry · Multiple payment methods</span></td>
+          </tr>
+          <tr>
+            <td><div class="mob-step-name">Exit gate</div></td>
+            <td>Scans exit QR from receipt screen at store gate</td>
+            <td><span class="mob-emotion"><span class="mob-dot mob-dot--g"></span> Confident</span></td>
+            <td><span class="mob-neutral">Gate is the final moment of doubt — did everything go through?</span></td>
+            <td><span class="mob-oppty">Clear exit QR on receipt screen — gate opens, experience complete</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="mob-curve">
+        <div class="mob-curve-k">Emotion curve across journey</div>
+        <svg viewBox="0 0 900 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <line x1="0" y1="30" x2="900" y2="30" stroke="var(--border)" stroke-width="1"/>
+          <line x1="0" y1="60" x2="900" y2="60" stroke="var(--border)" stroke-width="1"/>
+          <line x1="0" y1="90" x2="900" y2="90" stroke="var(--border)" stroke-width="1"/>
+          <text x="4" y="27" fill="#16a34a" font-size="8.5" font-family="Open Sans, sans-serif" font-weight="600">Positive</text>
+          <text x="4" y="97" fill="#dc2626" font-size="8.5" font-family="Open Sans, sans-serif" font-weight="600">Negative</text>
+          <path d="M 55,28 C 90,28 115,38 160,42 C 210,48 240,88 285,93 C 330,78 375,55 425,32 C 475,22 525,20 575,21 C 625,22 665,48 715,35 C 760,28 820,26 865,26" fill="none" stroke="#C4622D" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M 55,28 C 90,28 115,38 160,42 C 210,48 240,88 285,93 C 330,78 375,55 425,32 C 475,22 525,20 575,21 C 625,22 665,48 715,35 C 760,28 820,26 865,26 L 865,110 L 55,110 Z" fill="#C4622D" opacity="0.08"/>
+          <circle cx="285" cy="93" r="5" fill="#dc2626"/>
+          <text x="240" y="110" fill="#dc2626" font-size="8" font-family="Open Sans, sans-serif" font-weight="600">Unreadable barcode</text>
+          <circle cx="575" cy="21" r="5" fill="#16a34a"/>
+          <text x="548" y="14" fill="#16a34a" font-size="8" font-family="Open Sans, sans-serif" font-weight="600">QR checkout</text>
+          <circle cx="55" cy="28" r="3" fill="#C4622D"/>
+          <circle cx="160" cy="42" r="3" fill="#C4622D"/>
+          <circle cx="425" cy="32" r="3" fill="#C4622D"/>
+          <circle cx="715" cy="35" r="3" fill="#C4622D"/>
+          <circle cx="865" cy="26" r="3" fill="#C4622D"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section fade-in reveal case-anchor" id="results">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">Results</h2><p class="section-subtitle">Measurable impact</p></div>
+    </div>
+    <p>Outcomes were validated through usability testing with real shoppers in live store environments. The three-layer scan feedback system alone drove a step-change in completion rates — and double-scans effectively disappeared.</p>
+    <div class="mob-results-grid">
+      <div class="mob-result-cell"><div class="mob-result-num">+30%</div><div class="mob-result-lab">Checkout completion rate after introducing 3-layer scan feedback</div></div>
+      <div class="mob-result-cell"><div class="mob-result-num">~0</div><div class="mob-result-lab">Double-scan errors after haptic + audio feedback was introduced</div></div>
+      <div class="mob-result-cell"><div class="mob-result-num">10m</div><div class="mob-result-lab">Maximum scan range for store wall QR — no queue required</div></div>
+      <div class="mob-result-cell"><div class="mob-result-num">1 tap</div><div class="mob-result-lab">Cash cart transfer to cashier terminal — no re-scanning needed</div></div>
+    </div>
+    <div class="quote-block">
+      <p>“I used to dread grocery shopping with the kids. Now I just open the app, scan as I go, and I’m done before I even reach the exit.”</p>
+      <cite>— Sara, post-launch interview</cite>
+    </div>
+    <div class="screens-section flow-emphasis reveal reveal-media">
+      <div class="flow-callout" aria-hidden="true">User Flow</div>
+      <div class="screens-grid col-3">
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-userflow-00.png" alt="Screen 0 — Focal Pay app preview card with Open action" width="393" height="852" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">0 · Splash</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-userflow-01.png" alt="Screen 1 — Scanner with empty cart and Go to payment" width="393" height="852" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">1 · Empty cart</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-userflow-02.png" alt="Screen 2 — Live scan with product in frame and cart with line items" width="393" height="852" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">2 · Scanner + cart</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-userflow-03.png" alt="Screen 3 — Manual barcode entry with keypad and matched product" width="393" height="852" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">3 · Manual barcode</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-userflow-04.png" alt="Screen 4 — Baked goods category list with search and add to cart" width="472" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">4 · Baked goods</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-userflow-05.png" alt="Screen 5 — Need a bag? bag types with prices and Continue" width="393" height="852" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">5 · Add bag</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-userflow-06.png" alt="Screen 6 — Cart with line items, quantity controls, discounts, and Go to payment" width="472" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">6 · Cart</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-userflow-07.png" alt="Screen 7 — Scan checkout QR at cashier area with cart summary and Edit cart" width="472" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">7 · Scan QR to checkout</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-userflow-08.png" alt="Screen 8 — Checkout summary with Pay with card, Apple Pay, and pay by cash" width="472" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">8 · Payment summary</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-userflow-09.png" alt="Screen 9 — Add card form with card number, expiry, CVC, and Make payment" width="472" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">9 · Add card</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-userflow-10.png" alt="Screen 10 — Pay with card — saved Visa selected and Make payment" width="467" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">10 · Card on file</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-userflow-11.png" alt="Screen 11 — Payment complete with exit barcode and Open purchase" width="472" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">11 · Payment complete</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-userflow-12.png" alt="Screen 12 — Past purchase detail with Purchase and Products tabs and summary" width="472" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">12 · Purchase detail</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-userflow-13.png" alt="Screen 13 — Digital receipt with line items and share" width="473" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">13 · Digital receipt</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-userflow-14.png" alt="Screen 14 — Purchases history grouped by month" width="470" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption">14 · Purchases</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section fade-in reveal case-anchor" id="reflection">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">Reflection</h2><p class="section-subtitle">What this project taught me</p></div>
+    </div>
+    <div class="mob-reflection-grid">
+      <div class="mob-reflection"><div class="mob-ref-num">01</div><div class="mob-ref-t">Real stores reveal what labs can’t</div><p class="mob-ref-b">The unreadable barcode dead end and the scan feedback gap were both invisible in early prototype testing. They only appeared when real shoppers, under real pressure, used the app in a live store. There is no substitute.</p></div>
+      <div class="mob-reflection"><div class="mob-ref-num">02</div><div class="mob-ref-t">Silence is a UX failure</div><p class="mob-ref-b">In a noisy retail environment, visual-only confirmation is nearly useless. Designing for all sensory channels isn’t a nice-to-have — in mobile contexts, it’s what makes the difference between confidence and hesitation.</p></div>
+      <div class="mob-reflection"><div class="mob-ref-num">03</div><div class="mob-ref-t">Defer friction, don’t remove it</div><p class="mob-ref-b">Not asking for sign-up at onboarding was deliberate. Moving card entry to checkout was the right call — conversion at entry went up, and by checkout users were already invested. Friction at the right moment builds trust.</p></div>
+      <div class="mob-reflection"><div class="mob-ref-num">04</div><div class="mob-ref-t">Inclusion makes products better for everyone</div><p class="mob-ref-b">Designing for Sara — a stroller, two children, and no free hand — produced a checkout flow faster and more pleasant for every type of shopper. Accessibility constraints don’t limit design; they sharpen it.</p></div>
+    </div>
+  </section>
+
+</div>
 
 <div class="bottom-back">
   <a href="index.html">← Back to Portfolio</a>
-</div>
-
-<!-- Full case study sections preserved in repo; hidden until ready to publish -->
-<div class="mobile-case-study-deferred" aria-hidden="true">
-<div class="content">
-
-  <section class="section fade-in">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Introduction</h2><p class="section-subtitle">Context, analytics, and redesign scope</p></div>
-    </div>
-    <p>The Focalpay mobile customer app connects shoppers directly to the store — browse, scan, pay, and collect. The product existed when I joined, but analytics showed two serious drop-off problems: 47% of users abandoned onboarding before completing it, and checkout completion was significantly below industry benchmarks for mobile retail apps.</p>
-    <p>I led the redesign of both journeys — onboarding and checkout — across iOS and Android. The goal was not just to reduce steps, but to make the experience feel native, personal, and worth coming back to.</p>
-    <div class="role-block" style="margin-top:28px;">
-      <h4>My Responsibilities</h4>
-      <ul class="role-list">
-        <li>User research and journey mapping for the B2C shopping experience</li>
-        <li>Redesigning onboarding flow to reduce drop-off</li>
-        <li>Rethinking checkout interaction design for mobile-first users</li>
-        <li>A/B testing checkout variants with real users</li>
-        <li>Delivering micro-interactions and adaptive UI patterns</li>
-      </ul>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section fade-in">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Discover</h2><p class="section-subtitle">Losing Users at Every Step</p></div>
-    </div>
-    <p>Users were dropping off at two critical points — during onboarding and at checkout. The journey felt like it was designed for the system, not the person using it.</p>
-    <div class="pain-grid">
-      <div class="pain-card"><div class="pain-number">01</div><h4>Onboarding Overload</h4><p>Too many steps before the user could do anything useful. Drop-off happened within the first 3 screens.</p></div>
-      <div class="pain-card"><div class="pain-number">02</div><h4>Checkout Friction</h4><p>The payment flow had unnecessary confirmation steps that interrupted the momentum of buying.</p></div>
-      <div class="pain-card"><div class="pain-number">03</div><h4>No Mobile Feel</h4><p>The UI lacked micro-interactions and adaptive patterns that make mobile apps feel alive and responsive.</p></div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section fade-in">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Research</h2><p class="section-subtitle">Understanding the Shopper</p></div>
-    </div>
-    <p>I ran <strong>user interviews</strong> with 8 existing app users and conducted <strong>unmoderated remote usability sessions</strong> to identify where and why users were dropping off.</p>
-    <div class="findings-list">
-      <div class="finding-item"><div class="finding-icon">🛒</div><div><p class="finding-text">"I just want to pay and go. Why does it ask me so many things?"</p><div class="finding-stat">Checkout had 6 steps — users expected 3 or fewer</div></div></div>
-      <div class="finding-item"><div class="finding-icon">📲</div><div><p class="finding-text">Users abandoned onboarding when asked to create an account before seeing what the app offered.</p><div class="finding-stat">47% drop-off before completing onboarding in the original flow</div></div></div>
-      <div class="finding-item"><div class="finding-icon">✨</div><div><p class="finding-text">"It feels a bit... plain. Like a website, not an app."</p><div class="finding-stat">Users rated the experience 5.8/10 on feel and polish before redesign</div></div></div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section fade-in">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Process</h2><p class="section-subtitle">Mobile-First, Test-Driven</p></div>
-    </div>
-    <div class="process-steps">
-      <div class="process-step"><div class="step-number">01</div><div class="step-content"><h4>Journey Mapping</h4><p>Mapped the full user journey from download to first purchase, identifying every friction point and drop-off moment.</p></div></div>
-      <div class="process-step"><div class="step-number">02</div><div class="step-content"><h4>Onboarding Redesign</h4><p>Moved account creation to after the user's first action — letting them explore before asking for commitment.</p></div></div>
-      <div class="process-step"><div class="step-number">03</div><div class="step-content"><h4>Checkout Simplification</h4><p>Reduced checkout from 6 steps to 3 by combining confirmation screens and surfacing payment options earlier.</p></div></div>
-      <div class="process-step"><div class="step-number">04</div><div class="step-content"><h4>Micro-interactions</h4><p>Added motion, haptics, and state transitions that make the app feel responsive and personal across iOS and Android.</p></div></div>
-      <div class="process-step"><div class="step-number">05</div><div class="step-content"><h4>A/B Testing</h4><p>Tested two checkout variants with real users. Measured completion rate, time-to-purchase, and satisfaction score.</p></div></div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section fade-in">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Results</h2><p class="section-subtitle">Measurable Impact</p></div>
-    </div>
-    <div class="results-grid">
-      <div class="result-card"><div class="result-number">25%</div><div class="result-label">Increase in checkout completion rate</div></div>
-      <div class="result-card"><div class="result-number">↓3</div><div class="result-label">Checkout steps reduced (from 6 to 3)</div></div>
-      <div class="result-card"><div class="result-number">↑</div><div class="result-label">User engagement improved through micro-interactions</div></div>
-    </div>
-    <div class="quote-block">
-      <p>"It finally feels like an app I actually want to use."</p>
-      <cite>— User, post-redesign usability session</cite>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section fade-in">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Reflection</h2><p class="section-subtitle">What This Project Taught Me</p></div>
-    </div>
-    <div class="lessons-list">
-      <div class="lesson-item"><div class="lesson-num">01</div><div class="lesson-text"><h4>Earn commitment before asking for it</h4><p>Moving account creation after the first value moment reduced drop-off dramatically. Users give data when they trust you.</p></div></div>
-      <div class="lesson-item"><div class="lesson-num">02</div><div class="lesson-text"><h4>Motion is a design material</h4><p>Micro-interactions aren't polish — they're communication. The right animation tells the user their action worked before any text confirms it.</p></div></div>
-      <div class="lesson-item"><div class="lesson-num">03</div><div class="lesson-text"><h4>Fewer steps, more trust</h4><p>Every step we removed from checkout was a moment of doubt we eliminated. Simplicity builds confidence in the product.</p></div></div>
-    </div>
-  </section>
-
-</div>
 </div>
 
 <footer>
@@ -461,6 +1465,13 @@
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.reveal, .reveal-media').forEach(el => revealObserver.observe(el));
 </script>
 </body>
 </html>
