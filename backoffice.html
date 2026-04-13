@@ -29,8 +29,8 @@
   .n-btn:hover{background:var(--accent)!important;transform:translateY(-1px);}
   .n-btn--cv-soon{cursor:default;user-select:none;-webkit-user-select:none;}
   a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
-  .back-btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--dark);text-decoration:none;opacity:0.55;transition:opacity .25s,transform .35s var(--ease-spring);padding:24px 48px;display:block;}
-  .back-btn:hover,.back-btn:focus-visible{opacity:1;transform:translateX(-5px);}
+  .back-top{display:block;font-size:14px;font-weight:600;color:var(--dark);text-decoration:none;padding:24px 48px 0;max-width:820px;margin:0 auto 48px;opacity:0.55;transition:opacity .25s,transform .4s var(--ease-spring);}
+  .back-top:hover,.back-top:focus-visible{opacity:1;transform:translateX(-5px);}
   .hero{max-width:820px;margin:0 auto;padding:0 48px;}
   .hero-tag{display:inline-block;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);padding:6px 14px;border-radius:4px;margin-bottom:24px;}
   .hero h1{font-family:var(--serif);font-size:clamp(36px,5vw,52px);line-height:1.15;color:var(--dark);margin-bottom:24px;}
@@ -337,7 +337,7 @@
     image-rendering:auto;
   }
   .bottom-back{padding:0 48px 48px;max-width:820px;margin:0 auto;}
-  .bottom-back a{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--dark);text-decoration:none;opacity:0.55;transition:opacity .25s,transform .35s var(--ease-spring);}
+  .bottom-back a{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--dark);text-decoration:none;opacity:0.55;transition:opacity .25s,transform .4s var(--ease-spring);}
   .bottom-back a:hover,.bottom-back a:focus-visible{opacity:1;transform:translateX(-5px);}
   footer{border-top:1px solid var(--border);padding:32px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;max-width:820px;margin:0 auto;}
   footer p{font-size:13px;color:var(--light);margin:0;}
@@ -352,14 +352,14 @@
   @media (prefers-reduced-motion:reduce){
     .reveal,.reveal.is-visible{opacity:1!important;transform:none!important;transition:none!important;}
     .reveal-media .case-hero-img,.reveal-media .case-study-figure picture img,.reveal-media .ds-img,.reveal-media .ds-theme-item .ds-img{transform:none!important;transition:none!important;}
-    .n-links a:not(.n-btn),.n-btn,.footer-social a,.back-btn,.bottom-back a{transition:none!important;}
+    .n-links a:not(.n-btn),.n-btn,.footer-social a,.back-top,.bottom-back a{transition:none!important;}
     .n-links a:not(.n-btn):hover,.n-links a:not(.n-btn):focus-visible{transform:none;}
     .n-btn:hover,.n-btn:focus-visible,.n-btn:active{transform:none;}
     .footer-social a:hover,.footer-social a:focus-visible,.footer-social a:active{transform:none;box-shadow:none;}
-    .back-btn:hover,.back-btn:focus-visible,.bottom-back a:hover,.bottom-back a:focus-visible{transform:none;}
+    .back-top:hover,.back-top:focus-visible,.bottom-back a:hover,.bottom-back a:focus-visible{transform:none;}
     .fade-in,.fade-in.visible{opacity:1;transform:none;transition:none;}
   }
-  @media(max-width:640px){nav{padding:0 24px;height:60px;}.back-btn,.hero,.hero-image,.content,.content--design-system,.bottom-back,footer{padding-left:24px;padding-right:24px;}.pain-grid,.results-grid,.ab-grid,.ds-theme-row{grid-template-columns:1fr;}.result-card--bo{grid-template-columns:1fr;gap:10px;}.result-card--bo .result-card__stat{padding-top:0;}.meta-strip{flex-direction:column;}.meta-item{border-right:none;border-bottom:1px solid var(--border);}.meta-item:last-child{border-bottom:none;}.section-header{flex-direction:column;gap:18px;padding:0 0 24px 0;}.section-icon{width:52px;height:52px;}.section-icon svg{width:24px;height:24px;}.section-chapter{font-size:clamp(1.65rem,6vw,2.35rem);}}
+  @media(max-width:640px){nav{padding:0 24px;height:60px;}.back-top,.hero,.hero-image,.content,.content--design-system,.bottom-back,footer{padding-left:24px;padding-right:24px;}.pain-grid,.results-grid,.ab-grid,.ds-theme-row{grid-template-columns:1fr;}.result-card--bo{grid-template-columns:1fr;gap:10px;}.result-card--bo .result-card__stat{padding-top:0;}.meta-strip{flex-direction:column;}.meta-item{border-right:none;border-bottom:1px solid var(--border);}.meta-item:last-child{border-bottom:none;}.section-header{flex-direction:column;gap:18px;padding:0 0 24px 0;}.section-icon{width:52px;height:52px;}.section-icon svg{width:24px;height:24px;}.section-chapter{font-size:clamp(1.65rem,6vw,2.35rem);}}
 </style>
 </head>
 <body>
@@ -373,7 +373,7 @@
   </div>
 </nav>
 
-<a class="back-btn" href="index.html">← Back to Portfolio</a>
+<a class="back-top" href="index.html">← Back to Portfolio</a>
 
 <section class="hero">
   <div class="hero-tag">Case Study · B2B SaaS · Retail Tech</div>
