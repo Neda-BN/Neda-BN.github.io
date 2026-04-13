@@ -530,19 +530,43 @@
     box-shadow: 0 8px 22px rgba(99, 102, 241, 0.26);
   }
   .mob-decision {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-    margin-top: 24px;
+    position: relative;
+    margin-top: 28px;
+    padding: 26px 28px 28px 28px;
+    border-radius: 14px;
+    background: linear-gradient(145deg, rgba(245, 235, 227, 0.75) 0%, rgba(255, 255, 255, 0.97) 42%, #ffffff 100%);
+    border: 2px solid rgba(196, 98, 45, 0.32);
+    border-left: 5px solid var(--accent);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.9) inset,
+      0 14px 40px rgba(196, 98, 45, 0.14),
+      0 4px 14px rgba(26, 26, 26, 0.06);
   }
   .mob-decision-k {
+    display: inline-flex;
+    align-items: center;
     font-size: 11px;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--light);
-    margin-bottom: 12px;
+    letter-spacing: 0.11em;
+    color: var(--accent);
+    margin-bottom: 16px;
+    padding: 8px 14px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(196, 98, 45, 0.28);
+    box-shadow: 0 2px 10px rgba(196, 98, 45, 0.1);
+  }
+  .mob-decision > p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--dark);
+    font-weight: 500;
+  }
+  .mob-decision > p strong {
+    color: var(--accent);
+    font-weight: 700;
   }
   .mob-persona-photo {
     margin-top: 24px;
@@ -1037,37 +1061,6 @@
 
   <div class="divider"></div>
 
-  <section class="section fade-in reveal case-anchor" id="persona">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">User Research · Persona</h2><p class="section-subtitle">The shopper we designed for</p></div>
-    </div>
-    <p>Research revealed a clear segment that existing solutions were failing: parents shopping with young children, particularly those managing additional accessibility needs. Their pain was structural — a fundamental mismatch between the shopping environment and their daily reality.</p>
-    <div class="mob-persona-photo reveal reveal-media">
-      <img src="mobile-persona-hero.png" alt="Parent grocery shopping with three children in a supermarket aisle, using a phone while managing the cart" width="1024" height="682" loading="lazy" decoding="async">
-    </div>
-    <div class="mob-persona">
-      <div>
-        <div class="mob-persona-name">Sara, 40</div>
-        <div class="mob-persona-role">Parent of three · Including one child with autism</div>
-        <div class="mob-persona-quote">“I always come to the store with the kids. I need one hand for the stroller, one eye on the other two — and I keep my shopping list on my phone. There’s no room for a handheld scanner. And standing in a queue with an autistic child is one of the hardest parts of my week.”</div>
-        <div class="mob-persona-tags">
-          <span class="mob-persona-tag">Heavy mobile user</span>
-          <span class="mob-persona-tag">Avoids queues</span>
-          <span class="mob-persona-tag">Needs both hands free</span>
-          <span class="mob-persona-tag">Shopping list on phone</span>
-          <span class="mob-persona-tag">Sensory-aware environments</span>
-        </div>
-      </div>
-    </div>
-    <div class="quote-block">
-      <p>“I used to dread grocery shopping with the kids. Now I just open the app, scan as I go, and I’m done before I even reach the exit.”</p>
-      <cite>— Sara, post-launch interview</cite>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
   <section class="section fade-in reveal case-anchor" id="methods">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
@@ -1095,6 +1088,37 @@
         <div class="mob-method-t">Usability testing · Live store</div>
         <p class="mob-method-d">Tested prototypes with real users in actual stores. Observed behaviours under genuine shopping conditions — not a lab, not a simulation. Key features like manual barcode entry emerged here.</p>
       </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section fade-in reveal case-anchor" id="persona">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">User Research · Persona</h2><p class="section-subtitle">The shopper we designed for</p></div>
+    </div>
+    <p>Research revealed a clear segment that existing solutions were failing: parents shopping with young children, particularly those managing additional accessibility needs. Their pain was structural — a fundamental mismatch between the shopping environment and their daily reality.</p>
+    <div class="mob-persona-photo reveal reveal-media">
+      <img src="mobile-persona-hero.png" alt="Parent grocery shopping with three children in a supermarket aisle, using a phone while managing the cart" width="1024" height="682" loading="lazy" decoding="async">
+    </div>
+    <div class="mob-persona">
+      <div>
+        <div class="mob-persona-name">Sara, 40</div>
+        <div class="mob-persona-role">Parent of three · Including one child with autism</div>
+        <div class="mob-persona-quote">“I always come to the store with the kids. I need one hand for the stroller, one eye on the other two — and I keep my shopping list on my phone. There’s no room for a handheld scanner. And standing in a queue with an autistic child is one of the hardest parts of my week.”</div>
+        <div class="mob-persona-tags">
+          <span class="mob-persona-tag">Heavy mobile user</span>
+          <span class="mob-persona-tag">Avoids queues</span>
+          <span class="mob-persona-tag">Needs both hands free</span>
+          <span class="mob-persona-tag">Shopping list on phone</span>
+          <span class="mob-persona-tag">Sensory-aware environments</span>
+        </div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p>“I used to dread grocery shopping with the kids. Now I just open the app, scan as I go, and I’m done before I even reach the exit.”</p>
+      <cite>— Sara, post-launch interview</cite>
     </div>
   </section>
 
