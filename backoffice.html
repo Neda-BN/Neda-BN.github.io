@@ -25,6 +25,8 @@
   .n-links a:not(.n-btn):hover::after,.n-links a:not(.n-btn):focus-visible::after{transform:scaleX(1);}
   .n-links a:not(.n-btn)[aria-current="page"]::after{transform:scaleX(1);}
   .n-links a:not(.n-btn)[aria-current="page"]{color:var(--accent);font-weight:600;}
+  .n-links a .n-ico{width:14px;height:14px;vertical-align:-3px;margin-right:6px;color:var(--accent);opacity:.85;transition:transform .4s var(--ease-spring),opacity .3s var(--ease-soft);}
+  .n-links a:hover .n-ico,.n-links a:focus-visible .n-ico{opacity:1;transform:rotate(18deg) scale(1.08);}
   .n-btn{font-family:var(--serif);font-size:11px!important;font-weight:600!important;letter-spacing:.08em!important;text-transform:uppercase;background:var(--dark);color:#f9f7f4!important;padding:9px 20px;border-radius:100px;transition:background .25s,transform .2s!important;}
   .n-btn:hover{background:var(--accent)!important;transform:translateY(-1px);}
   .n-btn--cv-soon{cursor:default;user-select:none;-webkit-user-select:none;}
@@ -359,7 +361,7 @@
     .back-top:hover,.back-top:focus-visible,.bottom-back a:hover,.bottom-back a:focus-visible{transform:none;}
     .fade-in,.fade-in.visible{opacity:1;transform:none;transition:none;}
   }
-  @media(max-width:640px){nav{padding:0 24px;height:60px;}.back-top,.hero,.hero-image,.content,.content--design-system,.bottom-back,footer{padding-left:24px;padding-right:24px;}.pain-grid,.results-grid,.ab-grid,.ds-theme-row{grid-template-columns:1fr;}.result-card--bo{grid-template-columns:1fr;gap:10px;}.result-card--bo .result-card__stat{padding-top:0;}.meta-strip{flex-direction:column;}.meta-item{border-right:none;border-bottom:1px solid var(--border);}.meta-item:last-child{border-bottom:none;}.section-header{flex-direction:column;gap:18px;padding:0 0 24px 0;}.section-icon{width:52px;height:52px;}.section-icon svg{width:24px;height:24px;}.section-chapter{font-size:clamp(1.65rem,6vw,2.35rem);}}
+  @media(max-width:640px){nav{padding:0 24px;height:60px;}.n-links{gap:18px;}.n-links a .n-ico{width:12px;height:12px;margin-right:4px;vertical-align:-2px;}.back-top,.hero,.hero-image,.content,.content--design-system,.bottom-back,footer{padding-left:24px;padding-right:24px;}.pain-grid,.results-grid,.ab-grid,.ds-theme-row{grid-template-columns:1fr;}.result-card--bo{grid-template-columns:1fr;gap:10px;}.result-card--bo .result-card__stat{padding-top:0;}.meta-strip{flex-direction:column;}.meta-item{border-right:none;border-bottom:1px solid var(--border);}.meta-item:last-child{border-bottom:none;}.section-header{flex-direction:column;gap:18px;padding:0 0 24px 0;}.section-icon{width:52px;height:52px;}.section-icon svg{width:24px;height:24px;}.section-chapter{font-size:clamp(1.65rem,6vw,2.35rem);}}
 </style>
 </head>
 <body>
@@ -369,6 +371,7 @@
   <div class="n-links">
     <a href="index.html" aria-current="page">Portfolio</a>
     <a href="about.html">About</a>
+    <a href="visual-craft.html"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 L13.6 10.4 L20 12 L13.6 13.6 L12 20 L10.4 13.6 L4 12 L10.4 10.4 Z"/></svg>Visual Craft</a>
     <span class="n-btn n-btn--cv-soon" role="button" tabindex="-1" aria-disabled="true" title="CV coming soon">Download CV</span>
   </div>
 </nav>
