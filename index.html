@@ -112,6 +112,13 @@ nav {
 .n-links a:not(.n-btn):focus-visible::after { transform: scaleX(1); }
 .n-links a:not(.n-btn)[aria-current="page"]::after { transform: scaleX(1); }
 .n-links a:not(.n-btn)[aria-current="page"] { color: var(--accent); font-weight: 600; }
+.n-links a .n-ico {
+  width: 14px; height: 14px; vertical-align: -3px; margin-right: 6px;
+  color: var(--accent); opacity: 0.85;
+  transition: transform 0.4s var(--ease-spring), opacity 0.3s var(--ease-soft);
+}
+.n-links a:hover .n-ico,
+.n-links a:focus-visible .n-ico { opacity: 1; transform: rotate(18deg) scale(1.08); }
 .n-btn {
   font-family: 'Sora', sans-serif;
   font-size: 11px !important; font-weight: 600 !important; letter-spacing: 0.08em !important;
@@ -610,6 +617,7 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
       font-size: 11px;
       letter-spacing: 0.03em;
     }
+    .n-links a .n-ico { width: 12px; height: 12px; margin-right: 4px; vertical-align: -2px; }
     .n-btn {
       padding: 8px 12px;
       font-size: 9px !important;
@@ -759,6 +767,7 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
   <div class="n-links">
     <a href="index.html" aria-current="page">Portfolio</a>
     <a href="about.html">About</a>
+    <a href="visual-craft.html"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 L13.6 10.4 L20 12 L13.6 13.6 L12 20 L10.4 13.6 L4 12 L10.4 10.4 Z"/></svg>Visual Craft</a>
     <span class="n-btn n-btn--cv-soon" role="button" tabindex="-1" aria-disabled="true" title="CV coming soon">Download CV</span>
   </div>
 </nav>
