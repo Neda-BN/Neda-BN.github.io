@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
-<title>Foodora app · UI Design · Neda Bagheri</title>
+<title>Hotel services app · Illustrations · Neda Bagheri</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -177,6 +177,13 @@ main {
   transform: translateY(18px);
   animation: ui-detail-rise 0.75s var(--ease-spring) 0.15s forwards;
 }
+/* Stack additional featured images below the first with consistent breathing room. */
+.ui-detail__featured + .ui-detail__featured { margin-top: clamp(24px, 3.5vw, 40px); }
+/* Cascade the reveal so each figure rises in shortly after the previous one. */
+.ui-detail__featured:nth-of-type(2) { animation-delay: 0.28s; }
+.ui-detail__featured:nth-of-type(3) { animation-delay: 0.41s; }
+.ui-detail__featured:nth-of-type(4) { animation-delay: 0.54s; }
+.ui-detail__featured:nth-of-type(n+5) { animation-delay: 0.66s; }
 .ui-detail__featured img {
   width: 100%;
   height: auto;
@@ -311,6 +318,24 @@ footer p { font-size: 13px; color: var(--light); margin: 0; }
   .n-btn { font-size: 0 !important; padding: 8px 14px; }
   .n-btn::before { content: 'CV'; font-size: 10px; letter-spacing: 0.08em; }
 }
+
+/* ── ILLUSTRATION PROJECT PAGE OVERRIDE ──
+   Smaller, centered, more subtle title above a ~1.5x smaller centered hero
+   (640px max vs. the default 960px main slot). Inherits everything else
+   from the shared rules above: fade-in animation, reduced-motion handling,
+   and responsive paddings (figure shrinks naturally on narrow viewports
+   because max-width: 640px gives way to content width when smaller). */
+.ui-detail__title {
+  text-align: center;
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--ink2);
+}
+.ui-detail__featured {
+  max-width: 640px;
+  margin-inline: auto;
+}
 </style>
 </head>
 <body class="hero-cursor-none">
@@ -321,19 +346,20 @@ footer p { font-size: 13px; color: var(--light); margin: 0; }
 <nav>
   <a class="n-logo" href="index.html">NB.</a>
   <div class="n-links">
-    <a href="index.html" aria-current="page">Portfolio</a>
+    <a href="index.html">Portfolio</a>
     <a href="about.html">About</a>
-    <a href="visual-craft.html"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 L13.6 10.4 L20 12 L13.6 13.6 L12 20 L10.4 13.6 L4 12 L10.4 10.4 Z"/></svg>Visual Craft</a>
+    <a href="visual-craft.html" aria-current="page"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 L13.6 10.4 L20 12 L13.6 13.6 L12 20 L10.4 13.6 L4 12 L10.4 10.4 Z"/></svg>Visual Craft</a>
     <span class="n-btn n-btn--cv-soon" role="button" tabindex="-1" aria-disabled="true" title="CV coming soon">Download CV</span>
   </div>
 </nav>
 
 <main>
-  <a class="ui-detail__back" href="index.html#ui-design">Back to portfolio</a>
-  <div class="ui-detail__eyebrow">UI Design · 11 / 12</div>
-  <h1 class="ui-detail__title">Foodora app</h1>
-  <figure class="ui-detail__featured">
-    <img src="vc-ui-11-foodora-app.png" alt="Focalpay × Foodora cooperation app — title lockup beside a diagonal grid of iPhone screens showing cart, receipt, and payment-complete flows on a magenta-pink gradient" width="1024" height="576" loading="eager" decoding="async" fetchpriority="high">
+  <a class="ui-detail__back" href="visual-craft.html#vc-illustration">Back to Visual Craft</a>
+  <div class="ui-detail__eyebrow">Illustrations &middot; 07 / 13</div>
+  <h1 class="ui-detail__title">Hotel services app</h1>
+
+  <figure class="ui-detail__featured" style="background: #fff;">
+    <img src="vc-illustration-08.png" alt="Hotel services app — guest using a Hotel Services app interface beside a wheeled room-service cart" width="1024" height="857" loading="eager" decoding="async" fetchpriority="high">
   </figure>
 </main>
 

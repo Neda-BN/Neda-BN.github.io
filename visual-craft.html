@@ -217,6 +217,23 @@
   /* Opt-in dark letterbox for cards whose source already lives on black
      (e.g. event posters). Specificity beats the neutral rule above. */
   .vc-card[data-has-image="true"].vc-card--bg-dark { background: #000; }
+  /* Opt-in white letterbox for cards whose source sits on transparent or
+     near-white (e.g. flat illustrations). Flips the bottom veil gradient
+     and title color so the caption stays readable against light imagery. */
+  .vc-card[data-has-image="true"].vc-card--bg-light { background: #ffffff; }
+  .vc-card--bg-light .vc-card__veil {
+    background: linear-gradient(
+      to top,
+      rgba(255,255,255,0.86) 0%,
+      rgba(255,255,255,0.62) 28%,
+      rgba(255,255,255,0.24) 58%,
+      rgba(255,255,255,0)    100%
+    );
+  }
+  .vc-card--bg-light .vc-card__title {
+    color: var(--ink);
+    text-shadow: 0 1px 8px rgba(255,255,255,0.55);
+  }
   .vc-card__img {
     position: absolute; inset: 0; z-index: 1;
     width: 100%; height: 100%;
@@ -276,29 +293,117 @@
   .vc-card:hover .vc-card__title { transform: translateY(-2px); }
 
   /* ── LINKED CARD SECTIONS ──
-     Shared modifier for sections whose cards are clickable project tiles:
-     - 4:3 horizontal rectangular cards (vs. the default 1:1 squares).
-     - Cards are anchors → restore anchor-friendly resets and give keyboard
-       focus the same affordance as hover.
-     - Slightly wider scroller tracks so the shorter cards keep visual
-       weight comparable to the squares in other sections.
-     Currently used by: Print & Packaging, Motion Campaigns. */
+     Shared modifier for sections whose tiles use a 4:3 horizontal layout
+     (vs. the default 1:1 squares) with slightly wider scroller tracks.
+     Currently used by: Print & Packaging, Motion Campaigns. Illustrations
+     keeps the default 1:1 layout, so it does NOT use this modifier — but
+     its anchor cards still pick up the interactive resets / focus styling
+     defined below (which are now element-keyed, not section-keyed). */
   .vc-section--linked .vc-scroller { grid-auto-columns: clamp(300px, 36vw, 400px); }
-  .vc-section--linked .vc-card {
-    aspect-ratio: 4 / 3;
-    cursor: inherit;            /* let body's custom cursor flow through */
+  .vc-section--linked .vc-card { aspect-ratio: 4 / 3; }
+
+  /* ── INTERACTIVE CARD RESETS ──
+     Applies to every clickable card regardless of section, so anchor and
+     button cards behave identically and gain the same focus affordance.
+     Anchor reset: drop link underline / color so the title styling wins. */
+  a.vc-card {
     text-decoration: none;
     color: inherit;
+    cursor: inherit;            /* let body's custom cursor flow through */
   }
-  .vc-section--linked .vc-card:focus-visible {
+  /* Button-as-card reset: strip UA defaults so a <button> tile is
+     pixel-identical to an <a> tile. */
+  button.vc-card {
+    padding: 0;
+    font: inherit;
+    text-align: left;
+    width: 100%;
+    color: inherit;
+  }
+  /* Keyboard focus mirrors the hover affordance for any interactive card. */
+  a.vc-card:focus-visible,
+  button.vc-card:focus-visible {
     transform: translateY(-4px);
     box-shadow: 0 18px 38px rgba(26, 26, 26, 0.12);
     border-color: rgba(196, 98, 45, 0.35);
     outline: none;
   }
-  .vc-section--linked .vc-card:focus-visible .vc-card__img { transform: scale(1.045); }
-  .vc-section--linked .vc-card:focus-visible .vc-card__veil { opacity: 1; height: 62%; }
-  .vc-section--linked .vc-card:focus-visible .vc-card__title { transform: translateY(-2px); }
+  a.vc-card:focus-visible .vc-card__img,
+  button.vc-card:focus-visible .vc-card__img { transform: scale(1.045); }
+  a.vc-card:focus-visible .vc-card__veil,
+  button.vc-card:focus-visible .vc-card__veil { opacity: 1; height: 62%; }
+  a.vc-card:focus-visible .vc-card__title,
+  button.vc-card:focus-visible .vc-card__title { transform: translateY(-2px); }
+
+  /* ── LIGHTBOX ──
+     Minimal image viewer triggered by [data-lightbox-src] cards.
+     Backdrop fades in, image scales up. ESC / click backdrop / click X to close. */
+  .lightbox {
+    position: fixed; inset: 0; z-index: 200;
+    display: flex; align-items: center; justify-content: center;
+    padding: clamp(20px, 4vw, 56px);
+    background: rgba(15, 14, 12, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.32s var(--ease-soft), visibility 0s linear 0.32s;
+  }
+  .lightbox[data-open="true"] {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.32s var(--ease-soft), visibility 0s;
+  }
+  .lightbox__figure {
+    margin: 0;
+    max-width: min(1280px, 100%);
+    max-height: 100%;
+    display: flex; flex-direction: column; align-items: center;
+    gap: 16px;
+    transform: scale(0.96);
+    transition: transform 0.4s var(--ease-spring);
+  }
+  .lightbox[data-open="true"] .lightbox__figure { transform: scale(1); }
+  .lightbox__img {
+    max-width: 100%;
+    max-height: calc(100vh - clamp(120px, 14vw, 200px));
+    object-fit: contain;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    background: #000;             /* matches the dark-bg poster cards so any letterboxing disappears */
+  }
+  .lightbox__caption {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.78);
+    letter-spacing: 0.01em;
+    text-align: center;
+    max-width: 60ch;
+  }
+  .lightbox__close {
+    position: absolute;
+    top: clamp(14px, 2vw, 24px);
+    right: clamp(14px, 2vw, 24px);
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s var(--ease-soft), border-color 0.2s var(--ease-soft), transform 0.2s var(--ease-spring);
+  }
+  .lightbox__close:hover,
+  .lightbox__close:focus-visible {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.45);
+    transform: rotate(90deg);
+    outline: none;
+  }
+  .lightbox__close svg { width: 18px; height: 18px; flex-shrink: 0; }
+  body.lightbox-open { overflow: hidden; }
 
   /* ── REVEAL ── */
   .reveal {
@@ -351,10 +456,17 @@
     .vc-card:hover .vc-card__img { transform: none; }
     .vc-card:hover .vc-card__veil { height: 55%; opacity: 0.95; }
     .vc-card:hover .vc-card__title { transform: none; }
-    .vc-section--linked .vc-card:focus-visible { transform: none; box-shadow: none; }
-    .vc-section--linked .vc-card:focus-visible .vc-card__img { transform: none; }
-    .vc-section--linked .vc-card:focus-visible .vc-card__veil { height: 55%; opacity: 0.95; }
-    .vc-section--linked .vc-card:focus-visible .vc-card__title { transform: none; }
+    a.vc-card:focus-visible,
+    button.vc-card:focus-visible { transform: none; box-shadow: none; }
+    a.vc-card:focus-visible .vc-card__img,
+    button.vc-card:focus-visible .vc-card__img { transform: none; }
+    a.vc-card:focus-visible .vc-card__veil,
+    button.vc-card:focus-visible .vc-card__veil { height: 55%; opacity: 0.95; }
+    a.vc-card:focus-visible .vc-card__title,
+    button.vc-card:focus-visible .vc-card__title { transform: none; }
+    .lightbox, .lightbox__figure, .lightbox__close { transition: none !important; }
+    .lightbox[data-open="true"] .lightbox__figure { transform: none; }
+    .lightbox__close:hover, .lightbox__close:focus-visible { transform: none; }
   }
 
   /* ── RESPONSIVE ── */
@@ -440,11 +552,24 @@
                                                 (mockups, wordmarks) and should not be cropped.
       3. The data-has-image="true" attribute hides the empty-state hint automatically.
 
-    Sections marked with vc-section--linked use clickable project tiles instead:
-      • Cards are <a class="vc-card" href="vc-{slug}-NN.html" aria-label="…"> with a 4:3 aspect.
+    Clickable project tiles (every card opens its own project page):
+      • Card is <a class="vc-card …" href="vc-{slug}-NN.html" aria-label="Open project: …">
       • Use a <span class="vc-card__title"> for the project title (not <figcaption>).
-      • Each card links to its own project page, which still needs to be created.
-      • Currently applied to: Print & Packaging, Motion Campaigns.
+      • Add the vc-section--linked modifier on the parent <section> to get the
+        4:3 horizontal card shape + wider scroller track. Without it, cards
+        keep the default 1:1 square shape (used by the Illustrations section).
+      • The interactive resets (anchor cleanup, focus-visible styling) apply
+        to a.vc-card / button.vc-card globally — no section modifier needed.
+      • Currently applied to: Print & Packaging, Motion Campaigns, Illustrations.
+
+    Lightbox cards (open a full-screen image preview instead of navigating):
+      • Cards are <button type="button" class="vc-card …"> with three data attrs:
+          data-lightbox-src     → image path
+          data-lightbox-alt     → descriptive alt text shown in the dialog
+          data-lightbox-caption → caption shown beneath the image
+      • Triggers are auto-wired by the lightbox IIFE at the bottom of <script>.
+      • Currently unused — the lightbox infrastructure remains in place
+        (dialog markup, CSS, JS) and can be reused for any future card.
   -->
 
   <!-- ── 01 · Logo & Brand Identity ───────────────────────────── -->
@@ -525,6 +650,18 @@
     <div class="vc-scroller-wrap" data-at-start="true">
       <div class="vc-scroller" tabindex="0" aria-label="Print and packaging projects">
 
+        <a class="vc-card vc-card--contain vc-card--bg-dark" href="vc-print-03-retail-technology-poster-2024.html" data-has-image="true" aria-label="Open project: Retail Technology poster design 2024">
+          <img class="vc-card__img" src="vc-print-03-retail-technology-poster-2024.png" alt="Retail Technology poster design 2024" loading="lazy" decoding="async" width="1024" height="576">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Retail Technology poster design 2024</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-dark" href="vc-print-04-retail-technology-poster-2023.html" data-has-image="true" aria-label="Open project: &ldquo;Seamless Europe 2023&rdquo; Poster">
+          <img class="vc-card__img" src="vc-print-04-retail-technology-poster-2023.png" alt="&ldquo;Seamless Europe 2023&rdquo; Poster — Focalpay invitation with Funk You natural-food collaboration" loading="lazy" decoding="async" width="1024" height="576">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">&ldquo;Seamless Europe 2023&rdquo; Poster</span>
+        </a>
+
         <a class="vc-card" href="vc-print-01-gelatin-dessert-packaging.html" data-has-image="true" aria-label="Open project: Gelatin dessert packaging design">
           <img class="vc-card__img" src="vc-print-01-gelatin-dessert-packaging.png" alt="Gelatin dessert packaging design" loading="lazy" decoding="async" width="1024" height="768">
           <div class="vc-card__veil" aria-hidden="true"></div>
@@ -535,18 +672,6 @@
           <img class="vc-card__img" src="vc-print-02-jelly-dessert-packaging.png" alt="Jelly dessert packaging design" loading="lazy" decoding="async" width="1024" height="768">
           <div class="vc-card__veil" aria-hidden="true"></div>
           <span class="vc-card__title">Jelly dessert packaging design</span>
-        </a>
-
-        <a class="vc-card vc-card--contain vc-card--bg-dark" href="vc-print-03-retail-technology-poster-2024.html" data-has-image="true" aria-label="Open project: Retail Technology poster design 2024">
-          <img class="vc-card__img" src="vc-print-03-retail-technology-poster-2024.png" alt="Retail Technology poster design 2024" loading="lazy" decoding="async" width="1024" height="576">
-          <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Retail Technology poster design 2024</span>
-        </a>
-
-        <a class="vc-card vc-card--contain vc-card--bg-dark" href="vc-print-04-retail-technology-poster-2023.html" data-has-image="true" aria-label="Open project: Retail Technology poster design 2023">
-          <img class="vc-card__img" src="vc-print-04-retail-technology-poster-2023.png" alt="Retail Technology poster design 2023" loading="lazy" decoding="async" width="1024" height="576">
-          <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Retail Technology poster design 2023</span>
         </a>
 
       </div>
@@ -563,22 +688,126 @@
     <div class="vc-scroller-wrap" data-at-start="true">
       <div class="vc-scroller" tabindex="0" aria-label="Motion campaign and social video projects">
 
-        <a class="vc-card" href="vc-motion-01.html" data-has-image="true" aria-label="Open project: Motion campaign — 01">
-          <img class="vc-card__img" src="vc-motion-01-campaign.png" alt="Motion campaign 01 — poster frame from the campaign video" width="2564" height="1444" loading="lazy" decoding="async">
+        <a class="vc-card" href="vc-motion-01.html" data-has-image="true" aria-label="Open project: Spearhead Social Media Advertisement">
+          <img class="vc-card__img" src="vc-motion-01-campaign.png" alt="Spearhead Social Media Advertisement — poster frame from the campaign video" width="2564" height="1444" loading="lazy" decoding="async">
           <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Motion campaign — 01</span>
+          <span class="vc-card__title">Spearhead Social Media Advertisement</span>
         </a>
 
-        <a class="vc-card" href="vc-motion-02.html" data-has-image="true" aria-label="Open project: Motion campaign — 02">
-          <img class="vc-card__img" src="vc-motion-02-campaign.png" alt="Motion campaign 02 — poster frame from the campaign video" width="2562" height="1442" loading="lazy" decoding="async">
+        <a class="vc-card" href="vc-motion-02.html" data-has-image="true" aria-label="Open project: Focalpay Social Media Advertisement">
+          <img class="vc-card__img" src="vc-motion-02-campaign.png" alt="Focalpay Social Media Advertisement — poster frame from the campaign video" width="2562" height="1442" loading="lazy" decoding="async">
           <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Motion campaign — 02</span>
+          <span class="vc-card__title">Focalpay Social Media Advertisement</span>
         </a>
 
-        <a class="vc-card" href="vc-motion-03.html" data-has-image="true" aria-label="Open project: Motion campaign — 03">
-          <img class="vc-card__img" src="vc-motion-03-campaign.png" alt="Motion campaign 03 — poster frame from the campaign video" width="2574" height="1446" loading="lazy" decoding="async">
+        <a class="vc-card" href="vc-motion-04.html" data-has-image="true" aria-label="Open project: Retail Technology Exhibition Large Screen (Joe &amp; The Juice Partnership)">
+          <img class="vc-card__img" src="vc-motion-04-campaign.png" alt="Retail Technology Exhibition Large Screen — Joe &amp; The Juice partnership, poster frame from the campaign video" width="1696" height="926" loading="lazy" decoding="async">
           <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Motion campaign — 03</span>
+          <span class="vc-card__title">Retail Technology Exhibition Large Screen (Joe &amp; The Juice Partnership)</span>
+        </a>
+
+        <a class="vc-card" href="vc-motion-05.html" data-has-image="true" aria-label="Open project: Focalpay Social Media Motion Graphics">
+          <img class="vc-card__img" src="vc-motion-05-campaign.png" alt="Focalpay Social Media Motion Graphics — poster frame from the campaign video" width="1446" height="1444" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Focalpay Social Media Motion Graphics</span>
+        </a>
+
+        <a class="vc-card" href="vc-motion-03.html" data-has-image="true" aria-label="Open project: Focalpay Social Media Advertisement">
+          <img class="vc-card__img" src="vc-motion-03-campaign.png" alt="Focalpay Social Media Advertisement — poster frame from the campaign video" width="2574" height="1446" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Focalpay Social Media Advertisement</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 04 · Illustrations ─────────────────────────────────────── -->
+  <section class="vc-section reveal" aria-labelledby="vc-illustration">
+    <header class="vc-section__head">
+      <div class="vc-section__num">04</div>
+      <h2 id="vc-illustration">Illustrations</h2>
+    </header>
+
+    <div class="vc-scroller-wrap" data-at-start="true">
+      <div class="vc-scroller" tabindex="0" aria-label="Illustration projects — click any card to open the project page">
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-02.html" data-has-image="true" aria-label="Open project: Self-service ordering">
+          <img class="vc-card__img" src="vc-illustration-02.png" alt="Self-service ordering — chef serving a customer who pays via QR code" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Self-service ordering</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-03.html" data-has-image="true" aria-label="Open project: NFC store scan">
+          <img class="vc-card__img" src="vc-illustration-03.png" alt="NFC store scan — shopper scans a refrigerator NFC tag with a phone" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">NFC store scan</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-04.html" data-has-image="true" aria-label="Open project: Smart payment checkout">
+          <img class="vc-card__img" src="vc-illustration-04.png" alt="Smart payment checkout — shopper completes a phone payment at the fridge" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Smart payment checkout</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-05.html" data-has-image="true" aria-label="Open project: Mobile store experience">
+          <img class="vc-card__img" src="vc-illustration-05.png" alt="Mobile store experience — customer shopping through an oversized phone store" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Mobile store experience</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-06.html" data-has-image="true" aria-label="Open project: NFC train ticketing">
+          <img class="vc-card__img" src="vc-illustration-06.png" alt="NFC train ticketing — seated passenger with a mobile ticket and seat assignment" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">NFC train ticketing</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-07.html" data-has-image="true" aria-label="Open project: Counter ordering &amp; payment">
+          <img class="vc-card__img" src="vc-illustration-07.png" alt="Counter ordering — customer ordering and paying by phone at a kitchen counter" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Counter ordering &amp; payment</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-08.html" data-has-image="true" aria-label="Open project: Hotel services app">
+          <img class="vc-card__img" src="vc-illustration-08.png" alt="Hotel services app — guest using a Hotel Services interface, with a room-service cart" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Hotel services app</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-09.html" data-has-image="true" aria-label="Open project: Barcode shopping">
+          <img class="vc-card__img" src="vc-illustration-09.png" alt="Barcode shopping — shopper scanning a product barcode at a refrigerator" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Barcode shopping</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-10.html" data-has-image="true" aria-label="Open project: Smart hotel reception">
+          <img class="vc-card__img" src="vc-illustration-10.png" alt="Smart hotel reception — guest checking in via phone with receptionist behind a desk" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Smart hotel reception</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-11.html" data-has-image="true" aria-label="Open project: Frictionless checkout">
+          <img class="vc-card__img" src="vc-illustration-11.png" alt="Frictionless checkout — customer paying by phone at a supermarket till" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Frictionless checkout</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-12.html" data-has-image="true" aria-label="Open project: Video-assisted reception">
+          <img class="vc-card__img" src="vc-illustration-12.png" alt="Video-assisted reception — customer on a tablet greeted by a hostess on phone" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Video-assisted reception</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-13.html" data-has-image="true" aria-label="Open project: Kitchen order alert">
+          <img class="vc-card__img" src="vc-illustration-13.png" alt="Kitchen order alert — chefs in a restaurant kitchen with a real-time order notification" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Kitchen order alert</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-14.html" data-has-image="true" aria-label="Open project: One-tap refunds">
+          <img class="vc-card__img" src="vc-illustration-14.png" alt="One-tap refunds — customer receiving a refund on a phone beside a coin-filled wallet" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">One-tap refunds</span>
         </a>
 
       </div>
@@ -607,6 +836,21 @@
     </li>
   </ul>
 </footer>
+
+<!-- Lightbox dialog. MUST be declared before the <script> below, because the
+     lightbox IIFE runs synchronously at parse time and queries this element by id. -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption" aria-hidden="true">
+  <button class="lightbox__close" type="button" aria-label="Close image preview">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <line x1="18" y1="6" x2="6" y2="18"/>
+      <line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+  <figure class="lightbox__figure">
+    <img class="lightbox__img" alt="">
+    <figcaption class="lightbox__caption" id="lightbox-caption"></figcaption>
+  </figure>
+</div>
 
 <script>
 /* Reveal on scroll */
@@ -672,6 +916,73 @@
     scroller.addEventListener('scroll', updateState, { passive: true });
     window.addEventListener('resize', updateState);
     updateState();
+  });
+})();
+
+/* Image lightbox: any element with [data-lightbox-src] opens a full-screen
+   image viewer. Close via ESC, backdrop click, or the close button. Focus is
+   trapped while open and restored to the trigger on close. */
+(function () {
+  var lightbox = document.getElementById('lightbox');
+  if (!lightbox) return;
+  var img = lightbox.querySelector('.lightbox__img');
+  var caption = lightbox.querySelector('.lightbox__caption');
+  var closeBtn = lightbox.querySelector('.lightbox__close');
+  var lastTrigger = null;
+
+  function open(trigger) {
+    var src = trigger.getAttribute('data-lightbox-src');
+    if (!src) return;
+    lastTrigger = trigger;
+    img.src = src;
+    img.alt = trigger.getAttribute('data-lightbox-alt') || '';
+    var cap = trigger.getAttribute('data-lightbox-caption') || '';
+    caption.textContent = cap;
+    caption.style.display = cap ? '' : 'none';
+    lightbox.setAttribute('data-open', 'true');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lightbox-open');
+    /* Defer focus so the dialog has applied its visibility transition. */
+    requestAnimationFrame(function () { closeBtn.focus(); });
+  }
+
+  function close() {
+    lightbox.setAttribute('data-open', 'false');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lightbox-open');
+    /* Clear src after the transition so the next open feels instant
+       and the previous image isn't briefly visible during fade-in. */
+    setTimeout(function () {
+      if (lightbox.getAttribute('data-open') !== 'true') {
+        img.removeAttribute('src');
+        img.alt = '';
+      }
+    }, 340);
+    if (lastTrigger && typeof lastTrigger.focus === 'function') {
+      lastTrigger.focus();
+    }
+    lastTrigger = null;
+  }
+
+  document.addEventListener('click', function (e) {
+    var trigger = e.target.closest('[data-lightbox-src]');
+    if (trigger) {
+      e.preventDefault();
+      open(trigger);
+    }
+  });
+
+  closeBtn.addEventListener('click', close);
+
+  /* Click on backdrop closes; click on figure (image/caption) does not. */
+  lightbox.addEventListener('click', function (e) {
+    if (e.target === lightbox) close();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && lightbox.getAttribute('data-open') === 'true') {
+      close();
+    }
   });
 })();
 </script>
