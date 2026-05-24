@@ -144,6 +144,12 @@ nav {
   .hero-v2 .strip:focus-visible .strip-cta-btn,
   .hero-v2 .strip:active .strip-cta-btn { transform: none !important; }
   .strip-cta-arrow { animation: none !important; }
+  .vc-card, .vc-card__img, .vc-card__veil, .vc-card__title { transition: none !important; }
+  .vc-card:hover, .vc-card:focus-visible { transform: none; box-shadow: none; }
+  .vc-card:hover .vc-card__img, .vc-card:focus-visible .vc-card__img { transform: none; }
+  .vc-card:hover .vc-card__veil, .vc-card:focus-visible .vc-card__veil { height: 55%; opacity: 0.95; }
+  .vc-card:hover .vc-card__title, .vc-card:focus-visible .vc-card__title { transform: none; }
+  .reveal, .reveal.is-visible { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
 
 /* ── CUSTOM CURSOR ── */
@@ -379,7 +385,7 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
   .projects { max-width: 960px; margin: 0 auto; padding: 20px 48px 100px; }
 
   .project-item { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; padding: 72px 0; border-bottom: 1px solid var(--border); text-decoration: none; color: inherit; cursor: pointer; }
-  .project-item:last-child { border-bottom: none; }
+  .project-item:last-of-type { border-bottom: none; }
   .project-item:nth-child(even) .proj-image-wrap { order: 2; }
   .project-item:nth-child(even) .proj-text { order: 1; }
 
@@ -408,6 +414,127 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
   .proj-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--accent); }
   .proj-link::after { content: '→'; }
   .project-item:hover .proj-link { gap: 14px; }
+
+  /* ── UI DESIGN GALLERY (transplanted from Visual Craft, retuned to portfolio tokens) ── */
+  .vc-section { margin-top: clamp(56px, 8vw, 88px); }
+  .vc-section__head {
+    display: flex; flex-direction: column; gap: 10px;
+    margin-bottom: 28px;
+  }
+  .vc-section__num {
+    font-family: 'Sora', sans-serif;
+    font-size: 10px; font-weight: 600; color: var(--light);
+    letter-spacing: 0.16em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .vc-section__num::after {
+    content: ''; flex: 1; height: 1px; background: var(--border); max-width: 96px;
+  }
+  .vc-section h2 {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(22px, 2.4vw, 28px);
+    font-weight: 600; color: var(--dark);
+    letter-spacing: -0.01em; line-height: 1.25;
+    margin: 0;
+  }
+
+  .vc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .vc-card {
+    position: relative;
+    display: block;
+    margin: 0;
+    aspect-ratio: 4 / 3;
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--bg2);
+    border: 1px solid var(--line);
+    text-decoration: none;
+    color: inherit;
+    isolation: isolate;
+    transition: transform 0.45s var(--ease-spring),
+                box-shadow 0.45s var(--ease-soft),
+                border-color 0.3s var(--ease-soft);
+    will-change: transform;
+  }
+  .vc-card::before {
+    content: '';
+    position: absolute; inset: 0; z-index: 0;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(200,98,42,0.16) 1px, transparent 0);
+    background-size: 14px 14px;
+    opacity: 0.45;
+  }
+  .vc-card[data-has-image="true"]::before { opacity: 0; }
+  .vc-card[data-has-image="true"] { background: #ECEAE4; }
+  .vc-card__img {
+    position: absolute; inset: 0; z-index: 1;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    transition: transform 0.7s var(--ease-spring), filter 0.4s var(--ease-soft);
+  }
+  .vc-card--contain .vc-card__img { object-fit: contain; }
+  .vc-card__veil {
+    position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+    height: 55%;
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,0.62) 0%,
+      rgba(0,0,0,0.42) 28%,
+      rgba(0,0,0,0.18) 58%,
+      rgba(0,0,0,0) 100%
+    );
+    pointer-events: none;
+    opacity: 0.95;
+    transition: opacity 0.4s var(--ease-soft), height 0.4s var(--ease-soft);
+  }
+  .vc-card__title {
+    position: absolute; left: 18px; right: 18px; bottom: 16px; z-index: 3;
+    font-family: 'Sora', sans-serif;
+    font-size: 13px; font-weight: 500; line-height: 1.35;
+    color: #ffffff;
+    letter-spacing: 0.005em;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.35);
+    transition: transform 0.45s var(--ease-spring);
+    margin: 0;
+  }
+  .vc-card__hint {
+    position: absolute; left: 0; right: 0; bottom: 16px; z-index: 3;
+    text-align: center;
+    font-family: 'Sora', sans-serif;
+    font-size: 10px; font-weight: 600;
+    color: var(--light); letter-spacing: 0.14em; text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .vc-card[data-has-image="true"] .vc-card__hint { display: none; }
+
+  .vc-card:hover,
+  .vc-card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 38px rgba(26, 26, 26, 0.12);
+    border-color: rgba(200, 98, 42, 0.35);
+  }
+  .vc-card:hover .vc-card__img,
+  .vc-card:focus-visible .vc-card__img { transform: scale(1.045); }
+  .vc-card:hover .vc-card__veil,
+  .vc-card:focus-visible .vc-card__veil { opacity: 1; height: 62%; }
+  .vc-card:hover .vc-card__title,
+  .vc-card:focus-visible .vc-card__title { transform: translateY(-2px); }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s var(--ease-soft), transform 0.7s var(--ease-spring);
+  }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
   .footer-strip {
     position: relative;
@@ -525,6 +652,7 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
     }
     .hero-v2 .strip { padding: 16px 24px 18px; bottom: 12px; }
     .hero-v2 .side-tag { display: none; }
+    .vc-grid { gap: 20px; }
   }
   @media (max-width: 680px) {
     /* Stack headline + CTA; center the group in the viewport (desktop layout unchanged above 680px) */
@@ -587,6 +715,9 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
     .project-item { grid-template-columns: 1fr; gap: 24px; padding: 40px 0; }
     .project-item:nth-child(even) .proj-image-wrap { order: 0; }
     .project-item:nth-child(even) .proj-text { order: 0; }
+    .vc-section { margin-top: clamp(40px, 9vw, 64px); }
+    .vc-section__head { gap: 8px; margin-bottom: 22px; }
+    .vc-grid { grid-template-columns: 1fr; gap: 16px; }
     .footer-strip { padding: 56px 20px 72px; }
     footer { padding: 24px; flex-direction: column; align-items: flex-start; gap: 20px; }
   }
@@ -886,6 +1017,100 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
       <span class="proj-link">View Project</span>
     </div>
   </a>
+
+  <!--
+    UI DESIGN gallery
+    ─────────────────
+    Lives as a natural extension of the portfolio case studies.
+    Each <a class="vc-card"> navigates to its own ui-design-NN.html project page.
+    To publish a piece:
+      1. Drop a 4:3 image in the project root (or any aspect — object-fit: cover handles it).
+      2. Update href, src, alt, and the .vc-card__title text.
+      3. Set data-has-image="true" so the dot-grid empty state hides.
+    Use class="vc-card vc-card--contain" when a mockup needs letterboxing instead of cropping.
+  -->
+  <section class="vc-section reveal" id="ui-design" aria-labelledby="ui-design-heading">
+    <header class="vc-section__head">
+      <div class="vc-section__num">Visual Studies</div>
+      <h2 id="ui-design-heading">UI Design</h2>
+    </header>
+
+    <div class="vc-grid">
+
+      <a class="vc-card" href="ui-design-01.html" data-has-image="true" aria-label="Grocery app — UI design project page">
+        <img class="vc-card__img" src="vc-ui-01-grocery-app.png" alt="Grocery shopping app — three iPhone screens showing product scan, store catalog, and cart on a teal and gray composition" width="1024" height="716" loading="lazy" decoding="async">
+        <div class="vc-card__veil" aria-hidden="true"></div>
+        <span class="vc-card__title">Grocery app</span>
+      </a>
+
+      <a class="vc-card" href="ui-design-02.html" data-has-image="true" aria-label="Self service app — UI design project page">
+        <img class="vc-card__img" src="vc-ui-02-self-service-app.png" alt="Restaurant self-service kiosk app — three iPhone screens showing food categories, pizza menu, and pepperoni size selection on a deep blue gradient" width="1024" height="716" loading="lazy" decoding="async">
+        <div class="vc-card__veil" aria-hidden="true"></div>
+        <span class="vc-card__title">Self service app</span>
+      </a>
+
+      <a class="vc-card" href="ui-design-03.html" data-has-image="true" aria-label="ATG app — UI design project page">
+        <img class="vc-card__img" src="vc-ui-03-atg-app.png" alt="ATG Swedish gambling app — three iPhone screens showing user menu, QR deposit, and card-payment forms in the brand's green palette" width="1024" height="717" loading="lazy" decoding="async">
+        <div class="vc-card__veil" aria-hidden="true"></div>
+        <span class="vc-card__title">ATG app</span>
+      </a>
+
+      <a class="vc-card" href="ui-design-04.html" data-has-image="true" aria-label="Job finder app — UI design project page">
+        <img class="vc-card__img" src="vc-ui-04-job-finder-app.png" alt="Job-finder app — three iPhone screens showing the job/employee choice, a swipeable candidate list, and a full candidate profile on a dark navy backdrop" width="1024" height="717" loading="lazy" decoding="async">
+        <div class="vc-card__veil" aria-hidden="true"></div>
+        <span class="vc-card__title">Job finder app</span>
+      </a>
+
+      <a class="vc-card" href="ui-design-05.html" data-has-image="true" aria-label="Online Grocery app — UI design project page">
+        <img class="vc-card__img" src="vc-ui-05-online-grocery-app.png" alt="Online grocery delivery app — three iPhone screens showing welcome/sign-in, the store grid, and a cabbage product detail on a fresh-green composition" width="1024" height="717" loading="lazy" decoding="async">
+        <div class="vc-card__veil" aria-hidden="true"></div>
+        <span class="vc-card__title">Online Grocery app</span>
+      </a>
+
+      <a class="vc-card" href="ui-design-06.html" data-has-image="true" aria-label="Food Delivery app — UI design project page">
+        <img class="vc-card__img" src="vc-ui-06-food-delivery-app.png" alt="Food delivery app — three iPhone screens showing the splash, food categories, and a chicken-burger product detail on a magenta-pink composition" width="1024" height="717" loading="lazy" decoding="async">
+        <div class="vc-card__veil" aria-hidden="true"></div>
+        <span class="vc-card__title">Food Delivery app</span>
+      </a>
+
+      <a class="vc-card" href="ui-design-07.html" data-has-image="true" aria-label="My Credit app Logo — UI design project page">
+        <img class="vc-card__img" src="vc-ui-07-my-credit-app-logo.png" alt="My Credit app icon — splash phone screen with paired filled and outlined % icons in deep navy on a soft blue-gray composition" width="1024" height="717" loading="lazy" decoding="async">
+        <div class="vc-card__veil" aria-hidden="true"></div>
+        <span class="vc-card__title">My Credit app Logo</span>
+      </a>
+
+      <a class="vc-card" href="ui-design-08.html" data-has-image="true" aria-label="Inventory app Logo — UI design project page">
+        <img class="vc-card__img" src="vc-ui-08-inventory-app-logo.png" alt="InventoryPro app icon — splash phone screen with paired filled and outlined warehouse-trolley icons on a soft blue-gray composition" width="1024" height="717" loading="lazy" decoding="async">
+        <div class="vc-card__veil" aria-hidden="true"></div>
+        <span class="vc-card__title">Inventory app Logo</span>
+      </a>
+
+      <a class="vc-card" href="ui-design-09.html" data-has-image="true" aria-label="Website design — UI design project page">
+        <img class="vc-card__img" src="vc-ui-09-website-design.png" alt="CanaTrip travel website — login screen and tours landing page in the brand's red and white palette" width="1024" height="717" loading="lazy" decoding="async">
+        <div class="vc-card__veil" aria-hidden="true"></div>
+        <span class="vc-card__title">Website design</span>
+      </a>
+
+      <a class="vc-card" href="ui-design-10.html" data-has-image="true" aria-label="Focalpay website — UI design project page">
+        <img class="vc-card__img" src="vc-ui-10-focalpay-website.png" alt="Focalpay marketing website — admin sign-in and 'Pay it Simple' landing page in the brand's teal and red palette" width="1024" height="717" loading="lazy" decoding="async">
+        <div class="vc-card__veil" aria-hidden="true"></div>
+        <span class="vc-card__title">Focalpay website</span>
+      </a>
+
+      <a class="vc-card vc-card--contain" href="ui-design-11.html" data-has-image="true" aria-label="Foodora app — UI design project page">
+        <img class="vc-card__img" src="vc-ui-11-foodora-app.png" alt="Focalpay × Foodora cooperation app — title lockup beside a diagonal grid of iPhone screens showing cart, receipt, and payment-complete flows on a magenta-pink gradient" width="1024" height="576" loading="lazy" decoding="async">
+        <div class="vc-card__veil" aria-hidden="true"></div>
+        <span class="vc-card__title">Foodora app</span>
+      </a>
+
+      <a class="vc-card vc-card--contain" href="ui-design-12.html" data-has-image="true" aria-label="Focalpay app — UI design project page">
+        <img class="vc-card__img" src="vc-ui-12-focalpay-app.png" alt="Focalpay cashier app — diagonal grid of iPhone screens showing the splash, cart, products, and receipt views on an iridescent purple-pink gradient" width="1024" height="576" loading="lazy" decoding="async">
+        <div class="vc-card__veil" aria-hidden="true"></div>
+        <span class="vc-card__title">Focalpay app</span>
+      </a>
+
+    </div>
+  </section>
 
   <!-- TEMP UNPUBLISHED: Backoffice Replenishments Module — restore by uncommenting the block below (keeps replenishments.html + assets in repo).
   <a class="project-item" href="replenishments.html">
@@ -1234,6 +1459,29 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
     }
     requestAnimationFrame(dc);
   })();
+})();
+
+/* ── UI DESIGN GALLERY ─────────────────────────────────────────────
+   Reveal-on-scroll. Honours prefers-reduced-motion.
+─────────────────────────────────────────────────────────────────── */
+(function () {
+  var reduce = false;
+  try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+  var nodes = document.querySelectorAll('.reveal');
+  if (reduce || !window.IntersectionObserver) {
+    nodes.forEach(function (el) { el.classList.add('is-visible'); });
+    return;
+  }
+  nodes.forEach(function (el) {
+    var io = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
+    io.observe(el);
+  });
 })();
 </script>
 
