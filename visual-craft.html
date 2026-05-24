@@ -182,17 +182,17 @@
   }
   .vc-scroller::-webkit-scrollbar { display: none; }
 
-  /* ── CARD ── */
+  /* ── CARD ── (static, non-clickable gallery item) */
   .vc-card {
     position: relative;
     display: block;
+    margin: 0;                 /* reset default <figure> margin */
     aspect-ratio: 1 / 1;
     border-radius: 14px;
     overflow: hidden;
     background: var(--bg2);
     border: 1px solid var(--line);
-    text-decoration: none;
-    color: inherit;
+    cursor: default;
     scroll-snap-align: start;
     isolation: isolate;
     transition: transform 0.45s var(--ease-spring),
@@ -210,13 +210,28 @@
     opacity: 0.45;
   }
   .vc-card[data-has-image="true"]::before { opacity: 0; }
+  /* Cards displaying images already pre-padded against their own backdrop
+     get a soft neutral fill so any "contain" letterboxing reads as design,
+     not as a gap. */
+  .vc-card[data-has-image="true"] { background: #ECEAE4; }
+  /* Opt-in dark letterbox for cards whose source already lives on black
+     (e.g. event posters). Specificity beats the neutral rule above. */
+  .vc-card[data-has-image="true"].vc-card--bg-dark { background: #000; }
   .vc-card__img {
     position: absolute; inset: 0; z-index: 1;
     width: 100%; height: 100%;
     object-fit: cover; object-position: center;
     display: block;
+    /* Hint browsers to preserve edge contrast when downscaling logos.
+       Falls back to default high-quality bilinear sampling everywhere else. */
+    image-rendering: -webkit-optimize-contrast;
+    transform: translateZ(0);
+    backface-visibility: hidden;
     transition: transform 0.7s var(--ease-spring), filter 0.4s var(--ease-soft);
   }
+  /* Use --contain on cards whose source already includes whitespace
+     (mockups, wide wordmarks) so the full logo stays visible. */
+  .vc-card--contain .vc-card__img { object-fit: contain; }
   .vc-card__veil {
     position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
     height: 55%;
@@ -251,23 +266,39 @@
   }
   .vc-card[data-has-image="true"] .vc-card__hint { display: none; }
 
-  .vc-card:hover,
-  .vc-card:focus-visible {
+  .vc-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 18px 38px rgba(26, 26, 26, 0.12);
     border-color: rgba(196, 98, 45, 0.35);
   }
-  .vc-card:hover .vc-card__img,
-  .vc-card:focus-visible .vc-card__img {
-    transform: scale(1.045);
+  .vc-card:hover .vc-card__img { transform: scale(1.045); }
+  .vc-card:hover .vc-card__veil { opacity: 1; height: 62%; }
+  .vc-card:hover .vc-card__title { transform: translateY(-2px); }
+
+  /* ── LINKED CARD SECTIONS ──
+     Shared modifier for sections whose cards are clickable project tiles:
+     - 4:3 horizontal rectangular cards (vs. the default 1:1 squares).
+     - Cards are anchors → restore anchor-friendly resets and give keyboard
+       focus the same affordance as hover.
+     - Slightly wider scroller tracks so the shorter cards keep visual
+       weight comparable to the squares in other sections.
+     Currently used by: Print & Packaging, Motion Campaigns. */
+  .vc-section--linked .vc-scroller { grid-auto-columns: clamp(300px, 36vw, 400px); }
+  .vc-section--linked .vc-card {
+    aspect-ratio: 4 / 3;
+    cursor: inherit;            /* let body's custom cursor flow through */
+    text-decoration: none;
+    color: inherit;
   }
-  .vc-card:hover .vc-card__veil,
-  .vc-card:focus-visible .vc-card__veil { opacity: 1; height: 62%; }
-  .vc-card:hover .vc-card__title,
-  .vc-card:focus-visible .vc-card__title { transform: translateY(-2px); }
-  .vc-card:focus-visible {
-    outline: 2px solid var(--accent); outline-offset: 4px;
+  .vc-section--linked .vc-card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 38px rgba(26, 26, 26, 0.12);
+    border-color: rgba(196, 98, 45, 0.35);
+    outline: none;
   }
+  .vc-section--linked .vc-card:focus-visible .vc-card__img { transform: scale(1.045); }
+  .vc-section--linked .vc-card:focus-visible .vc-card__veil { opacity: 1; height: 62%; }
+  .vc-section--linked .vc-card:focus-visible .vc-card__title { transform: translateY(-2px); }
 
   /* ── REVEAL ── */
   .reveal {
@@ -316,16 +347,21 @@
       opacity: 1 !important; transform: none !important; transition: none !important;
     }
     .vc-scroller { scroll-behavior: auto; }
-    .vc-card:hover, .vc-card:focus-visible { transform: none; box-shadow: none; }
-    .vc-card:hover .vc-card__img, .vc-card:focus-visible .vc-card__img { transform: none; }
-    .vc-card:hover .vc-card__veil, .vc-card:focus-visible .vc-card__veil { height: 55%; opacity: 0.95; }
-    .vc-card:hover .vc-card__title, .vc-card:focus-visible .vc-card__title { transform: none; }
+    .vc-card:hover { transform: none; box-shadow: none; }
+    .vc-card:hover .vc-card__img { transform: none; }
+    .vc-card:hover .vc-card__veil { height: 55%; opacity: 0.95; }
+    .vc-card:hover .vc-card__title { transform: none; }
+    .vc-section--linked .vc-card:focus-visible { transform: none; box-shadow: none; }
+    .vc-section--linked .vc-card:focus-visible .vc-card__img { transform: none; }
+    .vc-section--linked .vc-card:focus-visible .vc-card__veil { height: 55%; opacity: 0.95; }
+    .vc-section--linked .vc-card:focus-visible .vc-card__title { transform: none; }
   }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     main { padding: 56px 32px 80px; }
     .vc-scroller { grid-auto-columns: clamp(220px, 60vw, 280px); gap: 14px; }
+    .vc-section--linked .vc-scroller { grid-auto-columns: clamp(280px, 68vw, 360px); }
     .vc-scroller-wrap::before, .vc-scroller-wrap::after { width: 36px; }
   }
   @media (max-width: 680px) {
@@ -335,6 +371,7 @@
     main { padding: 48px 20px 72px; }
     .vc-section__head { gap: 8px; margin-bottom: 22px; }
     .vc-scroller { grid-auto-columns: 72vw; gap: 12px; padding-right: 20px; }
+    .vc-section--linked .vc-scroller { grid-auto-columns: 82vw; }
     .vc-scroller-wrap::before, .vc-scroller-wrap::after { width: 24px; }
     footer { padding: 24px; flex-direction: column; align-items: flex-start; gap: 20px; }
   }
@@ -391,14 +428,23 @@
   <!--
     HOW TO ADD A CARD
     ─────────────────
-    1. Drop an image into the project root (e.g. vc-brand-01.jpg, square 1:1 aspect works best).
-    2. Inside the relevant section's .vc-scroller, copy a card block and update:
-         href ............ link to the project's own page (e.g. vc-brand-01.html)
-         data-has-image .. set to "true" once the image is in place
-         <img src> ....... path to the image file
-         <img alt> ....... short descriptive alt text
-         .vc-card__title . the project title shown at the bottom
-    3. To remove the empty-state hint, the data-has-image="true" attribute takes care of it.
+    Most sections are static visual galleries using <figure class="vc-card">:
+      1. Drop an image into the project root (e.g. vc-brand-01.jpg; square 1:1 works best).
+      2. Inside the relevant section's .vc-scroller, copy a <figure class="vc-card"> block and update:
+           data-has-image ... set to "true" once the image is in place
+           <img src> ........ path to the image file
+           <img alt> ........ short descriptive alt text (this is the card's accessible name)
+           <figcaption> ..... the project title shown at the bottom
+         Optional:
+           class="vc-card vc-card--contain"  → use when the source already has whitespace
+                                                (mockups, wordmarks) and should not be cropped.
+      3. The data-has-image="true" attribute hides the empty-state hint automatically.
+
+    Sections marked with vc-section--linked use clickable project tiles instead:
+      • Cards are <a class="vc-card" href="vc-{slug}-NN.html" aria-label="…"> with a 4:3 aspect.
+      • Use a <span class="vc-card__title"> for the project title (not <figcaption>).
+      • Each card links to its own project page, which still needs to be created.
+      • Currently applied to: Print & Packaging, Motion Campaigns.
   -->
 
   <!-- ── 01 · Logo & Brand Identity ───────────────────────────── -->
@@ -411,186 +457,128 @@
     <div class="vc-scroller-wrap" data-at-start="true">
       <div class="vc-scroller" tabindex="0" aria-label="Logo and brand identity projects">
 
-        <a href="vc-brand-01.html" class="vc-card" data-has-image="false" aria-label="Project 01 — coming soon">
-          <img class="vc-card__img" src="vc-brand-01.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+        <figure class="vc-card" data-has-image="true">
+          <img class="vc-card__img" src="vc-brand-01-chess-club.png" alt="Chess Club logo — green knight inside a circular checkerboard mark" width="1024" height="1024" loading="lazy" decoding="async">
           <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Project Title</span>
-          <span class="vc-card__hint" aria-hidden="true">Add image</span>
-        </a>
+          <figcaption class="vc-card__title">Chess Club</figcaption>
+        </figure>
 
-        <a href="vc-brand-02.html" class="vc-card" data-has-image="false" aria-label="Project 02 — coming soon">
-          <img class="vc-card__img" src="vc-brand-02.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+        <figure class="vc-card" data-has-image="true">
+          <img class="vc-card__img" src="vc-brand-02-jirjirak.png" alt="Jirjirak Radio app logo — vintage radio mark with orange and teal wordmark" width="1024" height="1024" loading="lazy" decoding="async">
           <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Project Title</span>
-          <span class="vc-card__hint" aria-hidden="true">Add image</span>
-        </a>
+          <figcaption class="vc-card__title">Jirjirak Application Logo</figcaption>
+        </figure>
 
-        <a href="vc-brand-03.html" class="vc-card" data-has-image="false" aria-label="Project 03 — coming soon">
-          <img class="vc-card__img" src="vc-brand-03.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+        <figure class="vc-card vc-card--contain" data-has-image="true">
+          <img class="vc-card__img" src="vc-brand-03-astin.png" alt="Astin Men's Fashion Emporium — business card mockup with sleeve-and-style monogram" width="1024" height="1024" loading="lazy" decoding="async">
           <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Project Title</span>
-          <span class="vc-card__hint" aria-hidden="true">Add image</span>
-        </a>
+          <figcaption class="vc-card__title">Astin Logo</figcaption>
+        </figure>
 
-        <a href="vc-brand-04.html" class="vc-card" data-has-image="false" aria-label="Project 04 — coming soon">
-          <img class="vc-card__img" src="vc-brand-04.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+        <figure class="vc-card vc-card--contain" data-has-image="true">
+          <img class="vc-card__img" src="vc-brand-04-arian.png" alt="Arian Immigration Agency logo — teal serif wordmark with purple bird mark" width="1024" height="1024" loading="lazy" decoding="async">
           <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Project Title</span>
-          <span class="vc-card__hint" aria-hidden="true">Add image</span>
-        </a>
+          <figcaption class="vc-card__title">Arian Logo</figcaption>
+        </figure>
 
-        <a href="vc-brand-05.html" class="vc-card" data-has-image="false" aria-label="Project 05 — coming soon">
-          <img class="vc-card__img" src="vc-brand-05.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+        <figure class="vc-card" data-has-image="true">
+          <img class="vc-card__img" src="vc-brand-06-mhealth.png" alt="mHealth Shiraz International Congress 2017 logo — green speech-bubble mark with red wifi waves and a red heart" width="500" height="500" loading="lazy" decoding="async">
           <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Project Title</span>
-          <span class="vc-card__hint" aria-hidden="true">Add image</span>
-        </a>
+          <figcaption class="vc-card__title">mHealth Congress</figcaption>
+        </figure>
+
+        <figure class="vc-card" data-has-image="true">
+          <img class="vc-card__img" src="vc-brand-07-prima-pacs.png" alt="Prima PACS logo — blue and red 'p' monogram around a chrome lens with PrimaPacs wordmark" width="500" height="500" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <figcaption class="vc-card__title">Prima PACS</figcaption>
+        </figure>
+
+        <figure class="vc-card" data-has-image="true">
+          <img class="vc-card__img" src="vc-brand-08-big-bag.png" alt="Big Bag logo — retro typographic mark with three vertical bags spelling BIG BAG in orange, red, and teal on dark navy" width="500" height="500" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <figcaption class="vc-card__title">Big Bag</figcaption>
+        </figure>
+
+        <figure class="vc-card" data-has-image="true">
+          <img class="vc-card__img" src="vc-brand-09-buyers-point.png" alt="Buyers Point logo — colorful circular mark enclosing an arrow and a leaping figure in green, teal, pink, and orange gradients" width="1000" height="1000" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <figcaption class="vc-card__title">Buyers Point</figcaption>
+        </figure>
+
+        <figure class="vc-card" data-has-image="true">
+          <img class="vc-card__img" src="vc-brand-10-fars-sport-medicine.png" alt="Fars Sport Medicine Association logo — running figure with caduceus snake and heartbeat line, Persian and English wordmarks" width="918" height="918" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <figcaption class="vc-card__title">Fars Sport Medicine</figcaption>
+        </figure>
 
       </div>
     </div>
   </section>
 
-  <!-- ── 02 · AI Craft ────────────────────────────────────────── -->
-  <section class="vc-section reveal" aria-labelledby="vc-ai">
+  <!-- ── 02 · Print & Packaging ───────────────────────────────── -->
+  <section class="vc-section vc-section--linked reveal" aria-labelledby="vc-print">
     <header class="vc-section__head">
       <div class="vc-section__num">02</div>
-      <h2 id="vc-ai">AI Craft</h2>
+      <h2 id="vc-print">Print &amp; Packaging</h2>
     </header>
 
     <div class="vc-scroller-wrap" data-at-start="true">
-      <div class="vc-scroller" tabindex="0" aria-label="AI craft projects">
+      <div class="vc-scroller" tabindex="0" aria-label="Print and packaging projects">
 
-        <a href="vc-ai-01.html" class="vc-card" data-has-image="false" aria-label="AI project 01 — coming soon">
-          <img class="vc-card__img" src="vc-ai-01.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+        <a class="vc-card" href="vc-print-01-gelatin-dessert-packaging.html" data-has-image="true" aria-label="Open project: Gelatin dessert packaging design">
+          <img class="vc-card__img" src="vc-print-01-gelatin-dessert-packaging.png" alt="Gelatin dessert packaging design" loading="lazy" decoding="async" width="1024" height="768">
           <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Project Title</span>
-          <span class="vc-card__hint" aria-hidden="true">Add image</span>
+          <span class="vc-card__title">Gelatin dessert packaging design</span>
         </a>
 
-        <a href="vc-ai-02.html" class="vc-card" data-has-image="false" aria-label="AI project 02 — coming soon">
-          <img class="vc-card__img" src="vc-ai-02.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+        <a class="vc-card" href="vc-print-02-jelly-dessert-packaging.html" data-has-image="true" aria-label="Open project: Jelly dessert packaging design">
+          <img class="vc-card__img" src="vc-print-02-jelly-dessert-packaging.png" alt="Jelly dessert packaging design" loading="lazy" decoding="async" width="1024" height="768">
           <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Project Title</span>
-          <span class="vc-card__hint" aria-hidden="true">Add image</span>
+          <span class="vc-card__title">Jelly dessert packaging design</span>
         </a>
 
-        <a href="vc-ai-03.html" class="vc-card" data-has-image="false" aria-label="AI project 03 — coming soon">
-          <img class="vc-card__img" src="vc-ai-03.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+        <a class="vc-card vc-card--contain vc-card--bg-dark" href="vc-print-03-retail-technology-poster-2024.html" data-has-image="true" aria-label="Open project: Retail Technology poster design 2024">
+          <img class="vc-card__img" src="vc-print-03-retail-technology-poster-2024.png" alt="Retail Technology poster design 2024" loading="lazy" decoding="async" width="1024" height="576">
           <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Project Title</span>
-          <span class="vc-card__hint" aria-hidden="true">Add image</span>
+          <span class="vc-card__title">Retail Technology poster design 2024</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-dark" href="vc-print-04-retail-technology-poster-2023.html" data-has-image="true" aria-label="Open project: Retail Technology poster design 2023">
+          <img class="vc-card__img" src="vc-print-04-retail-technology-poster-2023.png" alt="Retail Technology poster design 2023" loading="lazy" decoding="async" width="1024" height="576">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Retail Technology poster design 2023</span>
         </a>
 
       </div>
     </div>
   </section>
 
-  <!-- ── 03 · UI Design ───────────────────────────────────────── -->
-  <section class="vc-section reveal" aria-labelledby="vc-ui">
+  <!-- ── 03 · Motion Campaigns ────────────────────────────────── -->
+  <section class="vc-section vc-section--linked reveal" aria-labelledby="vc-motion">
     <header class="vc-section__head">
       <div class="vc-section__num">03</div>
-      <h2 id="vc-ui">UI Design</h2>
-    </header>
-
-    <div class="vc-scroller-wrap" data-at-start="true">
-      <div class="vc-scroller" tabindex="0" aria-label="UI design projects">
-
-        <a href="vc-ui-01.html" class="vc-card" data-has-image="false" aria-label="UI project 01 — coming soon">
-          <img class="vc-card__img" src="vc-ui-01.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-          <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Project Title</span>
-          <span class="vc-card__hint" aria-hidden="true">Add image</span>
-        </a>
-
-        <a href="vc-ui-02.html" class="vc-card" data-has-image="false" aria-label="UI project 02 — coming soon">
-          <img class="vc-card__img" src="vc-ui-02.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-          <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Project Title</span>
-          <span class="vc-card__hint" aria-hidden="true">Add image</span>
-        </a>
-
-        <a href="vc-ui-03.html" class="vc-card" data-has-image="false" aria-label="UI project 03 — coming soon">
-          <img class="vc-card__img" src="vc-ui-03.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-          <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Project Title</span>
-          <span class="vc-card__hint" aria-hidden="true">Add image</span>
-        </a>
-
-        <a href="vc-ui-04.html" class="vc-card" data-has-image="false" aria-label="UI project 04 — coming soon">
-          <img class="vc-card__img" src="vc-ui-04.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-          <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Project Title</span>
-          <span class="vc-card__hint" aria-hidden="true">Add image</span>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ── 04 · Catalogs & Pitch Decks ──────────────────────────── -->
-  <section class="vc-section reveal" aria-labelledby="vc-decks">
-    <header class="vc-section__head">
-      <div class="vc-section__num">04</div>
-      <h2 id="vc-decks">Catalogs &amp; Pitch Decks</h2>
-    </header>
-
-    <div class="vc-scroller-wrap" data-at-start="true">
-      <div class="vc-scroller" tabindex="0" aria-label="Catalogs and pitch decks projects">
-
-        <a href="vc-deck-01.html" class="vc-card" data-has-image="false" aria-label="Catalog / deck 01 — coming soon">
-          <img class="vc-card__img" src="vc-deck-01.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-          <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Project Title</span>
-          <span class="vc-card__hint" aria-hidden="true">Add image</span>
-        </a>
-
-        <a href="vc-deck-02.html" class="vc-card" data-has-image="false" aria-label="Catalog / deck 02 — coming soon">
-          <img class="vc-card__img" src="vc-deck-02.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-          <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Project Title</span>
-          <span class="vc-card__hint" aria-hidden="true">Add image</span>
-        </a>
-
-        <a href="vc-deck-03.html" class="vc-card" data-has-image="false" aria-label="Catalog / deck 03 — coming soon">
-          <img class="vc-card__img" src="vc-deck-03.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-          <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Project Title</span>
-          <span class="vc-card__hint" aria-hidden="true">Add image</span>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ── 05 · Motion Campaigns ────────────────────────────────── -->
-  <section class="vc-section reveal" aria-labelledby="vc-motion">
-    <header class="vc-section__head">
-      <div class="vc-section__num">05</div>
       <h2 id="vc-motion">Motion Campaigns</h2>
     </header>
 
     <div class="vc-scroller-wrap" data-at-start="true">
       <div class="vc-scroller" tabindex="0" aria-label="Motion campaign and social video projects">
 
-        <a href="vc-motion-01.html" class="vc-card" data-has-image="false" aria-label="Motion project 01 — coming soon">
-          <img class="vc-card__img" src="vc-motion-01.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+        <a class="vc-card" href="vc-motion-01.html" data-has-image="true" aria-label="Open project: Motion campaign — 01">
+          <img class="vc-card__img" src="vc-motion-01-campaign.png" alt="Motion campaign 01 — poster frame from the campaign video" width="2564" height="1444" loading="lazy" decoding="async">
           <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Project Title</span>
-          <span class="vc-card__hint" aria-hidden="true">Add poster</span>
+          <span class="vc-card__title">Motion campaign — 01</span>
         </a>
 
-        <a href="vc-motion-02.html" class="vc-card" data-has-image="false" aria-label="Motion project 02 — coming soon">
-          <img class="vc-card__img" src="vc-motion-02.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+        <a class="vc-card" href="vc-motion-02.html" data-has-image="true" aria-label="Open project: Motion campaign — 02">
+          <img class="vc-card__img" src="vc-motion-02-campaign.png" alt="Motion campaign 02 — poster frame from the campaign video" width="2562" height="1442" loading="lazy" decoding="async">
           <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Project Title</span>
-          <span class="vc-card__hint" aria-hidden="true">Add poster</span>
+          <span class="vc-card__title">Motion campaign — 02</span>
         </a>
 
-        <a href="vc-motion-03.html" class="vc-card" data-has-image="false" aria-label="Motion project 03 — coming soon">
-          <img class="vc-card__img" src="vc-motion-03.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+        <a class="vc-card" href="vc-motion-03.html" data-has-image="true" aria-label="Open project: Motion campaign — 03">
+          <img class="vc-card__img" src="vc-motion-03-campaign.png" alt="Motion campaign 03 — poster frame from the campaign video" width="2574" height="1446" loading="lazy" decoding="async">
           <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Project Title</span>
-          <span class="vc-card__hint" aria-hidden="true">Add poster</span>
+          <span class="vc-card__title">Motion campaign — 03</span>
         </a>
 
       </div>
