@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
-<title>Inventory app Logo · UI Design · Neda Bagheri</title>
+<title>InventoryPro — App Icon &amp; Launch Screen · UI Design · Neda Bagheri</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -155,16 +155,75 @@ main {
   content: ''; flex: 1; height: 1px; background: var(--border); max-width: 96px;
 }
 
-.ui-detail__title {
-  font-family: 'Sora', sans-serif;
-  font-size: clamp(32px, 4.6vw, 52px);
-  font-weight: 700;
-  color: var(--ink);
-  line-height: 1.1;
-  letter-spacing: -0.022em;
+/* ── CASE STUDY (matches pos-app.html "section" pattern, scoped to this page) ── */
+.case-study {
   margin-bottom: 44px;
   opacity: 0;
-  animation: ui-detail-fade 0.65s var(--ease-soft) 0.05s forwards;
+  transform: translateY(18px);
+  animation: ui-detail-rise 0.75s var(--ease-spring) 0.1s forwards;
+}
+.case-study__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  padding: 0 0 28px 0;
+}
+.case-study__icon {
+  flex-shrink: 0;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--bg);
+  color: #6b6b6b;
+  display: flex; align-items: center; justify-content: center;
+}
+.case-study__icon svg { width: 26px; height: 26px; flex-shrink: 0; }
+.case-study__headings {
+  flex: 1; min-width: 0;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.case-study__chapter {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(2rem, 3.4vw + 0.75rem, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.028em; line-height: 1.08;
+  color: var(--ink);
+  margin: 0;
+}
+.case-study__subtitle {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(0.95rem, 0.6vw + 0.78rem, 1.1rem);
+  font-weight: 400; font-style: italic;
+  color: var(--mid);
+  line-height: 1.45; margin: 0;
+  max-width: 38em;
+}
+.case-study__body p {
+  color: var(--mid);
+  font-weight: 400;
+  margin: 0 0 16px;
+}
+.case-study__body p:last-of-type { margin-bottom: 0; }
+.case-study__body p strong { color: var(--ink); font-weight: 600; }
+.case-study__tags {
+  display: flex; flex-wrap: wrap;
+  gap: 8px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.case-study__tag {
+  font-family: 'Sora', sans-serif;
+  font-size: 12px; font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 4px 12px;
+  border-radius: 20px;
+  line-height: 1.5;
+}
+.case-study__tag--gray {
+  color: var(--mid);
+  background: #EEEAE4;
 }
 
 .ui-detail__featured {
@@ -186,7 +245,6 @@ main {
   backface-visibility: hidden;
 }
 
-@keyframes ui-detail-fade { to { opacity: 1; } }
 @keyframes ui-detail-rise { to { opacity: 1; transform: none; } }
 
 /* ── FOOTER STRIP (matches index.html) ── */
@@ -275,7 +333,7 @@ footer p { font-size: 13px; color: var(--light); margin: 0; }
   #dot, #ring { display: none !important; }
   .n-links a:not(.n-btn), .n-btn, .footer-social a, .ui-detail__back,
   .ui-detail__featured img { transition: none !important; }
-  .ui-detail__title, .ui-detail__featured {
+  .ui-detail__featured, .case-study {
     opacity: 1 !important; transform: none !important; animation: none !important;
   }
   .ui-detail__back:hover, .ui-detail__back:focus-visible { gap: 8px; }
@@ -287,11 +345,14 @@ footer p { font-size: 13px; color: var(--light); margin: 0; }
   nav { padding: 0 24px; }
   main { padding: 104px 24px 80px; }
   .ui-detail__back { margin-bottom: 36px; }
-  .ui-detail__title { margin-bottom: 32px; }
 }
 @media (max-width: 680px) {
   main { padding: 88px 20px 64px; }
-  .ui-detail__title { margin-bottom: 28px; }
+  .case-study { margin-bottom: 36px; }
+  .case-study__header { flex-direction: column; gap: 16px; padding-bottom: 22px; }
+  .case-study__icon { width: 48px; height: 48px; }
+  .case-study__icon svg { width: 22px; height: 22px; }
+  .case-study__tags { margin-top: 22px; }
   .footer-strip { padding: 56px 20px 72px; }
   footer { padding: 24px; flex-direction: column; align-items: flex-start; gap: 20px; }
 }
@@ -330,8 +391,33 @@ footer p { font-size: 13px; color: var(--light); margin: 0; }
 
 <main>
   <a class="ui-detail__back" href="index.html#ui-design">Back to portfolio</a>
-  <div class="ui-detail__eyebrow">UI Design · 08 / 12</div>
-  <h1 class="ui-detail__title">Inventory app Logo</h1>
+  <div class="ui-detail__eyebrow">UI Design · 08 / 10</div>
+  <section class="case-study" aria-labelledby="inventorypro-case-study">
+    <div class="case-study__header">
+      <div class="case-study__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+          <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+          <line x1="12" y1="22.08" x2="12" y2="12"/>
+        </svg>
+      </div>
+      <div class="case-study__headings">
+        <h1 class="case-study__chapter" id="inventorypro-case-study">InventoryPro — App Icon &amp; Launch Screen</h1>
+        <p class="case-study__subtitle">Internal B2B tool at Focalpay</p>
+      </div>
+    </div>
+    <div class="case-study__body">
+      <p>An app icon and launch screen for Focalpay's internal inventory management tool. B2B tools often get the least design attention — they're assumed to be for "power users" who don't care how things look. <strong>That assumption is wrong, and this project pushed back against it.</strong> The warehouse trolley icon was chosen for immediate recognisability: anyone who works with inventory knows what it means within a fraction of a second.</p>
+      <p>The paired filled/outlined icon treatment creates a consistent visual language with other Focalpay app icons, reinforcing the product family feel. The soft blue-gray palette keeps it neutral and professional — the right tone for a tool that warehouse teams will open dozens of times a day. Even for something as small as an app icon, legibility at every size was part of the process.</p>
+    </div>
+    <ul class="case-study__tags" aria-label="Project tags">
+      <li class="case-study__tag">App Icon Design</li>
+      <li class="case-study__tag">B2B Tool</li>
+      <li class="case-study__tag">Retail Tech</li>
+      <li class="case-study__tag case-study__tag--gray">Visual System</li>
+      <li class="case-study__tag case-study__tag--gray">Focalpay</li>
+    </ul>
+  </section>
   <figure class="ui-detail__featured">
     <img src="vc-ui-08-inventory-app-logo.png" alt="InventoryPro app icon — splash phone screen with paired filled and outlined warehouse-trolley icons on a soft blue-gray composition" width="1024" height="717" loading="eager" decoding="async" fetchpriority="high">
   </figure>

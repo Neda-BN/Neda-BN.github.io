@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
-<title>Focalpay app · UI Design · Neda Bagheri</title>
+<title>Focalpay Social Media Motion Graphics · Motion Campaigns · Neda Bagheri</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -100,7 +100,7 @@ nav {
 .n-btn:hover { background: var(--accent) !important; transform: translateY(-1px); }
 .n-btn--cv-soon { cursor: default; user-select: none; -webkit-user-select: none; }
 
-/* ── CUSTOM CURSOR (matches index.html / visual-craft.html) ── */
+/* ── CUSTOM CURSOR ── */
 #dot {
   position: fixed; z-index: 9999; pointer-events: none;
   width: 8px; height: 8px; border-radius: 50%; background: var(--warm);
@@ -167,23 +167,25 @@ main {
   animation: ui-detail-fade 0.65s var(--ease-soft) 0.05s forwards;
 }
 
-.ui-detail__featured {
+/* ── VIDEO PLAYER ── */
+.ui-detail__video {
+  position: relative;
   margin: 0;
   border-radius: 14px;
   overflow: hidden;
-  background: #ECEAE4;
+  background: #000;                /* dark backdrop while the video loads / for any letterboxing */
   border: 1px solid var(--line);
+  aspect-ratio: 16 / 9;             /* keeps a stable slot before metadata loads, no layout shift */
   opacity: 0;
   transform: translateY(18px);
   animation: ui-detail-rise 0.75s var(--ease-spring) 0.15s forwards;
 }
-.ui-detail__featured img {
+.ui-detail__video video {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
-  image-rendering: -webkit-optimize-contrast;
-  transform: translateZ(0);
-  backface-visibility: hidden;
+  object-fit: contain;              /* show the full frame even if source ratio differs from 16:9 */
+  background: #000;
 }
 
 @keyframes ui-detail-fade { to { opacity: 1; } }
@@ -273,9 +275,8 @@ footer p { font-size: 13px; color: var(--light); margin: 0; }
 @media (prefers-reduced-motion: reduce) {
   body.hero-cursor-none { cursor: auto; }
   #dot, #ring { display: none !important; }
-  .n-links a:not(.n-btn), .n-btn, .footer-social a, .ui-detail__back,
-  .ui-detail__featured img { transition: none !important; }
-  .ui-detail__title, .ui-detail__featured {
+  .n-links a:not(.n-btn), .n-btn, .footer-social a, .ui-detail__back { transition: none !important; }
+  .ui-detail__title, .ui-detail__video {
     opacity: 1 !important; transform: none !important; animation: none !important;
   }
   .ui-detail__back:hover, .ui-detail__back:focus-visible { gap: 8px; }
@@ -321,19 +322,29 @@ footer p { font-size: 13px; color: var(--light); margin: 0; }
 <nav>
   <a class="n-logo" href="index.html">NB.</a>
   <div class="n-links">
-    <a href="index.html" aria-current="page">Portfolio</a>
+    <a href="index.html">Portfolio</a>
     <a href="about.html">About</a>
-    <a href="visual-craft.html"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 L13.6 10.4 L20 12 L13.6 13.6 L12 20 L10.4 13.6 L4 12 L10.4 10.4 Z"/></svg>Visual Craft</a>
+    <a href="visual-craft.html" aria-current="page"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 L13.6 10.4 L20 12 L13.6 13.6 L12 20 L10.4 13.6 L4 12 L10.4 10.4 Z"/></svg>Visual Craft</a>
     <span class="n-btn n-btn--cv-soon" role="button" tabindex="-1" aria-disabled="true" title="CV coming soon">Download CV</span>
   </div>
 </nav>
 
 <main>
-  <a class="ui-detail__back" href="index.html#ui-design">Back to portfolio</a>
-  <div class="ui-detail__eyebrow">UI Design · 12 / 12</div>
-  <h1 class="ui-detail__title">Focalpay app</h1>
-  <figure class="ui-detail__featured">
-    <img src="vc-ui-12-focalpay-app.png" alt="Focalpay cashier app — diagonal grid of iPhone screens showing the splash, cart, products, and receipt views on an iridescent purple-pink gradient" width="1024" height="576" loading="eager" decoding="async" fetchpriority="high">
+  <a class="ui-detail__back" href="visual-craft.html#vc-motion">Back to Visual Craft</a>
+  <div class="ui-detail__eyebrow">Motion Campaigns · 04 / 05</div>
+  <h1 class="ui-detail__title">Focalpay Social Media Motion Graphics</h1>
+
+  <!-- Source video is square (~1:1); override the shared 16/9 slot so the
+       player matches its native aspect and avoids wide empty letterboxing.
+       The shared rules still cap max-width so it stays balanced on desktop. -->
+  <figure class="ui-detail__video" style="aspect-ratio: 1 / 1; max-width: 640px; margin-inline: auto;">
+    <video controls autoplay muted playsinline preload="auto"
+           poster="vc-motion-05-campaign.png"
+           aria-label="Focalpay Social Media Motion Graphics — campaign video">
+      <source src="vc-motion-05-campaign.mp4" type="video/mp4">
+      Your browser does not support embedded video.
+      <a href="vc-motion-05-campaign.mp4">Download the video</a> to watch it.
+    </video>
   </figure>
 </main>
 
@@ -365,6 +376,17 @@ footer p { font-size: 13px; color: var(--light); margin: 0; }
 </footer>
 
 <script>
+/* Respect prefers-reduced-motion: strip autoplay so the video stays on its
+   poster frame until the user explicitly hits play. */
+(function () {
+  try {
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  } catch (e) { return; }
+  document.querySelectorAll('video[autoplay]').forEach(function (v) {
+    v.removeAttribute('autoplay');
+    try { v.pause(); } catch (e2) {}
+  });
+})();
 (function () {
   var dot = document.getElementById('dot');
   var ring = document.getElementById('ring');

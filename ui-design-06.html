@@ -155,16 +155,75 @@ main {
   content: ''; flex: 1; height: 1px; background: var(--border); max-width: 96px;
 }
 
-.ui-detail__title {
-  font-family: 'Sora', sans-serif;
-  font-size: clamp(32px, 4.6vw, 52px);
-  font-weight: 700;
-  color: var(--ink);
-  line-height: 1.1;
-  letter-spacing: -0.022em;
+/* ── CASE STUDY (matches pos-app.html "section" pattern, scoped to this page) ── */
+.case-study {
   margin-bottom: 44px;
   opacity: 0;
-  animation: ui-detail-fade 0.65s var(--ease-soft) 0.05s forwards;
+  transform: translateY(18px);
+  animation: ui-detail-rise 0.75s var(--ease-spring) 0.1s forwards;
+}
+.case-study__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  padding: 0 0 28px 0;
+}
+.case-study__icon {
+  flex-shrink: 0;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--bg);
+  color: #6b6b6b;
+  display: flex; align-items: center; justify-content: center;
+}
+.case-study__icon svg { width: 26px; height: 26px; flex-shrink: 0; }
+.case-study__headings {
+  flex: 1; min-width: 0;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.case-study__chapter {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(2rem, 3.4vw + 0.75rem, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.028em; line-height: 1.08;
+  color: var(--ink);
+  margin: 0;
+}
+.case-study__subtitle {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(0.95rem, 0.6vw + 0.78rem, 1.1rem);
+  font-weight: 400; font-style: italic;
+  color: var(--mid);
+  line-height: 1.45; margin: 0;
+  max-width: 38em;
+}
+.case-study__body p {
+  color: var(--mid);
+  font-weight: 400;
+  margin: 0 0 16px;
+}
+.case-study__body p:last-of-type { margin-bottom: 0; }
+.case-study__body p strong { color: var(--ink); font-weight: 600; }
+.case-study__tags {
+  display: flex; flex-wrap: wrap;
+  gap: 8px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.case-study__tag {
+  font-family: 'Sora', sans-serif;
+  font-size: 12px; font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 4px 12px;
+  border-radius: 20px;
+  line-height: 1.5;
+}
+.case-study__tag--gray {
+  color: var(--mid);
+  background: #EEEAE4;
 }
 
 .ui-detail__featured {
@@ -186,7 +245,6 @@ main {
   backface-visibility: hidden;
 }
 
-@keyframes ui-detail-fade { to { opacity: 1; } }
 @keyframes ui-detail-rise { to { opacity: 1; transform: none; } }
 
 /* ── FOOTER STRIP (matches index.html) ── */
@@ -275,7 +333,7 @@ footer p { font-size: 13px; color: var(--light); margin: 0; }
   #dot, #ring { display: none !important; }
   .n-links a:not(.n-btn), .n-btn, .footer-social a, .ui-detail__back,
   .ui-detail__featured img { transition: none !important; }
-  .ui-detail__title, .ui-detail__featured {
+  .ui-detail__featured, .case-study {
     opacity: 1 !important; transform: none !important; animation: none !important;
   }
   .ui-detail__back:hover, .ui-detail__back:focus-visible { gap: 8px; }
@@ -287,11 +345,14 @@ footer p { font-size: 13px; color: var(--light); margin: 0; }
   nav { padding: 0 24px; }
   main { padding: 104px 24px 80px; }
   .ui-detail__back { margin-bottom: 36px; }
-  .ui-detail__title { margin-bottom: 32px; }
 }
 @media (max-width: 680px) {
   main { padding: 88px 20px 64px; }
-  .ui-detail__title { margin-bottom: 28px; }
+  .case-study { margin-bottom: 36px; }
+  .case-study__header { flex-direction: column; gap: 16px; padding-bottom: 22px; }
+  .case-study__icon { width: 48px; height: 48px; }
+  .case-study__icon svg { width: 22px; height: 22px; }
+  .case-study__tags { margin-top: 22px; }
   .footer-strip { padding: 56px 20px 72px; }
   footer { padding: 24px; flex-direction: column; align-items: flex-start; gap: 20px; }
 }
@@ -330,8 +391,34 @@ footer p { font-size: 13px; color: var(--light); margin: 0; }
 
 <main>
   <a class="ui-detail__back" href="index.html#ui-design">Back to portfolio</a>
-  <div class="ui-detail__eyebrow">UI Design · 06 / 12</div>
-  <h1 class="ui-detail__title">Food Delivery app</h1>
+  <div class="ui-detail__eyebrow">UI Design · 06 / 10</div>
+  <section class="case-study" aria-labelledby="food-delivery-case-study">
+    <div class="case-study__header">
+      <div class="case-study__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="3" width="15" height="13"/>
+          <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+          <circle cx="5.5" cy="18.5" r="2.5"/>
+          <circle cx="18.5" cy="18.5" r="2.5"/>
+        </svg>
+      </div>
+      <div class="case-study__headings">
+        <h1 class="case-study__chapter" id="food-delivery-case-study">Food Delivery App</h1>
+        <p class="case-study__subtitle">Freelance — a bold food-delivery identity</p>
+      </div>
+    </div>
+    <div class="case-study__body">
+      <p>Another freelance project — this time a food delivery app where the brief pushed for something more visually bold than the typical delivery app aesthetic. Most food apps play it safe: white backgrounds, food photography, the same card components. This one needed an identity. <strong>The magenta-pink system wasn't just a style choice — it was a positioning decision</strong>, making the app feel energetic and memorable in a crowded market.</p>
+      <p>The design covers the core discovery path: splash screen, category browse, and product detail. Even with a strong visual personality, usability wasn't compromised — text contrast was checked rigorously, and the category navigation was tested for thumb reach on smaller devices. The goal was an app that feels exciting to open and easy to use once you're in.</p>
+    </div>
+    <ul class="case-study__tags" aria-label="Project tags">
+      <li class="case-study__tag">Freelance</li>
+      <li class="case-study__tag">Brand Identity</li>
+      <li class="case-study__tag">Food Tech</li>
+      <li class="case-study__tag case-study__tag--gray">Mobile UI</li>
+      <li class="case-study__tag case-study__tag--gray">Contrast &amp; Accessibility</li>
+    </ul>
+  </section>
   <figure class="ui-detail__featured">
     <img src="vc-ui-06-food-delivery-app.png" alt="Food delivery app — three iPhone screens showing the splash, food categories, and a chicken-burger product detail on a magenta-pink composition" width="1024" height="717" loading="eager" decoding="async" fetchpriority="high">
   </figure>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
-<title>Grocery app · UI Design · Neda Bagheri</title>
+<title>Smart hotel reception · Illustrations · Neda Bagheri</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -155,75 +155,16 @@ main {
   content: ''; flex: 1; height: 1px; background: var(--border); max-width: 96px;
 }
 
-/* ── CASE STUDY (matches pos-app.html "section" pattern, scoped to this page) ── */
-.case-study {
+.ui-detail__title {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(32px, 4.6vw, 52px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.1;
+  letter-spacing: -0.022em;
   margin-bottom: 44px;
   opacity: 0;
-  transform: translateY(18px);
-  animation: ui-detail-rise 0.75s var(--ease-spring) 0.1s forwards;
-}
-.case-study__header {
-  display: flex;
-  align-items: flex-start;
-  gap: 22px;
-  padding: 0 0 28px 0;
-}
-.case-study__icon {
-  flex-shrink: 0;
-  width: 56px; height: 56px;
-  border-radius: 50%;
-  border: 1.5px solid var(--border);
-  background: var(--bg);
-  color: #6b6b6b;
-  display: flex; align-items: center; justify-content: center;
-}
-.case-study__icon svg { width: 26px; height: 26px; flex-shrink: 0; }
-.case-study__headings {
-  flex: 1; min-width: 0;
-  display: flex; flex-direction: column; gap: 12px;
-}
-.case-study__chapter {
-  font-family: 'Sora', sans-serif;
-  font-size: clamp(2rem, 3.4vw + 0.75rem, 2.8rem);
-  font-weight: 700;
-  letter-spacing: -0.028em; line-height: 1.08;
-  color: var(--ink);
-  margin: 0;
-}
-.case-study__subtitle {
-  font-family: 'Sora', sans-serif;
-  font-size: clamp(0.95rem, 0.6vw + 0.78rem, 1.1rem);
-  font-weight: 400; font-style: italic;
-  color: var(--mid);
-  line-height: 1.45; margin: 0;
-  max-width: 38em;
-}
-.case-study__body p {
-  color: var(--mid);
-  font-weight: 400;
-  margin: 0 0 16px;
-}
-.case-study__body p:last-of-type { margin-bottom: 0; }
-.case-study__body p strong { color: var(--ink); font-weight: 600; }
-.case-study__tags {
-  display: flex; flex-wrap: wrap;
-  gap: 8px;
-  margin: 28px 0 0;
-  padding: 0;
-  list-style: none;
-}
-.case-study__tag {
-  font-family: 'Sora', sans-serif;
-  font-size: 12px; font-weight: 600;
-  color: var(--accent);
-  background: var(--accent-light);
-  padding: 4px 12px;
-  border-radius: 20px;
-  line-height: 1.5;
-}
-.case-study__tag--gray {
-  color: var(--mid);
-  background: #EEEAE4;
+  animation: ui-detail-fade 0.65s var(--ease-soft) 0.05s forwards;
 }
 
 .ui-detail__featured {
@@ -236,6 +177,13 @@ main {
   transform: translateY(18px);
   animation: ui-detail-rise 0.75s var(--ease-spring) 0.15s forwards;
 }
+/* Stack additional featured images below the first with consistent breathing room. */
+.ui-detail__featured + .ui-detail__featured { margin-top: clamp(24px, 3.5vw, 40px); }
+/* Cascade the reveal so each figure rises in shortly after the previous one. */
+.ui-detail__featured:nth-of-type(2) { animation-delay: 0.28s; }
+.ui-detail__featured:nth-of-type(3) { animation-delay: 0.41s; }
+.ui-detail__featured:nth-of-type(4) { animation-delay: 0.54s; }
+.ui-detail__featured:nth-of-type(n+5) { animation-delay: 0.66s; }
 .ui-detail__featured img {
   width: 100%;
   height: auto;
@@ -245,6 +193,7 @@ main {
   backface-visibility: hidden;
 }
 
+@keyframes ui-detail-fade { to { opacity: 1; } }
 @keyframes ui-detail-rise { to { opacity: 1; transform: none; } }
 
 /* ── FOOTER STRIP (matches index.html) ── */
@@ -333,7 +282,7 @@ footer p { font-size: 13px; color: var(--light); margin: 0; }
   #dot, #ring { display: none !important; }
   .n-links a:not(.n-btn), .n-btn, .footer-social a, .ui-detail__back,
   .ui-detail__featured img { transition: none !important; }
-  .ui-detail__featured, .case-study {
+  .ui-detail__title, .ui-detail__featured {
     opacity: 1 !important; transform: none !important; animation: none !important;
   }
   .ui-detail__back:hover, .ui-detail__back:focus-visible { gap: 8px; }
@@ -345,14 +294,11 @@ footer p { font-size: 13px; color: var(--light); margin: 0; }
   nav { padding: 0 24px; }
   main { padding: 104px 24px 80px; }
   .ui-detail__back { margin-bottom: 36px; }
+  .ui-detail__title { margin-bottom: 32px; }
 }
 @media (max-width: 680px) {
   main { padding: 88px 20px 64px; }
-  .case-study { margin-bottom: 36px; }
-  .case-study__header { flex-direction: column; gap: 16px; padding-bottom: 22px; }
-  .case-study__icon { width: 48px; height: 48px; }
-  .case-study__icon svg { width: 22px; height: 22px; }
-  .case-study__tags { margin-top: 22px; }
+  .ui-detail__title { margin-bottom: 28px; }
   .footer-strip { padding: 56px 20px 72px; }
   footer { padding: 24px; flex-direction: column; align-items: flex-start; gap: 20px; }
 }
@@ -372,6 +318,24 @@ footer p { font-size: 13px; color: var(--light); margin: 0; }
   .n-btn { font-size: 0 !important; padding: 8px 14px; }
   .n-btn::before { content: 'CV'; font-size: 10px; letter-spacing: 0.08em; }
 }
+
+/* ── ILLUSTRATION PROJECT PAGE OVERRIDE ──
+   Smaller, centered, more subtle title above a ~1.5x smaller centered hero
+   (640px max vs. the default 960px main slot). Inherits everything else
+   from the shared rules above: fade-in animation, reduced-motion handling,
+   and responsive paddings (figure shrinks naturally on narrow viewports
+   because max-width: 640px gives way to content width when smaller). */
+.ui-detail__title {
+  text-align: center;
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--ink2);
+}
+.ui-detail__featured {
+  max-width: 640px;
+  margin-inline: auto;
+}
 </style>
 </head>
 <body class="hero-cursor-none">
@@ -382,45 +346,20 @@ footer p { font-size: 13px; color: var(--light); margin: 0; }
 <nav>
   <a class="n-logo" href="index.html">NB.</a>
   <div class="n-links">
-    <a href="index.html" aria-current="page">Portfolio</a>
+    <a href="index.html">Portfolio</a>
     <a href="about.html">About</a>
-    <a href="visual-craft.html"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 L13.6 10.4 L20 12 L13.6 13.6 L12 20 L10.4 13.6 L4 12 L10.4 10.4 Z"/></svg>Visual Craft</a>
+    <a href="visual-craft.html" aria-current="page"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 L13.6 10.4 L20 12 L13.6 13.6 L12 20 L10.4 13.6 L4 12 L10.4 10.4 Z"/></svg>Visual Craft</a>
     <span class="n-btn n-btn--cv-soon" role="button" tabindex="-1" aria-disabled="true" title="CV coming soon">Download CV</span>
   </div>
 </nav>
 
 <main>
-  <a class="ui-detail__back" href="index.html#ui-design">Back to portfolio</a>
-  <div class="ui-detail__eyebrow">UI Design · 01 / 10</div>
-  <section class="case-study" aria-labelledby="grocery-case-study">
-    <div class="case-study__header">
-      <div class="case-study__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-          <line x1="3" y1="6" x2="21" y2="6"/>
-          <path d="M16 10a4 4 0 0 1-8 0"/>
-        </svg>
-      </div>
-      <div class="case-study__headings">
-        <h1 class="case-study__chapter" id="grocery-case-study">Grocery App</h1>
-        <p class="case-study__subtitle">Internal project at Focalpay</p>
-      </div>
-    </div>
-    <div class="case-study__body">
-      <p>This was an internal project at Focalpay — a companion shopping app for grocery stores already running on the Focalpay ecosystem. The brief was clear: <strong>make in-store shopping feel faster without making it feel rushed</strong>. I focused on three moments that matter most — scanning a product, browsing the catalog, and reviewing the cart — and stripped everything else back. Contrast ratios were checked at every step to meet WCAG AA, and tap targets were sized for real hands in a real store, not just a design tool preview.</p>
-      <p>The teal and gray palette was a deliberate choice. It reads as fresh and trustworthy — right for a food context — without falling into the tired greens that dominate grocery branding. The result is an interface that feels like it belongs in the store, not on top of it.</p>
-    </div>
-    <ul class="case-study__tags" aria-label="Project tags">
-      <li class="case-study__tag">Mobile UI</li>
-      <li class="case-study__tag">WCAG AA</li>
-      <li class="case-study__tag">Accessibility</li>
-      <li class="case-study__tag case-study__tag--gray">Retail Tech</li>
-      <li class="case-study__tag case-study__tag--gray">iOS</li>
-    </ul>
-  </section>
+  <a class="ui-detail__back" href="visual-craft.html#vc-illustration">Back to Visual Craft</a>
+  <div class="ui-detail__eyebrow">Illustrations &middot; 09 / 13</div>
+  <h1 class="ui-detail__title">Smart hotel reception</h1>
 
-  <figure class="ui-detail__featured">
-    <img src="vc-ui-01-grocery-app.png" alt="Grocery shopping app — three iPhone screens showing product scan, store catalog, and cart on a teal and gray composition" width="1024" height="716" loading="eager" decoding="async" fetchpriority="high">
+  <figure class="ui-detail__featured" style="background: #fff;">
+    <img src="vc-illustration-10.png" alt="Smart hotel reception — guest with luggage checking in via smartphone with receptionist behind the desk" width="1024" height="857" loading="eager" decoding="async" fetchpriority="high">
   </figure>
 </main>
 
