@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
-<title>InventoryPro — App Icon &amp; Launch Screen · UI Design · Neda Bagheri</title>
+<title>Paradise Passport · UI Design · Neda Bagheri</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -205,6 +205,16 @@ main {
 }
 .case-study__body p:last-of-type { margin-bottom: 0; }
 .case-study__body p strong { color: var(--ink); font-weight: 600; }
+.case-study__body h3 {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  margin: 24px 0 8px;
+  line-height: 1.4;
+}
+.case-study__body h3 + p { margin-top: 0; }
 .case-study__tags {
   display: flex; flex-wrap: wrap;
   gap: 8px;
@@ -391,35 +401,41 @@ footer p { font-size: 13px; color: var(--light); margin: 0; }
 
 <main>
   <a class="ui-detail__back" href="index.html#ui-design">Back to portfolio</a>
-  <div class="ui-detail__eyebrow">UI Design · 08 / 12</div>
-  <section class="case-study" aria-labelledby="inventorypro-case-study">
+  <div class="ui-detail__eyebrow">UI Design · 12 / 12</div>
+  <section class="case-study" aria-labelledby="paradise-passport-case-study">
     <div class="case-study__header">
       <div class="case-study__icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-          <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-          <line x1="12" y1="22.08" x2="12" y2="12"/>
+          <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
+          <line x1="8" y1="2" x2="8" y2="18"/>
+          <line x1="16" y1="6" x2="16" y2="22"/>
         </svg>
       </div>
       <div class="case-study__headings">
-        <h1 class="case-study__chapter" id="inventorypro-case-study">InventoryPro — App Icon &amp; Launch Screen</h1>
-        <p class="case-study__subtitle">Internal B2B tool at Focalpay</p>
+        <h1 class="case-study__chapter" id="paradise-passport-case-study">Paradise Passport</h1>
+        <p class="case-study__subtitle">Travel Reward Campaign</p>
       </div>
     </div>
     <div class="case-study__body">
-      <p>An app icon and launch screen for Focalpay's internal inventory management tool. B2B tools often get the least design attention — they're assumed to be for "power users" who don't care how things look. <strong>That assumption is wrong, and this project pushed back against it.</strong> The warehouse trolley icon was chosen for immediate recognisability: anyone who works with inventory knows what it means within a fraction of a second.</p>
-      <p>The paired filled/outlined icon treatment creates a consistent visual language with other Focalpay app icons, reinforcing the product family feel. The soft blue-gray palette keeps it neutral and professional — the right tone for a tool that warehouse teams will open dozens of times a day. Even for something as small as an app icon, legibility at every size was part of the process.</p>
+      <p>A travel-themed rewards campaign where collecting stamps feels like actually planning a trip. The concept was built around one insight: the most motivating loyalty mechanics are the ones that make progress visible and the destination feel real — not abstract points on a screen.</p>
+      <h3>Color &amp; Contrast</h3>
+      <p>The palette runs warm: sandy beige for the lower content area, tropical teal and ocean blue for the hero, and a burnt orange (#C15A10) for all primary CTAs. This warm-to-cool split creates a natural visual zone — the illustration world lives at the top, the functional UI lives below — and gives users an immediate sense of place before they read a word. Orange CTAs against the sand background <strong>maintain a 4.8:1 contrast ratio, meeting WCAG AA</strong>, while standing out without competing with the illustration.</p>
+      <h3>Typography</h3>
+      <p>The logotype uses a display serif with hand-styled treatment to feel like a travel brand, not a loyalty program. This single typographic choice does heavy lifting: it sets the campaign tone, differentiates the experience from a standard app, and signals that what follows is a world to explore. All functional text — progress labels, challenge descriptions, CTA copy — returns to a clean sans-serif to keep usability sharp underneath the visual theatre.</p>
+      <h3>Visual Hierarchy &amp; Engagement Mechanics</h3>
+      <p>The landing screen leads with the illustration world (emotional hook), then progress (personal investment), then the daily challenge (immediate action). This order is deliberate: <strong>you feel the destination before you&rsquo;re asked to do anything</strong>. The scratch card screen does the opposite — it removes all context and focuses entirely on the reveal moment, using a single oversized reward value and one CTA. Surprise mechanics work best when nothing competes for attention at the moment of reveal.</p>
     </div>
     <ul class="case-study__tags" aria-label="Project tags">
-      <li class="case-study__tag">App Icon Design</li>
-      <li class="case-study__tag">B2B Tool</li>
-      <li class="case-study__tag">Retail Tech</li>
-      <li class="case-study__tag case-study__tag--gray">Visual System</li>
-      <li class="case-study__tag case-study__tag--gray">Focalpay</li>
+      <li class="case-study__tag">Campaign Design</li>
+      <li class="case-study__tag">Gamification UI</li>
+      <li class="case-study__tag">Travel Theme</li>
+      <li class="case-study__tag case-study__tag--gray">Mobile-first</li>
+      <li class="case-study__tag case-study__tag--gray">Visual Craft</li>
     </ul>
   </section>
+
   <figure class="ui-detail__featured">
-    <img src="vc-ui-08-inventory-app-logo.png" alt="InventoryPro app icon — splash phone screen with paired filled and outlined warehouse-trolley icons on a soft blue-gray composition" width="1024" height="717" loading="eager" decoding="async" fetchpriority="high">
+    <img src="vc-ui-12-paradise-passport.png" alt="Paradise Passport travel rewards app — two iPhone screens showing a stamp-collection progress dashboard with beach artwork, and a 'Scratch & Win' reveal of a 20% off reward on a deep blue tropical composition" width="1024" height="717" loading="eager" decoding="async" fetchpriority="high">
   </figure>
 </main>
 

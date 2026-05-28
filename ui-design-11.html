@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
-<title>InventoryPro — App Icon &amp; Launch Screen · UI Design · Neda Bagheri</title>
+<title>Retail Rewards Rush · UI Design · Neda Bagheri</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -205,6 +205,16 @@ main {
 }
 .case-study__body p:last-of-type { margin-bottom: 0; }
 .case-study__body p strong { color: var(--ink); font-weight: 600; }
+.case-study__body h3 {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  margin: 24px 0 8px;
+  line-height: 1.4;
+}
+.case-study__body h3 + p { margin-top: 0; }
 .case-study__tags {
   display: flex; flex-wrap: wrap;
   gap: 8px;
@@ -391,35 +401,43 @@ footer p { font-size: 13px; color: var(--light); margin: 0; }
 
 <main>
   <a class="ui-detail__back" href="index.html#ui-design">Back to portfolio</a>
-  <div class="ui-detail__eyebrow">UI Design · 08 / 12</div>
-  <section class="case-study" aria-labelledby="inventorypro-case-study">
+  <div class="ui-detail__eyebrow">UI Design · 11 / 12</div>
+  <section class="case-study" aria-labelledby="retail-rewards-rush-case-study">
     <div class="case-study__header">
       <div class="case-study__icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-          <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-          <line x1="12" y1="22.08" x2="12" y2="12"/>
+          <polyline points="20 12 20 22 4 22 4 12"/>
+          <rect x="2" y="7" width="20" height="5"/>
+          <line x1="12" y1="22" x2="12" y2="7"/>
+          <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+          <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
         </svg>
       </div>
       <div class="case-study__headings">
-        <h1 class="case-study__chapter" id="inventorypro-case-study">InventoryPro — App Icon &amp; Launch Screen</h1>
-        <p class="case-study__subtitle">Internal B2B tool at Focalpay</p>
+        <h1 class="case-study__chapter" id="retail-rewards-rush-case-study">Retail Rewards Rush</h1>
+        <p class="case-study__subtitle">Loyalty Challenge Experience</p>
       </div>
     </div>
     <div class="case-study__body">
-      <p>An app icon and launch screen for Focalpay's internal inventory management tool. B2B tools often get the least design attention — they're assumed to be for "power users" who don't care how things look. <strong>That assumption is wrong, and this project pushed back against it.</strong> The warehouse trolley icon was chosen for immediate recognisability: anyone who works with inventory knows what it means within a fraction of a second.</p>
-      <p>The paired filled/outlined icon treatment creates a consistent visual language with other Focalpay app icons, reinforcing the product family feel. The soft blue-gray palette keeps it neutral and professional — the right tone for a tool that warehouse teams will open dozens of times a day. Even for something as small as an app icon, legibility at every size was part of the process.</p>
+      <p>A gamified loyalty experience designed to make everyday shopping feel rewarding. The challenge was taking a familiar retail app context and injecting the visual energy of a mini-game campaign — without it feeling cheap or disconnected from the brand.</p>
+      <h3>Color &amp; Contrast</h3>
+      <p>Deep purple (#2D1A6B) paired with gold (#FFD700) creates a contrast ratio that <strong>passes WCAG AA on all interactive elements</strong>, while the pairing itself does something more important: purple signals premium and exclusivity; gold signals reward and achievement. Neither color is accidental. White text on the darkest purple backgrounds was tested at every screen size to ensure legibility under typical retail lighting conditions — bright stores, users glancing quickly.</p>
+      <h3>Typography</h3>
+      <p>A heavy display weight was used for reward moments (&ldquo;YOU WON!&rdquo;, &ldquo;+100&rdquo;) to create a clear typographic event — something the eye lands on immediately. Body text and mission labels stay in a clean regular weight to let the numbers breathe. The size jump between the reward figure and supporting text is intentional: hierarchy isn&rsquo;t just about size, it&rsquo;s about telling the user where to look first, second, and third.</p>
+      <h3>Visual Hierarchy &amp; Engagement Mechanics</h3>
+      <p>Every screen has <strong>one primary action and one reward signal</strong>. The home screen leads with points (identity), then mission (urgency), then spin wheel (temptation). The spin screen strips everything away except the wheel and the CTA — no distractions when the moment of play arrives. The win screen inverts the hierarchy entirely: the reward number dominates, and the next action (&ldquo;Continue shopping&rdquo;) comes only after the celebration lands.</p>
     </div>
     <ul class="case-study__tags" aria-label="Project tags">
-      <li class="case-study__tag">App Icon Design</li>
-      <li class="case-study__tag">B2B Tool</li>
-      <li class="case-study__tag">Retail Tech</li>
-      <li class="case-study__tag case-study__tag--gray">Visual System</li>
-      <li class="case-study__tag case-study__tag--gray">Focalpay</li>
+      <li class="case-study__tag">Gamification UI</li>
+      <li class="case-study__tag">Loyalty &amp; Rewards</li>
+      <li class="case-study__tag">Mobile-first</li>
+      <li class="case-study__tag case-study__tag--gray">Campaign Design</li>
+      <li class="case-study__tag case-study__tag--gray">Visual Craft</li>
     </ul>
   </section>
+
   <figure class="ui-detail__featured">
-    <img src="vc-ui-08-inventory-app-logo.png" alt="InventoryPro app icon — splash phone screen with paired filled and outlined warehouse-trolley icons on a soft blue-gray composition" width="1024" height="717" loading="eager" decoding="async" fetchpriority="high">
+    <img src="vc-ui-11-retail-rewards-rush.png" alt="Retail Rewards Rush loyalty app — three iPhone screens showing a points dashboard with a 'Spin & Win' tile, a spinning prize wheel against gift-box artwork, and a 'You won! +100' confirmation on a deep purple and yellow composition" width="1024" height="717" loading="eager" decoding="async" fetchpriority="high">
   </figure>
 </main>
 
