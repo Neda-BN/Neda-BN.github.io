@@ -915,6 +915,71 @@
     .meta-item { border-right: none; border-bottom: 1px solid var(--border); }
     .meta-item:last-child { border-bottom: none; }
   }
+
+  /* ── INTERACTIVE PROTOTYPE EMBED (click-to-load) ── */
+  .proto-embed { margin-top: 28px; }
+  .proto-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    max-height: 72vh;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 72% 62% at 50% 40%, rgba(196, 98, 45, 0.07) 0%, transparent 62%),
+      var(--surface);
+  }
+  .proto-frame iframe {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    border: 0; display: block;
+  }
+  .proto-poster {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 16px; text-align: center; padding: 32px;
+    width: 100%; cursor: pointer;
+    background: transparent; border: 0;
+    font-family: var(--sans); color: var(--dark);
+    transition: background 0.3s var(--ease-soft);
+  }
+  .proto-poster:hover { background: rgba(245, 235, 227, 0.30); }
+  .proto-poster:focus-visible { outline: 2px solid var(--accent); outline-offset: -4px; }
+  .proto-play {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: var(--accent); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 12px 30px rgba(196, 98, 45, 0.32);
+    transition: transform 0.4s var(--ease-spring);
+  }
+  .proto-poster:hover .proto-play { transform: scale(1.06); }
+  .proto-play svg { width: 26px; height: 26px; margin-left: 3px; fill: currentColor; }
+  .proto-poster-t { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: var(--dark); }
+  .proto-poster-h { font-size: 13px; color: var(--mid); font-weight: 300; max-width: 32em; line-height: 1.55; margin: 0; }
+  .proto-actions {
+    display: flex; align-items: center; gap: 16px;
+    flex-wrap: wrap; margin-top: 14px;
+  }
+  .proto-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--sans);
+    font-size: 13px; font-weight: 500; color: var(--mid);
+    text-decoration: none; letter-spacing: 0.01em;
+    transition: color 0.25s var(--ease-soft), gap 0.25s var(--ease-spring);
+  }
+  .proto-link:hover, .proto-link:focus-visible { color: var(--accent); gap: 9px; }
+  .proto-note { font-size: 12px; color: var(--light); font-weight: 300; margin: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    .proto-poster, .proto-play, .proto-link { transition: none !important; }
+    .proto-poster:hover .proto-play { transform: none !important; }
+  }
+  @media (max-width: 640px) {
+    .proto-frame { aspect-ratio: 3 / 4; max-height: none; }
+    .proto-play { width: 56px; height: 56px; }
+    .proto-poster-t { font-size: 1.1rem; }
+  }
 </style>
 </head>
 <body>
@@ -1329,6 +1394,29 @@
 
   <div class="divider"></div>
 
+  <section class="section fade-in reveal case-anchor" id="prototype">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="M13 13l6 6"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">Interactive Prototype</h2><p class="section-subtitle">Click through the real flow</p></div>
+    </div>
+    <p>The screens above come to life here. Launch the embedded prototype to ring up items, take a payment, and move through the POS exactly as a cashier would — no Figma account needed. It loads on tap to keep the page fast.</p>
+    <div class="proto-embed reveal reveal-media">
+      <div class="proto-frame">
+        <button type="button" class="proto-poster" data-embed="https://embed.figma.com/proto/PL87ABRLiYVHUmikDvnsF3/PORTFOLIO?page-id=583%3A472148&amp;node-id=1525-50894&amp;viewport=31%2C-908%2C0.2&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=1525%3A50894&amp;embed-host=share" data-title="Cashier POS & Payment Application — interactive Figma prototype" aria-label="Launch the interactive Cashier POS prototype">
+          <span class="proto-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="proto-poster-t">Launch interactive prototype</span>
+          <span class="proto-poster-h">Clickable Figma prototype · loads on tap. Best viewed on desktop.</span>
+        </button>
+      </div>
+      <div class="proto-actions">
+        <a class="proto-link" href="https://www.figma.com/proto/PL87ABRLiYVHUmikDvnsF3/PORTFOLIO?page-id=583%3A472148&amp;node-id=1525-50894&amp;viewport=31%2C-908%2C0.2&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=1525%3A50894" target="_blank" rel="noopener noreferrer">Open in Figma ↗</a>
+        <p class="proto-note">Opens the full prototype in a new tab.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <section class="section fade-in reveal case-anchor" id="user-journey">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
@@ -1591,6 +1679,22 @@
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
   document.querySelectorAll('.reveal, .reveal-media').forEach(el => revealObserver.observe(el));
+
+  document.querySelectorAll('.proto-poster').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const frame = btn.closest('.proto-frame');
+      const src = btn.getAttribute('data-embed');
+      if (!frame || !src) return;
+      const iframe = document.createElement('iframe');
+      iframe.src = src;
+      iframe.title = btn.getAttribute('data-title') || 'Figma interactive prototype';
+      iframe.setAttribute('allow', 'fullscreen');
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.loading = 'lazy';
+      frame.appendChild(iframe);
+      btn.remove();
+    });
+  });
 
   (function heroScrollLoop() {
     const video = document.getElementById('hero-interaction-video');
