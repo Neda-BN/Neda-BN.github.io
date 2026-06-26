@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
+<link rel="stylesheet" href="fonts/sora.css">
+<link href="https://fonts.googleapis.com/css2?family=Sora:ital,wght@1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<title>Visual Craft · Neda Bagheri</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F0; --surface: #FFFFFF; --dark: #1A1A1A; --mid: #555555; --light: #999999;
+    --accent: #C4622D; --accent-light: #F5EBE3; --border: #E8E4DC;
+    --bg2: #EFECE6; --line: #E8E4DC; --ink: #1A1A1A; --ink2: #555555; --ink3: #A8A299; --warm: #C4622D;
+    --serif: 'Sora', sans-serif; --sans: 'Open Sans', sans-serif;
+    --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { color-scheme: light; overflow-x: clip; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--dark); font-size: 16px; line-height: 1.7; overflow-x: hidden; position: relative; }
+  body.hero-cursor-none { cursor: none; }
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(ellipse 88% 55% at 50% -8%, rgba(196, 98, 45, 0.045) 0%, transparent 52%),
+      radial-gradient(ellipse 65% 45% at 102% 88%, rgba(232, 228, 220, 0.5) 0%, transparent 48%),
+      radial-gradient(ellipse 50% 40% at -5% 75%, rgba(245, 235, 227, 0.35) 0%, transparent 50%);
+    opacity: 0.95;
+  }
+  img, video { max-width: 100%; height: auto; }
+
+  /* ── NAV (matches about.html) ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 52px; height: 64px;
+    background: rgba(249,247,244,0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .n-logo {
+    font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: -0.01em;
+    color: var(--dark); text-decoration: none;
+  }
+  .n-links { display: flex; gap: 32px; align-items: center; perspective: 900px; }
+  .n-links a {
+    font-family: 'Sora', sans-serif; font-size: 12px; font-weight: 400; color: var(--mid);
+    text-decoration: none; letter-spacing: 0.04em; white-space: nowrap;
+  }
+  .n-links a:not(.n-btn) {
+    position: relative; display: inline-block;
+    transition: color 0.3s var(--ease-soft), transform 0.4s var(--ease-spring);
+  }
+  .n-links a:not(.n-btn)::after {
+    content: ''; position: absolute; left: 0; bottom: -5px;
+    width: 100%; height: 2px; background: var(--accent); border-radius: 1px;
+    transform: scaleX(0); transform-origin: center; opacity: 0.88;
+    transition: transform 0.4s var(--ease-spring); pointer-events: none;
+  }
+  .n-links a:not(.n-btn):hover,
+  .n-links a:not(.n-btn):focus-visible { color: var(--accent); transform: translateY(-2px); }
+  .n-links a:not(.n-btn):hover::after,
+  .n-links a:not(.n-btn):focus-visible::after { transform: scaleX(1); }
+  .n-links a:not(.n-btn)[aria-current="page"]::after { transform: scaleX(1); }
+  .n-links a:not(.n-btn)[aria-current="page"] { color: var(--accent); font-weight: 600; }
+  .n-links a .n-ico {
+    width: 14px; height: 14px; vertical-align: -3px; margin-right: 6px;
+    color: var(--accent); opacity: 0.85;
+    transition: transform 0.4s var(--ease-spring), opacity 0.3s var(--ease-soft);
+  }
+  .n-links a[aria-current="page"] .n-ico { opacity: 1; }
+  .n-links a:hover .n-ico,
+  .n-links a:focus-visible .n-ico { opacity: 1; transform: rotate(18deg) scale(1.08); }
+  .n-btn {
+    font-family: 'Sora', sans-serif; font-size: 11px !important; font-weight: 600 !important; letter-spacing: 0.08em !important;
+    text-transform: uppercase; background: var(--dark); color: #f9f7f4 !important;
+    padding: 9px 20px; border-radius: 100px; white-space: nowrap;
+    transition: background 0.25s, transform 0.2s !important;
+  }
+  .n-btn:hover { background: var(--accent) !important; transform: translateY(-1px); }
+  .n-btn--cv-soon { cursor: default; user-select: none; -webkit-user-select: none; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  /* ── CUSTOM CURSOR (matches about.html) ── */
+  #dot {
+    position: fixed; z-index: 9999; pointer-events: none;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--warm); transform: translate(-50%, -50%); mix-blend-mode: multiply;
+  }
+  #ring {
+    position: fixed; z-index: 9998; pointer-events: none;
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1.5px solid rgba(200, 98, 42, 0.3); transform: translate(-50%, -50%);
+    transition: width 0.35s, height 0.35s, border-color 0.3s;
+  }
+  body.lh #dot { transform: translate(-50%, -50%) scale(2); opacity: 0.5; }
+  body.lh #ring { width: 60px; height: 60px; border-color: rgba(200, 98, 42, 0.5); }
+
+  /* ── PAGE LAYOUT ── */
+  main {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 72px 48px 100px;
+  }
+
+  /* ── HERO ── */
+  .vc-hero { max-width: 760px; margin: 0 auto 72px; text-align: left; }
+  .sec-label {
+    font-size: 10px; font-weight: 600; color: var(--ink3);
+    letter-spacing: 0.16em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .sec-label::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  .vc-hero .sec-label { margin-bottom: 24px; }
+  .vc-hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 42px);
+    line-height: 1.2; margin-bottom: 20px; color: var(--ink);
+    font-weight: 600; letter-spacing: -0.01em;
+  }
+  .vc-hero h1 em { font-style: italic; color: var(--accent); font-weight: 500; }
+  .vc-hero .lead {
+    font-size: 18px; color: var(--mid); font-weight: 300;
+    line-height: 1.6; max-width: 620px;
+  }
+
+  /* ── GALLERY SECTION ── */
+  .vc-section { margin-top: clamp(56px, 8vw, 88px); }
+  .vc-section + .vc-section { margin-top: clamp(64px, 9vw, 96px); }
+  .vc-section__head {
+    display: flex; flex-direction: column; gap: 10px;
+    margin-bottom: 28px;
+  }
+  .vc-section__num {
+    font-family: var(--serif);
+    font-size: 10px; font-weight: 600; color: var(--ink3);
+    letter-spacing: 0.16em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .vc-section__num::after { content: ''; flex: 1; height: 1px; background: var(--line); max-width: 96px; }
+  .vc-section h2 {
+    font-family: var(--serif);
+    font-size: clamp(22px, 2.4vw, 28px);
+    font-weight: 600; color: var(--ink);
+    letter-spacing: -0.01em; line-height: 1.25;
+  }
+
+  /* ── HORIZONTAL SCROLLER ── */
+  .vc-scroller-wrap { position: relative; }
+  .vc-scroller-wrap::before,
+  .vc-scroller-wrap::after {
+    content: ''; position: absolute; top: 0; bottom: 10px; width: 56px;
+    pointer-events: none; z-index: 2;
+    transition: opacity 0.3s var(--ease-soft);
+  }
+  .vc-scroller-wrap::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg) 10%, rgba(247,245,240,0));
+  }
+  .vc-scroller-wrap::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg) 10%, rgba(247,245,240,0));
+  }
+  .vc-scroller-wrap[data-at-start="true"]::before { opacity: 0; }
+  .vc-scroller-wrap[data-at-end="true"]::after { opacity: 0; }
+
+  .vc-scroller {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: clamp(240px, 28vw, 320px);
+    gap: 18px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 10px;
+  }
+  .vc-scroller::-webkit-scrollbar { display: none; }
+
+  /* ── CARD ── (static, non-clickable gallery item) */
+  .vc-card {
+    position: relative;
+    display: block;
+    margin: 0;                 /* reset default <figure> margin */
+    aspect-ratio: 1 / 1;
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--bg2);
+    border: 1px solid var(--line);
+    cursor: default;
+    scroll-snap-align: start;
+    isolation: isolate;
+    transition: transform 0.45s var(--ease-spring),
+                box-shadow 0.45s var(--ease-soft),
+                border-color 0.3s var(--ease-soft);
+    will-change: transform;
+  }
+  .vc-card::before {
+    /* empty-state pattern, only visible when no image is set */
+    content: '';
+    position: absolute; inset: 0; z-index: 0;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(196,98,45,0.16) 1px, transparent 0);
+    background-size: 14px 14px;
+    opacity: 0.45;
+  }
+  .vc-card[data-has-image="true"]::before { opacity: 0; }
+  /* Cards displaying images already pre-padded against their own backdrop
+     get a soft neutral fill so any "contain" letterboxing reads as design,
+     not as a gap. */
+  .vc-card[data-has-image="true"] { background: #ECEAE4; }
+  /* Opt-in dark letterbox for cards whose source already lives on black
+     (e.g. event posters). Specificity beats the neutral rule above. */
+  .vc-card[data-has-image="true"].vc-card--bg-dark { background: #000; }
+  /* Opt-in white letterbox for cards whose source sits on transparent or
+     near-white (e.g. flat illustrations). Flips the bottom veil gradient
+     and title color so the caption stays readable against light imagery. */
+  .vc-card[data-has-image="true"].vc-card--bg-light { background: #ffffff; }
+  .vc-card--bg-light .vc-card__veil {
+    background: linear-gradient(
+      to top,
+      rgba(255,255,255,0.86) 0%,
+      rgba(255,255,255,0.62) 28%,
+      rgba(255,255,255,0.24) 58%,
+      rgba(255,255,255,0)    100%
+    );
+  }
+  .vc-card--bg-light .vc-card__title {
+    color: var(--ink);
+    text-shadow: 0 1px 8px rgba(255,255,255,0.55);
+  }
+  .vc-card__img {
+    position: absolute; inset: 0; z-index: 1;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    display: block;
+    /* Hint browsers to preserve edge contrast when downscaling logos.
+       Falls back to default high-quality bilinear sampling everywhere else. */
+    image-rendering: -webkit-optimize-contrast;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    transition: transform 0.7s var(--ease-spring), filter 0.4s var(--ease-soft);
+  }
+  /* Use --contain on cards whose source already includes whitespace
+     (mockups, wide wordmarks) so the full logo stays visible. */
+  .vc-card--contain .vc-card__img { object-fit: contain; }
+  .vc-card__veil {
+    position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+    height: 55%;
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,0.62) 0%,
+      rgba(0,0,0,0.42) 28%,
+      rgba(0,0,0,0.18) 58%,
+      rgba(0,0,0,0) 100%
+    );
+    pointer-events: none;
+    opacity: 0.95;
+    transition: opacity 0.4s var(--ease-soft), height 0.4s var(--ease-soft);
+  }
+  .vc-card__title {
+    position: absolute; left: 18px; right: 18px; bottom: 16px; z-index: 3;
+    font-family: var(--serif);
+    font-size: 13px; font-weight: 500; line-height: 1.35;
+    color: #ffffff;
+    letter-spacing: 0.005em;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.35);
+    transition: transform 0.45s var(--ease-spring);
+  }
+  .vc-card__hint {
+    /* empty-state label, hidden when image is present */
+    position: absolute; left: 0; right: 0; bottom: 16px; z-index: 3;
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 10px; font-weight: 600;
+    color: var(--ink3); letter-spacing: 0.14em; text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .vc-card[data-has-image="true"] .vc-card__hint { display: none; }
+
+  .vc-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 38px rgba(26, 26, 26, 0.12);
+    border-color: rgba(196, 98, 45, 0.35);
+  }
+  .vc-card:hover .vc-card__img { transform: scale(1.045); }
+  .vc-card:hover .vc-card__veil { opacity: 1; height: 62%; }
+  .vc-card:hover .vc-card__title { transform: translateY(-2px); }
+
+  /* ── LINKED CARD SECTIONS ──
+     Shared modifier for sections whose tiles use a 4:3 horizontal layout
+     (vs. the default 1:1 squares) with slightly wider scroller tracks.
+     Currently used by: Print & Packaging, Motion Campaigns. Illustrations
+     keeps the default 1:1 layout, so it does NOT use this modifier — but
+     its anchor cards still pick up the interactive resets / focus styling
+     defined below (which are now element-keyed, not section-keyed). */
+  .vc-section--linked .vc-scroller { grid-auto-columns: clamp(300px, 36vw, 400px); }
+  .vc-section--linked .vc-card { aspect-ratio: 4 / 3; }
+
+  /* ── INTERACTIVE CARD RESETS ──
+     Applies to every clickable card regardless of section, so anchor and
+     button cards behave identically and gain the same focus affordance.
+     Anchor reset: drop link underline / color so the title styling wins. */
+  a.vc-card {
+    text-decoration: none;
+    color: inherit;
+    cursor: inherit;            /* let body's custom cursor flow through */
+  }
+  /* Button-as-card reset: strip UA defaults so a <button> tile is
+     pixel-identical to an <a> tile. */
+  button.vc-card {
+    padding: 0;
+    font: inherit;
+    text-align: left;
+    width: 100%;
+    color: inherit;
+  }
+  /* Keyboard focus mirrors the hover affordance for any interactive card. */
+  a.vc-card:focus-visible,
+  button.vc-card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 38px rgba(26, 26, 26, 0.12);
+    border-color: rgba(196, 98, 45, 0.35);
+    outline: none;
+  }
+  a.vc-card:focus-visible .vc-card__img,
+  button.vc-card:focus-visible .vc-card__img { transform: scale(1.045); }
+  a.vc-card:focus-visible .vc-card__veil,
+  button.vc-card:focus-visible .vc-card__veil { opacity: 1; height: 62%; }
+  a.vc-card:focus-visible .vc-card__title,
+  button.vc-card:focus-visible .vc-card__title { transform: translateY(-2px); }
+
+  /* ── LIGHTBOX ──
+     Minimal image viewer triggered by [data-lightbox-src] cards.
+     Backdrop fades in, image scales up. ESC / click backdrop / click X to close. */
+  .lightbox {
+    position: fixed; inset: 0; z-index: 200;
+    display: flex; align-items: center; justify-content: center;
+    padding: clamp(20px, 4vw, 56px);
+    background: rgba(15, 14, 12, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.32s var(--ease-soft), visibility 0s linear 0.32s;
+  }
+  .lightbox[data-open="true"] {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.32s var(--ease-soft), visibility 0s;
+  }
+  .lightbox__figure {
+    margin: 0;
+    max-width: min(1280px, 100%);
+    max-height: 100%;
+    display: flex; flex-direction: column; align-items: center;
+    gap: 16px;
+    transform: scale(0.96);
+    transition: transform 0.4s var(--ease-spring);
+  }
+  .lightbox[data-open="true"] .lightbox__figure { transform: scale(1); }
+  .lightbox__img {
+    max-width: 100%;
+    max-height: calc(100vh - clamp(120px, 14vw, 200px));
+    object-fit: contain;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    background: #000;             /* matches the dark-bg poster cards so any letterboxing disappears */
+  }
+  .lightbox__caption {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.78);
+    letter-spacing: 0.01em;
+    text-align: center;
+    max-width: 60ch;
+  }
+  .lightbox__close {
+    position: absolute;
+    top: clamp(14px, 2vw, 24px);
+    right: clamp(14px, 2vw, 24px);
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s var(--ease-soft), border-color 0.2s var(--ease-soft), transform 0.2s var(--ease-spring);
+  }
+  .lightbox__close:hover,
+  .lightbox__close:focus-visible {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.45);
+    transform: rotate(90deg);
+    outline: none;
+  }
+  .lightbox__close svg { width: 18px; height: 18px; flex-shrink: 0; }
+  body.lightbox-open { overflow: hidden; }
+
+  /* ── REVEAL ── */
+  .reveal {
+    opacity: 0; transform: translateY(22px);
+    transition: opacity 0.7s var(--ease-soft), transform 0.7s var(--ease-spring);
+  }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+  /* ── FOOTER (matches about.html) ── */
+  footer { padding: 28px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; border-top: 1px solid var(--border); max-width: 1160px; margin: 0 auto; }
+  footer p { font-size: 13px; color: var(--light); margin: 0; }
+  .footer-social { display: flex; align-items: center; gap: 8px; list-style: none; margin: 0; padding: 0; }
+  .footer-social li { perspective: 500px; }
+  .footer-social a {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 40px; height: 40px; border-radius: 8px;
+    border: 1px solid var(--border); color: var(--mid); background: var(--surface);
+    text-decoration: none; transform-style: preserve-3d;
+    transition: color 0.3s var(--ease-soft), border-color 0.3s var(--ease-soft),
+                background 0.3s var(--ease-soft), transform 0.35s var(--ease-spring),
+                box-shadow 0.35s var(--ease-soft);
+  }
+  .footer-social a:hover {
+    color: var(--accent); border-color: var(--accent); background: var(--accent-light);
+    transform: translateY(-4px) rotateX(10deg);
+    box-shadow: 0 12px 26px rgba(26, 26, 26, 0.1);
+  }
+  .footer-social a:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 3px;
+    transform: translateY(-3px) rotateX(6deg);
+    box-shadow: 0 10px 22px rgba(26, 26, 26, 0.08);
+  }
+  .footer-social a:active { transform: translateY(-1px) rotateX(3deg) scale(0.96); transition-duration: 0.1s; }
+  .footer-social svg { width: 20px; height: 20px; flex-shrink: 0; }
+  .footer-social__beh svg { width: 18px; height: 18px; }
+
+  /* ── REDUCED MOTION ── */
+  @media (prefers-reduced-motion: reduce) {
+    body.hero-cursor-none { cursor: auto; }
+    #dot, #ring { display: none !important; }
+    .n-links a:not(.n-btn), .n-btn, .footer-social a,
+    .vc-card, .vc-card__img, .vc-card__veil, .vc-card__title {
+      transition: none !important;
+    }
+    .reveal, .reveal.is-visible {
+      opacity: 1 !important; transform: none !important; transition: none !important;
+    }
+    .vc-scroller { scroll-behavior: auto; }
+    .vc-card:hover { transform: none; box-shadow: none; }
+    .vc-card:hover .vc-card__img { transform: none; }
+    .vc-card:hover .vc-card__veil { height: 55%; opacity: 0.95; }
+    .vc-card:hover .vc-card__title { transform: none; }
+    a.vc-card:focus-visible,
+    button.vc-card:focus-visible { transform: none; box-shadow: none; }
+    a.vc-card:focus-visible .vc-card__img,
+    button.vc-card:focus-visible .vc-card__img { transform: none; }
+    a.vc-card:focus-visible .vc-card__veil,
+    button.vc-card:focus-visible .vc-card__veil { height: 55%; opacity: 0.95; }
+    a.vc-card:focus-visible .vc-card__title,
+    button.vc-card:focus-visible .vc-card__title { transform: none; }
+    .lightbox, .lightbox__figure, .lightbox__close { transition: none !important; }
+    .lightbox[data-open="true"] .lightbox__figure { transform: none; }
+    .lightbox__close:hover, .lightbox__close:focus-visible { transform: none; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    main { padding: 56px 32px 80px; }
+    .vc-scroller { grid-auto-columns: clamp(220px, 60vw, 280px); gap: 14px; }
+    .vc-section--linked .vc-scroller { grid-auto-columns: clamp(280px, 68vw, 360px); }
+    .vc-scroller-wrap::before, .vc-scroller-wrap::after { width: 36px; }
+  }
+  @media (max-width: 680px) {
+    nav { padding: 0 24px; height: 60px; }
+    .n-links { gap: 18px; }
+    .n-links a .n-ico { width: 12px; height: 12px; margin-right: 4px; vertical-align: -2px; }
+    main { padding: 48px 20px 72px; }
+    .vc-section__head { gap: 8px; margin-bottom: 22px; }
+    .vc-scroller { grid-auto-columns: 72vw; gap: 12px; padding-right: 20px; }
+    .vc-section--linked .vc-scroller { grid-auto-columns: 82vw; }
+    .vc-scroller-wrap::before, .vc-scroller-wrap::after { width: 24px; }
+    footer { padding: 24px; flex-direction: column; align-items: flex-start; gap: 20px; }
+  }
+  @media (max-width: 480px) {
+    nav {
+      height: 56px;
+      padding: 0 14px;
+      padding-left: max(14px, env(safe-area-inset-left, 0px));
+      padding-right: max(14px, env(safe-area-inset-right, 0px));
+    }
+    .n-logo { font-size: 12px; }
+    .n-links { gap: 10px; }
+    .n-links a {
+      font-size: 11px;
+      letter-spacing: 0.03em;
+    }
+    .n-links a .n-ico { display: none; }
+    .n-btn {
+      padding: 8px 12px;
+      font-size: 9px !important;
+      letter-spacing: 0.06em !important;
+    }
+  }
+  @media (max-width: 380px) {
+    .n-links { gap: 8px; }
+    .n-btn { font-size: 0 !important; padding: 8px 14px; }
+    .n-btn::before { content: 'CV'; font-size: 10px; letter-spacing: 0.08em; }
+  }
+</style>
+</head>
+<body class="hero-cursor-none">
+
+<div id="dot" aria-hidden="true"></div>
+<div id="ring" aria-hidden="true"></div>
+
+<nav>
+  <a class="n-logo" href="index.html">NB.</a>
+  <div class="n-links">
+    <a href="index.html">Portfolio</a>
+    <a href="about.html">About</a>
+    <a href="visual-craft.html" aria-current="page"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 L13.6 10.4 L20 12 L13.6 13.6 L12 20 L10.4 13.6 L4 12 L10.4 10.4 Z"/></svg>Visual Craft</a>
+    <span class="n-btn n-btn--cv-soon" role="button" tabindex="-1" aria-disabled="true" title="CV coming soon">Download CV</span>
+  </div>
+</nav>
+
+<main>
+
+  <section class="vc-hero" aria-labelledby="vc-heading">
+    <div class="sec-label">Visual Craft</div>
+    <h1 id="vc-heading">The <em>visual</em> side of the practice</h1>
+    <p class="lead">A growing collection of work where craft, expression and visual identity lead the conversation — across brand systems, AI experiments, interface design and editorial.</p>
+  </section>
+
+  <!--
+    HOW TO ADD A CARD
+    ─────────────────
+    Most sections are static visual galleries using <figure class="vc-card">:
+      1. Drop an image into the project root (e.g. vc-brand-01.jpg; square 1:1 works best).
+      2. Inside the relevant section's .vc-scroller, copy a <figure class="vc-card"> block and update:
+           data-has-image ... set to "true" once the image is in place
+           <img src> ........ path to the image file
+           <img alt> ........ short descriptive alt text (this is the card's accessible name)
+           <figcaption> ..... the project title shown at the bottom
+         Optional:
+           class="vc-card vc-card--contain"  → use when the source already has whitespace
+                                                (mockups, wordmarks) and should not be cropped.
+      3. The data-has-image="true" attribute hides the empty-state hint automatically.
+
+    Clickable project tiles (every card opens its own project page):
+      • Card is <a class="vc-card …" href="vc-{slug}-NN.html" aria-label="Open project: …">
+      • Use a <span class="vc-card__title"> for the project title (not <figcaption>).
+      • Add the vc-section--linked modifier on the parent <section> to get the
+        4:3 horizontal card shape + wider scroller track. Without it, cards
+        keep the default 1:1 square shape (used by the Illustrations section).
+      • The interactive resets (anchor cleanup, focus-visible styling) apply
+        to a.vc-card / button.vc-card globally — no section modifier needed.
+      • Currently applied to: Print & Packaging, Motion Campaigns, Illustrations.
+
+    Lightbox cards (open a full-screen image preview instead of navigating):
+      • Cards are <button type="button" class="vc-card …"> with three data attrs:
+          data-lightbox-src     → image path
+          data-lightbox-alt     → descriptive alt text shown in the dialog
+          data-lightbox-caption → caption shown beneath the image
+      • Triggers are auto-wired by the lightbox IIFE at the bottom of <script>.
+      • Currently unused — the lightbox infrastructure remains in place
+        (dialog markup, CSS, JS) and can be reused for any future card.
+  -->
+
+  <!-- ── 01 · Logo & Brand Identity ───────────────────────────── -->
+  <section class="vc-section reveal" aria-labelledby="vc-brand">
+    <header class="vc-section__head">
+      <div class="vc-section__num">01</div>
+      <h2 id="vc-brand">Logo &amp; Brand Identity</h2>
+    </header>
+
+    <div class="vc-scroller-wrap" data-at-start="true">
+      <div class="vc-scroller" tabindex="0" aria-label="Logo and brand identity projects">
+
+        <figure class="vc-card" data-has-image="true">
+          <img class="vc-card__img" src="vc-brand-01-chess-club.png" alt="Chess Club logo — green knight inside a circular checkerboard mark" width="1024" height="1024" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <figcaption class="vc-card__title">Chess Club</figcaption>
+        </figure>
+
+        <figure class="vc-card" data-has-image="true">
+          <img class="vc-card__img" src="vc-brand-02-jirjirak.png" alt="Jirjirak Radio app logo — vintage radio mark with orange and teal wordmark" width="1024" height="1024" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <figcaption class="vc-card__title">Jirjirak Application Logo</figcaption>
+        </figure>
+
+        <figure class="vc-card vc-card--contain" data-has-image="true">
+          <img class="vc-card__img" src="vc-brand-03-astin.png" alt="Astin Men's Fashion Emporium — business card mockup with sleeve-and-style monogram" width="1024" height="1024" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <figcaption class="vc-card__title">Astin Logo</figcaption>
+        </figure>
+
+        <figure class="vc-card vc-card--contain" data-has-image="true">
+          <img class="vc-card__img" src="vc-brand-04-arian.png" alt="Arian Immigration Agency logo — teal serif wordmark with purple bird mark" width="1024" height="1024" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <figcaption class="vc-card__title">Arian Logo</figcaption>
+        </figure>
+
+        <figure class="vc-card" data-has-image="true">
+          <img class="vc-card__img" src="vc-brand-06-mhealth.png" alt="mHealth Shiraz International Congress 2017 logo — green speech-bubble mark with red wifi waves and a red heart" width="500" height="500" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <figcaption class="vc-card__title">mHealth Congress</figcaption>
+        </figure>
+
+        <figure class="vc-card" data-has-image="true">
+          <img class="vc-card__img" src="vc-brand-07-prima-pacs.png" alt="Prima PACS logo — blue and red 'p' monogram around a chrome lens with PrimaPacs wordmark" width="500" height="500" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <figcaption class="vc-card__title">Prima PACS</figcaption>
+        </figure>
+
+        <figure class="vc-card" data-has-image="true">
+          <img class="vc-card__img" src="vc-brand-08-big-bag.png" alt="Big Bag logo — retro typographic mark with three vertical bags spelling BIG BAG in orange, red, and teal on dark navy" width="500" height="500" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <figcaption class="vc-card__title">Big Bag</figcaption>
+        </figure>
+
+        <figure class="vc-card" data-has-image="true">
+          <img class="vc-card__img" src="vc-brand-09-buyers-point.png" alt="Buyers Point logo — colorful circular mark enclosing an arrow and a leaping figure in green, teal, pink, and orange gradients" width="1000" height="1000" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <figcaption class="vc-card__title">Buyers Point</figcaption>
+        </figure>
+
+        <figure class="vc-card" data-has-image="true">
+          <img class="vc-card__img" src="vc-brand-10-fars-sport-medicine.png" alt="Fars Sport Medicine Association logo — running figure with caduceus snake and heartbeat line, Persian and English wordmarks" width="918" height="918" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <figcaption class="vc-card__title">Fars Sport Medicine</figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 02 · Print & Packaging ───────────────────────────────── -->
+  <section class="vc-section vc-section--linked reveal" aria-labelledby="vc-print">
+    <header class="vc-section__head">
+      <div class="vc-section__num">02</div>
+      <h2 id="vc-print">Print &amp; Packaging</h2>
+    </header>
+
+    <div class="vc-scroller-wrap" data-at-start="true">
+      <div class="vc-scroller" tabindex="0" aria-label="Print and packaging projects">
+
+        <a class="vc-card vc-card--contain vc-card--bg-dark" href="vc-print-03-retail-technology-poster-2024.html" data-has-image="true" aria-label="Open project: Retail Technology poster design 2024">
+          <img class="vc-card__img" src="vc-print-03-retail-technology-poster-2024.png" alt="Retail Technology poster design 2024" loading="lazy" decoding="async" width="1024" height="576">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Retail Technology poster design 2024</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-dark" href="vc-print-04-retail-technology-poster-2023.html" data-has-image="true" aria-label="Open project: &ldquo;Seamless Europe 2023&rdquo; Poster">
+          <img class="vc-card__img" src="vc-print-04-retail-technology-poster-2023.png" alt="&ldquo;Seamless Europe 2023&rdquo; Poster — Focalpay invitation with Funk You natural-food collaboration" loading="lazy" decoding="async" width="1024" height="576">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">&ldquo;Seamless Europe 2023&rdquo; Poster</span>
+        </a>
+
+        <a class="vc-card" href="vc-print-01-gelatin-dessert-packaging.html" data-has-image="true" aria-label="Open project: Gelatin dessert packaging design">
+          <img class="vc-card__img" src="vc-print-01-gelatin-dessert-packaging.png" alt="Gelatin dessert packaging design" loading="lazy" decoding="async" width="1024" height="768">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Gelatin dessert packaging design</span>
+        </a>
+
+        <a class="vc-card" href="vc-print-02-jelly-dessert-packaging.html" data-has-image="true" aria-label="Open project: Jelly dessert packaging design">
+          <img class="vc-card__img" src="vc-print-02-jelly-dessert-packaging.png" alt="Jelly dessert packaging design" loading="lazy" decoding="async" width="1024" height="768">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Jelly dessert packaging design</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 03 · Motion Campaigns ────────────────────────────────── -->
+  <section class="vc-section vc-section--linked reveal" aria-labelledby="vc-motion">
+    <header class="vc-section__head">
+      <div class="vc-section__num">03</div>
+      <h2 id="vc-motion">Motion Campaigns</h2>
+    </header>
+
+    <div class="vc-scroller-wrap" data-at-start="true">
+      <div class="vc-scroller" tabindex="0" aria-label="Motion campaign and social video projects">
+
+        <a class="vc-card" href="vc-motion-01.html" data-has-image="true" aria-label="Open project: Spearhead Social Media Advertisement">
+          <img class="vc-card__img" src="vc-motion-01-campaign.png" alt="Spearhead Social Media Advertisement — poster frame from the campaign video" width="2564" height="1444" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Spearhead Social Media Advertisement</span>
+        </a>
+
+        <a class="vc-card" href="vc-motion-02.html" data-has-image="true" aria-label="Open project: Focalpay Social Media Advertisement">
+          <img class="vc-card__img" src="vc-motion-02-campaign.png" alt="Focalpay Social Media Advertisement — poster frame from the campaign video" width="2562" height="1442" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Focalpay Social Media Advertisement</span>
+        </a>
+
+        <a class="vc-card" href="vc-motion-04.html" data-has-image="true" aria-label="Open project: Retail Technology Exhibition Large Screen (Joe &amp; The Juice Partnership)">
+          <img class="vc-card__img" src="vc-motion-04-campaign.png" alt="Retail Technology Exhibition Large Screen — Joe &amp; The Juice partnership, poster frame from the campaign video" width="1696" height="926" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Retail Technology Exhibition Large Screen (Joe &amp; The Juice Partnership)</span>
+        </a>
+
+        <a class="vc-card" href="vc-motion-05.html" data-has-image="true" aria-label="Open project: Focalpay Social Media Motion Graphics">
+          <img class="vc-card__img" src="vc-motion-05-campaign.png" alt="Focalpay Social Media Motion Graphics — poster frame from the campaign video" width="1446" height="1444" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Focalpay Social Media Motion Graphics</span>
+        </a>
+
+        <a class="vc-card" href="vc-motion-03.html" data-has-image="true" aria-label="Open project: Focalpay Social Media Advertisement">
+          <img class="vc-card__img" src="vc-motion-03-campaign.png" alt="Focalpay Social Media Advertisement — poster frame from the campaign video" width="2574" height="1446" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Focalpay Social Media Advertisement</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 04 · Illustrations ─────────────────────────────────────── -->
+  <section class="vc-section reveal" aria-labelledby="vc-illustration">
+    <header class="vc-section__head">
+      <div class="vc-section__num">04</div>
+      <h2 id="vc-illustration">Illustrations</h2>
+    </header>
+
+    <div class="vc-scroller-wrap" data-at-start="true">
+      <div class="vc-scroller" tabindex="0" aria-label="Illustration projects — click any card to open the project page">
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-02.html" data-has-image="true" aria-label="Open project: Self-service ordering">
+          <img class="vc-card__img" src="vc-illustration-02.png" alt="Self-service ordering — chef serving a customer who pays via QR code" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Self-service ordering</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-03.html" data-has-image="true" aria-label="Open project: NFC store scan">
+          <img class="vc-card__img" src="vc-illustration-03.png" alt="NFC store scan — shopper scans a refrigerator NFC tag with a phone" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">NFC store scan</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-04.html" data-has-image="true" aria-label="Open project: Smart payment checkout">
+          <img class="vc-card__img" src="vc-illustration-04.png" alt="Smart payment checkout — shopper completes a phone payment at the fridge" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Smart payment checkout</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-05.html" data-has-image="true" aria-label="Open project: Mobile store experience">
+          <img class="vc-card__img" src="vc-illustration-05.png" alt="Mobile store experience — customer shopping through an oversized phone store" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Mobile store experience</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-06.html" data-has-image="true" aria-label="Open project: NFC train ticketing">
+          <img class="vc-card__img" src="vc-illustration-06.png" alt="NFC train ticketing — seated passenger with a mobile ticket and seat assignment" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">NFC train ticketing</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-07.html" data-has-image="true" aria-label="Open project: Counter ordering &amp; payment">
+          <img class="vc-card__img" src="vc-illustration-07.png" alt="Counter ordering — customer ordering and paying by phone at a kitchen counter" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Counter ordering &amp; payment</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-08.html" data-has-image="true" aria-label="Open project: Hotel services app">
+          <img class="vc-card__img" src="vc-illustration-08.png" alt="Hotel services app — guest using a Hotel Services interface, with a room-service cart" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Hotel services app</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-09.html" data-has-image="true" aria-label="Open project: Barcode shopping">
+          <img class="vc-card__img" src="vc-illustration-09.png" alt="Barcode shopping — shopper scanning a product barcode at a refrigerator" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Barcode shopping</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-10.html" data-has-image="true" aria-label="Open project: Smart hotel reception">
+          <img class="vc-card__img" src="vc-illustration-10.png" alt="Smart hotel reception — guest checking in via phone with receptionist behind a desk" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Smart hotel reception</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-11.html" data-has-image="true" aria-label="Open project: Frictionless checkout">
+          <img class="vc-card__img" src="vc-illustration-11.png" alt="Frictionless checkout — customer paying by phone at a supermarket till" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Frictionless checkout</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-12.html" data-has-image="true" aria-label="Open project: Video-assisted reception">
+          <img class="vc-card__img" src="vc-illustration-12.png" alt="Video-assisted reception — customer on a tablet greeted by a hostess on phone" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Video-assisted reception</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-13.html" data-has-image="true" aria-label="Open project: Kitchen order alert">
+          <img class="vc-card__img" src="vc-illustration-13.png" alt="Kitchen order alert — chefs in a restaurant kitchen with a real-time order notification" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">Kitchen order alert</span>
+        </a>
+
+        <a class="vc-card vc-card--contain vc-card--bg-light" href="vc-illustration-14.html" data-has-image="true" aria-label="Open project: One-tap refunds">
+          <img class="vc-card__img" src="vc-illustration-14.png" alt="One-tap refunds — customer receiving a refund on a phone beside a coin-filled wallet" width="1024" height="857" loading="lazy" decoding="async">
+          <div class="vc-card__veil" aria-hidden="true"></div>
+          <span class="vc-card__title">One-tap refunds</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Neda Bagheri · Stockholm</p>
+  <ul class="footer-social" aria-label="Social links">
+    <li>
+      <a href="https://www.linkedin.com/in/neda-bn-83803195/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.behance.net/nedabagheri1" target="_blank" rel="noopener noreferrer" aria-label="Behance" class="footer-social__beh">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.969 16.927a2.561 2.561 0 0 0 1.901.677 2.501 2.501 0 0 0 1.531-.475c.362-.235.636-.584.779-.99h2.585a5.091 5.091 0 0 1-1.9 2.896 5.292 5.292 0 0 1-3.091.88 5.839 5.839 0 0 1-2.284-.433 4.871 4.871 0 0 1-1.723-1.211 5.657 5.657 0 0 1-1.08-1.874 7.057 7.057 0 0 1-.383-2.393c-.005-.8.129-1.595.396-2.349a5.313 5.313 0 0 1 5.088-3.604 4.87 4.87 0 0 1 2.376.563c.661.362 1.231.87 1.668 1.485a6.2 6.2 0 0 1 .943 2.133c.194.821.263 1.666.205 2.508h-7.699c-.063.79.184 1.574.688 2.187ZM6.947 4.084a8.065 8.065 0 0 1 1.928.198 4.29 4.29 0 0 1 1.49.638c.418.303.748.711.958 1.182.241.579.357 1.203.341 1.83a3.506 3.506 0 0 1-.506 1.961 3.726 3.726 0 0 1-1.503 1.287 3.588 3.588 0 0 1 2.027 1.437c.464.747.697 1.615.67 2.494a4.593 4.593 0 0 1-.423 2.032 3.945 3.945 0 0 1-1.163 1.413 5.114 5.114 0 0 1-1.683.807 7.135 7.135 0 0 1-1.928.259H0V4.084h6.947Zm-.235 12.9c.308.004.616-.029.916-.099a2.18 2.18 0 0 0 .766-.332c.228-.158.411-.371.534-.619.142-.317.208-.663.191-1.009a2.08 2.08 0 0 0-.642-1.715 2.618 2.618 0 0 0-1.696-.505h-3.54v4.279h3.471Zm13.635-5.967a2.13 2.13 0 0 0-1.654-.619 2.336 2.336 0 0 0-1.163.259 2.474 2.474 0 0 0-.738.62 2.359 2.359 0 0 0-.396.792c-.074.239-.12.485-.137.734h4.769a3.239 3.239 0 0 0-.679-1.785l-.002-.001Zm-13.813-.648a2.254 2.254 0 0 0 1.423-.433c.399-.355.607-.88.56-1.413a1.916 1.916 0 0 0-.178-.891 1.298 1.298 0 0 0-.495-.533 1.851 1.851 0 0 0-.711-.274 3.966 3.966 0 0 0-.835-.073H3.241v3.631h3.293v-.014ZM21.62 5.122h-5.976v1.527h5.976V5.122Z"/></svg>
+      </a>
+    </li>
+    <li>
+      <a href="mailto:nedabagheri.nz@gmail.com" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </a>
+    </li>
+  </ul>
+</footer>
+
+<!-- Lightbox dialog. MUST be declared before the <script> below, because the
+     lightbox IIFE runs synchronously at parse time and queries this element by id. -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption" aria-hidden="true">
+  <button class="lightbox__close" type="button" aria-label="Close image preview">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <line x1="18" y1="6" x2="6" y2="18"/>
+      <line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+  <figure class="lightbox__figure">
+    <img class="lightbox__img" alt="">
+    <figcaption class="lightbox__caption" id="lightbox-caption"></figcaption>
+  </figure>
+</div>
+
+<script>
+/* Reveal on scroll */
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !window.IntersectionObserver) {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
+    return;
+  }
+  document.querySelectorAll('.reveal').forEach(function (el) {
+    var io = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
+    io.observe(el);
+  });
+})();
+
+/* Custom cursor */
+(function () {
+  var dot = document.getElementById('dot');
+  var ring = document.getElementById('ring');
+  if (!dot || !ring) return;
+  var reduce = false;
+  try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e1) {}
+  if (reduce) {
+    dot.style.display = 'none'; ring.style.display = 'none';
+    document.body.classList.remove('hero-cursor-none'); return;
+  }
+  var mx = window.innerWidth / 2, my = window.innerHeight / 2;
+  var rx = mx, ry = my;
+  dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  document.addEventListener('mousemove', function (e) {
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+  });
+  (function ar() {
+    rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(ar);
+  })();
+  document.querySelectorAll('a, button').forEach(function (el) {
+    el.addEventListener('mouseenter', function () { document.body.classList.add('lh'); });
+    el.addEventListener('mouseleave', function () { document.body.classList.remove('lh'); });
+  });
+})();
+
+/* Horizontal scroller: edge fade gradient state */
+(function () {
+  document.querySelectorAll('.vc-scroller-wrap').forEach(function (wrap) {
+    var scroller = wrap.querySelector('.vc-scroller');
+    if (!scroller) return;
+    function updateState() {
+      var max = scroller.scrollWidth - scroller.clientWidth;
+      var x = scroller.scrollLeft;
+      wrap.setAttribute('data-at-start', x <= 2 ? 'true' : 'false');
+      wrap.setAttribute('data-at-end', (max <= 2 || x >= max - 2) ? 'true' : 'false');
+    }
+    scroller.addEventListener('scroll', updateState, { passive: true });
+    window.addEventListener('resize', updateState);
+    updateState();
+  });
+})();
+
+/* Image lightbox: any element with [data-lightbox-src] opens a full-screen
+   image viewer. Close via ESC, backdrop click, or the close button. Focus is
+   trapped while open and restored to the trigger on close. */
+(function () {
+  var lightbox = document.getElementById('lightbox');
+  if (!lightbox) return;
+  var img = lightbox.querySelector('.lightbox__img');
+  var caption = lightbox.querySelector('.lightbox__caption');
+  var closeBtn = lightbox.querySelector('.lightbox__close');
+  var lastTrigger = null;
+
+  function open(trigger) {
+    var src = trigger.getAttribute('data-lightbox-src');
+    if (!src) return;
+    lastTrigger = trigger;
+    img.src = src;
+    img.alt = trigger.getAttribute('data-lightbox-alt') || '';
+    var cap = trigger.getAttribute('data-lightbox-caption') || '';
+    caption.textContent = cap;
+    caption.style.display = cap ? '' : 'none';
+    lightbox.setAttribute('data-open', 'true');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lightbox-open');
+    /* Defer focus so the dialog has applied its visibility transition. */
+    requestAnimationFrame(function () { closeBtn.focus(); });
+  }
+
+  function close() {
+    lightbox.setAttribute('data-open', 'false');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lightbox-open');
+    /* Clear src after the transition so the next open feels instant
+       and the previous image isn't briefly visible during fade-in. */
+    setTimeout(function () {
+      if (lightbox.getAttribute('data-open') !== 'true') {
+        img.removeAttribute('src');
+        img.alt = '';
+      }
+    }, 340);
+    if (lastTrigger && typeof lastTrigger.focus === 'function') {
+      lastTrigger.focus();
+    }
+    lastTrigger = null;
+  }
+
+  document.addEventListener('click', function (e) {
+    var trigger = e.target.closest('[data-lightbox-src]');
+    if (trigger) {
+      e.preventDefault();
+      open(trigger);
+    }
+  });
+
+  closeBtn.addEventListener('click', close);
+
+  /* Click on backdrop closes; click on figure (image/caption) does not. */
+  lightbox.addEventListener('click', function (e) {
+    if (e.target === lightbox) close();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && lightbox.getAttribute('data-open') === 'true') {
+      close();
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
