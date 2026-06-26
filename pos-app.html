@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/lithium-typeface-lt" rel="stylesheet">
+<link rel="stylesheet" href="css/site-shared.css">
 <link rel="stylesheet" href="fonts/sora.css">
 <link href="https://fonts.googleapis.com/css2?family=Sora:ital,wght@1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 <title>Cashier POS &amp; Payment Application · Neda Bagheri</title>
@@ -12,7 +17,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #F7F5F0;
+    --bg: #ffffff;
     --surface: #FFFFFF;
     --dark: #1A1A1A;
     --mid: #555555;
@@ -20,7 +25,7 @@
     --accent: #C4622D;
     --accent-light: #F5EBE3;
     --border: #E8E4DC;
-    --serif: 'Sora', sans-serif;
+    --display: 'Lithium Typeface (LT)', 'Playfair Display', Georgia, serif; --serif: var(--display);
     --sans: 'Open Sans', sans-serif;
     --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
     --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
@@ -29,87 +34,13 @@
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { color-scheme: light; overflow-x: clip; }
-  body { font-family: var(--sans); background: var(--bg); color: var(--dark); font-size: 16px; line-height: 1.7; overflow-x: hidden; position: relative; }
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    background:
-      radial-gradient(ellipse 88% 55% at 50% -8%, rgba(196, 98, 45, 0.045) 0%, transparent 52%),
-      radial-gradient(ellipse 65% 45% at 102% 88%, rgba(232, 228, 220, 0.5) 0%, transparent 48%),
-      radial-gradient(ellipse 50% 40% at -5% 75%, rgba(245, 235, 227, 0.35) 0%, transparent 50%);
-    opacity: 0.95;
-  }
-  img, video { max-width: 100%; height: auto; }
-
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 52px; height: 64px;
-    background: rgba(249,247,244,0.88); backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
-  }
-  .n-logo {
-    font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: -0.01em;
-    color: var(--dark); text-decoration: none;
-  }
-  .n-links { display: flex; gap: 32px; align-items: center; perspective: 900px; }
-  .n-links a {
-    font-family: 'Sora', sans-serif; font-size: 12px; font-weight: 400; color: var(--mid);
-    text-decoration: none; letter-spacing: 0.04em;
-  }
-  .n-links a:not(.n-btn) {
-    position: relative;
-    display: inline-block;
-    transition: color 0.3s var(--ease-soft), transform 0.4s var(--ease-spring);
-  }
-  .n-links a:not(.n-btn)::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 100%;
-    height: 2px;
-    background: var(--accent);
-    border-radius: 1px;
-    transform: scaleX(0);
-    transform-origin: center;
-    opacity: 0.88;
-    transition: transform 0.4s var(--ease-spring);
-    pointer-events: none;
-  }
-  .n-links a:not(.n-btn):hover,
-  .n-links a:not(.n-btn):focus-visible {
-    color: var(--accent);
-    transform: translateY(-2px);
-  }
-  .n-links a:not(.n-btn):hover::after,
-  .n-links a:not(.n-btn):focus-visible::after { transform: scaleX(1); }
-  .n-links a:not(.n-btn)[aria-current="page"]::after { transform: scaleX(1); }
-  .n-links a:not(.n-btn)[aria-current="page"] { color: var(--accent); font-weight: 600; }
-  .n-links a .n-ico {
-    width: 14px; height: 14px; vertical-align: -3px; margin-right: 6px;
-    color: var(--accent); opacity: 0.85;
-    transition: transform 0.4s var(--ease-spring), opacity 0.3s var(--ease-soft);
-  }
-  .n-links a:hover .n-ico,
-  .n-links a:focus-visible .n-ico { opacity: 1; transform: rotate(18deg) scale(1.08); }
-  .n-btn {
-    font-family: 'Sora', sans-serif; font-size: 11px !important; font-weight: 600 !important; letter-spacing: 0.08em !important;
-    text-transform: uppercase; background: var(--dark); color: #f9f7f4 !important;
-    padding: 9px 20px; border-radius: 100px;
-    transition: background 0.25s, transform 0.2s !important;
-  }
-  .n-btn:hover { background: var(--accent) !important; transform: translateY(-1px); }
-  .n-btn--cv-soon { cursor: default; user-select: none; -webkit-user-select: none; }
-  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  body { font-family: var(--sans); background: #ffffff; color: var(--dark); font-size: 16px; line-height: 1.7; overflow-x: hidden; position: relative; }
+img, video { max-width: 100%; height: auto; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
   .hero { max-width: 820px; margin: 80px auto 0; padding: 0 48px; }
   .hero-tag { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dark); background: var(--accent-light); padding: 6px 14px; border-radius: 4px; margin-bottom: 24px; }
-  .hero h1 { font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); line-height: 1.15; color: var(--dark); margin-bottom: 24px; }
+  .hero h1 { font-family: var(--serif); font-size: clamp(40px, 4.2vw, 60px); line-height: 1.1; letter-spacing: -0.003em; font-weight: 400; color: #000; margin-bottom: 24px; }
   .hero h1 em { font-style: italic; color: #555; }
   .hero-subtitle { font-size: 18px; color: var(--mid); font-weight: 300; max-width: 640px; margin-bottom: 40px; }
 
@@ -866,11 +797,9 @@
       transition: none !important;
     }
     .n-links a:not(.n-btn):hover,
-    .n-links a:not(.n-btn):focus-visible { transform: none; }
-    .n-btn:hover,
+.n-btn:hover,
     .n-btn:focus-visible,
-    .n-btn:active { transform: none; }
-    .footer-social a:hover,
+.footer-social a:hover,
     .footer-social a:focus-visible,
     .footer-social a:active { transform: none; box-shadow: none; }
     .back-top:hover,
@@ -880,10 +809,7 @@
   }
 
   @media (max-width: 640px) {
-    nav { padding: 0 24px; height: 60px; }
-    .n-links { gap: 18px; }
-    .n-links a .n-ico { width: 12px; height: 12px; margin-right: 4px; vertical-align: -2px; }
-    .back-top, .hero, .hero-image, .content, .content--pos-ds, .bottom-back, footer { padding-left: 24px; padding-right: 24px; }
+.back-top, .hero, .hero-image, .content, .content--pos-ds, .bottom-back, footer { padding-left: 24px; padding-right: 24px; }
     .section-header { flex-direction: column; gap: 18px; padding: 0 0 24px 0; }
     .section-icon { width: 52px; height: 52px; }
     .section-icon svg { width: 24px; height: 24px; }
@@ -981,19 +907,22 @@
     .proto-poster-t { font-size: 1.1rem; }
   }
 </style>
+<link rel="stylesheet" href="css/case-study.css">
 </head>
-<body>
+<body class="has-anna-nav case-study-page">
 
-<nav>
-  <a class="n-logo" href="index.html">NB.</a>
-  <div class="n-links">
-    <a href="index.html" aria-current="page">Portfolio</a>
+<header class="anna-nav anna-nav--intro-visible anna-nav--light" id="site-nav" aria-label="Primary">
+  <div class="anna-nav__pill">
+    <a href="index.html#hero">Home</a>
+    <a href="index.html#projects" aria-current="page">Works</a>
     <a href="about.html">About</a>
-    <a href="visual-craft.html"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 L13.6 10.4 L20 12 L13.6 13.6 L12 20 L10.4 13.6 L4 12 L10.4 10.4 Z"/></svg>Visual Craft</a>
-    <span class="n-btn n-btn--cv-soon" role="button" tabindex="-1" aria-disabled="true" title="CV coming soon">Download CV</span>
   </div>
-</nav>
-<a class="back-top" href="index.html">← Back to Portfolio</a>
+  <div class="anna-nav__pill">
+    <a href="index.html#contact">Contact</a>
+  </div>
+</header>
+
+<a class="back-top" href="index.html#projects">Back</a>
 
 <section class="hero">
   <div class="hero-tag">Case Study · B2B · Retail Tech</div>
@@ -1253,7 +1182,7 @@
     <p>Instead of a fragmented multi-page system, I designed the application around a <strong>single scrollable home screen</strong>. The cart, product list, quick actions, and daily summary all live on one page — reducing taps and keeping cashiers in a continuous flow.</p>
     <p>The persistent <strong>Purchase button and quick-action row</strong> (Scan · Add bag · Add discount) are always visible, no matter how many items are in the cart.</p>
 
-    <div class="screens-section flow-emphasis reveal reveal-media">
+    <div class="screens-section reveal reveal-media">
       <div class="flow-callout" aria-hidden="true">Cashier flow · Cart &amp; purchase</div>
       <div class="screens-grid col-3">
         <div class="screen-item">
@@ -1278,7 +1207,7 @@
       <div class="screens-label">Design Solution I · One Scrollable Home — Everything in Reach</div>
     </div>
 
-    <div class="screens-section flow-emphasis reveal reveal-media">
+    <div class="screens-section reveal reveal-media">
       <div class="flow-callout" aria-hidden="true">Cashier flow · Scan &amp; add product</div>
       <div class="screens-grid col-3">
         <div class="screen-item">
@@ -1319,7 +1248,7 @@
       </div>
     </div>
 
-    <div class="screens-section flow-emphasis reveal reveal-media">
+    <div class="screens-section reveal reveal-media">
       <div class="flow-callout" aria-hidden="true">Cashier flow · Discounts</div>
       <div class="screens-grid col-2" style="margin-top:0;">
         <div class="screen-item">
@@ -1643,7 +1572,7 @@
 </div>
 
 <div class="bottom-back">
-  <a href="index.html">← Back to Portfolio</a>
+  <a href="index.html#projects">Back</a>
 </div>
 
 <footer>

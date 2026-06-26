@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Sora:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,600;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/lithium-typeface-lt" rel="stylesheet">
+<link rel="stylesheet" href="css/site-shared.css">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -43,11 +44,12 @@
   --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-soft:   cubic-bezier(0.4, 0, 0.2, 1);
   --sans:        'DM Sans', sans-serif;
+  --display:     'Lithium Typeface (LT)', 'Playfair Display', Georgia, serif;
 }
 
 html { color-scheme: light; overflow-x: clip; scroll-behavior: auto; }
 html, body {
-  background: var(--bg);
+  background: #ffffff;
   color: var(--ink);
   font-family: 'DM Sans', sans-serif;
   min-height: 100vh;
@@ -122,6 +124,9 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
   .anna-nav__pill a { transition: none !important; }
   .hero-anna__compose,
   .hero-anna__footer { transform: none !important; opacity: 1 !important; }
+  .works-anna__media img { transition: none !important; }
+  .works-anna__card:hover .works-anna__media img,
+  .works-anna__card:focus-visible .works-anna__media img { transform: none; }
   .vc-card, .vc-card__img, .vc-card__veil, .vc-card__title { transition: none !important; }
   .vc-card:hover, .vc-card:focus-visible { transform: none; box-shadow: none; }
   .vc-card:hover .vc-card__img, .vc-card:focus-visible .vc-card__img { transform: none; }
@@ -328,38 +333,115 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
 @keyframes wordUp { from { opacity: 0; transform: translateY(60px); } to { opacity: 1; transform: translateY(0); } }
   #hero { scroll-margin-top: 0; }
   #projects { scroll-margin-top: 48px; }
-  .projects { max-width: 960px; margin: 0 auto; padding: 20px 48px 100px; }
 
-  .project-item { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; padding: 72px 0; border-bottom: 1px solid var(--border); text-decoration: none; color: inherit; cursor: pointer; }
-  .project-item:last-of-type { border-bottom: none; }
-  .project-item:nth-child(even) .proj-image-wrap { order: 2; }
-  .project-item:nth-child(even) .proj-text { order: 1; }
+  /* ── ANNA-STYLE SELECTED PROJECTS ── */
+  .page-works {
+    background: #ffffff;
+    padding-bottom: clamp(48px, 8vw, 80px);
+  }
+  .works-anna {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 80px 24px 24px;
+  }
+  .works-anna__heading {
+    font-family: 'Lithium Typeface (LT)', 'Playfair Display', Georgia, serif;
+    font-size: clamp(40px, 4.2vw, 60px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.003em;
+    color: #000000;
+    margin: 0 0 10px;
+  }
+  .works-anna__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .works-anna__card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 0;
+    outline: none;
+  }
+  .works-anna__card:focus-visible {
+    outline: 2px solid #000;
+    outline-offset: 4px;
+  }
+  .works-anna__media {
+    position: relative;
+    width: 100%;
+    height: clamp(220px, 24vw, 350px);
+    border-radius: 6px;
+    overflow: hidden;
+    background: #f3f3f3;
+  }
+  .works-anna__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transform: scale(1);
+    transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+  }
+  .works-anna__card:hover .works-anna__media img,
+  .works-anna__card:focus-visible .works-anna__media img {
+    transform: scale(1.03);
+  }
+  .works-anna__content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 16px 16px;
+  }
+  .works-anna__title {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(16px, 1.65vw, 24px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.05em;
+    color: #000000;
+    margin: 0;
+  }
+  .works-anna__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .works-anna__tags li {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+    color: #000000;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: #ffffff;
+    white-space: nowrap;
+    transition: border-color 0.25s ease, background-color 0.25s ease;
+  }
+  .works-anna__card:hover .works-anna__tags li,
+  .works-anna__card:focus-visible .works-anna__tags li {
+    border-color: rgba(0, 0, 0, 0.22);
+  }
 
-  .proj-image-wrap { border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; position: relative; transition: transform 0.4s ease; }
-  .project-item:hover .proj-image-wrap { transform: scale(1.02); }
-  .proj-image-wrap:not(.proj-image-wrap--photo)::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 32px, rgba(255,255,255,0.04) 32px, rgba(255,255,255,0.04) 33px), repeating-linear-gradient(90deg, transparent, transparent 32px, rgba(255,255,255,0.04) 32px, rgba(255,255,255,0.04) 33px); }
-  .proj-image-wrap--photo { background: #E8E4DC; }
-  .proj-image-wrap--photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-  .proj-image-label { z-index: 1; text-align: center; padding: 24px; }
-  .proj-image-label span { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 10px; }
-  .proj-image-label strong { display: block; font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 700; color: rgba(255,255,255,0.85); line-height: 1.3; }
-
-  .bg-blue   { background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #C4622D 100%); }
-  .bg-dark   { background: linear-gradient(135deg, #111 0%, #222 50%, #444 100%); }
-  .bg-green  { background: linear-gradient(135deg, #0A1628 0%, #0F3D2E 50%, #1A7A4A 100%); }
-  .bg-purple { background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 50%, #0e5f8a 100%); }
-
-  .proj-text { padding: 8px 0; }
-  .proj-meta { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin-bottom: 12px; }
-  .proj-title { font-family: 'Sora', sans-serif; font-size: 28px; font-weight: 700; color: var(--dark); line-height: 1.2; margin-bottom: 14px; }
-  .proj-desc { font-size: 15px; color: var(--mid); font-weight: 300; line-height: 1.7; margin-bottom: 20px; }
-  .proj-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
-  .tag { font-size: 12px; font-weight: 600; color: var(--accent); background: var(--accent-light); padding: 4px 12px; border-radius: 20px; }
-  .tag.gray { color: var(--mid); background: #EEEAE4; }
-  .proj-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--accent); }
-  .proj-link::after { content: '→'; }
-  .project-item:hover .proj-link { gap: 14px; }
+  .page-works .vc-section {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 
   /* ── UI DESIGN GALLERY (transplanted from Visual Craft, retuned to portfolio tokens) ── */
   .vc-section { margin-top: clamp(56px, 8vw, 88px); }
@@ -368,19 +450,21 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
     margin-bottom: 28px;
   }
   .vc-section__num {
-    font-family: 'Sora', sans-serif;
-    font-size: 10px; font-weight: 600; color: var(--light);
-    letter-spacing: 0.16em; text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px; font-weight: 400; color: rgba(0, 0, 0, 0.45);
+    letter-spacing: -0.04em; text-transform: none;
     display: flex; align-items: center; gap: 12px;
   }
   .vc-section__num::after {
-    content: ''; flex: 1; height: 1px; background: var(--border); max-width: 96px;
+    content: ''; flex: 1; height: 1px; background: var(--line); max-width: 96px;
   }
   .vc-section h2 {
-    font-family: 'Sora', sans-serif;
-    font-size: clamp(22px, 2.4vw, 28px);
-    font-weight: 600; color: var(--dark);
-    letter-spacing: -0.01em; line-height: 1.25;
+    font-family: var(--display);
+    font-size: clamp(40px, 4.2vw, 60px);
+    font-weight: 400;
+    color: #000000;
+    letter-spacing: -0.003em;
+    line-height: 1.1;
     margin: 0;
   }
 
@@ -482,106 +566,29 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
   }
   .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
-  .footer-strip {
-    position: relative;
-    text-align: center;
-    padding: clamp(72px, 10vw, 120px) 48px;
-    background:
-      radial-gradient(ellipse 90% 85% at 50% -30%, rgba(200, 98, 42, 0.22) 0%, transparent 52%),
-      radial-gradient(ellipse 55% 50% at 100% 100%, rgba(200, 98, 42, 0.08) 0%, transparent 50%),
-      linear-gradient(168deg, #161412 0%, var(--ink) 42%, #12100e 100%);
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-    overflow: hidden;
-  }
-  .footer-strip::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 50% 120%, rgba(249, 247, 244, 0.04) 0%, transparent 45%);
-    pointer-events: none;
-  }
-  .footer-strip > * {
-    position: relative;
-    z-index: 1;
-  }
-  .footer-strip h2 {
-    font-family: 'Sora', sans-serif;
-    font-size: clamp(1.85rem, 4.2vw + 1rem, 2.85rem);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    line-height: 1.12;
-    color: #fff;
-    max-width: 640px;
-    margin: 0 auto 16px;
-  }
-  .footer-strip p {
-    font-size: clamp(15px, 1.2vw + 14px, 17px);
-    color: rgba(255, 255, 255, 0.62);
-    font-weight: 400;
-    line-height: 1.55;
-    max-width: 28em;
-    margin: 0 auto 32px;
-  }
-  .footer-strip__cta {
-    display: inline-block;
-    font-family: 'Sora', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    background: var(--accent);
-    color: #fff !important;
-    padding: 16px 40px;
-    min-width: min(100%, 220px);
-    border-radius: 360px;
-    text-decoration: none;
-    box-shadow: 0 10px 32px rgba(200, 98, 42, 0.42), 0 2px 8px rgba(26, 24, 20, 0.2);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.2s ease;
-  }
-  .footer-strip__cta:hover {
-    background: #d66d32;
-    transform: translateY(-2px);
-    box-shadow: 0 16px 40px rgba(200, 98, 42, 0.5), 0 4px 12px rgba(26, 24, 20, 0.25);
-  }
-  .footer-strip__cta:active {
-    transform: translateY(0);
-    box-shadow: 0 6px 20px rgba(200, 98, 42, 0.35);
-    transition-duration: 0.12s;
-  }
-
-  footer { padding: 28px 48px; max-width: 960px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; border-top: 1px solid var(--border); }
-  footer p { font-size: 13px; color: var(--light); margin: 0; }
-  .footer-social { display: flex; align-items: center; gap: 8px; list-style: none; margin: 0; padding: 0; }
-  .footer-social a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    color: var(--mid);
-    background: var(--surface);
-    text-decoration: none;
-    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-  }
-  .footer-social a:hover {
-    color: var(--accent);
-    border-color: var(--accent);
-    background: var(--accent-light);
-  }
-  .footer-social a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-  .footer-social svg { width: 20px; height: 20px; flex-shrink: 0; }
-  .footer-social__beh svg { width: 18px; height: 18px; }
-
   @media (max-width: 900px) {
     .vc-grid { gap: 20px; }
   }
+  @media (max-width: 809.98px) {
+    .works-anna {
+      padding: 64px 16px 16px;
+    }
+    .works-anna__grid {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .works-anna__content {
+      padding: 0 0 12px;
+    }
+    .works-anna__tags li {
+      font-size: 12px;
+    }
+    .page-works .vc-section {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
   @media (max-width: 680px) {
-    .projects { padding: 0 24px 60px; }
-    .project-item { grid-template-columns: 1fr; gap: 24px; padding: 40px 0; }
-    .project-item:nth-child(even) .proj-image-wrap { order: 0; }
-    .project-item:nth-child(even) .proj-text { order: 0; }
     .vc-section { margin-top: clamp(40px, 9vw, 64px); }
     .vc-section__head { gap: 8px; margin-bottom: 22px; }
     .vc-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -730,76 +737,74 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
   </div>
 </section>
 
-<div class="projects" id="projects">
+<div class="page-works" id="projects">
 
-  <a class="project-item" href="pos-app.html">
-    <div class="proj-image-wrap proj-image-wrap--photo">
-      <img src="pos-app-thumbnail.png" alt="Focalpay Cashier POS and payment app — mobile screens for cart, product list, discount, receipt, QR, refunds, and reports" width="1024" height="767" loading="lazy" decoding="async">
-    </div>
-    <div class="proj-text">
-      <div class="proj-meta">Focalpay AB · 2024–2025</div>
-      <h2 class="proj-title">Cashier POS & Payment App</h2>
-      <p class="proj-desc">Redesigning a high-frequency point-of-sale app to make every transaction faster and more intuitive for store staff under real-world pressure.</p>
-      <div class="proj-tags">
-        <span class="tag">Interaction Design</span>
-        <span class="tag">Usability Testing</span>
-        <span class="tag gray">iOS & Android</span>
-      </div>
-      <span class="proj-link">View Project</span>
-    </div>
-  </a>
+  <section class="works-anna" aria-labelledby="works-anna-heading">
+    <h2 class="works-anna__heading" id="works-anna-heading">Selected projects</h2>
+    <div class="works-anna__grid">
 
-  <a class="project-item" href="backoffice.html">
-    <div class="proj-image-wrap proj-image-wrap--photo">
-      <img src="Backoffice-Dashboard.png" alt="Focalpay back-office dashboard — desktop and mobile product views" width="1200" height="900" loading="lazy" decoding="async">
-    </div>
-    <div class="proj-text">
-      <div class="proj-meta">Focalpay AB · 2023–2024</div>
-      <h2 class="proj-title">Focalpay Back-office Dashboard</h2>
-      <p class="proj-desc">A cloud-based command centre managing thousands of SKUs, complex pricing logic, and real-time sync for Scandinavia's largest grocery chains.</p>
-      <div class="proj-tags">
-        <span class="tag">UX Research</span>
-        <span class="tag">Interaction Design</span>
-        <span class="tag gray">Figma</span>
-        <span class="tag gray">B2B SaaS</span>
-      </div>
-      <span class="proj-link">View Project</span>
-    </div>
-  </a>
+      <a class="works-anna__card" href="pos-app.html" aria-label="Cashier POS and Payment App case study">
+        <div class="works-anna__media">
+          <img src="pos-app-thumbnail.png" alt="Focalpay Cashier POS and payment app — mobile screens for cart, product list, discount, receipt, QR, refunds, and reports" width="1024" height="767" loading="lazy" decoding="async">
+        </div>
+        <div class="works-anna__content">
+          <h3 class="works-anna__title">Redesigning a high-frequency point-of-sale app to make every transaction faster and more intuitive for store staff under real-world pressure.</h3>
+          <ul class="works-anna__tags" aria-label="Project tags">
+            <li>Retail Tech</li>
+            <li>Interaction Design</li>
+            <li>Mobile app</li>
+            <li>B2B · SaaS</li>
+          </ul>
+        </div>
+      </a>
 
-  <a class="project-item" href="mobile-app.html">
-    <div class="proj-image-wrap proj-image-wrap--photo">
-      <img src="mobile-customer-shopping-app-thumbnail.png" alt="Focal Pay mobile shopping app — collage of tilted phone screens: onboarding, barcode scan, cart, checkout QR at cashier area, payment, and payment complete on a blue and pink gradient" width="1024" height="576" loading="lazy" decoding="async">
-    </div>
-    <div class="proj-text">
-      <div class="proj-meta">Focalpay AB · 2023–2024</div>
-      <h2 class="proj-title">Mobile Customer Shopping App</h2>
-      <p class="proj-desc">Redesigning the onboarding and checkout journey for a B2C mobile app — creating a frictionless, personal experience across iOS and Android.</p>
-      <div class="proj-tags">
-        <span class="tag">Mobile UX</span>
-        <span class="tag">A/B Testing</span>
-        <span class="tag gray">iOS & Android</span>
-      </div>
-      <span class="proj-link">View Project</span>
-    </div>
-  </a>
+      <a class="works-anna__card" href="backoffice.html" aria-label="Focalpay Back-office Dashboard case study">
+        <div class="works-anna__media">
+          <img src="Backoffice-Dashboard.png" alt="Focalpay back-office dashboard — desktop and mobile product views" width="1200" height="900" loading="lazy" decoding="async">
+        </div>
+        <div class="works-anna__content">
+          <h3 class="works-anna__title">A cloud-based command centre managing thousands of SKUs, complex pricing logic, and real-time sync for Scandinavia's largest grocery chains.</h3>
+          <ul class="works-anna__tags" aria-label="Project tags">
+            <li>Retail Tech</li>
+            <li>UX Research</li>
+            <li>Web product</li>
+            <li>B2B · SaaS</li>
+          </ul>
+        </div>
+      </a>
 
-  <a class="project-item" href="healthcare.html">
-    <div class="proj-image-wrap proj-image-wrap--photo">
-      <img src="healthcare-provider-thumbnail.png?v=20260324" alt="Healthcare Provider Survey Application — dashboard on desktop and laptop with surveys, analytics, and municipality performance" width="1024" height="725" loading="lazy" decoding="async">
+      <a class="works-anna__card" href="mobile-app.html" aria-label="Mobile Customer Shopping App case study">
+        <div class="works-anna__media">
+          <img src="mobile-customer-shopping-app-thumbnail.png" alt="Focal Pay mobile shopping app — collage of tilted phone screens: onboarding, barcode scan, cart, checkout QR at cashier area, payment, and payment complete on a blue and pink gradient" width="1024" height="576" loading="lazy" decoding="async">
+        </div>
+        <div class="works-anna__content">
+          <h3 class="works-anna__title">Redesigning the onboarding and checkout journey for a B2C mobile app — creating a frictionless, personal experience across iOS and Android.</h3>
+          <ul class="works-anna__tags" aria-label="Project tags">
+            <li>Retail Tech</li>
+            <li>Mobile UX</li>
+            <li>Mobile app</li>
+            <li>B2C</li>
+          </ul>
+        </div>
+      </a>
+
+      <a class="works-anna__card" href="healthcare.html" aria-label="Healthcare Provider Survey Application case study">
+        <div class="works-anna__media">
+          <img src="healthcare-provider-thumbnail.png?v=20260324" alt="Healthcare Provider Survey Application — dashboard on desktop and laptop with surveys, analytics, and municipality performance" width="1024" height="725" loading="lazy" decoding="async">
+        </div>
+        <div class="works-anna__content">
+          <h3 class="works-anna__title">Replacing fragmented email-and-spreadsheet workflows with a centralised digital platform — helping Swedish healthcare administrators reclaim hours every week.</h3>
+          <ul class="works-anna__tags" aria-label="Project tags">
+            <li>HealthTech</li>
+            <li>Accessibility</li>
+            <li>Web product</li>
+            <li>B2B</li>
+          </ul>
+        </div>
+      </a>
+
     </div>
-    <div class="proj-text">
-      <div class="proj-meta">Focalpay AB · 2025–2026</div>
-      <h2 class="proj-title">Healthcare Provider Survey Application</h2>
-      <p class="proj-desc">Replacing fragmented email-and-spreadsheet workflows with a centralised digital platform — helping Swedish healthcare administrators reclaim hours every week.</p>
-      <div class="proj-tags">
-        <span class="tag">Accessibility</span>
-        <span class="tag">UX/UI Design</span>
-        <span class="tag gray">WCAG · AI-assisted</span>
-      </div>
-      <span class="proj-link">View Project</span>
-    </div>
-  </a>
+  </section>
 
   <!--
     UI DESIGN gallery

@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/lithium-typeface-lt" rel="stylesheet">
+<link rel="stylesheet" href="css/site-shared.css">
 <title>Mobile store experience · Illustrations · Neda Bagheri</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +18,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:          #f9f7f4;
+  --bg: #ffffff;
   --bg2:         #f0ede8;
   --ink:         #1a1814;
   --ink2:        #6b6760;
@@ -33,7 +38,7 @@
 
 html { color-scheme: light; overflow-x: clip; }
 html, body {
-  background: var(--bg);
+  background: #ffffff;
   color: var(--ink);
   font-family: 'DM Sans', sans-serif;
   min-height: 100vh;
@@ -46,60 +51,6 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
 .footer-strip a:focus-visible { outline-color: #fff; }
 
 /* ── NAV (matches index.html / about.html) ── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 52px; height: 64px;
-  background: rgba(249,247,244,0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--line);
-}
-.n-logo {
-  font-family: 'Sora', sans-serif;
-  font-size: 13px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink);
-  text-decoration: none;
-}
-.n-links { display: flex; gap: 32px; align-items: center; perspective: 900px; }
-.n-links a {
-  font-family: 'Sora', sans-serif;
-  font-size: 12px; font-weight: 400; color: var(--ink2); text-decoration: none;
-  letter-spacing: 0.04em; white-space: nowrap;
-}
-.n-links a:not(.n-btn) {
-  position: relative;
-  display: inline-block;
-  transition: color 0.3s var(--ease-soft), transform 0.4s var(--ease-spring);
-}
-.n-links a:not(.n-btn)::after {
-  content: ''; position: absolute; left: 0; bottom: -5px;
-  width: 100%; height: 2px; background: var(--accent); border-radius: 1px;
-  transform: scaleX(0); transform-origin: center; opacity: 0.88;
-  transition: transform 0.4s var(--ease-spring); pointer-events: none;
-}
-.n-links a:not(.n-btn):hover,
-.n-links a:not(.n-btn):focus-visible { color: var(--accent); transform: translateY(-2px); }
-.n-links a:not(.n-btn):hover::after,
-.n-links a:not(.n-btn):focus-visible::after { transform: scaleX(1); }
-.n-links a:not(.n-btn)[aria-current="page"]::after { transform: scaleX(1); }
-.n-links a:not(.n-btn)[aria-current="page"] { color: var(--accent); font-weight: 600; }
-.n-links a .n-ico {
-  width: 14px; height: 14px; vertical-align: -3px; margin-right: 6px;
-  color: var(--accent); opacity: 0.85;
-  transition: transform 0.4s var(--ease-spring), opacity 0.3s var(--ease-soft);
-}
-.n-links a:hover .n-ico,
-.n-links a:focus-visible .n-ico { opacity: 1; transform: rotate(18deg) scale(1.08); }
-.n-btn {
-  font-family: 'Sora', sans-serif;
-  font-size: 11px !important; font-weight: 600 !important; letter-spacing: 0.08em !important;
-  text-transform: uppercase; background: var(--ink); color: var(--bg) !important;
-  padding: 9px 20px; border-radius: 100px; white-space: nowrap;
-  transition: background 0.25s, transform 0.2s !important;
-}
-.n-btn:hover { background: var(--accent) !important; transform: translateY(-1px); }
-.n-btn--cv-soon { cursor: default; user-select: none; -webkit-user-select: none; }
-
 /* ── CUSTOM CURSOR (matches index.html / visual-craft.html) ── */
 #dot {
   position: fixed; z-index: 9999; pointer-events: none;
@@ -125,7 +76,7 @@ main {
 
 .ui-detail__back {
   display: inline-flex; align-items: center; gap: 8px;
-  font-family: 'Sora', sans-serif;
+  font-family: var(--display);
   font-size: 12px; font-weight: 500;
   color: var(--ink2);
   text-decoration: none;
@@ -144,7 +95,7 @@ main {
 .ui-detail__back:focus-visible::before { transform: translateX(-4px); }
 
 .ui-detail__eyebrow {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--display);
   font-size: 10px; font-weight: 600;
   color: var(--light);
   letter-spacing: 0.16em; text-transform: uppercase;
@@ -156,7 +107,7 @@ main {
 }
 
 .ui-detail__title {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--display);
   font-size: clamp(32px, 4.6vw, 52px);
   font-weight: 700;
   color: var(--ink);
@@ -196,85 +147,6 @@ main {
 @keyframes ui-detail-fade { to { opacity: 1; } }
 @keyframes ui-detail-rise { to { opacity: 1; transform: none; } }
 
-/* ── FOOTER STRIP (matches index.html) ── */
-.footer-strip {
-  position: relative;
-  text-align: center;
-  padding: clamp(72px, 10vw, 120px) 48px;
-  background:
-    radial-gradient(ellipse 90% 85% at 50% -30%, rgba(200, 98, 42, 0.22) 0%, transparent 52%),
-    radial-gradient(ellipse 55% 50% at 100% 100%, rgba(200, 98, 42, 0.08) 0%, transparent 50%),
-    linear-gradient(168deg, #161412 0%, var(--ink) 42%, #12100e 100%);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  overflow: hidden;
-}
-.footer-strip::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(circle at 50% 120%, rgba(249, 247, 244, 0.04) 0%, transparent 45%);
-  pointer-events: none;
-}
-.footer-strip > * { position: relative; z-index: 1; }
-.footer-strip h2 {
-  font-family: 'Sora', sans-serif;
-  font-size: clamp(1.85rem, 4.2vw + 1rem, 2.85rem);
-  font-weight: 700; letter-spacing: -0.03em; line-height: 1.12;
-  color: #fff; max-width: 640px; margin: 0 auto 16px;
-}
-.footer-strip p {
-  font-size: clamp(15px, 1.2vw + 14px, 17px);
-  color: rgba(255, 255, 255, 0.62);
-  font-weight: 400; line-height: 1.55;
-  max-width: 28em; margin: 0 auto 32px;
-}
-.footer-strip__cta {
-  display: inline-block;
-  font-family: 'Sora', sans-serif;
-  font-size: 15px; font-weight: 600;
-  letter-spacing: 0.06em; text-transform: uppercase;
-  background: var(--accent);
-  color: #fff !important;
-  padding: 16px 40px;
-  min-width: min(100%, 220px);
-  border-radius: 360px;
-  text-decoration: none;
-  box-shadow: 0 10px 32px rgba(200, 98, 42, 0.42), 0 2px 8px rgba(26, 24, 20, 0.2);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.2s ease;
-}
-.footer-strip__cta:hover {
-  background: #d66d32;
-  transform: translateY(-2px);
-  box-shadow: 0 16px 40px rgba(200, 98, 42, 0.5), 0 4px 12px rgba(26, 24, 20, 0.25);
-}
-.footer-strip__cta:active {
-  transform: translateY(0);
-  box-shadow: 0 6px 20px rgba(200, 98, 42, 0.35);
-  transition-duration: 0.12s;
-}
-
-/* ── FOOTER ── */
-footer {
-  padding: 28px 48px; max-width: 960px; margin: 0 auto;
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 20px;
-  border-top: 1px solid var(--border);
-}
-footer p { font-size: 13px; color: var(--light); margin: 0; }
-.footer-social { display: flex; align-items: center; gap: 8px; list-style: none; margin: 0; padding: 0; }
-.footer-social a {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 40px; height: 40px; border-radius: 8px;
-  border: 1px solid var(--border);
-  color: var(--mid); background: var(--surface);
-  text-decoration: none;
-  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-}
-.footer-social a:hover {
-  color: var(--accent); border-color: var(--accent); background: var(--accent-light);
-}
-.footer-social a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-.footer-social svg { width: 20px; height: 20px; flex-shrink: 0; }
-.footer-social__beh svg { width: 18px; height: 18px; }
 
 /* ── REDUCED MOTION ── */
 @media (prefers-reduced-motion: reduce) {
@@ -291,8 +163,7 @@ footer p { font-size: 13px; color: var(--light); margin: 0; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  nav { padding: 0 24px; }
-  main { padding: 104px 24px 80px; }
+main { padding: 104px 24px 80px; }
   .ui-detail__back { margin-bottom: 36px; }
   .ui-detail__title { margin-bottom: 32px; }
 }
@@ -302,23 +173,6 @@ footer p { font-size: 13px; color: var(--light); margin: 0; }
   .footer-strip { padding: 56px 20px 72px; }
   footer { padding: 24px; flex-direction: column; align-items: flex-start; gap: 20px; }
 }
-@media (max-width: 480px) {
-  nav { height: 56px; padding: 0 14px;
-        padding-left: max(14px, env(safe-area-inset-left, 0px));
-        padding-right: max(14px, env(safe-area-inset-right, 0px)); }
-  .n-logo { font-size: 12px; }
-  .n-links { gap: 10px; }
-  .n-links a { font-size: 11px; letter-spacing: 0.03em; }
-  .n-links a .n-ico { display: none; }
-  .n-btn { padding: 8px 12px; font-size: 9px !important; letter-spacing: 0.06em !important; }
-  main { padding: 76px 16px 56px; }
-}
-@media (max-width: 380px) {
-  .n-links { gap: 8px; }
-  .n-btn { font-size: 0 !important; padding: 8px 14px; }
-  .n-btn::before { content: 'CV'; font-size: 10px; letter-spacing: 0.08em; }
-}
-
 /* ── ILLUSTRATION PROJECT PAGE OVERRIDE ──
    Smaller, centered, more subtle title above a ~1.5x smaller centered hero
    (640px max vs. the default 960px main slot). Inherits everything else
@@ -338,20 +192,21 @@ footer p { font-size: 13px; color: var(--light); margin: 0; }
 }
 </style>
 </head>
-<body class="hero-cursor-none">
+<body class="hero-cursor-none has-anna-nav">
 
 <div id="dot" aria-hidden="true"></div>
 <div id="ring" aria-hidden="true"></div>
 
-<nav>
-  <a class="n-logo" href="index.html">NB.</a>
-  <div class="n-links">
-    <a href="index.html">Portfolio</a>
+<header class="anna-nav anna-nav--intro-visible anna-nav--light" id="site-nav" aria-label="Primary">
+  <div class="anna-nav__pill">
+    <a href="index.html#hero">Home</a>
+    <a href="index.html#projects" aria-current="page">Works</a>
     <a href="about.html">About</a>
-    <a href="visual-craft.html" aria-current="page"><svg class="n-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 L13.6 10.4 L20 12 L13.6 13.6 L12 20 L10.4 13.6 L4 12 L10.4 10.4 Z"/></svg>Visual Craft</a>
-    <span class="n-btn n-btn--cv-soon" role="button" tabindex="-1" aria-disabled="true" title="CV coming soon">Download CV</span>
   </div>
-</nav>
+  <div class="anna-nav__pill">
+    <a href="index.html#contact">Contact</a>
+  </div>
+</header>
 
 <main>
   <a class="ui-detail__back" href="visual-craft.html#vc-illustration">Back to Visual Craft</a>
