@@ -96,10 +96,9 @@
   margin-right: 0;
 }
 
-/* Icon titles — single line when possible, wrap naturally within track */
+/* Page title + section chapters share sizing; font families differ (hero = Destine) */
 .case-study-page .hero h1,
 .case-study-page .section-chapter {
-  font-family: var(--display, 'Lithium Typeface (LT)', 'Playfair Display', Georgia, serif);
   font-size: var(--cs-title);
   font-weight: 400;
   line-height: 0.95;
@@ -109,10 +108,17 @@
   font-style: normal;
   text-align: left;
   max-width: 100%;
-  text-wrap: balance;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   overflow-wrap: normal;
   word-break: normal;
   hyphens: none;
+}
+
+.case-study-page .hero h1,
+.case-study-page .section-chapter {
+  font-family: var(--page-title, 'Destine', 'Lithium Typeface (LT)', 'Playfair Display', Georgia, serif);
 }
 
 .case-study-page .hero h1 {
@@ -120,7 +126,7 @@
 }
 
 .case-study-page .hero h1 em {
-  font-style: italic;
+  font-style: normal;
   color: inherit;
 }
 
@@ -399,21 +405,6 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
-.case-study-page .flow-emphasis {
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 100%;
-  margin-left: 0;
-  margin-right: 0;
-  padding-top: clamp(16px, 2vw, 20px);
-  padding-bottom: clamp(8px, 1vw, 12px);
-  padding-left: 0;
-  padding-right: 0;
-  border: none;
-  box-shadow: inset 0 0 0 1px rgba(196, 98, 45, 0.22);
-  border-radius: var(--cs-radius-media);
-}
-
 /* Override per-page inline max-width caps so copy uses the full track */
 .case-study-page .hero-subtitle,
 .case-study-page .section-subtitle,
@@ -512,6 +503,16 @@
 
   .case-study-page .meta-item:last-child {
     border-bottom: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .case-study-page .hero h1,
+  .case-study-page .section-chapter {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    text-wrap: balance;
   }
 }
 

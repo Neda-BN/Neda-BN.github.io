@@ -9,7 +9,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/lithium-typeface-lt" rel="stylesheet">
-<link rel="stylesheet" href="css/site-shared.css">
+<link rel="stylesheet" href="fonts/destine.css">
+<link rel="stylesheet" href="css/site-shared.css?v=20260633">
+<script src="js/page-transition.js?v=20260633"></script>
 <link rel="stylesheet" href="fonts/sora.css">
 <link href="https://fonts.googleapis.com/css2?family=Sora:ital,wght@1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 <title>About · Neda Bagheri</title>
@@ -113,10 +115,11 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     display: block;
   }
   .about-intro__text { grid-area: copy; min-width: 0; }
+  .about-intro h1,
   .about-intro__text h1 { margin-top: 0; }
 
-  h1 { font-family: var(--serif); font-size: clamp(40px, 4.2vw, 60px); line-height: 1.1; letter-spacing: -0.003em; margin-bottom: 24px; color: #000; font-weight: 400; }
-  h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .about-intro h1 { font-family: var(--page-title); font-size: clamp(40px, 4.2vw, 60px); line-height: 1.1; letter-spacing: -0.003em; margin-bottom: 24px; color: #000; font-weight: 400; }
+  .about-intro h1 em { font-style: normal; color: inherit; font-weight: 400; }
   .about-intro .lead { margin-bottom: 0; }
   .lead { font-size: 18px; color: var(--mid); font-weight: 300; margin-bottom: 28px; }
   p { color: var(--mid); font-weight: 300; margin-bottom: 18px; }
@@ -127,7 +130,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     padding-top: 32px;
     border-top: 1px solid var(--border);
   }
-  .about-working-note h2 { font-family: var(--serif); font-size: clamp(32px, 3vw, 40px); line-height: 1.1; letter-spacing: -0.003em; margin-bottom: 24px; color: #000; font-weight: 400; }
+  .about-working-note h2 { font-family: var(--page-title); font-size: clamp(32px, 3vw, 40px); line-height: 1.1; letter-spacing: -0.003em; margin-bottom: 24px; color: #000; font-weight: 400; }
   .about-working-note p {
     font-size: 15px;
     color: var(--mid);

@@ -20,7 +20,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Sora:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,600;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/lithium-typeface-lt" rel="stylesheet">
-<link rel="stylesheet" href="css/site-shared.css">
+<link rel="preload" href="fonts/destine/DestinePersonalUseRegular-6YAev.otf" as="font" type="font/otf" crossorigin>
+<link rel="stylesheet" href="fonts/destine.css">
+<link rel="stylesheet" href="css/site-shared.css?v=20260633">
+<script src="js/page-transition.js?v=20260633"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -205,17 +208,20 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
   display: inline-block;
   align-self: center;
   margin: 0;
-  font-family: 'Lithium Typeface (LT)', 'Playfair Display', Georgia, serif;
+  font-family: var(--page-title);
   font-weight: 400;
   font-size: clamp(88px, 12.8vw, 208px);
   line-height: 0.92;
   letter-spacing: -0.02em;
   white-space: nowrap;
   text-align: center;
+  overflow: visible;
+  padding-bottom: 0.22em;
 }
 .hero-anna__headline-base,
 .hero-anna__headline-lit {
   display: block;
+  overflow: visible;
 }
 .hero-anna__headline-base {
   color: var(--hero-gray);
@@ -281,8 +287,15 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
 .hero-anna--intro-done .hero-anna__footer {
   opacity: 1;
 }
+.hero-anna--intro-done .hero-anna__headline-base {
+  color: #fff;
+  opacity: 1;
+}
 .hero-anna--intro-done .hero-anna__headline-lit {
-  clip-path: inset(0 0 0 0);
+  opacity: 0;
+  visibility: hidden;
+  clip-path: none;
+  will-change: auto;
 }
 
 .anna-nav {
@@ -319,7 +332,7 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-anna__headline-lit { clip-path: inset(0 0 0 0) !important; }
+  .hero-anna__headline-lit { clip-path: none !important; }
   .hero-anna__compose,
   .hero-anna--intro-done .hero-anna__compose { transform: none !important; opacity: 1 !important; }
   .hero-anna__footer,
@@ -333,6 +346,7 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
 @keyframes wordUp { from { opacity: 0; transform: translateY(60px); } to { opacity: 1; transform: translateY(0); } }
   #hero { scroll-margin-top: 0; }
   #projects { scroll-margin-top: 48px; }
+  #contact { scroll-margin-top: 48px; }
 
   /* ── ANNA-STYLE SELECTED PROJECTS ── */
   .page-works {
@@ -345,7 +359,7 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
     padding: 80px 24px 24px;
   }
   .works-anna__heading {
-    font-family: 'Lithium Typeface (LT)', 'Playfair Display', Georgia, serif;
+    font-family: var(--page-title);
     font-size: clamp(40px, 4.2vw, 60px);
     font-weight: 400;
     line-height: 1.1;
@@ -459,7 +473,7 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
     content: ''; flex: 1; height: 1px; background: var(--line); max-width: 96px;
   }
   .vc-section h2 {
-    font-family: var(--display);
+    font-family: var(--page-title);
     font-size: clamp(40px, 4.2vw, 60px);
     font-weight: 400;
     color: #000000;
@@ -663,6 +677,123 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
     } catch (e) {}
   }
 
+  function prefersReducedMotion() {
+    try {
+      return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function normalizeIndexPath(pathname) {
+    if (!pathname || pathname === '/') return '/index';
+    if (/\/index\.html$/i.test(pathname)) return pathname.replace(/index\.html$/i, 'index');
+    return pathname;
+  }
+
+  function resolveInPageHash(anchor) {
+    var href = anchor.getAttribute('href');
+    if (!href) return null;
+    var hash = '';
+    if (href.charAt(0) === '#') {
+      hash = href;
+    } else if (/^index\.html#/i.test(href)) {
+      hash = href.slice('index.html'.length);
+    } else {
+      try {
+        var url = new URL(href, window.location.href);
+        if (normalizeIndexPath(url.pathname) !== normalizeIndexPath(window.location.pathname)) return null;
+        hash = url.hash;
+      } catch (e) {
+        return null;
+      }
+    }
+    if (!hash || hash === '#') return null;
+    var el = document.getElementById(hash.slice(1));
+    if (!el) return null;
+    return { el: el, hash: hash };
+  }
+
+  function getScrollTargetY(el) {
+    var styles = window.getComputedStyle(el);
+    var marginTop = parseFloat(styles.scrollMarginTop) || 0;
+    var y = el.getBoundingClientRect().top + (window.pageYOffset || window.scrollY || 0) - marginTop;
+    return clampY(y);
+  }
+
+  var smoothScrollFrame = null;
+
+  function smoothScrollTo(targetY, done) {
+    if (smoothScrollFrame) {
+      cancelAnimationFrame(smoothScrollFrame);
+      smoothScrollFrame = null;
+    }
+
+    var y = clampY(targetY);
+    if (prefersReducedMotion()) {
+      try {
+        window.scrollTo({ top: y, left: 0, behavior: 'instant' });
+      } catch (e) {
+        window.scrollTo(0, y);
+      }
+      if (done) done();
+      return;
+    }
+
+    var startY = window.pageYOffset || window.scrollY || 0;
+    var delta = y - startY;
+    if (Math.abs(delta) < 2) {
+      window.scrollTo(0, y);
+      if (done) done();
+      return;
+    }
+
+    var duration = Math.min(1100, Math.max(480, 420 + Math.abs(delta) * 0.42));
+
+    function easeOutQuart(t) {
+      return 1 - Math.pow(1 - t, 4);
+    }
+
+    var startTime = null;
+    function step(now) {
+      if (startTime == null) startTime = now;
+      var progress = Math.min(1, (now - startTime) / duration);
+      var nextY = startY + delta * easeOutQuart(progress);
+      window.scrollTo(0, nextY);
+      if (progress < 1) {
+        smoothScrollFrame = requestAnimationFrame(step);
+      } else {
+        window.scrollTo(0, y);
+        smoothScrollFrame = null;
+        if (done) done();
+      }
+    }
+
+    smoothScrollFrame = requestAnimationFrame(step);
+  }
+
+  function scrollToSection(el, done) {
+    smoothScrollTo(getScrollTargetY(el), done);
+  }
+
+  function navigateToHash(target, done) {
+    scrollToSection(target.el, function () {
+      try {
+        history.replaceState(null, '', target.hash);
+      } catch (e) {}
+      if (done) done();
+    });
+  }
+
+  function bindSmoothScrollLink(anchor) {
+    anchor.addEventListener('click', function (e) {
+      var target = resolveInPageHash(anchor);
+      if (!target) return;
+      e.preventDefault();
+      navigateToHash(target);
+    });
+  }
+
   window.addEventListener('pagehide', saveScroll);
 
   window.addEventListener('pageshow', function (ev) {
@@ -680,20 +811,13 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
   });
 
   document.addEventListener('DOMContentLoaded', function () {
+    var nav = document.getElementById('site-nav');
+    if (nav) {
+      nav.querySelectorAll('a[href]').forEach(bindSmoothScrollLink);
+    }
+
     var strip = document.querySelector('a.strip[href="#projects"]');
-    var projects = document.getElementById('projects');
-    if (!strip || !projects) return;
-    strip.addEventListener('click', function (e) {
-      e.preventDefault();
-      var reduce = false;
-      try {
-        reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      } catch (err) {}
-      projects.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
-      try {
-        history.replaceState(null, '', '#projects');
-      } catch (err2) {}
-    });
+    if (strip) bindSmoothScrollLink(strip);
   });
 })();
 </script>
@@ -1026,13 +1150,20 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
       if (cluster) cluster.style.width = Math.ceil(headline.offsetWidth) + 'px';
     }
 
+    function settleHeadlineAfterWipe() {
+      var base = headline.querySelector('.hero-anna__headline-base');
+      /* Single in-flow white layer for scale-up — absolute lit + clip-path glitches under transform. */
+      gsap.set(headlineLit, { clipPath: 'none', opacity: 0, visibility: 'hidden' });
+      if (base) gsap.set(base, { color: '#ffffff', opacity: 1 });
+    }
+
     function finishIntro() {
       introDone = true;
       hero.classList.add('hero-anna--intro-done');
-      /* Keep final values — never clearProps (CSS defaults are scale 0.5 / opacity 0). */
+      /* Keep final values — never clearProps on compose/footer (CSS defaults are scale 0.5 / opacity 0). */
       gsap.set(compose, { scale: 1, y: 0, opacity: 1 });
       gsap.set(footer, { opacity: 1 });
-      gsap.set(headlineLit, { clipPath: 'inset(0% 0% 0% 0)' });
+      settleHeadlineAfterWipe();
       if (nav) {
         gsap.set(nav, { opacity: 1 });
         nav.classList.add('anna-nav--intro-visible');
@@ -1058,6 +1189,8 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(200,98,42,0.5); }
         duration: 1,
         ease: 'power2.inOut'
       }, 0);
+
+      tl.call(settleHeadlineAfterWipe, null, 1);
 
       /* Phase 2 & 3 — at 2s: footer fade-in + grand scale-up together */
       tl.to(footer, {
