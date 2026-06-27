@@ -9,7 +9,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/lithium-typeface-lt" rel="stylesheet">
-<link rel="stylesheet" href="css/site-shared.css">
+<link rel="stylesheet" href="fonts/destine.css">
+<link rel="stylesheet" href="css/site-shared.css?v=20260633">
+<script src="js/page-transition.js?v=20260633"></script>
 <link rel="stylesheet" href="fonts/sora.css">
 <link href="https://fonts.googleapis.com/css2?family=Sora:ital,wght@1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 <title>Visual Craft · Neda Bagheri</title>
@@ -64,12 +66,12 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .sec-label::after { content: ''; flex: 1; height: 1px; background: var(--line); }
   .vc-hero .sec-label { margin-bottom: 24px; }
   .vc-hero h1 {
-    font-family: var(--serif);
+    font-family: var(--page-title);
     font-size: clamp(40px, 4.2vw, 60px);
     line-height: 1.1; margin-bottom: 20px; color: #000;
     font-weight: 400; letter-spacing: -0.003em;
   }
-  .vc-hero h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .vc-hero h1 em { font-style: normal; color: inherit; font-weight: 400; }
   .vc-hero .lead {
     font-size: 18px; color: var(--mid); font-weight: 300;
     line-height: 1.6; max-width: 620px;
@@ -90,7 +92,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   }
   .vc-section__num::after { content: ''; flex: 1; height: 1px; background: var(--line); max-width: 96px; }
   .vc-section h2 {
-    font-family: var(--serif);
+    font-family: var(--page-title);
     font-size: clamp(40px, 4.2vw, 60px);
     font-weight: 400; color: #000;
     letter-spacing: -0.003em; line-height: 1.1;

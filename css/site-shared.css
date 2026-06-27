@@ -1,6 +1,7 @@
 /* Shared site styles — nav, display typography, footer, page shell (matches index home) */
 :root {
   --display: 'Lithium Typeface (LT)', 'Playfair Display', Georgia, serif;
+  --page-title: 'Destine', 'Lithium Typeface (LT)', 'Playfair Display', Georgia, serif;
   --page-bg: #ffffff;
   --text: #000000;
   --text-muted: rgba(0, 0, 0, 0.62);
@@ -81,24 +82,76 @@ body.has-anna-nav .hero {
   margin-top: 0;
 }
 
-/* ── DISPLAY HEADINGS (Selected projects style) ── */
-h1,
-h2,
-.footer-strip h2,
-.works-anna__heading,
-.vc-section h2,
-.sec-label,
-.hero h1,
-.about-intro h1,
-.page-hero h1,
-.case-hero h1,
-.vc-page__title,
-.ui-detail__title,
-.vc-detail__title {
+/* ── SECTION LABELS & MINOR HEADINGS (Lithium) ── */
+.sec-label {
   font-family: var(--display);
   font-weight: 400;
   letter-spacing: -0.003em;
   color: var(--text);
+}
+
+/* ── PRIMARY & SECTION TITLES (Destine — excludes homepage .hero-anna__headline) ── */
+.hero h1,
+.about-intro h1,
+.about-working-note h2,
+.page-hero h1,
+.case-hero h1,
+.vc-page__title,
+.vc-hero h1,
+.vc-section h2,
+.ui-detail__title,
+.vc-detail__title,
+.case-study__chapter,
+.section-chapter,
+h2.works-anna__heading {
+  font-family: var(--page-title, 'Destine', 'Lithium Typeface (LT)', 'Playfair Display', Georgia, serif);
+  font-weight: 400;
+  font-style: normal;
+  color: #000000;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hero h1 em,
+.about-intro h1 em,
+.vc-hero h1 em,
+.case-study__chapter em,
+.section-chapter em,
+.ui-detail__title em {
+  font-style: normal;
+  font-weight: inherit;
+  color: inherit;
+}
+
+.footer-strip h2 {
+  font-family: var(--page-title, 'Destine', 'Lithium Typeface (LT)', 'Playfair Display', Georgia, serif);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  white-space: nowrap;
+  color: #ffffff;
+}
+
+@media (max-width: 680px) {
+  .hero h1,
+  .about-intro h1,
+  .about-working-note h2,
+  .vc-hero h1,
+  .vc-section h2,
+  .ui-detail__title,
+  .case-study__chapter,
+  .section-chapter,
+  h2.works-anna__heading {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    text-wrap: balance;
+  }
 }
 
 /* Keep card / body subtitles in Inter */
