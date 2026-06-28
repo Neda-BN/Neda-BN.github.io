@@ -288,6 +288,45 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   }
   .content--pos-ds .ds-sheet-figure + .screen-caption { margin-top: -8px; }
 
+  /* Transformation: full-width screen exports outside the 820px copy track */
+  .pos-transformation {
+    width: 100%;
+    max-width: 100%;
+  }
+  .pos-transformation .content.case-main {
+    margin-bottom: clamp(20px, 3vw, 32px);
+  }
+  #transformation .section-chapter {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    text-wrap: balance;
+  }
+  .pos-transformation-strip {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(12px, 1.8vw, 20px);
+  }
+  .pos-transformation-figure {
+    margin: 0;
+    width: 100%;
+    padding: 0;
+  }
+  .pos-transformation-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: #ffffff;
+  }
+
   /* Affinity board: wider than .content (820px) — isolated strip, no horizontal scroll */
   .pos-affinity-strip {
     width: 100%;
@@ -1250,7 +1289,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
       <div class="screens-grid col-3" style="margin-top:0;">
         <div class="screen-item">
           <div class="screen-wrap">
-          <img src="Refund.png" alt="Refund screen - refundable tab" loading="lazy" decoding="async">
+          <img src="Refund-screen.png" alt="Refund screen - refundable tab" loading="lazy" decoding="async">
           </div>
           <p class="screen-caption">Refundable items — tap + to select</p>
         </div>
@@ -1298,7 +1337,33 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     </div>
   </section>
 
+  </div>
+
   <div class="divider"></div>
+
+  <section class="section fade-in reveal case-anchor pos-transformation" id="transformation">
+    <div class="content case-main">
+      <div class="section-header">
+        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
+        <div class="section-headings"><h2 class="section-chapter">The Transformation: From Friction to Flow</h2><p class="section-subtitle">Home · Products · Refunds</p></div>
+      </div>
+    </div>
+    <div class="pos-transformation-strip">
+      <figure class="pos-transformation-figure reveal reveal-media">
+        <img class="pos-transformation-img" src="Homepage.png" sizes="100vw" alt="Redesigned POS home screen — cart, quick actions, and product list on one scrollable view" loading="lazy" decoding="async">
+      </figure>
+      <figure class="pos-transformation-figure reveal reveal-media">
+        <img class="pos-transformation-img" src="Products.png" sizes="100vw" alt="Redesigned product management flow — scan, add, and search without leaving the register" loading="lazy" decoding="async">
+      </figure>
+      <figure class="pos-transformation-figure reveal reveal-media">
+        <img class="pos-transformation-img" src="Refund products.png" sizes="100vw" alt="Redesigned refund flow — refundable and non-refundable items clearly separated" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <div class="content case-main">
 
   <section class="section fade-in reveal case-anchor" id="prototype">
     <div class="section-header">
