@@ -1,0 +1,141 @@
+/* Sitewide responsive overrides — load last in <head> after page inline styles */
+
+/* ── Touch / coarse pointer: disable custom cursor ── */
+@media (hover: none), (pointer: coarse) {
+  body.hero-cursor-none {
+    cursor: auto;
+  }
+  #dot,
+  #ring {
+    display: none !important;
+  }
+}
+
+/* ── Project detail pages (ui-design, vc-*, motion, print) ── */
+@media (max-width: 1024px) {
+  body.has-anna-nav main {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (max-width: 900px) {
+  body.has-anna-nav main {
+    padding-top: 104px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 80px;
+  }
+}
+
+@media (max-width: 680px) {
+  body.has-anna-nav main {
+    padding-top: 88px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 64px;
+  }
+
+  body.has-anna-nav .ui-detail__back {
+    margin-bottom: 32px;
+  }
+
+  body.has-anna-nav .case-study__header {
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 22px;
+  }
+
+  body.has-anna-nav .case-study__icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  body.has-anna-nav .case-study__icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  body.has-anna-nav .case-study__tags {
+    margin-top: 22px;
+  }
+
+  body.has-anna-nav .ui-detail__title,
+  body.has-anna-nav .case-study__chapter {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    text-wrap: balance;
+  }
+}
+
+@media (max-width: 480px) {
+  body.has-anna-nav main {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* ── Visual Craft hub page ── */
+@media (max-width: 1024px) {
+  body.has-anna-nav .vc-page main,
+  body.hero-cursor-none:not(.case-study-page):not(.about-page) main {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (max-width: 900px) {
+  body.has-anna-nav .vc-page main,
+  body.hero-cursor-none:not(.case-study-page):not(.about-page) main {
+    padding-top: 56px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 80px;
+  }
+
+  .vc-hero {
+    margin-bottom: 56px;
+  }
+
+  .vc-hero .lead {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 680px) {
+  body.has-anna-nav .vc-page main,
+  body.hero-cursor-none:not(.case-study-page):not(.about-page) main {
+    padding-top: 48px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 72px;
+  }
+
+  .vc-hero h1 {
+    font-size: clamp(32px, 8vw, 44px);
+  }
+}
+
+/* ── Wide tables on case studies ── */
+@media (max-width: 859.98px) {
+  .case-study-page .data-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ── Prototype embeds ── */
+@media (max-width: 680px) {
+  .case-study-page .proto-frame {
+    aspect-ratio: 3 / 4;
+    max-height: none;
+  }
+
+  .case-study-page .proto-play {
+    width: 56px;
+    height: 56px;
+  }
+}
