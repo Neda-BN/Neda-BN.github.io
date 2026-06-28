@@ -1198,7 +1198,7 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
         onComplete: finishIntro
       });
 
-      /* Phase 1 — 0s→1s: left-to-right gray → white wipe */
+      /* Phase 1 — wipe: left-to-right gray → white on the name */
       tl.to(headlineLit, {
         clipPath: 'inset(0% 0% 0% 0)',
         duration: 1,
@@ -1207,24 +1207,24 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
 
       tl.call(settleHeadlineAfterWipe, null, 1);
 
-      /* Phase 2 & 3 — at 2s: footer fade-in + grand scale-up together */
-      tl.to(footer, {
-        opacity: 1,
-        duration: 0.85,
-        ease: 'power2.out'
-      }, 2);
-
+      /* Phase 2 — scale-up overlaps the last ~0.15s of the wipe (no 1s gap) */
       tl.to(compose, {
         scale: 1,
         duration: 1.15,
         ease: PREMIUM
-      }, 2);
+      }, '-=0.15');
+
+      tl.to(footer, {
+        opacity: 1,
+        duration: 0.85,
+        ease: 'power2.out'
+      }, '<');
 
       tl.to(nav, {
         opacity: 1,
         duration: 0.5,
         ease: 'power2.out'
-      }, 2);
+      }, '<');
     }
 
     function updateNav() {
