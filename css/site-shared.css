@@ -11,6 +11,11 @@
   --accent-light: #f5ebe3;
   --border: #e8e4dc;
   --sans: 'Inter', 'DM Sans', sans-serif;
+  --back-track: min(100%, 820px);
+  --back-inset: 48px;
+  --back-gap-top: max(56px, calc(env(safe-area-inset-top, 0px) + 44px));
+  --back-gap-after: clamp(40px, 5vw, 56px);
+  --back-gap-bottom: clamp(36px, 5vw, 52px);
 }
 
 /* ── ANNA-STYLE NAV ── */
@@ -270,4 +275,88 @@ footer p {
 @media (prefers-reduced-motion: reduce) {
   .anna-nav__pill a { transition: none !important; }
   .footer-strip__cta { transition: none !important; }
+}
+
+/* ── Back button (single shared component sitewide) ──
+   Top:    <div class="back-btn-wrap back-btn-wrap--top"><a class="back-btn" href="…">…</a></div>
+   Bottom: <div class="back-btn-wrap back-btn-wrap--bottom"><a class="back-btn" href="…">…</a></div>
+   Label is always "Back" with the chevron SVG (.back-btn__icon). Styles live here only. */
+.back-btn-wrap--top,
+.back-btn-wrap--bottom {
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: calc((100vw - min(100vw, var(--back-track))) / 2 + var(--back-inset));
+  padding-right: calc((100vw - min(100vw, var(--back-track))) / 2 + var(--back-inset));
+}
+
+.back-btn-wrap--top {
+  margin-top: var(--back-gap-top);
+  margin-bottom: var(--back-gap-after);
+}
+
+.back-btn-wrap--bottom {
+  padding-bottom: var(--back-gap-bottom);
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
+  width: fit-content;
+  max-width: 100%;
+  padding: 10px 16px 10px 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: #ffffff;
+  background: #000000;
+  border-radius: 8px;
+  text-decoration: none;
+  opacity: 1;
+  transform: none;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.back-btn__icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.back-btn:hover,
+.back-btn:focus-visible {
+  opacity: 1;
+  background: #1a1a1a;
+  color: #ffffff;
+  transform: none;
+  gap: 8px;
+}
+
+.back-btn:active {
+  background: #333333;
+}
+
+.back-btn:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 3px;
+}
+
+body.has-anna-nav:not(.case-study-page) .back-btn-wrap--top + main {
+  padding-top: 0;
+}
+
+@media (max-width: 859.98px) {
+  :root {
+    --back-inset: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-btn {
+    transition: none;
+  }
 }
