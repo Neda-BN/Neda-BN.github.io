@@ -146,6 +146,10 @@ h2.works-anna__heading {
   .hero h1,
   .about-intro h1,
   .about-working-note h2,
+  .page-hero h1,
+  .case-hero h1,
+  .vc-page__title,
+  .vc-detail__title,
   .vc-hero h1,
   .vc-section h2,
   .ui-detail__title,
@@ -265,11 +269,35 @@ footer p {
 .footer-social svg { width: 20px; height: 20px; flex-shrink: 0; }
 .footer-social__beh svg { width: 18px; height: 18px; }
 
+@media (max-width: 1024px) {
+  body.has-anna-nav main,
+  body.has-anna-nav > .page-shell,
+  body.has-anna-nav > .vc-page {
+    padding-top: max(64px, calc(env(safe-area-inset-top, 0px) + 52px));
+  }
+}
+
 @media (max-width: 680px) {
   .anna-nav { top: max(12px, env(safe-area-inset-top, 0px)); gap: 6px; }
   .anna-nav__pill a { font-size: 13px; padding: 6px 10px; }
   .site-footer,
-  footer { padding: 24px 16px; flex-direction: column; align-items: flex-start; }
+  footer {
+    padding: 24px max(16px, env(safe-area-inset-left, 0px));
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-strip {
+    padding-left: max(20px, env(safe-area-inset-left, 0px));
+    padding-right: max(20px, env(safe-area-inset-right, 0px));
+  }
+  .footer-strip h2 {
+    white-space: normal;
+    text-wrap: balance;
+  }
+}
+
+@media (max-width: 480px) {
+  .anna-nav__pill a { font-size: 12px; padding: 5px 8px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

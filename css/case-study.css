@@ -678,16 +678,61 @@
   .case-study-page .meta-item:last-child {
     border-bottom: none;
   }
+
+  .case-study-page .pain-grid,
+  .case-study-page .results-grid,
+  .case-study-page .results-grid--bo-outcomes,
+  .case-study-page .mob-results-grid,
+  .case-study-page .ab-grid,
+  .case-study-page .flow-grid,
+  .case-study-page .wizard-steps,
+  .case-study-page .ds-theme-row,
+  .case-study-page .screens-grid.col-3,
+  .case-study-page .screens-grid.col-2,
+  .case-study-page .mob-findings-row,
+  .case-study-page .mob-comp-grid,
+  .case-study-page .mob-onboard-grid,
+  .case-study-page .mob-methods-grid,
+  .case-study-page .mob-reflection-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .case-study-page .hero-media {
+    grid-template-columns: 1fr;
+  }
+
+  .case-study-page .result-card--featured,
+  .case-study-page .result-card--bo {
+    grid-template-columns: 1fr;
+  }
+
+  .case-study-page .pos-ujm-steps,
+  .case-study-page .hc-ujm-steps {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 680px) {
   .case-study-page .hero h1,
-  .case-study-page .section-chapter {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-wrap: nowrap;
+  .case-study-page .section-chapter,
+  .case-study-page .case-inline-subsection h3.screens-label {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    text-wrap: balance;
     font-size: clamp(1.45rem, 5.2vw, 2.2rem);
+  }
+
+  .case-study-page .section-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .case-study-page .section-icon svg {
+    width: 18px;
+    height: 18px;
   }
 }
 
