@@ -19,9 +19,9 @@
 <style>
   :root {
     --bg: #ffffff; --surface: #FFFFFF; --dark: #1A1A1A; --mid: #555555; --light: #999999;
-    --accent: #C4622D; --accent-light: #F5EBE3; --border: #E8E4DC;
-    --bg2: #EFECE6; --line: #E8E4DC; --ink: #1A1A1A; --ink2: #555555; --ink3: #A8A299; --warm: #C4622D;
-    --display: 'Lithium Typeface (LT)', 'Playfair Display', Georgia, serif; --serif: var(--display); --sans: 'Open Sans', sans-serif;
+    --accent: #3B82F6; --accent-light: #F5EBE3; --border: #E8E4DC;
+    --bg2: #EFECE6; --line: #E8E4DC; --ink: #1A1A1A; --ink2: #555555; --ink3: #A8A299; --warm: #3B82F6;
+    --display: 'Sora', sans-serif; --serif: var(--display); --sans: 'Open Sans', sans-serif;
     --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
     --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -43,11 +43,11 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   #ring {
     position: fixed; z-index: 9998; pointer-events: none;
     width: 36px; height: 36px; border-radius: 50%;
-    border: 1.5px solid rgba(200, 98, 42, 0.3); transform: translate(-50%, -50%);
+    border: 1.5px solid rgba(59, 130, 246, 0.3); transform: translate(-50%, -50%);
     transition: width 0.35s, height 0.35s, border-color 0.3s;
   }
   body.lh #dot { transform: translate(-50%, -50%) scale(2); opacity: 0.5; }
-  body.lh #ring { width: 60px; height: 60px; border-color: rgba(200, 98, 42, 0.5); }
+  body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246, 0.5); }
 
   /* ── PAGE LAYOUT ── */
   main {
@@ -155,7 +155,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     content: '';
     position: absolute; inset: 0; z-index: 0;
     background-image:
-      radial-gradient(circle at 1px 1px, rgba(196,98,45,0.16) 1px, transparent 0);
+      radial-gradient(circle at 1px 1px, rgba(59, 130, 246,0.16) 1px, transparent 0);
     background-size: 14px 14px;
     opacity: 0.45;
   }
@@ -236,7 +236,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .vc-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 18px 38px rgba(26, 26, 26, 0.12);
-    border-color: rgba(196, 98, 45, 0.35);
+    border-color: rgba(59, 130, 246, 0.35);
   }
   .vc-card:hover .vc-card__img { transform: scale(1.045); }
   .vc-card:hover .vc-card__veil { opacity: 1; height: 62%; }
@@ -275,7 +275,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   button.vc-card:focus-visible {
     transform: translateY(-4px);
     box-shadow: 0 18px 38px rgba(26, 26, 26, 0.12);
-    border-color: rgba(196, 98, 45, 0.35);
+    border-color: rgba(59, 130, 246, 0.35);
     outline: none;
   }
   a.vc-card:focus-visible .vc-card__img,

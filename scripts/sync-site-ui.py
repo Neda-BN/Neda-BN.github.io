@@ -73,7 +73,7 @@ def detect_current(path: Path) -> str:
 def patch_root_vars(text: str) -> str:
     text = re.sub(
         r"--serif:\s*'Sora'[^;]*;",
-        "--display: 'Lithium Typeface (LT)', 'Playfair Display', Georgia, serif; --serif: var(--display);",
+        "--display: 'Sora', sans-serif; --serif: var(--display);",
         text,
     )
     text = re.sub(

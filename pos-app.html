@@ -24,15 +24,15 @@
     --dark: #1A1A1A;
     --mid: #555555;
     --light: #999999;
-    --accent: #C4622D;
+    --accent: #3B82F6;
     --accent-light: #F5EBE3;
     --border: #E8E4DC;
-    --display: 'Lithium Typeface (LT)', 'Playfair Display', Georgia, serif; --serif: var(--display);
+    --display: 'Sora', sans-serif; --serif: var(--display);
     --sans: 'Open Sans', sans-serif;
     --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
     --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
     --shadow-cv: 0 6px 20px rgba(26, 26, 26, 0.18);
-    --shadow-cv-hover: 0 16px 36px rgba(26, 26, 26, 0.22), 0 6px 16px rgba(196, 98, 45, 0.12);
+    --shadow-cv-hover: 0 16px 36px rgba(26, 26, 26, 0.22), 0 6px 16px rgba(59, 130, 246, 0.12);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { color-scheme: light; overflow-x: clip; }
@@ -286,9 +286,6 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .pos-transformation {
     width: 100%;
     max-width: 100%;
-  }
-  .pos-transformation .content.case-main {
-    margin-bottom: clamp(20px, 3vw, 32px);
   }
   .pos-transformation-strip {
     width: 100%;
@@ -865,7 +862,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     border-radius: 14px;
     overflow: hidden;
     background:
-      radial-gradient(ellipse 72% 62% at 50% 40%, rgba(196, 98, 45, 0.07) 0%, transparent 62%),
+      radial-gradient(ellipse 72% 62% at 50% 40%, rgba(59, 130, 246, 0.07) 0%, transparent 62%),
       var(--surface);
   }
   .proto-frame iframe {
@@ -889,7 +886,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     width: 64px; height: 64px; border-radius: 50%;
     background: var(--accent); color: #fff;
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 12px 30px rgba(196, 98, 45, 0.32);
+    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.32);
     transition: transform 0.4s var(--ease-spring);
   }
   .proto-poster:hover .proto-play { transform: scale(1.06); }
@@ -919,7 +916,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     .proto-poster-t { font-size: 1.1rem; }
   }
 </style>
-<link rel="stylesheet" href="css/case-study.css?v=20260634">
+<link rel="stylesheet" href="css/case-study.css?v=20260637">
 </head>
 <body class="has-anna-nav case-study-page">
 
@@ -1259,10 +1256,10 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
           <p class="screen-caption">Expanded cart — all items visible</p>
         </div>
       </div>
-      <div class="screens-label">Design Solution I · One Scrollable Home — Everything in Reach</div>
     </div>
 
     <div class="screens-section reveal reveal-media">
+      <div class="screens-label">Design Solution I · One Scrollable Home — Everything in Reach</div>
       <div class="screens-grid col-3">
         <div class="screen-item">
           <div class="screen-wrap">
@@ -1283,6 +1280,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
           <p class="screen-caption">Add new product — Name, EAN, Sales account</p>
         </div>
       </div>
+    </div>
+
+    <div class="screens-section reveal reveal-media">
       <div class="screens-label">Design Solution II · Scan, Add, Manage — Without Leaving the App</div>
       <p>Barcode scanning turns any smartphone camera into a product scanner. When a product is found, it's added to the cart instantly. When it's <strong>not found</strong>, the app prompts the cashier to add it on the spot — eliminating the need to go to a separate system.</p>
       <p>The <strong>"Add New Product"</strong> flow is a key innovation of this project. It lets store staff create new products directly from the POS — with name, EAN, sales account, and an optional product image — all in two steps.</p>
@@ -1303,6 +1303,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     </div>
 
     <div class="screens-section reveal reveal-media">
+      <div class="screens-label">Design Solution III · Flexible Discounts — Per Product or Entire Cart</div>
+      <p>Discounts needed to work at two levels: applied to a <strong>single product</strong> (shown as a badge on that item) or to the <strong>entire receipt</strong>. Cashiers can choose between SEK amount or percentage, making the flow adaptable to any promotional scenario.</p>
+      <p>The discount screen uses a <strong>large-format numeric keypad</strong> — optimised for touchscreen use, even with gloves — with clearly segmented toggle buttons for type and scope.</p>
       <div class="screens-grid col-2">
         <div class="screen-item">
           <div class="screen-wrap">
@@ -1317,12 +1320,11 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
           <p class="screen-caption">Discount applied — shown as banner in cart</p>
         </div>
       </div>
-      <div class="screens-label">Design Solution III · Flexible Discounts — Per Product or Entire Cart</div>
-      <p>Discounts needed to work at two levels: applied to a <strong>single product</strong> (shown as a badge on that item) or to the <strong>entire receipt</strong>. Cashiers can choose between SEK amount or percentage, making the flow adaptable to any promotional scenario.</p>
-      <p>The discount screen uses a <strong>large-format numeric keypad</strong> — optimised for touchscreen use, even with gloves — with clearly segmented toggle buttons for type and scope.</p>
     </div>
 
     <div class="screens-section reveal reveal-media">
+      <div class="screens-label">Design Solution IV · Refunds — Refundable vs. Non-Refundable</div>
+      <p>The refund flow separates items into two clear tabs: <strong>Refundable</strong> and <strong>Non-refundable</strong> — helping cashiers quickly identify what can be returned. Items are selected with a single tap, the total updates in real time, and a "Do refund" button finalises the process.</p>
       <div class="screens-grid col-3">
         <div class="screen-item">
           <div class="screen-wrap">
@@ -1343,11 +1345,12 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
           <p class="screen-caption">Selected items — total &amp; "Do refund" CTA</p>
         </div>
       </div>
-      <div class="screens-label">Design Solution IV · Refunds — Refundable vs. Non-Refundable</div>
-      <p>The refund flow separates items into two clear tabs: <strong>Refundable</strong> and <strong>Non-refundable</strong> — helping cashiers quickly identify what can be returned. Items are selected with a single tap, the total updates in real time, and a "Do refund" button finalises the process.</p>
     </div>
 
     <div class="screens-section reveal reveal-media">
+      <div class="screens-label">Design Solution V · Transactions &amp; Daily Reports — No Back-Office Needed</div>
+      <p>One of the biggest differentiators of this application is that <strong>reporting is built directly into the POS</strong>. Cashiers can view the day's transactions, fetch the daily report, review register vs. control check data, and submit — all without switching to a separate system.</p>
+      <p>The <strong>"Coming up"</strong> feature shows upcoming report deadlines, allowing store managers to submit empty reports for days with no transactions — preventing gaps in the reporting chain.</p>
       <div class="screens-grid col-3">
         <div class="screen-item">
           <div class="screen-wrap">
@@ -1368,9 +1371,6 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
           <p class="screen-caption">Fetch today's transactions before submitting</p>
         </div>
       </div>
-      <div class="screens-label">Design Solution V · Transactions &amp; Daily Reports — No Back-Office Needed</div>
-      <p>One of the biggest differentiators of this application is that <strong>reporting is built directly into the POS</strong>. Cashiers can view the day's transactions, fetch the daily report, review register vs. control check data, and submit — all without switching to a separate system.</p>
-      <p>The <strong>"Coming up"</strong> feature shows upcoming report deadlines, allowing store managers to submit empty reports for days with no transactions — preventing gaps in the reporting chain.</p>
     </div>
   </section>
 

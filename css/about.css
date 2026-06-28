@@ -1,0 +1,344 @@
+/* About page — aligned with site-shared + case study tokens */
+.about-page {
+  --about-track: min(100%, 820px);
+  --about-pad: 48px;
+  --about-body: clamp(16px, 1.45vw, 20px);
+  --about-lead: clamp(14px, 1.2vw, 17px);
+  --about-section: clamp(40px, 5vw, 56px);
+  background: #ffffff;
+  color: #000000;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--about-body);
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+.about-page main {
+  box-sizing: border-box;
+  max-width: var(--about-track);
+  margin: 0 auto;
+  padding: max(72px, calc(env(safe-area-inset-top, 0px) + 56px)) var(--about-pad) clamp(48px, 6vw, 80px);
+  perspective: none;
+  transform-style: flat;
+}
+
+.about-page a:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 3px;
+}
+
+/* Intro */
+.about-page .about-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  grid-template-areas: "photo copy";
+  gap: clamp(32px, 5vw, 56px);
+  align-items: center;
+}
+
+.about-page .about-intro__figure {
+  grid-area: photo;
+  margin: 0;
+}
+
+.about-page .about-intro__photo {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 24px rgba(26, 42, 90, 0.1);
+}
+
+.about-page .about-intro__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.about-page .about-intro__text {
+  grid-area: copy;
+  min-width: 0;
+}
+
+.about-page .about-intro h1,
+.about-page .about-working-note h2 {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  text-wrap: balance;
+}
+
+.about-page .about-intro h1 {
+  font-size: clamp(32px, 5.8vw, 56px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin: 0 0 clamp(14px, 2vw, 20px);
+}
+
+.about-page .lead {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--about-lead);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.35;
+  letter-spacing: -0.03em;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0;
+}
+
+/* Body copy */
+.about-page .about-body {
+  margin-top: var(--about-section);
+}
+
+.about-page .about-body p,
+.about-page .about-working-note p {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--about-body);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  color: rgba(0, 0, 0, 0.8);
+  margin-bottom: clamp(12px, 1.5vw, 16px);
+}
+
+.about-page .about-body p:last-child,
+.about-page .about-working-note p:last-child {
+  margin-bottom: 0;
+}
+
+.about-page .about-body p strong {
+  color: #000000;
+  font-weight: 500;
+}
+
+.about-page .about-body a {
+  color: #000000;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(0, 0, 0, 0.35);
+  transition: text-decoration-color 0.2s ease;
+}
+
+.about-page .about-body a:hover,
+.about-page .about-body a:focus-visible {
+  text-decoration-color: #000000;
+}
+
+/* Section labels */
+.about-page .sec-label {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(16px, 1.4vw, 20px);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.25;
+  color: rgba(0, 0, 0, 0.85);
+  text-transform: none;
+  margin-bottom: clamp(20px, 2.5vw, 28px);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.about-page .sec-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.12);
+  max-width: none;
+}
+
+/* Skills */
+.about-page .skills-section {
+  margin-top: var(--about-section);
+  margin-bottom: var(--about-section);
+}
+
+.about-page .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(10px, 1.4vw, 14px);
+}
+
+.about-page .skill-group {
+  padding: clamp(20px, 2.5vw, 28px) clamp(18px, 2vw, 24px);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-page .skill-group:hover {
+  border-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.about-page .sg-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.45);
+  margin-bottom: clamp(12px, 1.5vw, 16px);
+}
+
+.about-page .sg-items {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1vw, 10px);
+}
+
+.about-page .sg-item {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(13px, 1.2vw, 14px);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: -0.03em;
+  color: rgba(0, 0, 0, 0.8);
+  padding-left: 0;
+}
+
+.about-page .sg-item::before {
+  display: none;
+}
+
+.about-page .divider {
+  margin: 0;
+  height: 0;
+  border: 0;
+}
+
+/* Case study links */
+.about-page .cs-section {
+  margin-bottom: var(--about-section);
+}
+
+.about-page .cs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(10px, 1.4vw, 14px);
+}
+
+.about-page .cs-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: clamp(20px, 2.5vw, 28px);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.about-page .cs-card:hover,
+.about-page .cs-card:focus-visible {
+  border-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.about-page .cs-card::after {
+  display: none;
+}
+
+.about-page .cs-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.45);
+  margin-bottom: clamp(8px, 1vw, 10px);
+}
+
+.about-page .cs-title {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--about-body);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+  color: #000000;
+  margin-bottom: clamp(8px, 1vw, 10px);
+}
+
+.about-page .cs-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(13px, 1.2vw, 14px);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: -0.03em;
+  color: rgba(0, 0, 0, 0.62);
+  margin: 0;
+  max-width: none;
+}
+
+/* Working style */
+.about-page .about-working-note {
+  margin-top: var(--about-section);
+  padding-top: var(--about-section);
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.about-page .about-working-note h2 {
+  font-size: clamp(32px, 5.8vw, 56px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin: 0 0 clamp(14px, 2vw, 20px);
+}
+
+/* Reveal */
+.about-page .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-page .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 859.98px) {
+  .about-page {
+    --about-pad: 24px;
+  }
+}
+
+@media (max-width: 720px) {
+  .about-page .about-intro {
+    grid-template-columns: 1fr;
+    grid-template-areas: "photo" "copy";
+    gap: 32px;
+  }
+
+  .about-page .about-intro__photo {
+    max-width: min(280px, 72vw);
+  }
+
+  .about-page .skills-grid,
+  .about-page .cs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-page .reveal,
+  .about-page .reveal.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .about-page .skill-group,
+  .about-page .cs-card {
+    transition: none !important;
+  }
+}

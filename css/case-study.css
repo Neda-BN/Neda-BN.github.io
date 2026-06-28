@@ -189,7 +189,13 @@
 }
 
 .case-study-page .pos-transformation .content.case-main {
+  width: 100%;
+  max-width: var(--cs-track);
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: var(--cs-stack-md);
+  padding-top: var(--cs-stack-lg);
+  padding-bottom: var(--cs-stack-md);
 }
 
 .case-study-page .ds-sheet-figure {
@@ -282,7 +288,7 @@
 
 .case-study-page .hero h1,
 .case-study-page .section-chapter {
-  font-family: var(--page-title, 'Destine', 'Lithium Typeface (LT)', 'Playfair Display', Georgia, serif);
+  font-family: var(--page-title, 'Destine', 'Sora', sans-serif);
 }
 
 .case-study-page .hero h1 {
