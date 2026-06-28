@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/lithium-typeface-lt" rel="stylesheet">
 <link rel="stylesheet" href="fonts/destine.css">
-<link rel="stylesheet" href="css/site-shared.css?v=20260633">
+<link rel="stylesheet" href="css/site-shared.css?v=20260635">
 <script src="js/page-transition.js?v=20260633"></script>
 <link rel="stylesheet" href="fonts/sora.css">
 <link href="https://fonts.googleapis.com/css2?family=Sora:ital,wght@1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
@@ -196,9 +196,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     transform-style: preserve-3d;
   }
   .section { margin-bottom: 40px; }
-  .section-header { display: flex; align-items: flex-start; gap: 22px; padding: 0 0 32px 0; margin-bottom: 0; }
-  .section-headings { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
-  .section-chapter { font-family: var(--page-title); font-size: clamp(2rem, 4vw + 1rem, 2.95rem); font-weight: 400; letter-spacing: -0.04em; line-height: 1.08; color: #000000; margin: 0; }
+  .section-header { display: flex; flex-direction: column; align-items: flex-start; gap: clamp(12px, 1.5vw, 16px); padding: 0 0 32px 0; margin-bottom: 0; }
+  .section-headings { flex: 1; width: 100%; max-width: 100%; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 14px; padding-left: 0; margin-left: 0; }
+  .section-chapter { font-family: var(--page-title); font-size: clamp(2rem, 4vw + 1rem, 2.95rem); font-weight: 400; letter-spacing: -0.04em; line-height: 1.08; color: #000000; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
   .section-subtitle { font-family: var(--serif); font-size: clamp(1.05rem, 1.5vw + 0.75rem, 1.3rem); font-weight: 400; font-style: italic; color: var(--mid); line-height: 1.45; margin: 0; max-width: 38em; }
   .section-icon { flex-shrink: 0; width: 56px; height: 56px; border-radius: 50%; border: 1.5px solid var(--border); background: var(--bg); color: #6b6b6b; display: flex; align-items: center; justify-content: center; }
   .section-icon svg { width: 26px; height: 26px; flex-shrink: 0; }
@@ -230,21 +230,15 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .finding-text { font-size: 14px; color: var(--mid); font-style: italic; font-weight: 300; line-height: 1.6; }
   .finding-stat { font-size: 11px; font-weight: 600; color: var(--dark); margin-top: 4px; }
 
+  .pos-device-list { display: flex; flex-direction: column; gap: 14px; margin-top: 24px; }
+  .pos-device-item { display: flex; gap: 16px; padding: 20px 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; align-items: flex-start; }
+  .pos-device-item__title { font-family: var(--serif); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dark); margin: 0 0 8px; }
+  .pos-device-item p { font-size: 14px; color: var(--mid); margin: 0; line-height: 1.6; font-weight: 300; }
+  #external-devices .screens-section { margin-top: 0; margin-bottom: 24px; }
+
   .screens-section { margin-top: 24px; }
   .screens-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin-bottom: 16px; }
   /* Subsection within a case-study section (e.g. Methods & Research) */
-  .case-inline-subsection { margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--border); }
-  .case-inline-subsection .screens-label {
-    margin-top: 0;
-    font-family: var(--serif);
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    color: var(--dark);
-    line-height: 1.35;
-    margin-bottom: 14px;
-  }
   .case-inline-subsection > p:last-child { margin-bottom: 0; }
   .screens-grid { display: grid; gap: 16px; }
   /* Two-column rows: each cell matches the width of one cell in a three-column row (same gap math as col-3). */
@@ -295,12 +289,6 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   }
   .pos-transformation .content.case-main {
     margin-bottom: clamp(20px, 3vw, 32px);
-  }
-  #transformation .section-chapter {
-    white-space: normal;
-    overflow: visible;
-    text-overflow: clip;
-    text-wrap: balance;
   }
   .pos-transformation-strip {
     width: 100%;
@@ -834,10 +822,10 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
   @media (max-width: 640px) {
 .back-top, .hero, .hero-image, .content, .content--pos-ds, .bottom-back, footer { padding-left: 24px; padding-right: 24px; }
-    .section-header { flex-direction: column; gap: 18px; padding: 0 0 24px 0; }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 14px; padding: 0 0 24px 0; }
     .section-icon { width: 52px; height: 52px; }
     .section-icon svg { width: 24px; height: 24px; }
-    .section-chapter { font-size: clamp(1.65rem, 6vw, 2.35rem); }
+    .section-chapter { font-size: clamp(1.45rem, 5.2vw, 2.2rem); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .pain-grid, .results-grid { grid-template-columns: 1fr; }
     .result-card--featured {
       grid-template-columns: 1fr;
@@ -931,7 +919,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     .proto-poster-t { font-size: 1.1rem; }
   }
 </style>
-<link rel="stylesheet" href="css/case-study.css">
+<link rel="stylesheet" href="css/case-study.css?v=20260634">
 </head>
 <body class="has-anna-nav case-study-page">
 
@@ -946,7 +934,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   </div>
 </header>
 
-<a class="back-top" href="index.html#projects">Back</a>
+<div class="back-btn-wrap back-btn-wrap--top">
+  <a class="back-btn" href="index.html#projects"><svg class="back-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Back</a>
+</div>
 
 <section class="hero">
   <div class="hero-tag">Case Study · B2B · Retail Tech</div>
@@ -1061,6 +1051,53 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
       <div class="section-headings"><h2 class="section-chapter">Company &amp; Platform</h2><p class="section-subtitle">Project context</p></div>
     </div>
     <p>Focalpay is a Swedish retail-tech company building payment and store-management software for independent retailers. The cashier app runs on <strong>iOS, Android, and browser</strong> — replacing legacy terminals with a lightweight, device-agnostic POS.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section fade-in reveal case-anchor" id="external-devices">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">One System. Every Device Connected</h2><p class="section-subtitle">Connected store hardware</p></div>
+    </div>
+    <div class="screens-section reveal reveal-media">
+      <div class="screen-wrap screen-wrap--natural-photo">
+        <img src="External Devices.png" alt="External Devices settings screen — handheld scanner, receipt printer, keyboard, and Cash Guard connection status in the Focalpay POS" loading="lazy" decoding="async">
+      </div>
+    </div>
+    <p>The Focalpay cashier app doesn't live in isolation. In a real store environment, the POS terminal sits at the centre of a small ecosystem — a handheld barcode scanner, a receipt printer, a physical keyboard, and a Cash Guard cash management unit all need to talk to it reliably, every single shift.</p>
+    <p>Designing the External Devices settings screen meant thinking beyond UI. Each peripheral has its own connection type, its own failure mode, and its own impact on the cashier's flow when something goes wrong.</p>
+    <div class="pos-device-list">
+      <div class="pos-device-item">
+        <div class="finding-icon" aria-hidden="true">📡</div>
+        <div>
+          <h3 class="pos-device-item__title">Handheld Scanner</h3>
+          <p>Cashiers can connect via cable, wireless, or fall back to the device camera — or set it to no scanner at all. The active connection type is always visible, so there's no guessing when a scan doesn't register.</p>
+        </div>
+      </div>
+      <div class="pos-device-item">
+        <div class="finding-icon" aria-hidden="true">🖨️</div>
+        <div>
+          <h3 class="pos-device-item__title">Receipt Printer</h3>
+          <p>Print confirmation is a non-negotiable part of every transaction. Connection status shows live on the screen — green means ready, red means act now — so a disconnected printer never becomes a surprise mid-queue.</p>
+        </div>
+      </div>
+      <div class="pos-device-item">
+        <div class="finding-icon" aria-hidden="true">⌨️</div>
+        <div>
+          <h3 class="pos-device-item__title">Keyboard</h3>
+          <p>For stores that rely on manual input — product codes, quantities, amounts — keyboard connectivity is tracked the same way. A disconnected keyboard shows a clear warning before it causes a problem at the till.</p>
+        </div>
+      </div>
+      <div class="pos-device-item">
+        <div class="finding-icon" aria-hidden="true">💰</div>
+        <div>
+          <h3 class="pos-device-item__title">Cash Guard</h3>
+          <p>For stores using automated cash management, the Cash Guard integration is handled directly through the Functions panel — alongside deposits, bag charges, and price checks. No separate system, no extra steps.</p>
+        </div>
+      </div>
+    </div>
+    <p>The result is a single settings screen that gives store managers a real-time picture of everything connected to the till — and the confidence to catch a problem before a customer is standing at the counter.</p>
   </section>
 
   <div class="divider"></div>
@@ -1185,7 +1222,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
       <div class="pain-card"><div class="pain-number">02</div><h4>No Product Management</h4><p>Stores had to rely on a separate back-office system to add or edit products — a slow, disconnected workflow.</p></div>
       <div class="pain-card"><div class="pain-number">03</div><h4>Heavy Infrastructure</h4><p>Traditional terminals were expensive and energy-intensive. Stores wanted a leaner, mobile-first alternative.</p></div>
     </div>
-    <div class="quote-block" style="margin-top:28px;">
+    <div class="quote-block">
       <p>"We want something that just works — fast. Our staff shouldn't need training to use a cashier app."</p>
       <cite>— Store Owner, Usability Research Session</cite>
     </div>
@@ -1249,7 +1286,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
       <div class="screens-label">Design Solution II · Scan, Add, Manage — Without Leaving the App</div>
       <p>Barcode scanning turns any smartphone camera into a product scanner. When a product is found, it's added to the cart instantly. When it's <strong>not found</strong>, the app prompts the cashier to add it on the spot — eliminating the need to go to a separate system.</p>
       <p>The <strong>"Add New Product"</strong> flow is a key innovation of this project. It lets store staff create new products directly from the POS — with name, EAN, sales account, and an optional product image — all in two steps.</p>
-      <div class="screens-grid col-2" style="margin-top:16px;">
+      <div class="screens-grid col-2">
         <div class="screen-item">
           <div class="screen-wrap">
           <img src="Add_new_Product-2.png" alt="Add product image step" loading="lazy" decoding="async">
@@ -1266,7 +1303,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     </div>
 
     <div class="screens-section reveal reveal-media">
-      <div class="screens-grid col-2" style="margin-top:0;">
+      <div class="screens-grid col-2">
         <div class="screen-item">
           <div class="screen-wrap">
           <img src="Discount.png" alt="Discount keypad screen" loading="lazy" decoding="async">
@@ -1286,7 +1323,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     </div>
 
     <div class="screens-section reveal reveal-media">
-      <div class="screens-grid col-3" style="margin-top:0;">
+      <div class="screens-grid col-3">
         <div class="screen-item">
           <div class="screen-wrap">
           <img src="Refund-screen.png" alt="Refund screen - refundable tab" loading="lazy" decoding="async">
@@ -1311,7 +1348,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     </div>
 
     <div class="screens-section reveal reveal-media">
-      <div class="screens-grid col-3" style="margin-top:0;">
+      <div class="screens-grid col-3">
         <div class="screen-item">
           <div class="screen-wrap">
           <img src="Latest_transactions.png" alt="Transactions list with filter" loading="lazy" decoding="async">
@@ -1570,7 +1607,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
         <p class="ab-desc">Cart, product list, Purchase and quick actions all on one scrollable screen.</p>
       </div>
     </div>
-    <div class="quote-block" style="margin-top:24px;">
+    <div class="quote-block">
       <p>"The scroll feels natural. I don't have to think about where anything is."</p>
       <cite>— Cashier, In-Store Usability Test</cite>
     </div>
@@ -1589,7 +1626,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
         <p class="result-label">AA compliant — accessible on all screen sizes and devices</p>
       </article>
     </div>
-    <div class="screens-section reveal reveal-media" style="margin-top:28px;">
+    <div class="screens-section reveal reveal-media">
       <div class="screen-wrap screen-wrap--natural-photo">
         <img src="pos-results-measurable-impact.png" alt="Cashier using a handheld mobile POS to scan a QR code on a fabric sample in a retail showroom, with cart and purchase actions on screen." width="1024" height="565" loading="lazy" decoding="async">
       </div>
@@ -1613,8 +1650,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 </div>
 
-<div class="bottom-back">
-  <a href="index.html#projects">Back</a>
+<div class="back-btn-wrap back-btn-wrap--bottom">
+  <a class="back-btn" href="index.html#projects"><svg class="back-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Back</a>
 </div>
 
 <footer>
