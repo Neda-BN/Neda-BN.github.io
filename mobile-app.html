@@ -19,12 +19,12 @@
 <style>
   :root {
     --bg: #ffffff; --surface: #FFFFFF; --dark: #1A1A1A; --mid: #555555; --light: #999999;
-    --accent: #C4622D; --accent-light: #F5EBE3; --border: #E8E4DC;
-    --display: 'Lithium Typeface (LT)', 'Playfair Display', Georgia, serif; --serif: var(--display); --sans: 'Open Sans', sans-serif;
+    --accent: #3B82F6; --accent-light: #F5EBE3; --border: #E8E4DC;
+    --display: 'Sora', sans-serif; --serif: var(--display); --sans: 'Open Sans', sans-serif;
     --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
     --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
     --shadow-cv: 0 6px 20px rgba(26, 26, 26, 0.18);
-    --shadow-cv-hover: 0 16px 36px rgba(26, 26, 26, 0.22), 0 6px 16px rgba(196, 98, 45, 0.12);
+    --shadow-cv-hover: 0 16px 36px rgba(26, 26, 26, 0.22), 0 6px 16px rgba(59, 130, 246, 0.12);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { color-scheme: light; overflow-x: clip; }
@@ -453,11 +453,11 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     padding: 26px 28px 28px 28px;
     border-radius: 14px;
     background: linear-gradient(145deg, rgba(245, 235, 227, 0.75) 0%, rgba(255, 255, 255, 0.97) 42%, #ffffff 100%);
-    border: 2px solid rgba(196, 98, 45, 0.32);
+    border: 2px solid rgba(59, 130, 246, 0.32);
     border-left: 5px solid var(--accent);
     box-shadow:
       0 1px 0 rgba(255, 255, 255, 0.9) inset,
-      0 14px 40px rgba(196, 98, 45, 0.14),
+      0 14px 40px rgba(59, 130, 246, 0.14),
       0 4px 14px rgba(26, 26, 26, 0.06);
   }
   .mob-decision-k {
@@ -472,8 +472,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     padding: 8px 14px;
     border-radius: 100px;
     background: rgba(255, 255, 255, 0.88);
-    border: 1px solid rgba(196, 98, 45, 0.28);
-    box-shadow: 0 2px 10px rgba(196, 98, 45, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.28);
+    box-shadow: 0 2px 10px rgba(59, 130, 246, 0.1);
   }
   .mob-decision > p {
     margin: 0;
@@ -560,7 +560,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     height: 40px;
     border-radius: 8px;
     background: var(--accent-light);
-    border: 1px solid rgba(196, 98, 45, 0.25);
+    border: 1px solid rgba(59, 130, 246, 0.25);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -579,7 +579,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .mob-sol-body { font-size: 15px; color: var(--mid); line-height: 1.75; margin: 0; }
   .mob-insight {
     background: var(--surface);
-    border: 1px solid rgba(196, 98, 45, 0.28);
+    border: 1px solid rgba(59, 130, 246, 0.28);
     border-radius: 12px;
     padding: 24px;
     margin-top: 24px;
@@ -638,7 +638,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     height: 44px;
     border-radius: 50%;
     background: var(--accent-light);
-    border: 1.5px solid rgba(196, 98, 45, 0.25);
+    border: 1.5px solid rgba(59, 130, 246, 0.25);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -827,7 +827,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     border-radius: 14px;
     overflow: hidden;
     background:
-      radial-gradient(ellipse 72% 62% at 50% 40%, rgba(196, 98, 45, 0.07) 0%, transparent 62%),
+      radial-gradient(ellipse 72% 62% at 50% 40%, rgba(59, 130, 246, 0.07) 0%, transparent 62%),
       var(--surface);
   }
   .proto-frame iframe {
@@ -851,7 +851,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     width: 64px; height: 64px; border-radius: 50%;
     background: var(--accent); color: #fff;
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 12px 30px rgba(196, 98, 45, 0.32);
+    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.32);
     transition: transform 0.4s var(--ease-spring);
   }
   .proto-poster:hover .proto-play { transform: scale(1.06); }
@@ -1387,17 +1387,17 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
           <line x1="0" y1="90" x2="900" y2="90" stroke="var(--border)" stroke-width="1"/>
           <text x="4" y="27" fill="#16a34a" font-size="8.5" font-family="Open Sans, sans-serif" font-weight="600">Positive</text>
           <text x="4" y="97" fill="#dc2626" font-size="8.5" font-family="Open Sans, sans-serif" font-weight="600">Negative</text>
-          <path d="M 55,28 C 90,28 115,38 160,42 C 210,48 240,88 285,93 C 330,78 375,55 425,32 C 475,22 525,20 575,21 C 625,22 665,48 715,35 C 760,28 820,26 865,26" fill="none" stroke="#C4622D" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M 55,28 C 90,28 115,38 160,42 C 210,48 240,88 285,93 C 330,78 375,55 425,32 C 475,22 525,20 575,21 C 625,22 665,48 715,35 C 760,28 820,26 865,26 L 865,110 L 55,110 Z" fill="#C4622D" opacity="0.08"/>
+          <path d="M 55,28 C 90,28 115,38 160,42 C 210,48 240,88 285,93 C 330,78 375,55 425,32 C 475,22 525,20 575,21 C 625,22 665,48 715,35 C 760,28 820,26 865,26" fill="none" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M 55,28 C 90,28 115,38 160,42 C 210,48 240,88 285,93 C 330,78 375,55 425,32 C 475,22 525,20 575,21 C 625,22 665,48 715,35 C 760,28 820,26 865,26 L 865,110 L 55,110 Z" fill="#3B82F6" opacity="0.08"/>
           <circle cx="285" cy="93" r="5" fill="#dc2626"/>
           <text x="240" y="110" fill="#dc2626" font-size="8" font-family="Open Sans, sans-serif" font-weight="600">Unreadable barcode</text>
           <circle cx="575" cy="21" r="5" fill="#16a34a"/>
           <text x="548" y="14" fill="#16a34a" font-size="8" font-family="Open Sans, sans-serif" font-weight="600">QR checkout</text>
-          <circle cx="55" cy="28" r="3" fill="#C4622D"/>
-          <circle cx="160" cy="42" r="3" fill="#C4622D"/>
-          <circle cx="425" cy="32" r="3" fill="#C4622D"/>
-          <circle cx="715" cy="35" r="3" fill="#C4622D"/>
-          <circle cx="865" cy="26" r="3" fill="#C4622D"/>
+          <circle cx="55" cy="28" r="3" fill="#3B82F6"/>
+          <circle cx="160" cy="42" r="3" fill="#3B82F6"/>
+          <circle cx="425" cy="32" r="3" fill="#3B82F6"/>
+          <circle cx="715" cy="35" r="3" fill="#3B82F6"/>
+          <circle cx="865" cy="26" r="3" fill="#3B82F6"/>
         </svg>
       </div>
     </div>

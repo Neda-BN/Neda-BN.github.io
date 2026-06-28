@@ -1,13 +1,13 @@
 /* Shared site styles — nav, display typography, footer, page shell (matches index home) */
 :root {
-  --display: 'Lithium Typeface (LT)', 'Playfair Display', Georgia, serif;
-  --page-title: 'Destine', 'Lithium Typeface (LT)', 'Playfair Display', Georgia, serif;
+  --display: 'Sora', sans-serif;
+  --page-title: 'Destine', 'Sora', sans-serif;
   --page-bg: #ffffff;
   --text: #000000;
   --text-muted: rgba(0, 0, 0, 0.62);
   --line: rgba(0, 0, 0, 0.12);
   --ink: #1a1814;
-  --accent: #c8622a;
+  --accent: #3B82F6;
   --accent-light: #f5ebe3;
   --border: #e8e4dc;
   --sans: 'Inter', 'DM Sans', sans-serif;
@@ -87,7 +87,7 @@ body.has-anna-nav .hero {
   margin-top: 0;
 }
 
-/* ── SECTION LABELS & MINOR HEADINGS (Lithium) ── */
+/* ── SECTION LABELS & MINOR HEADINGS (Sora) ── */
 .sec-label {
   font-family: var(--display);
   font-weight: 400;
@@ -109,7 +109,7 @@ body.has-anna-nav .hero {
 .case-study__chapter,
 .section-chapter,
 h2.works-anna__heading {
-  font-family: var(--page-title, 'Destine', 'Lithium Typeface (LT)', 'Playfair Display', Georgia, serif);
+  font-family: var(--page-title, 'Destine', 'Sora', sans-serif);
   font-weight: 400;
   font-style: normal;
   color: #000000;
@@ -133,7 +133,7 @@ h2.works-anna__heading {
 }
 
 .footer-strip h2 {
-  font-family: var(--page-title, 'Destine', 'Lithium Typeface (LT)', 'Playfair Display', Georgia, serif);
+  font-family: var(--page-title, 'Destine', 'Sora', sans-serif);
   font-weight: 400;
   font-style: normal;
   letter-spacing: -0.02em;
