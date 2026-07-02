@@ -63,8 +63,6 @@
     image-rendering:auto;
     -ms-interpolation-mode:bicubic;
   }
-  .hc-video-figure{margin-top:28px;}
-  .hc-validation-video{width:100%;max-width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--border);background:#0f172a;vertical-align:middle;}
   .image-caption{font-size:12px;color:var(--light);text-align:center;margin-top:10px;font-style:italic;}
   .content{max-width:820px;margin:0 auto;padding:0 48px 40px;perspective:1600px;transform-style:preserve-3d;}
   .case-main{perspective:1600px;transform-style:preserve-3d;}
@@ -859,12 +857,6 @@
       <div class="section-headings"><h2 class="section-chapter">Validation &amp; Usability Testing</h2><p class="section-subtitle">Usability Testing · 5 Administrators</p></div>
     </div>
     <p>I conducted moderated task-based testing with <strong>5 healthcare administrators</strong> who regularly manage survey workflows. Each participant was asked to create a survey and distribute it to multiple municipalities — a direct reflection of their real day-to-day work.</p>
-    <div class="hc-video-figure">
-      <video id="hc-validation-video" class="hc-validation-video" preload="none" playsinline muted loop controls poster="healthcare-survey-platform-overview.png?v=20260324" width="1920" height="1080">
-        <source src="healthcare-validation-hifi-prototype.mp4?v=20260324" type="video/mp4">
-      </video>
-      <p class="image-caption">High-fidelity prototype · usability testing sessions · <a href="healthcare-validation-hifi-prototype.mp4?v=20260324" download>Download clip</a></p>
-    </div>
     <div class="findings-list">
       <div class="finding-item"><div class="finding-icon">🔍</div><div><p class="finding-text">Users had difficulty locating the "Select All" option when selecting districts from long hierarchical lists. Most selected items one by one — not from habit, but because the button wasn't visually discoverable.</p><div class="finding-stat">Key issue identified · Select All button — low contrast, poor placement in the interface</div></div></div>
     </div>
@@ -954,74 +946,6 @@
     </li>
   </ul>
 </footer>
-
-<script>
-(function () {
-  var v = document.getElementById('hc-validation-video');
-  if (!v) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    v.removeAttribute('autoplay');
-    return;
-  }
-  if (!window.IntersectionObserver) return;
-
-  var loaded = false;
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        if (!loaded) {
-          loaded = true;
-          try { v.load(); } catch (e) {}
-        }
-        var p = v.play();
-        if (p && typeof p.catch === 'function') p.catch(function () {});
-      } else {
-        v.pause();
-      }
-    });
-  }, { threshold: 0.2, rootMargin: '0px 0px 120px 0px' });
-
-  io.observe(v);
-})();
-
-(function () {
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var seen = new Set();
-  function revealAll() {
-    document.querySelectorAll('.fade-in').forEach(function (el) { el.classList.add('visible'); });
-    document.querySelectorAll('.reveal, .reveal-media').forEach(function (el) { el.classList.add('is-visible'); });
-    document.querySelectorAll('.wizard-steps').forEach(function (el) { el.classList.add('is-steps-visible'); });
-  }
-  if (reduce || !window.IntersectionObserver) {
-    revealAll();
-    return;
-  }
-  document.querySelectorAll('.fade-in, .reveal, .reveal-media').forEach(function (el) {
-    if (seen.has(el)) return;
-    seen.add(el);
-    var io = new IntersectionObserver(function (entries, obs) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        var t = entry.target;
-        if (t.classList.contains('fade-in')) t.classList.add('visible');
-        if (t.classList.contains('reveal') || t.classList.contains('reveal-media')) t.classList.add('is-visible');
-        obs.unobserve(t);
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
-    io.observe(el);
-  });
-  var ws = document.getElementById('hc-wizard-steps');
-  if (ws) {
-    var wio = new IntersectionObserver(function (entries, obs) {
-      if (entries[0].isIntersecting) {
-        ws.classList.add('is-steps-visible');
-        obs.disconnect();
-      }
-    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-    wio.observe(ws);
-  }
-})();
-</script>
 
 </body>
 </html>
