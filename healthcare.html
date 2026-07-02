@@ -71,8 +71,10 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   .reveal.is-visible{opacity:1;transform:translateY(0);}
   .hc-reveal-journey.reveal{transform:translateY(36px);}
   .hc-reveal-journey.reveal.is-visible{transform:translateY(0);}
-  .reveal-media .hc-media-frame img,.reveal-media .hc-figure-process-board img,.reveal-media .hc-case-study-media img,.reveal-media .hc-wizard-hero img{transition:transform .85s var(--ease-spring),box-shadow .85s var(--ease-soft);}
-  .reveal-media.is-visible .hc-media-frame img,.reveal-media.is-visible .hc-figure-process-board img,.reveal-media.is-visible .hc-case-study-media img,.reveal-media.is-visible .hc-wizard-hero img{transform:translateZ(10px);box-shadow:0 18px 48px rgba(26,26,26,.1);}
+  .reveal-media .hc-media-frame img,.reveal-media .hc-figure-process-board img,.reveal-media .hc-case-study-media img,.reveal-media .hc-wizard-hero img,.reveal-media .hc-wizard-shot__frame img{transition:transform .85s var(--ease-spring),box-shadow .85s var(--ease-soft);}
+  .reveal-media.is-visible .hc-media-frame img,.reveal-media.is-visible .hc-figure-process-board img,.reveal-media.is-visible .hc-case-study-media img,.reveal-media.is-visible .hc-wizard-hero img,.reveal-media.is-visible .hc-wizard-shot__frame img{transform:translateZ(10px);box-shadow:0 18px 48px rgba(26,26,26,.1);}
+  .reveal-media .hc-discover-fullbleed img{transition:opacity .85s var(--ease-soft);}
+  .reveal-media.is-visible .hc-discover-fullbleed img{transform:none;box-shadow:none;}
   /* Journey map block: no outer emphasis frame (labels + diagram only) */
   .hc-reveal-journey{margin-bottom:24px;}
   .process-step{transition:transform .35s var(--ease-spring),box-shadow .35s var(--ease-soft),border-color .25s ease;border-radius:12px;margin:0 -8px;padding-left:8px;padding-right:8px;}
@@ -82,6 +84,41 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   .wizard-step:hover,.wizard-step:focus-within{transform:translateY(-4px) translateZ(8px) rotateX(4deg);box-shadow:0 14px 36px rgba(26,26,26,.08);border-color:rgba(59, 130, 246,.35);}
   .hc-wizard-hero{margin-bottom:24px;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:var(--surface);}
   .hc-wizard-hero img{width:100%;height:auto;display:block;vertical-align:middle;}
+  .hc-wizard-gallery{display:flex;flex-direction:column;gap:clamp(28px,4vw,40px);margin-top:clamp(24px,3vw,32px);}
+  .hc-wizard-shot{margin:0;display:flex;flex-direction:column;gap:14px;}
+  .hc-wizard-shot__frame{width:100%;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:var(--surface);box-shadow:0 4px 20px rgba(0,0,0,.06);}
+  .hc-wizard-shot__frame img{width:100%;height:auto;display:block;vertical-align:middle;}
+  .hc-wizard-caption{
+    font-family:'Inter',sans-serif;
+    font-size:clamp(14px,1.2vw,16px);
+    font-weight:500;
+    font-style:normal;
+    line-height:1.5;
+    letter-spacing:-0.02em;
+    color:rgba(26,26,26,.88);
+    text-align:left;
+    margin:0;
+    padding:14px 16px;
+    background:rgba(245,235,227,.42);
+    border:1px solid rgba(0,0,0,.08);
+    border-left:3px solid var(--accent);
+    border-radius:8px;
+  }
+  .hc-wizard-summary{
+    font-family:'Inter',sans-serif;
+    font-size:clamp(14px,1.2vw,16px);
+    font-weight:500;
+    font-style:normal;
+    line-height:1.5;
+    letter-spacing:-0.02em;
+    color:rgba(26,26,26,.72);
+    text-align:center;
+    margin:clamp(24px,3vw,32px) 0 0;
+    padding:16px 20px;
+    background:rgba(59,130,246,.06);
+    border:1px solid rgba(59,130,246,.18);
+    border-radius:10px;
+  }
   .hc-scoring-wrap{margin-bottom:28px;}
   .hc-scoring-dash{transition:box-shadow .7s var(--ease-soft);}
   .reveal-media.hc-scoring-wrap.is-visible .hc-case-study-media,.hc-scoring-wrap.is-visible .hc-case-study-media{box-shadow:0 0 0 2px rgba(59, 130, 246,.22),0 20px 56px rgba(26,26,26,.1);}
@@ -214,6 +251,11 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   .hc-reveal-journey .screens-section{margin-top:24px;}
   #user-journey > p{margin-top:28px;margin-bottom:0;}
   .screens-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--light);margin-bottom:16px;}
+  .screens-grid{display:grid;gap:16px;margin-top:24px;}
+  .screens-grid.col-2{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .screen-item{display:flex;flex-direction:column;gap:10px;min-width:0;}
+  .screen-wrap img{width:100%;height:auto;display:block;}
+  @media(max-width:640px){.screens-grid.col-2{grid-template-columns:1fr;}}
   /* Wider than .content (820px), centered in the viewport (same axis as the page column) */
   .hc-ujm-strip{
     position:relative;
@@ -321,6 +363,23 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   .result-number{font-family:var(--serif);font-size:44px;color:var(--accent);line-height:1;margin-bottom:8px;}
   .result-label{font-size:13px;color:var(--mid);font-weight:400;line-height:1.4;}
   /* Results & Measurable Impact — narrative outcomes (scoped, does not affect Discover metrics grid) */
+  /* Discover — full-width monitors image, centered on viewport */
+  .hc-discover-fullbleed-wrap{
+    width:100vw;
+    max-width:100vw;
+    margin:clamp(32px,5vw,48px) calc(50% - 50vw) 0;
+  }
+  .hc-discover-fullbleed{
+    margin:0;
+    width:100%;
+  }
+  .hc-discover-fullbleed img{
+    width:100%;
+    height:auto;
+    display:block;
+    margin:0 auto;
+    vertical-align:middle;
+  }
   .hc-results-impact-lede{
     font-size:15px;
     line-height:1.65;
@@ -596,6 +655,12 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <p>"I spend more time chasing people for replies than actually analysing the quality of care."</p>
       <cite>— Healthcare Administrator, Stockholm</cite>
     </div>
+
+    <div class="hc-discover-fullbleed-wrap">
+      <figure class="hc-discover-fullbleed reveal reveal-media">
+        <img src="monitors.png" alt="Healthcare Provider Survey Management platform shown on two laptop screens — sign-in and survey sent confirmation views." width="1451" height="482" loading="lazy" decoding="async" sizes="100vw">
+      </figure>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -791,10 +856,6 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 
   <!-- WIZARD DESIGN -->
   <section class="section fade-in reveal case-anchor" id="wizard-design">
-    <div class="hc-wizard-hero reveal reveal-media">
-      <img src="healthcare-validation-hifi-prototype.png" alt="High-fidelity prototype of the healthcare survey platform showing survey distribution and hierarchy UI used in usability testing." width="598" height="1024" loading="lazy" decoding="async" sizes="(max-width:900px) 100vw, 820px">
-    </div>
-    <p class="image-caption">High-fidelity prototype — distribution and hierarchy patterns tested with administrators</p>
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Wizard Design</h2><p class="section-subtitle">The 6-Step "Power Send" Wizard</p></div>
@@ -809,19 +870,72 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <div class="wizard-step"><div class="wizard-step-num">05</div><h4>Review</h4><p>Confirm all details before the survey goes out</p></div>
       <div class="wizard-step"><div class="wizard-step-num">06</div><h4>Send</h4><p>Distribute to all selected recipients simultaneously</p></div>
     </div>
-    <p class="image-caption">The guided wizard reduced distribution errors and made the process faster for every administrator</p>
+
+    <div class="hc-wizard-gallery reveal reveal-media">
+      <figure class="hc-wizard-shot">
+        <div class="hc-wizard-shot__frame">
+          <img src="Survey Builder.png" alt="Surveys section showing HVB and LSS survey templates organised by type in the healthcare platform sidebar." width="1751" height="1117" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="hc-wizard-caption">The Surveys section — templates organised by type (HVB, LSS), matching administrators' existing mental model.</figcaption>
+      </figure>
+
+      <figure class="hc-wizard-shot">
+        <div class="hc-wizard-shot__frame">
+          <img src="Select Survey Type.png" alt="Create survey dialog offering manual build or starting from a predefined HVB or LSS template." width="1751" height="1117" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="hc-wizard-caption">Choosing a starting point: build manually or start from a predefined HVB/LSS template.</figcaption>
+      </figure>
+
+      <figure class="hc-wizard-shot">
+        <div class="hc-wizard-shot__frame">
+          <img src="Survey Details.png" alt="Survey details form for manual setup — name, type, and configuration fields." width="1751" height="1117" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="hc-wizard-caption">Naming and configuring the survey — manual setup.</figcaption>
+      </figure>
+
+      <figure class="hc-wizard-shot">
+        <div class="hc-wizard-shot__frame">
+          <img src="Survey Details-1.png" alt="Survey details with predefined HVB/LSS question preview before distribution." width="1751" height="1117" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="hc-wizard-caption">Predefined HVB/LSS template — question preview before distribution.</figcaption>
+      </figure>
+
+      <figure class="hc-wizard-shot">
+        <div class="hc-wizard-shot__frame">
+          <img src="Edit Survey.png" alt="Survey editor showing the full question set with categories and response options before sending." width="1751" height="1117" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="hc-wizard-caption">Reviewing and editing the full question set before distribution.</figcaption>
+      </figure>
+
+      <figure class="hc-wizard-shot">
+        <div class="hc-wizard-shot__frame">
+          <img src="Add Question.png" alt="Add question panel with question type, category, and required-field settings." width="1751" height="1117" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="hc-wizard-caption">Adding a custom question — type, category, and required-field logic.</figcaption>
+      </figure>
+
+      <figure class="hc-wizard-shot">
+        <div class="hc-wizard-shot__frame">
+          <img src="Confirm send survey.png" alt="Send confirmation screen listing template, recipient count, and district count before distribution." width="1751" height="1117" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="hc-wizard-caption">Final confirmation screen — template, recipient count, and district count shown before sending.</figcaption>
+      </figure>
+
+      <figure class="hc-wizard-shot">
+        <div class="hc-wizard-shot__frame">
+          <img src="Survey Preview.png" alt="Send confirmation with a live respondent-facing survey preview alongside distribution summary." width="1751" height="1117" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="hc-wizard-caption">Send confirmation with a live respondent-facing preview.</figcaption>
+      </figure>
+    </div>
+
+    <p class="hc-wizard-summary">The guided wizard reduced distribution errors and made the process faster for every administrator</p>
   </section>
 
   <div class="divider"></div>
 
   <!-- SCORING SYSTEM -->
   <section class="section fade-in reveal case-anchor" id="scoring-system">
-    <div class="hc-scoring-wrap hc-scoring-dash reveal reveal-media">
-      <div class="hc-case-study-media">
-        <img src="healthcare-scoring-traffic-light-dashboard.png?v=20260324" alt="Analytics dashboard with traffic-light performance scoring across municipalities." width="1024" height="673" loading="lazy" decoding="async" sizes="(max-width:900px) 100vw, 820px">
-      </div>
-    </div>
-    <p class="image-caption">Real-time performance overview — managers can instantly identify which municipalities need attention</p>
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Scoring System</h2><p class="section-subtitle">Traffic-Light Performance Scoring</p></div>
@@ -835,6 +949,22 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
         <tr><td><strong style="color:#B91C1C;">Critical</strong></td><td>Below acceptable threshold — requires immediate review</td><td>Escalate — intervene now</td></tr>
       </tbody>
     </table>
+
+    <div class="hc-wizard-gallery reveal reveal-media">
+      <figure class="hc-wizard-shot">
+        <div class="hc-wizard-shot__frame">
+          <img src="Dashboard.png" alt="Traffic-light scoring dashboard with municipality performance color-coded green, amber, and red for instant status reading." width="1751" height="1117" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="hc-wizard-caption">The traffic-light scoring dashboard — municipality performance color-coded for instant status reading.</figcaption>
+      </figure>
+
+      <figure class="hc-wizard-shot">
+        <div class="hc-wizard-shot__frame">
+          <img src="Reports.png" alt="Real-time analytics and reporting views replacing manual spreadsheet-based reporting cycles." width="1751" height="1117" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="hc-wizard-caption">Real-time analytics replacing the two-week manual reporting cycle.</figcaption>
+      </figure>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -897,6 +1027,16 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
         </div>
       </article>
     </div>
+
+    <div class="hc-wizard-gallery reveal reveal-media">
+      <figure class="hc-wizard-shot">
+        <div class="hc-wizard-shot__frame">
+          <img src="healthcare-scoring-traffic-light-dashboard.png?v=20260324" alt="Analytics dashboard with traffic-light performance scoring across municipalities." width="1024" height="673" loading="lazy" decoding="async" sizes="(max-width:900px) 100vw, 820px">
+        </div>
+        <figcaption class="hc-wizard-caption">Real-time performance overview — managers can instantly identify which municipalities need attention</figcaption>
+      </figure>
+    </div>
+
     <p>The platform replaced a fragmented, error-prone manual workflow with a single centralised system. Administrators went from managing 30+ separate email threads to having a real-time view of every municipality's response status — with instant report generation replacing two weeks of spreadsheet aggregation.</p>
   </section>
 
