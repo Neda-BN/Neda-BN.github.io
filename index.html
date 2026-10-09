@@ -698,9 +698,9 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
     if (!ref) return false;
     try {
       var p = new URL(ref).pathname || '';
-      return /\/(pos-app|backoffice|healthcare|mobile-app|replenishments)\.html$/i.test(p);
+      return /\/(pos-app|backoffice|healthcare|mobile-app|replenishments|simplebooking)\.html$/i.test(p);
     } catch (e) {
-      return /(pos-app|backoffice|healthcare|mobile-app|replenishments)\.html/i.test(ref);
+      return /(pos-app|backoffice|healthcare|mobile-app|replenishments|simplebooking)\.html/i.test(ref);
     }
   }
 
@@ -1005,6 +1005,26 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
             <li>Accessibility</li>
             <li>Web product</li>
             <li>B2B</li>
+          </ul>
+        </div>
+      </a>
+
+      <a class="works-anna__card" href="simplebooking.html" aria-label="Simple Booking Accounting App case study">
+        <div class="works-anna__media">
+          <picture>
+            <source srcset="sb-hero.webp" type="image/webp">
+            <img src="sb-hero.png" alt="Simple Booking accounting app — redesigned home overview in dark mode and receipts page in light mode" width="2400" height="1300" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="works-anna__content">
+          <h3 class="works-anna__name">Simple Booking Accounting App</h3>
+          <p class="works-anna__title">Turning a developer-built accounting tool into a product anyone can use — from user research and Figma redesign to AI-assisted implementation with Claude Code.</p>
+          <ul class="works-anna__tags" aria-label="Project tags">
+            <li>FinTech</li>
+            <li>UX Research</li>
+            <li>Web product</li>
+            <li>B2B · SaaS</li>
+            <li class="works-anna__tag--accent">AI-assisted build</li>
           </ul>
         </div>
       </a>

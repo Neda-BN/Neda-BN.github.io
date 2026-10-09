@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/lithium-typeface-lt" rel="stylesheet">
+<link rel="stylesheet" href="fonts/destine.css">
+<link rel="stylesheet" href="css/site-shared.css?v=20260638">
+<script src="js/page-transition.js?v=20260633"></script>
+<link rel="stylesheet" href="fonts/sora.css">
+<link href="https://fonts.googleapis.com/css2?family=Sora:ital,wght@1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Simple Booking Accounting App · Neda Bagheri</title>
+<meta name="description" content="Case study: leading the UX redesign of Simple Booking, an accounting application, from user research and usability testing to AI-assisted implementation with Claude Code.">
+<link rel="stylesheet" href="css/case-study.css?v=20260638">
+<link rel="stylesheet" href="css/simplebooking.css?v=20261009d">
+<link rel="stylesheet" href="css/responsive.css?v=20260638">
+<link rel="preload" as="image" href="sb-hero.webp" type="image/webp" fetchpriority="high">
+</head>
+<body class="has-anna-nav case-study-page">
+
+<header class="anna-nav anna-nav--intro-visible anna-nav--light" id="site-nav" aria-label="Primary">
+  <div class="anna-nav__pill">
+    <a href="index.html#hero">Home</a>
+    <a href="index.html#projects" aria-current="page">Works</a>
+    <a href="about.html">About</a>
+  </div>
+  <div class="anna-nav__pill">
+    <a href="index.html#contact">Contact</a>
+  </div>
+</header>
+
+<div class="back-btn-wrap back-btn-wrap--top">
+  <a class="back-btn" href="index.html#projects"><svg class="back-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Back</a>
+</div>
+<main class="sb-case" id="simplebooking-case-study">
+  <!-- Hero -->
+  <header class="sb-hero hero">
+    <div class="sb-wrap">
+      <p class="hero-tag">Case Study · SaaS · FinTech</p>
+      <h1>Simple Booking Accounting App</h1>
+      <p class="hero-subtitle">Turning a developer-built accounting tool into a product anyone can use, with no accounting background required.</p>
+      <span class="sb-status">Redesign and implementation in progress</span>
+
+      <div class="meta-strip">
+        <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Product Designer · UX lead</div></div>
+        <div class="meta-item"><div class="meta-label">Company</div><div class="meta-value">Simple Booking · Ongoing</div></div>
+        <div class="meta-item"><div class="meta-label">Platform</div><div class="meta-value">Web · Desktop</div></div>
+        <div class="meta-item"><div class="meta-label">Methods</div><div class="meta-value">Workshops · Interviews · Usability Testing</div></div>
+      </div>
+
+      <div class="sb-hero-img">
+        <picture><source srcset="sb-hero.webp" type="image/webp"><img src="sb-hero.png" width="2400" height="1300" alt="Redesigned Simple Booking: the dark-mode home page with tasks that need attention, and the light-mode receipts page with upload, inbox and previous receipts" fetchpriority="high"></picture>
+      </div>
+    </div>
+  </header>
+
+  <!-- Introduction -->
+  <section class="sb-section section sb-section--first" aria-labelledby="intro">
+    <div class="sb-wrap">
+            <div class="section-header">
+        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
+        <div class="section-headings"><h2 class="section-chapter" id="intro">Introduction &amp; Context</h2><p class="section-subtitle">Accounting for everyone, not just accountants</p></div>
+      </div>
+      <div class="sb-text">
+        <p>Simple Booking is an accounting application for business owners. It connects banks, the Swedish Tax Agency (Skatteverket) and the company's books, so users can record, reconcile and file in one place. The goal is to make accounting simple and accessible to everyone, from small business owners to larger companies, without technical skills or prior accounting knowledge.</p>
+        <p>When I joined, the product had already been built by developers, without designers involved. It had never been usability tested, and its UX had not been validated with real users. The result worked, but it was organised around how the system stores data rather than how people think about their business.</p>
+        <p>My job is to <strong>transform the existing application into an intuitive, user-friendly product</strong>, and to take that work all the way from research to implemented interfaces.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Role -->
+  <section class="sb-section section" aria-labelledby="role">
+    <div class="sb-wrap">
+            <div class="section-header">
+        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="section-headings"><h2 class="section-chapter" id="role">My Role &amp; Responsibilities</h2><p class="section-subtitle">Leading UX from research to implementation</p></div>
+      </div>
+      <ul class="sb-resp">
+        <li><strong>User research</strong>Organising workshops with real users and running interviews to understand their needs, frustrations and pain points.</li>
+        <li><strong>Usability testing</strong>Testing the existing application with users to see where they struggle and which parts need improvement first.</li>
+        <li><strong>UX and UI design</strong>Redesigning the application in Figma based on research findings, usability issues and the product goal of simple, accessible accounting.</li>
+        <li><strong>Prototyping and iteration</strong>Exploring, testing and refining solutions to simplify complex accounting workflows.</li>
+        <li><strong>AI-assisted implementation</strong>Building the redesigned interfaces myself with Claude Code, without relying on a front-end developer for the UI.</li>
+        <li><strong>Handoff to back-end</strong>Handing completed, working front-end screens to the back-end team for integration.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Research -->
+  <section class="sb-section section" aria-labelledby="research">
+    <div class="sb-wrap">
+            <div class="section-header">
+        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="section-headings"><h2 class="section-chapter" id="research">Methods &amp; Research</h2><p class="section-subtitle">Workshops, interviews and usability testing on the live product</p></div>
+      </div>
+      <div class="sb-text">
+        <p>Because the product already existed, I started by testing it as it was. I combined <strong>workshops with real users</strong>, <strong>one-to-one interviews</strong> and <strong>moderated usability tests</strong> on the existing application, so every design decision could be traced back to something users actually did or said.</p>
+      </div>
+
+      <div class="sb-insights">
+        <div class="sb-insight">
+          <div class="sb-emoji" aria-hidden="true">🧭</div>
+          <p>Users opened the app and didn't know what to do first. Every alert, deadline and task looked equally important.</p>
+          <span class="sb-src">Usability testing · Overview page</span>
+        </div>
+        <div class="sb-insight">
+          <div class="sb-emoji" aria-hidden="true">📚</div>
+          <p>Long forms and accounting terminology stopped people who don't have an accounting background.</p>
+          <span class="sb-src">Workshops · Payroll and invoicing flows</span>
+        </div>
+        <div class="sb-insight">
+          <div class="sb-emoji" aria-hidden="true">🎛️</div>
+          <p>Rows full of look-alike buttons made it hard to tell the main action from risky or rare ones.</p>
+          <span class="sb-src">Usability testing · Quotes and receipts</span>
+        </div>
+      </div>
+      <!-- Tip: replace or extend the three cards above with direct participant quotes and counts from your sessions (e.g. "4 of 6 participants…"). -->
+
+      <div class="quote-block">
+        <p>“User is confused about why the To-Do list on the homepage shows 9 transactions missing supporting documents when they see more than 9 unprocessed transactions in the bank feed.”</p>
+        <cite>— A real support ticket, shown on the original overview page</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- Discover -->
+  <section class="sb-section section" aria-labelledby="discover">
+    <div class="sb-wrap">
+            <div class="section-header">
+        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="section-headings"><h2 class="section-chapter" id="discover">Discover</h2><p class="section-subtitle">Built around the system, not the user</p></div>
+      </div>
+      <div class="sb-text"><p>The original application had the right features, but they were arranged the way the database sees them. Three problems came up again and again.</p></div>
+      <div class="sb-grid3">
+        <div class="sb-num-card"><span class="sb-num">01</span><h4>No clear priorities</h4><p>Overdue tasks, deadlines and advice were spread across the page and repeated in several places, all with the same visual weight.</p></div>
+        <div class="sb-num-card"><span class="sb-num">02</span><h4>Overwhelming forms</h4><p>Setup forms were always open. Adding one employee meant facing 18 fields at once, followed by 15 expert deduction factors.</p></div>
+        <div class="sb-num-card"><span class="sb-num">03</span><h4>Weak hierarchy and accessibility</h4><p>Main buttons used low-contrast gradients, actions had no icons or hierarchy, and Swedish and English text were mixed.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="sb-section section" aria-labelledby="process">
+    <div class="sb-wrap">
+            <div class="section-header">
+        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+        <div class="section-headings"><h2 class="section-chapter" id="process">Process</h2><p class="section-subtitle">From research to working code, in short loops</p></div>
+      </div>
+      <ol class="sb-process">
+        <li><h4>Audit</h4><p>Reviewed every page of the existing product and logged usability, consistency and accessibility issues.</p></li>
+        <li><h4>Workshops &amp; interviews</h4><p>Met real users to map their tasks, language and frustrations around everyday accounting.</p></li>
+        <li><h4>Usability testing</h4><p>Watched users complete core tasks in the live product to find where they got stuck.</p></li>
+        <li><h4>Redesign in Figma</h4><p>Restructured each page around user tasks and built a consistent, accessible component system.</p></li>
+        <li><h4>Implement with Claude Code</h4><p>Built the redesigned screens myself, page by page, in dark and light mode.</p></li>
+        <li><h4>Handoff &amp; iterate</h4><p>Handed working screens to the back-end team and continued refining with user feedback.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Approach -->
+  <section class="sb-section section" aria-labelledby="approach">
+    <div class="sb-wrap">
+            <div class="section-header">
+        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+        <div class="section-headings"><h2 class="section-chapter" id="approach">Design Approach</h2><p class="section-subtitle">Five principles behind every screen</p></div>
+      </div>
+      <div class="sb-principles">
+        <div><h4>Lead with the next action</h4><p>Each page opens with what needs attention now, sorted by urgency, with the action right next to it.</p></div>
+        <div><h4>Reveal complexity gradually</h4><p>Forms open on demand, long flows become short steps, and entries collapse until you need the detail.</p></div>
+        <div><h4>Speak the user's language</h4><p>Plain-language labels and advice that explains why something matters, in one language throughout.</p></div>
+        <div><h4>One clear primary action</h4><p>A single solid button per context, with icons. Secondary and rare actions are outlined or moved into a menu.</p></div>
+        <div><h4>Accessible by default</h4><p>Readable contrast, consistent spacing and typography, and full dark and light themes built from the same system.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before / After -->
+  <section class="sb-section section" aria-labelledby="ba">
+    <div class="sb-wrap sb-compare-wide">
+            <div class="section-header">
+        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <div class="section-headings"><h2 class="section-chapter" id="ba">The Transformation: V1 to V2</h2><p class="section-subtitle">Six pages, before and after</p></div>
+      </div>
+      <div class="sb-legend" aria-hidden="true">
+        <span><i class="sb-dot-before"></i>Before: original, developer-built</span>
+        <span><i class="sb-dot-after"></i>After: my redesign, implemented with Claude Code</span>
+      </div>
+
+      <article class="sb-compare">
+        <div class="sb-compare-head">
+          <h3>Home overview</h3>
+          <p>From seven equal alerts and repeated deadlines to one “Needs your attention” list with days late, one-click actions and plain-language advice.</p>
+        </div>
+        <figure>
+          <a class="sb-zoom" href="sb-overview-before-after.png" target="_blank" rel="noopener" data-title="Home overview · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-overview-before-after.webp" type="image/webp"><img src="sb-overview-before-after.png" width="2720" height="1634" loading="lazy" decoding="async" alt="Overview page before and after. Before: seven equal-weight alerts, charts without legends, Swedish advice in an English interface, and deadlines repeated at the bottom. After: calmer header, overdue items grouped with one-click actions, tasks sorted by urgency, plain-language advice and charts with legends."></picture></div></a>
+          <figcaption><span>Dark mode</span><span class="sb-swipe-hint">Swipe to see the whole comparison</span><span>Click or tap to view full size</span></figcaption>
+        </figure>
+      </article>
+
+      <article class="sb-compare">
+        <div class="sb-compare-head">
+          <h3>Receipts</h3>
+          <p>Upload moves to the top, every inbox row has one clear action, and the list finally shows supplier, amount and status.</p>
+        </div>
+        <figure>
+          <a class="sb-zoom" href="sb-receipts-before-after.png" target="_blank" rel="noopener" data-title="Receipts · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-receipts-before-after.webp" type="image/webp"><img src="sb-receipts-before-after.png" width="2720" height="1297" loading="lazy" decoding="async" alt="Receipts page before and after. Before: serif type, four actions per inbox row, upload buried, faded main button, list without supplier or amount. After: upload first, clear buttons, one action per row, search and paging, full context in the list."></picture></div></a>
+          <figcaption><span>Light mode</span><span class="sb-swipe-hint">Swipe to see the whole comparison</span><span>Click or tap to view full size</span></figcaption>
+        </figure>
+      </article>
+
+      <article class="sb-compare">
+        <div class="sb-compare-head">
+          <h3>Quotes</h3>
+          <p>A clear button hierarchy with icons, status filters with counts, and a table you can scan in a second.</p>
+        </div>
+        <figure>
+          <a class="sb-zoom" href="sb-quotes-before-after.png" target="_blank" rel="noopener" data-title="Quotes · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-quotes-before-after.webp" type="image/webp"><img src="sb-quotes-before-after.png" width="3000" height="1040" loading="lazy" decoding="async" alt="Quotes page before and after. Before: an always-open quote form, no overview or status filters, faint statuses and up to four look-alike buttons per row. After: form on demand, an explanation of the flow, status filters with counts, one primary action with an icon per row, and aligned columns with next steps."></picture></div></a>
+          <figcaption><span>Dark mode</span><span class="sb-swipe-hint">Swipe to see the whole comparison</span><span>Click or tap to view full size</span></figcaption>
+        </figure>
+      </article>
+
+      <article class="sb-compare">
+        <div class="sb-compare-head">
+          <h3>Recurring invoices</h3>
+          <p>Users always know what happens next: what sends automatically, what waits for review, and what is coming up in the next 30 days.</p>
+        </div>
+        <figure>
+          <a class="sb-zoom" href="sb-recurring-before-after.png" target="_blank" rel="noopener" data-title="Recurring invoices · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-recurring-before-after.webp" type="image/webp"><img src="sb-recurring-before-after.png" width="3000" height="1040" loading="lazy" decoding="async" alt="Recurring invoices before and after. Before: setup form on top, low-contrast main button, vague bulk action, no sense of what happens next, crowded row actions. After: clear expectations, attention section, upcoming 30 days, plans in plain sentences, and actions only when needed."></picture></div></a>
+          <figcaption><span>Dark mode</span><span class="sb-swipe-hint">Swipe to see the whole comparison</span><span>Click or tap to view full size</span></figcaption>
+        </figure>
+      </article>
+
+      <article class="sb-compare">
+        <div class="sb-compare-head">
+          <h3>Journal entries</h3>
+          <p>Collapsible cards show more entries at first glance and keep detail one click away. Manual entry becomes a clearly named button.</p>
+        </div>
+        <figure>
+          <a class="sb-zoom" href="sb-journal-before-after.png" target="_blank" rel="noopener" data-title="Journal entries · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-journal-before-after.webp" type="image/webp"><img src="sb-journal-before-after.png" width="2720" height="1213" loading="lazy" decoding="async" alt="Journal entries before and after. Before: no search, manual entry hidden as a link, look-alike correction links, every entry fully expanded, no amount in the header. After: Add manual journal entry button, search and filters, monthly grouping, key info in the header, clear actions and collapsible cards."></picture></div></a>
+          <figcaption><span>Dark mode</span><span class="sb-swipe-hint">Swipe to see the whole comparison</span><span>Click or tap to view full size</span></figcaption>
+        </figure>
+      </article>
+
+      <article class="sb-compare">
+        <div class="sb-compare-head">
+          <h3>Payroll</h3>
+          <p>One 18-field form becomes a guided three-step flow, starting from a payroll overview with a single clear action.</p>
+        </div>
+        <figure>
+          <a class="sb-zoom" href="sb-payroll-before-after.png" target="_blank" rel="noopener" data-title="Payroll · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-payroll-before-after.webp" type="image/webp"><img src="sb-payroll-before-after.png" width="2720" height="1576" loading="lazy" decoding="async" alt="Payroll before and after. Before: no overview, one giant 18-field form, dense hints, an easy-to-miss Add button and 15 deduction factors shown to everyone. After: summary cards, an Add new employee button, and a three-step flow with three fields per step."></picture></div></a>
+          <figcaption><span>Light mode</span><span class="sb-swipe-hint">Swipe to see the whole comparison</span><span>Click or tap to view full size</span></figcaption>
+        </figure>
+      </article>
+    </div>
+  </section>
+
+  <!-- Claude Code -->
+  <section class="sb-section section" aria-labelledby="ai">
+    <div class="sb-wrap">
+            <div class="section-header">
+        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <div class="section-headings"><h2 class="section-chapter" id="ai">AI-assisted Implementation</h2><p class="section-subtitle">From Figma to working front-end with Claude Code</p></div>
+      </div>
+      <div class="sb-split">
+        <div class="sb-text">
+          <p>Instead of handing designs to a front-end developer and waiting for implementation, I build the redesigned interfaces myself with <strong>Claude Code</strong>. I describe the component, the layout and the behaviour, review what it generates against my Figma design, and refine until the screen matches the design and works in both dark and light mode.</p>
+          <p>When a page is done, I hand the working front-end to the back-end team for integration. Designs no longer get lost in translation, and I can fix details myself instead of filing them as tickets.</p>
+          <p>This has <strong>significantly accelerated implementation</strong>, reduced the need for manual front-end coding and helped the whole team move forward faster.</p>
+        </div>
+        <ol class="sb-flow" aria-label="Implementation workflow">
+          <li><b>1</b><span>Design and validate the page in Figma</span></li>
+          <li><b>2</b><span>Build it with Claude Code, component by component</span></li>
+          <li><b>3</b><span>Review against the design in dark and light mode</span></li>
+          <li><b>4</b><span>Hand the working screen to the back-end team</span></li>
+          <li><b>5</b><span>Refine with user feedback and repeat</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Status -->
+  <section class="sb-section section" aria-labelledby="status">
+    <div class="sb-wrap">
+            <div class="section-header">
+        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <div class="section-headings"><h2 class="section-chapter" id="status">Current Status &amp; Next Steps</h2><p class="section-subtitle">An ongoing project, shipped page by page</p></div>
+      </div>
+      <div class="sb-status-grid">
+        <div class="sb-status-col sb-done">
+          <h3>Done so far</h3>
+          <ul>
+            <li>Research and usability testing of the original product</li>
+            <li>Redesign of the landing page and six core pages: home, receipts, quotes, recurring invoices, journal entries and payroll</li>
+            <li>Dark and light themes from one consistent system</li>
+            <li>Redesigned screens implemented with Claude Code and handed to the back-end team</li>
+          </ul>
+        </div>
+        <div class="sb-status-col sb-next">
+          <h3>Next</h3>
+          <ul>
+            <li>Usability testing of the redesigned flows with real users</li>
+            <li>Measuring task time, errors and satisfaction against the original version</li>
+            <li>Extending the redesign to the remaining pages, such as month-end and year-end closing</li>
+            <li>Continuing to refine based on what users tell us</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reflection -->
+  <section class="sb-section section" aria-labelledby="reflect">
+    <div class="sb-wrap">
+            <div class="section-header">
+        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+        <div class="section-headings"><h2 class="section-chapter" id="reflect">Reflection</h2><p class="section-subtitle">What I've learned so far</p></div>
+      </div>
+      <div class="sb-reflect">
+        <div><h4>Simplicity is a structure, not a style</h4><p>The biggest wins didn't come from new visuals. They came from deciding what to show first, what to hide, and what to split into steps.</p></div>
+        <div><h4>Testing the existing product first pays off</h4><p>Watching users struggle with the original version gave the team a shared, evidence-based reason for every change.</p></div>
+        <div><h4>Designers can ship</h4><p>Implementing my own designs with Claude Code closed the gap between design and build, and let me own the details end to end.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+<div class="back-btn-wrap back-btn-wrap--bottom">
+  <a class="back-btn" href="index.html#projects"><svg class="back-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Back</a>
+</div>
+
+<footer>
+  <p>© 2026 Neda Bagheri · Stockholm</p>
+  <ul class="footer-social" aria-label="Social links">
+    <li>
+      <a href="https://www.linkedin.com/in/neda-bn-83803195/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.behance.net/nedabagheri1" target="_blank" rel="noopener noreferrer" aria-label="Behance" class="footer-social__beh">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.969 16.927a2.561 2.561 0 0 0 1.901.677 2.501 2.501 0 0 0 1.531-.475c.362-.235.636-.584.779-.99h2.585a5.091 5.091 0 0 1-1.9 2.896 5.292 5.292 0 0 1-3.091.88 5.839 5.839 0 0 1-2.284-.433 4.871 4.871 0 0 1-1.723-1.211 5.657 5.657 0 0 1-1.08-1.874 7.057 7.057 0 0 1-.383-2.393c-.005-.8.129-1.595.396-2.349a5.313 5.313 0 0 1 5.088-3.604 4.87 4.87 0 0 1 2.376.563c.661.362 1.231.87 1.668 1.485a6.2 6.2 0 0 1 .943 2.133c.194.821.263 1.666.205 2.508h-7.699c-.063.79.184 1.574.688 2.187ZM6.947 4.084a8.065 8.065 0 0 1 1.928.198 4.29 4.29 0 0 1 1.49.638c.418.303.748.711.958 1.182.241.579.357 1.203.341 1.83a3.506 3.506 0 0 1-.506 1.961 3.726 3.726 0 0 1-1.503 1.287 3.588 3.588 0 0 1 2.027 1.437c.464.747.697 1.615.67 2.494a4.593 4.593 0 0 1-.423 2.032 3.945 3.945 0 0 1-1.163 1.413 5.114 5.114 0 0 1-1.683.807 7.135 7.135 0 0 1-1.928.259H0V4.084h6.947Zm-.235 12.9c.308.004.616-.029.916-.099a2.18 2.18 0 0 0 .766-.332c.228-.158.411-.371.534-.619.142-.317.208-.663.191-1.009a2.08 2.08 0 0 0-.642-1.715 2.618 2.618 0 0 0-1.696-.505h-3.54v4.279h3.471Zm13.635-5.967a2.13 2.13 0 0 0-1.654-.619 2.336 2.336 0 0 0-1.163.259 2.474 2.474 0 0 0-.738.62 2.359 2.359 0 0 0-.396.792c-.074.239-.12.485-.137.734h4.769a3.239 3.239 0 0 0-.679-1.785l-.002-.001Zm-13.813-.648a2.254 2.254 0 0 0 1.423-.433c.399-.355.607-.88.56-1.413a1.916 1.916 0 0 0-.178-.891 1.298 1.298 0 0 0-.495-.533 1.851 1.851 0 0 0-.711-.274 3.966 3.966 0 0 0-.835-.073H3.241v3.631h3.293v-.014ZM21.62 5.122h-5.976v1.527h5.976V5.122Z"/></svg>
+      </a>
+    </li>
+    <li>
+      <a href="mailto:nedabagheri.nz@gmail.com" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </a>
+    </li>
+  </ul>
+</footer>
+
+<script src="js/simplebooking.js?v=20261009" defer></script>
+</body>
+</html>
