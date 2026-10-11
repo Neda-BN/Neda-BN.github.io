@@ -210,6 +210,21 @@ body.has-anna-nav.case-study-page main.sb-case {
 .sb-compare-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 40px; align-items: start; margin: 0 0 20px; }
 .sb-compare-head h3 { margin: 0; }
 .sb-compare-head p { margin: 0; color: var(--sb-body); }
+.sb-compare > h3 { margin: 0 0 12px; font-size: clamp(18px, 2vw, 22px); }
+.sb-finding-lede { margin: 0 0 16px; color: var(--sb-body); }
+.sb-compare-sub { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--sb-line); }
+.sb-compare-sub h4 { margin: 0 0 12px; }
+.sb-tldr {
+  background: #ffffff;
+  border: 1px solid var(--sb-line);
+  border-radius: var(--sb-radius-md);
+  padding: clamp(24px, 3vw, 32px);
+  margin-bottom: 0;
+}
+.sb-tldr p { font-size: clamp(16px, 1.45vw, 18px); line-height: 1.55; margin-bottom: 14px; }
+.sb-tldr p:last-child { margin-bottom: 0; }
+.sb-tldr strong { color: var(--sb-ink); }
+.sb-principles .sb-principle-src { display: block; margin-top: 6px; font-size: 14px; font-style: italic; color: var(--sb-subtle); }
 .sb-changes { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
 .sb-changes li { font-size: 16px; color: var(--sb-body); padding-left: 26px; position: relative; line-height: 1.5; letter-spacing: -0.02em; }
 .sb-changes li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--sb-after); font-weight: 800; }
@@ -238,12 +253,14 @@ body.has-anna-nav.case-study-page main.sb-case {
 .sb-flow b { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--accent, #3B82F6); color: #FFFFFF; font-size: 14px; font-weight: 600; }
 
 /* ---------- Status ---------- */
-.sb-status-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.sb-status-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .sb-status-col { border-radius: var(--sb-radius-lg); padding: 30px; }
 .sb-status-col.sb-done { background: var(--sb-accent-soft); }
+.sb-status-col.sb-progress { border: 1px solid var(--sb-line); background: #ffffff; }
 .sb-status-col.sb-next { border: 1.5px dashed var(--sb-accent); }
 .sb-status-col ul { margin: 0; padding-left: 20px; }
 .sb-status-col li { margin: 0 0 10px; color: var(--sb-body); }
+.sb-status-note { margin-top: 20px; font-size: 15px; color: var(--sb-subtle); font-style: italic; }
 
 /* ---------- Reflection ---------- */
 .sb-reflect { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
@@ -277,6 +294,7 @@ body.has-anna-nav.case-study-page main.sb-case {
 @media (max-width: 900px) {
   .sb-insights, .sb-grid3, .sb-process, .sb-reflect, .sb-ds-sheets { grid-template-columns: 1fr; }
   .sb-resp, .sb-principles, .sb-split, .sb-status-grid, .sb-compare-head { grid-template-columns: 1fr; }
+  .sb-status-grid { grid-template-columns: 1fr; }
   .sb-compare-head { gap: 10px; }
   .sb-section { padding: 56px 0; }
   /* Keep the annotated comparisons legible: show them wider than the screen and let people swipe */

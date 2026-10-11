@@ -708,7 +708,50 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     line-height: 1;
     margin-bottom: 10px;
   }
-  .mob-result-lab { font-size: 13px; color: var(--mid); line-height: 1.5; }
+  .mob-result-lab { font-size: 13px; line-height: 1.5; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
+  .mob-result-src { font-size: 12px; color: var(--mid); line-height: 1.5; margin: 0; font-weight: 400; }
+  .mob-tldr {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+  }
+  .mob-tldr p { font-size: 15px; line-height: 1.65; margin-bottom: 14px; color: var(--mid); }
+  .mob-tldr p:last-child { margin-bottom: 0; }
+  .mob-tldr strong { color: var(--dark); }
+  .mob-platform-line {
+    font-size: 14px;
+    color: var(--mid);
+    line-height: 1.6;
+    margin: 0 0 48px;
+    font-weight: 400;
+  }
+  .mob-platform-line a { color: var(--accent); font-weight: 500; }
+  .mob-owned { display: flex; flex-direction: column; gap: 28px; margin-top: 8px; }
+  .mob-owned h3 {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--dark);
+    margin: 0 0 12px;
+  }
+  .mob-owned p { font-size: 15px; line-height: 1.75; }
+  .mob-owned ul { margin: 12px 0 16px; padding-left: 20px; color: var(--mid); }
+  .mob-owned li { margin-bottom: 8px; font-size: 15px; line-height: 1.6; }
+  .mob-persona-synth { font-size: 13px; color: var(--mid); font-style: italic; margin-top: 12px; }
+  .mob-screens-collapsed { margin-top: 28px; border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px 20px; background: var(--surface); }
+  .mob-screens-collapsed summary {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark);
+    list-style: none;
+  }
+  .mob-screens-collapsed summary::-webkit-details-marker { display: none; }
+  .mob-screens-collapsed .screens-section { margin-top: 20px; }
+  .mob-where-list { margin: 16px 0 0; padding-left: 20px; color: var(--mid); }
+  .mob-where-list li { margin-bottom: 8px; font-size: 15px; line-height: 1.6; }
   .mob-reflection-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -903,12 +946,12 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 <section class="hero">
   <div class="hero-tag">Case Study · B2C · Retail · Mobile</div>
   <h1>Mobile Customer Shopping App</h1>
-  <p class="hero-subtitle">Letting shoppers scan, pay, and walk out — without touching a cashier terminal or standing in a queue.</p>
+  <p class="hero-subtitle">Letting shoppers scan and pay with their own phone, without queueing at the till</p>
   <div class="meta-strip">
     <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Lead UX/UI Designer</div></div>
     <div class="meta-item"><div class="meta-label">Company</div><div class="meta-value">Focalpay AB · 2023–2024</div></div>
     <div class="meta-item"><div class="meta-label">Platform</div><div class="meta-value">iOS · Web (PWA)</div></div>
-    <div class="meta-item"><div class="meta-label">Methods</div><div class="meta-value">Research · Usability Testing</div></div>
+    <div class="meta-item"><div class="meta-label">Methods</div><div class="meta-value">Interviews · Survey · Usability testing</div></div>
   </div>
 </section>
 
@@ -920,14 +963,39 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 <div class="content case-main">
 
+  <div class="mob-tldr fade-in reveal">
+    <p><strong>The problem:</strong> Shoppers had to choose between carrying a store scanner and standing in a queue. Both were real barriers, especially for parents and people with accessibility needs.</p>
+    <p><strong>What I did:</strong> Led the design from research to launch, working with the PM and engineering team. I tested in office workshops and in a live store.</p>
+    <p><strong>Key decisions:</strong> Made sign-up optional after 3 testers abandoned at registration. Added visual, haptic and audio scan feedback after testers couldn't tell whether a scan had worked.</p>
+    <p><strong>Result:</strong> About 30% better checkout task performance in in-store testing with 5 participants. The app has launched; adoption is still early.</p>
+  </div>
+  <p class="mob-platform-line fade-in reveal">Part of the Focalpay platform: this app connects to the <a href="pos-app.html">Cashier POS</a> for cash payments and to the <a href="backoffice.html">Back-office</a> for products and prices.</p>
+
   <section class="section fade-in reveal case-anchor" id="introduction">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Introduction</h2><p class="section-subtitle">Shopping shouldn’t mean waiting</p></div>
+      <div class="section-headings"><h2 class="section-chapter">Introduction</h2></div>
     </div>
-    <p>Large retail chains like Willys, Coop, ICA, and Lidl have long relied on cashier queues and shared handheld scanning devices. For many shoppers, both create friction — and for some, they are a genuine barrier.</p>
-    <p>The Focalpay mobile shopping app reimagines the entire in-store journey. Shoppers open the app, scan products directly with their own phone as they shop, and check out by scanning a single QR code mounted on the store wall — from anywhere in the store, no queue required. If they want to pay cash, one tap transfers their cart to the cashier terminal.</p>
-    <p>I owned this project end-to-end: from competitor research and user interviews through to final screens, interaction design, and usability validation with real shoppers in live store environments.</p>
+    <p>In Swedish grocery stores like ICA and Coop, self-scanning means picking up a handheld scanner at the entrance, carrying it around, and returning it at the end. The other option is the queue at the till. For a parent with a stroller, or someone shopping with a sensory-sensitive child, neither works well.</p>
+    <p>The Focalpay app turns the shopper's own phone into the scanner. Shoppers scan products as they go, then pay by scanning a QR code on the store wall, without queueing. If they want to pay with cash, one tap sends their cart to the cashier.</p>
+    <p>I led the design from competitor research and interviews to final screens and usability testing. I worked closely with the PM and engineering team, and the PM joined some of the testing sessions.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section fade-in reveal case-anchor" id="why-built">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">Why Focalpay built this</h2></div>
+    </div>
+    <p>Self-scanning devices cost retailers money. They have to buy them, charge them, maintain them and replace them. Focalpay wanted to remove that cost by letting shoppers use their own phones. The app is also part of a bigger platform, together with the cashier POS and the back-office, so retailers don't have to connect separate systems themselves.</p>
+    <p>This gave us three constraints:</p>
+    <ul class="mob-where-list">
+      <li><strong>No new hardware.</strong> It had to work with just a QR code on the wall and the shopper's phone.</li>
+      <li><strong>Cash had to work too.</strong> Not everyone pays by card, so the app needed a way to hand over to the cashier.</li>
+      <li><strong>Stopping theft without slowing people down.</strong> The store needed to confirm payment at the exit, without making honest shoppers wait.</li>
+    </ul>
+    <p>Because the platform runs in the cloud, it can also lower hardware and electricity costs compared with traditional checkouts.</p>
   </section>
 
   <div class="divider"></div>
@@ -935,9 +1003,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="onboarding">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Onboarding</h2><p class="section-subtitle">Setting expectations before the first scan</p></div>
+      <div class="section-headings"><h2 class="section-chapter">Onboarding</h2><p class="section-subtitle">Explaining the flow before the first scan</p></div>
     </div>
-    <p>Before someone scans their first product, they need to understand how this store’s flow works — where to scan, when to pay, and how they leave with a receipt. A short, skippable carousel walks new shoppers through the journey in plain language so the physical steps feel familiar before they rely on the app under time pressure.</p>
+    <p>New shoppers need to know how the store's flow works before they start: where to scan, when to pay, and how to get their receipt. A short carousel explains this in plain language, in four steps. Shoppers can skip it.</p>
     <div class="screens-section reveal reveal-media">
       <div class="mob-onboard-grid">
         <div class="screen-item">
@@ -962,48 +1030,34 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
   <div class="divider"></div>
 
-  <section class="section fade-in reveal case-anchor" id="research-findings">
+  <section class="section fade-in reveal case-anchor" id="research">
     <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.94A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">User Experience Research Findings</h2><p class="section-subtitle">What the numbers told us</p></div>
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">Research</h2><p class="section-subtitle">Understanding the problem</p></div>
     </div>
-    <p>We surveyed eight frequent shoppers in Swedish retail stores to validate the hypothesis that existing self-checkout solutions were failing real users. The data confirmed two distinct pain points — and pointed directly to the solution.</p>
-    <div class="mob-findings-row">
-      <div class="mob-finding-cell">
-        <div class="mob-donut" aria-hidden="true">
-          <svg viewBox="0 0 90 90"><circle class="mob-donut-bg" cx="45" cy="45" r="34"/><circle class="mob-donut-arc" cx="45" cy="45" r="34" stroke-dasharray="47 170" stroke-dashoffset="0"/></svg>
-          <div class="mob-donut-label">22%</div>
-        </div>
-        <div class="mob-finding-text">
-          <h4>Cumbersome self-scanning devices</h4>
-          <p>22% of users reported dissatisfaction with carrying a separate self-scanning device, finding it disruptive to their shopping experience. They expressed a strong preference for scanning items directly with their smartphone.</p>
-        </div>
+    <p>I started by looking at competitors. Then I checked the problem with shoppers before designing anything, and tested the design in two different settings.</p>
+    <div class="mob-methods-grid">
+      <div class="mob-method-cell">
+        <div class="mob-method-ico" aria-hidden="true">🏪</div>
+        <div class="mob-method-t">Competitor analysis</div>
+        <p class="mob-method-d">I looked at how self-checkout works at ICA, Coop, Willys, Lidl and Hemköp, and where it fails shoppers.</p>
       </div>
-      <div class="mob-finding-cell">
-        <div class="mob-donut" aria-hidden="true">
-          <svg viewBox="0 0 90 90"><circle class="mob-donut-bg" cx="45" cy="45" r="34"/><circle class="mob-donut-arc" cx="45" cy="45" r="34" stroke-dasharray="77 140" stroke-dashoffset="0"/></svg>
-          <div class="mob-donut-label">36%</div>
-        </div>
-        <div class="mob-finding-text">
-          <h4>Frustrating checkout queues</h4>
-          <p>36% of users identified long checkout queues as a major pain point, expressing a clear desire for a quicker, mobile-based checkout process that would eliminate the need to wait in line.</p>
-        </div>
+      <div class="mob-method-cell">
+        <div class="mob-method-ico" aria-hidden="true">📋</div>
+        <div class="mob-method-t">Survey, 8 shoppers</div>
+        <p class="mob-method-d">5 of the 8 had used the store's handheld scanners. They asked why they needed an extra device when their shopping list was already on their phone, and the phone could scan too. Carrying two devices and a basket made shopping harder. 3 had experienced queues, and said they spent too long waiting, even when they were in a hurry.</p>
+      </div>
+      <div class="mob-method-cell">
+        <div class="mob-method-ico" aria-hidden="true">🗣️</div>
+        <div class="mob-method-t">Interviews, 5 shoppers</div>
+        <p class="mob-method-d">I talked to shoppers with specific needs, including parents with young children and people with accessibility needs, to find problems that a typical persona would miss.</p>
+      </div>
+      <div class="mob-method-cell">
+        <div class="mob-method-ico" aria-hidden="true">🧪</div>
+        <div class="mob-method-t">Usability testing, 3 sessions across more than one round</div>
+        <p class="mob-method-d">Two sessions in an office workshop and one in a real store, with real products, noise and time pressure. The store session showed problems the workshops didn't.</p>
       </div>
     </div>
-    <div class="quote-block">
-      <p>“While some were surprised by the idea of using a self-scanning by mobile, others were more accepting — noting that the convenience of having it directly in their pocket made it an appealing option.”</p>
-      <cite>— Survey synthesis · 8 participants · Swedish retail stores</cite>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section fade-in reveal case-anchor" id="competitor-analysis">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Competitor Analysis</h2><p class="section-subtitle">Addressing retail pain points</p></div>
-    </div>
-    <p>Before designing the first prototype, I mapped the existing self-checkout landscape across Swedish grocery retail — identifying where competitors were creating new problems as much as solving old ones.</p>
     <div class="mob-logo-row">
       <div class="mob-logo-pill mob-logo-ica">ICA Maxi</div>
       <div class="mob-logo-pill mob-logo-coop">Coop</div>
@@ -1013,86 +1067,16 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     </div>
     <div class="mob-comp-grid">
       <div class="mob-comp-card">
-        <div class="mob-comp-title">1. Traditional self-scanning systems</div>
-        <div class="mob-comp-row"><div class="mob-comp-k">Competitors</div><div class="mob-comp-v">ICA and Coop currently rely on dedicated self-scanning devices distributed at store entrances.</div></div>
-        <div class="mob-comp-row"><div class="mob-comp-k">Weakness</div><div class="mob-comp-v">These systems require customers to manage an additional device, which many find inconvenient — especially parents with strollers or shoppers with accessibility needs.</div></div>
-        <div class="mob-comp-row mob-comp-row--opp"><div class="mob-comp-k">Opportunity</div><div class="mob-comp-v">Integrating scanning directly into customers’ own smartphones delivers a far more seamless and inclusive experience.</div></div>
+        <div class="mob-comp-title">1. Self-scanning devices</div>
+        <div class="mob-comp-row"><div class="mob-comp-k">Competitors</div><div class="mob-comp-v">ICA and Coop give shoppers handheld scanners at the store entrance.</div></div>
+        <div class="mob-comp-row"><div class="mob-comp-k">Weakness</div><div class="mob-comp-v">Shoppers have to manage an extra device. That's hard for parents with strollers and for people with accessibility needs.</div></div>
+        <div class="mob-comp-row mob-comp-row--opp"><div class="mob-comp-k">Opportunity</div><div class="mob-comp-v">Let shoppers scan with the phone they already have.</div></div>
       </div>
       <div class="mob-comp-card">
-        <div class="mob-comp-title">2. Mobile checkout solutions</div>
-        <div class="mob-comp-row"><div class="mob-comp-k">Competitors</div><div class="mob-comp-v">Amazon’s “Just Walk Out” technology offers an advanced frictionless checkout — but at massive infrastructure cost.</div></div>
-        <div class="mob-comp-row"><div class="mob-comp-k">Weakness</div><div class="mob-comp-v">Solutions like these require significant store overhauls, making them inaccessible to most Swedish retail chains.</div></div>
-        <div class="mob-comp-row mob-comp-row--opp"><div class="mob-comp-k">Opportunity</div><div class="mob-comp-v">A flexible, scalable app-based approach can be adopted by any retail store — no structural changes, no expensive hardware.</div></div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section fade-in reveal case-anchor" id="card-sorting">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Affinity Mapping · Card Sorting</h2><p class="section-subtitle">Brainstorming &amp; prioritisation</p></div>
-    </div>
-    <p>After synthesising research findings, I ran a card sorting session with the product team to organise feature ideas by user need. This helped us move from a long list of possibilities to a clear, prioritised roadmap — ensuring we built the things that mattered most first.</p>
-    <div class="mob-card-sort">
-      <div>
-        <div class="mob-cs-h">Key features brainstormed</div>
-        <div class="mob-cs-cards">
-          <div class="mob-cs-card mob-cs-card--hi">Integrated mobile payment options</div>
-          <div class="mob-cs-card mob-cs-card--hi">Smartphone-based barcode scanning</div>
-          <div class="mob-cs-card mob-cs-card--hi">Real-time cart management</div>
-          <div class="mob-cs-card mob-cs-card--med">Detailed product information display</div>
-        </div>
-      </div>
-      <div>
-        <div class="mob-cs-h">Prioritisation result</div>
-        <div class="mob-priority-label">High priority</div>
-        <div class="mob-priority-pills">
-          <span class="mob-pill mob-pill--hi">Barcode scanning</span>
-          <span class="mob-pill mob-pill--hi">Mobile payment integration</span>
-          <span class="mob-pill mob-pill--hi">Real-time cart updates</span>
-        </div>
-        <div class="mob-priority-label">Medium priority</div>
-        <div class="mob-priority-pills">
-          <span class="mob-pill mob-pill--med">Detailed product information</span>
-        </div>
-      </div>
-    </div>
-    <div class="mob-decision">
-      <div class="mob-decision-k">Decision moment</div>
-      <p>One early tension: <strong>should we ask users to sign up before they can shop?</strong> The data said no. Forcing account creation at entry is a well-documented conversion killer. We deferred it to checkout — when the user is already invested and motivated to complete the purchase. This single decision had the largest measurable impact on funnel completion rates.</p>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section fade-in reveal case-anchor" id="methods">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Methods &amp; Research</h2><p class="section-subtitle">Understanding the real friction</p></div>
-    </div>
-    <p>Research started with competitor analysis — studying existing self-checkout flows at ICA, Coop, Willys, and Lidl. That baseline informed the first prototype, which was then tested with real shoppers in actual store environments.</p>
-    <div class="mob-methods-grid">
-      <div class="mob-method-cell">
-        <div class="mob-method-ico" aria-hidden="true">🏪</div>
-        <div class="mob-method-t">Competitor analysis</div>
-        <p class="mob-method-d">ICA, Coop, Willys, Lidl, Hemköp — mapped their self-checkout models, flow structures, and known usability failures from public data and in-store observation.</p>
-      </div>
-      <div class="mob-method-cell">
-        <div class="mob-method-ico" aria-hidden="true">📋</div>
-        <div class="mob-method-t">Surveys · 8 participants</div>
-        <p class="mob-method-d">Surveyed frequent shoppers in Swedish retail stores to quantify pain points around handheld devices and checkout queues — validating the hypothesis with concrete data before designing.</p>
-      </div>
-      <div class="mob-method-cell">
-        <div class="mob-method-ico" aria-hidden="true">🗣️</div>
-        <div class="mob-method-t">User interviews</div>
-        <p class="mob-method-d">Recruited shoppers with specific needs — parents with young children, users with accessibility requirements — to surface pain points that standard personas miss.</p>
-      </div>
-      <div class="mob-method-cell">
-        <div class="mob-method-ico" aria-hidden="true">🧪</div>
-        <div class="mob-method-t">Usability testing · Live store</div>
-        <p class="mob-method-d">Tested prototypes with real users in actual stores. Observed behaviours under genuine shopping conditions — not a lab, not a simulation. Key features like manual barcode entry emerged here.</p>
+        <div class="mob-comp-title">2. Fully automatic checkout</div>
+        <div class="mob-comp-row"><div class="mob-comp-k">Competitors</div><div class="mob-comp-v">Amazon's "Just Walk Out" removes the checkout completely, but needs expensive store infrastructure.</div></div>
+        <div class="mob-comp-row"><div class="mob-comp-k">Weakness</div><div class="mob-comp-v">Most Swedish stores can't rebuild their stores for it.</div></div>
+        <div class="mob-comp-row mob-comp-row--opp"><div class="mob-comp-k">Opportunity</div><div class="mob-comp-v">An app that any store can use, without new hardware or building work.</div></div>
       </div>
     </div>
   </section>
@@ -1102,9 +1086,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="persona">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">User Research · Persona</h2><p class="section-subtitle">The shopper we designed for</p></div>
+      <div class="section-headings"><h2 class="section-chapter">Persona</h2><p class="section-subtitle">Who we designed for</p></div>
     </div>
-    <p>Research revealed a clear segment that existing solutions were failing: parents shopping with young children, particularly those managing additional accessibility needs. Their pain was structural — a fundamental mismatch between the shopping environment and their daily reality.</p>
+    <p>The research showed one group that existing solutions were failing: parents shopping with young children, especially when a child has extra needs. For them, the problem wasn't small. The store simply didn't fit their day.</p>
     <div class="mob-persona-photo reveal reveal-media">
       <img src="mobile-persona-hero.png" alt="Parent grocery shopping with three children in a supermarket aisle, using a phone while managing the cart" width="1024" height="682" loading="lazy" decoding="async">
     </div>
@@ -1113,6 +1097,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
         <div class="mob-persona-name">Sara, 40</div>
         <div class="mob-persona-role">Parent of three · Including one child with autism</div>
         <div class="mob-persona-quote">“I always come to the store with the kids. I need one hand for the stroller, one eye on the other two — and I keep my shopping list on my phone. There’s no room for a handheld scanner. And standing in a queue with an autistic child is one of the hardest parts of my week.”</div>
+        <p class="mob-persona-synth">Persona quote, synthesised from interviews.</p>
         <div class="mob-persona-tags">
           <span class="mob-persona-tag">Heavy mobile user</span>
           <span class="mob-persona-tag">Avoids queues</span>
@@ -1122,10 +1107,6 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
         </div>
       </div>
     </div>
-    <div class="quote-block">
-      <p>“I used to dread grocery shopping with the kids. Now I just open the app, scan as I go, and I’m done before I even reach the exit.”</p>
-      <cite>— Sara, post-launch interview</cite>
-    </div>
   </section>
 
   <div class="divider"></div>
@@ -1133,18 +1114,49 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="discover">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Discover</h2><p class="section-subtitle">What was actually broken</p></div>
+      <div class="section-headings"><h2 class="section-chapter">The problem</h2><p class="section-subtitle">What wasn't working</p></div>
     </div>
-    <p>Traditional in-store checkout systems were designed around infrastructure, not people. The problems weren’t minor inconveniences — for many shoppers, they were real barriers to completing a purchase.</p>
+    <p>In-store checkout was designed around the store's systems, not the people using them. For some shoppers, that made it hard to finish their shopping at all.</p>
     <div class="pain-grid">
-      <div class="pain-card"><div class="pain-number">01</div><h4>Shared devices, shared problems</h4><p>Store-provided handheld scanners require a free hand and full attention. For parents with strollers or shopping lists on their phone, they are practically unusable.</p></div>
-      <div class="pain-card"><div class="pain-number">02</div><h4>Queue as a barrier</h4><p>For shoppers with sensory-sensitive children, chronic pain, or time pressure, standing in a cashier queue is not just inconvenient — it’s a reason to shop elsewhere.</p></div>
-      <div class="pain-card"><div class="pain-number">03</div><h4>Silent scan failures</h4><p>In a busy store, users couldn’t tell if a scan had worked. Products were scanned twice. Users gave up. The interface gave no meaningful feedback across any sensory channel.</p></div>
-      <div class="pain-card"><div class="pain-number">04</div><h4>Unreadable barcodes, dead ends</h4><p>When a barcode wouldn’t scan, the app offered no recovery path. Users were stranded. This only surfaced during real-world testing — lab conditions never revealed it.</p></div>
+      <div class="pain-card"><div class="pain-number">01</div><h4>Store scanners need a free hand</h4><p>Handheld scanners need one hand and full attention. For a parent pushing a stroller, or someone reading a list on their phone, that's very hard.</p></div>
+      <div class="pain-card"><div class="pain-number">02</div><h4>Queues</h4><p>For shoppers with sensory-sensitive children, chronic pain or little time, queueing isn't just annoying. It can be a reason to shop somewhere else.</p></div>
+      <div class="pain-card"><div class="pain-number">03</div><h4>No feedback when scanning</h4><p>In a busy store, shoppers couldn't tell whether a scan had worked. Some scanned the same item twice. The app gave no clear confirmation.</p></div>
+      <div class="pain-card"><div class="pain-number">04</div><h4>No way past a bad barcode</h4><p>When a barcode wouldn't scan, the app had no other option, and shoppers got stuck. We only found this in the real store; the workshop sessions didn't show it.</p></div>
     </div>
     <div class="quote-block">
       <p>“We want something that just works. Our customers shouldn’t have to think about the checkout — it should just happen.”</p>
-      <cite>— Store Manager, Usability Research Session</cite>
+      <cite>— Store manager, research session. The same store manager also worked with us on the <a href="pos-app.html">Cashier POS</a>.</cite>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section fade-in reveal case-anchor" id="decisions-owned">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">Two decisions I made</h2></div>
+    </div>
+    <div class="mob-owned">
+      <div>
+        <h3>Decision 1: Making sign-up optional</h3>
+        <p>The first version asked shoppers to create an account before checking out. In testing, three participants gave up as soon as they saw they had to sign up. They said they just wanted a faster way to pay.</p>
+        <p>I suggested moving sign-up to the end and making it optional. Now shoppers can check out as a guest with their card, and get the receipt by email. Shoppers who want an account, with purchase history and saved cards, can still create one. In the next round of testing, nobody gave up, and one participant chose to sign up at the end.</p>
+      </div>
+      <div>
+        <h3>Decision 2: Making every scan clear</h3>
+        <p>In testing, shoppers scanned a product and then stopped and looked at the screen, unsure if it had worked. Some scanned the same item twice. In a busy store, with noise, trolleys and children, a visual sign alone was easy to miss.</p>
+        <p>So I added three kinds of feedback after each scan:</p>
+        <ul>
+          <li><strong>Visual:</strong> the product moves into the cart.</li>
+          <li><strong>Haptic:</strong> the phone vibrates briefly.</li>
+          <li><strong>Sound:</strong> a short sound plays.</li>
+        </ul>
+        <p>This follows the WCAG guidance that a change shouldn't rely on only one sense.</p>
+        <figure class="mob-scan-feedback reveal reveal-media">
+          <img src="mobile-scan-three-layer-feedback.gif" alt="In-app demonstration of three-layer scan feedback: barcode scan on Coca-Cola, vibration and sound cues, and the product animating into the cart" width="800" height="695" loading="lazy" decoding="async">
+        </figure>
+        <p>After this change, testers stopped pausing after each scan, and we didn't see any more double scans in testing. This was something we observed in the sessions, not a measured number.</p>
+      </div>
     </div>
   </section>
 
@@ -1153,59 +1165,59 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="design-solutions">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Design Solutions</h2><p class="section-subtitle">Fast, tested, iterated</p></div>
+      <div class="section-headings"><h2 class="section-chapter">What I designed</h2><p class="section-subtitle">Designed for one free hand</p></div>
     </div>
-    <p>Every screen was designed around one principle: the phone already in the shopper’s hand should be the only device they need — even while pushing a stroller, checking a list, and keeping an eye on two children at the same time.</p>
+    <p>I designed every screen around one idea: the phone in the shopper's hand should be the only device they need, even while they push a stroller, check a list and watch two children.</p>
     <div class="mob-solution-list">
       <div class="mob-solution">
         <div class="mob-sol-head">
           <div class="mob-sol-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
           <div>
             <div class="mob-sol-title">Camera-first home screen</div>
-            <div class="mob-sol-tag">Core flow</div>
+            <div class="mob-sol-tag">Main flow</div>
           </div>
         </div>
-        <p class="mob-sol-body">The moment a user opens the app, the camera is live and the cart is visible — no navigation required. Scanning a product adds it instantly. The cart, total, and key actions (Add bag, Baked goods, Manual barcode entry) are always one tap away. There is no separate “scan mode” — the entire experience is the scan mode.</p>
+        <p class="mob-sol-body">When the app opens, the camera is already on and the cart is visible. Scanning a product adds it to the cart straight away. The cart, the total and the main shortcuts are always one tap away. There's no separate scan mode; the whole home screen is for scanning.</p>
       </div>
       <div class="mob-solution">
         <div class="mob-sol-head">
           <div class="mob-sol-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
           <div>
-            <div class="mob-sol-title">Add bag · Baked goods · Manual barcode entry</div>
-            <div class="mob-sol-tag">Accessibility shortcuts</div>
+            <div class="mob-sol-title">Shortcuts</div>
+            <div class="mob-sol-tag">Add bag · Baked goods · Manual barcode entry</div>
           </div>
         </div>
-        <p class="mob-sol-body">Three accessibility shortcuts live permanently on the home screen. Bags can be added without scanning. Baked goods — which often lack machine-readable codes — have their own browsable category. Manual barcode entry was added directly as a result of usability testing: users who encountered damaged barcodes had no recovery path in v1. The fix was a simple numeric input — discovered through observing real shoppers, not invented in a brief.</p>
+        <p class="mob-sol-body">Three shortcuts are always on the home screen. Shoppers can add a bag without scanning. Baked goods, which often don't have a barcode, have their own category. Manual barcode entry came from usability testing: when a barcode was damaged, shoppers had no way forward in the first version, so we added a simple number keypad.</p>
       </div>
       <div class="mob-solution">
         <div class="mob-sol-head">
           <div class="mob-sol-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
           <div>
-            <div class="mob-sol-title">QR checkout — from anywhere in the store</div>
-            <div class="mob-sol-tag">Checkout innovation</div>
+            <div class="mob-sol-title">QR checkout from anywhere in the store</div>
+            <div class="mob-sol-tag">Checkout</div>
           </div>
         </div>
-        <p class="mob-sol-body">When ready to pay, the user taps “Go to payment” and the camera opens to scan the large QR code mounted on the store wall. The code is designed to be readable from up to 10 metres away — meaning a shopper can check out without ever joining a queue or reaching the checkout area. One scan. No waiting.</p>
+        <p class="mob-sol-body">To pay, shoppers tap "Go to payment" and scan the large QR code on the store wall. It can be scanned from up to 10 metres away, which we tested in a real store. So shoppers can pay without going to the checkout area at all.</p>
       </div>
       <div class="mob-solution">
         <div class="mob-sol-head">
           <div class="mob-sol-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
           <div>
-            <div class="mob-sol-title">Multiple payment methods — including cash</div>
-            <div class="mob-sol-tag">Payment flow</div>
+            <div class="mob-sol-title">Many ways to pay, including cash</div>
+            <div class="mob-sol-tag">Payment</div>
           </div>
         </div>
-        <p class="mob-sol-body">The app supports Apple Pay, Swish, card (scan or manual entry), and cash. Cash users are not excluded — one button transfers their cart to the nearest cashier terminal instantly, with no re-scanning. Card onboarding is deferred to checkout: sign-up friction was deliberately removed from the entry experience to keep top-of-funnel abandonment low.</p>
+        <p class="mob-sol-body">The app supports Apple Pay, Swish, card and cash. Cash users aren't left out: one tap sends their cart to the nearest cashier, without scanning everything again. Sign-up is optional, so shoppers can pay as a guest and get the receipt by email.</p>
       </div>
       <div class="mob-solution">
         <div class="mob-sol-head">
           <div class="mob-sol-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
           <div>
-            <div class="mob-sol-title">Exit QR — theft prevention without friction</div>
-            <div class="mob-sol-tag">Post-purchase</div>
+            <div class="mob-sol-title">Exit QR code</div>
+            <div class="mob-sol-tag">After payment</div>
           </div>
         </div>
-        <p class="mob-sol-body">After payment, the receipt screen displays a QR code for the store exit gate. The shopper scans it on the way out — the gate opens. Simple, invisible security. The receipt is also stored in purchase history with product details, total, and discount breakdown available later.</p>
+        <p class="mob-sol-body">After paying, the receipt screen shows a QR code for the exit gate. Shoppers scan it on the way out, and the gate opens. The receipt is also saved in the purchase history, with the products, total and discounts.</p>
       </div>
     </div>
     <div class="screens-section reveal reveal-media">
@@ -1243,9 +1255,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="prototype">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="M13 13l6 6"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Interactive Prototype</h2><p class="section-subtitle">Click through the real flow</p></div>
+      <div class="section-headings"><h2 class="section-chapter">Interactive prototype</h2><p class="section-subtitle">Try the flow yourself</p></div>
     </div>
-    <p>The screens above come to life here. Launch the embedded prototype to scan, add to cart, and walk through checkout exactly as a shopper would — no Figma account needed. It loads on tap to keep the page fast.</p>
+    <p>You can click through the prototype to scan, add products to the cart and check out like a shopper would. No Figma account is needed. It loads when you tap it, to keep the page fast.</p>
     <div class="proto-embed reveal reveal-media">
       <div class="proto-frame">
         <button type="button" class="proto-poster" data-embed="https://embed.figma.com/proto/PL87ABRLiYVHUmikDvnsF3/PORTFOLIO?page-id=790%3A2&amp;node-id=790-31644&amp;viewport=-116%2C138%2C0.26&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=790%3A31644&amp;embed-host=share" data-title="Mobile shopping app — interactive Figma prototype" aria-label="Launch the interactive Mobile shopping app prototype">
@@ -1263,52 +1275,18 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
   <div class="divider"></div>
 
-  <section class="section fade-in reveal case-anchor" id="scan-insight">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Key Insight · Usability Testing</h2><p class="section-subtitle">The silent scan problem</p></div>
-    </div>
-    <p>During testing, we noticed something that looked like hesitation but was actually confusion. Users would scan a product and then pause — staring at the screen, unsure if it had actually worked. Some scanned the same item twice. Some stopped shopping altogether.</p>
-    <p>The interface was too quiet. In a busy store with ambient noise, trolleys, children, and movement, a visual-only confirmation is nearly invisible. We needed the scan to <strong>feel</strong> like it worked — not just look like it.</p>
-    <div class="mob-insight">
-      <div class="mob-insight-k">Solution · Three-layer scan feedback system</div>
-      <p class="mob-insight-lede">Designed to confirm a successful scan across every sensory channel — following WCAG guidance that state changes must never rely on a single modality.</p>
-      <div class="mob-layer">
-        <span class="mob-layer-badge mob-layer-badge--v">Visual</span>
-        <div class="mob-layer-t">A smooth animation shows the product “dropping” into the cart icon — an immediate, spatial confirmation that works even when the user is looking away from the product list.</div>
-      </div>
-      <div class="mob-layer">
-        <span class="mob-layer-badge mob-layer-badge--h">Haptic</span>
-        <div class="mob-layer-t">A short vibration fires on successful scan. This was the most impactful change: many users don’t look at the screen while scanning. The haptic tells them it worked without requiring visual attention at all.</div>
-      </div>
-      <div class="mob-layer">
-        <span class="mob-layer-badge mob-layer-badge--a">Audio</span>
-        <div class="mob-layer-t">A subtle sound cue confirms the scan — aligned with WCAG, which requires that state changes not rely on vision alone. Critical for users with low vision and effective in noisy retail environments.</div>
-      </div>
-    </div>
-    <figure class="mob-scan-feedback reveal reveal-media">
-      <img src="mobile-scan-three-layer-feedback.gif" alt="In-app demonstration of three-layer scan feedback: barcode scan on Coca-Cola, vibration and sound cues, and the product animating into the cart" width="800" height="695" loading="lazy" decoding="async">
-    </figure>
-    <div class="quote-block">
-      <p>“Users stopped hesitating. They scanned and moved — confident the app had done its job. That shift in body language was visible in real time during testing.”</p>
-      <cite>— Usability testing observation notes</cite>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
   <section class="section fade-in reveal case-anchor" id="user-journey">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">User Journey Map</h2><p class="section-subtitle">From entrance to exit gate</p></div>
+      <div class="section-headings"><h2 class="section-chapter">User journey map</h2><p class="section-subtitle">From the entrance to the exit gate</p></div>
     </div>
-    <p>Mapped across Sara’s full shopping journey — from opening the app in the car park to scanning the exit gate QR. Emotion peaks and troughs informed where design intervention mattered most.</p>
+    <p>This map follows Sara through a whole shopping trip, from opening the app in the car park to scanning the exit QR code. The low points showed where design changes mattered most.</p>
     <div class="mob-journey-wrap">
       <div class="mob-journey-top">
         <div class="mob-journey-av" aria-hidden="true">👩‍👧</div>
         <div>
           <div class="mob-journey-name">Sara · Parent of three, including one child with autism</div>
-          <div class="mob-journey-desc">Mobile-first shopper · Avoids queues · Hands always full</div>
+          <div class="mob-journey-desc">Uses her phone for everything, avoids queues, always has her hands full</div>
         </div>
       </div>
       <table class="mob-journey-table">
@@ -1326,57 +1304,57 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
             <td><div class="mob-step-name">App open</div></td>
             <td>Opens app, camera activates immediately</td>
             <td><span class="mob-emotion"><span class="mob-dot mob-dot--g"></span> Confident</span></td>
-            <td><span class="mob-neutral">None — no forced sign-up, camera is live instantly</span></td>
-            <td><span class="mob-oppty">Camera-first experience removes all entry friction</span></td>
+            <td><span class="mob-neutral">None. No forced sign-up, and the camera starts straight away</span></td>
+            <td><span class="mob-oppty">Camera opens first, so there's nothing to get through</span></td>
           </tr>
           <tr>
             <td><div class="mob-step-name">Scanning products</div></td>
             <td>Scans barcodes while shopping, one hand on stroller</td>
             <td><span class="mob-emotion"><span class="mob-dot mob-dot--g"></span> Engaged</span></td>
-            <td><span class="mob-pain">Uncertain if scan worked — looks for visual confirmation</span></td>
-            <td><span class="mob-oppty">3-layer feedback: animation + haptic vibration + audio cue</span></td>
+            <td><span class="mob-pain">Not sure if the scan worked</span></td>
+            <td><span class="mob-oppty">Visual, haptic and sound feedback on every scan</span></td>
           </tr>
           <tr>
             <td><div class="mob-step-name">Unreadable barcode</div></td>
             <td>Tries to scan damaged barcode, camera fails</td>
             <td><span class="mob-emotion"><span class="mob-dot mob-dot--r"></span> Frustrated</span></td>
-            <td><span class="mob-pain">No recovery path in v1 — user is stranded with no clear next step</span></td>
-            <td><span class="mob-oppty">Manual barcode entry added after usability testing revealed this dead end</span></td>
+            <td><span class="mob-pain">The first version had no way forward, so the shopper got stuck</span></td>
+            <td><span class="mob-oppty">Manual barcode entry, added after usability testing found the problem</span></td>
           </tr>
           <tr>
             <td><div class="mob-step-name">Baked goods</div></td>
             <td>Taps “Baked goods” for items without scannable codes</td>
             <td><span class="mob-emotion"><span class="mob-dot mob-dot--g"></span> Relieved</span></td>
-            <td><span class="mob-neutral">Baked items rarely have reliable barcodes — previously a dead end</span></td>
-            <td><span class="mob-oppty">Dedicated category accessible directly from home screen</span></td>
+            <td><span class="mob-neutral">Baked goods often don't have a barcode</span></td>
+            <td><span class="mob-oppty">Own category, one tap from the home screen</span></td>
           </tr>
           <tr>
             <td><div class="mob-step-name">Cart review</div></td>
             <td>Reviews cart, adjusts quantities, checks total</td>
             <td><span class="mob-emotion"><span class="mob-dot mob-dot--g"></span> In control</span></td>
-            <td><span class="mob-neutral">Wants to confirm everything before committing to checkout</span></td>
-            <td><span class="mob-oppty">Cart always visible on home screen — no navigation required</span></td>
+            <td><span class="mob-neutral">Wants to check everything before paying</span></td>
+            <td><span class="mob-oppty">Cart always visible on the home screen</span></td>
           </tr>
           <tr>
             <td><div class="mob-step-name">QR checkout</div></td>
             <td>Taps “Go to payment”, scans store wall QR from distance</td>
             <td><span class="mob-emotion"><span class="mob-dot mob-dot--g"></span> Delighted</span></td>
-            <td><span class="mob-neutral">Expected a queue — surprised by 10m scan range</span></td>
-            <td><span class="mob-oppty">Large-format QR readable from distance — zero queue experience</span></td>
+            <td><span class="mob-neutral">Expected a queue, and was surprised the QR code worked from 10 m away</span></td>
+            <td><span class="mob-oppty">Large QR code that can be scanned from a distance</span></td>
           </tr>
           <tr>
             <td><div class="mob-step-name">Payment</div></td>
             <td>Pays via Apple Pay, card scan, Swish, or cash transfer</td>
             <td><span class="mob-emotion"><span class="mob-dot mob-dot--g"></span> Satisfied</span></td>
-            <td><span class="mob-pain">Card details needed — deferred from onboarding, now required</span></td>
-            <td><span class="mob-oppty">Card scan via camera or manual entry · Multiple payment methods</span></td>
+            <td><span class="mob-pain">Needs to enter card details now, since there was no sign-up at the start</span></td>
+            <td><span class="mob-oppty">Card scan with the camera or manual entry, and several ways to pay</span></td>
           </tr>
           <tr>
             <td><div class="mob-step-name">Exit gate</div></td>
             <td>Scans exit QR from receipt screen at store gate</td>
             <td><span class="mob-emotion"><span class="mob-dot mob-dot--g"></span> Confident</span></td>
-            <td><span class="mob-neutral">Gate is the final moment of doubt — did everything go through?</span></td>
-            <td><span class="mob-oppty">Clear exit QR on receipt screen — gate opens, experience complete</span></td>
+            <td><span class="mob-neutral">Wants to be sure the payment went through</span></td>
+            <td><span class="mob-oppty">Clear exit QR code on the receipt screen; the gate opens</span></td>
           </tr>
         </tbody>
       </table>
@@ -1409,20 +1387,38 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="results">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Results</h2><p class="section-subtitle">Measurable impact</p></div>
+      <div class="section-headings"><h2 class="section-chapter">Results</h2></div>
     </div>
-    <p>Outcomes were validated through usability testing with real shoppers in live store environments. The three-layer scan feedback system alone drove a step-change in completion rates — and double-scans effectively disappeared.</p>
+    <p>All results come from usability testing across several rounds. They show the direction of improvement, not production analytics.</p>
     <div class="mob-results-grid">
-      <div class="mob-result-cell"><div class="mob-result-num">+30%</div><div class="mob-result-lab">Checkout completion rate after introducing 3-layer scan feedback</div></div>
-      <div class="mob-result-cell"><div class="mob-result-num">~0</div><div class="mob-result-lab">Double-scan errors after haptic + audio feedback was introduced</div></div>
-      <div class="mob-result-cell"><div class="mob-result-num">10m</div><div class="mob-result-lab">Maximum scan range for store wall QR — no queue required</div></div>
-      <div class="mob-result-cell"><div class="mob-result-num">1 tap</div><div class="mob-result-lab">Cash cart transfer to cashier terminal — no re-scanning needed</div></div>
+      <div class="mob-result-cell">
+        <div class="mob-result-num">~30%</div>
+        <div class="mob-result-lab">Better checkout task performance</div>
+        <p class="mob-result-src">In-store session (5 participants) compared with the earlier round: completion time, errors and successful checkouts. Reflects both changes made between rounds, the scan feedback and optional sign-up, so it can't be credited to either one alone.</p>
+      </div>
+      <div class="mob-result-cell">
+        <div class="mob-result-num">3 → 0</div>
+        <div class="mob-result-lab">Abandonments at sign-up</div>
+        <p class="mob-result-src">Previous flow, with mandatory sign-up: 3 testers abandoned. New flow, with sign-up optional: all participants completed checkout, and one chose to sign up at the end.</p>
+      </div>
+      <div class="mob-result-cell">
+        <div class="mob-result-num">10 m</div>
+        <div class="mob-result-lab">QR checkout range</div>
+        <p class="mob-result-src">Tested in a real store</p>
+      </div>
+      <div class="mob-result-cell">
+        <div class="mob-result-num">1 tap</div>
+        <div class="mob-result-lab">Cash payment handover</div>
+        <p class="mob-result-src">Cart transfers to the cashier POS, with no re-scanning</p>
+      </div>
     </div>
     <div class="quote-block">
       <p>“I used to dread grocery shopping with the kids. Now I just open the app, scan as I go, and I’m done before I even reach the exit.”</p>
-      <cite>— Sara, post-launch interview</cite>
+      <cite>— Usability test participant, in-store session</cite>
     </div>
-    <div class="screens-section reveal reveal-media">
+    <details class="mob-screens-collapsed reveal reveal-media">
+      <summary>See all screens</summary>
+    <div class="screens-section">
       <div class="screens-grid col-3">
         <div class="screen-item">
           <div class="screen-wrap"><img src="mobile-userflow-00.png" alt="Screen 0 — Focal Pay app preview card with Open action" width="393" height="852" loading="lazy" decoding="async"></div>
@@ -1486,6 +1482,24 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
         </div>
       </div>
     </div>
+    </details>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section fade-in reveal case-anchor" id="where-now">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">Where it is now</h2></div>
+    </div>
+    <p>The app has launched, but only a small number of shoppers use it so far. So the results above come from testing, not from real use at scale.</p>
+    <p>As more people use it, these are the things I'd track to see if the design works outside testing:</p>
+    <ul class="mob-where-list">
+      <li>Guest checkout versus account creation</li>
+      <li>Checkout completion rate</li>
+      <li>How often manual barcode entry is used</li>
+      <li>Cash handovers to the cashier</li>
+    </ul>
   </section>
 
   <div class="divider"></div>
@@ -1493,13 +1507,12 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="reflection">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Reflection</h2><p class="section-subtitle">What this project taught me</p></div>
+      <div class="section-headings"><h2 class="section-chapter">Reflection</h2><p class="section-subtitle">What I learned</p></div>
     </div>
     <div class="mob-reflection-grid">
-      <div class="mob-reflection"><div class="mob-ref-num">01</div><div class="mob-ref-t">Real stores reveal what labs can’t</div><p class="mob-ref-b">The unreadable barcode dead end and the scan feedback gap were both invisible in early prototype testing. They only appeared when real shoppers, under real pressure, used the app in a live store. There is no substitute.</p></div>
-      <div class="mob-reflection"><div class="mob-ref-num">02</div><div class="mob-ref-t">Silence is a UX failure</div><p class="mob-ref-b">In a noisy retail environment, visual-only confirmation is nearly useless. Designing for all sensory channels isn’t a nice-to-have — in mobile contexts, it’s what makes the difference between confidence and hesitation.</p></div>
-      <div class="mob-reflection"><div class="mob-ref-num">03</div><div class="mob-ref-t">Defer friction, don’t remove it</div><p class="mob-ref-b">Not asking for sign-up at onboarding was deliberate. Moving card entry to checkout was the right call — conversion at entry went up, and by checkout users were already invested. Friction at the right moment builds trust.</p></div>
-      <div class="mob-reflection"><div class="mob-ref-num">04</div><div class="mob-ref-t">Inclusion makes products better for everyone</div><p class="mob-ref-b">Designing for Sara — a stroller, two children, and no free hand — produced a checkout flow faster and more pleasant for every type of shopper. Accessibility constraints don’t limit design; they sharpen it.</p></div>
+      <div class="mob-reflection"><div class="mob-ref-num">01</div><div class="mob-ref-t">Test in the real store</div><p class="mob-ref-b">The problems with damaged barcodes and missing scan feedback only showed up in the store session. The workshop sessions didn't show them. Testing with real noise and time pressure gave us findings we couldn't get any other way.</p></div>
+      <div class="mob-reflection"><div class="mob-ref-num">02</div><div class="mob-ref-t">Feedback needs more than one sense</div><p class="mob-ref-b">In a noisy store, a visual confirmation alone is easy to miss. Adding vibration and sound is what made shoppers feel sure the scan had worked.</p></div>
+      <div class="mob-reflection"><div class="mob-ref-num">03</div><div class="mob-ref-t">Ask for sign-up after the shopper sees the value</div><p class="mob-ref-b">Asking people to sign up before they had used the app made three testers give up in one round. Making it optional, and offering it after checkout, kept accounts available for the people who want them, without blocking everyone else.</p></div>
     </div>
   </section>
 

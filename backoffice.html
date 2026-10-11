@@ -160,6 +160,14 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   .quote-block{border-left:3px solid var(--accent);padding:20px 28px;background:var(--accent-light);border-radius:0 12px 12px 0;margin:24px 0;}
   .quote-block p{font-family:var(--serif);font-size:18px;font-style:italic;color:var(--dark);margin-bottom:8px;}
   .quote-block cite{font-size:13px;color:var(--mid);font-style:normal;font-weight:500;}
+  .bo-tldr{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin:0 0 20px;}
+  .bo-tldr p{font-size:15px;line-height:1.65;color:var(--mid);margin-bottom:14px;font-weight:300;}
+  .bo-tldr p:last-child{margin-bottom:0;}
+  .bo-tldr strong{color:var(--dark);font-weight:600;}
+  .bo-platform-line{font-size:14px;color:var(--mid);line-height:1.6;margin:0 0 8px;font-weight:300;}
+  .bo-platform-line a{color:var(--accent);font-weight:500;}
+  .bo-launch-line{margin-top:24px;font-size:15px;color:var(--dark);font-weight:500;}
+  .finding-item .finding-text-only{font-size:14px;color:var(--mid);font-style:normal;font-weight:300;line-height:1.6;margin:0;}
   .process-steps{display:flex;flex-direction:column;margin-top:24px;}
   .process-step{display:flex;gap:24px;padding:20px 0;border-bottom:1px solid var(--border);}
   .process-step:last-child{border-bottom:none;}
@@ -371,12 +379,12 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 <section class="hero">
   <div class="hero-tag">Case Study · B2B SaaS · Retail Tech</div>
   <h1>Focalpay Back-office Dashboard</h1>
-  <p class="hero-subtitle">Designing a cloud-based command centre for managing thousands of SKUs and complex pricing logic</p>
+  <p class="hero-subtitle">Redesigning the back-office where retailers manage products, prices and campaigns</p>
   <div class="meta-strip">
     <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">UX/UI Designer</div></div>
-    <div class="meta-item"><div class="meta-label">Company</div><div class="meta-value">Focalpay AB · 2024–2025</div></div>
+    <div class="meta-item"><div class="meta-label">Company</div><div class="meta-value">Focalpay AB · 2023–2025</div></div>
     <div class="meta-item"><div class="meta-label">Platform</div><div class="meta-value">Web · Desktop</div></div>
-    <div class="meta-item"><div class="meta-label">Methods</div><div class="meta-value">Research · A/B Testing</div></div>
+    <div class="meta-item"><div class="meta-label">Methods</div><div class="meta-value">Interviews · Card sorting · Usability testing</div></div>
   </div>
 </section>
 
@@ -389,13 +397,22 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 
 <div class="content case-main">
 
+  <div class="bo-tldr fade-in reveal">
+    <p><strong>The problem:</strong> Store teams managed thousands of products and complex pricing in a back-office built by developers, with no design input and no user testing. The product form showed 40+ fields at once, and weighted campaigns were set up by hand.</p>
+    <p><strong>What I did:</strong> Interviewed 6 managers from 6 customer businesses, ran two card-sorting sessions, and analysed three months of real campaign data. I redesigned the product form and campaign creation, working with the PM and engineering team.</p>
+    <p><strong>Key decisions:</strong> Split the product form into three tiers based on card sorting. Replaced the manual campaign form with two templates, after finding that 94% of weighted campaigns followed two patterns.</p>
+    <p><strong>Result:</strong> Comparing the old and new versions, campaign creation was 25% faster with 78% fewer errors. The redesign is live in several stores.</p>
+  </div>
+  <p class="bo-platform-line fade-in reveal">Part of the Focalpay platform: products and prices set up here power the <a href="pos-app.html">Cashier POS</a> and the <a href="mobile-app.html">Mobile shopping app</a>.</p>
+
   <section class="section fade-in reveal case-anchor" id="introduction">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Introduction &amp; Context</h2><p class="section-subtitle">Command centre for catalogue and pricing</p></div>
+      <div class="section-headings"><h2 class="section-chapter">Introduction</h2></div>
     </div>
-    <p>The Focalpay Back-office is the command centre where all business logic — from product catalogues to pricing — is defined before being executed by the POS terminals.</p>
-    <p>I joined mid-project — the core dashboard shell and navigation patterns already existed when I came in. My scope was the two modules where store teams spent the most time and made the most errors: <strong>Product Management</strong> (adding and editing SKUs) and <strong>weighted campaign creation</strong>. I inherited an established design system and was responsible for extending it without introducing regressions, while meaningfully improving the UX of both modules.</p>
+    <p>The Focalpay Back-office is where retailers set up everything the POS and the shopping app use: products, prices and campaigns. Our customers ranged from a footwear retailer, Icebug, to supermarket chains like Matrebellerna and Matvärlden.</p>
+    <p>I joined the project halfway through. Developers had built the back-office without a designer, and it had never been tested with users. I focused on the two areas where store teams spent the most time and made the most mistakes: managing products, and creating weighted campaigns.</p>
+    <p>I worked with the same PM and engineering team as on the Focalpay mobile app, because the products are part of the same platform.</p>
   </section>
 
   <div class="divider"></div>
@@ -403,17 +420,17 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <section class="section fade-in reveal case-anchor" id="role">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">My Role &amp; Responsibilities</h2><p class="section-subtitle">Scope across research, design, and handoff</p></div>
+      <div class="section-headings"><h2 class="section-chapter">My Role &amp; Responsibilities</h2></div>
     </div>
     <div class="role-block">
-      <h4>My Responsibilities</h4>
+      <h4>What I was responsible for</h4>
       <ul class="role-list">
-        <li>User research with store managers at Matrebellerna, Matvärlden, and Icebug</li>
-        <li>Card sorting sessions to establish data hierarchy</li>
-        <li>Wireframes and mid-fi Figma prototypes for core flows</li>
-        <li>A/B testing of campaign creation flows with 10 store managers</li>
-        <li>Extending the existing design system without regressions</li>
-        <li>Component-level specs and full Zeplin handoff</li>
+        <li>Interviews with 6 managers from 6 customer businesses</li>
+        <li>Two card-sorting sessions to set the hierarchy of product data</li>
+        <li>Analysis of three months of real campaign data from customers</li>
+        <li>Wireframes and mid-fidelity prototypes for the core flows</li>
+        <li>Usability testing of the previous and redesigned versions with 5 store managers: task time and errors</li>
+        <li>Created the design system, in light and dark mode, and handed off to engineering</li>
       </ul>
     </div>
   </section>
@@ -423,14 +440,13 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <section class="section fade-in reveal case-anchor" id="methods-research">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Methods &amp; Research</h2><p class="section-subtitle">Interviews with store managers</p></div>
+      <div class="section-headings"><h2 class="section-chapter">Research</h2></div>
     </div>
-    <p>I conducted contextual interviews with store managers at <strong>Matrebellerna</strong>, <strong>Matvärlden</strong>, and <strong>Icebug</strong>, combining think-aloud tasks with retrospective questioning.</p>
+    <p>I interviewed 6 managers from 6 customer businesses. I asked them to do real tasks while thinking aloud, and then asked follow-up questions. Because it was a B2B product with a limited number of customers, I worked directly with the businesses that used it.</p>
     <div class="findings-list">
-      <div class="finding-item"><div class="finding-icon">💬</div><div><p class="finding-text">"I know the data I need, but I spend too long hunting for it."</p><div class="finding-stat">5 out of 6 managers described the product form as visually overwhelming</div></div></div>
-      <div class="finding-item"><div class="finding-icon">⚖️</div><div><p class="finding-text">"It's like doing maths while serving customers."</p><div class="finding-stat">Manual campaign calculation was the #1 pain point for weighted items</div></div></div>
-      <div class="finding-item"><div class="finding-icon">📋</div><div><p class="finding-text">"Every time base prices change, I’m double-checking campaigns by hand — I don’t fully trust the system yet."</p><div class="finding-stat">5 out of 6 managers described disconnects between catalogue data and promotional rules</div></div></div>
-
+      <div class="finding-item"><div class="finding-icon">💬</div><div><p class="finding-text">"I know the data I need, but I spend too long hunting for it."</p><div class="finding-stat">5 of 6 managers found the product form very complicated.</div></div></div>
+      <div class="finding-item"><div class="finding-icon">📋</div><div><p class="finding-text">"Every time base prices change, I'm double-checking campaigns by hand."</p><div class="finding-stat">4 of 6 managers reported inconsistencies between catalogue data and campaign rules.</div></div></div>
+      <div class="finding-item"><div class="finding-icon">⚖️</div><div><p class="finding-text-only">Weighted campaigns were set up by hand. Discounts on products sold by weight had to be calculated and typed in manually. Managers often described this as slow and easy to get wrong.</p></div></div>
     </div>
   </section>
 
@@ -439,13 +455,12 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <section class="section fade-in reveal case-anchor" id="discover">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Discover</h2><p class="section-subtitle">Problems in catalogue and campaign work</p></div>
+      <div class="section-headings"><h2 class="section-chapter">The problem</h2></div>
     </div>
-    <p>Retail managers were struggling with fragmented, legacy systems. The core problem was what we called the <strong>"Information Gap"</strong> — backend data felt disconnected from the fast-paced reality of the store floor.</p>
     <div class="pain-grid">
-      <div class="pain-card"><div class="pain-number">01</div><h4>Information Overload</h4><p>Managing thousands of SKUs was overwhelming. 40+ fields per product, all visible at once.</p></div>
-      <div class="pain-card"><div class="pain-number">02</div><h4>Complex Campaign Logic</h4><p>Designing discounts for weighted items was notoriously manual and error-prone.</p></div>
-      <div class="pain-card"><div class="pain-number">03</div><h4>No Single Source of Truth</h4><p>Product, pricing, and campaign data didn’t line up across tools — teams wasted time reconciling before they could trust what was on screen.</p></div>
+      <div class="pain-card"><div class="pain-number">01</div><h4>Too many fields at once</h4><p>Each product had 40+ fields, and all of them were shown at the same time. With thousands of products, that was overwhelming.</p></div>
+      <div class="pain-card"><div class="pain-number">02</div><h4>Campaigns done by hand</h4><p>Creating discounts for products sold by weight was manual and easy to get wrong.</p></div>
+      <div class="pain-card"><div class="pain-number">03</div><h4>Data that didn't match</h4><p>Product, price and campaign data didn't always match, so managers had to double-check before they could trust what they saw. 4 of 6 managers reported mismatches between catalogue data and campaign rules.</p></div>
     </div>
   </section>
 
@@ -463,30 +478,29 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <section class="section fade-in reveal case-anchor" id="process">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Process</h2><p class="section-subtitle">Audit, card sorting, wireframes, prototype, A/B test, handoff</p></div>
+      <div class="section-headings"><h2 class="section-chapter">Process</h2></div>
     </div>
-    <p>Joining mid-project meant I couldn't start from scratch. My process had to be <strong>additive</strong> — building on what existed while elevating the most problematic modules.</p>
     <div class="bo-efficiency-strip" aria-hidden="true">
-      <span class="bo-efficiency-pill">Catalogue hierarchy</span>
+      <span class="bo-efficiency-pill">Product hierarchy</span>
       <span class="bo-efficiency-pill">Campaign templates</span>
-      <span class="bo-efficiency-pill bo-efficiency-pill--win">Measured A/B lift</span>
+      <span class="bo-efficiency-pill bo-efficiency-pill--win">Old vs new evaluation</span>
     </div>
     <div class="process-steps">
-      <div class="process-step"><div class="step-number">01</div><div class="step-content"><h4>Audit</h4><p>Reviewed existing module designs, identified inconsistencies and UX debt versus the established design system.</p></div></div>
-      <div class="process-step"><div class="step-number">02</div><div class="step-content"><h4>Card Sorting</h4><p>Ran 2 card sorting sessions with 4 retail managers each to establish data hierarchy for the product form.</p></div></div>
-      <div class="process-step"><div class="step-number">03</div><div class="step-content"><h4>Wireframes</h4><p>Low-fi wireframes for 3 layout concepts for Product Management. Validated internally with PM and engineers.</p></div></div>
-      <div class="process-step"><div class="step-number">04</div><div class="step-content"><h4>Prototype</h4><p>Mid-fi Figma prototypes covering core loops: add and edit products, create and review weighted campaigns.</p></div></div>
-      <div class="process-step"><div class="step-number">05</div><div class="step-content"><h4>A/B Test</h4><p>Tested 2 campaign creation flows with 10 store managers. Measured task time, error rate, and SUS score.</p></div></div>
-      <div class="process-step"><div class="step-number">06</div><div class="step-content"><h4>Handoff</h4><p>Component-level specs aligned to existing design system. Full Zeplin handoff with interaction notes.</p></div></div>
+      <div class="process-step"><div class="step-number">01</div><div class="step-content"><h4>Audit</h4><p>I went through the existing product and campaign screens and listed the usability problems.</p></div></div>
+      <div class="process-step"><div class="step-number">02</div><div class="step-content"><h4>Card sorting</h4><p>Two sessions, each with 4 retail managers, to decide which product fields matter most.</p></div></div>
+      <div class="process-step"><div class="step-number">03</div><div class="step-content"><h4>Wireframes</h4><p>Three layout ideas for product management, which I reviewed with the PM and engineers.</p></div></div>
+      <div class="process-step"><div class="step-number">04</div><div class="step-content"><h4>Prototype</h4><p>Mid-fidelity Figma prototypes for adding and editing products, and creating weighted campaigns.</p></div></div>
+      <div class="process-step"><div class="step-number">05</div><div class="step-content"><h4>Testing</h4><p>I tested the old and new versions with 5 store managers and measured task time and errors.</p></div></div>
+      <div class="process-step"><div class="step-number">06</div><div class="step-content"><h4>Handoff</h4><p>Component specs and interaction notes for the engineering team.</p></div></div>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <section class="section fade-in reveal case-anchor" id="product-campaign">
+  <section class="section fade-in reveal case-anchor" id="product-form">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Product &amp; Campaign Redesign</h2><p class="section-subtitle">Hierarchy for SKUs and templates for weighted pricing</p></div>
+      <div class="section-headings"><h2 class="section-chapter">Redesigning the product form</h2></div>
     </div>
     <div class="reveal reveal-media" id="product-campaign-ui">
       <figure class="case-study-figure">
@@ -496,18 +510,8 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
           <img src="backoffice-product-list-details.png" alt="Back-office UI: product list, product details tabs for information, supplier, and categories" width="1994" height="4878" loading="lazy" decoding="async" sizes="(max-width: 900px) 100vw, 820px">
         </picture>
       </figure>
-      <figure class="case-study-figure">
-        <figcaption>Weight campaigns</figcaption>
-        <picture>
-          <source type="image/webp" srcset="backoffice-weight-campaigns.webp">
-          <img src="backoffice-weight-campaigns.png" alt="Back-office UI: product list in category, campaign creation flow, and campaigns overview" width="1994" height="4878" loading="lazy" decoding="async" sizes="(max-width: 900px) 100vw, 820px">
-        </picture>
-      </figure>
     </div>
-    <p>Representative UI from the modules described above: the <strong>product catalogue and detail views</strong> where information hierarchy was redesigned, followed by <strong>weighted campaigns</strong> — list, creation flow, and overview.</p>
-    <h3 class="bo-subchapter">Product</h3>
-    <p class="bo-sublead">Hierarchy for the product form</p>
-    <p>The product form had <strong>40+ data fields per SKU</strong>, all visible at once — creating a wall of inputs that paralysed users. Card sorting revealed what managers actually needed upfront.</p>
+    <p>The product form had 40+ fields, all visible at once. In two card-sorting sessions, each with four supermarket owners and managers, I learned which fields managers need first and which can wait. Based on that, I split the form into three levels.</p>
     <table class="data-table">
       <thead><tr><th>Tier</th><th>Key Fields</th><th>Display Rule</th></tr></thead>
       <tbody>
@@ -520,9 +524,26 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <p>"Moving stock level to the top sounds like a small thing. For us, it saves 20 minutes a day."</p>
       <cite>— Assistant Manager, Matvärlden</cite>
     </div>
-    <h3 class="bo-subchapter">Campaigns</h3>
-    <p class="bo-sublead">Templates for weighted campaigns</p>
-    <p>After analysing 3 months of campaign data, I found that <strong>94% of weighted campaigns</strong> fell into just two patterns. So I built a template-based builder around them — hiding the complexity entirely.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section fade-in reveal case-anchor" id="campaign-templates">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">Campaign templates</h2><p class="section-subtitle">94% of campaigns followed two patterns</p></div>
+    </div>
+    <p>The interviews told me that creating campaigns was painful, but not why. So I asked our large retail and supermarket customers for their campaign data from the last three months, and analysed it myself. I focused on these customers because weighted campaigns, for products sold by weight, are mostly used in supermarkets.</p>
+    <p>The data showed that 94% of weighted campaigns followed one of two patterns. So instead of a flexible form where every campaign meant doing the maths, I designed a builder with two ready-made templates.</p>
+    <div class="reveal reveal-media" id="weight-campaigns-ui">
+      <figure class="case-study-figure">
+        <figcaption>Weight campaigns</figcaption>
+        <picture>
+          <source type="image/webp" srcset="backoffice-weight-campaigns.webp">
+          <img src="backoffice-weight-campaigns.png" alt="Back-office UI: product list in category, campaign creation flow, and campaigns overview" width="1994" height="4878" loading="lazy" decoding="async" sizes="(max-width: 900px) 100vw, 820px">
+        </picture>
+      </figure>
+    </div>
     <table class="data-table">
       <thead><tr><th>Template</th><th>Logic</th><th>Use Case</th></tr></thead>
       <tbody>
@@ -530,6 +551,8 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
         <tr><td><strong>Template B</strong></td><td>Buy under X kg → pay Y SEK</td><td>Premium deli · Small-portion buyers</td></tr>
       </tbody>
     </table>
+    <h3 class="bo-subchapter">Using the store's words</h3>
+    <p>In one conversation, a manager wasn't sure what "Base unit price" meant. Their business used a different term. To check that this wasn't just one person's preference, I asked other users with similar businesses. They agreed that their own everyday words, like "Bulk purchase deal", were easier to understand than the field names from the database. So the new builder uses their words.</p>
   </section>
 
   <div class="divider"></div>
@@ -537,48 +560,32 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <section class="section fade-in reveal case-anchor" id="validation-outcomes">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Validation &amp; Outcomes</h2><p class="section-subtitle">A/B test, quotes, and metrics</p></div>
+      <div class="section-headings"><h2 class="section-chapter">Testing the old and new versions</h2></div>
     </div>
-    <p>Focused specifically on <strong>creating weighted campaigns</strong> — the same problem space as the Campaigns section above.</p>
+    <p>I gave 5 store managers the same campaign tasks in the old version and in the new one, and measured how long they took and how many errors they made.</p>
     <div class="ab-grid">
-      <div class="ab-card"><div class="ab-label">Variant A · Tabular Form</div><div class="ab-stat">4m 20s</div><p class="ab-desc">Avg task time. 3.6 errors/session. 2/5 would use daily.</p></div>
-      <div class="ab-card winner"><div class="ab-label">✓ Variant B · Template Builder</div><div class="ab-stat">3m 14s</div><p class="ab-desc">Avg task time. 0.8 errors/session. 5/5 would use daily.</p></div>
+      <div class="ab-card"><div class="ab-label">Previous version</div><div class="ab-stat">4m 20s</div>      <p class="ab-desc">average task time · 3.6 errors per session · 2 of 5 would use it daily</p></div>
+      <div class="ab-card winner"><div class="ab-label">✓ Redesigned version</div><div class="ab-stat">3m 14s</div><p class="ab-desc">average task time · 0.8 errors per session · 5 of 5 would use it daily</p></div>
     </div>
     <div class="quote-block">
       <p>"The campaign builder finally speaks our language."</p>
       <cite>— Store Manager, Icebug</cite>
     </div>
-    <aside class="bo-validation-insight" aria-label="Why template language mattered in the A/B test">
-      <p class="bo-validation-insight__text">The difference wasn't just speed — it was <strong>vocabulary</strong>. The tabular form (Variant A) used field names from the database: &quot;Base unit price,&quot; &quot;Threshold quantity,&quot; &quot;Discount type.&quot; The template builder (Variant B) used the language store managers already used in their daily work: &quot;Bulk purchase deal&quot; and &quot;Premium small-portion price.&quot; Same logic, completely different framing. Five out of five managers said they'd use Variant B daily — not because it was simpler, but because it felt like it was designed for them rather than for the system behind it.</p>
-    </aside>
     <div class="results-grid results-grid--bo-outcomes">
       <article class="result-card result-card--bo">
         <div class="result-card__stat">25%</div>
-        <p class="result-card__bo-text">Faster campaign creation — average task time reduced from 4m 20s (Variant A) to 3m 14s (Variant B) across 10 store managers in A/B testing.</p>
+        <p class="result-card__bo-text">faster campaign creation: average task time down from 4m 20s to 3m 14s across 5 store managers, previous version versus redesign.</p>
       </article>
       <article class="result-card result-card--bo">
         <div class="result-card__stat">78%</div>
-        <p class="result-card__bo-text">Fewer errors — error rate dropped from 3.6 errors per session (Variant A) to 0.8 (Variant B) in the same testing sessions.</p>
+        <p class="result-card__bo-text">fewer errors: from 3.6 to 0.8 errors per session in the same evaluation.</p>
       </article>
       <article class="result-card result-card--bo result-card--bo-nostat">
-        <p class="result-card__lead">Stock level visible in 1 click</p>
-        <p class="result-card__detail">Previously required navigating 4 levels; now surfaced in the primary product form based on card sorting results. One assistant manager at Matvärlden estimated this saves approximately 20 minutes per day across their team.</p>
+        <p class="result-card__lead">Stock level up front</p>
+        <p class="result-card__detail">Based on the card sorting, I moved it into the main product form. One assistant manager at Matvärlden estimated this saves their team about 20 minutes a day.</p>
       </article>
     </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section fade-in reveal case-anchor" id="reflection">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Reflection &amp; Lessons Learned</h2><p class="section-subtitle">Lessons learned</p></div>
-    </div>
-    <div class="lessons-list">
-      <div class="lesson-item"><div class="lesson-num">01</div><div class="lesson-text"><h4>In B2B design, language is UX.</h4><p>The template builder didn't win because it had fewer fields — it won because it used the words store managers already used. "Bulk purchase deal" is not a UX pattern, it's a vocabulary choice. But it changed how confident people felt using the tool. If your interface uses the language of the database, it will always feel like a backend tool, no matter how polished the components are. If it uses the language of the person's job, it will feel like their tool.</p></div></div>
-      <div class="lesson-item"><div class="lesson-num">02</div><div class="lesson-text"><h4>Joining mid-project is an underrated skill</h4><p>Being a "guardian of consistency" — extending without reinventing — is as valuable as building from scratch.</p></div></div>
-      <div class="lesson-item"><div class="lesson-num">03</div><div class="lesson-text"><h4>The best UX win was the simplest</h4><p>Moving "Stock Level" 200 pixels up the form saved managers 20 minutes a day. Radical improvements often live in the smallest changes.</p></div></div>
-    </div>
+    <p class="bo-launch-line">The new product form and campaign builder are live and used in several stores.</p>
   </section>
 
 </div>
@@ -590,7 +597,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <section class="section fade-in reveal case-anchor" id="design-system-interface">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Design System &amp; Interface Screens</h2><p class="section-subtitle">Foundations, components, dual themes, and specification sheets</p></div>
+      <div class="section-headings"><h2 class="section-chapter">Design system</h2><p class="section-subtitle">Light and dark mode, and the main components</p></div>
     </div>
     <div class="reveal reveal-media">
       <div class="ds-theme-row" role="group" aria-label="Product detail screen in dark and light themes">
@@ -604,8 +611,8 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
         </div>
       </div>
     </div>
-    <p>The back-office was specified and shipped in two full visual themes: <strong>Dark mode</strong> and <strong>Light mode</strong>. The same components, spacing, and interaction patterns apply in both — with token-level colour and surface roles so store teams can work comfortably in different lighting and accessibility preferences.</p>
-    <p>Below are five specification sheets from the project: foundations (colour, typography, spacing, radius), buttons, inputs and forms, then the product detail pattern shown in both themes.</p>
+    <p>I created a design system for the back-office, with a light and a dark theme. Both themes use the same components, spacing and interactions. Only the colours change, so store teams can choose what works best in their lighting.</p>
+    <p>Below are three of the specification sheets: foundations, buttons, and inputs and forms.</p>
     <figure class="ds-sheet-figure ds-cap-10050 reveal reveal-media">
       <figcaption>Sheet 01 — Foundations · Colour, typography, spacing, radius</figcaption>
       <img class="ds-img" src="backoffice-ds-01-foundations.png" srcset="backoffice-ds-01-foundations.png 10050w" sizes="(max-width: 640px) calc(100vw - 48px), min(1024px, 100vw - 96px)" alt="Design system foundations: brand and semantic colours, typography scale, spacing scale, border radius" width="10050" height="10857" loading="lazy" decoding="async">
@@ -618,6 +625,24 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <figcaption>Sheet 03 — Forms · Text input, checkbox, radio, keypad, pagination, tabs, breadcrumb</figcaption>
       <img class="ds-img" src="backoffice-ds-03-forms.png" srcset="backoffice-ds-03-forms.png 10050w" sizes="(max-width: 640px) calc(100vw - 48px), min(1024px, 100vw - 96px)" alt="Design system: form inputs, checkboxes, radio, keypad, pagination, tabs, breadcrumb" width="10050" height="11665" loading="lazy" decoding="async">
     </figure>
+  </section>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="content case-main">
+
+  <section class="section fade-in reveal case-anchor" id="reflection">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter">Reflection</h2><p class="section-subtitle">What I learned</p></div>
+    </div>
+    <div class="lessons-list">
+      <div class="lesson-item"><div class="lesson-num">01</div><div class="lesson-text"><h4>Use the words your users use</h4><p>Part of what made the template builder work was the vocabulary. It used the words store managers already used every day. When an interface uses database names, it feels like a tool for the system. When it uses the words from people's jobs, it feels like a tool for them.</p></div></div>
+      <div class="lesson-item"><div class="lesson-num">02</div><div class="lesson-text"><h4>Data shows what interviews can't</h4><p>The interviews told me campaign creation was painful. Three months of campaign data showed me why, and what to build. Asking customers for their data took more effort than another workshop, but it turned a general complaint into a clear design decision.</p></div></div>
+      <div class="lesson-item"><div class="lesson-num">03</div><div class="lesson-text"><h4>Small changes can matter a lot</h4><p>Moving stock level into the main form was a small change. But one assistant manager estimated it saves their team about 20 minutes a day.</p></div></div>
+    </div>
   </section>
 
   </div>
