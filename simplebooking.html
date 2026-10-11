@@ -18,7 +18,7 @@
 <title>Simple Booking Accounting App · Neda Bagheri</title>
 <meta name="description" content="Case study: leading the UX redesign of Simple Booking, an accounting application, from user research and usability testing to AI-assisted implementation with Claude Code.">
 <link rel="stylesheet" href="css/case-study.css?v=20260638">
-<link rel="stylesheet" href="css/simplebooking.css?v=20261009d">
+<link rel="stylesheet" href="css/simplebooking.css?v=20261011a">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="preload" as="image" href="sb-hero.webp" type="image/webp" fetchpriority="high">
 </head>
@@ -49,7 +49,7 @@
 
       <div class="meta-strip">
         <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Product Designer · UX lead</div></div>
-        <div class="meta-item"><div class="meta-label">Company</div><div class="meta-value">Simple Booking · Ongoing</div></div>
+        <div class="meta-item"><div class="meta-label">Company</div><div class="meta-value">Cyberdesign AB</div></div>
         <div class="meta-item"><div class="meta-label">Platform</div><div class="meta-value">Web · Desktop</div></div>
         <div class="meta-item"><div class="meta-label">Methods</div><div class="meta-value">Workshops · Interviews · Usability Testing</div></div>
       </div>
@@ -196,7 +196,12 @@
       <article class="sb-compare">
         <div class="sb-compare-head">
           <h3>Home overview</h3>
-          <p>From seven equal alerts and repeated deadlines to one “Needs your attention” list with days late, one-click actions and plain-language advice.</p>
+          <ul class="sb-changes">
+            <li><b>Seven equal alerts</b> → one "Needs your attention" list</li>
+            <li><b>Repeated deadlines</b> → days late shown on each item</li>
+            <li><b>No clear next step</b> → one-click actions on every item</li>
+            <li><b>Accounting jargon</b> → plain-language advice</li>
+          </ul>
         </div>
         <figure>
           <a class="sb-zoom" href="sb-overview-before-after.png" target="_blank" rel="noopener" data-title="Home overview · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-overview-before-after.webp" type="image/webp"><img src="sb-overview-before-after.png" width="2720" height="1634" loading="lazy" decoding="async" alt="Overview page before and after. Before: seven equal-weight alerts, charts without legends, Swedish advice in an English interface, and deadlines repeated at the bottom. After: calmer header, overdue items grouped with one-click actions, tasks sorted by urgency, plain-language advice and charts with legends."></picture></div></a>
@@ -207,7 +212,12 @@
       <article class="sb-compare">
         <div class="sb-compare-head">
           <h3>Receipts</h3>
-          <p>Upload moves to the top, every inbox row has one clear action, and the list finally shows supplier, amount and status.</p>
+          <ul class="sb-changes">
+            <li><b>Upload buried</b> → upload area at the top</li>
+            <li><b>Four actions per row</b> → one clear action each</li>
+            <li><b>Missing list context</b> → supplier, amount, status shown</li>
+            <li><b>Faded main button</b> → obvious primary actions</li>
+          </ul>
         </div>
         <figure>
           <a class="sb-zoom" href="sb-receipts-before-after.png" target="_blank" rel="noopener" data-title="Receipts · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-receipts-before-after.webp" type="image/webp"><img src="sb-receipts-before-after.png" width="2720" height="1297" loading="lazy" decoding="async" alt="Receipts page before and after. Before: serif type, four actions per inbox row, upload buried, faded main button, list without supplier or amount. After: upload first, clear buttons, one action per row, search and paging, full context in the list."></picture></div></a>
@@ -218,7 +228,12 @@
       <article class="sb-compare">
         <div class="sb-compare-head">
           <h3>Quotes</h3>
-          <p>A clear button hierarchy with icons, status filters with counts, and a table you can scan in a second.</p>
+          <ul class="sb-changes">
+            <li><b>Form always open</b> → form opens on demand</li>
+            <li><b>No status overview</b> → filters with counts</li>
+            <li><b>Four similar buttons</b> → one primary action with icon</li>
+            <li><b>Hard-to-scan rows</b> → aligned columns and next steps</li>
+          </ul>
         </div>
         <figure>
           <a class="sb-zoom" href="sb-quotes-before-after.png" target="_blank" rel="noopener" data-title="Quotes · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-quotes-before-after.webp" type="image/webp"><img src="sb-quotes-before-after.png" width="3000" height="1040" loading="lazy" decoding="async" alt="Quotes page before and after. Before: an always-open quote form, no overview or status filters, faint statuses and up to four look-alike buttons per row. After: form on demand, an explanation of the flow, status filters with counts, one primary action with an icon per row, and aligned columns with next steps."></picture></div></a>
@@ -229,7 +244,12 @@
       <article class="sb-compare">
         <div class="sb-compare-head">
           <h3>Recurring invoices</h3>
-          <p>Users always know what happens next: what sends automatically, what waits for review, and what is coming up in the next 30 days.</p>
+          <ul class="sb-changes">
+            <li><b>Setup form on top</b> → expectations explained first</li>
+            <li><b>Vague bulk action</b> → clear what happens next</li>
+            <li><b>No upcoming view</b> → next 30 days listed</li>
+            <li><b>Crowded row actions</b> → actions only when needed</li>
+          </ul>
         </div>
         <figure>
           <a class="sb-zoom" href="sb-recurring-before-after.png" target="_blank" rel="noopener" data-title="Recurring invoices · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-recurring-before-after.webp" type="image/webp"><img src="sb-recurring-before-after.png" width="3000" height="1040" loading="lazy" decoding="async" alt="Recurring invoices before and after. Before: setup form on top, low-contrast main button, vague bulk action, no sense of what happens next, crowded row actions. After: clear expectations, attention section, upcoming 30 days, plans in plain sentences, and actions only when needed."></picture></div></a>
@@ -240,7 +260,12 @@
       <article class="sb-compare">
         <div class="sb-compare-head">
           <h3>Journal entries</h3>
-          <p>Collapsible cards show more entries at first glance and keep detail one click away. Manual entry becomes a clearly named button.</p>
+          <ul class="sb-changes">
+            <li><b>Hidden manual entry</b> → clear Add journal button</li>
+            <li><b>All entries expanded</b> → collapsible cards</li>
+            <li><b>No search</b> → search and filters</li>
+            <li><b>Thin row headers</b> → key info in each header</li>
+          </ul>
         </div>
         <figure>
           <a class="sb-zoom" href="sb-journal-before-after.png" target="_blank" rel="noopener" data-title="Journal entries · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-journal-before-after.webp" type="image/webp"><img src="sb-journal-before-after.png" width="2720" height="1213" loading="lazy" decoding="async" alt="Journal entries before and after. Before: no search, manual entry hidden as a link, look-alike correction links, every entry fully expanded, no amount in the header. After: Add manual journal entry button, search and filters, monthly grouping, key info in the header, clear actions and collapsible cards."></picture></div></a>
@@ -251,13 +276,61 @@
       <article class="sb-compare">
         <div class="sb-compare-head">
           <h3>Payroll</h3>
-          <p>One 18-field form becomes a guided three-step flow, starting from a payroll overview with a single clear action.</p>
+          <ul class="sb-changes">
+            <li><b>No overview</b> → summary cards up front</li>
+            <li><b>One giant form</b> → guided three-step flow</li>
+            <li><b>Easy-to-miss Add</b> → clear Add employee button</li>
+            <li><b>Expert fields upfront</b> → fewer fields per step</li>
+          </ul>
         </div>
         <figure>
           <a class="sb-zoom" href="sb-payroll-before-after.png" target="_blank" rel="noopener" data-title="Payroll · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-payroll-before-after.webp" type="image/webp"><img src="sb-payroll-before-after.png" width="2720" height="1576" loading="lazy" decoding="async" alt="Payroll before and after. Before: no overview, one giant 18-field form, dense hints, an easy-to-miss Add button and 15 deduction factors shown to everyone. After: summary cards, an Add new employee button, and a three-step flow with three fields per step."></picture></div></a>
           <figcaption><span>Light mode</span><span class="sb-swipe-hint">Swipe to see the whole comparison</span><span>Click or tap to view full size</span></figcaption>
         </figure>
       </article>
+    </div>
+  </section>
+
+  <!-- Design system -->
+  <section class="sb-section section" id="design-system" aria-labelledby="design-system-heading">
+    <div class="sb-wrap">
+      <div class="section-header">
+        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+        <div class="section-headings"><h2 class="section-chapter" id="design-system-heading">Design System</h2><p class="section-subtitle">One shared foundation for Figma and code</p></div>
+      </div>
+      <div class="sb-text">
+        <p>Before redesigning screen by screen, I built a <strong>full design system</strong> for Simple Booking. Instead of starting from zero, I kept the parts of the original design that worked, used them as the foundation, and improved them. This saved time and gave the new design a structure the existing product could grow into.</p>
+        <p>The design system is also what makes AI-assisted implementation reliable. Claude Code works with the same tokens and components I use in Figma, so the result is a <strong>solid, harmonised application</strong> rather than a collection of one-off screens.</p>
+      </div>
+      <div class="sb-insights sb-insights--cards">
+        <div class="sb-insight">
+          <div class="sb-emoji" aria-hidden="true">♻️</div>
+          <h4>Built on what worked</h4>
+          <p>Useful parts of the previous design became the starting point, then were refined and extended.</p>
+        </div>
+        <div class="sb-insight">
+          <div class="sb-emoji" aria-hidden="true">🧱</div>
+          <h4>Consistent code</h4>
+          <p>Claude Code reuses the same components and tokens, so the implementation stays consistent across the app.</p>
+        </div>
+        <div class="sb-insight">
+          <div class="sb-emoji" aria-hidden="true">⚡</div>
+          <h4>Faster in Figma and code</h4>
+          <p>New screens are assembled from existing parts, speeding up both design and vibe coding.</p>
+        </div>
+      </div>
+      <div class="sb-ds-sheets">
+        <figure class="sb-ds-sheet">
+          <p class="sb-ds-sheet-label">Sheet 01 · Foundations</p>
+          <a class="sb-zoom" href="simplebooking-design-system-01.png" target="_blank" rel="noopener" data-title="Sheet 01 · Foundations"><img src="simplebooking-design-system-01.png" width="2400" height="1600" loading="lazy" decoding="async" alt="Simple Booking design system foundations: brand colours, surfaces and text, status colours, Figtree typography scale, and corner radius tokens"></a>
+          <figcaption>Colour, typography, spacing, and radius</figcaption>
+        </figure>
+        <figure class="sb-ds-sheet">
+          <p class="sb-ds-sheet-label">Sheet 02 · Components</p>
+          <a class="sb-zoom" href="simplebooking-design-system-02.png" target="_blank" rel="noopener" data-title="Sheet 02 · Components"><img src="simplebooking-design-system-02.png" width="2400" height="1600" loading="lazy" decoding="async" alt="Simple Booking design system components: button variants, form fields, status badges, alerts, stat tiles, and needs your attention pattern"></a>
+          <figcaption>Buttons, inputs, tables, and component states</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -270,9 +343,18 @@
       </div>
       <div class="sb-split">
         <div class="sb-text">
-          <p>Instead of handing designs to a front-end developer and waiting for implementation, I build the redesigned interfaces myself with <strong>Claude Code</strong>. I describe the component, the layout and the behaviour, review what it generates against my Figma design, and refine until the screen matches the design and works in both dark and light mode.</p>
+          <p>I bridge the gap between design and coding. I built the app myself, working directly on the existing product to implement my redesigned interfaces with <strong>Claude Code</strong>, without relying on a front-end developer. Because Claude Code builds on my <a href="#design-system">design system</a>, every screen stays consistent with the Figma design, and the team moves from validated design to working interface much faster. Once a part of the UI is complete, I hand it over to the back-end team for integration.</p>
           <p>When a page is done, I hand the working front-end to the back-end team for integration. Designs no longer get lost in translation, and I can fix details myself instead of filing them as tickets.</p>
           <p>This has <strong>significantly accelerated implementation</strong>, reduced the need for manual front-end coding and helped the whole team move forward faster.</p>
+        </div>
+        <div class="sb-ai-aside">
+        <div class="sb-quality">
+          <h4>How I keep quality in the designer's hands</h4>
+          <ul>
+            <li>Claude Code builds with my design system's tokens and components</li>
+            <li>Review against the design in dark and light mode</li>
+            <li>Refine with user feedback and repeat</li>
+          </ul>
         </div>
         <ol class="sb-flow" aria-label="Implementation workflow">
           <li><b>1</b><span>Design and validate the page in Figma</span></li>
@@ -281,6 +363,7 @@
           <li><b>4</b><span>Hand the working screen to the back-end team</span></li>
           <li><b>5</b><span>Refine with user feedback and repeat</span></li>
         </ol>
+        </div>
       </div>
     </div>
   </section>
@@ -299,6 +382,7 @@
             <li>Research and usability testing of the original product</li>
             <li>Redesign of the landing page and six core pages: home, receipts, quotes, recurring invoices, journal entries and payroll</li>
             <li>Dark and light themes from one consistent system</li>
+            <li>Design system built in Figma</li>
             <li>Redesigned screens implemented with Claude Code and handed to the back-end team</li>
           </ul>
         </div>
