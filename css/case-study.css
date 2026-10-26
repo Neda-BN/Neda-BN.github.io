@@ -1113,9 +1113,7 @@
   max-width: 100%;
 }
 
-.case-study-page .hc-ujm-strip,
 .case-study-page .hc-ujm-strip-inner,
-.case-study-page .pos-ujm-strip,
 .case-study-page .pos-ujm-strip-inner {
   width: 100%;
   max-width: 100%;
@@ -1123,6 +1121,15 @@
   left: auto;
   transform: none;
   overflow: visible;
+}
+
+/* .wide on the strip sets track width — do not collapse to the text column */
+.case-study-page .hc-ujm-strip.wide,
+.case-study-page .pos-ujm-strip.wide {
+  width: var(--cs-wide-track);
+  max-width: var(--cs-wide-track);
+  margin-left: calc(50% - var(--cs-wide-half));
+  margin-right: calc(50% - var(--cs-wide-half));
 }
 
 .case-study-page #user-journey .screens-label,
@@ -1530,6 +1537,20 @@
 @media (min-width: 1100.02px) {
   .case-study-page .hc-ujm-steps {
     grid-template-columns: repeat(10, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .case-study-page .hc-ujm-label-pill,
+  .case-study-page .pos-ujm-label-box {
+    max-width: 118px;
+    font-size: 11px;
+  }
+
+  .case-study-page .hc-ujm-page,
+  .case-study-page .pos-ujm-page {
+    padding-left: clamp(20px, 3vw, 40px);
+    padding-right: clamp(20px, 3vw, 40px);
   }
 }
 
