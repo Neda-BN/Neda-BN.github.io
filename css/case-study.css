@@ -2428,3 +2428,31 @@ body.case-study-page.ui-design-page main.ui-design-main .ui-design-intro p stron
     animation: case-study-aside-note-wiggle 300ms ease-out;
   }
 }
+
+/* Healthcare send-wizard (and other) screen captions — match shared case-study under-image captions */
+body.case-study-page .content.case-main .hc-wizard-gallery {
+  gap: 48px;
+}
+
+body.case-study-page .content.case-main figure.hc-wizard-shot {
+  margin: 0;
+  gap: 0;
+}
+
+body.case-study-page .content.case-main figcaption.hc-wizard-caption {
+  font-family: var(--font-body, 'Poppins', sans-serif);
+  font-size: clamp(14px, 0.35vw + 13px, 15px);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: 0;
+  color: var(--muted);
+  text-align: center;
+  margin: 12px 0 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-left: none;
+  border-radius: 0;
+  box-shadow: none;
+}
