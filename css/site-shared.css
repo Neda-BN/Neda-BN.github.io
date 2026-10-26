@@ -12,13 +12,9 @@
 /* ── ANNA-STYLE NAV ── */
 .anna-nav {
   position: fixed;
-  top: max(20px, env(safe-area-inset-top, 0px));
-  left: 50%;
-  transform: translateX(-50%);
   z-index: 200;
   display: flex;
   align-items: center;
-  gap: 8px;
   pointer-events: none;
   opacity: 1;
 }
@@ -231,8 +227,6 @@ footer p {
 }
 
 @media (max-width: 680px) {
-  .anna-nav { top: max(12px, env(safe-area-inset-top, 0px)); gap: 6px; }
-  .anna-nav__pill a { font-size: 13px; padding: 6px 10px; }
   .site-footer,
   footer {
     padding: 24px max(16px, env(safe-area-inset-left, 0px));
@@ -247,10 +241,6 @@ footer p {
     white-space: normal;
     text-wrap: balance;
   }
-}
-
-@media (max-width: 480px) {
-  .anna-nav__pill a { font-size: 12px; padding: 5px 8px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

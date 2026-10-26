@@ -33,12 +33,12 @@
   gap: clamp(16px, 2.2vw, 24px);
 }
 .hero-v6__photo-wrap {
-  width: 128px;
-  height: 128px;
+  width: 148px;
+  height: 148px;
   border-radius: 50%;
-  padding: 2px;
+  padding: calc(2px * 148 / 128);
   background: var(--accent-soft);
-  box-shadow: 0 0 40px var(--accent-soft);
+  box-shadow: 0 0 calc(40px * 148 / 128) var(--accent-soft);
   flex-shrink: 0;
 }
 .hero-v6__photo {
@@ -150,8 +150,10 @@
     padding: 96px 20px 72px;
   }
   .hero-v6__photo-wrap {
-    width: 104px;
-    height: 104px;
+    width: 116px;
+    height: 116px;
+    padding: calc(2px * 116 / 128);
+    box-shadow: 0 0 calc(40px * 116 / 128) var(--accent-soft);
   }
 }
 
