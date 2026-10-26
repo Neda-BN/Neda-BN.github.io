@@ -187,9 +187,6 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
     position:relative;
     padding:24px 26px 22px;
     border-radius:14px;
-    border:1px solid rgba(59, 130, 246,.22);
-    background:linear-gradient(148deg,rgba(245,235,227,.48) 0%,rgba(255,255,255,.97) 50%,rgba(232,248,245,.35) 100%);
-    box-shadow:0 10px 36px rgba(26,26,26,.07);
     overflow:hidden;
   }
   .hc-persona-panel::before{
@@ -254,94 +251,6 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   .screen-item{display:flex;flex-direction:column;gap:10px;min-width:0;}
   .screen-wrap img{width:100%;height:auto;display:block;}
   @media(max-width:640px){.screens-grid.col-2{grid-template-columns:1fr;}}
-  /* Wider than .content (820px), centered in the viewport (same axis as the page column) */
-  .hc-ujm-strip{
-    position:relative;
-    left:50%;
-    transform:translateX(-50%);
-    width:min(1240px,calc(100vw - 24px));
-    max-width:none;
-    box-sizing:border-box;
-  }
-  .hc-ujm-strip-inner{
-    width:100%;
-  }
-  .hc-ujm-chart-scroll{
-    width:100%;
-    max-width:100%;
-    overflow-x:auto;
-    overflow-y:hidden;
-    -webkit-overflow-scrolling:touch;
-    overscroll-behavior-x:contain;
-    scrollbar-gutter:stable;
-    margin-bottom:4px;
-  }
-  .hc-ujm-chart-scroll-inner{
-    min-width:max(100%,720px);
-    padding-bottom:4px;
-  }
-  .hc-ujm-chart-scroll-inner .hc-ujm-steps{
-    grid-template-columns:repeat(10,minmax(0,1fr));
-    gap:4px 2px;
-    padding-left:clamp(48px,9vw,90px);
-    padding-right:0;
-    margin-top:16px;
-    padding-bottom:4px;
-  }
-  /* Embedded user journey map (scoped — DM Sans) */
-  .hc-ujm{font-family:'DM Sans',var(--sans),sans-serif;color:#1A1A1A;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#fff;box-shadow:0 4px 20px rgba(0,0,0,0.07);}
-  .hc-ujm *{box-sizing:border-box;}
-  .hc-ujm-page{width:100%;max-width:100%;background:#fff;border-radius:0;overflow:hidden;}
-  .hc-ujm-banner{background:#008075;padding:clamp(20px,4vw,36px) clamp(16px,5vw,64px) clamp(18px,3vw,32px);display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;}
-  .hc-ujm-banner-title{font-family:var(--serif);font-size:clamp(22px,4vw,30px);color:#fff;line-height:1.15;letter-spacing:-0.3px;margin-bottom:6px;}
-  .hc-ujm-banner-title em{font-style:italic;color:#B2F0E8;}
-  .hc-ujm-banner-sub{font-size:13px;color:rgba(255,255,255,0.4);font-weight:300;}
-  .hc-ujm-persona-pill{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:100px;padding:10px 20px 10px 10px;flex-shrink:0;}
-  .hc-ujm-persona-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#005F57,#00BFA5);color:#fff;font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;}
-  .hc-ujm-persona-name{font-size:14px;font-weight:600;color:#fff;}
-  .hc-ujm-persona-role{font-size:11px;color:rgba(255,255,255,0.5);font-weight:300;}
-  .hc-ujm-legend-strip{background:#F5F8FD;border-bottom:1px solid #E2EAF4;padding:14px clamp(16px,5vw,64px);display:flex;align-items:center;gap:clamp(12px,3vw,32px);flex-wrap:wrap;}
-  .hc-ujm-legend-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#8A9BB5;margin-right:8px;}
-  .hc-ujm-legend-item{display:flex;align-items:center;gap:8px;font-size:12px;color:#5A6E8A;}
-  .hc-ujm-legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
-  /* Chart row: match POS .pos-ujm-chart-wrap + .pos-ujm-page horizontal rhythm */
-  .hc-ujm-chart-area{padding:clamp(24px,3vw,36px) clamp(16px,4vw,64px) 0;display:flex;align-items:stretch;gap:0;}
-  .hc-ujm-y-axis{display:flex;flex-direction:column;justify-content:space-between;padding:20px 0 60px;width:clamp(56px,9vw,90px);flex-shrink:0;}
-  .hc-ujm-chart-svg-wrap{flex:1;position:relative;min-width:0;align-self:flex-start;width:100%;}
-  .hc-ujm-y-label{display:flex;align-items:center;gap:8px;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#B0BDD0;}
-  .hc-ujm-y-face{width:28px;height:28px;border-radius:50%;border:1.5px solid;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-  .hc-ujm-y-face--happy{border-color:#3DBB7F;background:#F0FBF6;}
-  .hc-ujm-y-face--neutral{border-color:#F0A500;background:#FFFBF0;}
-  .hc-ujm-y-face--sad{border-color:#E05252;background:#FFF4F4;}
-  svg.hc-ujm-journey{width:100%;display:block;overflow:visible;height:auto;aspect-ratio:1200 / 340;}
-  .hc-ujm-label-pill{position:absolute;transform:translateX(-50%);border-radius:10px;padding:6px 8px;font-size:clamp(9px,1.05vw,11px);font-weight:600;line-height:1.35;text-align:center;pointer-events:none;white-space:normal;max-width:min(130px,16%);box-sizing:border-box;}
-  .hc-ujm-label-pill--green{background:#E8FAF2;color:#1A7A52;border:1.5px solid #3DBB7F;}
-  .hc-ujm-label-pill--yellow{background:#FFF8E6;color:#8A5800;border:1.5px solid #F0A500;}
-  .hc-ujm-label-pill--red{background:#FFF0F0;color:#9E2424;border:1.5px solid #E05252;}
-  .hc-ujm-label-layer{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;}
-  .hc-ujm-steps{
-    display:grid;
-    grid-template-columns:repeat(10,minmax(0,1fr));
-    gap:4px 2px;
-    align-items:start;
-    padding-left:clamp(48px,9vw,90px);
-    padding-right:0;
-    margin-top:16px;
-    padding-bottom:4px;
-  }
-  .hc-ujm-step-col{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0;}
-  .hc-ujm-step-num{width:22px;height:22px;border-radius:50%;background:#EEF2F7;color:#8A9BB5;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-  .hc-ujm-step-name{font-size:clamp(9px,1.8vw,11px);font-weight:500;color:#8A9BB5;text-align:center;line-height:1.35;word-break:break-word;hyphens:auto;}
-  @media(max-width:1100px){
-    .hc-ujm-steps{grid-template-columns:repeat(5,minmax(0,1fr));}
-  }
-  @media(max-width:560px){
-    .hc-ujm-steps{grid-template-columns:repeat(2,minmax(0,1fr));padding-left:clamp(8px,3vw,24px);}
-  }
-  @media(max-width:640px){
-    .hc-ujm-banner{align-items:flex-start;}
-    .hc-ujm-persona-pill{align-self:flex-start;}
-  }
   .data-table{width:100%;border-collapse:collapse;margin-top:24px;background:var(--surface);border-radius:12px;overflow:hidden;border:1px solid var(--border);font-size:14px;}
   .data-table th{background:var(--dark);color:white;padding:14px 20px;text-align:left;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;}
   .data-table td{padding:14px 20px;border-bottom:1px solid var(--border);color:var(--mid);vertical-align:top;}
@@ -361,22 +270,12 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   .result-number{font-family:var(--serif);font-size:44px;color:var(--accent);line-height:1;margin-bottom:8px;}
   .result-label{font-size:13px;color:var(--mid);font-weight:400;line-height:1.4;}
   /* Results & Measurable Impact — narrative outcomes (scoped, does not affect Discover metrics grid) */
-  /* Discover — full-width monitors image, centered on viewport */
   .hc-discover-fullbleed-wrap{
-    width:100vw;
-    max-width:100vw;
-    margin:clamp(32px,5vw,48px) calc(50% - 50vw) 0;
+    margin-top:clamp(32px,5vw,48px);
   }
   .hc-discover-fullbleed{
     margin:0;
     width:100%;
-  }
-  .hc-discover-fullbleed img{
-    width:100%;
-    height:auto;
-    display:block;
-    margin:0 auto;
-    vertical-align:middle;
   }
   .hc-results-impact-lede{
     font-size:15px;
@@ -492,7 +391,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   }
 </style>
 <link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
-<link rel="stylesheet" href="css/case-study.css?v=20260401">
+<link rel="stylesheet" href="css/case-study.css?v=20260402">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
 </head>
@@ -600,7 +499,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Persona</h2><p class="section-subtitle">Anna Andersson · Primary persona</p></div>
     </div>
-    <aside class="hc-persona-panel">
+    <aside class="hc-persona-panel wide">
       <div class="hc-persona-table-wrap">
       <table class="hc-persona-table">
         <tbody>
@@ -662,7 +561,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <cite>— Healthcare Administrator, Stockholm</cite>
     </div>
 
-    <div class="hc-discover-fullbleed-wrap">
+    <div class="hc-discover-fullbleed-wrap wide">
       <figure class="hc-discover-fullbleed reveal reveal-media">
         <img src="monitors.png" alt="Healthcare Provider Survey Management platform shown on two laptop screens — sign-in and survey sent confirmation views." width="1451" height="482" loading="lazy" decoding="async" sizes="100vw">
       </figure>
@@ -678,7 +577,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
     </div>
     <div class="hc-reveal-journey reveal reveal-media" id="hc-journey-block">
     <div class="screens-section">
-      <div class="hc-ujm-strip">
+      <div class="hc-ujm-strip wide">
         <div class="hc-ujm-strip-inner">
       <div class="hc-ujm" role="img" aria-label="User journey map: emotion curve across a full survey cycle from login to report submission. Ten steps including Power Send, monitoring responses, and analytics.">
         <div class="hc-ujm-page">
@@ -828,7 +727,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <!-- HIERARCHY DESIGN -->
   <section class="section fade-in reveal case-anchor" id="hierarchy-design">
     <div class="reveal reveal-media">
-      <figure class="hc-figure-process-board">
+      <figure class="hc-figure-process-board wide">
         <img
           src="healthcare-process-card-sorting.png?v=20260325"
           srcset="healthcare-process-card-sorting.png 1024w"
@@ -847,7 +746,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <div class="section-headings"><h2 class="section-chapter">Hierarchy design</h2><p class="section-subtitle">Showing one level at a time</p></div>
     </div>
     <p>Swedish healthcare has several administrative levels. Showing all of them at once created long, impenetrable lists that were hard to work with.</p>
-    <table class="data-table">
+    <table class="data-table wide">
       <thead><tr><th>Level</th><th>Description</th><th>Design solution</th></tr></thead>
       <tbody>
         <tr><td><strong>Provider</strong></td><td>Top-level healthcare organisation</td><td>Always visible in the sidebar, which can be collapsed</td></tr>
@@ -947,7 +846,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <div class="section-headings"><h2 class="section-chapter">Performance scoring</h2><p class="section-subtitle">Traffic-light colours instead of number tables</p></div>
     </div>
     <p>Managers needed to see quickly how each municipality was doing. Big tables of numbers were tiring to read under time pressure. So I designed a scoring system with three colours that show the status at a glance.</p>
-    <table class="data-table">
+    <table class="data-table wide">
       <thead><tr><th>Status</th><th>Meaning</th><th>Action</th></tr></thead>
       <tbody>
         <tr><td><strong style="color:#1A7A4A;">Good performance</strong></td><td>Above target on all key indicators.</td><td>No action needed.</td></tr>

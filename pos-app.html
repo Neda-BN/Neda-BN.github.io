@@ -312,17 +312,11 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .pos-affinity-strip {
     width: 100%;
     box-sizing: border-box;
-    padding: 0 24px;
-    display: flex;
-    justify-content: center;
+    padding: 0;
   }
   .pos-affinity-embed {
-    margin: 0 0 24px;
-    width: 100%;
-    max-width: min(1200px, calc(100vw - 48px));
     position: relative;
     box-sizing: border-box;
-    flex-shrink: 0;
   }
   .pos-affinity-wrap {
     --pos-aff-board: #F0EEE9;
@@ -480,139 +474,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     font-weight: 400;
     font-style: italic;
   }
-  /* POS user journey map — break out of 820px copy track; align with affinity / wide boards */
-  #user-journey .screens-section {
-    overflow: visible;
-    max-width: 100%;
-  }
-  #user-journey .screens-label {
-    font-family: var(--font-body, 'Poppins', sans-serif);
-    font-size: clamp(18px, 1.75vw, 22px);
-    font-weight: 600;
-    letter-spacing: -0.03em;
-    line-height: 1.25;
-    text-transform: none;
-    color: var(--text);
-    margin-bottom: 16px;
-  }
-  .pos-ujm-strip {
-    width: 100vw;
-    max-width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    padding: 0 max(16px, calc((100vw - min(1200px, calc(100vw - 64px))) / 2));
-    position: static;
-    left: auto;
-    transform: none;
-  }
   .pos-ujm-strip-inner {
     width: 100%;
-    max-width: min(1200px, calc(100vw - 64px));
-    flex-shrink: 0;
     min-width: 0;
-  }
-  .pos-ujm {
-    font-family: 'Open Sans', var(--sans), sans-serif;
-    color: #1a1a1a;
-    background: #fff;
-    border-radius: 16px;
-    border: 1px solid var(--border);
-    box-shadow: 0 2px 24px rgba(0,0,0,0.06);
-    overflow: hidden;
-  }
-  .pos-ujm * { box-sizing: border-box; }
-  .pos-ujm-page { padding: clamp(24px, 4vw, 52px) clamp(16px, 4vw, 64px) clamp(28px, 4vw, 60px); }
-  .pos-ujm-header { margin-bottom: clamp(24px, 3vw, 40px); }
-  .pos-ujm-header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
-  .pos-ujm-title { font-size: clamp(18px, 2.5vw, 22px); font-weight: 700; color: #1a1a1a; letter-spacing: -0.3px; }
-  .pos-ujm-subtitle { font-size: 13px; color: #999; font-weight: 400; margin-top: 4px; }
-  .pos-ujm-persona-pill {
-    display: flex; align-items: center; gap: 10px;
-    background: #F5F3FF; border: 1px solid #E0DBFF; border-radius: 100px;
-    padding: 8px 18px 8px 12px; flex-shrink: 0;
-  }
-  .pos-ujm-persona-avatar {
-    width: 32px; height: 32px; border-radius: 50%; background: #7C3AED; color: #fff;
-    font-size: 15px; display: flex; align-items: center; justify-content: center; font-weight: 700;
-  }
-  .pos-ujm-persona-name { font-size: 13px; font-weight: 600; color: #4C1D95; }
-  .pos-ujm-persona-role { font-size: 11px; color: #7C3AED; font-weight: 400; }
-  .pos-ujm-legend { display: flex; gap: clamp(12px, 2vw, 24px); margin-bottom: clamp(24px, 3vw, 36px); flex-wrap: wrap; }
-  .pos-ujm-legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #888; }
-  .pos-ujm-legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
-  /* Horizontal scroll on narrow viewports keeps journey map + labels at readable scale */
-  .pos-ujm-chart-scroll {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-x: contain;
-    scrollbar-gutter: stable;
-    margin-bottom: 4px;
-  }
-  .pos-ujm-chart-scroll-inner {
-    min-width: max(100%, 720px);
-    padding-bottom: 4px;
-  }
-  .pos-ujm-chart-wrap { display: flex; align-items: stretch; gap: 0; }
-  .pos-ujm-y-axis {
-    display: flex; flex-direction: column; justify-content: space-between;
-    padding: 20px 0 60px; width: clamp(56px, 9vw, 90px); flex-shrink: 0;
-  }
-  .pos-ujm-y-label { display: flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 600; color: #aaa; letter-spacing: 0.04em; text-transform: uppercase; }
-  .pos-ujm-y-emoji {
-    width: 32px; height: 32px; border-radius: 50%; border: 2px solid;
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
-  .pos-ujm-y-emoji--happy { border-color: #86C540; background: #F2FAEB; }
-  .pos-ujm-y-emoji--neutral { border-color: #F5C842; background: #FEFAE9; }
-  .pos-ujm-y-emoji--sad { border-color: #EE5A52; background: #FEF0EF; }
-  .pos-ujm-chart-svg-wrap { flex: 1; position: relative; min-width: 0; align-self: flex-start; width: 100%; }
-  svg.pos-ujm-journey {
-    width: 100%;
-    display: block;
-    overflow: visible;
-    height: auto;
-    aspect-ratio: 1200 / 340;
-  }
-  .pos-ujm-label-box {
-    position: absolute;
-    transform: translateX(-50%);
-    border-radius: 6px;
-    padding: 7px 9px;
-    font-size: clamp(9px, 1.05vw, 11.5px);
-    font-weight: 600;
-    line-height: 1.35;
-    max-width: min(118px, 16%);
-    text-align: center;
-    pointer-events: none;
-    white-space: normal;
-    box-sizing: border-box;
-  }
-  .pos-ujm-label-box--green { background: #8DC63F; color: #fff; }
-  .pos-ujm-label-box--yellow { background: #F5C842; color: #5a3e00; }
-  .pos-ujm-label-box--red { background: #EE5A52; color: #fff; }
-  .pos-ujm-label-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
-  .pos-ujm-step-row {
-    display: grid;
-    grid-template-columns: repeat(11, minmax(0, 1fr));
-    gap: 4px 2px;
-    padding-left: clamp(48px, 9vw, 90px);
-    margin-top: 16px;
-  }
-  .pos-ujm-step-cell { font-size: clamp(8px, 1.5vw, 12px); font-weight: 600; color: #aaa; text-align: center; line-height: 1.25; min-width: 0; word-break: break-word; }
-  .pos-ujm-axis-line { margin-left: clamp(48px, 9vw, 90px); margin-top: 10px; height: 2px; background: #ebebeb; border-radius: 1px; }
-  /* Journey map scroll region: step labels stay aligned with chart columns */
-  .pos-ujm-chart-scroll-inner .pos-ujm-step-row {
-    grid-template-columns: repeat(11, minmax(0, 1fr));
-    padding-left: clamp(48px, 9vw, 90px);
-  }
-  .pos-ujm-chart-scroll-inner .pos-ujm-axis-line {
-    margin-left: clamp(48px, 9vw, 90px);
   }
 
   .ab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
@@ -923,7 +787,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   }
 </style>
 <link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
-<link rel="stylesheet" href="css/case-study.css?v=20260401">
+<link rel="stylesheet" href="css/case-study.css?v=20260402">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
 </head>
@@ -1165,7 +1029,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <div class="divider"></div>
 
   <div class="pos-affinity-strip">
-  <div class="pos-affinity-embed" role="region" aria-label="Affinity mapping and card sorting synthesis">
+  <div class="pos-affinity-embed wide" role="region" aria-label="Affinity mapping and card sorting synthesis">
     <div class="pos-affinity-wrap fade-in reveal reveal-media">
         <h3 class="pos-aff-heading">What we learned</h3>
 
@@ -1408,7 +1272,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
         <div class="section-headings"><h2 class="section-chapter">Before and after</h2><p class="section-subtitle">Home, products and refunds</p></div>
       </div>
     </div>
-    <div class="pos-transformation-strip">
+    <div class="pos-transformation-strip wide">
       <figure class="pos-transformation-figure reveal reveal-media">
         <img class="pos-transformation-img" src="Homepage.png" sizes="100vw" alt="Redesigned POS home screen — cart, quick actions, and product list on one scrollable view" loading="lazy" decoding="async">
       </figure>
@@ -1455,7 +1319,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     </div>
     <div class="screens-section reveal reveal-media">
       <h3 class="screens-label">User journey map</h3>
-      <div class="pos-ujm-strip">
+      <div class="pos-ujm-strip wide">
         <div class="pos-ujm-strip-inner">
           <div class="pos-ujm" role="img" aria-label="Cashier POS user journey map — Erik (cashier / store owner), emotion curve from login through purchase, refund, and daily report; Focalpay AB 2024–2025">
             <div class="pos-ujm-page">

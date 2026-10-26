@@ -467,8 +467,7 @@ body.case-study-page .ds-img {
 /* Scrollable journey / wide assets — keep full image visible */
 body.case-study-page .pos-ujm-chart-scroll img,
 body.case-study-page .hc-ujm-chart-scroll img,
-body.case-study-page .hc-ujm-chart-scroll-inner img,
-body.case-study-page .hc-discover-fullbleed img {
+body.case-study-page .hc-ujm-chart-scroll-inner img {
   width: auto;
   max-width: none;
   height: auto;
