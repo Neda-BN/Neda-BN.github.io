@@ -1825,3 +1825,244 @@ body.case-study-page.ui-design-page.has-anna-nav main.content.case-main.ui-desig
   padding-top: var(--cs-content-below-nav);
 }
 
+body.case-study-page.about-page.has-anna-nav main.content.case-main {
+  padding-top: var(--cs-content-below-nav);
+}
+
+/* ── About page (dark theme + circular photo; tokens.css) ── */
+body.case-study-page.about-page {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.7;
+  letter-spacing: 0;
+}
+
+html:has(body.case-study-page.about-page) {
+  color-scheme: dark;
+}
+
+body.case-study-page.about-page .hero h1 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+body.case-study-page.about-page .hero h1 em {
+  font-style: normal;
+  color: inherit;
+}
+
+body.case-study-page.about-page .hero-subtitle,
+body.case-study-page.about-page .section-chapter {
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--text);
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+body.case-study-page.about-page .hero-subtitle {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.7;
+  letter-spacing: 0;
+  color: var(--muted);
+  max-width: none;
+}
+
+body.case-study-page.about-page .section-chapter {
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.15;
+  margin-bottom: var(--cs-stack-md);
+}
+
+body.case-study-page.about-page .content p:not(.screen-caption):not(.image-caption),
+body.case-study-page.about-page .role-list li,
+body.case-study-page.about-page .pain-card p {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0;
+  color: var(--muted);
+}
+
+body.case-study-page.about-page .content p strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+body.case-study-page.about-page .content a {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(138, 164, 214, 0.45);
+}
+
+body.case-study-page.about-page .content a:hover,
+body.case-study-page.about-page .content a:focus-visible {
+  text-decoration-color: var(--accent);
+}
+
+body.case-study-page.about-page .sec-label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: clamp(20px, 2.5vw, 28px);
+}
+
+body.case-study-page.about-page .role-block,
+body.case-study-page.about-page .pain-card {
+  border-color: var(--border);
+  background: var(--surface);
+  padding: clamp(20px, 2.5vw, 28px);
+}
+
+body.case-study-page.about-page .role-block h4,
+body.case-study-page.about-page .pain-card h4 {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 clamp(12px, 1.5vw, 16px);
+}
+
+body.case-study-page.about-page .pain-card h4 {
+  font-size: var(--cs-body);
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: var(--text);
+  margin-bottom: clamp(8px, 1vw, 10px);
+}
+
+body.case-study-page.about-page .meta-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: clamp(8px, 1vw, 10px);
+}
+
+body.case-study-page.about-page a.pain-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.case-study-page.about-page a.pain-card:hover,
+body.case-study-page.about-page a.pain-card:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+}
+
+body.case-study-page.about-page .pain-grid {
+  display: grid;
+  gap: clamp(10px, 1.4vw, 14px);
+  margin-top: 0;
+}
+
+body.case-study-page.about-page .about-skills-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+body.case-study-page.about-page .about-cs-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body.case-study-page.about-page .role-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1vw, 10px);
+}
+
+body.case-study-page.about-page .role-list li::before {
+  color: var(--accent);
+}
+
+body.case-study-page.about-page .about-photo.hero-v6__photo-wrap {
+  width: fit-content;
+  height: auto;
+  margin: 0 0 var(--cs-stack-lg);
+  border-radius: 50%;
+  padding: calc(2px * 220 / 128);
+  background: var(--accent-soft);
+  box-shadow: 0 0 40px var(--accent-soft);
+  flex-shrink: 0;
+}
+
+body.case-study-page.about-page .about-photo .hero-v6__photo {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  background: var(--surface);
+}
+
+@media (max-width: 809.98px) {
+  body.case-study-page.about-page .about-photo.hero-v6__photo-wrap {
+    padding: calc(2px * 160 / 128);
+    box-shadow: 0 0 40px var(--accent-soft);
+  }
+
+  body.case-study-page.about-page .about-photo .hero-v6__photo {
+    width: 160px;
+    height: 160px;
+  }
+
+  body.case-study-page.about-page .about-skills-grid,
+  body.case-study-page.about-page .about-cs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media not (prefers-reduced-motion: reduce) {
+  body.case-study-page.about-page .about-photo.hero-v6__reveal {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  body.case-study-page.about-page .about-photo.hero-v6__reveal.is-in {
+    animation: about-photo-enter 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+@keyframes about-photo-enter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.case-study-page.about-page .about-photo.hero-v6__reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
+

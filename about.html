@@ -4,22 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark">
+<script>document.documentElement.classList.add('js');</script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link href="https://fonts.cdnfonts.com/css/lithium-typeface-lt" rel="stylesheet">
-<link rel="stylesheet" href="fonts/destine.css">
-<link rel="stylesheet" href="css/site-shared.css?v=20260638">
-<link rel="stylesheet" href="css/about.css?v=20260638">
+<link rel="stylesheet" href="css/site-shared.css?v=20260326">
+<link rel="stylesheet" href="css/responsive.css?v=20260638">
+<link rel="stylesheet" href="css/tokens.css?v=20260405">
+<link rel="stylesheet" href="css/case-study.css?v=20260405">
+<link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
 <script src="js/page-transition.js?v=20260633"></script>
 <script src="js/site-nav.js?v=20260326"></script>
 <title>About · Neda Bagheri</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { color-scheme: light; overflow-x: clip; }
   body.hero-cursor-none { cursor: none; }
-
   #dot {
     position: fixed;
     z-index: 9999;
@@ -27,8 +23,9 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #3B82F6;
+    background: var(--accent);
     transform: translate(-50%, -50%);
+    mix-blend-mode: screen;
   }
   #ring {
     position: fixed;
@@ -37,26 +34,24 @@
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    border: 1.5px solid rgba(59, 130, 246, 0.3);
+    border: 1.5px solid rgba(138, 164, 214, 0.35);
     transform: translate(-50%, -50%);
     transition: width 0.35s, height 0.35s, border-color 0.3s;
   }
   body.lh #dot { transform: translate(-50%, -50%) scale(2); opacity: 0.5; }
-  body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246, 0.5); }
-
+  body.lh #ring { width: 60px; height: 60px; border-color: rgba(138, 164, 214, 0.55); }
   @media (prefers-reduced-motion: reduce) {
     body.hero-cursor-none { cursor: auto; }
     #dot, #ring { display: none !important; }
   }
 </style>
-<link rel="stylesheet" href="css/responsive.css?v=20260638">
 </head>
-<body class="hero-cursor-none has-anna-nav about-page">
+<body class="hero-cursor-none has-anna-nav case-study-page about-page">
 
 <div id="dot" aria-hidden="true"></div>
 <div id="ring" aria-hidden="true"></div>
 
-<header class="anna-nav anna-nav--intro-visible anna-nav--light" id="site-nav" aria-label="Primary">
+<header class="anna-nav anna-nav--intro-visible" id="site-nav" aria-label="Primary">
   <div class="anna-nav__pill">
     <a href="index.html#hero">Home</a>
     <a href="index.html#projects">Work</a>
@@ -67,105 +62,100 @@
   </div>
 </header>
 
-<main>
-  <section class="about-intro" aria-labelledby="about-heading">
-    <div class="about-intro__text">
-      <h1 id="about-heading">About <em>Neda</em></h1>
-      <p class="lead">I'm a product designer based in Stockholm. I work end-to-end — from research and information architecture to interaction design and handoff — mostly in complex B2B environments where the problems are genuinely hard to simplify.</p>
-    </div>
-    <figure class="about-intro__figure">
-      <div class="about-intro__photo">
-        <img src="Neda-Bagheri.png?v=20260923" alt="Portrait of Neda Bagheri, product designer" width="1024" height="1024" loading="eager" decoding="async" sizes="(max-width: 720px) min(280px, 72vw), 320px">
-      </div>
-    </figure>
+<main class="content case-main">
+  <figure class="hero-v6__photo-wrap hero-v6__reveal about-photo" aria-hidden="false">
+    <img class="hero-v6__photo" src="Neda-Bagheri.png?v=20260923" alt="Portrait of Neda Bagheri, product designer" width="1024" height="1024" loading="eager" decoding="async">
+  </figure>
+
+  <section class="hero" aria-labelledby="about-heading">
+    <h1 id="about-heading">About <em>Neda</em></h1>
+    <p class="hero-subtitle">I'm a product designer based in Stockholm. I work end-to-end — from research and information architecture to interaction design and handoff — mostly in complex B2B environments where the problems are genuinely hard to simplify.</p>
   </section>
 
-  <section class="about-body" aria-label="Background and contact">
+  <section class="section" aria-label="Background and contact">
     <p>My background started in graphic design. Over time I moved deeper into UX, and now the work I find most interesting sits at the intersection of messy research and clean interfaces. Recent projects include a cashier POS system, a retail back-office dashboard, and a healthcare survey platform for Swedish municipalities.</p>
     <p>I work in Agile cross-functional teams and use AI tools — Claude, Cursor, Lovable — to move faster without losing quality. Originally from Iran, I moved to Stockholm and I'm actively building my Swedish.</p>
     <p>Outside of work I cook, dance, and spend time in nature. Cooking especially — it's how I reset, and it's not entirely unlike design.</p>
     <p>Open to new roles and collaborations. <a href="mailto:nedabagheri.nz@gmail.com">Get in touch</a> if you'd like to connect.</p>
   </section>
 
-  <!-- SKILLS -->
-  <div class="skills-section reveal">
+  <section class="section reveal" aria-label="Skills and tools">
     <div class="sec-label">Skills &amp; tools</div>
-    <div class="skills-grid">
+    <div class="pain-grid about-skills-grid">
 
-      <div class="skill-group">
-        <div class="sg-title">Research</div>
-        <div class="sg-items">
-          <div class="sg-item">User Interviews</div>
-          <div class="sg-item">Usability Testing</div>
-          <div class="sg-item">Contextual Research</div>
-          <div class="sg-item">A/B Testing</div>
-          <div class="sg-item">Card Sorting</div>
-          <div class="sg-item">Affinity Mapping</div>
-        </div>
+      <div class="role-block">
+        <h4>Research</h4>
+        <ul class="role-list">
+          <li>User Interviews</li>
+          <li>Usability Testing</li>
+          <li>Contextual Research</li>
+          <li>A/B Testing</li>
+          <li>Card Sorting</li>
+          <li>Affinity Mapping</li>
+        </ul>
       </div>
 
-      <div class="skill-group">
-        <div class="sg-title">Design</div>
-        <div class="sg-items">
-          <div class="sg-item">Interaction Design</div>
-          <div class="sg-item">Information Architecture</div>
-          <div class="sg-item">Design Systems</div>
-          <div class="sg-item">Wireframing &amp; Prototyping</div>
-          <div class="sg-item">WCAG Accessibility</div>
-          <div class="sg-item">Multi-platform Design</div>
-        </div>
+      <div class="role-block">
+        <h4>Design</h4>
+        <ul class="role-list">
+          <li>Interaction Design</li>
+          <li>Information Architecture</li>
+          <li>Design Systems</li>
+          <li>Wireframing &amp; Prototyping</li>
+          <li>WCAG Accessibility</li>
+          <li>Multi-platform Design</li>
+        </ul>
       </div>
 
-      <div class="skill-group">
-        <div class="sg-title">Tools</div>
-        <div class="sg-items">
-          <div class="sg-item">Figma (Expert)</div>
-          <div class="sg-item">Miro</div>
-          <div class="sg-item">Adobe Creative Suite (After Effects, Illustrator, Photoshop, Adobe XD)</div>
-          <div class="sg-item">Claude AI</div>
-          <div class="sg-item">Cursor AI</div>
-          <div class="sg-item">Lovable AI</div>
-          <div class="sg-item">Contentful CMS</div>
-        </div>
+      <div class="role-block">
+        <h4>Tools</h4>
+        <ul class="role-list">
+          <li>Figma (Expert)</li>
+          <li>Miro</li>
+          <li>Adobe Creative Suite (After Effects, Illustrator, Photoshop, Adobe XD)</li>
+          <li>Claude AI</li>
+          <li>Cursor AI</li>
+          <li>Lovable AI</li>
+          <li>Contentful CMS</li>
+        </ul>
       </div>
 
     </div>
-  </div>
+  </section>
 
-  <!-- CASE STUDIES -->
-  <div class="cs-section reveal">
+  <section class="section reveal" aria-label="Selected case studies">
     <div class="sec-label">Selected case studies</div>
-    <div class="cs-grid">
+    <div class="pain-grid about-cs-grid">
 
-      <a href="pos-app.html" class="cs-card">
-        <div class="cs-tag">B2B · Retail · 2024–2025</div>
-        <div class="cs-title">Cashier POS &amp; Payment App</div>
-        <div class="cs-desc">Redesigning a high-frequency point-of-sale app for real-world speed and reliability.</div>
+      <a href="pos-app.html" class="pain-card">
+        <div class="meta-label">B2B · Retail · 2024–2025</div>
+        <h4>Cashier POS &amp; Payment App</h4>
+        <p>Redesigning a high-frequency point-of-sale app for real-world speed and reliability.</p>
       </a>
 
-      <a href="backoffice.html" class="cs-card">
-        <div class="cs-tag">B2B SaaS · 2023–2025</div>
-        <div class="cs-title">Focalpay Back-office Dashboard</div>
-        <div class="cs-desc">A cloud-based command centre managing thousands of SKUs and complex pricing logic.</div>
+      <a href="backoffice.html" class="pain-card">
+        <div class="meta-label">B2B SaaS · 2023–2025</div>
+        <h4>Focalpay Back-office Dashboard</h4>
+        <p>A cloud-based command centre managing thousands of SKUs and complex pricing logic.</p>
       </a>
 
-      <a href="healthcare.html" class="cs-card">
-        <div class="cs-tag">B2B · E-Health · 2025–2026</div>
-        <div class="cs-title">Healthcare Provider Survey App</div>
-        <div class="cs-desc">Replacing manual email-and-spreadsheet workflows with a centralised digital platform.</div>
+      <a href="healthcare.html" class="pain-card">
+        <div class="meta-label">B2B · E-Health · 2025–2026</div>
+        <h4>Healthcare Provider Survey App</h4>
+        <p>Replacing manual email-and-spreadsheet workflows with a centralised digital platform.</p>
       </a>
 
-      <a href="mobile-app.html" class="cs-card">
-        <div class="cs-tag">B2C · Mobile · 2023–2024</div>
-        <div class="cs-title">Mobile Customer Shopping App</div>
-        <div class="cs-desc">Redesigning the onboarding and checkout journey for a B2C mobile app.</div>
+      <a href="mobile-app.html" class="pain-card">
+        <div class="meta-label">B2C · Mobile · 2023–2024</div>
+        <h4>Mobile Customer Shopping App</h4>
+        <p>Redesigning the onboarding and checkout journey for a B2C mobile app.</p>
       </a>
 
     </div>
-  </div>
+  </section>
 
-  <section class="about-working-note" aria-labelledby="working-style-heading">
-    <h2 id="working-style-heading">Working Style Note</h2>
+  <section class="section reveal" aria-labelledby="working-style-heading">
+    <h2 class="section-chapter" id="working-style-heading">Working Style Note</h2>
     <p>I tend to ask "why does this matter to the user?" before "how should this look?" — and I've found that slowing down at the problem definition stage almost always saves time later. I enjoy working closely with product managers and engineers, and I prefer decisions made from evidence over ones made from assumption.</p>
   </section>
 
@@ -192,22 +182,16 @@
   </ul>
 </footer>
 
+<script src="js/scroll-reveal.js?v=20260403"></script>
 <script>
 (function () {
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce || !window.IntersectionObserver) {
-    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
-    return;
-  }
-  document.querySelectorAll('.reveal').forEach(function (el) {
-    var io = new IntersectionObserver(function (entries, obs) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-visible');
-        obs.unobserve(entry.target);
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
-    io.observe(el);
+  var photo = document.querySelector('.about-photo.hero-v6__reveal');
+  if (!photo) return;
+  try {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  } catch (e) {}
+  requestAnimationFrame(function () {
+    photo.classList.add('is-in');
   });
 })();
 
