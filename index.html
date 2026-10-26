@@ -199,15 +199,19 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
   pointer-events: none;
 }
 .hero-anna__cluster {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
-  align-items: stretch;
-  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: min(680px, 92vw);
+  margin: 0 auto;
+  text-align: center;
+  gap: clamp(14px, 2.2vw, 22px);
   pointer-events: auto;
 }
 .hero-anna__eyebrow {
-  align-self: center;
-  margin: 0 0 clamp(8px, 1.2vw, 14px);
+  margin: 0;
   font-family: 'Inter', sans-serif;
   font-size: clamp(12px, 1.1vw, 14px);
   font-weight: 400;
@@ -216,10 +220,16 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
   color: rgba(255, 255, 255, 0.55);
   text-align: center;
 }
+.hero-anna__headline-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .hero-anna__lead {
-  align-self: center;
-  max-width: min(520px, 92vw);
-  margin: clamp(12px, 2vw, 20px) 0 0;
+  width: 100%;
+  max-width: 36em;
+  margin: 0;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: clamp(18px, 2.4vw, 26px);
   font-weight: 500;
@@ -232,7 +242,6 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
 .hero-anna__headline {
   position: relative;
   display: inline-block;
-  align-self: center;
   margin: 0;
   font-family: var(--page-title);
   font-weight: 400;
@@ -256,6 +265,9 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
   .hero-anna__name-line + .hero-anna__name-line::before {
     content: '\00a0';
   }
+  .hero-anna__cluster {
+    max-width: min(960px, 94vw);
+  }
 }
 .hero-anna__headline-base {
   color: var(--hero-gray);
@@ -273,10 +285,8 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(16px, 2.5vw, 24px);
+  gap: clamp(14px, 2vw, 20px);
   width: 100%;
-  max-width: min(640px, 100%);
-  margin-top: clamp(10px, 1.6vw, 20px);
   flex-shrink: 0;
   opacity: 0;
   will-change: opacity;
@@ -316,7 +326,8 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
   align-items: center;
   justify-content: center;
   gap: 12px 20px;
-  margin-top: 4px;
+  width: 100%;
+  margin: 0;
 }
 .hero-anna__cta {
   font-family: 'Inter', sans-serif;
@@ -401,8 +412,9 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
   .hero-anna__name-line {
     display: block;
   }
-  .hero-anna__footer {
-    margin-top: clamp(12px, 3vw, 24px);
+  .hero-anna__cluster {
+    max-width: min(520px, 94vw);
+    gap: clamp(12px, 3vw, 18px);
   }
   .hero-anna__lead {
     font-size: clamp(17px, 4.5vw, 22px);
@@ -1082,12 +1094,14 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
       <div class="hero-anna__stage">
         <div class="hero-anna__cluster">
           <p class="hero-anna__eyebrow">Product Designer · UX/UI · Stockholm</p>
-          <h1 class="hero-anna__headline" id="hero-headline">
-            <span class="hero-anna__headline-base"><span class="hero-anna__name-line">Neda</span><span class="hero-anna__name-line">Bagheri</span></span>
-            <span class="hero-anna__headline-lit" id="hero-headline-lit" aria-hidden="true"><span class="hero-anna__name-line">Neda</span><span class="hero-anna__name-line">Bagheri</span></span>
-          </h1>
-          <p class="hero-anna__lead">I find the real problem, design the fix, and ship it.</p>
+          <div class="hero-anna__headline-wrap">
+            <h1 class="hero-anna__headline" id="hero-headline">
+              <span class="hero-anna__headline-base"><span class="hero-anna__name-line">Neda</span><span class="hero-anna__name-line">Bagheri</span></span>
+              <span class="hero-anna__headline-lit" id="hero-headline-lit" aria-hidden="true"><span class="hero-anna__name-line">Neda</span><span class="hero-anna__name-line">Bagheri</span></span>
+            </h1>
+          </div>
           <div class="hero-anna__footer" id="hero-footer">
+            <p class="hero-anna__lead">I find the real problem, design the fix, and ship it.</p>
             <p class="hero-anna__tagline">10+ years in design, 5+ in product. From user interviews to polished UI to production code with Claude Code.</p>
             <ul class="hero-anna__tags" aria-label="Focus areas">
               <li>Mobile apps</li>
@@ -1455,7 +1469,7 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
         }
       }
       headline.style.fontSize = Math.floor(best) + 'px';
-      if (cluster) cluster.style.width = Math.ceil(headline.offsetWidth) + 'px';
+      if (cluster) cluster.style.width = '';
     }
 
     function settleHeadlineAfterWipe() {
