@@ -1,0 +1,181 @@
+/* Selected work — Oscar-style cards */
+
+.selected-work {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(64px, 8vw, 96px) 24px clamp(48px, 6vw, 80px);
+}
+.selected-work__heading {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: clamp(36px, 4.5vw, 56px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  text-align: left;
+  margin: 0 0 48px;
+  max-width: 1440px;
+}
+.selected-work__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 64px;
+  row-gap: 96px;
+}
+.work-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.work-card--featured {
+  grid-column: 1 / -1;
+}
+.work-card__line {
+  height: 1px;
+  width: 100%;
+  background: var(--border);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+.work-card.is-visible .work-card__line {
+  animation: work-line-draw 900ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--row-delay, 0ms);
+}
+.work-card__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-top: 24px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.work-card__title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: clamp(32px, 3.6vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 20px 0 0;
+}
+.work-card__role {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--text);
+  margin: 12px 0 0;
+}
+.work-card__desc {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 620px;
+  margin: 16px 0 0;
+}
+.work-card__desc strong,
+.work-card__emph {
+  font-weight: 500;
+  color: var(--text);
+}
+.work-card__frame {
+  margin-top: 32px;
+  padding: 48px;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 400ms ease;
+}
+.work-card:hover .work-card__frame {
+  background: var(--surface-2);
+}
+.work-card__frame picture,
+.work-card__frame img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  max-height: 420px;
+  object-fit: contain;
+}
+.work-card--featured .work-card__frame img {
+  max-height: 520px;
+}
+.work-card__link {
+  margin-top: 24px;
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
+  transition: color 0.25s ease;
+}
+.work-card__link:hover,
+.work-card__link:focus-visible {
+  color: var(--text);
+  text-decoration-color: var(--accent);
+}
+.work-card__link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.work-card__arrow {
+  display: inline-block;
+  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.work-card__link:hover .work-card__arrow {
+  transform: translateX(4px);
+}
+
+.work-card__reveal {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.work-card.is-visible .work-card__reveal {
+  animation: work-reveal 800ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(900ms + var(--reveal-i, 0) * 100ms + var(--row-delay, 0ms));
+}
+
+@keyframes work-line-draw {
+  to { transform: scaleX(1); }
+}
+@keyframes work-reveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 809.98px) {
+  .selected-work {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .selected-work__grid {
+    grid-template-columns: 1fr;
+    row-gap: 72px;
+  }
+  .work-card__frame {
+    padding: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-card__line {
+    transform: scaleX(1);
+    animation: none !important;
+  }
+  .work-card__reveal {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+  }
+}

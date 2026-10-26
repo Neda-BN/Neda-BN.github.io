@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@400;500;600&family=Syne:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Instrument+Serif:ital@0;1&family=Poppins:wght@400;500;600&family=Syne:wght@700;800&display=swap');
 
 :root {
   --bg: #0B0C10;
@@ -13,6 +13,7 @@
   --accent-text: var(--accent);
   --font-display: 'Syne', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-body: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
   --font-accent: 'Instrument Serif', ui-serif, Georgia, 'Times New Roman', serif;
   /* Legacy aliases */
   --page-bg: var(--bg);
@@ -55,18 +56,17 @@ button:focus-visible {
 .anna-nav {
   opacity: 1;
   gap: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.anna-nav__pill {
+  display: contents;
 }
 .anna-nav--intro-visible {
   opacity: 1;
 }
-.anna-nav__pill {
-  background: transparent;
-  border: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  padding: 0;
-  gap: 28px;
-  transition: none;
+.anna-nav a {
+  pointer-events: auto;
 }
 .anna-nav__pill a {
   font-family: var(--font-body);

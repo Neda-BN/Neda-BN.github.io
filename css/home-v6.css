@@ -73,13 +73,15 @@
   font-weight: 500;
   font-size: clamp(20px, 2.6vw, 30px);
   line-height: 1.35;
-  max-width: 720px;
+  max-width: min(20em, 92vw);
   margin: 0;
+  text-wrap: balance;
 }
 .hero-v6__slogan-a {
   color: var(--text);
 }
 .hero-v6__slogan-b {
+  display: block;
   color: var(--accent);
 }
 .hero-v6__support {

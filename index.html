@@ -21,6 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="css/site-shared.css?v=20260326">
 <link rel="stylesheet" href="css/home-v6.css?v=20260327">
+<link rel="stylesheet" href="css/selected-work-v6.css?v=20260328">
 <script src="js/page-transition.js?v=20260633"></script>
 <script src="js/site-nav.js?v=20260326"></script>
 <style>
@@ -48,9 +49,6 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
 
 @media (prefers-reduced-motion: reduce) {
   .anna-nav__pill a { transition: none !important; }
-  .works-anna__media img { transition: none !important; }
-  .works-anna__card:hover .works-anna__media img,
-  .works-anna__card:focus-visible .works-anna__media img { transform: none; }
   .vc-card, .vc-card__img, .vc-card__veil, .vc-card__title { transition: none !important; }
   .vc-card:hover, .vc-card:focus-visible { transform: none; box-shadow: none; }
   .vc-card:hover .vc-card__img, .vc-card:focus-visible .vc-card__img { transform: none; }
@@ -127,165 +125,10 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
     }
   }
 
-  /* ── ANNA-STYLE SELECTED PROJECTS ── */
+  /* ── WORKS PAGE WRAPPER ── */
   .page-works {
     background: var(--bg);
     padding-bottom: clamp(48px, 8vw, 80px);
-  }
-  .works-anna {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 80px 24px 24px;
-  }
-  .works-anna__group-label {
-    grid-column: 1 / -1;
-    font-family: var(--page-title);
-    font-size: clamp(18px, 2.2vw, 22px);
-    font-weight: 400;
-    line-height: 1.2;
-    color: rgba(0, 0, 0, 0.5);
-    margin: 12px 0 4px;
-    letter-spacing: 0.01em;
-  }
-  .works-anna__heading {
-    font-family: var(--page-title);
-    font-size: clamp(40px, 4.2vw, 60px);
-    font-weight: 400;
-    line-height: 1.1;
-    letter-spacing: -0.003em;
-    color: var(--text);
-    margin: 0 0 10px;
-  }
-  .works-anna__intro {
-    font-family: var(--sans, 'DM Sans', sans-serif);
-    font-size: clamp(14px, 1.2vw, 17px);
-    font-weight: 400;
-    line-height: 1.45;
-    letter-spacing: -0.01em;
-    color: var(--ink2);
-    margin: 0 0 clamp(24px, 3vw, 36px);
-    max-width: 36em;
-  }
-  .works-anna__grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-  }
-  .works-anna__card {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    text-decoration: none;
-    color: inherit;
-    border-radius: 0;
-    outline: none;
-  }
-  .works-anna__card:focus-visible {
-    outline: 2px solid var(--warm);
-    outline-offset: 4px;
-  }
-  .works-anna__media {
-    position: relative;
-    width: 100%;
-    height: clamp(220px, 24vw, 350px);
-    border-radius: 6px;
-    overflow: hidden;
-    background: #f3f3f3;
-  }
-  .works-anna__media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-    transform: scale(1);
-    transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform;
-  }
-  .works-anna__card:hover .works-anna__media img,
-  .works-anna__card:focus-visible .works-anna__media img {
-    transform: scale(1.03);
-  }
-  .works-anna__content {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 0 16px 16px;
-  }
-  .works-anna__name {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(16px, 1.6vw, 22px);
-    font-weight: 600;
-    font-style: normal;
-    line-height: 1.2;
-    letter-spacing: -0.03em;
-    color: var(--ink, #1a1814);
-    margin: 0;
-  }
-  .works-anna__title {
-    font-family: var(--sans, 'DM Sans', sans-serif);
-    font-size: clamp(12px, 1.1vw, 15px);
-    font-weight: 300;
-    font-style: normal;
-    font-synthesis: none;
-    line-height: 1.45;
-    letter-spacing: -0.01em;
-    color: #6b7280;
-    margin: 0;
-  }
-  .works-anna__metric {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(13px, 1.15vw, 15px);
-    font-weight: 600;
-    line-height: 1.35;
-    letter-spacing: -0.02em;
-    color: var(--warm);
-    margin: 4px 0 0;
-  }
-  .works-anna__meta {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.35;
-    letter-spacing: -0.02em;
-    color: var(--ink3);
-    margin: 4px 0 0;
-  }
-  .works-anna__tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .works-anna__tags li {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: -0.04em;
-    color: var(--text);
-    padding: 4px 12px;
-    border-radius: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.12);
-    background: var(--bg);
-    white-space: nowrap;
-    transition: border-color 0.25s ease, background-color 0.25s ease;
-  }
-  .works-anna__card:hover .works-anna__tags li,
-  .works-anna__card:focus-visible .works-anna__tags li {
-    border-color: rgba(0, 0, 0, 0.22);
-  }
-  .works-anna__tags li.works-anna__tag--accent {
-    color: #3B82F6;
-    border-color: rgba(59, 130, 246, 0.35);
-    background: rgba(59, 130, 246, 0.08);
-  }
-  .works-anna__card:hover .works-anna__tags li.works-anna__tag--accent,
-  .works-anna__card:focus-visible .works-anna__tags li.works-anna__tag--accent {
-    border-color: rgba(59, 130, 246, 0.55);
-    background: rgba(59, 130, 246, 0.12);
   }
 
   .page-works .vc-section {
@@ -429,19 +272,6 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
     }
   }
   @media (max-width: 809.98px) {
-    .works-anna {
-      padding: 64px 16px 16px;
-    }
-    .works-anna__grid {
-      grid-template-columns: 1fr;
-      gap: 8px;
-    }
-    .works-anna__content {
-      padding: 0 0 12px;
-    }
-    .works-anna__tags li {
-      font-size: 12px;
-    }
     .page-works .vc-section {
       padding-left: 16px;
       padding-right: 16px;
@@ -450,12 +280,6 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
   @media (max-width: 680px) {
     .vc-section { margin-top: clamp(40px, 9vw, 64px); }
     .vc-section__head { gap: 8px; margin-bottom: 22px; }
-    .works-anna__heading {
-      font-size: clamp(32px, 8vw, 44px);
-    }
-    .works-anna__media {
-      height: clamp(180px, 52vw, 280px);
-    }
     .footer-strip { padding: 56px 20px 72px; }
     footer { padding: 24px; flex-direction: column; align-items: flex-start; gap: 20px; }
     .anna-nav { top: max(12px, env(safe-area-inset-top, 0px)); gap: 6px; }
@@ -694,7 +518,7 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
     </div>
     <p class="hero-v6__eyebrow hero-v6__reveal">Product Designer · Stockholm</p>
     <h1 class="hero-v6__name hero-v6__reveal"><span class="hero-v6__name-first">Neda</span><span class="hero-v6__name-break"> </span><span class="hero-v6__name-last">Bagheri</span></h1>
-    <p class="hero-v6__slogan hero-v6__reveal"><span class="hero-v6__slogan-a">From the first user interview</span><span class="hero-v6__slogan-b"> to the last line of code.</span></p>
+    <p class="hero-v6__slogan hero-v6__reveal"><span class="hero-v6__slogan-a">From the first user interview</span><span class="hero-v6__slogan-b">to the last line of code.</span></p>
     <p class="hero-v6__support hero-v6__reveal">10+ years in design and 5+ in product, across fintech, retail and healthcare. I research, design and ship — often in code.</p>
     <div class="hero-v6__actions hero-v6__reveal">
       <a class="hero-v6__btn hero-v6__btn--primary" href="index.html#projects">See my work</a>
@@ -763,98 +587,87 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
 
 <div class="page-works" id="projects">
 
-  <section class="works-anna" aria-labelledby="works-anna-heading">
-    <h2 class="works-anna__heading" id="works-anna-heading">Selected work</h2>
-    <p class="works-anna__intro">Five real products, from research to release.</p>
-    <div class="works-anna__grid">
+  <section class="selected-work" aria-labelledby="works-anna-heading">
+    <h2 class="selected-work__heading" id="works-anna-heading">Selected work</h2>
+    <div class="selected-work__grid">
 
-      <a class="works-anna__card" href="simplebooking.html" aria-label="Simple Booking Accounting App case study">
-        <div class="works-anna__media">
+      <article class="work-card work-card--featured">
+        <div class="work-card__line" aria-hidden="true"></div>
+        <div class="work-card__meta work-card__reveal">
+          <span>CASE 01 · FINTECH</span>
+          <span>2026–PRESENT</span>
+        </div>
+        <h3 class="work-card__title work-card__reveal">Simple Booking</h3>
+        <p class="work-card__role work-card__reveal">Product Designer · Research → Design → Code</p>
+        <p class="work-card__desc work-card__reveal">Redesigned a developer-built accounting app for four user roles, then built the new UI myself with Claude Code. Six core areas redesigned, about half already shipped.</p>
+        <div class="work-card__frame work-card__reveal">
           <picture>
             <source srcset="sb-hero.webp" type="image/webp">
             <img src="sb-hero.png" alt="Simple Booking accounting app — redesigned home overview in dark mode and receipts page in light mode" width="2400" height="1300" loading="lazy" decoding="async">
           </picture>
         </div>
-        <div class="works-anna__content">
-          <h3 class="works-anna__name">Simple Booking Accounting App</h3>
-          <p class="works-anna__title">A developer-built accounting tool that non-accountants couldn't use. I ran the research, redesigned it, and built the new UI myself with Claude Code.</p>
-          <p class="works-anna__metric">6 core areas redesigned · ~50% of the app rebuilt</p>
-          <ul class="works-anna__tags" aria-label="Project skills">
-            <li>UX research</li>
-            <li>Design system</li>
-            <li class="works-anna__tag--accent">AI-assisted build</li>
-          </ul>
-          <p class="works-anna__meta">FinTech · Web · B2B SaaS · Ongoing</p>
-        </div>
-      </a>
+        <a class="work-card__link work-card__reveal" href="simplebooking.html">Read case study <span class="work-card__arrow" aria-hidden="true">→</span><span class="visually-hidden">: Simple Booking</span></a>
+      </article>
 
-      <a class="works-anna__card" href="pos-app.html" aria-label="Cashier POS and Payment App case study">
-        <div class="works-anna__media">
+      <article class="work-card work-card--col-left">
+        <div class="work-card__line" aria-hidden="true"></div>
+        <div class="work-card__meta work-card__reveal">
+          <span>CASE 02 · RETAIL PAYMENTS</span>
+          <span>2024–2025</span>
+        </div>
+        <h3 class="work-card__title work-card__reveal">Cashier POS App</h3>
+        <p class="work-card__role work-card__reveal">Sole Product Designer</p>
+        <p class="work-card__desc work-card__reveal">Rebuilt the checkout flow around what really happens at the till: <span class="work-card__emph">70%</span> fewer transaction errors and <span class="work-card__emph">30%</span> faster cashier tasks.</p>
+        <div class="work-card__frame work-card__reveal">
           <img src="pos-app-thumbnail.png" alt="Focalpay Cashier POS and payment app — mobile screens for cart, product list, discount, receipt, QR, refunds, and reports" width="1024" height="767" loading="lazy" decoding="async">
         </div>
-        <div class="works-anna__content">
-          <h3 class="works-anna__name">Cashier POS &amp; Payment App</h3>
-          <p class="works-anna__title">Cashiers had to stop and think at every step while customers waited. I rebuilt the flow around what really happens at checkout.</p>
-          <p class="works-anna__metric">70% fewer transaction errors · −30% task time</p>
-          <ul class="works-anna__tags" aria-label="Project skills">
-            <li>Interaction design</li>
-            <li>Visual hierarchy</li>
-            <li class="works-anna__tag--accent">Hardware-connected</li>
-          </ul>
-          <p class="works-anna__meta">Retail Tech · Mobile · B2B · 2024–2025</p>
-        </div>
-      </a>
+        <a class="work-card__link work-card__reveal" href="pos-app.html">Read case study <span class="work-card__arrow" aria-hidden="true">→</span><span class="visually-hidden">: Cashier POS App</span></a>
+      </article>
 
-      <a class="works-anna__card" href="healthcare.html" aria-label="Healthcare Provider Survey Platform case study">
-        <div class="works-anna__media">
+      <article class="work-card work-card--col-right">
+        <div class="work-card__line" aria-hidden="true"></div>
+        <div class="work-card__meta work-card__reveal">
+          <span>CASE 03 · HEALTHTECH</span>
+          <span>2025–2026</span>
+        </div>
+        <h3 class="work-card__title work-card__reveal">Healthcare Survey Platform</h3>
+        <p class="work-card__role work-card__reveal">Sole Product Designer · Discovery → Front-end</p>
+        <p class="work-card__desc work-card__reveal">Replaced emails and spreadsheets for care teams in <span class="work-card__emph">30+</span> Swedish municipalities. In testing, sending a survey went from about <span class="work-card__emph">2 hours</span> to <span class="work-card__emph">15 minutes</span>.</p>
+        <div class="work-card__frame work-card__reveal">
           <img src="healthcare-provider-thumbnail.png?v=20260324" alt="Healthcare Provider Survey Platform — dashboard on desktop and laptop with surveys, analytics, and municipality performance" width="1024" height="725" loading="lazy" decoding="async">
         </div>
-        <div class="works-anna__content">
-          <h3 class="works-anna__name">Healthcare Provider Survey Platform</h3>
-          <p class="works-anna__title">Care teams in 30+ Swedish municipalities ran surveys through email and spreadsheets. I replaced that with one accessible platform, from discovery to front-end code.</p>
-          <p class="works-anna__metric">Survey sending: ~2 hours → 15 minutes</p>
-          <ul class="works-anna__tags" aria-label="Project skills">
-            <li>Service design</li>
-            <li>WCAG accessibility</li>
-            <li class="works-anna__tag--accent">AI-assisted build</li>
-          </ul>
-          <p class="works-anna__meta">HealthTech · Web · B2B · 2025–2026</p>
-        </div>
-      </a>
+        <a class="work-card__link work-card__reveal" href="healthcare.html">Read case study <span class="work-card__arrow" aria-hidden="true">→</span><span class="visually-hidden">: Healthcare Survey Platform</span></a>
+      </article>
 
-      <a class="works-anna__card" href="mobile-app.html" aria-label="Mobile Customer Shopping App case study">
-        <div class="works-anna__media">
+      <article class="work-card work-card--col-left">
+        <div class="work-card__line" aria-hidden="true"></div>
+        <div class="work-card__meta work-card__reveal">
+          <span>CASE 04 · RETAIL · B2C</span>
+          <span>2023–2024</span>
+        </div>
+        <h3 class="work-card__title work-card__reveal">Mobile Shopping App</h3>
+        <p class="work-card__role work-card__reveal">Sole Product Designer</p>
+        <p class="work-card__desc work-card__reveal">Shoppers scan and pay with their own phone. I made a silent app talk back with sound, haptics and visuals: <span class="work-card__emph">+40%</span> checkout completion.</p>
+        <div class="work-card__frame work-card__reveal">
           <img src="mobile-customer-shopping-app-thumbnail.png" alt="Focal Pay mobile shopping app — collage of tilted phone screens: onboarding, barcode scan, cart, checkout QR at cashier area, payment, and payment complete on a blue and pink gradient" width="1024" height="576" loading="lazy" decoding="async">
         </div>
-        <div class="works-anna__content">
-          <h3 class="works-anna__name">Mobile Customer Shopping App</h3>
-          <p class="works-anna__title">Shoppers scan and pay with their own phone. Testing in a real store showed the app was too silent, so I rebuilt scan feedback with sound, haptics and visuals.</p>
-          <p class="works-anna__metric">+40% checkout completion</p>
-          <ul class="works-anna__tags" aria-label="Project skills">
-            <li>Mobile UX</li>
-            <li>Micro-interactions</li>
-            <li>A/B testing</li>
-          </ul>
-          <p class="works-anna__meta">Retail Tech · Mobile · B2C · 2023–2024</p>
-        </div>
-      </a>
+        <a class="work-card__link work-card__reveal" href="mobile-app.html">Read case study <span class="work-card__arrow" aria-hidden="true">→</span><span class="visually-hidden">: Mobile Shopping App</span></a>
+      </article>
 
-      <a class="works-anna__card" href="backoffice.html" aria-label="Focalpay Back-office Dashboard case study">
-        <div class="works-anna__media">
+      <article class="work-card work-card--col-right">
+        <div class="work-card__line" aria-hidden="true"></div>
+        <div class="work-card__meta work-card__reveal">
+          <span>CASE 05 · RETAIL · B2B SAAS</span>
+          <span>2023–2025</span>
+        </div>
+        <h3 class="work-card__title work-card__reveal">Focalpay Back-office</h3>
+        <p class="work-card__role work-card__reveal">Sole Product Designer</p>
+        <p class="work-card__desc work-card__reveal">A back-office for retailers from footwear brands to supermarket chains. Card sorting turned a <span class="work-card__emph">40-field</span> form into two templates, and a <span class="work-card__emph">seven-step</span> flow into <span class="work-card__emph">two</span>.</p>
+        <div class="work-card__frame work-card__reveal">
           <img src="Backoffice-Dashboard.png" alt="Focalpay back-office dashboard — desktop and mobile product views" width="1200" height="900" loading="lazy" decoding="async">
         </div>
-        <div class="works-anna__content">
-          <h3 class="works-anna__name">Focalpay Back-office Dashboard</h3>
-          <p class="works-anna__title">A back-office for retailers from footwear brands to supermarket chains. Card sorting and real campaign data turned a 40-field form into two simple templates.</p>
-          <p class="works-anna__metric">7-step flow → 2 steps</p>
-          <ul class="works-anna__tags" aria-label="Project skills">
-            <li>Information architecture</li>
-            <li>Card sorting</li>
-            <li>Product thinking</li>
-          </ul>
-          <p class="works-anna__meta">Retail Tech · Web · B2B SaaS · 2023–2025</p>
-        </div>
-      </a>
+        <a class="work-card__link work-card__reveal" href="backoffice.html">Read case study <span class="work-card__arrow" aria-hidden="true">→</span><span class="visually-hidden">: Focalpay Back-office</span></a>
+      </article>
 
     </div>
   </section>
@@ -1002,6 +815,7 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
 </footer>
 
 <script src="js/hero-v6.js?v=20260327"></script>
+<script src="js/selected-work-v6.js?v=20260328"></script>
 <script>
 /* ── UI DESIGN GALLERY ─────────────────────────────────────────────
    Reveal-on-scroll. Honours prefers-reduced-motion.
