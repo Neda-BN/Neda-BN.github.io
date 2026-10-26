@@ -74,7 +74,7 @@ body.has-anna-nav.case-study-page main.sb-case {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 16px;
+  margin-top: 0;
   padding: 8px 14px;
   border-radius: 999px;
   background: var(--surface);
@@ -616,4 +616,29 @@ body.has-anna-nav.case-study-page main.sb-case {
   .sb-case * {
     scroll-behavior: auto !important;
   }
+}
+
+/* Hero text column — title, status pill and meta strip share one left edge */
+.case-study-page .sb-case .sb-hero-text {
+  max-width: var(--cs-text-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.case-study-page .sb-case .sb-hero-text .hero-tag,
+.case-study-page .sb-case .sb-hero-text h1,
+.case-study-page .sb-case .sb-hero-text .hero-subtitle,
+.case-study-page .sb-case .sb-hero-text .sb-status,
+.case-study-page .sb-case .sb-hero-text .meta-strip {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.case-study-page .sb-case .sb-hero-text .hero-subtitle {
+  margin-bottom: 32px;
+}
+
+.case-study-page .sb-case .sb-hero-text .meta-strip {
+  margin-top: 32px;
 }
