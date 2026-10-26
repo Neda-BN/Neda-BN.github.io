@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="css/tokens.css?v=20260401">
 <link rel="stylesheet" href="css/site-shared.css?v=20260326">
-<link rel="stylesheet" href="css/home-v6.css?v=20260407">
+<link rel="stylesheet" href="css/home-v6.css?v=20260410">
 <link rel="stylesheet" href="css/selected-work-v6.css?v=20260406">
 <link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
 <script src="js/page-transition.js?v=20260633"></script>
@@ -56,7 +56,6 @@ body { font-size: 16px; line-height: 1.7; }
 img, video { max-width: 100%; height: auto; }
 
 a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
-.footer-strip a:focus-visible { outline-color: #fff; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }
@@ -68,74 +67,6 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
   .vc-card:hover .vc-card__title, .vc-card:focus-visible .vc-card__title { transform: none; }
   .reveal, .reveal.is-visible { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
-
-  /* ── PROOF STRIP ── */
-  .proof-strip {
-    background: var(--bg);
-    padding: clamp(32px, 5vw, 56px) 24px;
-    border-bottom: 1px solid var(--line);
-  }
-  .proof-strip__list {
-    list-style: none;
-    margin: 0 auto;
-    padding: 0;
-    max-width: 1440px;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: clamp(16px, 2.5vw, 28px);
-  }
-  .proof-strip__link {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    height: 100%;
-    padding: clamp(12px, 2vw, 18px);
-    border-radius: 8px;
-    text-decoration: none;
-    color: inherit;
-    outline: none;
-    transition: background 0.2s ease;
-  }
-  .proof-strip__link:hover {
-    background: rgba(59, 130, 246, 0.06);
-  }
-  .proof-strip__link:focus-visible {
-    outline: 2px solid var(--warm);
-    outline-offset: 2px;
-  }
-  .proof-strip__item--static {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    padding: clamp(12px, 2vw, 18px);
-  }
-  .proof-strip__num {
-    font-family: var(--page-title);
-    font-size: clamp(28px, 3.6vw, 40px);
-    font-weight: 400;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    color: var(--warm);
-  }
-  .proof-strip__label {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(13px, 1.1vw, 15px);
-    font-weight: 400;
-    line-height: 1.35;
-    letter-spacing: -0.02em;
-    color: var(--ink2);
-  }
-  @media (max-width: 1023.98px) {
-    .proof-strip__list {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-  @media (max-width: 809.98px) {
-    .proof-strip {
-      padding-left: 16px;
-      padding-right: 16px;
-    }
-  }
 
   /* ── WORKS PAGE WRAPPER ── */
   .page-works {
@@ -326,7 +257,6 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
   @media (max-width: 680px) {
     .vc-section { margin-top: clamp(40px, 9vw, 64px); }
     .vc-section__head { gap: 8px; margin-bottom: 22px; }
-    .footer-strip { padding: 56px 20px 72px; }
     footer { padding: 24px; flex-direction: column; align-items: flex-start; gap: 20px; }
   }
 </style>
