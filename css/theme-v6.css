@@ -66,6 +66,9 @@ button:focus-visible {
   justify-content: center;
   box-sizing: border-box;
   padding: calc(24px + env(safe-area-inset-top, 0px)) 20px 24px;
+  background: rgba(11, 12, 16, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 .anna-nav__pill {
   display: contents;
@@ -117,9 +120,6 @@ button:focus-visible {
 }
 .anna-nav--scrolled {
   border-bottom: 1px solid var(--border);
-  background: rgba(11, 12, 16, 0.72);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   padding-bottom: 16px;
   padding-top: calc(16px + env(safe-area-inset-top, 0px));
 }
