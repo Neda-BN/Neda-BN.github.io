@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@400;500;600&family=Syne:wght@700;800&display=swap');
+
+:root {
+  --bg: #0E0E12;
+  --surface: #16161C;
+  --surface-2: #1E1E26;
+  --text: #EDEDF0;
+  --muted: #9A9AA5;
+  --border: rgba(255, 255, 255, 0.08);
+  --accent: #3B82F6;
+  --accent-text: #7CB4FF;
+  --font-display: 'Syne', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-accent: 'Instrument Serif', ui-serif, Georgia, 'Times New Roman', serif;
+  /* Legacy aliases */
+  --page-bg: var(--bg);
+  --page-title: var(--font-display);
+  --display: var(--font-display);
+  --sans: var(--font-body);
+  --ink: var(--text);
+  --ink2: var(--muted);
+  --ink3: #6e6e78;
+  --warm: var(--accent);
+  --line: var(--border);
+  --line2: rgba(255, 255, 255, 0.04);
+  --text-muted: var(--muted);
+  --accent-light: rgba(59, 130, 246, 0.12);
+  --bg2: var(--surface);
+  --bg3: var(--surface-2);
+  --surface-card: var(--surface);
+  --dark: var(--text);
+  --mid: var(--muted);
+  --light: var(--muted);
+}
+
+html {
+  color-scheme: dark;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent-text);
+  outline-offset: 3px;
+}
+
+/* ── Nav (dark, blur; border when scrolled) ── */
+.anna-nav {
+  opacity: 1;
+}
+.anna-nav--intro-visible {
+  opacity: 1;
+}
+.anna-nav__pill {
+  background: rgba(14, 14, 18, 0.55);
+  border: 1px solid transparent;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+.anna-nav__pill a {
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--text);
+}
+.anna-nav__pill a:hover,
+.anna-nav__pill a:focus-visible {
+  background: rgba(255, 255, 255, 0.06);
+}
+.anna-nav--scrolled .anna-nav__pill {
+  border-color: var(--border);
+  background: rgba(14, 14, 18, 0.82);
+}
+.anna-nav--light .anna-nav__pill {
+  background: rgba(14, 14, 18, 0.55);
+  border: 1px solid transparent;
+}
+.anna-nav--light .anna-nav__pill a {
+  color: var(--text);
+}
+.anna-nav--light .anna-nav__pill a:hover,
+.anna-nav--light .anna-nav__pill a:focus-visible {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ── Display typography ── */
+.hero h1,
+.about-intro h1,
+.about-working-note h2,
+.page-hero h1,
+.case-hero h1,
+.vc-page__title,
+.vc-hero h1,
+.vc-section h2,
+.ui-detail__title,
+.vc-detail__title,
+.case-study__chapter,
+.section-chapter,
+h2.works-anna__heading,
+.footer-strip h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--text);
+}
+
+.case-study-page .hero h1,
+.case-study-page .section-chapter {
+  font-weight: 700;
+}
+
+.works-anna__tagline,
+.proj-desc,
+.hero-subtitle,
+.about-body p,
+.meta-value {
+  font-family: var(--font-body);
+}
+
+/* ── Footer ── */
+.footer-strip {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+.footer-strip h2 {
+  color: var(--text);
+  font-weight: 800;
+}
+.footer-strip p {
+  font-family: var(--font-body);
+  color: var(--muted);
+}
+.footer-strip__cta {
+  font-family: var(--font-body);
+  background: var(--accent);
+  color: var(--bg) !important;
+  border-color: transparent;
+}
+footer,
+.site-footer {
+  background: var(--bg);
+  border-top-color: var(--border);
+}
+footer p,
+.site-footer p {
+  color: var(--muted);
+}
+.footer-social a {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--muted);
+}
+.footer-social a:hover {
+  color: var(--accent-text);
+  border-color: rgba(124, 180, 255, 0.35);
+  background: var(--accent-light);
+}
+
+/* ── Case studies ── */
+.case-study-page {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+}
+.case-study-page .hero-subtitle,
+.case-study-page .section > p,
+.case-study-page .meta-value {
+  color: var(--muted);
+}
+.case-study-page .section-chapter,
+.case-study-page .hero h1 {
+  color: var(--text);
+}
+.case-study-page .quote-block,
+.case-study-page .tldr,
+.case-study-page .result-card,
+.case-study-page .problem-card,
+.case-study-page table {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

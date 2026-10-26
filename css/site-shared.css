@@ -1,16 +1,7 @@
+@import url('theme-v6.css');
+
 /* Shared site styles — nav, display typography, footer, page shell (matches index home) */
 :root {
-  --display: 'Sora', sans-serif;
-  --page-title: 'Destine', 'Sora', sans-serif;
-  --page-bg: #ffffff;
-  --text: #000000;
-  --text-muted: rgba(0, 0, 0, 0.62);
-  --line: rgba(0, 0, 0, 0.12);
-  --ink: #1a1814;
-  --accent: #3B82F6;
-  --accent-light: #f5ebe3;
-  --border: #e8e4dc;
-  --sans: 'Inter', 'DM Sans', sans-serif;
   --back-track: min(100%, 820px);
   --back-inset: 48px;
   --back-gap-top: max(56px, calc(env(safe-area-inset-top, 0px) + 44px));
@@ -29,48 +20,10 @@
   align-items: center;
   gap: 8px;
   pointer-events: none;
-  opacity: 0;
+  opacity: 1;
 }
 .anna-nav--intro-visible {
   opacity: 1;
-}
-.anna-nav__pill {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  padding: 4px;
-  border-radius: 8px;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  pointer-events: auto;
-}
-.anna-nav__pill a {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: -0.04em;
-  line-height: 1.4;
-  color: #fff;
-  text-decoration: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  transition: background 0.2s ease, opacity 0.2s ease;
-}
-.anna-nav__pill a:hover,
-.anna-nav__pill a:focus-visible {
-  background: rgba(255, 255, 255, 0.08);
-}
-.anna-nav--light .anna-nav__pill {
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid var(--line);
-}
-.anna-nav--light .anna-nav__pill a {
-  color: var(--ink);
-}
-.anna-nav--light .anna-nav__pill a:hover,
-.anna-nav--light .anna-nav__pill a:focus-visible {
-  background: rgba(26, 24, 20, 0.06);
 }
 
 body.has-anna-nav {
@@ -112,7 +65,7 @@ h2.works-anna__heading {
   font-family: var(--page-title, 'Destine', 'Sora', sans-serif);
   font-weight: 400;
   font-style: normal;
-  color: #000000;
+  color: var(--text);
   letter-spacing: -0.02em;
   line-height: 1.05;
   white-space: nowrap;

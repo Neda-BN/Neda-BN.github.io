@@ -17,9 +17,9 @@
   --cs-icon-size: 44px;
   --cs-icon-gap: clamp(12px, 1.6vw, 16px);
   --cs-radius-media: 16px;
-  background: #ffffff;
-  color: #000000;
-  font-family: 'Inter', sans-serif;
+  background: var(--bg, #0E0E12);
+  color: var(--text, #EDEDF0);
+  font-family: var(--font-body, 'Poppins', sans-serif);
   font-size: var(--cs-body);
   line-height: 1.2;
   letter-spacing: -0.04em;
@@ -271,7 +271,7 @@
   font-weight: 400;
   line-height: 0.95;
   letter-spacing: -0.02em;
-  color: #000000;
+  color: var(--text, #EDEDF0);
   text-transform: none;
   font-style: normal;
   text-align: left;
@@ -326,7 +326,7 @@
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 12px;
   overflow: hidden;
-  background: #ffffff;
+  background: var(--surface, #16161C);
   margin-bottom: var(--cs-section-space);
 }
 
@@ -359,7 +359,7 @@
   font-weight: 500;
   letter-spacing: -0.02em;
   line-height: 1.35;
-  color: #000000;
+  color: var(--text, #EDEDF0);
 }
 
 .case-study-page .section-header {
@@ -378,7 +378,7 @@
   margin-top: 0.1em;
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.12);
-  background: #ffffff;
+  background: var(--surface, #16161C);
   color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
@@ -437,7 +437,7 @@
 
 .case-study-page .content p strong,
 .case-study-page .role-list li::before {
-  color: #000000;
+  color: var(--text, #EDEDF0);
 }
 
 /* In-content subheadings (no icons) */
@@ -468,7 +468,7 @@
   margin-bottom: clamp(10px, 1.5vw, 14px);
   font-size: clamp(18px, 1.75vw, 22px);
   font-weight: 600;
-  color: #000000;
+  color: var(--text, #EDEDF0);
   letter-spacing: -0.03em;
   white-space: nowrap;
   overflow: hidden;
@@ -491,7 +491,7 @@
   letter-spacing: -0.05em;
   line-height: 1.2;
   text-transform: none;
-  color: #000000;
+  color: var(--text, #EDEDF0);
 }
 
 .case-study-page .quote-block {
@@ -515,7 +515,7 @@
 .case-study-page .lesson-item {
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 6px;
-  background: #ffffff;
+  background: var(--surface, #16161C);
 }
 
 .case-study-page .divider {
@@ -570,7 +570,7 @@
 .case-study-page .screen-wrap {
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  background: #ffffff;
+  background: var(--surface, #16161C);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 

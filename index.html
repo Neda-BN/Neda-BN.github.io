@@ -13,54 +13,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Neda Bagheri, Product Designer in Stockholm. UX research, UI craft, design systems and AI-assisted builds for fintech, retail and healthcare.">
-<meta name="color-scheme" content="light">
+<meta name="color-scheme" content="dark">
 <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
 <title>Neda Bagheri · Product Designer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@400&family=Sora:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,600;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
-<link href="https://fonts.cdnfonts.com/css/lithium-typeface-lt" rel="stylesheet">
-<link rel="preload" href="fonts/destine/DestinePersonalUseRegular-6YAev.otf" as="font" type="font/otf" crossorigin>
-<link rel="stylesheet" href="fonts/destine.css">
-<link rel="stylesheet" href="css/site-shared.css?v=20260638">
+<link rel="stylesheet" href="css/site-shared.css?v=20260326">
+<link rel="stylesheet" href="css/home-v6.css?v=20260326">
 <script src="js/page-transition.js?v=20260633"></script>
+<script src="js/site-nav.js?v=20260326"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:          #f9f7f4;
-  --bg2:         #f0ede8;
-  --bg3:         #e8e3dc;
-  --ink:         #1a1814;
-  --ink2:        #6b6760;
-  --ink3:        #9e9b96;
-  --warm:        #3B82F6;
-  --line:        rgba(26,24,20,0.09);
-  --line2:       rgba(26,24,20,0.05);
-  --surface:     #FFFFFF;
-  --dark:        var(--ink);
-  --mid:         var(--ink2);
-  --light:       var(--ink3);
-  --accent:      var(--warm);
-  --accent-light:#F5EBE3;
-  --border:      #E8E4DC;
   --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-soft:   cubic-bezier(0.4, 0, 0.2, 1);
-  --sans:        'DM Sans', sans-serif;
-  --display:     'Sora', sans-serif;
 }
 
-html { color-scheme: light; overflow-x: clip; scroll-behavior: auto; }
+html { overflow-x: clip; scroll-behavior: auto; }
 html, body {
-  background: #ffffff;
-  color: var(--ink);
-  font-family: 'DM Sans', sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
 }
 body { font-size: 16px; line-height: 1.7; }
-body.hero-cursor-none { cursor: none; }
 .visually-hidden {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
@@ -70,64 +46,8 @@ img, video { max-width: 100%; height: auto; }
 a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
 .footer-strip a:focus-visible { outline-color: #fff; }
 
-/* ── ANNA-STYLE NAV (fixed pill menu) ── */
-.anna-nav {
-  position: fixed;
-  top: max(20px, env(safe-area-inset-top, 0px));
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 200;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  pointer-events: none;
-}
-.anna-nav__pill {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  padding: 4px;
-  border-radius: 8px;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  pointer-events: auto;
-}
-.anna-nav__pill a {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: -0.04em;
-  line-height: 1.4;
-  color: #fff;
-  text-decoration: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  transition: background 0.2s ease, opacity 0.2s ease;
-}
-.anna-nav__pill a:hover,
-.anna-nav__pill a:focus-visible {
-  background: rgba(255, 255, 255, 0.08);
-}
-.anna-nav__pill a[aria-current="page"] {
-  opacity: 1;
-}
-.anna-nav--light .anna-nav__pill {
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid var(--line);
-}
-.anna-nav--light .anna-nav__pill a {
-  color: var(--ink);
-}
-.anna-nav--light .anna-nav__pill a:hover,
-.anna-nav--light .anna-nav__pill a:focus-visible {
-  background: rgba(26, 24, 20, 0.06);
-}
-
 @media (prefers-reduced-motion: reduce) {
   .anna-nav__pill a { transition: none !important; }
-  .hero-anna__compose,
-  .hero-anna__footer { transform: none !important; opacity: 1 !important; }
   .works-anna__media img { transition: none !important; }
   .works-anna__card:hover .works-anna__media img,
   .works-anna__card:focus-visible .works-anna__media img { transform: none; }
@@ -139,328 +59,9 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
   .reveal, .reveal.is-visible { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
 
-/* ── CUSTOM CURSOR ── */
-#dot {
-  position: fixed; z-index: 9999; pointer-events: none;
-  width: 8px; height: 8px; border-radius: 50%; background: var(--warm);
-  transform: translate(-50%, -50%);
-}
-#ring {
-  position: fixed; z-index: 9998; pointer-events: none;
-  width: 36px; height: 36px; border-radius: 50%;
-  border: 1.5px solid rgba(59, 130, 246,0.3);
-  transform: translate(-50%, -50%);
-  transition: width 0.35s, height 0.35s, border-color 0.3s;
-}
-body.lh #dot { transform: translate(-50%, -50%) scale(2); opacity: 0.5; }
-body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5); }
-
-/* ── ANNA DESKTOP HERO (white frame + black card, GSAP timeline) ── */
-.hero-anna {
-  position: relative;
-  width: 100%;
-  max-width: 100vw;
-  height: 100vh;
-  height: 100dvh;
-  box-sizing: border-box;
-  padding: 16px;
-  background: #ffffff;
-  overflow: hidden;
-  --hero-gray: #3a3a3a;
-  --hero-ease: cubic-bezier(0.16, 1, 0.3, 1);
-}
-.hero-anna__card {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 16px;
-  overflow: hidden;
-  background: #000000;
-}
-.hero-anna__compose {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  padding: 72px 48px 40px;
-  transform: scale(0.5);
-  transform-origin: 50% 50%;
-  will-change: transform, opacity;
-}
-.hero-anna__stage {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: 0;
-  pointer-events: none;
-}
-.hero-anna__cluster {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: min(680px, 92vw);
-  margin: 0 auto;
-  text-align: center;
-  gap: clamp(14px, 2.2vw, 22px);
-  pointer-events: auto;
-}
-.hero-anna__eyebrow {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(12px, 1.1vw, 14px);
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
-  text-align: center;
-}
-.hero-anna__headline-wrap {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.hero-anna__lead {
-  width: 100%;
-  max-width: 36em;
-  margin: 0;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(18px, 2.4vw, 26px);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1.25;
-  color: #ffffff;
-  text-align: center;
-  text-wrap: balance;
-}
-.hero-anna__headline {
-  position: relative;
-  display: inline-block;
-  margin: 0;
-  font-family: var(--page-title);
-  font-weight: 400;
-  font-size: clamp(88px, 12.8vw, 208px);
-  line-height: 0.92;
-  letter-spacing: -0.02em;
-  white-space: nowrap;
-  text-align: center;
-  overflow: visible;
-  padding-bottom: 0.06em;
-}
-.hero-anna__headline-base,
-.hero-anna__headline-lit {
-  display: block;
-  overflow: visible;
-}
-.hero-anna__name-line {
-  display: inline;
-}
-@media (min-width: 810px) {
-  .hero-anna__name-line + .hero-anna__name-line::before {
-    content: '\00a0';
-  }
-  .hero-anna__cluster {
-    max-width: min(960px, 94vw);
-  }
-}
-.hero-anna__headline-base {
-  color: var(--hero-gray);
-}
-.hero-anna__headline-lit {
-  position: absolute;
-  inset: 0;
-  color: #fff;
-  clip-path: inset(0 100% 0 0);
-  will-change: clip-path;
-}
-.hero-anna__footer {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(14px, 2vw, 20px);
-  width: 100%;
-  flex-shrink: 0;
-  opacity: 0;
-  will-change: opacity;
-}
-.hero-anna__tagline {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(15px, 1.5vw, 18px);
-  font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 1.45;
-  color: rgba(255, 255, 255, 0.78);
-  margin: 0;
-  text-align: center;
-  text-wrap: balance;
-}
-.hero-anna__tags {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px 16px;
-  text-align: center;
-}
-.hero-anna__tags li {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(14px, 1.4vw, 18px);
-  font-weight: 400;
-  letter-spacing: -0.04em;
-  line-height: 1.2;
-  color: #3B82F6;
-}
-.hero-anna__actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 12px 20px;
-  width: 100%;
-  margin: 0;
-}
-.hero-anna__cta {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  text-decoration: none;
-  border-radius: 999px;
-  transition: transform 0.25s ease, opacity 0.25s ease, background 0.2s ease;
-}
-.hero-anna__cta--primary {
-  background: #ffffff;
-  color: #000000;
-  padding: 14px 32px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-}
-.hero-anna__cta--primary:hover {
-  transform: translateY(-1px);
-  opacity: 0.92;
-}
-.hero-anna__cta--secondary {
-  color: rgba(255, 255, 255, 0.92);
-  padding: 8px 4px;
-  border-radius: 4px;
-  font-weight: 400;
-}
-.hero-anna__cta--secondary:hover {
-  color: #3B82F6;
-}
-.hero-anna__cta:focus-visible {
-  outline: 2px solid #3B82F6;
-  outline-offset: 3px;
-}
-
-.hero-anna--intro-done .hero-anna__compose {
-  transform: none;
-  opacity: 1;
-}
-.hero-anna--intro-done .hero-anna__footer {
-  opacity: 1;
-}
-.hero-anna--intro-done .hero-anna__headline-base {
-  color: #fff;
-  opacity: 1;
-}
-.hero-anna--intro-done .hero-anna__headline-lit {
-  opacity: 0;
-  visibility: hidden;
-  clip-path: none;
-  will-change: auto;
-}
-
-.anna-nav {
-  opacity: 0;
-}
-
-.anna-nav--intro-visible {
-  opacity: 1;
-}
-
-@media (max-width: 809.98px) {
-  .hero-anna {
-    padding: 12px;
-  }
-  .hero-anna__card {
-    border-radius: 12px;
-  }
-  .hero-anna__compose {
-    padding: 88px 20px 28px;
-  }
-  .hero-anna__headline {
-    white-space: normal;
-    text-align: center;
-  }
-  .hero-anna__headline-base,
-  .hero-anna__headline-lit {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .hero-anna__name-line {
-    display: block;
-  }
-  .hero-anna__cluster {
-    max-width: min(520px, 94vw);
-    gap: clamp(12px, 3vw, 18px);
-  }
-  .hero-anna__lead {
-    font-size: clamp(17px, 4.5vw, 22px);
-  }
-  .hero-anna__tagline {
-    font-size: clamp(14px, 3.6vw, 16px);
-    line-height: 1.4;
-  }
-  .hero-anna__tags li {
-    font-size: clamp(13px, 3.2vw, 15px);
-  }
-  .hero-anna__compose {
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-anna__compose {
-    padding: 76px 16px 24px;
-  }
-  .hero-anna__tagline {
-    font-size: 14px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-anna__headline-lit { clip-path: none !important; }
-  .hero-anna__compose,
-  .hero-anna--intro-done .hero-anna__compose { transform: none !important; opacity: 1 !important; }
-  .hero-anna__footer,
-  .hero-anna--intro-done .hero-anna__footer { opacity: 1 !important; }
-  .anna-nav,
-  .anna-nav--intro-visible { opacity: 1 !important; }
-}
-
-@keyframes heroUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
-@keyframes heroFade { from { opacity: 0; } to { opacity: 1; } }
-@keyframes wordUp { from { opacity: 0; transform: translateY(60px); } to { opacity: 1; transform: translateY(0); } }
-  #hero { scroll-margin-top: 0; }
-  #projects { scroll-margin-top: 48px; }
-  #contact { scroll-margin-top: 48px; }
-
   /* ── PROOF STRIP ── */
   .proof-strip {
-    background: #ffffff;
+    background: var(--bg);
     padding: clamp(32px, 5vw, 56px) 24px;
     border-bottom: 1px solid var(--line);
   }
@@ -528,7 +129,7 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
 
   /* ── ANNA-STYLE SELECTED PROJECTS ── */
   .page-works {
-    background: #ffffff;
+    background: var(--bg);
     padding-bottom: clamp(48px, 8vw, 80px);
   }
   .works-anna {
@@ -552,7 +153,7 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
     font-weight: 400;
     line-height: 1.1;
     letter-spacing: -0.003em;
-    color: #000000;
+    color: var(--text);
     margin: 0 0 10px;
   }
   .works-anna__intro {
@@ -664,11 +265,11 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
     font-weight: 400;
     line-height: 1.2;
     letter-spacing: -0.04em;
-    color: #000000;
+    color: var(--text);
     padding: 4px 12px;
     border-radius: 20px;
     border: 1px solid rgba(0, 0, 0, 0.12);
-    background: #ffffff;
+    background: var(--bg);
     white-space: nowrap;
     transition: border-color 0.25s ease, background-color 0.25s ease;
   }
@@ -714,7 +315,7 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
     font-family: var(--page-title);
     font-size: clamp(40px, 4.2vw, 60px);
     font-weight: 400;
-    color: #000000;
+    color: var(--text);
     letter-spacing: -0.003em;
     line-height: 1.1;
     margin: 0;
@@ -863,7 +464,7 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
 </style>
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 </head>
-<body class="hero-cursor-none">
+<body>
 <script>
 (function () {
   var KEY = 'nb_portfolio_scroll_y';
@@ -1069,13 +670,10 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
     var strip = document.querySelector('a.strip[href="#projects"]');
     if (strip) bindSmoothScrollLink(strip);
 
-    document.querySelectorAll('.hero-anna__cta[href*="#"]').forEach(bindSmoothScrollLink);
+    document.querySelectorAll('.hero-v6__btn[href*="#"]').forEach(bindSmoothScrollLink);
   });
 })();
 </script>
-
-<div id="dot" aria-hidden="true"></div>
-<div id="ring" aria-hidden="true"></div>
 
 <header class="anna-nav" id="site-nav" aria-label="Primary">
   <div class="anna-nav__pill">
@@ -1088,34 +686,53 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
   </div>
 </header>
 
-<section class="hero-anna" id="hero" aria-label="Introduction">
-  <div class="hero-anna__card" id="hero-card">
-    <div class="hero-anna__compose" id="hero-compose">
-      <div class="hero-anna__stage">
-        <div class="hero-anna__cluster">
-          <p class="hero-anna__eyebrow">Product Designer · UX/UI · Stockholm</p>
-          <div class="hero-anna__headline-wrap">
-            <h1 class="hero-anna__headline" id="hero-headline">
-              <span class="hero-anna__headline-base"><span class="hero-anna__name-line">Neda</span><span class="hero-anna__name-line">Bagheri</span></span>
-              <span class="hero-anna__headline-lit" id="hero-headline-lit" aria-hidden="true"><span class="hero-anna__name-line">Neda</span><span class="hero-anna__name-line">Bagheri</span></span>
-            </h1>
-          </div>
-          <div class="hero-anna__footer" id="hero-footer">
-            <p class="hero-anna__lead">I find the real problem, design the fix, and ship it.</p>
-            <p class="hero-anna__tagline">10+ years in design, 5+ in product. From user interviews to polished UI to production code with Claude Code.</p>
-            <ul class="hero-anna__tags" aria-label="Focus areas">
-              <li>Mobile apps</li>
-              <li>Web products</li>
-              <li>B2B &amp; B2C SaaS</li>
-              <li>Design systems</li>
-            </ul>
-            <div class="hero-anna__actions">
-              <a class="hero-anna__cta hero-anna__cta--primary" href="index.html#contact">Contact</a>
-              <a class="hero-anna__cta hero-anna__cta--secondary" href="index.html#projects">See my work ↓</a>
-            </div>
-          </div>
-        </div>
+<section class="hero-v6" id="hero" aria-label="Introduction">
+  <div class="hero-v6__glow" aria-hidden="true"></div>
+  <div class="hero-v6__inner">
+    <div class="hero-v6__photo-col">
+      <div class="hero-v6__photo-wrap">
+        <div class="hero-v6__ring" aria-hidden="true"></div>
+        <img class="hero-v6__photo" src="Neda-Bagheri.png?v=20260923" alt="Neda Bagheri" width="1024" height="1024" decoding="async">
       </div>
+    </div>
+    <div class="hero-v6__text-col">
+      <p class="hero-v6__eyebrow">
+        <span class="visually-hidden">Product Designer, UX Researcher, UI Designer and front-end builder in Stockholm</span>
+        <span aria-hidden="true"><span class="hero-v6__role-word">Product Designer</span><span class="hero-v6__eyebrow-fixed"> · Stockholm</span></span>
+      </p>
+      <h1 class="hero-v6__name">
+        <span class="visually-hidden">Neda Bagheri</span>
+        <span class="hero-v6__name-chars" aria-hidden="true"></span>
+      </h1>
+      <p class="hero-v6__slogan">From the first user interview to the <em>last line of code</em>.</p>
+      <p class="hero-v6__support">10+ years in design and 5+ in product, across fintech, retail and healthcare. I research, design and ship — often in code.</p>
+      <div class="hero-v6__actions">
+        <a class="hero-v6__btn hero-v6__btn--primary" href="index.html#projects">See my work</a>
+        <a class="hero-v6__btn hero-v6__btn--secondary" href="index.html#contact">Let's talk</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="name-strip" aria-label="Experience highlights">
+  <div class="name-strip__viewport">
+    <div class="name-strip__track">
+      <ul class="name-strip__list">
+        <li>Cyberdesign<span class="name-strip__dot" aria-hidden="true">·</span></li>
+        <li>Focalpay<span class="name-strip__dot" aria-hidden="true">·</span></li>
+        <li>Simple Booking<span class="name-strip__dot" aria-hidden="true">·</span></li>
+        <li>30+ Swedish municipalities<span class="name-strip__dot" aria-hidden="true">·</span></li>
+        <li>Raykasoft<span class="name-strip__dot" aria-hidden="true">·</span></li>
+        <li>mHealth Shiraz Congress</li>
+      </ul>
+      <ul class="name-strip__list" aria-hidden="true">
+        <li>Cyberdesign<span class="name-strip__dot" aria-hidden="true">·</span></li>
+        <li>Focalpay<span class="name-strip__dot" aria-hidden="true">·</span></li>
+        <li>Simple Booking<span class="name-strip__dot" aria-hidden="true">·</span></li>
+        <li>30+ Swedish municipalities<span class="name-strip__dot" aria-hidden="true">·</span></li>
+        <li>Raykasoft<span class="name-strip__dot" aria-hidden="true">·</span></li>
+        <li>mHealth Shiraz Congress</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -1387,178 +1004,8 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
   </ul>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+<script src="js/hero-v6.js?v=20260326"></script>
 <script>
-(function () {
-  const dot = document.getElementById('dot');
-  const ring = document.getElementById('ring');
-  let mx = window.innerWidth / 2, my = window.innerHeight / 2, rx = mx, ry = my;
-  dot.style.left = mx + 'px';
-  dot.style.top = my + 'px';
-  ring.style.left = rx + 'px';
-  ring.style.top = ry + 'px';
-
-  document.addEventListener('mousemove', function (e) {
-    mx = e.clientX;
-    my = e.clientY;
-    dot.style.left = mx + 'px';
-    dot.style.top = my + 'px';
-  });
-  (function ar() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px';
-    ring.style.top = ry + 'px';
-    requestAnimationFrame(ar);
-  })();
-  document.querySelectorAll('a, button').forEach(function (el) {
-    el.addEventListener('mouseenter', function () { document.body.classList.add('lh'); });
-    el.addEventListener('mouseleave', function () { document.body.classList.remove('lh'); });
-  });
-
-  (function heroAnnaTimeline() {
-    var hero = document.getElementById('hero');
-    var card = document.getElementById('hero-card');
-    var compose = document.getElementById('hero-compose');
-    var headline = document.getElementById('hero-headline');
-    var headlineLit = document.getElementById('hero-headline-lit');
-    var footer = document.getElementById('hero-footer');
-    var cluster = document.querySelector('.hero-anna__cluster');
-    var nav = document.getElementById('site-nav');
-    if (!hero || !compose || !headline || !headlineLit || !footer || typeof gsap === 'undefined') return;
-
-    var reduce = false;
-    try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
-
-    var introDone = false;
-    var PREMIUM = 'power3.out';
-
-    if (typeof CustomEase !== 'undefined') {
-      try {
-        CustomEase.create('heroPremium', 'M0,0 C0.16,1 0.3,1 1,1');
-        PREMIUM = 'heroPremium';
-      } catch (err) {}
-    }
-
-    function isMobileHeadline() {
-      try { return window.matchMedia('(max-width: 809.98px)').matches; } catch (e) { return window.innerWidth <= 810; }
-    }
-
-    function fitHeadline() {
-      headline.style.fontSize = '';
-      var innerW = card ? card.clientWidth : window.innerWidth;
-      var cap = innerW * 0.94;
-      var mobile = isMobileHeadline();
-      var target = mobile
-        ? Math.min(128, Math.max(64, innerW * 0.22))
-        : Math.min(208, Math.max(72, innerW * 0.128));
-      var lo = mobile ? 48 : 56;
-      var hi = target;
-      var best = lo;
-      var i;
-      var mid;
-      for (i = 0; i < 28; i++) {
-        mid = (lo + hi) / 2;
-        headline.style.fontSize = mid + 'px';
-        if (headline.scrollWidth <= cap) {
-          best = mid;
-          lo = mid;
-        } else {
-          hi = mid;
-        }
-      }
-      headline.style.fontSize = Math.floor(best) + 'px';
-      if (cluster) cluster.style.width = '';
-    }
-
-    function settleHeadlineAfterWipe() {
-      var base = headline.querySelector('.hero-anna__headline-base');
-      /* Single in-flow white layer for scale-up — absolute lit + clip-path glitches under transform. */
-      gsap.set(headlineLit, { clipPath: 'none', opacity: 0, visibility: 'hidden' });
-      if (base) gsap.set(base, { color: '#ffffff', opacity: 1 });
-    }
-
-    function finishIntro() {
-      introDone = true;
-      hero.classList.add('hero-anna--intro-done');
-      /* Keep final values — never clearProps on compose/footer (CSS defaults are scale 0.5 / opacity 0). */
-      gsap.set(compose, { scale: 1, y: 0, opacity: 1 });
-      gsap.set(footer, { opacity: 1 });
-      settleHeadlineAfterWipe();
-      if (nav) {
-        gsap.set(nav, { opacity: 1 });
-        nav.classList.add('anna-nav--intro-visible');
-      }
-      updateNav();
-    }
-
-    function runIntro() {
-      fitHeadline();
-      gsap.set(compose, { scale: 0.5, transformOrigin: '50% 50%', force3D: true });
-      gsap.set(footer, { opacity: 0 });
-      gsap.set(headlineLit, { clipPath: 'inset(0% 100% 0% 0)' });
-      if (nav) gsap.set(nav, { opacity: 0 });
-
-      var tl = gsap.timeline({
-        defaults: { ease: 'none' },
-        onComplete: finishIntro
-      });
-
-      /* Phase 1 — wipe: left-to-right gray → white on the name */
-      tl.to(headlineLit, {
-        clipPath: 'inset(0% 0% 0% 0)',
-        duration: 1,
-        ease: 'power2.inOut'
-      }, 0);
-
-      tl.call(settleHeadlineAfterWipe, null, 1);
-
-      /* Phase 2 — scale-up overlaps the last ~0.15s of the wipe (no 1s gap) */
-      tl.to(compose, {
-        scale: 1,
-        duration: 1.15,
-        ease: PREMIUM
-      }, '-=0.15');
-
-      tl.to(footer, {
-        opacity: 1,
-        duration: 0.85,
-        ease: 'power2.out'
-      }, '<');
-
-      tl.to(nav, {
-        opacity: 1,
-        duration: 0.5,
-        ease: 'power2.out'
-      }, '<');
-    }
-
-    function updateNav() {
-      if (!nav || !introDone) return;
-      nav.classList.toggle('anna-nav--light', hero.getBoundingClientRect().bottom < 72);
-    }
-
-    window.addEventListener('scroll', updateNav, { passive: true });
-    window.addEventListener('resize', function () {
-      fitHeadline();
-      updateNav();
-    }, { passive: true });
-
-    if (reduce) {
-      finishIntro();
-      fitHeadline();
-      return;
-    }
-
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(runIntro);
-    } else {
-      runIntro();
-    }
-  })();
-})();
-
 /* ── UI DESIGN GALLERY ─────────────────────────────────────────────
    Reveal-on-scroll. Honours prefers-reduced-motion.
 ─────────────────────────────────────────────────────────────────── */
