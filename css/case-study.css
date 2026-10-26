@@ -2066,3 +2066,81 @@ body.case-study-page.about-page .about-photo .hero-v6__photo {
   }
 }
 
+/* About intro — two-column header (overrides photo margins / sizes above) */
+body.case-study-page.about-page main.content.case-main > .about-intro {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 32px;
+  align-items: start;
+  margin: 0 0 64px;
+  padding: 0;
+}
+
+body.case-study-page.about-page .about-intro .about-photo.hero-v6__photo-wrap {
+  margin: 0;
+  width: fit-content;
+  max-width: none;
+}
+
+body.case-study-page.about-page .about-intro .about-photo .hero-v6__photo {
+  width: 160px;
+  height: 160px;
+}
+
+body.case-study-page.about-page .about-intro .about-photo.hero-v6__photo-wrap {
+  padding: calc(2px * 160 / 128);
+}
+
+body.case-study-page.about-page .about-intro__copy {
+  min-width: 0;
+}
+
+body.case-study-page.about-page .about-intro h1 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+body.case-study-page.about-page .about-intro h1 em {
+  font-style: normal;
+  color: inherit;
+}
+
+body.case-study-page.about-page .about-intro .hero-subtitle {
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+@media (min-width: 900px) {
+  body.case-study-page.about-page main.content.case-main > .about-intro {
+    grid-template-columns: auto 1fr;
+    column-gap: 56px;
+    row-gap: 0;
+    align-items: center;
+  }
+
+  body.case-study-page.about-page .about-intro .about-photo .hero-v6__photo {
+    width: 240px;
+    height: 240px;
+  }
+
+  body.case-study-page.about-page .about-intro .about-photo.hero-v6__photo-wrap {
+    padding: calc(2px * 240 / 128);
+  }
+}
+
+body.case-study-page.about-page main.content.case-main > .about-intro + .section {
+  margin-top: 0;
+}
+
+body.case-study-page.about-page main.content.case-main > .about-intro + .section > :first-child {
+  margin-top: 0;
+}
