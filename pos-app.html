@@ -7,37 +7,23 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link href="https://fonts.cdnfonts.com/css/lithium-typeface-lt" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=20260401">
 <link rel="stylesheet" href="fonts/destine.css">
-<link rel="stylesheet" href="css/site-shared.css?v=20260638">
+<link rel="stylesheet" href="css/site-shared.css?v=20260326">
 <script src="js/page-transition.js?v=20260633"></script>
 <script src="js/site-nav.js?v=20260326"></script>
-<link rel="stylesheet" href="fonts/sora.css">
-<link href="https://fonts.googleapis.com/css2?family=Sora:ital,wght@1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 <title>Cashier POS &amp; Payment Application · Neda Bagheri</title>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #ffffff;
-    --surface: #FFFFFF;
-    --dark: #1A1A1A;
-    --mid: #555555;
-    --light: #999999;
-    --accent: #3B82F6;
-    --accent-light: #F5EBE3;
-    --border: #E8E4DC;
-    --display: 'Sora', sans-serif; --serif: var(--display);
-    --sans: 'Open Sans', sans-serif;
     --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
     --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
-    --shadow-cv: 0 6px 20px rgba(26, 26, 26, 0.18);
-    --shadow-cv-hover: 0 16px 36px rgba(26, 26, 26, 0.22), 0 6px 16px rgba(59, 130, 246, 0.12);
+    --shadow-cv: 0 6px 20px rgba(0, 0, 0, 0.35);
+    --shadow-cv-hover: 0 16px 36px rgba(0, 0, 0, 0.4), 0 6px 16px rgba(138, 164, 214, 0.12);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { color-scheme: light; overflow-x: clip; }
-  body { font-family: var(--sans); background: #ffffff; color: var(--dark); font-size: 16px; line-height: 1.7; overflow-x: hidden; position: relative; }
+  html { color-scheme: dark; overflow-x: clip; }
+  body { font-family: var(--font-body); background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.7; overflow-x: hidden; position: relative; }
 img, video { max-width: 100%; height: auto; }
 a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
@@ -925,12 +911,13 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     .proto-poster-t { font-size: 1.1rem; }
   }
 </style>
-<link rel="stylesheet" href="css/case-study.css?v=20260638">
+<link rel="stylesheet" href="css/case-study.css?v=20260401">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
+<link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
 </head>
 <body class="has-anna-nav case-study-page">
 
-<header class="anna-nav anna-nav--intro-visible anna-nav--light" id="site-nav" aria-label="Primary">
+<header class="anna-nav anna-nav--intro-visible" id="site-nav" aria-label="Primary">
   <div class="anna-nav__pill">
     <a href="index.html#hero">Home</a>
     <a href="index.html#projects" aria-current="page">Work</a>
@@ -1700,34 +1687,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   </ul>
 </footer>
 
+<script src="js/case-study-page-reveal.js?v=20260402"></script>
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('is-visible');
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
-  document.querySelectorAll('.reveal, .reveal-media').forEach(el => revealObserver.observe(el));
-
-  document.querySelectorAll('.proto-poster').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const frame = btn.closest('.proto-frame');
-      const src = btn.getAttribute('data-embed');
-      if (!frame || !src) return;
-      const iframe = document.createElement('iframe');
-      iframe.src = src;
-      iframe.title = btn.getAttribute('data-title') || 'Figma interactive prototype';
-      iframe.setAttribute('allow', 'fullscreen');
-      iframe.setAttribute('allowfullscreen', '');
-      iframe.loading = 'lazy';
-      frame.appendChild(iframe);
-      btn.remove();
-    });
-  });
 
   (function heroScrollLoop() {
     const video = document.getElementById('hero-interaction-video');

@@ -1,0 +1,520 @@
+/* V6 dark case-study restyle — healthcare, POS, mobile, backoffice (not Simple Booking) */
+
+body.case-study-page {
+  --cs-positive: #7fc8a9;
+  --cs-negative: #e08a8a;
+  --cs-warning: #e3c07a;
+  --cs-text-max: 720px;
+  --bg: #0b0c10;
+  --surface: #16161c;
+  --surface-2: #1e1e26;
+  --text: #ededf0;
+  --muted: #9a9aa5;
+  --border: rgba(255, 255, 255, 0.08);
+  --accent: #8aa4d6;
+  --accent-soft: rgba(138, 164, 214, 0.14);
+  --accent-light: var(--accent-soft);
+  --dark: var(--text);
+  --mid: var(--muted);
+  --light: var(--muted);
+  --display: var(--font-display);
+  --serif: var(--font-display);
+  --sans: var(--font-body);
+  --page-title: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.7;
+  letter-spacing: 0;
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+html:has(body.case-study-page) {
+  color-scheme: dark;
+}
+
+/* ── Typography (aligned with Simple Booking V6) ── */
+body.case-study-page .hero-tag {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  margin-bottom: 20px;
+}
+
+body.case-study-page .hero h1 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+body.case-study-page .hero-subtitle,
+body.case-study-page .section-subtitle {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: var(--text);
+  font-style: normal;
+  max-width: var(--cs-text-max);
+}
+
+body.case-study-page .section-chapter {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+body.case-study-page .section-headings .section-subtitle {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+body.case-study-page .meta-strip {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+body.case-study-page .meta-item {
+  border-right-color: var(--border);
+}
+
+body.case-study-page .meta-label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+body.case-study-page .meta-value {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text);
+}
+
+body.case-study-page .content p,
+body.case-study-page .section > p,
+body.case-study-page .hero-subtitle,
+body.case-study-page .role-list li,
+body.case-study-page .pain-card p,
+body.case-study-page .finding-text,
+body.case-study-page .step-content p,
+body.case-study-page .lesson-text p {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0;
+  color: var(--muted);
+}
+
+body.case-study-page p strong,
+body.case-study-page .content p strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+body.case-study-page .section-icon {
+  border-color: var(--border);
+  background: var(--surface);
+  color: var(--muted);
+}
+
+body.case-study-page .case-study-page .hero-subtitle,
+body.case-study-page .case-study-page .section-headings .section-subtitle {
+  color: var(--text);
+}
+
+/* case-study.css light-theme rgba overrides */
+body.case-study-page .hero-subtitle,
+body.case-study-page .section-headings .section-subtitle {
+  color: var(--text);
+}
+
+body.case-study-page .content p:not(.screen-caption):not(.image-caption),
+body.case-study-page .role-list li,
+body.case-study-page .pain-card p,
+body.case-study-page .finding-text,
+body.case-study-page .lesson-text p,
+body.case-study-page .quote-block p {
+  color: var(--muted);
+}
+
+body.case-study-page .meta-label {
+  color: var(--muted);
+}
+
+body.case-study-page .meta-strip,
+body.case-study-page .meta-item {
+  border-color: var(--border);
+}
+
+body.case-study-page .section-icon {
+  border-color: var(--border);
+}
+
+body.case-study-page .case-inline-subsection,
+body.case-study-page .role-block,
+body.case-study-page .pain-card,
+body.case-study-page .finding-item,
+body.case-study-page .lesson-item {
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+body.case-study-page .case-inline-subsection {
+  background: var(--surface);
+}
+
+body.case-study-page .quote-block {
+  border-left-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+body.case-study-page .quote-block p {
+  color: var(--text);
+}
+
+body.case-study-page .quote-block cite {
+  color: var(--muted);
+}
+
+body.case-study-page .case-study-figure > figcaption,
+body.case-study-page .ds-sheet-figure > figcaption {
+  color: var(--muted);
+}
+
+body.case-study-page .screen-caption,
+body.case-study-page .image-caption {
+  color: var(--muted);
+}
+
+body.case-study-page h3.bo-subchapter,
+body.case-study-page h3.screens-label,
+body.case-study-page h3.pos-aff-heading,
+body.case-study-page h3.hc-persona-subsection-title {
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+/* Tables */
+body.case-study-page .data-table {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+body.case-study-page .data-table th {
+  background: var(--surface-2);
+  color: var(--muted);
+}
+
+body.case-study-page .data-table td {
+  color: var(--muted);
+  border-bottom-color: var(--border);
+}
+
+body.case-study-page .data-table tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+body.case-study-page .data-table td strong {
+  color: var(--text);
+}
+
+/* TLDR / insight boxes */
+body.case-study-page .hc-tldr,
+body.case-study-page .bo-tldr,
+body.case-study-page .mob-tldr,
+body.case-study-page .pos-tldr {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--muted);
+}
+
+body.case-study-page .hc-tldr strong,
+body.case-study-page .bo-tldr strong,
+body.case-study-page .mob-tldr strong,
+body.case-study-page .pos-tldr strong {
+  color: var(--text);
+}
+
+/* Persona panels */
+body.case-study-page .hc-persona-panel {
+  background: var(--surface);
+  border-color: var(--border);
+  box-shadow: none;
+}
+
+body.case-study-page .hc-persona-panel__kicker,
+body.case-study-page .hc-persona-quote {
+  color: var(--text);
+}
+
+body.case-study-page .hc-persona-table {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+body.case-study-page .hc-persona-table th[scope='row'] {
+  background: var(--surface-2);
+  color: var(--muted);
+  border-color: var(--border);
+}
+
+body.case-study-page .hc-persona-table td {
+  color: var(--muted);
+  border-color: var(--border);
+}
+
+body.case-study-page .hc-persona-table tr:nth-child(even) th {
+  background: var(--surface-2);
+}
+
+body.case-study-page .hc-persona-table tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+body.case-study-page .mob-persona,
+body.case-study-page .persona-block {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+/* User journey — POS */
+body.case-study-page .pos-ujm {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+}
+
+body.case-study-page .pos-ujm-title {
+  color: var(--text);
+}
+
+body.case-study-page .pos-ujm-subtitle,
+body.case-study-page .pos-ujm-legend-item,
+body.case-study-page .pos-ujm-y-label {
+  color: var(--muted);
+}
+
+body.case-study-page .pos-ujm-persona-pill {
+  background: var(--accent-soft);
+  border-color: var(--border);
+}
+
+body.case-study-page .pos-ujm-persona-avatar {
+  background: var(--accent-strong, #6f8bc4);
+  color: var(--text);
+}
+
+body.case-study-page .pos-ujm-persona-name {
+  color: var(--text);
+}
+
+body.case-study-page .pos-ujm-persona-role {
+  color: var(--accent);
+}
+
+body.case-study-page .pos-ujm-y-emoji--happy {
+  border-color: var(--cs-positive);
+  background: rgba(127, 200, 169, 0.12);
+}
+
+body.case-study-page .pos-ujm-y-emoji--neutral {
+  border-color: var(--cs-warning);
+  background: rgba(227, 192, 122, 0.12);
+}
+
+body.case-study-page .pos-ujm-y-emoji--sad {
+  border-color: var(--cs-negative);
+  background: rgba(224, 138, 138, 0.12);
+}
+
+body.case-study-page .pos-ujm-label-box {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+body.case-study-page .pos-ujm-label-box strong {
+  color: var(--text);
+}
+
+/* User journey — Healthcare */
+body.case-study-page .hc-ujm {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+body.case-study-page .hc-ujm-page {
+  background: var(--surface);
+}
+
+body.case-study-page .hc-ujm-body {
+  background: var(--surface);
+  color: var(--muted);
+}
+
+body.case-study-page .hc-ujm-step-label {
+  color: var(--text);
+}
+
+/* Mobile journey table */
+body.case-study-page .mob-journey-wrap {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+body.case-study-page .mob-journey-name,
+body.case-study-page .mob-step-name {
+  color: var(--text);
+}
+
+body.case-study-page .mob-journey-desc,
+body.case-study-page .mob-journey-table td {
+  color: var(--muted);
+}
+
+body.case-study-page .mob-dot--g {
+  background: var(--cs-positive);
+}
+
+body.case-study-page .mob-dot--a {
+  background: var(--cs-warning);
+}
+
+body.case-study-page .mob-dot--r {
+  background: var(--cs-negative);
+}
+
+/* Prototype embed */
+body.case-study-page .proto-frame {
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+body.case-study-page .proto-poster {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+body.case-study-page .proto-poster:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+body.case-study-page .proto-poster-t {
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+body.case-study-page .proto-poster-h,
+body.case-study-page .proto-note {
+  color: var(--muted);
+}
+
+body.case-study-page .proto-link {
+  color: var(--accent);
+}
+
+/* Media frames */
+body.case-study-page .screen-wrap,
+body.case-study-page .hc-media-frame,
+body.case-study-page .hc-case-study-media {
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+body.case-study-page .screen-wrap img,
+body.case-study-page .hero-image img,
+body.case-study-page .case-study-figure img,
+body.case-study-page .ds-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: unset;
+}
+
+/* Scrollable journey / wide assets — keep full image visible */
+body.case-study-page .pos-ujm-chart-scroll img,
+body.case-study-page .hc-ujm-chart-scroll img,
+body.case-study-page .hc-ujm-chart-scroll-inner img,
+body.case-study-page .hc-discover-fullbleed img {
+  width: auto;
+  max-width: none;
+  height: auto;
+  object-fit: unset;
+  margin: 0;
+}
+
+body.case-study-page .pos-ujm-chart-scroll svg,
+body.case-study-page .hc-ujm-chart-scroll svg {
+  max-width: none;
+}
+
+/* Scroll reveal — protect interactive / media blocks (Simple Booking pattern) */
+body.case-study-page .reveal.reveal-media,
+body.case-study-page .hc-reveal-journey.reveal,
+body.case-study-page .hc-reveal-journey .reveal,
+body.case-study-page .pos-ujm-strip,
+body.case-study-page .pos-ujm-strip .reveal,
+body.case-study-page .hc-ujm-strip,
+body.case-study-page .mob-journey-wrap,
+body.case-study-page .proto-embed.reveal,
+body.case-study-page .proto-embed,
+body.case-study-page .pos-affinity-wrap,
+body.case-study-page .hero-video-wrap {
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+body.case-study-page .reveal:not(.reveal-media):not(.hc-reveal-journey) {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 800ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.case-study-page .reveal.is-visible:not(.reveal-media):not(.hc-reveal-journey) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.case-study-page .reveal,
+  body.case-study-page .reveal.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
