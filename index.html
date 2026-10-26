@@ -12,6 +12,7 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Neda Bagheri, Product Designer in Stockholm. UX research, UI craft, design systems and AI-assisted builds for fintech, retail and healthcare.">
 <meta name="color-scheme" content="light">
 <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
@@ -202,6 +203,31 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
   flex-direction: column;
   align-items: stretch;
   max-width: 100%;
+  pointer-events: auto;
+}
+.hero-anna__eyebrow {
+  align-self: center;
+  margin: 0 0 clamp(8px, 1.2vw, 14px);
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(12px, 1.1vw, 14px);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  text-align: center;
+}
+.hero-anna__lead {
+  align-self: center;
+  max-width: min(520px, 92vw);
+  margin: clamp(12px, 2vw, 20px) 0 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(18px, 2.4vw, 26px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  color: #ffffff;
+  text-align: center;
+  text-wrap: balance;
 }
 .hero-anna__headline {
   position: relative;
@@ -245,47 +271,84 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
   position: relative;
   z-index: 2;
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 32px;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(16px, 2.5vw, 24px);
   width: 100%;
+  max-width: min(640px, 100%);
   margin-top: clamp(10px, 1.6vw, 20px);
   flex-shrink: 0;
   opacity: 0;
   will-change: opacity;
 }
-.hero-anna__tagline-wrap {
-  flex: 1 1 auto;
-  min-width: 0;
-  max-width: min(440px, 52%);
-}
 .hero-anna__tagline {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 20px;
+  font-size: clamp(15px, 1.5vw, 18px);
   font-weight: 400;
-  letter-spacing: -0.04em;
-  line-height: 1.2;
-  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: -0.03em;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.78);
   margin: 0;
+  text-align: center;
+  text-wrap: balance;
 }
 .hero-anna__tags {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0;
-  flex-shrink: 0;
-  text-align: right;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 16px;
+  text-align: center;
 }
 .hero-anna__tags li {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 20px;
+  font-size: clamp(14px, 1.4vw, 18px);
   font-weight: 400;
   letter-spacing: -0.04em;
   line-height: 1.2;
   color: #3B82F6;
+}
+.hero-anna__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 20px;
+  margin-top: 4px;
+}
+.hero-anna__cta {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: transform 0.25s ease, opacity 0.25s ease, background 0.2s ease;
+}
+.hero-anna__cta--primary {
+  background: #ffffff;
+  color: #000000;
+  padding: 14px 32px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.hero-anna__cta--primary:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+.hero-anna__cta--secondary {
+  color: rgba(255, 255, 255, 0.92);
+  padding: 8px 4px;
+  border-radius: 4px;
+  font-weight: 400;
+}
+.hero-anna__cta--secondary:hover {
+  color: #3B82F6;
+}
+.hero-anna__cta:focus-visible {
+  outline: 2px solid #3B82F6;
+  outline-offset: 3px;
 }
 
 .hero-anna--intro-done .hero-anna__compose {
@@ -339,27 +402,21 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
     display: block;
   }
   .hero-anna__footer {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 20px;
     margin-top: clamp(12px, 3vw, 24px);
   }
-  .hero-anna__tagline-wrap {
-    max-width: 100%;
+  .hero-anna__lead {
+    font-size: clamp(17px, 4.5vw, 22px);
   }
   .hero-anna__tagline {
-    font-size: clamp(15px, 3.8vw, 18px);
-    line-height: 1.35;
-  }
-  .hero-anna__tags {
-    align-items: flex-start;
-    text-align: left;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 8px 16px;
+    font-size: clamp(14px, 3.6vw, 16px);
+    line-height: 1.4;
   }
   .hero-anna__tags li {
-    font-size: clamp(14px, 3.2vw, 16px);
+    font-size: clamp(13px, 3.2vw, 15px);
+  }
+  .hero-anna__compose {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }
 
@@ -388,6 +445,74 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
   #hero { scroll-margin-top: 0; }
   #projects { scroll-margin-top: 48px; }
   #contact { scroll-margin-top: 48px; }
+
+  /* ── PROOF STRIP ── */
+  .proof-strip {
+    background: #ffffff;
+    padding: clamp(32px, 5vw, 56px) 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  .proof-strip__list {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 1440px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(16px, 2.5vw, 28px);
+  }
+  .proof-strip__link {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    height: 100%;
+    padding: clamp(12px, 2vw, 18px);
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+    transition: background 0.2s ease;
+  }
+  .proof-strip__link:hover {
+    background: rgba(59, 130, 246, 0.06);
+  }
+  .proof-strip__link:focus-visible {
+    outline: 2px solid var(--warm);
+    outline-offset: 2px;
+  }
+  .proof-strip__item--static {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: clamp(12px, 2vw, 18px);
+  }
+  .proof-strip__num {
+    font-family: var(--page-title);
+    font-size: clamp(28px, 3.6vw, 40px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--warm);
+  }
+  .proof-strip__label {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(13px, 1.1vw, 15px);
+    font-weight: 400;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    color: var(--ink2);
+  }
+  @media (max-width: 1023.98px) {
+    .proof-strip__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 809.98px) {
+    .proof-strip {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
 
   /* ── ANNA-STYLE SELECTED PROJECTS ── */
   .page-works {
@@ -418,6 +543,16 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
     color: #000000;
     margin: 0 0 10px;
   }
+  .works-anna__intro {
+    font-family: var(--sans, 'DM Sans', sans-serif);
+    font-size: clamp(14px, 1.2vw, 17px);
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+    color: var(--ink2);
+    margin: 0 0 clamp(24px, 3vw, 36px);
+    max-width: 36em;
+  }
   .works-anna__grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -433,7 +568,7 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
     outline: none;
   }
   .works-anna__card:focus-visible {
-    outline: 2px solid #000;
+    outline: 2px solid var(--warm);
     outline-offset: 4px;
   }
   .works-anna__media {
@@ -483,7 +618,25 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
     line-height: 1.45;
     letter-spacing: -0.01em;
     color: #6b7280;
-    margin: 8px 0 0;
+    margin: 0;
+  }
+  .works-anna__metric {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(13px, 1.15vw, 15px);
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    color: var(--warm);
+    margin: 4px 0 0;
+  }
+  .works-anna__meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    color: var(--ink3);
+    margin: 4px 0 0;
   }
   .works-anna__tags {
     display: flex;
@@ -903,6 +1056,8 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
 
     var strip = document.querySelector('a.strip[href="#projects"]');
     if (strip) bindSmoothScrollLink(strip);
+
+    document.querySelectorAll('.hero-anna__cta[href*="#"]').forEach(bindSmoothScrollLink);
   });
 })();
 </script>
@@ -926,20 +1081,24 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
     <div class="hero-anna__compose" id="hero-compose">
       <div class="hero-anna__stage">
         <div class="hero-anna__cluster">
+          <p class="hero-anna__eyebrow">Product Designer · UX/UI · Stockholm</p>
           <h1 class="hero-anna__headline" id="hero-headline">
             <span class="hero-anna__headline-base"><span class="hero-anna__name-line">Neda</span><span class="hero-anna__name-line">Bagheri</span></span>
             <span class="hero-anna__headline-lit" id="hero-headline-lit" aria-hidden="true"><span class="hero-anna__name-line">Neda</span><span class="hero-anna__name-line">Bagheri</span></span>
           </h1>
+          <p class="hero-anna__lead">I find the real problem, design the fix, and ship it.</p>
           <div class="hero-anna__footer" id="hero-footer">
-            <div class="hero-anna__tagline-wrap">
-              <p class="hero-anna__tagline">Product Designer . fintech, retail, and healthcare<br>I design digital products that work in the real world, not just on the screen.</p>
-            </div>
+            <p class="hero-anna__tagline">10+ years in design, 5+ in product. From user interviews to polished UI to production code with Claude Code.</p>
             <ul class="hero-anna__tags" aria-label="Focus areas">
-              <li>mobile apps</li>
-              <li>web products</li>
-              <li>B2B · B2C · SaaS</li>
-              <li>connected experiences</li>
+              <li>Mobile apps</li>
+              <li>Web products</li>
+              <li>B2B &amp; B2C SaaS</li>
+              <li>Design systems</li>
             </ul>
+            <div class="hero-anna__actions">
+              <a class="hero-anna__cta hero-anna__cta--primary" href="index.html#contact">Contact</a>
+              <a class="hero-anna__cta hero-anna__cta--secondary" href="index.html#projects">See my work ↓</a>
+            </div>
           </div>
         </div>
       </div>
@@ -947,29 +1106,39 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
   </div>
 </section>
 
+<section class="proof-strip" aria-label="Selected outcomes">
+  <ul class="proof-strip__list">
+    <li>
+      <a class="proof-strip__link" href="pos-app.html">
+        <strong class="proof-strip__num">−70%</strong>
+        <span class="proof-strip__label">fewer transaction errors</span>
+      </a>
+    </li>
+    <li>
+      <a class="proof-strip__link" href="mobile-app.html">
+        <strong class="proof-strip__num">+40%</strong>
+        <span class="proof-strip__label">checkout completion</span>
+      </a>
+    </li>
+    <li>
+      <a class="proof-strip__link" href="healthcare.html">
+        <strong class="proof-strip__num">2h → 15 min</strong>
+        <span class="proof-strip__label">to send a survey</span>
+      </a>
+    </li>
+    <li class="proof-strip__item--static">
+      <strong class="proof-strip__num">1</strong>
+      <span class="proof-strip__label">design system across 3 products</span>
+    </li>
+  </ul>
+</section>
+
 <div class="page-works" id="projects">
 
   <section class="works-anna" aria-labelledby="works-anna-heading">
-    <h2 class="works-anna__heading" id="works-anna-heading">Selected projects</h2>
+    <h2 class="works-anna__heading" id="works-anna-heading">Selected work</h2>
+    <p class="works-anna__intro">Five real products, from research to release.</p>
     <div class="works-anna__grid">
-
-      <a class="works-anna__card" href="healthcare.html" aria-label="Healthcare Provider Survey Application case study">
-        <div class="works-anna__media">
-          <img src="healthcare-provider-thumbnail.png?v=20260324" alt="Healthcare Provider Survey Application — dashboard on desktop and laptop with surveys, analytics, and municipality performance" width="1024" height="725" loading="lazy" decoding="async">
-        </div>
-        <div class="works-anna__content">
-          <h3 class="works-anna__name">Healthcare Provider Survey Application</h3>
-          <p class="works-anna__title">Replacing emails and spreadsheets with one survey platform. In testing, sending a survey went from about 2 hours to about 15 minutes.</p>
-          <ul class="works-anna__tags" aria-label="Project tags">
-            <li>HealthTech</li>
-            <li>Accessibility</li>
-            <li>Web product</li>
-            <li>B2B</li>
-            <li class="works-anna__tag--accent">AI-assisted build</li>
-            <li>2025–2026</li>
-          </ul>
-        </div>
-      </a>
 
       <a class="works-anna__card" href="simplebooking.html" aria-label="Simple Booking Accounting App case study">
         <div class="works-anna__media">
@@ -980,35 +1149,48 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
         </div>
         <div class="works-anna__content">
           <h3 class="works-anna__name">Simple Booking Accounting App</h3>
-          <p class="works-anna__title">Turning a developer-built accounting tool into a product anyone can use — from user research and Figma redesign to AI-assisted implementation with Claude Code.</p>
-          <ul class="works-anna__tags" aria-label="Project tags">
-            <li>FinTech</li>
-            <li>UX Research</li>
-            <li>Web product</li>
-            <li>B2B · SaaS</li>
+          <p class="works-anna__title">A developer-built accounting tool that non-accountants couldn't use. I ran the research, redesigned it, and built the new UI myself with Claude Code.</p>
+          <p class="works-anna__metric">6 core areas redesigned · ~50% of the app rebuilt</p>
+          <ul class="works-anna__tags" aria-label="Project skills">
+            <li>UX research</li>
+            <li>Design system</li>
             <li class="works-anna__tag--accent">AI-assisted build</li>
-            <li>Ongoing</li>
           </ul>
+          <p class="works-anna__meta">FinTech · Web · B2B SaaS · Ongoing</p>
         </div>
       </a>
-
-      <p class="works-anna__group-label">Focalpay retail platform</p>
 
       <a class="works-anna__card" href="pos-app.html" aria-label="Cashier POS and Payment App case study">
         <div class="works-anna__media">
           <img src="pos-app-thumbnail.png" alt="Focalpay Cashier POS and payment app — mobile screens for cart, product list, discount, receipt, QR, refunds, and reports" width="1024" height="767" loading="lazy" decoding="async">
         </div>
         <div class="works-anna__content">
-          <h3 class="works-anna__name">Cashier POS &amp; Payment Application</h3>
-          <p class="works-anna__title">Redesigning a high-frequency point-of-sale app to make every transaction faster and more intuitive for store staff under real-world pressure.</p>
-          <ul class="works-anna__tags" aria-label="Project tags">
-            <li>Retail Tech</li>
-            <li>Interaction Design</li>
-            <li>Mobile app</li>
-            <li>B2B · SaaS</li>
-            <li class="works-anna__tag--accent">Hardware-Connected</li>
-            <li>2024–2025</li>
+          <h3 class="works-anna__name">Cashier POS &amp; Payment App</h3>
+          <p class="works-anna__title">Cashiers had to stop and think at every step while customers waited. I rebuilt the flow around what really happens at checkout.</p>
+          <p class="works-anna__metric">−70% transaction errors · −30% task time</p>
+          <ul class="works-anna__tags" aria-label="Project skills">
+            <li>Interaction design</li>
+            <li>Visual hierarchy</li>
+            <li class="works-anna__tag--accent">Hardware-connected</li>
           </ul>
+          <p class="works-anna__meta">Retail Tech · Mobile · B2B · 2024–2025</p>
+        </div>
+      </a>
+
+      <a class="works-anna__card" href="healthcare.html" aria-label="Healthcare Provider Survey Platform case study">
+        <div class="works-anna__media">
+          <img src="healthcare-provider-thumbnail.png?v=20260324" alt="Healthcare Provider Survey Application — dashboard on desktop and laptop with surveys, analytics, and municipality performance" width="1024" height="725" loading="lazy" decoding="async">
+        </div>
+        <div class="works-anna__content">
+          <h3 class="works-anna__name">Healthcare Provider Survey Platform</h3>
+          <p class="works-anna__title">Care teams in 30+ Swedish municipalities ran surveys through email and spreadsheets. I replaced that with one accessible platform, from discovery to front-end code.</p>
+          <p class="works-anna__metric">Survey sending: ~2 hours → 15 minutes</p>
+          <ul class="works-anna__tags" aria-label="Project skills">
+            <li>Service design</li>
+            <li>WCAG accessibility</li>
+            <li class="works-anna__tag--accent">AI-assisted build</li>
+          </ul>
+          <p class="works-anna__meta">HealthTech · Web · B2B · 2025–2026</p>
         </div>
       </a>
 
@@ -1018,14 +1200,14 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
         </div>
         <div class="works-anna__content">
           <h3 class="works-anna__name">Mobile Customer Shopping App</h3>
-          <p class="works-anna__title">Letting shoppers scan and pay with their own phone. Testing in a real store led to optional sign-up and clearer scan feedback.</p>
-          <ul class="works-anna__tags" aria-label="Project tags">
-            <li>Retail Tech</li>
+          <p class="works-anna__title">Shoppers scan and pay with their own phone. Testing in a real store showed the app was too silent, so I rebuilt scan feedback with sound, haptics and visuals.</p>
+          <p class="works-anna__metric">+40% checkout completion</p>
+          <ul class="works-anna__tags" aria-label="Project skills">
             <li>Mobile UX</li>
-            <li>Mobile app</li>
-            <li>B2C</li>
-            <li>2023–2024</li>
+            <li>Micro-interactions</li>
+            <li>A/B testing</li>
           </ul>
+          <p class="works-anna__meta">Retail Tech · Mobile · B2C · 2023–2024</p>
         </div>
       </a>
 
@@ -1035,14 +1217,14 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
         </div>
         <div class="works-anna__content">
           <h3 class="works-anna__name">Focalpay Back-office Dashboard</h3>
-          <p class="works-anna__title">A back-office for retailers of every size, from a footwear brand to supermarket chains. Card sorting and real campaign data turned a 40-field form and manual pricing into a clear hierarchy and two campaign templates.</p>
-          <ul class="works-anna__tags" aria-label="Project tags">
-            <li>Retail Tech</li>
+          <p class="works-anna__title">A back-office for retailers from footwear brands to supermarket chains. Card sorting and real campaign data turned a 40-field form into two simple templates.</p>
+          <p class="works-anna__metric">7-step flow → 2 steps</p>
+          <ul class="works-anna__tags" aria-label="Project skills">
+            <li>Information architecture</li>
+            <li>Card sorting</li>
             <li>Product thinking</li>
-            <li>Web product</li>
-            <li>B2B SaaS</li>
-            <li>2023–2025</li>
           </ul>
+          <p class="works-anna__meta">Retail Tech · Web · B2B SaaS · 2023–2025</p>
         </div>
       </a>
 
