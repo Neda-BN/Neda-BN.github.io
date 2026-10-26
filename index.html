@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="css/site-shared.css?v=20260326">
-<link rel="stylesheet" href="css/home-v6.css?v=20260326">
+<link rel="stylesheet" href="css/home-v6.css?v=20260327">
 <script src="js/page-transition.js?v=20260633"></script>
 <script src="js/site-nav.js?v=20260326"></script>
 <style>
@@ -687,51 +687,48 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
 </header>
 
 <section class="hero-v6" id="hero" aria-label="Introduction">
-  <div class="hero-v6__glow" aria-hidden="true"></div>
+  <div class="hero-v6__bg-radial" aria-hidden="true"></div>
   <div class="hero-v6__inner">
-    <div class="hero-v6__photo-col">
-      <div class="hero-v6__photo-wrap">
-        <div class="hero-v6__ring" aria-hidden="true"></div>
-        <img class="hero-v6__photo" src="Neda-Bagheri.png?v=20260923" alt="Neda Bagheri" width="1024" height="1024" decoding="async">
-      </div>
+    <div class="hero-v6__photo-wrap hero-v6__reveal">
+      <img class="hero-v6__photo" src="Neda-Bagheri.png?v=20260923" alt="Neda Bagheri" width="1024" height="1024" decoding="async">
     </div>
-    <div class="hero-v6__text-col">
-      <p class="hero-v6__eyebrow">
-        <span class="visually-hidden">Product Designer, UX Researcher, UI Designer and front-end builder in Stockholm</span>
-        <span aria-hidden="true"><span class="hero-v6__role-word">Product Designer</span><span class="hero-v6__eyebrow-fixed"> · Stockholm</span></span>
-      </p>
-      <h1 class="hero-v6__name">
-        <span class="visually-hidden">Neda Bagheri</span>
-        <span class="hero-v6__name-chars" aria-hidden="true"></span>
-      </h1>
-      <p class="hero-v6__slogan">From the first user interview to the <em>last line of code</em>.</p>
-      <p class="hero-v6__support">10+ years in design and 5+ in product, across fintech, retail and healthcare. I research, design and ship — often in code.</p>
-      <div class="hero-v6__actions">
-        <a class="hero-v6__btn hero-v6__btn--primary" href="index.html#projects">See my work</a>
-        <a class="hero-v6__btn hero-v6__btn--secondary" href="index.html#contact">Let's talk</a>
-      </div>
+    <p class="hero-v6__eyebrow hero-v6__reveal">Product Designer · Stockholm</p>
+    <h1 class="hero-v6__name hero-v6__reveal"><span class="hero-v6__name-first">Neda</span><span class="hero-v6__name-break"> </span><span class="hero-v6__name-last">Bagheri</span></h1>
+    <p class="hero-v6__slogan hero-v6__reveal"><span class="hero-v6__slogan-a">From the first user interview</span><span class="hero-v6__slogan-b"> to the last line of code.</span></p>
+    <p class="hero-v6__support hero-v6__reveal">10+ years in design and 5+ in product, across fintech, retail and healthcare. I research, design and ship — often in code.</p>
+    <div class="hero-v6__actions hero-v6__reveal">
+      <a class="hero-v6__btn hero-v6__btn--primary" href="index.html#projects">See my work</a>
+      <a class="hero-v6__btn hero-v6__btn--secondary" href="index.html#contact">Let's talk</a>
     </div>
   </div>
 </section>
 
-<section class="name-strip" aria-label="Experience highlights">
-  <div class="name-strip__viewport">
-    <div class="name-strip__track">
-      <ul class="name-strip__list">
-        <li>Cyberdesign<span class="name-strip__dot" aria-hidden="true">·</span></li>
-        <li>Focalpay<span class="name-strip__dot" aria-hidden="true">·</span></li>
-        <li>Simple Booking<span class="name-strip__dot" aria-hidden="true">·</span></li>
-        <li>30+ Swedish municipalities<span class="name-strip__dot" aria-hidden="true">·</span></li>
-        <li>Raykasoft<span class="name-strip__dot" aria-hidden="true">·</span></li>
-        <li>mHealth Shiraz Congress</li>
+<section class="skills-strip" aria-label="Skills">
+  <div class="skills-strip__viewport">
+    <div class="skills-strip__track">
+      <ul class="skills-strip__list">
+        <li>Product Design</li>
+        <li>UX Research</li>
+        <li>UI Design</li>
+        <li>Design Systems</li>
+        <li>Interaction Design</li>
+        <li>Prototyping</li>
+        <li>Usability Testing</li>
+        <li>WCAG Accessibility</li>
+        <li>AI-assisted Development</li>
+        <li>Front-end Build</li>
       </ul>
-      <ul class="name-strip__list" aria-hidden="true">
-        <li>Cyberdesign<span class="name-strip__dot" aria-hidden="true">·</span></li>
-        <li>Focalpay<span class="name-strip__dot" aria-hidden="true">·</span></li>
-        <li>Simple Booking<span class="name-strip__dot" aria-hidden="true">·</span></li>
-        <li>30+ Swedish municipalities<span class="name-strip__dot" aria-hidden="true">·</span></li>
-        <li>Raykasoft<span class="name-strip__dot" aria-hidden="true">·</span></li>
-        <li>mHealth Shiraz Congress</li>
+      <ul class="skills-strip__list" aria-hidden="true">
+        <li>Product Design</li>
+        <li>UX Research</li>
+        <li>UI Design</li>
+        <li>Design Systems</li>
+        <li>Interaction Design</li>
+        <li>Prototyping</li>
+        <li>Usability Testing</li>
+        <li>WCAG Accessibility</li>
+        <li>AI-assisted Development</li>
+        <li>Front-end Build</li>
       </ul>
     </div>
   </div>
@@ -1004,7 +1001,7 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
   </ul>
 </footer>
 
-<script src="js/hero-v6.js?v=20260326"></script>
+<script src="js/hero-v6.js?v=20260327"></script>
 <script>
 /* ── UI DESIGN GALLERY ─────────────────────────────────────────────
    Reveal-on-scroll. Honours prefers-reduced-motion.

@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@400;500;600&family=Syne:wght@700;800&display=swap');
 
 :root {
-  --bg: #0E0E12;
+  --bg: #0B0C10;
   --surface: #16161C;
   --surface-2: #1E1E26;
   --text: #EDEDF0;
   --muted: #9A9AA5;
   --border: rgba(255, 255, 255, 0.08);
-  --accent: #3B82F6;
-  --accent-text: #7CB4FF;
+  --accent: #8AA4D6;
+  --accent-strong: #6F8BC4;
+  --accent-soft: rgba(138, 164, 214, 0.14);
+  --accent-text: var(--accent);
   --font-display: 'Syne', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-body: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-accent: 'Instrument Serif', ui-serif, Georgia, 'Times New Roman', serif;
@@ -24,7 +26,7 @@
   --line: var(--border);
   --line2: rgba(255, 255, 255, 0.04);
   --text-muted: var(--muted);
-  --accent-light: rgba(59, 130, 246, 0.12);
+  --accent-light: var(--accent-soft);
   --bg2: var(--surface);
   --bg3: var(--surface-2);
   --surface-card: var(--surface);
@@ -45,47 +47,70 @@ html, body {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--accent-text);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
-/* ── Nav (dark, blur; border when scrolled) ── */
+/* ── Nav links ── */
 .anna-nav {
   opacity: 1;
+  gap: 28px;
 }
 .anna-nav--intro-visible {
   opacity: 1;
 }
 .anna-nav__pill {
-  background: rgba(14, 14, 18, 0.55);
-  border: 1px solid transparent;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: border-color 0.25s ease, background 0.25s ease;
+  background: transparent;
+  border: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 0;
+  gap: 28px;
+  transition: none;
 }
 .anna-nav__pill a {
   font-family: var(--font-body);
   font-weight: 500;
-  color: var(--text);
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 1.4;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 8px 0;
+  border-radius: 4px;
+  background: transparent;
+  transition: color 0.2s ease;
 }
 .anna-nav__pill a:hover,
+.anna-nav__pill a[aria-current="page"] {
+  color: var(--text);
+  background: transparent;
+}
 .anna-nav__pill a:focus-visible {
-  background: rgba(255, 255, 255, 0.06);
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  background: transparent;
 }
-.anna-nav--scrolled .anna-nav__pill {
-  border-color: var(--border);
-  background: rgba(14, 14, 18, 0.82);
-}
-.anna-nav--light .anna-nav__pill {
-  background: rgba(14, 14, 18, 0.55);
-  border: 1px solid transparent;
+.anna-nav--scrolled {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(11, 12, 16, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  left: 0;
+  right: 0;
+  transform: none;
+  width: 100%;
+  max-width: none;
+  justify-content: center;
+  padding-top: max(12px, env(safe-area-inset-top, 0px));
 }
 .anna-nav--light .anna-nav__pill a {
-  color: var(--text);
+  color: var(--muted);
 }
 .anna-nav--light .anna-nav__pill a:hover,
-.anna-nav--light .anna-nav__pill a:focus-visible {
-  background: rgba(255, 255, 255, 0.06);
+.anna-nav--light .anna-nav__pill a[aria-current="page"] {
+  color: var(--text);
 }
 
 /* ── Display typography ── */
@@ -140,6 +165,9 @@ h2.works-anna__heading,
   color: var(--bg) !important;
   border-color: transparent;
 }
+.footer-strip__cta:hover {
+  background: var(--accent-strong);
+}
 footer,
 .site-footer {
   background: var(--bg);
@@ -155,9 +183,9 @@ footer p,
   color: var(--muted);
 }
 .footer-social a:hover {
-  color: var(--accent-text);
-  border-color: rgba(124, 180, 255, 0.35);
-  background: var(--accent-light);
+  color: var(--accent);
+  border-color: rgba(138, 164, 214, 0.35);
+  background: var(--accent-soft);
 }
 
 /* ── Case studies ── */

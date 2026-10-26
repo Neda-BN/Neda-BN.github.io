@@ -3,7 +3,8 @@
   if (!nav) return;
   nav.classList.add('anna-nav--intro-visible');
   function onScroll() {
-    nav.classList.toggle('anna-nav--scrolled', window.scrollY > 24);
+    var scrolled = window.scrollY > 24;
+    nav.classList.toggle('anna-nav--scrolled', scrolled);
   }
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
