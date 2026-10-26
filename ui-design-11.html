@@ -5,264 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark">
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link href="https://fonts.cdnfonts.com/css/lithium-typeface-lt" rel="stylesheet">
-<link rel="stylesheet" href="fonts/destine.css">
-<link rel="stylesheet" href="css/site-shared.css?v=20260638">
+<link rel="stylesheet" href="css/tokens.css?v=20260405">
+<link rel="stylesheet" href="css/site-shared.css?v=20260326">
 <script src="js/page-transition.js?v=20260633"></script>
 <script src="js/site-nav.js?v=20260326"></script>
 <title>Retail Rewards Rush · UI Design · Neda Bagheri</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --bg: #ffffff;
-  --bg2:         #f0ede8;
-  --ink:         #1a1814;
-  --ink2:        #6b6760;
-  --ink3:        #9e9b96;
-  --warm:        #3B82F6;
-  --line:        rgba(26,24,20,0.09);
-  --surface:     #FFFFFF;
-  --dark:        var(--ink);
-  --mid:         var(--ink2);
-  --light:       var(--ink3);
-  --accent:      var(--warm);
-  --accent-light:#F5EBE3;
-  --border:      #E8E4DC;
-  --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-soft:   cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-html { color-scheme: light; overflow-x: clip; }
-html, body {
-  background: #ffffff;
-  color: var(--ink);
-  font-family: 'DM Sans', sans-serif;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-body { font-size: 16px; line-height: 1.7; }
-body.hero-cursor-none { cursor: none; }
-img { max-width: 100%; height: auto; display: block; }
-a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
-.footer-strip a:focus-visible { outline-color: #fff; }
-
-/* ── NAV (matches index.html / about.html) ── */
-/* ── CUSTOM CURSOR (matches index.html / visual-craft.html) ── */
-#dot {
-  position: fixed; z-index: 9999; pointer-events: none;
-  width: 8px; height: 8px; border-radius: 50%; background: var(--warm);
-  transform: translate(-50%, -50%); mix-blend-mode: multiply;
-}
-#ring {
-  position: fixed; z-index: 9998; pointer-events: none;
-  width: 36px; height: 36px; border-radius: 50%;
-  border: 1.5px solid rgba(59, 130, 246,0.3);
-  transform: translate(-50%, -50%);
-  transition: width 0.35s, height 0.35s, border-color 0.3s;
-}
-body.lh #dot { transform: translate(-50%, -50%) scale(2); opacity: 0.5; }
-body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246, 0.5); }
-
-/* ── PROJECT DETAIL LAYOUT ── */
-main {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 120px 48px 96px;
-}
-
-.ui-detail__back {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: var(--display);
-  font-size: 12px; font-weight: 500;
-  color: var(--ink2);
-  text-decoration: none;
-  letter-spacing: 0.04em;
-  margin-bottom: 44px;
-  transition: color 0.3s var(--ease-soft), gap 0.3s var(--ease-spring);
-}
-.ui-detail__back::before {
-  content: '←';
-  font-size: 14px; line-height: 1;
-  transition: transform 0.3s var(--ease-spring);
-}
-.ui-detail__back:hover,
-.ui-detail__back:focus-visible { color: var(--accent); gap: 12px; }
-.ui-detail__back:hover::before,
-.ui-detail__back:focus-visible::before { transform: translateX(-4px); }
-
-.ui-detail__eyebrow {
-  font-family: var(--display);
-  font-size: 10px; font-weight: 600;
-  color: var(--light);
-  letter-spacing: 0.16em; text-transform: uppercase;
-  display: flex; align-items: center; gap: 12px;
-  margin-bottom: 14px;
-}
-.ui-detail__eyebrow::after {
-  content: ''; flex: 1; height: 1px; background: var(--border); max-width: 96px;
-}
-
-/* ── CASE STUDY (matches pos-app.html "section" pattern, scoped to this page) ── */
-.case-study {
-  margin-bottom: 44px;
-  opacity: 0;
-  transform: translateY(18px);
-  animation: ui-detail-rise 0.75s var(--ease-spring) 0.1s forwards;
-}
-.case-study__header {
-  display: flex;
-  align-items: flex-start;
-  gap: 22px;
-  padding: 0 0 28px 0;
-}
-.case-study__icon {
-  flex-shrink: 0;
-  width: 56px; height: 56px;
-  border-radius: 50%;
-  border: 1.5px solid var(--border);
-  background: var(--bg);
-  color: #6b6b6b;
-  display: flex; align-items: center; justify-content: center;
-}
-.case-study__icon svg { width: 26px; height: 26px; flex-shrink: 0; }
-.case-study__headings {
-  flex: 1; min-width: 0;
-  display: flex; flex-direction: column; gap: 12px;
-}
-.case-study__chapter {
-  font-family: var(--page-title);
-  font-size: clamp(2rem, 3.4vw + 0.75rem, 2.8rem);
-  font-weight: 400;
-  font-style: normal;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
-  color: #000000;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin: 0;
-}
-.case-study__subtitle {
-  font-family: var(--display);
-  font-size: clamp(0.95rem, 0.6vw + 0.78rem, 1.1rem);
-  font-weight: 400; font-style: italic;
-  color: var(--mid);
-  line-height: 1.45; margin: 0;
-  max-width: 38em;
-}
-.case-study__body p {
-  color: var(--mid);
-  font-weight: 400;
-  margin: 0 0 16px;
-}
-.case-study__body p:last-of-type { margin-bottom: 0; }
-.case-study__body p strong { color: var(--ink); font-weight: 600; }
-.case-study__body h3 {
-  font-family: var(--display);
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: -0.005em;
-  color: var(--ink);
-  margin: 24px 0 8px;
-  line-height: 1.4;
-}
-.case-study__body h3 + p { margin-top: 0; }
-.case-study__tags {
-  display: flex; flex-wrap: wrap;
-  gap: 8px;
-  margin: 28px 0 0;
-  padding: 0;
-  list-style: none;
-}
-.case-study__tag {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px; font-weight: 600;
-  color: var(--accent);
-  background: var(--accent-light);
-  padding: 4px 12px;
-  border-radius: 20px;
-  line-height: 1.5;
-}
-.case-study__tag--gray {
-  color: var(--mid);
-  background: #EEEAE4;
-}
-
-.ui-detail__featured {
-  margin: 0;
-  border-radius: 14px;
-  overflow: hidden;
-  background: #ECEAE4;
-  border: 1px solid var(--line);
-  opacity: 0;
-  transform: translateY(18px);
-  animation: ui-detail-rise 0.75s var(--ease-spring) 0.15s forwards;
-}
-.ui-detail__featured img {
-  width: 100%;
-  height: auto;
-  display: block;
-  image-rendering: -webkit-optimize-contrast;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
-.ui-detail__credit {
-  margin: 14px 2px 0;
-  font-family: var(--display);
-  font-size: 11px;
-  font-weight: 400;
-  line-height: 1.5;
-  color: var(--light);
-  letter-spacing: 0.01em;
-}
-
-@keyframes ui-detail-rise { to { opacity: 1; transform: none; } }
-
-
-/* ── REDUCED MOTION ── */
-@media (prefers-reduced-motion: reduce) {
-  body.hero-cursor-none { cursor: auto; }
-  #dot, #ring { display: none !important; }
-  .n-links a:not(.n-btn), .n-btn, .footer-social a, .ui-detail__back,
-  .ui-detail__featured img { transition: none !important; }
-  .ui-detail__featured, .case-study {
-    opacity: 1 !important; transform: none !important; animation: none !important;
-  }
-  .ui-detail__back:hover, .ui-detail__back:focus-visible { gap: 8px; }
-  .ui-detail__back:hover::before, .ui-detail__back:focus-visible::before { transform: none; }
-}
-
-/* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-main { padding: 104px 24px 80px; }
-  .ui-detail__back { margin-bottom: 36px; }
-}
-@media (max-width: 680px) {
-  main { padding: 88px 20px 64px; }
-  .case-study { margin-bottom: 36px; }
-  .case-study__header { flex-direction: column; gap: 16px; padding-bottom: 22px; }
-  .case-study__icon { width: 48px; height: 48px; }
-  .case-study__icon svg { width: 22px; height: 22px; }
-  .case-study__tags { margin-top: 22px; }
-  .footer-strip { padding: 56px 20px 72px; }
-  footer { padding: 24px; flex-direction: column; align-items: flex-start; gap: 20px; }
-}
-</style>
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
+<link rel="stylesheet" href="css/case-study.css?v=20260405">
+<link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
+<style>
+  body.hero-cursor-none { cursor: none; }
+  #dot {
+    position: fixed; z-index: 9999; pointer-events: none;
+    width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
+    transform: translate(-50%, -50%); mix-blend-mode: screen;
+  }
+  #ring {
+    position: fixed; z-index: 9998; pointer-events: none;
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1.5px solid rgba(138, 164, 214, 0.35);
+    transform: translate(-50%, -50%);
+    transition: width 0.35s, height 0.35s, border-color 0.3s;
+  }
+  body.lh #dot { transform: translate(-50%, -50%) scale(2); opacity: 0.5; }
+  body.lh #ring { width: 60px; height: 60px; border-color: rgba(138, 164, 214, 0.55); }
+  @media (prefers-reduced-motion: reduce) {
+    body.hero-cursor-none { cursor: auto; }
+    #dot, #ring { display: none !important; }
+  }
+</style>
 </head>
-<body class="hero-cursor-none has-anna-nav">
+<body class="hero-cursor-none has-anna-nav case-study-page ui-design-page">
 
 <div id="dot" aria-hidden="true"></div>
 <div id="ring" aria-hidden="true"></div>
 
-<header class="anna-nav anna-nav--intro-visible anna-nav--light" id="site-nav" aria-label="Primary">
+<header class="anna-nav anna-nav--intro-visible" id="site-nav" aria-label="Primary">
   <div class="anna-nav__pill">
     <a href="index.html#hero">Home</a>
     <a href="index.html#projects" aria-current="page">Work</a>
@@ -273,50 +51,40 @@ main { padding: 104px 24px 80px; }
   </div>
 </header>
 
-<div class="back-btn-wrap back-btn-wrap--top">
-  <a class="back-btn" href="index.html#ui-design"><svg class="back-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Back</a>
-</div>
-
-<main>
-  <div class="ui-detail__eyebrow">UI Design · 11 / 12</div>
-  <section class="case-study" aria-labelledby="retail-rewards-rush-case-study">
-    <div class="case-study__header">
-      <div class="case-study__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<main class="content case-main ui-design-main">
+  <a class="case-back-link" href="index.html#ui-design">← Back to work</a>
+  <div class="meta-strip">
+    <div class="meta-item"><div class="meta-label">Series</div><div class="meta-value">UI 06</div></div>
+    <div class="meta-item"><div class="meta-label">Type</div><div class="meta-value">CONCEPT</div></div>
+    <div class="meta-item"><div class="meta-label">Platform</div><div class="meta-value">MOBILE</div></div>
+  </div>
+  <div class="section-header ui-design-header">
+    <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="20 12 20 22 4 22 4 12"/>
           <rect x="2" y="7" width="20" height="5"/>
           <line x1="12" y1="22" x2="12" y2="7"/>
           <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
           <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
-        </svg>
-      </div>
-      <div class="case-study__headings">
-        <h1 class="case-study__chapter" id="retail-rewards-rush-case-study">Retail Rewards Rush</h1>
-        <p class="case-study__subtitle">Loyalty Challenge Experience</p>
-      </div>
+        </svg></div>
+    <div class="section-headings">
+      <h1 class="section-chapter" id="retail-rewards-rush-case-study">Retail Rewards Rush</h1>
+      <p class="section-subtitle">Loyalty Challenge Experience</p>
     </div>
-    <div class="case-study__body">
-      <p>A gamified loyalty experience designed to make everyday shopping feel rewarding. The challenge was taking a familiar retail app context and injecting the visual energy of a mini-game campaign — without it feeling cheap or disconnected from the brand.</p>
-      <h3>Color &amp; Contrast</h3>
-      <p>Deep purple (#2D1A6B) paired with gold (#FFD700) creates a contrast ratio that <strong>passes WCAG AA on all interactive elements</strong>, while the pairing itself does something more important: purple signals premium and exclusivity; gold signals reward and achievement. Neither color is accidental. White text on the darkest purple backgrounds was tested at every screen size to ensure legibility under typical retail lighting conditions — bright stores, users glancing quickly.</p>
-      <h3>Typography</h3>
-      <p>A heavy display weight was used for reward moments (&ldquo;YOU WON!&rdquo;, &ldquo;+100&rdquo;) to create a clear typographic event — something the eye lands on immediately. Body text and mission labels stay in a clean regular weight to let the numbers breathe. The size jump between the reward figure and supporting text is intentional: hierarchy isn&rsquo;t just about size, it&rsquo;s about telling the user where to look first, second, and third.</p>
-      <h3>Visual Hierarchy &amp; Engagement Mechanics</h3>
-      <p>Every screen has <strong>one primary action and one reward signal</strong>. The home screen leads with points (identity), then mission (urgency), then spin wheel (temptation). The spin screen strips everything away except the wheel and the CTA — no distractions when the moment of play arrives. The win screen inverts the hierarchy entirely: the reward number dominates, and the next action (&ldquo;Continue shopping&rdquo;) comes only after the celebration lands.</p>
-    </div>
-    <ul class="case-study__tags" aria-label="Project tags">
-      <li class="case-study__tag">Gamification UI</li>
-      <li class="case-study__tag">Loyalty &amp; Rewards</li>
-      <li class="case-study__tag">Mobile-first</li>
-      <li class="case-study__tag case-study__tag--gray">Campaign Design</li>
-      <li class="case-study__tag case-study__tag--gray">Visual Craft</li>
-    </ul>
-  </section>
-
-  <figure class="ui-detail__featured">
-    <img src="vc-ui-11-retail-rewards-rush.png" alt="Retail Rewards Rush loyalty app — three iPhone screens showing a points dashboard with a 'Spin & Win' tile, a spinning prize wheel against gift-box artwork, and a 'You won! +100' confirmation on a deep purple and yellow composition" width="1024" height="717" loading="eager" decoding="async" fetchpriority="high">
-  </figure>
-  <p class="ui-detail__credit">Some assets and illustrations used in this project are sourced from Freepik.</p>
+  </div>
+  <div class="ui-design-intro">
+    <p>A gamified loyalty experience designed to make everyday shopping feel rewarding. The challenge was taking a familiar retail app context and injecting the visual energy of a mini-game campaign — without it feeling cheap or disconnected from the brand.</p>
+    <p>Deep purple (#2D1A6B) paired with gold (#FFD700) creates a contrast ratio that <strong>passes WCAG AA on all interactive elements</strong>, while the pairing itself does something more important: purple signals premium and exclusivity; gold signals reward and achievement. Neither color is accidental. White text on the darkest purple backgrounds was tested at every screen size to ensure legibility under typical retail lighting conditions — bright stores, users glancing quickly.</p>
+    <p>A heavy display weight was used for reward moments (&ldquo;YOU WON!&rdquo;, &ldquo;+100&rdquo;) to create a clear typographic event — something the eye lands on immediately. Body text and mission labels stay in a clean regular weight to let the numbers breathe. The size jump between the reward figure and supporting text is intentional: hierarchy isn&rsquo;t just about size, it&rsquo;s about telling the user where to look first, second, and third.</p>
+    <p>Every screen has <strong>one primary action and one reward signal</strong>. The home screen leads with points (identity), then mission (urgency), then spin wheel (temptation). The spin screen strips everything away except the wheel and the CTA — no distractions when the moment of play arrives. The win screen inverts the hierarchy entirely: the reward number dominates, and the next action (&ldquo;Continue shopping&rdquo;) comes only after the celebration lands.</p>
+  </div>
+  <ul class="ui-design-tags" aria-label="Project tags">
+    <li>Gamification UI</li>
+    <li>Loyalty &amp; Rewards</li>
+    <li>Mobile-first</li>
+    <li>Campaign Design</li>
+    <li>Visual Craft</li>
+  </ul>
+  <figure class="ui-design-figure wide"><img src="vc-ui-11-retail-rewards-rush.png" alt="Retail Rewards Rush loyalty app — three iPhone screens showing a points dashboard with a 'Spin & Win' tile, a spinning prize wheel against gift-box artwork, and a 'You won! +100' confirmation on a deep purple and yellow composition" width="1024" height="717" loading="eager" decoding="async" fetchpriority="high"></figure>
 </main>
 
 <div class="footer-strip">

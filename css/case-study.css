@@ -1644,4 +1644,174 @@
   overscroll-behavior-x: contain;
 }
 
+/* ── Nav clearance + back link (case-study + UI design pages) ── */
+body.case-study-page.has-anna-nav {
+  background: var(--bg);
+  color: var(--text);
+}
+
+body.case-study-page.has-anna-nav main,
+body.case-study-page.has-anna-nav .content.case-main,
+body.case-study-page.has-anna-nav .content--pos-ds,
+body.case-study-page.has-anna-nav > .hero {
+  padding-top: 0;
+}
+
+.case-study-page .back-btn-wrap--top,
+.case-study-page .back-btn-wrap--bottom {
+  position: static;
+  width: 100%;
+  max-width: var(--cs-track);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+}
+
+.case-study-page .back-btn-wrap--top {
+  margin-top: calc(env(safe-area-inset-top, 0px) + 56px + 32px);
+  margin-bottom: clamp(20px, 2.5vw, 28px);
+}
+
+.case-study-page .back-btn-wrap--bottom {
+  margin-top: clamp(32px, 4vw, 48px);
+  padding-bottom: clamp(36px, 5vw, 52px);
+}
+
+.case-study-page .back-btn,
+.case-study-page .case-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.4;
+  color: var(--muted);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  text-decoration: none;
+  opacity: 1;
+  transform: none;
+  transition: color 0.2s ease;
+}
+
+.case-study-page .back-btn__icon {
+  display: none;
+}
+
+.case-study-page .back-btn-wrap--top .back-btn {
+  font-size: 0;
+  line-height: 0;
+}
+
+.case-study-page .back-btn-wrap--top .back-btn::before {
+  content: '← Back to work';
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.case-study-page .back-btn:hover,
+.case-study-page .back-btn:focus-visible,
+.case-study-page .case-back-link:hover,
+.case-study-page .case-back-link:focus-visible {
+  color: var(--text);
+  background: transparent;
+  gap: 0;
+  transform: none;
+}
+
+.case-study-page .back-btn:focus-visible,
+.case-study-page .case-back-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.case-study-page.ui-design-page .ui-design-main {
+  padding-top: calc(env(safe-area-inset-top, 0px) + 56px + 32px);
+  padding-bottom: clamp(48px, 6vw, 80px);
+}
+
+.case-study-page.ui-design-page .case-back-link {
+  margin-bottom: clamp(20px, 2.5vw, 28px);
+}
+
+.case-study-page.ui-design-page .ui-design-main > .meta-strip {
+  margin-bottom: var(--cs-section-space);
+}
+
+.case-study-page.ui-design-page .ui-design-header {
+  margin-bottom: var(--cs-stack-lg);
+  padding-bottom: clamp(14px, 2vw, 18px);
+}
+
+.case-study-page.ui-design-page .ui-design-intro p {
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-weight: 400;
+  margin: 0 0 16px;
+}
+
+.case-study-page.ui-design-page .ui-design-intro p strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.case-study-page.ui-design-page .ui-design-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: var(--cs-stack-lg) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.case-study-page.ui-design-page .ui-design-tags li {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--muted);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 14px;
+}
+
+.case-study-page.ui-design-page .ui-design-figure {
+  margin: var(--cs-stack-xl) 0 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.case-study-page.ui-design-page .ui-design-figure img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  object-fit: unset;
+}
+
+.case-study-page.ui-design-page .ui-design-figure + .ui-design-figure {
+  margin-top: clamp(24px, 3.5vw, 40px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case-study-page.ui-design-page .ui-design-figure {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
+
 
