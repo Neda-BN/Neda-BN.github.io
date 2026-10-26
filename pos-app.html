@@ -890,46 +890,18 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   </div>
   <p class="pos-platform-line fade-in reveal">Part of the Focalpay platform: the POS sells products and prices set up in the <a href="backoffice.html">Back-office</a>, and takes over cash payments from the <a href="mobile-app.html">Mobile shopping app</a>.</p>
 
-  <section class="section fade-in reveal case-anchor" id="introduction">
+  <section class="section fade-in reveal case-anchor" id="challenge">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Introduction</h2></div>
+      <div class="section-headings"><h2 class="section-chapter">The challenge</h2></div>
     </div>
-    <p>Traditional POS terminals are heavy and expensive. Focalpay's cashier app runs on any smartphone, tablet or touchscreen instead, so stores don't need special hardware.</p>
-    <p>I joined as lead designer when the first version was already used in several stores. My job was to find out what slowed cashiers down, redesign the main flows, and test the new design in a real store.</p>
-    <p>The goal was a complete POS for small and medium-sized stores, with everything from selling to daily reports in one app.</p>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section fade-in reveal case-anchor" id="role">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">My Role &amp; Responsibilities</h2><p class="section-subtitle">What I was responsible for</p></div>
+    <p>Traditional POS terminals are heavy and expensive. Focalpay, a Swedish retail-tech company, built a cashier app that runs on any smartphone, tablet or touchscreen instead: on iOS, Android and in the browser.</p>
+    <p>I joined as lead designer when the first version was already used in several stores. One sale meant moving between several screens, and when a product was missing at the till, the store had to add it in a separate back-office system. My job was to find what slowed cashiers down, redesign the main flows and test them in a real store.</p>
+    <p>I worked from research to final screens with the PM, engineering and stakeholders, the same team behind the Back-office and the Mobile app, and designed every screen to WCAG AA.</p>
+    <div class="quote-block">
+      <p>"We want something that just works — fast. Our staff shouldn't need training to use a cashier app."</p>
+      <cite>— Store manager, research session. The same person also worked with us on the <a href="mobile-app.html">Mobile shopping app</a>.</cite>
     </div>
-    <div class="role-block">
-      <h4>My Responsibilities</h4>
-      <ul class="role-list">
-        <li>Worked with the PM, engineering team and stakeholders, the same team behind the Back-office and Mobile app</li>
-        <li>Lead UX/UI designer, from research to final screens</li>
-        <li>Stakeholder interviews and workshops with store owners</li>
-        <li>Moderated usability testing sessions in real store environments</li>
-        <li>Designing the scrollable home screen architecture and all core flows</li>
-        <li>Introducing the Add Product feature, so cashiers can create basic products at the till, with full editing kept in the back-office</li>
-        <li>WCAG AA across all screens, verified with colour-contrast checks and screen-reader testing on core flows</li>
-        <li>Interaction design for barcode scanning, discounts, refunds, and reporting</li>
-      </ul>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section fade-in reveal case-anchor" id="company-platform">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Company and platform</h2></div>
-    </div>
-    <p>Focalpay is a Swedish retail-tech company that builds payment and store-management software for independent retailers. The cashier app runs on iOS, Android and in the browser.</p>
   </section>
 
   <div class="divider"></div>
@@ -944,56 +916,36 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
         <img src="External Devices.png" alt="External Devices settings screen — handheld scanner, receipt printer, keyboard, and Cash Guard connection status in the Focalpay POS" loading="lazy" decoding="async">
       </div>
     </div>
-    <p>In a store, the POS isn't used on its own. It connects to a handheld scanner, a receipt printer, a keyboard and, in some stores, a Cash Guard cash machine. Each device can fail in its own way, and each failure affects the cashier differently. So the settings screen had to show clearly what's connected and what isn't.</p>
+    <p>In a store, the POS works with a handheld scanner, a receipt printer, a keyboard and sometimes a Cash Guard cash machine. Each can fail in its own way, so one settings screen shows clearly what's connected and what isn't.</p>
     <div class="pos-device-list">
       <div class="pos-device-item">
         <div class="finding-icon" aria-hidden="true">📡</div>
         <div>
           <h3 class="pos-device-item__title">Handheld scanner</h3>
-          <p>Cashiers can connect a scanner by cable or wirelessly, or use the device camera. The screen always shows which option is active, so it's clear why a scan didn't work.</p>
+          <p>Cable, wireless or the device camera. The screen always shows which one is active.</p>
         </div>
       </div>
       <div class="pos-device-item">
         <div class="finding-icon" aria-hidden="true">🖨️</div>
         <div>
           <h3 class="pos-device-item__title">Receipt printer</h3>
-          <p>Every sale needs a receipt. The printer status is always visible, green when it's ready and red when it isn't, so cashiers notice a problem before a customer is waiting.</p>
+          <p>Green when ready, red when not, so problems show up before a customer is waiting.</p>
         </div>
       </div>
       <div class="pos-device-item">
         <div class="finding-icon" aria-hidden="true">⌨️</div>
         <div>
           <h3 class="pos-device-item__title">Keyboard</h3>
-          <p>Some stores type product codes and amounts by hand. If the keyboard disconnects, the app shows a warning straight away.</p>
+          <p>If it disconnects, a warning appears straight away.</p>
         </div>
       </div>
       <div class="pos-device-item">
         <div class="finding-icon" aria-hidden="true">💰</div>
         <div>
           <h3 class="pos-device-item__title">Cash Guard</h3>
-          <p>Stores with automatic cash handling use Cash Guard from the Functions panel, next to deposits, bag charges and price checks. There's no separate system to open.</p>
+          <p>Opens from the Functions panel, with no separate system to switch to.</p>
         </div>
       </div>
-    </div>
-    <p>Store managers can see everything connected to the till on one screen, and fix problems before they affect a sale.</p>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section fade-in reveal case-anchor" id="discover">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">The problem</h2><p class="section-subtitle">Too many steps for a fast job</p></div>
-    </div>
-    <p>Cashiers work under time pressure. Every extra tap or screen slows down the queue. The challenge was to fit a lot of functionality on a small screen without slowing down a sale.</p>
-    <div class="pain-grid">
-      <div class="pain-card"><div class="pain-number">01</div><h4>Too many screens</h4><p>Completing one sale meant moving between several pages, which broke the cashier's flow.</p></div>
-      <div class="pain-card"><div class="pain-number">02</div><h4>No way to add products</h4><p>Stores had to use a separate back-office system to add or edit products, which was slow when a product was missing at the till.</p></div>
-      <div class="pain-card"><div class="pain-number">03</div><h4>Expensive hardware</h4><p>Traditional terminals were costly and used a lot of energy. Stores wanted something lighter that runs on mobile devices.</p></div>
-    </div>
-    <div class="quote-block">
-      <p>"We want something that just works — fast. Our staff shouldn't need training to use a cashier app."</p>
-      <cite>— Store manager, research session. The same person also worked with us on the <a href="mobile-app.html">Mobile shopping app</a>.</cite>
     </div>
   </section>
 
@@ -1004,8 +956,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">A key decision</h2><p class="section-subtitle">Adding products at the till, safely</p></div>
     </div>
-    <p>Store owners wanted to add products directly in the POS. The engineering team was worried about security. Product data is sensitive, and they didn't want the cashier app to be able to change the catalogue.</p>
-    <p>I worked with the PM and the engineering lead to find a middle ground. Cashiers can create a basic product record at the till, with name, EAN and sales account. Full editing stays in the back-office. This kept the data secure and solved the real problem: being stuck at the scanner when a product wasn't in the system.</p>
+    <p>Store owners wanted to add products in the POS. Engineering was worried: product data is sensitive, and the cashier app shouldn't be able to change the catalogue.</p>
+    <p>With the PM and the engineering lead, I found a middle ground. Cashiers can create a basic product record at the till (name, EAN and sales account), while full editing stays in the back-office. The data stays safe, and nobody gets stuck at the scanner.</p>
   </section>
 
   <div class="divider"></div>
@@ -1015,7 +967,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Research</h2><p class="section-subtitle">Watching cashiers work</p></div>
     </div>
-    <p>I combined interviews, workshops and observation, and tested the app in a real store. Seeing cashiers work with real customers was the most useful part of the research.</p>
+    <p>I combined interviews, workshops, observation and testing in a real store. Watching cashiers serve real customers taught me the most.</p>
     <div class="findings-list">
       <div class="finding-item"><div class="finding-icon">🏪</div><div><p class="finding-text">In the store, we saw that cashiers rarely look at the screen during a sale. They rely on muscle memory and peripheral vision.</p><div class="finding-stat">In-store observation · Live cashier sessions</div></div></div>
       <div class="finding-item"><div class="finding-icon">🗣️</div><div><p class="finding-text">"We need the cart front and centre, always. Everything else is secondary."</p><div class="finding-stat">Store owner interviews · 3 sessions</div></div></div>
@@ -1040,12 +992,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
               <div class="pos-aff-cluster-name">Speed &amp; Flow</div>
             </div>
             <div class="pos-aff-notes-pile">
-              <div class="pos-aff-note">Every extra tap costs real time when a customer is waiting</div>
-              <div class="pos-aff-note">Cashiers rarely look at the screen; they rely on muscle memory</div>
-              <div class="pos-aff-note">Legacy POS needed 4+ taps just to complete one purchase</div>
-              <div class="pos-aff-note">The cart should always be visible</div>
-              <div class="pos-aff-note">Quick actions (scan, bag, discount) must be one gesture away</div>
-              <div class="pos-aff-note-quote">"We want something that just works — fast. Staff shouldn't need training."</div>
+              <div class="pos-aff-note">Every extra tap costs time when a customer is waiting</div>
+              <div class="pos-aff-note">The old POS needed 4+ taps for one purchase</div>
+              <div class="pos-aff-note">The cart and quick actions must always be within reach</div>
             </div>
             <div class="pos-aff-insight-row">
               <div class="pos-aff-insight-arrow" aria-hidden="true">→</div>
@@ -1059,10 +1008,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
               <div class="pos-aff-cluster-name">Product Management</div>
             </div>
             <div class="pos-aff-notes-pile">
-              <div class="pos-aff-note">Stores had to use the back-office just to add a product</div>
+              <div class="pos-aff-note">Adding a product meant opening the back-office</div>
               <div class="pos-aff-note">An unknown barcode left the cashier stuck at the till</div>
-              <div class="pos-aff-note">Staff wanted to create new products directly from the POS camera</div>
-              <div class="pos-aff-note">Cashiers need to search by EAN or name, because not all items have barcodes</div>
+              <div class="pos-aff-note">Not every item has a barcode, so search by EAN or name</div>
               <div class="pos-aff-note-quote">"We shouldn't need two systems. Everything should be in one place."</div>
             </div>
             <div class="pos-aff-insight-row">
@@ -1077,10 +1025,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
               <div class="pos-aff-cluster-name">Discounts &amp; Refunds</div>
             </div>
             <div class="pos-aff-notes-pile">
-              <div class="pos-aff-note">Discounts must apply to a single product OR the whole receipt</div>
-              <div class="pos-aff-note">Stores use different promotions, so cashiers need both SEK and %</div>
-              <div class="pos-aff-note">Refundable vs non-refundable distinction causes major cashier confusion</div>
-              <div class="pos-aff-note">Keypad keys need to be large, because cashiers sometimes wear gloves</div>
+              <div class="pos-aff-note">Discounts apply to one product or the whole receipt, in SEK or %</div>
+              <div class="pos-aff-note">Refundable vs non-refundable caused real confusion</div>
+              <div class="pos-aff-note">Large keypad keys, because cashiers sometimes wear gloves</div>
               <div class="pos-aff-note-quote">"Make it simple — 2 choices max. I don't have time to read options."</div>
             </div>
             <div class="pos-aff-insight-row">
@@ -1095,10 +1042,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
               <div class="pos-aff-cluster-name">Reports &amp; End-of-Day</div>
             </div>
             <div class="pos-aff-notes-pile">
-              <div class="pos-aff-note">Store owners need daily totals without switching to another app</div>
-              <div class="pos-aff-note">Days with no sales left gaps in the reports, which is a compliance risk</div>
-              <div class="pos-aff-note">Register vs control-check view is mandatory for end-of-day audits</div>
-              <div class="pos-aff-note">Transaction history must be searchable and filterable by payment method</div>
+              <div class="pos-aff-note">Daily totals without opening a second app</div>
+              <div class="pos-aff-note">Days with no sales left gaps, a compliance risk</div>
+              <div class="pos-aff-note">Register vs control check is mandatory at end of day</div>
               <div class="pos-aff-note-quote">"Done in 2 minutes. No spreadsheet, no second app — finally."</div>
             </div>
             <div class="pos-aff-insight-row">
@@ -1149,6 +1095,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     <div class="screens-section reveal reveal-media">
       <div class="screens-label">2. Scanning and adding products</div>
       <p>The phone camera works as a barcode scanner. When a product is found, it goes straight into the cart. When it isn't, the app asks the cashier to add it right away, instead of sending them to another system.</p>
+      <p class="aside-note"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12H3"/><path d="M12 7V3"/><path d="M17 12h4"/><path d="M12 17v4"/></svg>Nothing stops a queue quite like a product that doesn't exist.</p>
       <p>Adding a product takes two steps: name, EAN and sales account, then an optional photo.</p>
       <div class="screens-grid col-3">
         <div class="screen-item">
@@ -1193,6 +1140,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
       <div class="screens-label">3. Discounts on a product or the whole receipt</div>
       <p>Discounts can apply to one product, shown as a badge on that item, or to the whole receipt. Cashiers can choose kronor or percent.</p>
       <p>The keypad has large keys that work well on a touchscreen, even with gloves on, and clear toggles for the type and scope of the discount.</p>
+      <p class="aside-note"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m10 20-1.25-2.5L6 18"/><path d="M10 4 8.75 6.5 6 6"/><path d="m14 20 1.25-2.5L18 18"/><path d="m14 4 1.25 2.5L18 6"/><path d="m17 21-3-6h-4"/><path d="m17 3-3 6 1.5 3"/><path d="M2 12h6.5L10 9"/><path d="m20 10-1.5 2 1.5 2"/><path d="M22 12h-6.5L14 15"/><path d="m4 10 1.5 2L4 14"/><path d="m7 21 3-6-1.5-3"/><path d="m7 3 3 6h4"/></svg>Swedish winters are part of the brief.</p>
       <div class="screens-grid col-2">
         <div class="screen-item">
           <div class="screen-wrap">
@@ -1455,8 +1403,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Design system</h2><p class="section-subtitle">The foundation for every screen</p></div>
     </div>
-    <p>Before designing the individual flows, I set up a design system for the POS: colours, typography, spacing, corner radius and component states. This helped design and engineering stay consistent as the app grew.</p>
-    <p>The POS only has a light theme in this release. That kept contrast and readability predictable under bright store lighting and on different devices.</p>
+    <p>Before designing the flows, I set up a design system: colours, typography, spacing, corner radius and component states, so design and engineering stayed consistent as the app grew. This release is light-theme only, to keep contrast predictable under bright store lighting.</p>
 
     <figure class="ds-sheet-figure ds-cap-10500 reveal reveal-media">
       <figcaption>Sheet 01 · Foundations — Colour, Typography, Spacing &amp; States</figcaption>
@@ -1532,7 +1479,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     <div class="lessons-list">
       <div class="lesson-item"><div class="lesson-num">01</div><div class="lesson-text"><h4>In a cashier app, speed is part of usability</h4><p>Every extra second matters when someone is waiting at the till. Most of my work was removing steps: less navigation, fewer decisions, and the most common actions always within reach.</p></div></div>
       <div class="lesson-item"><div class="lesson-num">02</div><div class="lesson-text"><h4>Test in the real environment early</h4><p>Testing in a real store showed things the usability sessions didn't. Cashiers under pressure, with customers waiting, use the app very differently. Next time, I'd go into a store even earlier in the process.</p></div></div>
-      <div class="lesson-item"><div class="lesson-num">03</div><div class="lesson-text"><h4>Fewer handovers between tools means fewer problems</h4><p>Store owners told us they didn't want two systems, and the unknown-barcode problem showed why: things went wrong where the POS ended and another tool began. Letting cashiers create basic products at the till, while keeping full editing in the back-office, closed that gap without risking the product data.</p></div></div>
+      <div class="lesson-item"><div class="lesson-num">03</div><div class="lesson-text"><p><strong>Fewer handovers between tools means fewer problems.</strong> Things went wrong where the POS ended and another tool began. Letting cashiers create basic products at the till closed that gap without risking the product data.</p></div></div>
     </div>
   </section>
 
