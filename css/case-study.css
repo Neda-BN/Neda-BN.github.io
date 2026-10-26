@@ -2374,3 +2374,48 @@ body.case-study-page.ui-design-page main.ui-design-main .ui-design-intro p stron
     text-wrap: balance;
   }
 }
+
+/* Reusable aside note (inline Lucide icon + accent copy) */
+.case-study-page .aside-note,
+.case-study-page .sb-case p.aside-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0 20px;
+  font-family: var(--font-body, 'Poppins', sans-serif);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: var(--accent);
+}
+
+.case-study-page .aside-note svg,
+.case-study-page .sb-case p.aside-note svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+}
+
+@keyframes case-study-aside-note-wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .case-study-page .aside-note:hover svg,
+  .case-study-page .sb-case p.aside-note:hover svg {
+    animation: case-study-aside-note-wiggle 300ms ease-out;
+  }
+}

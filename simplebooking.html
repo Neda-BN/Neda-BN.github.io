@@ -13,7 +13,7 @@
 <script src="js/page-transition.js?v=20260633"></script>
 <script src="js/site-nav.js?v=20260326"></script>
 <title>Simple Booking Accounting Application · Neda Bagheri</title>
-<meta name="description" content="Case study: redesigning Simple Booking, a developer-built accounting app for business owners, from expert review and workshops with three real users to AI-assisted implementation with Claude Code.">
+<meta name="description" content="Case study: redesigning Simple Booking, a developer-built accounting app, through workshops with its real users and AI-assisted implementation with Claude Code.">
 <link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
 <link rel="stylesheet" href="css/case-study.css?v=20260402">
 <link rel="stylesheet" href="css/simplebooking.css?v=20260408">
@@ -86,88 +86,41 @@
       </div>
 
       <div class="sb-tldr">
-        <p><strong>The problem:</strong> A large accounting app, built by developers without a designer, had never been tested with users. Its core workflows were confusing, cluttered, and in places incomplete.</p>
-        <p><strong>What I did:</strong> Reviewed the whole app, built a prioritised roadmap with the PM, and ran a workshop for each core area with all three of the startup's real users. I redesigned those areas and implemented the new UI myself with Claude Code.</p>
-        <p><strong>Key decisions:</strong> Reorganised the Overview by urgency, added clear statuses across invoices, quotes and receipts, added search and filters to the journal, and split payroll registration into steps.</p>
-        <p><strong>Status:</strong> About 50% of the app is redesigned and implemented. Formal testing of V2 is next.</p>
+        <p><strong>The problem:</strong> A big accounting app, built by developers without a designer and never tested with users. Its core workflows were confusing, cluttered and sometimes unfinished.</p>
+        <p><strong>What I did:</strong> Reviewed the whole app, built a roadmap with the PM, and ran workshops on each core area with all three real users. Then I redesigned those areas and built the new UI myself with Claude Code.</p>
+        <p><strong>Key decisions:</strong> An Overview sorted by urgency, clear statuses everywhere, search and filters for long lists, and payroll in small steps.</p>
+        <p><strong>Status:</strong> About 50% redesigned and built. Formal testing of V2 is next.</p>
       </div>
     </div>
   </header>
 
-  <!-- Introduction -->
-  <section class="sb-section section sb-section--first" aria-labelledby="intro">
+  <!-- The challenge -->
+  <section class="sb-section section sb-section--first" aria-labelledby="challenge">
     <div class="sb-wrap">
             <div class="section-header">
         <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
-        <div class="section-headings"><h2 class="section-chapter" id="intro">Introduction</h2></div>
+        <div class="section-headings"><h2 class="section-chapter" id="challenge">The challenge</h2></div>
       </div>
       <div class="sb-text">
-        <p>Simple Booking is a young B2B startup building an accounting platform for small and medium-sized businesses. When I joined, the product was already big: invoices, quotes, receipts, journal entries, payroll and more. Developers had built all of it without a designer, and nobody had tested it with users.</p>
-        <p>Right now, the startup has three real users. All of them run small or medium-sized companies in Stockholm. Because there were only three, I could work closely with every one of them.</p>
+        <p>Simple Booking wants business owners to do their own accounting, taxes and month-end included, for a low monthly price, instead of hiring an accountant. Later, AI features will help them understand their numbers.</p>
+        <p>When I joined, the product was already big: invoices, quotes, receipts, journal, payroll and more. But it was built around the database, not around people. There was no clear hierarchy, statuses were missing, some parts were unfinished, and the app expected users to know accounting, which is exactly what they don't know.</p>
+        <p class="aside-note"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z"/><path d="M6 17h12"/></svg>A bit like a cookbook that assumes you're already a chef.</p>
+        <p>If an owner can't see whether an invoice is paid, they'll hire an accountant instead, and the whole idea fails. So every decision had to answer one question: <strong>can someone without accounting knowledge do this alone?</strong></p>
       </div>
     </div>
   </section>
 
-  <!-- Why clarity -->
-  <section class="sb-section section" aria-labelledby="why-clarity">
-    <div class="sb-wrap">
-      <div class="section-header">
-        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
-        <div class="section-headings"><h2 class="section-chapter" id="why-clarity">Why the design matters for the business</h2></div>
-      </div>
-      <div class="sb-text">
-        <p>Simple Booking's idea is that business owners can do their own accounting, including taxes and month-end tasks, for a low monthly price, instead of hiring an accountant. Later, the company also wants to add AI features that help owners understand their numbers and spot problems.</p>
-        <p>So if the app is hard to use, the business idea doesn't work. If an owner can't see whether an invoice is paid, or what needs doing this week, they'll hire an accountant instead. That's why I checked every design decision against one question: can someone without accounting knowledge do this alone?</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Role -->
-  <section class="sb-section section" aria-labelledby="role">
-    <div class="sb-wrap">
-            <div class="section-header">
-        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <div class="section-headings"><h2 class="section-chapter" id="role">My Role &amp; Responsibilities</h2></div>
-      </div>
-      <div class="sb-text">
-        <p>I lead the UX work, from reviewing the existing product to building the new UI. I work closely with the PM, who I made the roadmap with, and with the back-end team, who connect the front-end I build to the back-end.</p>
-      </div>
-      <ul class="sb-resp">
-        <li><strong>User research and testing</strong>Workshops for each core area with all three users, in-context testing in their own work environment, and one in-person observation session.</li>
-        <li><strong>UX and UI design</strong>Redesigning the application in Figma based on research findings, usability issues and the product goal of simple, accessible accounting.</li>
-        <li><strong>Prototyping and iteration</strong>Refining designs with feedback from the three users.</li>
-        <li><strong>AI-assisted implementation</strong>Building the redesigned interfaces myself with Claude Code, without relying on a front-end developer for the UI.</li>
-        <li><strong>Handoff to back-end</strong>Handing completed, working front-end screens to the back-end team for integration.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Starting point -->
-  <section class="sb-section section" aria-labelledby="starting-point">
-    <div class="sb-wrap">
-      <div class="section-header">
-        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        <div class="section-headings"><h2 class="section-chapter" id="starting-point">Starting point</h2></div>
-      </div>
-      <div class="sb-text"><p>The app was too big to redesign all at once, and none of it had been tested with users.</p></div>
-      <div class="sb-grid3">
-        <div class="sb-num-card"><span class="sb-num">01</span><h4>Built without a designer</h4><p>The screens followed the database structure. There was no clear hierarchy, and important buttons and statuses were often missing.</p></div>
-        <div class="sb-num-card"><span class="sb-num">02</span><h4>Never tested</h4><p>Nobody knew where users had problems. Some important parts were also unfinished or had serious bugs.</p></div>
-        <div class="sb-num-card"><span class="sb-num">03</span><h4>Made for accountants</h4><p>The app expected users to know accounting, which is exactly what its users don't know.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- How I prioritised -->
-  <section class="sb-section section" aria-labelledby="prioritised">
+  <!-- How I worked -->
+  <section class="sb-section section" aria-labelledby="how-i-worked">
     <div class="sb-wrap">
       <div class="section-header">
         <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <div class="section-headings"><h2 class="section-chapter" id="prioritised">How I decided what to fix first</h2></div>
+        <div class="section-headings"><h2 class="section-chapter" id="how-i-worked">How I worked</h2></div>
       </div>
       <div class="sb-text">
-        <p>The app was big and complicated, so I started by going through it myself and asking the PM how they saw it. Together we made a roadmap. We ranked each part by how important it was for the business and how badly it was affected by usability problems or bugs.</p>
-        <p>Six parts came first, because the product can't work without them: Overview, Invoices, Quotes, Receipts, Journal entries and Payroll. For each one, I ran a workshop with all three users. They did real tasks in their own work environment, and then told me how it went and how the app made them feel. In one session, I sat next to a user and watched him work, while he said out loud what he was thinking. Then I looked for patterns across all three users and turned them into design decisions.</p>
+        <p>The app was too big to fix at once, so I started by reviewing everything myself. Together with the PM, I ranked each part by business importance and how badly it was broken. Six areas came first: Overview, Invoices, Quotes, Receipts, Journal entries and Payroll.</p>
+        <p>The startup had three real users, all running small companies in Stockholm. That's a small group, but it meant I could work with every one of them. They did real tasks in their own work environment and told me how it felt, and in one session I sat beside a user and watched him think out loud. Then I turned the patterns into design decisions.</p>
+        <p>I lead the UX work end to end, side by side with the PM, and with the back-end team, who connect the front-end I build to the rest of the product.</p>
       </div>
       <ol class="sb-process">
         <li><h4>Expert review</h4><p>I went through the whole app and listed problems, gaps and bugs.</p></li>
@@ -183,10 +136,10 @@
     <div class="sb-wrap sb-compare-wide wide">
       <div class="section-header">
         <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-        <div class="section-headings"><h2 class="section-chapter" id="findings">What we found, and what I changed</h2></div>
+        <div class="section-headings"><h2 class="section-chapter" id="findings">What I changed</h2></div>
       </div>
       <div class="sb-text">
-        <p>The findings follow the order people use the app: they create and send invoices, handle quotes, upload receipts, find transactions in the journal, check the Overview for what to do next, and handle payroll. V1 is the original version, and V2 is my redesign.</p>
+        <p>Here's what we found in each area, in the order people use the app. V1 is the original, V2 is my redesign.</p>
       </div>
       <div class="sb-legend" aria-hidden="true">
         <span><i class="sb-dot-before"></i>Before: original, developer-built</span>
@@ -195,14 +148,14 @@
 
       <article class="sb-compare">
         <h3>Invoices</h3>
-        <p class="sb-finding-lede">Creating invoices, sending them and marking them as paid is the first thing users do after logging in. In V1, the invoice list had no clear statuses, and no search or filters. So users couldn't quickly see which invoices were paid, or find a specific one.</p>
+        <p class="sb-finding-lede">Users couldn't see which invoices were paid, or find a specific one.</p>
         <ul class="sb-changes">
           <li><b>No clear statuses</b> → colour-coded status on every invoice</li>
           <li><b>No way to find an invoice</b> → search and filtering</li>
         </ul>
         <div class="sb-compare-sub">
           <h4>Recurring invoices</h4>
-          <p class="sb-finding-lede">Recurring invoices had the same problem. The setup form came first, and users couldn't see what would be sent next.</p>
+          <p class="sb-finding-lede">The setup form came first, so users couldn't see what would be sent next.</p>
           <ul class="sb-changes">
             <li><b>Setup form on top</b> → expectations and upcoming schedule first</li>
             <li><b>No upcoming view</b> → next 30 days at a glance</li>
@@ -217,12 +170,11 @@
 
       <article class="sb-compare">
         <h3>Quotes</h3>
-        <p class="sb-finding-lede">The buttons on a quote didn't show users what to do next. All buttons looked equally important, and some statuses were missing. So users couldn't tell if a quote had been sent, accepted or declined.</p>
+        <p class="sb-finding-lede">Every button looked equally important and some statuses were missing, so users couldn't tell where a quote stood.</p>
         <ul class="sb-changes">
-          <li><b>Equal-weight buttons</b> → one clear next action, with secondary actions de-emphasised</li>
+          <li><b>Equal-weight buttons</b> → one clear next action</li>
           <li><b>Unknown quote state</b> → visible statuses: sent, accepted, declined</li>
-          <li><b>Confusing workflow</b> → each step shows what comes next</li>
-          <li><b>Form hogs the page</b> → new quote on demand</li>
+          <li><b>Form takes over the page</b> → new quote on demand</li>
         </ul>
         <figure>
           <a class="sb-zoom" href="sb-quotes-before-after.png" target="_blank" rel="noopener" data-title="Quotes · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-quotes-before-after.webp" type="image/webp"><img src="sb-quotes-before-after.png" width="3000" height="1040" loading="lazy" decoding="async" alt="Quotes page before and after. Before: an always-open quote form, no overview or status filters, faint statuses and up to four look-alike buttons per row. After: form on demand, status filters with counts, one primary action with an icon per row, and aligned columns with next steps."></picture></div></a>
@@ -232,13 +184,13 @@
 
       <article class="sb-compare">
         <h3>Receipts</h3>
-        <p class="sb-finding-lede">The upload area was so big that users had to scroll to see their receipts. The receipt date was missing, even though users wanted to sort by it. And every status was the same grey colour.</p>
+        <p class="sb-finding-lede">The upload area was so big that users had to scroll to find their receipts, and every status was the same grey.</p>
         <ul class="sb-changes">
-          <li><b>Oversized upload area</b> → compact upload, table visible straight away</li>
+          <li><b>Oversized upload area</b> → compact upload, receipts visible straight away</li>
           <li><b>No receipt date</b> → date column with sorting</li>
           <li><b>Grey statuses</b> → colour-coded statuses that scan at a glance</li>
-          <li><b>One long list</b> → pagination</li>
-          <li><b>Four actions per row</b> → one clear review action each</li>
+          <li><b>One long list</b> → search and paging</li>
+          <li><b>Four actions per row</b> → one clear review action</li>
         </ul>
         <figure>
           <a class="sb-zoom" href="sb-receipts-before-after.png" target="_blank" rel="noopener" data-title="Receipts · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-receipts-before-after.webp" type="image/webp"><img src="sb-receipts-before-after.png" width="2720" height="1297" loading="lazy" decoding="async" alt="Receipts page before and after. Before: four actions per inbox row, oversized upload, faded main button, list without supplier or amount. After: compact upload first, one action per row, search and paging, full context in the list."></picture></div></a>
@@ -248,13 +200,13 @@
 
       <article class="sb-compare">
         <h3>Journal entries</h3>
-        <p class="sb-finding-lede">Every transaction ends up in the journal: receipts, invoices, payslips, taxes and more. That makes it the longest list in the app. In V1, there was no search, no filters and no sorting, so finding one transaction meant scrolling through the whole page.</p>
+        <p class="sb-finding-lede">The longest list in the app, with no search, filters or sorting. Finding one transaction meant scrolling through everything.</p>
         <ul class="sb-changes">
-          <li><b>Endless scrolling</b> → fuzzy search by any value from a transaction, such as an amount, a name or a reference</li>
+          <li><b>Endless scrolling</b> → search by any value: an amount, a name or a reference</li>
           <li><b>One unfiltered list</b> → filters by transaction type</li>
           <li><b>Fixed order</b> → sorting by column</li>
-          <li><b>Hidden manual entry</b> → clear Add journal button</li>
-          <li><b>All entries expanded</b> → collapsible cards</li>
+          <li><b>Hidden manual entry</b> → a clear Add journal entry button</li>
+          <li><b>Everything expanded</b> → collapsible cards</li>
         </ul>
         <figure>
           <a class="sb-zoom" href="sb-journal-before-after.png" target="_blank" rel="noopener" data-title="Journal entries · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-journal-before-after.webp" type="image/webp"><img src="sb-journal-before-after.png" width="2720" height="1213" loading="lazy" decoding="async" alt="Journal entries before and after. Before: no search, manual entry hidden as a link, every entry fully expanded. After: Add manual journal entry button, search and filters, collapsible cards with key info in the header."></picture></div></a>
@@ -264,13 +216,13 @@
 
       <article class="sb-compare">
         <h3>Overview</h3>
-        <p class="sb-finding-lede">After users had added invoices and receipts, the Overview showed their finances, but as one big block of repeated information. Users couldn't see what needed their attention first. So I organised the page by time:</p>
+        <p class="sb-finding-lede">One big block of repeated information, and nothing told users what to do first. So I organised the page by time.</p>
         <ul class="sb-changes">
-          <li><b>Seven equal alerts</b> → one "Needs your attention" list for overdue invoices, month-end closing and other urgent tasks</li>
-          <li><b>Repeated deadlines</b> → a "Due soon" group, then "Later this month" for tasks that can wait</li>
-          <li><b>Numbers mixed into tasks</b> → a separate financial snapshot of revenue and performance</li>
-          <li><b>No clear next step</b> → one-click actions and plain-language advice on each item</li>
-          <li><b>No sense of timing</b> → a calendar showing what needs attention now and what comes next</li>
+          <li><b>Seven equal alerts</b> → one "Needs your attention" list</li>
+          <li><b>Repeated deadlines</b> → "Due soon", then "Later this month"</li>
+          <li><b>Numbers mixed into tasks</b> → a separate financial snapshot</li>
+          <li><b>No clear next step</b> → one-click actions and plain-language advice</li>
+          <li><b>No sense of timing</b> → a calendar of what's now and what's next</li>
         </ul>
         <figure>
           <a class="sb-zoom" href="sb-overview-before-after.png" target="_blank" rel="noopener" data-title="Overview · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-overview-before-after.webp" type="image/webp"><img src="sb-overview-before-after.png" width="2720" height="1634" loading="lazy" decoding="async" alt="Overview page before and after. Before: seven equal-weight alerts, charts without legends, and deadlines repeated. After: Needs your attention list, due soon grouping, financial snapshot, plain-language advice and readable charts."></picture></div></a>
@@ -285,11 +237,12 @@
           <p>"I filled in this option above. Why is the system asking me to fill it in again?"</p>
           <cite>— Workshop participant, Payroll session</cite>
         </div>
-        <p class="sb-finding-lede">No field was actually repeated. There were just so many fields that the form felt repetitive. So the problem wasn't the data. It was too much information at once. I split the registration into smaller steps, so users only see what they need at each point.</p>
+        <p>No field was actually repeated.</p>
+        <p class="aside-note"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>The form was just long enough to give everyone déjà vu.</p>
+        <p>So the fix wasn't the data, it was how much we showed at once.</p>
         <ul class="sb-changes">
-          <li><b>Two long forms</b> → step-by-step registration</li>
-          <li><b>Felt repetitive</b> → related fields grouped into one step each</li>
-          <li><b>No sense of progress</b> → a step indicator shows where users are in the process</li>
+          <li><b>Two long forms</b> → three short steps, related fields grouped together</li>
+          <li><b>No sense of progress</b> → a step indicator</li>
           <li><b>No overview</b> → summary cards up front</li>
         </ul>
         <figure>
@@ -323,28 +276,11 @@
     <div class="sb-wrap">
       <div class="section-header">
         <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-        <div class="section-headings"><h2 class="section-chapter" id="design-system-heading">Design system</h2><p class="section-subtitle">One foundation for Figma and code</p></div>
+        <div class="section-headings"><h2 class="section-chapter" id="design-system-heading">One foundation for Figma and code</h2></div>
       </div>
       <div class="sb-text">
-        <p>Before redesigning the screens one by one, I built a full design system for Simple Booking. I didn't start from zero. I kept the parts of the old design that worked and improved them. This saved time, and gave the new design a structure the product can grow with.</p>
-        <p>The design system also makes building with AI more reliable. Claude Code uses the same colours, text styles and components that I use in Figma, so the app looks and works the same everywhere, instead of every screen being a little different.</p>
-      </div>
-      <div class="sb-insights sb-insights--cards">
-        <div class="sb-insight">
-          <div class="sb-emoji" aria-hidden="true">♻️</div>
-          <h4>Built on what worked</h4>
-          <p>I started from the useful parts of the old design, then improved and extended them.</p>
-        </div>
-        <div class="sb-insight">
-          <div class="sb-emoji" aria-hidden="true">🧱</div>
-          <h4>Consistent code</h4>
-          <p>Claude Code reuses the same components and styles, so the app stays consistent.</p>
-        </div>
-        <div class="sb-insight">
-          <div class="sb-emoji" aria-hidden="true">⚡</div>
-          <h4>Faster in Figma and code</h4>
-          <p>New screens are built from existing parts, which makes both designing and building faster.</p>
-        </div>
+        <p>Before redesigning screen by screen, I built a design system, keeping what worked in the old design and improving the rest. It's also what makes building with AI reliable: Claude Code uses the same colours, type and components as my Figma file, so every screen looks and behaves the same.</p>
+        <p>I build the front-end myself, directly in the product: design in Figma → build with Claude Code, one component at a time → check it in dark and light mode → hand it to the back-end team → improve it with user feedback.</p>
       </div>
       <div class="sb-ds-sheets">
         <figure class="sb-ds-sheet">
@@ -361,79 +297,20 @@
     </div>
   </section>
 
-  <!-- Claude Code -->
-  <section class="sb-section section" aria-labelledby="ai">
-    <div class="sb-wrap">
-            <div class="section-header">
-        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-        <div class="section-headings"><h2 class="section-chapter" id="ai">Building it with Claude Code</h2><p class="section-subtitle">From Figma to a working front-end</p></div>
-      </div>
-      <div class="sb-split">
-        <div class="sb-text">
-          <p>I bridge the gap between design and code. I built the front-end myself with Claude Code, working directly in the existing product, without a front-end developer. Because Claude Code uses my <a href="#design-system">design system</a>, every screen matches the Figma design, and we get from design to working screens much faster.</p>
-        </div>
-        <div class="sb-ai-aside">
-        <ol class="sb-flow" aria-label="Implementation workflow">
-          <li><b>1</b><span>Design the page in Figma</span></li>
-          <li><b>2</b><span>Build it with Claude Code, one component at a time</span></li>
-          <li><b>3</b><span>Check it against the design, in dark and light mode</span></li>
-          <li><b>4</b><span>Hand the working screen to the back-end team</span></li>
-          <li><b>5</b><span>Improve it based on user feedback, and repeat</span></li>
-        </ol>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Status -->
-  <section class="sb-section section" aria-labelledby="status">
-    <div class="sb-wrap">
-            <div class="section-header">
-        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-        <div class="section-headings"><h2 class="section-chapter" id="status">Where it is now</h2></div>
-      </div>
-      <div class="sb-status-grid">
-        <div class="sb-status-col sb-done">
-          <h3>Done so far</h3>
-          <ul>
-            <li>Expert review and a roadmap built with the PM</li>
-            <li>A workshop for each core area with all three users</li>
-            <li>Design system built in Figma</li>
-            <li>Overview, Invoices, Quotes, Receipts, Journal entries and Payroll redesigned</li>
-            <li>About 50% of the app redesigned and implemented with Claude Code</li>
-          </ul>
-        </div>
-        <div class="sb-status-col sb-progress">
-          <h3>In progress</h3>
-          <ul>
-            <li>Redesigning the remaining areas of the app</li>
-            <li>Handing finished front-end over to the back-end team for integration</li>
-          </ul>
-        </div>
-        <div class="sb-status-col sb-next">
-          <h3>Next</h3>
-          <ul>
-            <li>Formal usability testing of V2 with the three users, on the same tasks used in the workshops</li>
-            <li>Comparing V1 and V2 on task completion and errors</li>
-            <li>Testing with new users as the customer base grows</li>
-          </ul>
-        </div>
-      </div>
-      <p class="sb-status-note">V2 hasn't been tested formally yet, so this page shows my decisions and why I made them, not results. I'll add measured results after testing.</p>
-    </div>
-  </section>
-
-  <!-- Reflection -->
-  <section class="sb-section section" aria-labelledby="reflect">
+  <!-- Where it is now, and what I learned -->
+  <section class="sb-section section" aria-labelledby="status-learned">
     <div class="sb-wrap">
             <div class="section-header">
         <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-        <div class="section-headings"><h2 class="section-chapter" id="reflect">Reflection</h2><p class="section-subtitle">What I learned</p></div>
+        <div class="section-headings"><h2 class="section-chapter" id="status-learned">Where it is now, and what I learned</h2></div>
+      </div>
+      <div class="sb-text">
+        <p>About half of the app is redesigned and built. Next comes formal usability testing of V2 with the same three users and the same tasks, comparing V1 and V2 on task completion and errors. Until then, this page shows my decisions and why I made them, not results. I'll add the numbers after testing.</p>
       </div>
       <div class="sb-reflect">
-        <div><h4>Working with three users</h4><p>With a young product, I couldn't test with many people. But working with every real user on every core part of the app gave me a deeper understanding than a bigger, quicker study might have.</p></div>
-        <div><h4>"Feels repetitive" is a real problem</h4><p>The payroll form didn't repeat a single field, but a user still felt it was asking the same questions twice. If something feels complicated to users, it needs fixing, even when the data is correct.</p></div>
-        <div><h4>Building it myself keeps the design intact</h4><p>Because I build the UI myself with Claude Code, using my design system, my design decisions make it all the way into the product.</p></div>
+        <div><h4>Three users can teach you a lot.</h4><p>Working with every real user on every core area went deeper than a bigger, quicker study would have.</p></div>
+        <div><h4>"Feels repetitive" is a real problem.</h4><p>If something feels complicated, it needs fixing, even when the data is correct.</p></div>
+        <div><h4>Building it myself protects the design.</h4><p>My decisions make it all the way into the product.</p></div>
       </div>
     </div>
   </section>
