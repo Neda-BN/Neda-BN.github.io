@@ -2377,6 +2377,9 @@ body.case-study-page.ui-design-page main.ui-design-main .ui-design-intro p stron
 
 /* Reusable aside note (inline Lucide icon + accent copy) */
 .case-study-page .aside-note,
+.case-study-page .content p.aside-note,
+.case-study-page .content.case-main p.aside-note,
+.case-study-page .section p.aside-note,
 .case-study-page .sb-case p.aside-note {
   display: flex;
   align-items: center;
@@ -2391,6 +2394,9 @@ body.case-study-page.ui-design-page main.ui-design-main .ui-design-intro p stron
 }
 
 .case-study-page .aside-note svg,
+.case-study-page .content p.aside-note svg,
+.case-study-page .content.case-main p.aside-note svg,
+.case-study-page .section p.aside-note svg,
 .case-study-page .sb-case p.aside-note svg {
   flex-shrink: 0;
   width: 18px;
@@ -2415,6 +2421,9 @@ body.case-study-page.ui-design-page main.ui-design-main .ui-design-intro p stron
 
 @media (prefers-reduced-motion: no-preference) {
   .case-study-page .aside-note:hover svg,
+  .case-study-page .content p.aside-note:hover svg,
+  .case-study-page .content.case-main p.aside-note:hover svg,
+  .case-study-page .section p.aside-note:hover svg,
   .case-study-page .sb-case p.aside-note:hover svg {
     animation: case-study-aside-note-wiggle 300ms ease-out;
   }

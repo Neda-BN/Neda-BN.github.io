@@ -427,9 +427,9 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   }
 </style>
 <link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
-<link rel="stylesheet" href="css/case-study.css?v=20260404">
+<link rel="stylesheet" href="css/case-study.css?v=20260407">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
-<link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
+<link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260407">
 </head>
 <body class="has-anna-nav case-study-page">
 
@@ -471,43 +471,39 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 <div class="content case-main">
 
   <div class="hc-tldr fade-in reveal">
-    <p><strong>The problem:</strong> Administrators sent healthcare quality surveys to social workers across many municipalities, using Outlook, Excel and shared folders. Nobody could see who had responded, and reports took weeks to compile.</p>
-    <p><strong>What I did:</strong> Interviewed 4 quality managers, mapped the full survey workflow, designed the platform, and tested it with 5 administrators. I built 100% of the front-end myself with Cursor, working with the PM, stakeholders and the back-end team.</p>
-    <p><strong>Key decisions:</strong> A six-step guided wizard for sending surveys, a hierarchy that reveals one level at a time, and colour-coded performance scoring.</p>
-    <p><strong>Result:</strong> In testing, creating and sending a survey dropped from about 2 hours to about 15 minutes. The platform has launched and has two customers.</p>
+    <p><strong>The problem:</strong> Administrators sent healthcare quality surveys to social workers across many municipalities, using Outlook, Excel and shared folders. Nobody could see who had answered, and reports took weeks.</p>
+    <p><strong>What I did:</strong> Interviewed 4 quality managers, mapped the whole survey workflow, designed the platform and tested it with 5 administrators. I also built 100% of the front-end myself with Cursor.</p>
+    <p><strong>Key decisions:</strong> A six-step wizard for sending surveys, a hierarchy that opens one level at a time, and traffic-light performance scoring.</p>
+    <p><strong>Result:</strong> In testing, creating and sending a survey went from about 2 hours to about 15 minutes. The platform has launched and has two customers.</p>
   </div>
 
 
-  <!-- INTRODUCTION -->
-  <section class="section fade-in reveal case-anchor" id="introduction">
+  <!-- THE CHALLENGE -->
+  <section class="section fade-in reveal case-anchor" id="challenge">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Introduction</h2></div>
+      <div class="section-headings"><h2 class="section-chapter">The challenge</h2></div>
     </div>
-    <p>In Sweden, healthcare quality surveys, for example for HVB and LSS services, are sent to social workers in districts across many municipalities. Administrators create the surveys, send them out, check who has answered, and report on the results. They were doing all of this with Outlook, Excel and shared folders, which were never made to work together.</p>
-    <p>The platform started as an idea from my manager at Focalpay and became a separate product, not connected to the retail platform. It's a B2B SaaS platform that puts the whole survey process in one place: creating surveys, sending them, tracking answers and analysing results. Our goal was to <strong>cut administrators' workload by 50%</strong>, without lowering the quality of the data.</p>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section fade-in reveal case-anchor" id="role">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">My Role &amp; Responsibilities</h2><p class="section-subtitle">Design, research and front-end</p></div>
+    <p>In Sweden, healthcare quality surveys, for example for HVB and LSS services, go to social workers in districts across many municipalities. Administrators create them, send them, chase answers and report on the results, all in Outlook, Excel and shared folders.</p>
+    <p class="aside-note"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7"/><path d="M15 7h2a5 5 0 0 1 0 10"/><path d="M8 12h8"/><path d="m2 2 20 20"/></svg>Three tools that had never been introduced to each other.</p>
+    <p>Every survey round meant emails sent by hand, a separate spreadsheet per municipality, missed deadlines and no overview of who had answered. Quarterly reports meant copying data from many files, often for two full weeks.</p>
+    <p>The platform started as an idea from my manager at Focalpay and became its own B2B SaaS product: one place to create surveys, send them, track answers and analyse results. Our goal was to <strong>cut administrators' workload by 50%</strong>, without lowering data quality.</p>
+    <p>I led UX and UI end to end, from research to final screens, and built the whole front-end myself, since there was no front-end developer on the team. I worked closely with the PM, stakeholders and the back-end team, and designed to WCAG guidelines across mobile, tablet and desktop.</p>
+    <div class="results-grid">
+      <div class="result-card"><div class="result-number">30+</div><div class="result-label">Municipalities the platform is designed to handle</div></div>
+      <div class="result-card"><div class="result-number">8–10h</div><div class="result-label">Per week spent on manual tracking</div></div>
+      <div class="result-card"><div class="result-number">2 wks</div><div class="result-label">To prepare a single quarterly report</div></div>
     </div>
-    <div class="role-block">
-      <h4>My Responsibilities</h4>
-      <ul class="role-list">
-        <li>Lead UX/UI designer, end to end, from research to final screens</li>
-        <li>Built 100% of the front-end from scratch with Cursor; there was no front-end developer on the team</li>
-        <li>Worked with the PM, stakeholders and the back-end team throughout</li>
-        <li>Interviews with 4 healthcare quality managers</li>
-        <li>Workflow analysis of the full survey lifecycle</li>
-        <li>Information architecture for the healthcare hierarchy</li>
-        <li>Designing the six-step Power Send wizard and the colour-coded scoring</li>
-        <li>Usability testing with 5 administrators</li>
-        <li>Designed to WCAG guidelines across mobile, tablet and desktop</li>
-      </ul>
+    <p class="hc-stat-source">Hours and weeks from interviews with 4 quality managers.</p>
+    <div class="quote-block">
+      <p>"I spend more time chasing people for replies than actually analysing the quality of care."</p>
+      <cite>— Healthcare Administrator, Stockholm</cite>
+    </div>
+
+    <div class="hc-discover-fullbleed-wrap wide">
+      <figure class="hc-discover-fullbleed reveal reveal-media">
+        <img src="monitors.png" alt="Healthcare Provider Survey Management platform shown on two laptop screens — sign-in and survey sent confirmation views." width="1451" height="482" loading="lazy" decoding="async" sizes="100vw">
+      </figure>
     </div>
   </section>
 
@@ -519,7 +515,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Research</h2><p class="section-subtitle">Four ways of understanding the problem</p></div>
     </div>
-    <p>I wanted to understand how administrators actually work with surveys, not how the process looks on paper. The main questions were: where does the time go, and why weren't the existing tools working?</p>
+    <p>I wanted to understand how administrators actually work, not how the process looks on paper. Where does the time go, and why weren't the tools working?</p>
     <div class="findings-list">
       <div class="finding-item"><div class="finding-icon">🗣️</div><div><p class="finding-text">"We need to see long-term trends across municipalities — not just individual survey answers."</p><div class="finding-stat">A · Interviews with 4 healthcare quality managers.</div></div></div>
       <div class="finding-item"><div class="finding-icon">🗺️</div><div><p class="finding-text">Creating, sending, tracking and analysing surveys all happened in different tools, with nothing connecting them.</p><div class="finding-stat">B · Workflow mapping</div></div></div>
@@ -570,38 +566,6 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       </table>
       </div>
     </aside>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- PROBLEM -->
-  <section class="section fade-in reveal case-anchor" id="discover">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">The problem</h2><p class="section-subtitle">Three problems in one process</p></div>
-    </div>
-    <p>Before the platform, every survey round meant working in several tools at the same time, with no overview. The problems came down to three things.</p>
-    <div class="pain-grid">
-      <div class="pain-card"><div class="pain-number">01</div><h4>Everything was manual</h4><p>Surveys went out by email. Answers were tracked in a separate Excel file for each municipality. Deadlines were missed, and every reminder was sent by hand.</p></div>
-      <div class="pain-card"><div class="pain-number">02</div><h4>No overview</h4><p>Nobody could see who had answered, who hadn't, or which areas needed a reminder.</p></div>
-      <div class="pain-card"><div class="pain-number">03</div><h4>Slow reporting</h4><p>For quarterly reports, administrators copied data from many spreadsheets by hand. It often took two full weeks.</p></div>
-    </div>
-    <div class="results-grid">
-      <div class="result-card"><div class="result-number">30+</div><div class="result-label">Municipalities the platform is designed to handle</div></div>
-      <div class="result-card"><div class="result-number">8–10h</div><div class="result-label">Per week spent on manual tracking</div></div>
-      <div class="result-card"><div class="result-number">2 wks</div><div class="result-label">To prepare a single quarterly report</div></div>
-    </div>
-    <p class="hc-stat-source">Hours and weeks from interviews with 4 quality managers.</p>
-    <div class="quote-block">
-      <p>"I spend more time chasing people for replies than actually analysing the quality of care."</p>
-      <cite>— Healthcare Administrator, Stockholm</cite>
-    </div>
-
-    <div class="hc-discover-fullbleed-wrap wide">
-      <figure class="hc-discover-fullbleed reveal reveal-media">
-        <img src="monitors.png" alt="Healthcare Provider Survey Management platform shown on two laptop screens — sign-in and survey sent confirmation views." width="1451" height="482" loading="lazy" decoding="async" sizes="100vw">
-      </figure>
-    </div>
   </section>
 
   <div class="divider"></div>
@@ -736,7 +700,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       </div>
     </div>
   </div>
-    <p>The map follows a quality manager through ten steps, from logging in and creating a survey to sending it, following up and submitting the report. The high points are the guided steps with clear feedback. The low points are choosing recipients by hand and waiting for answers without knowing who has replied.</p>
+    <p>The map follows a quality manager through ten steps. The high points are the guided steps with clear feedback. The low points are choosing recipients by hand and waiting for answers without knowing who has replied.</p>
   </section>
 
   <div class="divider"></div>
@@ -747,21 +711,8 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Process</h2><p class="section-subtitle">Making a complex structure simple to use</p></div>
     </div>
-    <p>The platform had to handle several levels: providers, municipalities, districts and individual social workers. The users were already busy, so every decision aimed to make each step easier to understand.</p>
-    <div class="process-steps">
-      <div class="process-step process-step--flow"><div class="step-number">01</div><div class="step-content"><h4>Research and workflow mapping</h4><p>I mapped the whole survey process, from creating a survey to reporting. Three steps took the most time: setting up the sending, tracking answers and quarterly reporting.</p></div></div>
-      <div class="process-step process-step--flow"><div class="step-number">02</div><div class="step-content"><h4>Information architecture</h4><p>I split the platform into three sections, Surveys, Analysis and Reports, which matched how administrators already thought about their work.</p></div></div>
-      <div class="process-step process-step--flow"><div class="step-number">03</div><div class="step-content"><h4>Hierarchy</h4><p>I designed accordion navigation that shows the levels one at a time: provider, municipality, district, social worker.</p></div></div>
-      <div class="process-step process-step--flow"><div class="step-number">04</div><div class="step-content"><h4>Send wizard</h4><p>I designed a six-step wizard to replace choosing recipients, managing email lists and checking details by hand.</p></div></div>
-      <div class="process-step process-step--flow"><div class="step-number">05</div><div class="step-content"><h4>Usability testing</h4><p>I tested with 5 administrators. They had trouble finding the Select All button, so I fixed it.</p></div></div>
-      <div class="process-step"><div class="step-number">06</div><div class="step-content"><h4>Building it in Cursor</h4><p>I built the front-end with Cursor, using detailed prompts to keep the design consistent and accessible, and to handle the nested data.</p></div></div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- HIERARCHY DESIGN -->
-  <section class="section fade-in reveal case-anchor" id="hierarchy-design">
+    <p>The platform had to handle four levels: providers, municipalities, districts and individual social workers, for people who were already busy. Mapping the workflow showed three big time sinks: setting up a send, tracking answers and quarterly reporting.</p>
+    <p>In a workshop, we grouped ideas into building the survey, sending it out, keeping track and reading the results, and prioritised them as Must, Should and Could. That became the platform's three main sections: Surveys, Analysis and Reports.</p>
     <div class="reveal reveal-media">
       <figure class="hc-figure-process-board wide">
         <img
@@ -776,12 +727,18 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
         >
       </figure>
     </div>
-    <p class="image-caption">In a workshop, we grouped ideas into building the survey, sending it out, keeping track and reading the results, and then prioritised them as Must, Should and Could.</p>
+    <p class="image-caption">Workshop: grouping ideas and prioritising them as Must, Should and Could.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- HIERARCHY DESIGN -->
+  <section class="section fade-in reveal case-anchor" id="hierarchy-design">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Hierarchy design</h2><p class="section-subtitle">Showing one level at a time</p></div>
     </div>
-    <p>Swedish healthcare has several administrative levels. Showing all of them at once created long, impenetrable lists that were hard to work with.</p>
+    <p>Showing every administrative level at once created long, impenetrable lists. So the platform shows one level at a time.</p>
     <table class="data-table wide">
       <thead><tr><th>Level</th><th>Description</th><th>Design solution</th></tr></thead>
       <tbody>
@@ -801,8 +758,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Send wizard</h2><p class="section-subtitle">Sending a survey in six steps</p></div>
     </div>
-    <p>Before the platform, sending a survey to many municipalities meant choosing recipients by hand, managing email lists and checking everything in separate documents. Missing one municipality could ruin a whole reporting round.</p>
-    <p>So I designed a wizard that splits sending into six steps. Each step is checked before the next one opens.</p>
+    <p>Sending a survey used to mean choosing recipients by hand, managing email lists and checking everything in separate documents. Missing just one municipality could ruin a whole reporting round. So I split sending into six steps, each checked before the next one opens.</p>
     <div class="wizard-steps" id="hc-wizard-steps">
       <div class="wizard-step"><div class="wizard-step-num">01</div><h4>Choose survey</h4><p>Pick the template to send.</p></div>
       <div class="wizard-step"><div class="wizard-step-num">02</div><h4>Choose recipients</h4><p>Find and select municipalities in the hierarchy.</p></div>
@@ -870,7 +826,6 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       </figure>
     </div>
 
-    <p class="hc-wizard-summary">In testing, the guided wizard cut survey creation and sending from about 2 hours to about 15 minutes.</p>
   </section>
 
   <div class="divider"></div>
@@ -881,7 +836,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Performance scoring</h2><p class="section-subtitle">Traffic-light colours instead of number tables</p></div>
     </div>
-    <p>Managers needed to see quickly how each municipality was doing. Big tables of numbers were tiring to read under time pressure. So I designed a scoring system with three colours that show the status at a glance.</p>
+    <p>Managers needed to see quickly how each municipality was doing, and big number tables are tiring under time pressure. So I designed a three-colour scoring system that shows status at a glance.</p>
     <table class="data-table wide">
       <thead><tr><th>Status</th><th>Meaning</th><th>Action</th></tr></thead>
       <tbody>
@@ -916,10 +871,9 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Usability testing</h2><p class="section-subtitle">5 administrators</p></div>
     </div>
-    <p>I tested with 5 administrators who work with surveys regularly. Each person created a survey and sent it to several municipalities, just like in their daily work.</p>
-    <div class="findings-list">
-      <div class="finding-item"><div class="finding-icon">🔍</div><div><p class="finding-text">Participants had trouble finding Select All when choosing districts from long lists. Most of them selected districts one by one, because they didn't see the button.</p><div class="finding-stat">Main issue: the Select All button had low contrast and was in the wrong place</div></div></div>
-    </div>
+    <p>I tested with 5 administrators who work with surveys regularly. Each created a survey and sent it to several municipalities, just like in their daily work.</p>
+    <p>The main issue: the Select All button had low contrast and sat in the wrong place, so most people selected districts one by one.</p>
+    <p class="aside-note"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"/><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"/><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"/><path d="m2 2 20 20"/></svg>A button nobody can see is a very quiet button.</p>
     <div class="ab-grid">
       <div class="ab-card"><div class="ab-label">Before iteration</div><div class="ab-stat">~8 min</div><p class="ab-desc">Average time to select all districts. Select All was small, had low contrast, and participants kept missing it.</p></div>
       <div class="ab-card winner"><div class="ab-label">✓ After iteration</div><div class="ab-stat">~5 min</div><p class="ab-desc">About 3 minutes faster. I moved the button, made it stand out more and added a counter showing how many were selected. All 5 participants found it straight away.</p></div>
@@ -937,8 +891,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Building the front-end</h2><p class="section-subtitle">From design to working product</p></div>
     </div>
-    <p>The team didn't have a front-end developer, so I built the whole front-end myself with Cursor, while the back-end team built the server side. This meant my design didn't stop in Figma. I set and checked every spacing value, colour, state and interaction in the product.</p>
-    <p>I wrote detailed prompts with exact spacing, colour tokens, accessibility requirements and component behaviour. When the result didn't match the design, I fixed it in the prompt. It also made changes fast: when testing found the Select All problem, I could fix it in the code myself, without waiting for a handoff.</p>
+    <p>There was no front-end developer, so I built the whole front-end with Cursor while the back-end team built the server side. My design didn't stop in Figma: I set and checked every spacing value, colour, state and interaction in the product, using detailed prompts with exact tokens and accessibility requirements. When testing found the Select All problem, I fixed it in the code myself, without waiting for a handoff.</p>
   </section>
 
   <div class="divider"></div>
@@ -949,7 +902,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Results</h2><p class="section-subtitle">Measured, estimated, and what comes next</p></div>
     </div>
-    <p>We set a target of cutting administrators' workload by 50%. Here's what we know so far, kept separate by how sure we are.</p>
+    <p>Our target was to cut administrators' workload by 50%. Here's what we know so far, kept separate by how sure we are.</p>
 
     <h3 class="hc-results-subhead">Measured in usability testing</h3>
     <p class="hc-results-impact-lede">5 administrators did the same task the old way and then in the prototype:</p>
@@ -982,24 +935,14 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 
   <section class="section fade-in reveal case-anchor" id="where-it-is-now">
     <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Where it is now</h2><p class="section-subtitle">Launch and next steps</p></div>
-    </div>
-    <p>The platform has launched and has two customers. The team is working on marketing to reach more. With real usage, the next step is to measure what testing couldn't: time spent per survey cycle, response rates, and reporting time.</p>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- REFLECTION -->
-  <section class="section fade-in reveal case-anchor" id="reflection">
-    <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Reflection</h2><p class="section-subtitle">What I learned</p></div>
+      <div class="section-headings"><h2 class="section-chapter">Where it is now, and what I learned</h2></div>
     </div>
+    <p>The platform has launched and has two customers, and the team is working on reaching more. Next, we'll measure what testing couldn't: time per survey cycle, response rates and reporting time.</p>
     <div class="lessons-list">
-      <div class="lesson-item"><div class="lesson-num">01</div><div class="lesson-text"><h4>Show complex structures step by step</h4><p>I didn't solve the hierarchy problem by removing levels. I solved it by showing one level at a time, so each step felt easy to handle.</p></div></div>
-      <div class="lesson-item"><div class="lesson-num">02</div><div class="lesson-text"><h4>Guided steps help people feel safe</h4><p>Healthcare administrators aren't afraid of technology. They're careful, because mistakes are serious. A wizard that checks each step before the next gave them confidence that nobody would be missed.</p></div></div>
-      <div class="lesson-item"><div class="lesson-num">03</div><div class="lesson-text"><h4>Building the front-end myself changed how I work</h4><p>Using Cursor didn't mean giving up control. I could decide every detail and still move faster. When testing found a problem, I could fix it in the code myself, without waiting for a handoff. The back-end team built the server side, and I built the front-end. It's a skill I'm still developing.</p></div></div>
+      <div class="lesson-item"><div class="lesson-num">01</div><div class="lesson-text"><h4>Show complex structures step by step.</h4><p>I didn't remove levels; I showed one at a time, so each step felt easy.</p></div></div>
+      <div class="lesson-item"><div class="lesson-num">02</div><div class="lesson-text"><h4>Guided steps help people feel safe.</h4><p>Administrators aren't afraid of technology. They're careful, because mistakes are serious. A wizard that checks each step gave them confidence nobody would be missed.</p></div></div>
+      <div class="lesson-item"><div class="lesson-num">03</div><div class="lesson-text"><h4>Building the front-end changed how I work.</h4><p>I could control every detail and still move faster. It's a skill I'm still developing.</p></div></div>
     </div>
   </section>
 

@@ -481,3 +481,29 @@ body.case-study-page .hc-ujm-chart-scroll svg {
   max-width: 100%;
   height: auto;
 }
+
+/* .aside-note (defined in case-study.css): override .content p defaults on case study pages */
+body.case-study-page .content p.aside-note,
+body.case-study-page .content.case-main p.aside-note,
+body.case-study-page .section p.aside-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0 20px;
+  font-family: var(--font-body, 'Poppins', sans-serif);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: var(--accent);
+}
+
+body.case-study-page .content p.aside-note svg,
+body.case-study-page .content.case-main p.aside-note svg,
+body.case-study-page .section p.aside-note svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+}
