@@ -33,9 +33,17 @@
 :root {
   --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-soft:   cubic-bezier(0.4, 0, 0.2, 1);
+  --nav-h: 85px;
 }
 
-html { overflow-x: clip; scroll-behavior: auto; }
+@media (max-width: 809.98px) {
+  :root {
+    --nav-h: 69px;
+  }
+}
+
+html { overflow-x: clip; scroll-behavior: smooth; }
+#projects { scroll-margin-top: calc(var(--nav-h) + 24px); }
 html, body {
   min-height: 100vh;
   overflow-x: hidden;
@@ -51,6 +59,7 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
 .footer-strip a:focus-visible { outline-color: #fff; }
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
   .anna-nav__pill a { transition: none !important; }
   .vc-card, .vc-card__img, .vc-card__veil, .vc-card__title { transition: none !important; }
   .vc-card:hover, .vc-card:focus-visible { transform: none; box-shadow: none; }
@@ -142,6 +151,37 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
     color: var(--muted);
     margin: 0 0 48px;
     max-width: none;
+  }
+
+  #ui-design > .ui-design__behance-link {
+    display: inline-block;
+    margin-top: 56px;
+    position: static;
+    font-family: var(--font-mono);
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 1px;
+  }
+
+  #ui-design > .ui-design__behance-link::after {
+    content: none;
+  }
+
+  #ui-design > .ui-design__behance-link:hover {
+    text-decoration-color: var(--accent);
+  }
+
+  #ui-design > .ui-design__behance-link:hover .work-card__arrow {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 899.98px) {
+    #ui-design > .ui-design__behance-link {
+      margin-top: 40px;
+    }
   }
 
   .page-works .vc-section {
@@ -525,8 +565,8 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
     <p class="hero-v6__slogan hero-v6__reveal"><span class="hero-v6__slogan-a">From the first user interview</span><span class="hero-v6__slogan-b">to the last line of code.</span></p>
     <p class="hero-v6__support hero-v6__reveal">10+ years in design and 5+ in product, across fintech, retail and healthcare. I research, design and ship — often in code.</p>
     <div class="hero-v6__actions hero-v6__reveal">
-      <a class="hero-v6__btn hero-v6__btn--primary" href="index.html#projects">See my work</a>
-      <a class="hero-v6__btn hero-v6__btn--secondary" href="index.html#contact">Let's talk</a>
+      <a class="hero-v6__btn hero-v6__btn--primary" href="#projects">See my work</a>
+      <a class="hero-v6__btn hero-v6__btn--secondary" href="#contact">Let's talk</a>
     </div>
   </div>
 </section>
@@ -746,7 +786,7 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
       </article>
 
     </div>
-    <a class="work-card__link" href="https://www.behance.net/nedabagheri1" target="_blank" rel="noopener noreferrer">More visual work on Behance <span class="work-card__arrow" aria-hidden="true">→</span></a>
+    <a class="ui-design__behance-link" href="https://www.behance.net/nedabagheri1" target="_blank" rel="noopener noreferrer">More visual work on Behance <span class="work-card__arrow" aria-hidden="true">→</span></a>
   </section>
 
   <section id="about-short" class="about-short">
