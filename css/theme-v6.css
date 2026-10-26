@@ -1,40 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Instrument+Serif:ital@0;1&family=Poppins:wght@400;500;600&family=Syne:wght@700;800&display=swap');
-
-:root {
-  --bg: #0B0C10;
-  --surface: #16161C;
-  --surface-2: #1E1E26;
-  --text: #EDEDF0;
-  --muted: #9A9AA5;
-  --border: rgba(255, 255, 255, 0.08);
-  --accent: #8AA4D6;
-  --accent-strong: #6F8BC4;
-  --accent-soft: rgba(138, 164, 214, 0.14);
-  --accent-text: var(--accent);
-  --font-display: 'Syne', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-body: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
-  --font-accent: 'Instrument Serif', ui-serif, Georgia, 'Times New Roman', serif;
-  /* Legacy aliases */
-  --page-bg: var(--bg);
-  --page-title: var(--font-display);
-  --display: var(--font-display);
-  --sans: var(--font-body);
-  --ink: var(--text);
-  --ink2: var(--muted);
-  --ink3: #6e6e78;
-  --warm: var(--accent);
-  --line: var(--border);
-  --line2: rgba(255, 255, 255, 0.04);
-  --text-muted: var(--muted);
-  --accent-light: var(--accent-soft);
-  --bg2: var(--surface);
-  --bg3: var(--surface-2);
-  --surface-card: var(--surface);
-  --dark: var(--text);
-  --mid: var(--muted);
-  --light: var(--muted);
-}
+@import url('tokens.css');
 
 html {
   color-scheme: dark;
