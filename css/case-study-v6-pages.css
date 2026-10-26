@@ -477,5 +477,7 @@ body.case-study-page .hc-ujm-chart-scroll-inner img {
 
 body.case-study-page .pos-ujm-chart-scroll svg,
 body.case-study-page .hc-ujm-chart-scroll svg {
-  max-width: none;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 }

@@ -272,10 +272,47 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   /* Results & Measurable Impact — narrative outcomes (scoped, does not affect Discover metrics grid) */
   .hc-discover-fullbleed-wrap{
     margin-top:clamp(32px,5vw,48px);
+    overflow:visible;
+  }
+  .hc-discover-fullbleed-wrap.wide{
+    left:auto;
+    transform:none;
   }
   .hc-discover-fullbleed{
     margin:0;
     width:100%;
+    max-width:100%;
+    overflow:visible;
+  }
+  .hc-discover-fullbleed img{
+    width:100%;
+    max-width:100%;
+    height:auto;
+    display:block;
+    margin:0;
+    object-fit:unset;
+  }
+  .hc-ujm-strip.wide,
+  .hc-ujm-strip-inner,
+  .hc-ujm-strip.wide .hc-ujm,
+  .hc-ujm-strip.wide .hc-ujm-page,
+  .hc-ujm-strip.wide .hc-ujm-chart-scroll,
+  .hc-ujm-strip.wide .hc-ujm-chart-scroll-inner,
+  .hc-ujm-strip.wide .hc-ujm-chart-area,
+  .hc-ujm-strip.wide .hc-ujm-chart-svg-wrap{
+    width:100%;
+    max-width:100%;
+    margin-left:0;
+    left:auto;
+    transform:none;
+    overflow:visible;
+  }
+  @media (max-width:899.98px){
+    .hc-ujm-strip.wide .hc-ujm-chart-scroll{
+      overflow-x:auto;
+      overflow-y:hidden;
+      -webkit-overflow-scrolling:touch;
+    }
   }
   .hc-results-impact-lede{
     font-size:15px;
@@ -391,7 +428,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   }
 </style>
 <link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
-<link rel="stylesheet" href="css/case-study.css?v=20260402">
+<link rel="stylesheet" href="css/case-study.css?v=20260403">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
 </head>

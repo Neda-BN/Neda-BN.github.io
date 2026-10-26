@@ -1032,20 +1032,21 @@
 
 /* ── Wide track (centred breakout from text column) ── */
 .case-study-page .wide {
-  width: min(1200px, calc(100vw - 64px));
-  max-width: min(1200px, calc(100vw - 64px));
+  --cs-wide-track: min(1200px, calc(100vw - 64px));
+  --cs-wide-half: min(600px, calc(50vw - 32px));
+  width: var(--cs-wide-track);
+  max-width: var(--cs-wide-track);
   position: relative;
-  left: 50%;
-  transform: translateX(-50%);
+  left: auto;
+  transform: none;
   box-sizing: border-box;
-  margin-left: 0;
-  margin-right: 0;
+  margin-left: calc(50% - var(--cs-wide-half));
+  margin-right: calc(50% - var(--cs-wide-half));
+  overflow: visible;
 }
 
 .case-study-page .wide-scroll,
-.case-study-page .wide .wide-scroll,
-.case-study-page .pos-ujm-chart-scroll,
-.case-study-page .hc-ujm-chart-scroll {
+.case-study-page .wide .wide-scroll {
   width: 100%;
   max-width: 100%;
   overflow-x: auto;
@@ -1053,6 +1054,25 @@
   overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
   scrollbar-gutter: stable;
+}
+
+.case-study-page .pos-ujm-chart-scroll,
+.case-study-page .hc-ujm-chart-scroll {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: visible;
+  overflow-y: visible;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
+}
+
+@media (max-width: 899.98px) {
+  .case-study-page .pos-ujm-chart-scroll,
+  .case-study-page .hc-ujm-chart-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
 }
 
 .case-study-page .wide img,
@@ -1079,10 +1099,30 @@
   overflow-x: clip;
 }
 
+.case-study-page .content:has(.wide),
+.case-study-page .section:has(.wide),
+.case-study-page .hc-reveal-journey,
+.case-study-page .hc-discover-fullbleed-wrap {
+  overflow: visible;
+  overflow-x: visible;
+}
+
 .case-study-page #user-journey .screens-section,
 .case-study-page .hc-reveal-journey .screens-section {
   overflow: visible;
   max-width: 100%;
+}
+
+.case-study-page .hc-ujm-strip,
+.case-study-page .hc-ujm-strip-inner,
+.case-study-page .pos-ujm-strip,
+.case-study-page .pos-ujm-strip-inner {
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  left: auto;
+  transform: none;
+  overflow: visible;
 }
 
 .case-study-page #user-journey .screens-label,
@@ -1106,7 +1146,9 @@
   border-radius: 16px;
   border: 1px solid var(--border);
   box-shadow: 0 2px 24px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
+  overflow: visible;
+  width: 100%;
+  max-width: 100%;
 }
 
 .case-study-page .pos-ujm *,
@@ -1118,6 +1160,10 @@
 .case-study-page .hc-ujm-page {
   padding: clamp(24px, 4vw, 52px) clamp(16px, 4vw, 64px) clamp(28px, 4vw, 60px);
   background: var(--surface);
+  overflow: visible;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .case-study-page .pos-ujm-header {
@@ -1244,8 +1290,18 @@
 
 .case-study-page .pos-ujm-chart-scroll-inner,
 .case-study-page .hc-ujm-chart-scroll-inner {
-  min-width: max(100%, 720px);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   padding-bottom: 4px;
+  overflow: visible;
+}
+
+@media (max-width: 899.98px) {
+  .case-study-page .pos-ujm-chart-scroll-inner,
+  .case-study-page .hc-ujm-chart-scroll-inner {
+    min-width: max(100%, 720px);
+  }
 }
 
 .case-study-page .pos-ujm-chart-wrap,
@@ -1320,6 +1376,7 @@
 .case-study-page svg.pos-ujm-journey,
 .case-study-page svg.hc-ujm-journey {
   width: 100%;
+  max-width: 100%;
   display: block;
   overflow: visible;
   height: auto;
@@ -1464,9 +1521,15 @@
   border-radius: 1px;
 }
 
-@media (max-width: 1100px) {
+@media (min-width: 900px) and (max-width: 1100px) {
   .case-study-page .hc-ujm-steps {
     grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100.02px) {
+  .case-study-page .hc-ujm-steps {
+    grid-template-columns: repeat(10, minmax(0, 1fr));
   }
 }
 
