@@ -1,6 +1,18 @@
+/* Measured .anna-nav block height (padding + link row; safe-area added separately) */
+:root {
+  --nav-h: 85px;
+}
+
+@media (max-width: 809.98px) {
+  :root {
+    --nav-h: 69px;
+  }
+}
+
 /* Case study layout — unified track aligned to mockup/image cards (Backoffice reference: 820px) */
 .case-study-page {
   overflow-x: clip;
+  --cs-content-below-nav: calc(env(safe-area-inset-top, 0px) + var(--nav-h) + 32px);
   --cs-track: min(100%, 820px);
   --cs-pad: 16px;
   --cs-title: clamp(32px, 5.8vw, 56px);
@@ -1030,18 +1042,17 @@
   }
 }
 
-/* ── Wide track (centred breakout from text column) ── */
+/* ── Wide track (centred breakout from text column; no transform — scroll reveal safe) ── */
 .case-study-page .wide {
   --cs-wide-track: min(1200px, calc(100vw - 64px));
-  --cs-wide-half: min(600px, calc(50vw - 32px));
   width: var(--cs-wide-track);
   max-width: var(--cs-wide-track);
-  position: relative;
+  margin-left: calc((100% - var(--cs-wide-track)) / 2);
+  margin-right: 0;
+  position: static;
   left: auto;
   transform: none;
   box-sizing: border-box;
-  margin-left: calc(50% - var(--cs-wide-half));
-  margin-right: calc(50% - var(--cs-wide-half));
   overflow: visible;
 }
 
@@ -1082,7 +1093,8 @@
 .case-study-page .wide .ds-img,
 .case-study-page .wide .pos-transformation-img,
 .case-study-page .wide .hc-discover-fullbleed img,
-.case-study-page .wide.hc-figure-process-board img {
+.case-study-page .wide.hc-figure-process-board img,
+.case-study-page .wide.ui-design-figure img {
   width: 100%;
   max-width: 100%;
   height: auto;
@@ -1121,15 +1133,6 @@
   left: auto;
   transform: none;
   overflow: visible;
-}
-
-/* .wide on the strip sets track width — do not collapse to the text column */
-.case-study-page .hc-ujm-strip.wide,
-.case-study-page .pos-ujm-strip.wide {
-  width: var(--cs-wide-track);
-  max-width: var(--cs-wide-track);
-  margin-left: calc(50% - var(--cs-wide-half));
-  margin-right: calc(50% - var(--cs-wide-half));
 }
 
 .case-study-page #user-journey .screens-label,
@@ -1669,8 +1672,13 @@ body.case-study-page.has-anna-nav > .hero {
   box-sizing: border-box;
 }
 
+.case-study-page > .back-btn-wrap--top,
+.case-study-page .ui-design-main {
+  padding-top: var(--cs-content-below-nav);
+  margin-top: 0;
+}
+
 .case-study-page .back-btn-wrap--top {
-  margin-top: calc(env(safe-area-inset-top, 0px) + 56px + 32px);
   margin-bottom: clamp(20px, 2.5vw, 28px);
 }
 
@@ -1735,7 +1743,6 @@ body.case-study-page.has-anna-nav > .hero {
 }
 
 .case-study-page.ui-design-page .ui-design-main {
-  padding-top: calc(env(safe-area-inset-top, 0px) + 56px + 32px);
   padding-bottom: clamp(48px, 6vw, 80px);
 }
 
