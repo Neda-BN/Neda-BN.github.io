@@ -1108,7 +1108,7 @@
 
 .case-study-page .content,
 .case-study-page .section {
-  overflow-x: clip;
+  overflow-x: visible;
 }
 
 .case-study-page .content:has(.wide),
@@ -1793,7 +1793,7 @@ body.case-study-page.has-anna-nav > .hero {
 }
 
 .case-study-page.ui-design-page .ui-design-figure {
-  margin: var(--cs-stack-xl) 0 0;
+  margin-top: var(--cs-stack-xl);
   padding: 0;
   border: 0;
   background: transparent;
@@ -1821,4 +1821,7 @@ body.case-study-page.has-anna-nav > .hero {
   }
 }
 
+body.case-study-page.ui-design-page.has-anna-nav main.content.case-main.ui-design-main {
+  padding-top: var(--cs-content-below-nav);
+}
 
