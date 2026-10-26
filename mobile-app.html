@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark">
+<script>document.documentElement.classList.add('js');</script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -135,17 +136,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   }
   .footer-social svg { width: 20px; height: 20px; min-width: 20px; min-height: 20px; flex-shrink: 0; display: block; overflow: visible; }
   .footer-social__beh svg { width: 18px; height: 18px; min-width: 18px; min-height: 18px; }
-  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
-  .fade-in.visible { opacity: 1; transform: translateY(0); }
-
   /* Full case study: kept in DOM for future completion; not shown to visitors */
   .case-main { perspective: 1600px; transform-style: preserve-3d; }
-  .reveal {
-    opacity: 0;
-    transform: translateY(32px);
-    transition: opacity 0.75s var(--ease-soft), transform 0.75s var(--ease-spring);
-  }
-  .reveal.is-visible { opacity: 1; transform: translateY(0); }
   .reveal-media .screen-wrap {
     transition: transform 0.85s var(--ease-spring), box-shadow 0.85s var(--ease-soft);
   }
@@ -798,12 +790,6 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .bottom-back a:hover,
   .bottom-back a:focus-visible { opacity: 1; transform: translateX(-5px); }
   @media (prefers-reduced-motion: reduce) {
-    .reveal,
-    .reveal.is-visible {
-      opacity: 1 !important;
-      transform: none !important;
-      transition: none !important;
-    }
     .reveal-media .screen-wrap {
       transform: none !important;
       transition: none !important;
@@ -918,6 +904,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     .proto-poster-t { font-size: 1.1rem; }
   }
 </style>
+<link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
 <link rel="stylesheet" href="css/case-study.css?v=20260401">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
@@ -1538,6 +1525,6 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     </ul>
 </footer>
 
-<script src="js/case-study-page-reveal.js?v=20260402"></script>
+<script src="js/scroll-reveal.js?v=20260403"></script>
 </body>
 </html>

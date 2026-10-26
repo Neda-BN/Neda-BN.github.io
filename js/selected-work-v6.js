@@ -29,21 +29,40 @@
     card.style.setProperty('--row-delay', rowDelay + 'ms');
   });
 
+  function cardInView(card) {
+    var rect = card.getBoundingClientRect();
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    return rect.bottom > 0 && rect.top < vh;
+  }
+
+  function showCard(card) {
+    if (card.dataset.workAnimated === 'true') return;
+    card.dataset.workAnimated = 'true';
+    card.classList.add('is-visible');
+  }
+
+  cards.forEach(function (card) {
+    if (cardInView(card)) showCard(card);
+  });
+
   var observer = new IntersectionObserver(
     function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
-        var card = entry.target;
-        if (card.dataset.workAnimated === 'true') return;
-        card.dataset.workAnimated = 'true';
-        card.classList.add('is-visible');
-        observer.unobserve(card);
+        showCard(entry.target);
+        observer.unobserve(entry.target);
       });
     },
-    { threshold: 0.2, rootMargin: '0px 0px -5% 0px' }
+    { threshold: 0, rootMargin: '0px 0px -10% 0px' }
   );
 
   cards.forEach(function (card) {
-    observer.observe(card);
+    if (card.dataset.workAnimated !== 'true') observer.observe(card);
   });
+
+  setTimeout(function () {
+    cards.forEach(function (card) {
+      if (card.dataset.workAnimated !== 'true' && cardInView(card)) showCard(card);
+    });
+  }, 2000);
 })();

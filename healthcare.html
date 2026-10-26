@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark">
+<script>document.documentElement.classList.add('js');</script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,12 +69,6 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   .content{max-width:820px;margin:0 auto;padding:0 48px 40px;perspective:1600px;transform-style:preserve-3d;}
   .case-main{perspective:1600px;transform-style:preserve-3d;}
   .case-anchor{scroll-margin-top:100px;}
-  .fade-in{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
-  .fade-in.visible{opacity:1;transform:translateY(0);}
-  .reveal{opacity:0;transform:translateY(32px);transition:opacity .75s var(--ease-soft),transform .75s var(--ease-spring);}
-  .reveal.is-visible{opacity:1;transform:translateY(0);}
-  .hc-reveal-journey.reveal{transform:translateY(36px);}
-  .hc-reveal-journey.reveal.is-visible{transform:translateY(0);}
   .reveal-media .hc-media-frame img,.reveal-media .hc-figure-process-board img,.reveal-media .hc-case-study-media img,.reveal-media .hc-wizard-hero img,.reveal-media .hc-wizard-shot__frame img{transition:transform .85s var(--ease-spring),box-shadow .85s var(--ease-soft);}
   .reveal-media.is-visible .hc-media-frame img,.reveal-media.is-visible .hc-figure-process-board img,.reveal-media.is-visible .hc-case-study-media img,.reveal-media.is-visible .hc-wizard-hero img,.reveal-media.is-visible .hc-wizard-shot__frame img{transform:translateZ(10px);box-shadow:0 18px 48px rgba(26,26,26,.1);}
   .reveal-media .hc-discover-fullbleed img{transition:opacity .85s var(--ease-soft);}
@@ -473,12 +468,10 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   .footer-social svg{width:20px;height:20px;min-width:20px;min-height:20px;flex-shrink:0;display:block;overflow:visible;}
   .footer-social__beh svg{width:18px;height:18px;min-width:18px;min-height:18px;}
   @media (prefers-reduced-motion:reduce){
-    .reveal,.reveal.is-visible,.hc-reveal-journey,.hc-reveal-journey.is-visible{opacity:1!important;transform:none!important;transition:none!important;}
     .reveal-media .hc-media-frame img,.reveal-media .hc-figure-process-board img,.reveal-media .hc-case-study-media img,.reveal-media .hc-wizard-hero img{transform:none!important;transition:none!important;}
     .process-step,.wizard-step,.process-step:hover,.process-step:focus-within,.wizard-step:hover,.wizard-step:focus-within{transform:none!important;box-shadow:none!important;}
 .footer-social a:hover,.footer-social a:focus-visible,.footer-social a:active{transform:none;box-shadow:none;}
     .back-top:hover,.back-top:focus-visible,.bottom-back a:hover,.bottom-back a:focus-visible{transform:none;}
-    .fade-in,.fade-in.visible{opacity:1;transform:none;transition:none;}
   }
   @media(max-width:640px){
     nav{padding:0 24px;height:60px;}
@@ -498,6 +491,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
     .section-chapter{font-size:clamp(1.65rem,6vw,2.35rem);}
   }
 </style>
+<link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
 <link rel="stylesheet" href="css/case-study.css?v=20260401">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
@@ -1101,7 +1095,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   </ul>
 </footer>
 
-<script src="js/case-study-page-reveal.js?v=20260402"></script>
+<script src="js/scroll-reveal.js?v=20260403"></script>
 
 </body>
 </html>

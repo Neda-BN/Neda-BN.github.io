@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark">
+<script>document.documentElement.classList.add('js');</script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -756,14 +757,6 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   /* Story case study: section anchors + reveal motion */
   .case-main { perspective: 1600px; transform-style: preserve-3d; }
   .case-anchor { scroll-margin-top: 100px; }
-  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
-  .fade-in.visible { opacity: 1; transform: translateY(0); }
-  .reveal {
-    opacity: 0;
-    transform: translateY(32px);
-    transition: opacity 0.75s var(--ease-soft), transform 0.75s var(--ease-spring);
-  }
-  .reveal.is-visible { opacity: 1; transform: translateY(0); }
   .reveal-soft { transition-delay: 0.08s; }
   .reveal-media .screen-wrap,
   .reveal-media .screen-wrap--natural-photo,
@@ -780,12 +773,6 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .reveal-media.is-visible .ds-img { box-shadow: 0 14px 40px rgba(26, 26, 26, 0.09); }
 
   @media (prefers-reduced-motion: reduce) {
-    .reveal,
-    .reveal.is-visible {
-      opacity: 1 !important;
-      transform: none !important;
-      transition: none !important;
-    }
     .reveal-media .screen-wrap,
     .reveal-media .screen-wrap--natural-photo,
     .reveal-media .hero-overview__img,
@@ -911,6 +898,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     .proto-poster-t { font-size: 1.1rem; }
   }
 </style>
+<link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
 <link rel="stylesheet" href="css/case-study.css?v=20260401">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
@@ -1687,7 +1675,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   </ul>
 </footer>
 
-<script src="js/case-study-page-reveal.js?v=20260402"></script>
+<script src="js/scroll-reveal.js?v=20260403"></script>
 <script>
 
   (function heroScrollLoop() {

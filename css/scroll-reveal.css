@@ -1,0 +1,51 @@
+/* Scroll reveal — hidden only when JS adds class "js" to <html> */
+@media not (prefers-reduced-motion: reduce) {
+  html.js .reveal,
+  html.js .cs-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  html.js .reveal {
+    transition: opacity 800ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  html.js .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 800ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  html.js .reveal.is-visible,
+  html.js .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  html.js .cs-reveal.is-visible {
+    animation: scroll-cs-reveal 800ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+@keyframes scroll-cs-reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible,
+  .cs-reveal,
+  .cs-reveal.is-visible,
+  .fade-in,
+  .fade-in.visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
