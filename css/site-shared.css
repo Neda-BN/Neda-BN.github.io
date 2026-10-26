@@ -58,7 +58,7 @@ body.has-anna-nav .hero {
 .case-study__chapter,
 .section-chapter,
 h2.works-anna__heading {
-  font-family: var(--page-title, 'Destine', 'Sora', sans-serif);
+  font-family: var(--font-body);
   font-weight: 400;
   font-style: normal;
   color: var(--text);
@@ -82,7 +82,7 @@ h2.works-anna__heading {
 }
 
 .footer-strip h2 {
-  font-family: var(--page-title, 'Destine', 'Sora', sans-serif);
+  font-family: var(--font-body);
   font-weight: 400;
   font-style: normal;
   letter-spacing: -0.02em;
@@ -118,7 +118,7 @@ h2.works-anna__heading {
 .hero-subtitle,
 .about-body p,
 .meta-value {
-  font-family: 'Inter', 'Open Sans', sans-serif;
+  font-family: var(--font-body);
 }
 
 /* ── FOOTER (home-aligned) ── */
@@ -138,7 +138,7 @@ h2.works-anna__heading {
   margin: 0 auto 16px;
 }
 .footer-strip p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: clamp(15px, 1.2vw + 14px, 17px);
   color: rgba(255, 255, 255, 0.62);
   font-weight: 400;
@@ -148,7 +148,7 @@ h2.works-anna__heading {
 }
 .footer-strip__cta {
   display: inline-block;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.04em;
@@ -184,7 +184,7 @@ footer {
 }
 .site-footer p,
 footer p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
   color: rgba(0, 0, 0, 0.5);
   margin: 0;
@@ -277,7 +277,7 @@ footer p {
   width: fit-content;
   max-width: 100%;
   padding: 10px 16px 10px 12px;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 500;
   letter-spacing: -0.02em;

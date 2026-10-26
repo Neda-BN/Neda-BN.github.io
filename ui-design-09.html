@@ -7,16 +7,11 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link href="https://fonts.cdnfonts.com/css/lithium-typeface-lt" rel="stylesheet">
-<link rel="stylesheet" href="fonts/destine.css">
+<link rel="stylesheet" href="css/tokens.css?v=20260405">
 <link rel="stylesheet" href="css/site-shared.css?v=20260638">
 <script src="js/page-transition.js?v=20260633"></script>
 <script src="js/site-nav.js?v=20260326"></script>
 <title>CanaTrip — Website Design · UI Design · Neda Bagheri</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -37,13 +32,18 @@
   --border:      #E8E4DC;
   --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-soft:   cubic-bezier(0.4, 0, 0.2, 1);
+  --font-stack: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body: var(--font-stack);
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --display: var(--font-stack);
+  --page-title: var(--font-stack);
 }
 
 html { color-scheme: light; overflow-x: clip; }
 html, body {
   background: #ffffff;
   color: var(--ink);
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -79,7 +79,7 @@ main {
 
 .ui-detail__back {
   display: inline-flex; align-items: center; gap: 8px;
-  font-family: var(--display);
+  font-family: var(--font-mono);
   font-size: 12px; font-weight: 500;
   color: var(--ink2);
   text-decoration: none;
@@ -172,7 +172,7 @@ main {
   list-style: none;
 }
 .case-study__tag {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 12px; font-weight: 600;
   color: var(--accent);
   background: var(--accent-light);

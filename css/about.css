@@ -82,7 +82,7 @@
 }
 
 .about-page .lead {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: var(--about-lead);
   font-weight: 400;
   font-style: normal;
@@ -99,7 +99,7 @@
 
 .about-page .about-body p,
 .about-page .about-working-note p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: var(--about-body);
   font-weight: 400;
   line-height: 1.2;
@@ -134,7 +134,7 @@
 
 /* Section labels */
 .about-page .sec-label {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: clamp(16px, 1.4vw, 20px);
   font-weight: 500;
   letter-spacing: -0.04em;
@@ -181,7 +181,7 @@
 }
 
 .about-page .sg-title {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -197,7 +197,7 @@
 }
 
 .about-page .sg-item {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: clamp(13px, 1.2vw, 14px);
   font-weight: 400;
   line-height: 1.35;
@@ -250,7 +250,7 @@
 }
 
 .about-page .cs-tag {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -260,7 +260,7 @@
 }
 
 .about-page .cs-title {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: var(--about-body);
   font-weight: 500;
   letter-spacing: -0.04em;
@@ -270,7 +270,7 @@
 }
 
 .about-page .cs-desc {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: clamp(13px, 1.2vw, 14px);
   font-weight: 400;
   line-height: 1.35;

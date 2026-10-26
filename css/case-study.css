@@ -308,7 +308,7 @@
 
 .case-study-page .hero h1,
 .case-study-page .section-chapter {
-  font-family: var(--page-title, 'Destine', 'Sora', sans-serif);
+  font-family: var(--font-body);
 }
 
 .case-study-page .hero h1 {
@@ -322,7 +322,7 @@
 
 .case-study-page .hero-subtitle,
 .case-study-page .section-headings .section-subtitle {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: var(--cs-subtitle);
   font-weight: 400;
   font-style: normal;
@@ -365,7 +365,7 @@
 }
 
 .case-study-page .meta-label {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -376,7 +376,7 @@
 }
 
 .case-study-page .meta-value {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: clamp(13px, 1.2vw, 14px);
   font-weight: 500;
   letter-spacing: -0.02em;
@@ -449,7 +449,7 @@
 .case-study-page .finding-text,
 .case-study-page .lesson-text p,
 .case-study-page .quote-block p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: var(--cs-body);
   font-weight: 400;
   line-height: 1.2;
@@ -468,7 +468,7 @@
 .case-study-page h3.pos-aff-heading,
 .case-study-page h3.hc-persona-subsection-title,
 .case-study-page .screens-section > .screens-label {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: var(--cs-subsection);
   font-weight: 500;
   line-height: 1.25;
@@ -507,7 +507,7 @@
 .case-study-page .pain-card h4,
 .case-study-page .lesson-text h4,
 .case-study-page .role-block h4 {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: var(--cs-body);
   font-weight: 500;
   letter-spacing: -0.05em;
@@ -526,7 +526,7 @@
 }
 
 .case-study-page .quote-block cite {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: var(--cs-small);
   color: rgba(0, 0, 0, 0.55);
 }
@@ -621,7 +621,7 @@
 .case-study-page .content p.image-caption,
 .case-study-page .screen-caption,
 .case-study-page .image-caption {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: var(--cs-caption);
   font-weight: 300;
   font-style: italic;
@@ -651,7 +651,7 @@
 /* Above-image figure labels (distinct from under-image captions) */
 .case-study-page .case-study-figure > figcaption,
 .case-study-page .ds-sheet-figure > figcaption {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: var(--cs-small);
   font-weight: 600;
   font-style: normal;

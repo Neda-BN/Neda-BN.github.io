@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Instrument+Serif:ital@0;1&family=Poppins:wght@400;500;600&family=Syne:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Poppins:wght@400;500;600&display=swap');
 
 :root {
   --bg: #0B0C10;
@@ -11,14 +11,16 @@
   --accent-strong: #6F8BC4;
   --accent-soft: rgba(138, 164, 214, 0.14);
   --accent-text: var(--accent);
-  --font-display: 'Syne', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-body: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-stack: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: var(--font-stack);
+  --font-body: var(--font-stack);
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
-  --font-accent: 'Instrument Serif', ui-serif, Georgia, 'Times New Roman', serif;
+  --font-accent: var(--font-stack);
   /* Legacy aliases */
   --page-bg: var(--bg);
-  --page-title: var(--font-display);
-  --display: var(--font-display);
+  --page-title: var(--font-stack);
+  --display: var(--font-stack);
+  --serif: var(--font-stack);
   --sans: var(--font-body);
   --ink: var(--text);
   --ink2: var(--muted);
