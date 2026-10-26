@@ -17,14 +17,24 @@
     return;
   }
 
-  cards.forEach(function (card, cardIndex) {
+  function revealOrder(el) {
+    if (el.classList.contains('work-card__media')) return 1;
+    if (el.classList.contains('work-card__meta')) return 2;
+    if (el.classList.contains('work-card__title')) return 3;
+    if (el.classList.contains('work-card__role')) return 4;
+    if (el.classList.contains('work-card__desc')) return 5;
+    if (el.classList.contains('work-card__link')) return 6;
+    return 99;
+  }
+
+  cards.forEach(function (card) {
     var reveals = card.querySelectorAll('.work-card__reveal');
-    reveals.forEach(function (el, i) {
-      el.style.setProperty('--reveal-i', String(i + 1));
+    reveals.forEach(function (el) {
+      el.style.setProperty('--reveal-i', String(revealOrder(el)));
     });
     var rowDelay = 0;
     if (card.classList.contains('work-card--col-right')) {
-      rowDelay = 150;
+      rowDelay = 80;
     }
     card.style.setProperty('--row-delay', rowDelay + 'ms');
   });
@@ -53,16 +63,18 @@
         observer.unobserve(entry.target);
       });
     },
-    { threshold: 0, rootMargin: '0px 0px -10% 0px' }
+    { threshold: 0, rootMargin: '0px 0px -5% 0px' }
   );
 
   cards.forEach(function (card) {
     if (card.dataset.workAnimated !== 'true') observer.observe(card);
   });
 
-  setTimeout(function () {
-    cards.forEach(function (card) {
-      if (card.dataset.workAnimated !== 'true' && cardInView(card)) showCard(card);
+  requestAnimationFrame(function () {
+    requestAnimationFrame(function () {
+      cards.forEach(function (card) {
+        if (card.dataset.workAnimated !== 'true' && cardInView(card)) showCard(card);
+      });
     });
-  }, 2000);
+  });
 })();
