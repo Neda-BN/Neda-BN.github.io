@@ -253,3 +253,45 @@
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+
+/* Statement — word-by-word scroll reveal */
+.statement-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 160px 32px;
+  box-sizing: border-box;
+}
+
+.statement-section .statement {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(28px, 4.2vw, 56px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  max-width: 1100px;
+  margin: 0;
+  text-align: left;
+}
+
+.statement.is-ready .w {
+  color: rgba(237, 237, 240, 0.18);
+  transition: color 200ms ease-out;
+}
+
+.statement.is-ready .w.is-lit {
+  color: var(--text);
+}
+
+@media (max-width: 899.98px) {
+  .statement-section {
+    padding: 96px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .statement.is-ready .w {
+    color: var(--text);
+    transition: none;
+  }
+}
