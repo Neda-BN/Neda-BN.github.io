@@ -456,7 +456,6 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
 @keyframes wordUp { from { opacity: 0; transform: translateY(60px); } to { opacity: 1; transform: translateY(0); } }
   #hero { scroll-margin-top: 0; }
   #projects { scroll-margin-top: 48px; }
-  #craft { scroll-margin-top: 48px; }
   #contact { scroll-margin-top: 48px; }
 
   /* ── PROOF STRIP ── */
@@ -688,7 +687,6 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
     background: rgba(59, 130, 246, 0.12);
   }
 
-  .page-works .craft-section,
   .page-works .vc-section {
     max-width: 1440px;
     margin-left: auto;
@@ -697,269 +695,7 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
     padding-right: 24px;
   }
 
-  /* ── CRAFT SECTION ── */
-  .craft-section { margin-top: clamp(56px, 8vw, 88px); }
-  .craft-section__intro {
-    font-family: var(--sans, 'DM Sans', sans-serif);
-    font-size: clamp(14px, 1.2vw, 17px);
-    font-weight: 400;
-    line-height: 1.45;
-    letter-spacing: -0.01em;
-    color: var(--ink2);
-    margin: 0;
-    max-width: 40em;
-  }
-  .craft-block {
-    margin-top: clamp(40px, 6vw, 56px);
-  }
-  .craft-block__title {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(18px, 1.8vw, 22px);
-    font-weight: 600;
-    letter-spacing: -0.03em;
-    color: var(--ink);
-    margin: 0 0 8px;
-  }
-  .craft-block__intro {
-    font-family: var(--sans, 'DM Sans', sans-serif);
-    font-size: clamp(13px, 1.1vw, 15px);
-    font-weight: 400;
-    line-height: 1.45;
-    color: var(--ink2);
-    margin: 0 0 clamp(20px, 3vw, 28px);
-    max-width: 36em;
-  }
-  .craft-ds-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(24px, 3vw, 36px);
-  }
-  .craft-ds-card {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  .craft-ds-card__title {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(16px, 1.5vw, 20px);
-    font-weight: 600;
-    letter-spacing: -0.03em;
-    color: var(--ink);
-    margin: 0;
-  }
-  .craft-ds-card__text {
-    font-family: var(--sans, 'DM Sans', sans-serif);
-    font-size: clamp(12px, 1.1vw, 15px);
-    font-weight: 300;
-    line-height: 1.45;
-    color: #6b7280;
-    margin: 0;
-  }
-  .craft-ds-card .works-anna__tags { margin-top: 2px; }
-  .craft-text-link {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-    color: var(--warm);
-    text-decoration: none;
-    align-self: flex-start;
-  }
-  .craft-text-link:hover { text-decoration: underline; }
-  .craft-crop-trigger {
-    display: block;
-    width: 100%;
-    padding: 0;
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    overflow: hidden;
-    background: var(--bg2);
-    cursor: zoom-in;
-    text-align: left;
-  }
-  .craft-crop-trigger:focus-visible {
-    outline: 2px solid var(--warm);
-    outline-offset: 3px;
-  }
-  .craft-crop-frame {
-    --pos: 50% 50%;
-    --zoom: 1;
-    display: block;
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-    background: #eceae4;
-  }
-  .craft-crop-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: var(--pos);
-    transform: scale(var(--zoom));
-    transform-origin: var(--pos);
-    display: block;
-  }
-  .craft-details-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: clamp(20px, 2.5vw, 28px);
-  }
-  .craft-detail-tile {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 0;
-    border: none;
-    background: none;
-    text-align: left;
-    cursor: zoom-in;
-    color: inherit;
-    font: inherit;
-  }
-  .craft-detail-tile .craft-crop-frame {
-    border-radius: 14px;
-    border: 1px solid var(--line);
-  }
-  .craft-detail-tile:focus-visible {
-    outline: 2px solid var(--warm);
-    outline-offset: 4px;
-    border-radius: 8px;
-  }
-  .craft-detail-tile__title {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(15px, 1.4vw, 18px);
-    font-weight: 600;
-    letter-spacing: -0.03em;
-    color: var(--ink);
-    margin: 0;
-  }
-  .craft-detail-tile__text {
-    font-family: var(--sans, 'DM Sans', sans-serif);
-    font-size: clamp(12px, 1.05vw, 14px);
-    font-weight: 300;
-    line-height: 1.45;
-    color: #6b7280;
-    margin: 0;
-  }
-  .craft-detail-tile__source {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    color: var(--ink3);
-    margin: 0;
-  }
-  .craft-explore-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 28px;
-  }
-  .craft-explore-chip {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    z-index: 4;
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    background: rgba(255, 255, 255, 0.92);
-    border: 1px solid var(--line);
-    border-radius: 20px;
-    padding: 4px 10px;
-    pointer-events: none;
-  }
-  .craft-behance-link {
-    display: inline-block;
-    margin-top: clamp(24px, 3vw, 32px);
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-    color: var(--warm);
-    text-decoration: none;
-  }
-  .craft-behance-link:hover { text-decoration: underline; }
-  .craft-behance-link:focus-visible {
-    outline: 2px solid var(--warm);
-    outline-offset: 3px;
-  }
-  @media (max-width: 1023.98px) {
-    .craft-details-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .craft-explore-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
-  @media (max-width: 809.98px) {
-    .craft-ds-grid { grid-template-columns: 1fr; }
-    .craft-details-grid { grid-template-columns: 1fr; }
-    .craft-explore-grid { grid-template-columns: 1fr; }
-    .page-works .craft-section { padding-left: 16px; padding-right: 16px; }
-  }
-
-  /* ── LIGHTBOX (full-size image viewer) ── */
-  .lightbox {
-    position: fixed; inset: 0; z-index: 300;
-    display: flex; align-items: center; justify-content: center;
-    padding: clamp(20px, 4vw, 56px);
-    background: rgba(15, 14, 12, 0.92);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.32s var(--ease-soft), visibility 0s linear 0.32s;
-  }
-  .lightbox[data-open="true"] {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.32s var(--ease-soft), visibility 0s;
-  }
-  .lightbox__figure {
-    margin: 0;
-    max-width: min(1280px, 100%);
-    max-height: 100%;
-    display: flex; flex-direction: column; align-items: center;
-    gap: 16px;
-    transform: scale(0.96);
-    transition: transform 0.4s var(--ease-spring);
-  }
-  .lightbox[data-open="true"] .lightbox__figure { transform: scale(1); }
-  .lightbox__img {
-    max-width: 100%;
-    max-height: calc(100vh - clamp(120px, 14vw, 200px));
-    object-fit: contain;
-    display: block;
-    border-radius: 8px;
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-    background: #000;
-  }
-  .lightbox__caption {
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.78);
-    letter-spacing: 0.01em;
-    text-align: center;
-    max-width: 60ch;
-  }
-  .lightbox__close {
-    position: absolute;
-    top: clamp(14px, 2vw, 24px);
-    right: clamp(14px, 2vw, 24px);
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    background: rgba(255, 255, 255, 0.06);
-    color: #fff;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .lightbox__close:hover,
-  .lightbox__close:focus-visible {
-    background: rgba(255, 255, 255, 0.16);
-    border-color: rgba(255, 255, 255, 0.45);
-    outline: none;
-  }
-  .lightbox__close svg { width: 18px; height: 18px; flex-shrink: 0; }
-  body.lightbox-open { overflow: hidden; }
-
-  /* ── EXPLORATIONS GALLERY (vc-card) ── */
+  /* ── UI DESIGN GALLERY (transplanted from Visual Craft, retuned to portfolio tokens) ── */
   .vc-section { margin-top: clamp(56px, 8vw, 88px); }
   .vc-section__head {
     display: flex; flex-direction: column; gap: 10px;
@@ -1345,7 +1081,6 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
   <div class="anna-nav__pill">
     <a href="index.html#hero" aria-current="page">Home</a>
     <a href="index.html#projects">Work</a>
-    <a href="index.html#craft">Craft</a>
     <a href="about.html">About</a>
   </div>
   <div class="anna-nav__pill">
@@ -1510,128 +1245,97 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
     </div>
   </section>
 
-  <section class="craft-section reveal" id="craft" aria-labelledby="craft-heading">
+  <!--
+    UI DESIGN gallery
+    ─────────────────
+    Lives as a natural extension of the portfolio case studies.
+    Each <a class="vc-card"> navigates to its own ui-design-NN.html project page.
+    To publish a piece:
+      1. Drop a 4:3 image in the project root (or any aspect — object-fit: cover handles it).
+      2. Update href, src, alt, and the .vc-card__title text.
+      3. Set data-has-image="true" so the dot-grid empty state hides.
+    Use class="vc-card vc-card--contain" when a mockup needs letterboxing instead of cropping.
+  -->
+  <section class="vc-section reveal" id="ui-design" aria-labelledby="ui-design-heading">
     <header class="vc-section__head">
-      <div class="vc-section__num">Craft</div>
-      <h2 id="craft-heading">The details behind the screens</h2>
-      <p class="craft-section__intro">Systems, states and small decisions from real products. Concept work is marked.</p>
+      <div class="vc-section__num">Visual Studies</div>
+      <h2 id="ui-design-heading">UI Design</h2>
     </header>
 
-    <div class="craft-block">
-      <h3 class="craft-block__title">Design systems</h3>
-      <div class="craft-ds-grid">
-        <article class="craft-ds-card">
-          <button type="button" class="craft-crop-trigger" data-lightbox-src="pos-design-system-01.png" data-lightbox-alt="Focalpay POS button states: default, hover, pressed, focused, disabled and active across four button types" data-lightbox-caption="Focalpay POS design system — Sheet 01" aria-label="View full Focalpay POS design system sheet 01">
-            <span class="craft-crop-frame" style="--pos: 50% 90%; --zoom: 1.6;">
-              <img src="pos-design-system-01.png" alt="Focalpay POS button states: default, hover, pressed, focused, disabled and active across four button types" width="10500" height="13865" loading="lazy" decoding="async">
-            </span>
-          </button>
-          <h4 class="craft-ds-card__title">Three products, one family</h4>
-          <p class="craft-ds-card__text">I joined Focalpay as the only designer across three disconnected products, and built one system from scratch: tokens, components and interaction patterns.</p>
-          <ul class="works-anna__tags" aria-label="Design system tags">
-            <li>Design tokens</li>
-            <li>Component states</li>
-            <li>3 products</li>
-          </ul>
-          <a class="craft-text-link" href="pos-app.html#design-system">See the system →</a>
-        </article>
-        <article class="craft-ds-card">
-          <button type="button" class="craft-crop-trigger" data-lightbox-src="simplebooking-design-system-02.png" data-lightbox-alt="Simple Booking components: buttons, form fields, status badges and alerts" data-lightbox-caption="Simple Booking design system — Components" aria-label="View full Simple Booking design system components sheet">
-            <span class="craft-crop-frame" style="--pos: 30% 30%; --zoom: 1.4;">
-              <img src="simplebooking-design-system-02.png" alt="Simple Booking components: buttons, form fields, status badges and alerts" width="2400" height="1600" loading="lazy" decoding="async">
-            </span>
-          </button>
-          <h4 class="craft-ds-card__title">One foundation for Figma and code</h4>
-          <p class="craft-ds-card__text">Claude Code uses the same tokens and components I use in Figma, so every built screen matches the design.</p>
-          <ul class="works-anna__tags" aria-label="Design system tags">
-            <li>Design tokens</li>
-            <li>Dark &amp; light mode</li>
-            <li class="works-anna__tag--accent">AI-assisted build</li>
-          </ul>
-          <a class="craft-text-link" href="simplebooking.html#design-system">See the system →</a>
-        </article>
-      </div>
-    </div>
+    <div class="vc-grid">
 
-    <div class="craft-block">
-      <h3 class="craft-block__title">Details</h3>
-      <p class="craft-block__intro">Small decisions that make a product easy to use.</p>
-      <div class="craft-details-grid">
-        <button type="button" class="craft-detail-tile" data-lightbox-src="pos-design-system-01.png" data-lightbox-alt="Typography scale on the Focalpay POS design system sheet, with a large price set in 135,50 kr" data-lightbox-caption="Type built for the till — Cashier POS app">
-          <span class="craft-crop-frame" style="--pos: 50% 45%; --zoom: 1.8;">
-            <img src="pos-design-system-01.png" alt="Typography scale on the Focalpay POS design system sheet, with a large price set in 135,50 kr" width="10500" height="13865" loading="lazy" decoding="async">
-          </span>
-          <span class="craft-detail-tile__title">Type built for the till</span>
-          <span class="craft-detail-tile__text">Prices are the biggest thing on screen, because that's what cashiers and customers check first.</span>
-          <span class="craft-detail-tile__source">Cashier POS app</span>
-        </button>
-        <button type="button" class="craft-detail-tile" data-lightbox-src="pos-design-system-02.png" data-lightbox-alt="Three-step refund flow pattern on Focalpay POS design system sheet 02" data-lightbox-caption="Refunds in three clear steps — Cashier POS app">
-          <span class="craft-crop-frame" style="--pos: 50% 80%; --zoom: 1.3;">
-            <img src="pos-design-system-02.png" alt="Three-step refund flow pattern on Focalpay POS design system sheet 02" width="10500" height="12327" loading="lazy" decoding="async">
-          </span>
-          <span class="craft-detail-tile__title">Refunds in three clear steps</span>
-          <span class="craft-detail-tile__text">Refundable and non-refundable items are split, and the total updates live, so mistakes are hard to make.</span>
-          <span class="craft-detail-tile__source">Cashier POS app</span>
-        </button>
-        <button type="button" class="craft-detail-tile" data-lightbox-src="simplebooking-design-system-02.png" data-lightbox-alt="Status badge row on the Simple Booking components sheet, showing paid, sent and overdue states" data-lightbox-caption="Status you never have to guess — Simple Booking">
-          <span class="craft-crop-frame" style="--pos: 70% 40%; --zoom: 2;">
-            <img src="simplebooking-design-system-02.png" alt="Status badge row on the Simple Booking components sheet, showing paid, sent and overdue states" width="2400" height="1600" loading="lazy" decoding="async">
-          </span>
-          <span class="craft-detail-tile__title">Status you never have to guess</span>
-          <span class="craft-detail-tile__text">One badge system across invoices, quotes and receipts, so paid, sent and overdue scan at a glance.</span>
-          <span class="craft-detail-tile__source">Simple Booking</span>
-        </button>
-        <button type="button" class="craft-detail-tile" data-lightbox-src="sb-quotes-before-after.png" data-lightbox-alt="Simple Booking quotes after redesign: one primary action per row on the right side of the comparison" data-lightbox-caption="One clear next step — Simple Booking">
-          <span class="craft-crop-frame" style="--pos: 85% 40%; --zoom: 1.8;">
-            <img src="sb-quotes-before-after.png" alt="Simple Booking quotes after redesign: one primary action per row on the right side of the comparison" width="3000" height="1040" loading="lazy" decoding="async">
-          </span>
-          <span class="craft-detail-tile__title">One clear next step</span>
-          <span class="craft-detail-tile__text">Up to four look-alike buttons per row became one primary action. The rest stay quietly in the background.</span>
-          <span class="craft-detail-tile__source">Simple Booking</span>
-        </button>
-        <button type="button" class="craft-detail-tile" data-lightbox-src="sb-overview-before-after.png" data-lightbox-alt="Simple Booking overview after redesign: Needs your attention list grouped on the right side of the comparison" data-lightbox-caption="Urgent first — Simple Booking">
-          <span class="craft-crop-frame" style="--pos: 80% 30%; --zoom: 1.8;">
-            <img src="sb-overview-before-after.png" alt="Simple Booking overview after redesign: Needs your attention list grouped on the right side of the comparison" width="2720" height="1634" loading="lazy" decoding="async">
-          </span>
-          <span class="craft-detail-tile__title">Urgent first</span>
-          <span class="craft-detail-tile__text">Seven equal alerts became one list, grouped by what's due now and what can wait.</span>
-          <span class="craft-detail-tile__source">Simple Booking</span>
-        </button>
-        <button type="button" class="craft-detail-tile" data-lightbox-src="sb-payroll-before-after.png" data-lightbox-alt="Simple Booking payroll after redesign: three-step step indicator on the right side of the comparison" data-lightbox-caption="Less at once — Simple Booking">
-          <span class="craft-crop-frame" style="--pos: 85% 25%; --zoom: 1.8;">
-            <img src="sb-payroll-before-after.png" alt="Simple Booking payroll after redesign: three-step step indicator on the right side of the comparison" width="2720" height="1576" loading="lazy" decoding="async">
-          </span>
-          <span class="craft-detail-tile__title">Less at once</span>
-          <span class="craft-detail-tile__text">Two long forms became three short steps, so the form stopped feeling repetitive.</span>
-          <span class="craft-detail-tile__source">Simple Booking</span>
-        </button>
-      </div>
-    </div>
+      <a class="vc-card" href="ui-design-11.html" data-has-image="true" aria-label="Retail Rewards Rush — Loyalty Challenge Experience — UI design project page">
+        <img class="vc-card__img" src="vc-ui-11-retail-rewards-rush.png" alt="Retail Rewards Rush loyalty app — three iPhone screens showing a points dashboard with a 'Spin & Win' tile, a spinning prize wheel against gift-box artwork, and a 'You won! +100' confirmation on a deep purple and yellow composition" width="1024" height="717" loading="lazy" decoding="async">
+        <div class="vc-card__veil" aria-hidden="true"></div>
+        <span class="vc-card__title">Retail Rewards Rush — Loyalty Challenge Experience</span>
+      </a>
 
-    <div class="craft-block">
-      <h3 class="craft-block__title">Explorations</h3>
-      <p class="craft-block__intro">Where I push visual style further than B2B products usually allow.</p>
-      <div class="craft-explore-grid">
-        <a class="vc-card" href="ui-design-11.html" data-has-image="true" aria-label="Retail Rewards Rush — Loyalty Challenge Experience — UI design project page">
-          <span class="craft-explore-chip">Concept</span>
-          <img class="vc-card__img" src="vc-ui-11-retail-rewards-rush.png" alt="Retail Rewards Rush loyalty app — three iPhone screens showing a points dashboard with a 'Spin & Win' tile, a spinning prize wheel against gift-box artwork, and a 'You won! +100' confirmation on a deep purple and yellow composition" width="1024" height="717" loading="lazy" decoding="async">
-          <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Retail Rewards Rush — Loyalty Challenge Experience</span>
-        </a>
-        <a class="vc-card" href="ui-design-12.html" data-has-image="true" aria-label="Paradise Passport — Travel Reward Campaign — UI design project page">
-          <span class="craft-explore-chip">Concept</span>
-          <img class="vc-card__img" src="vc-ui-12-paradise-passport.png" alt="Paradise Passport travel rewards app — two iPhone screens showing a stamp-collection progress dashboard with beach artwork, and a 'Scratch & Win' reveal of a 20% off reward on a deep blue tropical composition" width="1024" height="717" loading="lazy" decoding="async">
-          <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Paradise Passport — Travel Reward Campaign</span>
-        </a>
-        <a class="vc-card" href="ui-design-10.html" data-has-image="true" aria-label="Focalpay Website — UI design project page">
-          <span class="craft-explore-chip">Real · Focalpay</span>
-          <img class="vc-card__img" src="vc-ui-10-focalpay-website.png" alt="Focalpay marketing website — admin sign-in and 'Pay it Simple' landing page in the brand's teal and red palette" width="1024" height="717" loading="lazy" decoding="async">
-          <div class="vc-card__veil" aria-hidden="true"></div>
-          <span class="vc-card__title">Focalpay Website</span>
-        </a>
-      </div>
-      <a class="craft-behance-link" href="https://www.behance.net/nedabagheri1" target="_blank" rel="noopener noreferrer">More visual work on Behance →</a>
+      <a class="vc-card" href="ui-design-12.html" data-has-image="true" aria-label="Paradise Passport — Travel Reward Campaign — UI design project page">
+        <img class="vc-card__img" src="vc-ui-12-paradise-passport.png" alt="Paradise Passport travel rewards app — two iPhone screens showing a stamp-collection progress dashboard with beach artwork, and a 'Scratch & Win' reveal of a 20% off reward on a deep blue tropical composition" width="1024" height="717" loading="lazy" decoding="async">
+        <div class="vc-card__veil" aria-hidden="true"></div>
+        <span class="vc-card__title">Paradise Passport — Travel Reward Campaign</span>
+      </a>
+
+      <a class="vc-card" href="ui-design-07.html" data-has-image="true" aria-label="My Credit — App Icon &amp; Launch Screen — UI design project page">
+        <img class="vc-card__img" src="vc-ui-07-my-credit-app-logo.png" alt="My Credit app icon — splash phone screen with paired filled and outlined % icons in deep navy on a soft blue-gray composition" width="1024" height="717" loading="lazy" decoding="async">
+        <div class="vc-card__veil" aria-hidden="true"></div>
+        <span class="vc-card__title">My Credit — App Icon &amp; Launch Screen</span>
+      </a>
+
+      <a class="vc-card" href="ui-design-08.html" data-has-image="true" aria-label="InventoryPro — App Icon &amp; Launch Screen — UI design project page">
+        <img class="vc-card__img" src="vc-ui-08-inventory-app-logo.png" alt="InventoryPro app icon — splash phone screen with paired filled and outlined warehouse-trolley icons on a soft blue-gray composition" width="1024" height="717" loading="lazy" decoding="async">
+        <div class="vc-card__veil" aria-hidden="true"></div>
+        <span class="vc-card__title">InventoryPro — App Icon &amp; Launch Screen</span>
+      </a>
+
+      <a class="vc-card" href="ui-design-05.html" data-has-image="true" aria-label="Online Grocery App — UI design project page">
+        <img class="vc-card__img" src="vc-ui-05-online-grocery-app.png" alt="Online grocery delivery app — three iPhone screens showing welcome/sign-in, the store grid, and a cabbage product detail on a fresh-green composition" width="1024" height="717" loading="lazy" decoding="async">
+        <div class="vc-card__veil" aria-hidden="true"></div>
+        <span class="vc-card__title">Online Grocery App</span>
+      </a>
+
+      <a class="vc-card" href="ui-design-06.html" data-has-image="true" aria-label="Food Delivery App — UI design project page">
+        <img class="vc-card__img" src="vc-ui-06-food-delivery-app.png" alt="Food delivery app — three iPhone screens showing the splash, food categories, and a chicken-burger product detail on a magenta-pink composition" width="1024" height="717" loading="lazy" decoding="async">
+        <div class="vc-card__veil" aria-hidden="true"></div>
+        <span class="vc-card__title">Food Delivery App</span>
+      </a>
+
+      <a class="vc-card" href="ui-design-03.html" data-has-image="true" aria-label="ATG App — UI design project page">
+        <img class="vc-card__img" src="vc-ui-03-atg-app.png" alt="ATG Swedish gambling app — three iPhone screens showing user menu, QR deposit, and card-payment forms in the brand's green palette" width="1024" height="717" loading="lazy" decoding="async">
+        <div class="vc-card__veil" aria-hidden="true"></div>
+        <span class="vc-card__title">ATG App</span>
+      </a>
+
+      <a class="vc-card" href="ui-design-02.html" data-has-image="true" aria-label="Self-Service Kiosk App — UI design project page">
+        <img class="vc-card__img" src="vc-ui-02-self-service-app.png" alt="Restaurant self-service kiosk app — three iPhone screens showing food categories, pizza menu, and pepperoni size selection on a deep blue gradient" width="1024" height="716" loading="lazy" decoding="async">
+        <div class="vc-card__veil" aria-hidden="true"></div>
+        <span class="vc-card__title">Self-Service Kiosk App</span>
+      </a>
+
+      <a class="vc-card" href="ui-design-10.html" data-has-image="true" aria-label="Focalpay Website — UI design project page">
+        <img class="vc-card__img" src="vc-ui-10-focalpay-website.png" alt="Focalpay marketing website — admin sign-in and 'Pay it Simple' landing page in the brand's teal and red palette" width="1024" height="717" loading="lazy" decoding="async">
+        <div class="vc-card__veil" aria-hidden="true"></div>
+        <span class="vc-card__title">Focalpay Website</span>
+      </a>
+
+      <a class="vc-card" href="ui-design-09.html" data-has-image="true" aria-label="CanaTrip — Website Design — UI design project page">
+        <img class="vc-card__img" src="vc-ui-09-website-design.png" alt="CanaTrip travel website — login screen and tours landing page in the brand's red and white palette" width="1024" height="717" loading="lazy" decoding="async">
+        <div class="vc-card__veil" aria-hidden="true"></div>
+        <span class="vc-card__title">CanaTrip — Website Design</span>
+      </a>
+
+      <a class="vc-card" href="ui-design-01.html" data-has-image="true" aria-label="Grocery App — UI design project page">
+        <img class="vc-card__img" src="vc-ui-01-grocery-app.png" alt="Grocery shopping app — three iPhone screens showing product scan, store catalog, and cart on a teal and gray composition" width="1024" height="716" loading="lazy" decoding="async">
+        <div class="vc-card__veil" aria-hidden="true"></div>
+        <span class="vc-card__title">Grocery App</span>
+      </a>
+
+      <a class="vc-card" href="ui-design-04.html" data-has-image="true" aria-label="Job Finder App — UI design project page">
+        <img class="vc-card__img" src="vc-ui-04-job-finder-app.png" alt="Job-finder app — three iPhone screens showing the job/employee choice, a swipeable candidate list, and a full candidate profile on a dark navy backdrop" width="1024" height="717" loading="lazy" decoding="async">
+        <div class="vc-card__veil" aria-hidden="true"></div>
+        <span class="vc-card__title">Job Finder App</span>
+      </a>
+
     </div>
   </section>
 
@@ -1654,16 +1358,6 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
   </a>
   -->
 
-</div>
-
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption" aria-hidden="true">
-  <button class="lightbox__close" type="button" aria-label="Close image preview">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
-  </button>
-  <figure class="lightbox__figure">
-    <img class="lightbox__img" alt="">
-    <figcaption class="lightbox__caption" id="lightbox-caption"></figcaption>
-  </figure>
 </div>
 
 <div class="footer-strip" id="contact">
@@ -1865,7 +1559,9 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
   })();
 })();
 
-/* Reveal-on-scroll (Craft section). Honours prefers-reduced-motion. */
+/* ── UI DESIGN GALLERY ─────────────────────────────────────────────
+   Reveal-on-scroll. Honours prefers-reduced-motion.
+─────────────────────────────────────────────────────────────────── */
 (function () {
   var reduce = false;
   try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
@@ -1883,62 +1579,6 @@ body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246,0.5);
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
     io.observe(el);
-  });
-})();
-
-(function () {
-  var lightbox = document.getElementById('lightbox');
-  if (!lightbox) return;
-  var img = lightbox.querySelector('.lightbox__img');
-  var caption = lightbox.querySelector('.lightbox__caption');
-  var closeBtn = lightbox.querySelector('.lightbox__close');
-  var lastTrigger = null;
-
-  function open(trigger) {
-    var src = trigger.getAttribute('data-lightbox-src');
-    if (!src) return;
-    lastTrigger = trigger;
-    img.src = src;
-    img.alt = trigger.getAttribute('data-lightbox-alt') || '';
-    var cap = trigger.getAttribute('data-lightbox-caption') || '';
-    caption.textContent = cap;
-    caption.style.display = cap ? '' : 'none';
-    lightbox.setAttribute('data-open', 'true');
-    lightbox.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('lightbox-open');
-    requestAnimationFrame(function () { closeBtn.focus(); });
-  }
-
-  function close() {
-    lightbox.setAttribute('data-open', 'false');
-    lightbox.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('lightbox-open');
-    setTimeout(function () {
-      if (lightbox.getAttribute('data-open') !== 'true') {
-        img.removeAttribute('src');
-        img.alt = '';
-      }
-    }, 340);
-    if (lastTrigger && typeof lastTrigger.focus === 'function') {
-      lastTrigger.focus();
-    }
-    lastTrigger = null;
-  }
-
-  document.addEventListener('click', function (e) {
-    var trigger = e.target.closest('[data-lightbox-src]');
-    if (trigger) {
-      e.preventDefault();
-      open(trigger);
-    }
-  });
-
-  closeBtn.addEventListener('click', close);
-  lightbox.addEventListener('click', function (e) {
-    if (e.target === lightbox) close();
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && lightbox.getAttribute('data-open') === 'true') close();
   });
 })();
 </script>
