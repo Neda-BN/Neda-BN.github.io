@@ -2144,3 +2144,113 @@ body.case-study-page.about-page main.content.case-main > .about-intro + .section
 body.case-study-page.about-page main.content.case-main > .about-intro + .section > :first-child {
   margin-top: 0;
 }
+
+/* ── Case study headers (5 selected work pages): aligned back link, meta → title → intro ── */
+body.case-study-page:not(.about-page):not(.ui-design-page) .back-btn-wrap--top {
+  margin-bottom: 40px;
+}
+
+body.case-study-page:not(.about-page):not(.ui-design-page) .hero,
+body.case-study-page:not(.about-page):not(.ui-design-page) .sb-case .sb-hero.hero {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+body.case-study-page:not(.about-page):not(.ui-design-page) .hero .meta-strip,
+body.case-study-page:not(.about-page):not(.ui-design-page) .sb-case .sb-hero-text .meta-strip {
+  order: 1;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+body.case-study-page:not(.about-page):not(.ui-design-page) .hero h1,
+body.case-study-page:not(.about-page):not(.ui-design-page) .sb-case .sb-hero-text h1 {
+  order: 2;
+  font-family: var(--font-body, 'Poppins', sans-serif);
+  font-size: clamp(36px, 4.4vw, 56px);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 880px;
+  width: 100%;
+  text-wrap: balance;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+body.case-study-page:not(.about-page):not(.ui-design-page) .hero .hero-subtitle,
+body.case-study-page:not(.about-page):not(.ui-design-page) .sb-case .sb-hero-text .hero-subtitle {
+  order: 3;
+  margin-top: 0;
+  margin-bottom: var(--cs-section-space);
+}
+
+body.case-study-page:not(.about-page):not(.ui-design-page) .sb-case .sb-hero-text {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+body.case-study-page:not(.about-page):not(.ui-design-page) .sb-case .sb-hero-text .hero-subtitle {
+  margin-bottom: 32px;
+}
+
+body.case-study-page:not(.about-page):not(.ui-design-page) .sb-case .sb-hero-text .sb-status {
+  order: 4;
+  margin-top: 0;
+  margin-bottom: var(--cs-section-space);
+}
+
+body.case-study-page:not(.about-page):not(.ui-design-page) .hero .hero-tag,
+body.case-study-page:not(.about-page):not(.ui-design-page) .sb-case .sb-hero-text .hero-tag {
+  order: 0;
+  display: none;
+}
+
+/* Simple Booking: back link shares the 720px text column left edge inside .sb-wrap */
+body.case-study-page:has(main.sb-case) .back-btn-wrap--top {
+  max-width: min(100%, 1200px);
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+body.case-study-page:has(main.sb-case) .back-btn-wrap--top .back-btn {
+  margin-left: max(0px, calc((100% - min(100%, 720px)) / 2));
+}
+
+@media (max-width: 859.98px) {
+  body.case-study-page:not(.about-page):not(.ui-design-page) .back-btn-wrap--top,
+  body.case-study-page:not(.about-page):not(.ui-design-page) .back-btn-wrap--bottom {
+    max-width: 100%;
+    padding-left: var(--cs-pad);
+    padding-right: var(--cs-pad);
+  }
+
+  body.case-study-page:not(.about-page):not(.ui-design-page) .hero h1,
+  body.case-study-page:not(.about-page):not(.ui-design-page) .sb-case .sb-hero-text h1 {
+    font-size: clamp(36px, 4.4vw, 56px);
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    text-wrap: balance;
+  }
+}
+
+@media (max-width: 809.98px) {
+  body.case-study-page:has(main.sb-case) .back-btn-wrap--top {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  body.case-study-page:has(main.sb-case) .back-btn-wrap--top .back-btn {
+    margin-left: 0;
+  }
+}
