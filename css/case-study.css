@@ -4046,41 +4046,70 @@ body.case-study-page .result-card--bo .result-card__stat + .result-card__bo-text
 }
 
 /* =============================================================================
-   Back-office page only (body.backoffice-page) — four targeted fixes
+   Back-office: table → subchapter spacing, stacked outcome cards, DS rhythm
    ============================================================================= */
 
-body.backoffice-page .content.case-main > .bo-platform-line.cs-platform {
-  margin-top: 24px !important;
+body.case-study-page table.data-table + h3.bo-subchapter,
+body.case-study-page table.cs-table + h3.bo-subchapter,
+body.case-study-page .cs-table + h3.bo-subchapter {
+  margin-top: 48px !important;
 }
 
-body.backoffice-page #campaign-templates table + h3.bo-subchapter {
-  margin-top: 72px !important;
+body.case-study-page .results-grid--bo-outcomes {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+  gap: 16px !important;
+  align-items: stretch !important;
 }
 
-body.backoffice-page .results-grid--bo-outcomes .result-card--bo:not(.result-card--bo-nostat) {
+body.case-study-page .result-card.result-card--bo {
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-start !important;
+  justify-content: flex-start !important;
   grid-template-columns: unset !important;
-  gap: 0 !important;
-  min-height: unset !important;
-  height: auto !important;
+  gap: 8px !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  box-sizing: border-box !important;
 }
 
-body.backoffice-page .results-grid--bo-outcomes .result-card--bo .result-card__stat {
+body.case-study-page .result-card--bo .result-card__stat {
   padding-top: 0 !important;
+  margin: 0 !important;
   width: 100%;
 }
 
-body.backoffice-page .results-grid--bo-outcomes .result-card--bo .result-card__bo-text {
-  margin-top: 8px !important;
+body.case-study-page .result-card--bo .result-card__bo-text,
+body.case-study-page .result-card--bo-nostat .result-card__detail {
+  margin: 0 !important;
+  max-width: none !important;
+  flex: 1 1 auto;
 }
 
-body.backoffice-page .results-grid--bo-outcomes .result-card--bo-nostat {
-  min-height: unset !important;
-  height: auto !important;
+body.case-study-page .result-card--bo-nostat {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  height: 100% !important;
 }
 
-body.backoffice-page #design-system-interface div:has(> .ds-theme-row) + p {
-  margin-top: 48px !important;
+body.case-study-page .result-card--bo-nostat .result-card__lead {
+  margin: 0 !important;
+  width: 100%;
+}
+
+body.case-study-page .content--design-system div:has(> .ds-theme-row) {
+  margin-bottom: 48px !important;
+}
+
+body.case-study-page .content--design-system .reveal-media + p,
+body.case-study-page .content--design-system div:has(> .ds-theme-row) + p {
+  margin-top: 0 !important;
+}
+
+body.case-study-page .content--design-system p + .ds-sheet-figure,
+body.case-study-page .content--design-system p + figure.ds-sheet-figure {
+  margin-top: 40px !important;
+  margin-bottom: 48px !important;
 }
