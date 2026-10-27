@@ -1,6 +1,8 @@
 (function () {
   'use strict';
 
+  var DRAG_THRESHOLD = 6;
+
   var CASE_STUDIES = [
     {
       href: 'simplebooking.html',
@@ -9,8 +11,7 @@
       role: 'Sole Product Designer · Research → Design → Code',
       imgPos: 'center top',
       picture: [{ src: 'sb-hero.webp', type: 'image/webp' }],
-      img: { src: 'sb-hero.png', width: 2400, height: 1300, alt: '' },
-      titleLong: false
+      img: { src: 'sb-hero.png', width: 2400, height: 1300, alt: '' }
     },
     {
       href: 'healthcare.html',
@@ -18,8 +19,7 @@
       title: 'Healthcare Survey Platform',
       role: 'Sole Product Designer · Discovery → Front-end',
       imgPos: 'center',
-      img: { src: 'healthcare-provider-thumbnail.png?v=20260324', width: 1024, height: 725, alt: '' },
-      titleLong: true
+      img: { src: 'healthcare-provider-thumbnail.png?v=20260324', width: 1024, height: 725, alt: '' }
     },
     {
       href: 'pos-app.html',
@@ -27,8 +27,7 @@
       title: 'Cashier POS App',
       role: 'Product Designer · Mobile POS',
       imgPos: 'center top',
-      img: { src: 'pos-app-thumbnail.png', width: 1024, height: 767, alt: '' },
-      titleLong: false
+      img: { src: 'pos-app-thumbnail.png', width: 1024, height: 767, alt: '' }
     },
     {
       href: 'mobile-app.html',
@@ -36,8 +35,7 @@
       title: 'Mobile Shopping App',
       role: 'Sole Product Designer',
       imgPos: 'center',
-      img: { src: 'mobile-customer-shopping-app-thumbnail.png', width: 1024, height: 576, alt: '' },
-      titleLong: false
+      img: { src: 'mobile-customer-shopping-app-thumbnail.png', width: 1024, height: 576, alt: '' }
     },
     {
       href: 'backoffice.html',
@@ -45,8 +43,7 @@
       title: 'Focalpay Back-office',
       role: 'Product Designer · Replenishment and Campaigns',
       imgPos: 'center top',
-      img: { src: 'Backoffice-Dashboard.png', width: 1200, height: 900, alt: '' },
-      titleLong: false
+      img: { src: 'Backoffice-Dashboard.png', width: 1200, height: 900, alt: '' }
     }
   ];
 
@@ -110,13 +107,12 @@
           return '<source srcset="' + escapeHtml(p.src) + '" type="' + escapeHtml(p.type) + '">';
         })
         .join('');
-      return '<picture>' + sources + imgTag + '</picture>';
+      return '<picture class="cs-more__picture">' + sources + imgTag + '</picture>';
     }
     return imgTag;
   }
 
   function cardHtml(item, index) {
-    var titleClass = item.titleLong ? ' cs-more__title--long' : '';
     return (
       '<a class="cs-more__card" href="' +
       escapeHtml(item.href) +
@@ -125,21 +121,18 @@
       '" aria-label="' +
       escapeHtml(item.title + ' — read case study') +
       '">' +
-      '<div class="cs-more__media">' +
+      '<span class="cs-more__media">' +
       mediaHtml(item) +
-      '</div>' +
-      '<p class="cs-more__meta">' +
+      '</span>' +
+      '<span class="cs-more__meta">' +
       escapeHtml(item.meta) +
-      '</p>' +
-      '<h3 class="cs-more__title' +
-      titleClass +
-      '">' +
+      '</span>' +
+      '<span class="cs-more__title">' +
       escapeHtml(item.title) +
-      '</h3>' +
-      '<p class="cs-more__role">' +
+      '</span>' +
+      '<span class="cs-more__role">' +
       escapeHtml(item.role) +
-      '</p>' +
-      '<span class="cs-more__link">Read case study <span class="cs-more__arrow" aria-hidden="true">→</span></span>' +
+      '</span>' +
       '</a>'
     );
   }
@@ -150,8 +143,8 @@
       '<div class="cs-more">' +
       '<div class="cs-more__header">' +
       '<div class="cs-more__headings">' +
-      '<p class="section-subtitle">Keep exploring</p>' +
-      '<h2 class="section-chapter" id="cs-more-heading">More case studies</h2>' +
+      '<p class="cs-more__eyebrow">Keep exploring</p>' +
+      '<h2 class="cs-more__heading" id="cs-more-heading">More case studies</h2>' +
       '</div>' +
       '<div class="cs-more__nav">' +
       '<button type="button" class="cs-more__arrow-btn cs-more__arrow-btn--prev" aria-label="Previous case studies">' +
@@ -187,46 +180,72 @@
     if (!track || !viewport) return;
 
     var reduced = prefersReducedMotion();
+    var section = root.closest('.cs-more-section') || root;
     var drag = {
+      pointerId: null,
       active: false,
-      moved: false,
+      dragging: false,
+      suppressClick: false,
       startX: 0,
       scrollLeft: 0,
       lastX: 0,
       lastT: 0,
       velocity: 0,
-      raf: 0
+      momentumRaf: 0
     };
+    var focusRaf = 0;
 
     function cardStep() {
       var card = track.querySelector('.cs-more__card');
-      if (!card) return 360;
-      var gap = 20;
+      if (!card) return 404;
+      var gap = 24;
       try {
-        gap = parseFloat(getComputedStyle(track).gap) || 20;
+        gap = parseFloat(getComputedStyle(track).gap) || 24;
       } catch (e2) {}
       return card.offsetWidth + gap;
     }
 
     function scrollBounds() {
-      return {
-        max: Math.max(0, track.scrollWidth - track.clientWidth)
-      };
+      return Math.max(0, track.scrollWidth - track.clientWidth);
     }
 
     function updateEdges() {
-      var max = scrollBounds().max;
+      var max = scrollBounds();
       var sl = track.scrollLeft;
       var atStart = sl <= 2;
       var atEnd = sl >= max - 2;
       viewport.classList.toggle('cs-more__viewport--at-start', atStart);
-      viewport.classList.toggle('cs-more__viewport--at-end', atEnd);
-      viewport.classList.toggle('cs-more__viewport--scrollable', max > 2);
-      if (btnPrev) {
-        btnPrev.disabled = atStart;
+      viewport.classList.toggle('cs-more__viewport--at-end', atEnd || max <= 2);
+      if (btnPrev) btnPrev.disabled = atStart;
+      if (btnNext) btnNext.disabled = atEnd;
+    }
+
+    function updateFocusCards() {
+      focusRaf = 0;
+      if (reduced || !section.classList.contains('cs-more-section--focus-ready')) {
+        return;
       }
-      if (btnNext) {
-        btnNext.disabled = atEnd;
+      var trackRect = track.getBoundingClientRect();
+      var centerX = trackRect.left + trackRect.width * 0.5;
+      var falloff = Math.max(trackRect.width * 0.45, 280);
+      var cards = track.querySelectorAll('.cs-more__card');
+      for (var i = 0; i < cards.length; i++) {
+        var card = cards[i];
+        var rect = card.getBoundingClientRect();
+        var cardCenter = rect.left + rect.width * 0.5;
+        var dist = Math.abs(cardCenter - centerX);
+        var t = Math.min(1, dist / falloff);
+        var scale = 1 - t * 0.06;
+        var opacity = 1 - t * 0.45;
+        card.style.setProperty('--cs-more-scale', String(scale));
+        card.style.setProperty('--cs-more-opacity', String(opacity));
+      }
+    }
+
+    function scheduleFocus() {
+      if (reduced) return;
+      if (!focusRaf) {
+        focusRaf = requestAnimationFrame(updateFocusCards);
       }
     }
 
@@ -234,6 +253,7 @@
       if (reduced) {
         track.scrollLeft += delta;
         updateEdges();
+        scheduleFocus();
         return;
       }
       track.scrollBy({ left: delta, behavior: 'smooth' });
@@ -250,8 +270,14 @@
       });
     }
 
-    track.addEventListener('scroll', updateEdges, { passive: true });
-    window.addEventListener('resize', updateEdges);
+    track.addEventListener('scroll', function () {
+      updateEdges();
+      scheduleFocus();
+    }, { passive: true });
+    window.addEventListener('resize', function () {
+      updateEdges();
+      scheduleFocus();
+    });
 
     track.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowLeft') {
@@ -275,49 +301,56 @@
     );
 
     function stopMomentum() {
-      if (drag.raf) {
-        cancelAnimationFrame(drag.raf);
-        drag.raf = 0;
+      if (drag.momentumRaf) {
+        cancelAnimationFrame(drag.momentumRaf);
+        drag.momentumRaf = 0;
       }
     }
 
     function momentumLoop() {
       drag.velocity *= 0.92;
       if (Math.abs(drag.velocity) < 0.25) {
-        drag.raf = 0;
+        drag.momentumRaf = 0;
         updateEdges();
+        scheduleFocus();
         return;
       }
       track.scrollLeft += drag.velocity;
       updateEdges();
-      drag.raf = requestAnimationFrame(momentumLoop);
+      scheduleFocus();
+      drag.momentumRaf = requestAnimationFrame(momentumLoop);
     }
 
     track.addEventListener('pointerdown', function (e) {
       if (e.button !== 0) return;
-      var cardLink = e.target.closest('.cs-more__card');
-      if (cardLink && e.target.closest('a')) {
-        /* allow focus; drag handled on track */
-      }
       drag.active = true;
-      drag.moved = false;
+      drag.dragging = false;
+      drag.suppressClick = false;
+      drag.pointerId = e.pointerId;
       drag.startX = e.clientX;
       drag.scrollLeft = track.scrollLeft;
       drag.lastX = e.clientX;
       drag.lastT = performance.now();
       drag.velocity = 0;
       stopMomentum();
-      track.setPointerCapture(e.pointerId);
-      track.classList.add('cs-more__track--dragging');
     });
 
     track.addEventListener('pointermove', function (e) {
-      if (!drag.active) return;
+      if (!drag.active || e.pointerId !== drag.pointerId) return;
       var dx = e.clientX - drag.startX;
-      if (Math.abs(dx) > 4) {
-        drag.moved = true;
+      if (!drag.dragging) {
+        if (Math.abs(dx) <= DRAG_THRESHOLD) return;
+        drag.dragging = true;
+        drag.suppressClick = true;
+        drag.scrollLeft = track.scrollLeft;
+        drag.startX = e.clientX;
+        dx = 0;
+        track.classList.add('cs-more__track--dragging');
+        try {
+          track.setPointerCapture(e.pointerId);
+        } catch (err) {}
       }
-      track.scrollLeft = drag.scrollLeft - dx;
+      track.scrollLeft = drag.scrollLeft - (e.clientX - drag.startX);
       var now = performance.now();
       var dt = now - drag.lastT;
       if (dt > 0) {
@@ -326,19 +359,23 @@
       drag.lastX = e.clientX;
       drag.lastT = now;
       updateEdges();
+      scheduleFocus();
     });
 
     function endDrag(e) {
-      if (!drag.active) return;
+      if (!drag.active || e.pointerId !== drag.pointerId) return;
       drag.active = false;
       track.classList.remove('cs-more__track--dragging');
       try {
         track.releasePointerCapture(e.pointerId);
-      } catch (err) {}
-      if (!reduced && drag.moved) {
-        drag.raf = requestAnimationFrame(momentumLoop);
+      } catch (err2) {}
+      if (drag.dragging && !reduced) {
+        drag.momentumRaf = requestAnimationFrame(momentumLoop);
       }
+      drag.dragging = false;
+      drag.pointerId = null;
       updateEdges();
+      scheduleFocus();
     }
 
     track.addEventListener('pointerup', endDrag);
@@ -347,24 +384,35 @@
     track.addEventListener(
       'click',
       function (e) {
-        if (drag.moved) {
+        if (drag.suppressClick) {
           e.preventDefault();
           e.stopPropagation();
-          drag.moved = false;
+          drag.suppressClick = false;
         }
       },
       true
     );
 
-    var section = root.closest('.cs-more-section') || root;
-    if (reduced) {
-      section.classList.add('cs-more-section--visible');
-      updateEdges();
-      return;
-    }
-
     function markVisible() {
       section.classList.add('cs-more-section--visible');
+      window.setTimeout(function () {
+        section.classList.add('cs-more-section--focus-ready');
+        if (reduced) {
+          var cards = track.querySelectorAll('.cs-more__card');
+          for (var c = 0; c < cards.length; c++) {
+            cards[c].style.setProperty('--cs-more-scale', '1');
+            cards[c].style.setProperty('--cs-more-opacity', '1');
+          }
+        } else {
+          scheduleFocus();
+        }
+      }, reduced ? 0 : 720);
+    }
+
+    if (reduced) {
+      section.classList.add('cs-more-section--visible', 'cs-more-section--focus-ready');
+      updateEdges();
+      return;
     }
 
     if ('IntersectionObserver' in window) {
@@ -377,7 +425,7 @@
             }
           });
         },
-        { threshold: 0, rootMargin: '0px 0px 15% 0px' }
+        { threshold: 0, rootMargin: '0px' }
       );
       io.observe(section);
       requestAnimationFrame(function () {
@@ -394,6 +442,7 @@
     setTimeout(markVisible, 1200);
 
     updateEdges();
+    scheduleFocus();
   }
 
   function init() {
