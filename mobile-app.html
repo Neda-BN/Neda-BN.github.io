@@ -619,15 +619,16 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   }
   .mob-journey-top { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
   .mob-journey-av {
-    width: 44px;
-    height: 44px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    background: var(--accent-light);
-    border: 1.5px solid rgba(59, 130, 246, 0.25);
+    background: var(--accent-strong, #6f8bc4);
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.15rem;
     flex-shrink: 0;
   }
   .mob-journey-name { font-family: var(--serif); font-size: 15px; font-weight: 600; color: var(--dark); }
@@ -928,7 +929,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <div class="hero-tag">Case Study · B2C · Retail · Mobile</div>
   <h1>Mobile Customer Shopping App</h1>
   <div class="meta-strip cs-meta-strip">
-    <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Lead UX/UI Designer</div></div>
+    <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Product Designer</div></div>
     <div class="meta-item"><div class="meta-label">Company</div><div class="meta-value">Focalpay AB · 2023–2024</div></div>
     <div class="meta-item"><div class="meta-label">Platform</div><div class="meta-value">iOS · Web (PWA)</div></div>
     <div class="meta-item"><div class="meta-label">Methods</div><div class="meta-value">Interviews · Survey · Usability testing · A/B testing</div></div>
@@ -946,9 +947,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
   <div class="mob-tldr fade-in reveal cs-summary">
     <p><strong>The problem:</strong> Shoppers had to choose between carrying a store scanner and standing in a queue. Both were real barriers, especially for parents and people with accessibility needs.</p>
-    <p><strong>What I did:</strong> Led the design from research to launch, working with the PM and engineering team. I tested in office workshops and in a live store.</p>
-    <p><strong>Key decisions:</strong> Made sign-up optional after 3 testers abandoned at registration. Added visual, haptic and audio scan feedback after testers couldn't tell whether a scan had worked.</p>
-    <p><strong>Result:</strong> Through research-led iteration and A/B testing, checkout completion rose by 40%. In-store testing also showed about 30% better checkout task performance, and sign-up abandonments dropped from 3 to 0. The app has launched; adoption is still early.</p>
+    <p><strong>What I did:</strong> Led the design from research to launch, working with the PM and engineering team. I tested in office workshops and in a live store before launch, and ran an A/B test with real shoppers after launch.</p>
+    <p><strong>Key decisions:</strong> Made sign-up optional after 3 testers abandoned at registration. Added visual, haptic and audio scan feedback after finding that the app was too silent: shoppers couldn't tell whether a scan had worked.</p>
+    <p><strong>Result:</strong> In an A/B test after launch, checkout completion rose by 40% with scan feedback. Usability testing before launch also showed about 30% better checkout task performance, and sign-up abandonments dropped from 3 to 0. The app has launched; adoption is still early.</p>
   </div>
   <p class="mob-platform-line fade-in reveal cs-platform">Part of the Focalpay platform: this app connects to the <a href="pos-app.html">Cashier POS</a> for cash payments and to the <a href="backoffice.html">Back-office</a> for products and prices.</p>
 
@@ -1111,7 +1112,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
       </div>
       <div>
         <h3>Decision 2: Making every scan clear</h3>
-        <p>In testing, shoppers scanned a product, then stopped and stared at the screen, unsure if it had worked. Some scanned twice. With noise, trolleys and children around, a visual sign alone was easy to miss.</p>
+        <p>After launch, too many shoppers didn't complete checkout. My first guess was the scanner: maybe it wasn't optimised enough, so I asked the dev team to improve it. But the drop-off didn't go away.</p>
+        <p>Testing showed the real problem: the app was too silent. Shoppers scanned a product, then stopped and stared at the screen, unsure if it had worked. Some scanned twice. With noise, trolleys and children around, a visual sign alone was easy to miss.</p>
         <p>So I added three kinds of feedback after each scan:</p>
         <ul>
           <li><strong>Visual:</strong> the product moves into the cart.</li>
@@ -1122,7 +1124,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
         <figure class="mob-scan-feedback reveal reveal-media">
           <img src="mobile-scan-three-layer-feedback.gif" alt="In-app demonstration of three-layer scan feedback: barcode scan on Coca-Cola, vibration and sound cues, and the product animating into the cart" width="800" height="695" loading="lazy" decoding="async">
         </figure>
-        <p>After this change, testers stopped pausing after each scan, and we didn't see any more double scans in testing. This was something we observed in the sessions, not a measured number.</p>
+        <p>To prove it, we ran an A/B test with 10 real shoppers: 5 used V1, the silent version, and 5 used V2, with visual, haptic and sound feedback. Checkout completion was 40% higher with V2.</p>
       </div>
     </div>
   </section>
@@ -1251,7 +1253,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     <p>Sara's whole trip, from opening the app in the car park to scanning the exit QR code. The low points showed where design changes mattered most.</p>
     <div class="mob-journey-wrap wide">
       <div class="mob-journey-top">
-        <div class="mob-journey-av" aria-hidden="true">👩‍👧</div>
+        <div class="mob-journey-av" aria-hidden="true">S</div>
         <div>
           <div class="mob-journey-name">Sara · Parent of three, including one child with autism</div>
           <div class="mob-journey-desc">Uses her phone for everything, avoids queues, always has her hands full</div>
@@ -1357,17 +1359,17 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Results</h2></div>
     </div>
-    <p>All results come from usability testing across several rounds. They show the direction of improvement, not production analytics.</p>
+    <p>The +40% comes from an A/B test after launch. The other results come from usability testing before launch, across several rounds, and show the direction of improvement.</p>
     <div class="mob-results-grid cs-stat-grid">
       <div class="mob-result-cell cs-stat">
         <div class="mob-result-num">+40%</div>
         <div class="mob-result-lab">Checkout completion</div>
-        <p class="mob-result-src">Through research-led iteration and A/B testing.</p>
+        <p class="mob-result-src">A/B test after launch with 10 real shoppers: 5 on the silent V1, 5 on V2 with visual, haptic and sound feedback.</p>
       </div>
       <div class="mob-result-cell cs-stat">
         <div class="mob-result-num">~30%</div>
         <div class="mob-result-lab">Better checkout task performance</div>
-        <p class="mob-result-src">In-store session (5 participants) compared with the earlier round: completion time, errors and successful checkouts. Reflects both changes made between rounds, the scan feedback and optional sign-up, so it can't be credited to either one alone.</p>
+        <p class="mob-result-src">In-store session (5 participants) compared with the earlier round: completion time, errors and successful checkouts. Reflects the changes made between rounds, including optional sign-up.</p>
       </div>
       <div class="mob-result-cell cs-stat">
         <div class="mob-result-num">3 → 0</div>
@@ -1468,10 +1470,11 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
       <div class="section-headings"><h2 class="section-chapter">Where it is now, and what I learned</h2></div>
     </div>
     <p>The app has launched, and a small number of shoppers use it so far. As it grows, I'd track guest checkout versus sign-ups, checkout completion, how often manual barcode entry is used, and cash handovers to the cashier.</p>
-    <div class="mob-reflection-grid">
-      <div class="mob-reflection"><div class="mob-ref-num">01</div><div class="mob-ref-t">Test in the real store</div><p class="mob-ref-b">Damaged barcodes and missing scan feedback only showed up with real noise and time pressure.</p></div>
-      <div class="mob-reflection"><div class="mob-ref-num">02</div><div class="mob-ref-t">Feedback needs more than one sense</div><p class="mob-ref-b">Vibration and sound are what made shoppers feel sure a scan had worked.</p></div>
-      <div class="mob-reflection"><div class="mob-ref-num">03</div><div class="mob-ref-t">Ask for sign-up after the shopper sees the value</div><p class="mob-ref-b">Making it optional kept accounts for those who want them, without blocking everyone else.</p></div>
+    <div class="lessons-list">
+      <div class="lesson-item cs-learn"><div class="lesson-num">01</div><div class="lesson-text"><h4>A noisy store is the best test lab.</h4><p>Damaged barcodes only showed up with real products, noise and time pressure.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-num">02</div><div class="lesson-text"><h4>Feedback needs more than one sense.</h4><p>Vibration and sound are what made shoppers feel sure a scan had worked.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-num">03</div><div class="lesson-text"><h4>Ask for sign-up after the shopper sees the value.</h4><p>Making it optional kept accounts for those who want them, without blocking everyone else.</p></div></div>
+      <div class="lesson-item cs-learn cs-learn--highlight"><div class="lesson-num">04</div><div class="lesson-text"><p class="cs-learn-eyebrow">Looking back</p><h4>What I'd do differently.</h4><p>My first guess was the scanner, and the dev team optimised it before we had any data. Next time, I'd test first and fix second: the real problem, a silent app, only showed up once we tested.</p></div></div>
     </div>
   </section>
 
@@ -1482,24 +1485,24 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 </div>
 
 <footer>
-  <p>Neda Bagheri · Product Designer · Stockholm</p>
+  <p>© 2026 Neda Bagheri · Stockholm</p>
   <ul class="footer-social" aria-label="Social links">
-      <li>
-        <a href="https://www.linkedin.com/in/neda-bn-83803195/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="4" cy="4" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
-        </a>
-      </li>
-      <li>
-        <a href="https://www.behance.net/nedabagheri1" target="_blank" rel="noopener noreferrer" aria-label="Behance" class="footer-social__beh">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.969 16.927a2.561 2.561 0 0 0 1.901.677 2.501 2.501 0 0 0 1.531-.475c.362-.235.636-.584.779-.99h2.585a5.091 5.091 0 0 1-1.9 2.896 5.292 5.292 0 0 1-3.091.88 5.839 5.839 0 0 1-2.284-.433 4.871 4.871 0 0 1-1.723-1.211 5.657 5.657 0 0 1-1.08-1.874 7.057 7.057 0 0 1-.383-2.393c-.005-.8.129-1.595.396-2.349a5.313 5.313 0 0 1 5.088-3.604 4.87 4.87 0 0 1 2.376.563c.661.362 1.231.87 1.668 1.485a6.2 6.2 0 0 1 .943 2.133c.194.821.263 1.666.205 2.508h-7.699c-.063.79.184 1.574.688 2.187ZM6.947 4.084a8.065 8.065 0 0 1 1.928.198 4.29 4.29 0 0 1 1.49.638c.418.303.748.711.958 1.182.241.579.357 1.203.341 1.83a3.506 3.506 0 0 1-.506 1.961 3.726 3.726 0 0 1-1.503 1.287 3.588 3.588 0 0 1 2.027 1.437c.464.747.697 1.615.67 2.494a4.593 4.593 0 0 1-.423 2.032 3.945 3.945 0 0 1-1.163 1.413 5.114 5.114 0 0 1-1.683.807 7.135 7.135 0 0 1-1.928.259H0V4.084h6.947Zm-.235 12.9c.308.004.616-.029.916-.099a2.18 2.18 0 0 0 .766-.332c.228-.158.411-.371.534-.619.142-.317.208-.663.191-1.009a2.08 2.08 0 0 0-.642-1.715 2.618 2.618 0 0 0-1.696-.505h-3.54v4.279h3.471Zm13.635-5.967a2.13 2.13 0 0 0-1.654-.619 2.336 2.336 0 0 0-1.163.259 2.474 2.474 0 0 0-.738.62 2.359 2.359 0 0 0-.396.792c-.074.239-.12.485-.137.734h4.769a3.239 3.239 0 0 0-.679-1.785l-.002-.001Zm-13.813-.648a2.254 2.254 0 0 0 1.423-.433c.399-.355.607-.88.56-1.413a1.916 1.916 0 0 0-.178-.891 1.298 1.298 0 0 0-.495-.533 1.851 1.851 0 0 0-.711-.274 3.966 3.966 0 0 0-.835-.073H3.241v3.631h3.293v-.014ZM21.62 5.122h-5.976v1.527h5.976V5.122Z"/></svg>
-        </a>
-      </li>
-      <li>
-        <a href="mailto:nedabagheri.nz@gmail.com" aria-label="Email">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        </a>
-      </li>
-    </ul>
+    <li>
+      <a href="https://www.linkedin.com/in/neda-bn-83803195/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="4" cy="4" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.behance.net/nedabagheri1" target="_blank" rel="noopener noreferrer" aria-label="Behance" class="footer-social__beh">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.969 16.927a2.561 2.561 0 0 0 1.901.677 2.501 2.501 0 0 0 1.531-.475c.362-.235.636-.584.779-.99h2.585a5.091 5.091 0 0 1-1.9 2.896 5.292 5.292 0 0 1-3.091.88 5.839 5.839 0 0 1-2.284-.433 4.871 4.871 0 0 1-1.723-1.211 5.657 5.657 0 0 1-1.08-1.874 7.057 7.057 0 0 1-.383-2.393c-.005-.8.129-1.595.396-2.349a5.313 5.313 0 0 1 5.088-3.604 4.87 4.87 0 0 1 2.376.563c.661.362 1.231.87 1.668 1.485a6.2 6.2 0 0 1 .943 2.133c.194.821.263 1.666.205 2.508h-7.699c-.063.79.184 1.574.688 2.187ZM6.947 4.084a8.065 8.065 0 0 1 1.928.198 4.29 4.29 0 0 1 1.49.638c.418.303.748.711.958 1.182.241.579.357 1.203.341 1.83a3.506 3.506 0 0 1-.506 1.961 3.726 3.726 0 0 1-1.503 1.287 3.588 3.588 0 0 1 2.027 1.437c.464.747.697 1.615.67 2.494a4.593 4.593 0 0 1-.423 2.032 3.945 3.945 0 0 1-1.163 1.413 5.114 5.114 0 0 1-1.683.807 7.135 7.135 0 0 1-1.928.259H0V4.084h6.947Zm-.235 12.9c.308.004.616-.029.916-.099a2.18 2.18 0 0 0 .766-.332c.228-.158.411-.371.534-.619.142-.317.208-.663.191-1.009a2.08 2.08 0 0 0-.642-1.715 2.618 2.618 0 0 0-1.696-.505h-3.54v4.279h3.471Zm13.635-5.967a2.13 2.13 0 0 0-1.654-.619 2.336 2.336 0 0 0-1.163.259 2.474 2.474 0 0 0-.738.62 2.359 2.359 0 0 0-.396.792c-.074.239-.12.485-.137.734h4.769a3.239 3.239 0 0 0-.679-1.785l-.002-.001Zm-13.813-.648a2.254 2.254 0 0 0 1.423-.433c.399-.355.607-.88.56-1.413a1.916 1.916 0 0 0-.178-.891 1.298 1.298 0 0 0-.495-.533 1.851 1.851 0 0 0-.711-.274 3.966 3.966 0 0 0-.835-.073H3.241v3.631h3.293v-.014ZM21.62 5.122h-5.976v1.527h5.976V5.122Z"/></svg>
+      </a>
+    </li>
+    <li>
+      <a href="mailto:nedabagheri.nz@gmail.com" aria-label="Email">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </a>
+    </li>
+  </ul>
 </footer>
 
 <script src="js/scroll-reveal.js?v=20260403"></script>
