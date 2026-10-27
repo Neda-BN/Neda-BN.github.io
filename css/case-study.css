@@ -443,7 +443,7 @@
   margin-bottom: 0;
 }
 
-.case-study-page .content p:not(.screen-caption):not(.image-caption),
+.case-study-page .content p:not(.screen-caption):not(.image-caption):not(.cs-structure__title):not(.cs-structure__line),
 .case-study-page .role-list li,
 .case-study-page .pain-card p,
 .case-study-page .finding-text,
@@ -3286,7 +3286,7 @@ body.case-study-page .section-headings .section-subtitle {
 }
 
 /* Body copy rhythm (case-main) — direct section paragraphs only (avoids :not() specificity beating quotes) */
-body.case-study-page .content.case-main > .section > p:not(.section-subtitle):not(.hc-results-impact-lede):not(.cs-caption):not(.cs-aside):not(.cs-callout) {
+body.case-study-page .content.case-main > .section > p:not(.section-subtitle):not(.hc-results-impact-lede):not(.cs-caption):not(.cs-aside):not(.cs-callout):not(.cs-structure__title):not(.cs-structure__line) {
   font-family: var(--font-body, 'Poppins', sans-serif) !important;
   font-size: 18px !important;
   font-weight: 400 !important;
@@ -4668,82 +4668,134 @@ body.case-study-page .cs-flow__note {
   }
 }
 
-/* Back-office: replenishment structure map (D2) */
+/* Back-office: replenishment structure map (D2)
+   Scale tokens — bump sizes together (type, cards, icons, gaps) to keep proportions. */
 body.case-study-page .cs-structure {
+  --cs-structure-line: rgba(138, 164, 214, 0.52);
+  --cs-structure-stem: 16px;
+  --cs-structure-gap: 12px;
+  --cs-structure-vlink: 14px;
+  --cs-structure-radius: 12px;
+  --cs-structure-title: 15px;
+  --cs-structure-title-top: 14px;
+  --cs-structure-title-hub: 16px;
+  --cs-structure-body: 13px;
+  --cs-structure-title-gap: 5px;
+  --cs-structure-line-gap: 4px;
+  --cs-structure-card-w-top: 214px;
+  --cs-structure-card-w-hub: 268px;
+  --cs-structure-pad-y: 12px;
+  --cs-structure-pad-x: 14px;
+  --cs-structure-pad-hub-y: 14px;
+  --cs-structure-pad-hub-x: 16px;
+  --cs-structure-pad-branch-y: 11px;
+  --cs-structure-pad-branch-x: 12px;
+  --cs-structure-icon-chip: 32px;
+  --cs-structure-icon-chip-hub: 36px;
+  --cs-structure-icon-chip-branch: 30px;
+  --cs-structure-icon: 17px;
+  --cs-structure-icon-gap: 8px;
+  margin: 24px 0 36px;
+  overflow: visible;
+}
+
+body.case-study-page .cs-structure.wide {
+  --cs-wide-track: min(940px, calc(100vw - 48px));
+  width: var(--cs-wide-track);
+  max-width: var(--cs-wide-track);
+  /* Override global .wide (margin-right: 0 skews left) — center in the page column */
+  margin-left: 0;
+  margin-right: 0;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+body.case-study-page .cs-structure__canvas {
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+body.case-study-page .cs-structure__spine {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 28px 0 40px;
   width: 100%;
+  gap: 0;
 }
 
 body.case-study-page .cs-structure__card {
   width: 100%;
-  max-width: 320px;
-  background: var(--surface);
+  max-width: var(--cs-structure-card-w-top);
+  background: color-mix(in srgb, var(--surface) 88%, #0f1424);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 16px;
+  border-radius: var(--cs-structure-radius);
+  padding: var(--cs-structure-pad-y) var(--cs-structure-pad-x);
   text-align: center;
+  box-sizing: border-box;
 }
 
 body.case-study-page .cs-structure__card--hub {
-  max-width: 360px;
-  padding: 20px 18px;
-  border-color: rgba(138, 164, 214, 0.45);
+  max-width: var(--cs-structure-card-w-hub);
+  padding: var(--cs-structure-pad-hub-y) var(--cs-structure-pad-hub-x);
+  border-color: rgba(138, 164, 214, 0.42);
+  background: color-mix(in srgb, var(--surface) 88%, #0f1424);
+  box-shadow: none;
+}
+
+body.case-study-page .cs-structure__icon-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--cs-structure-icon-chip);
+  height: var(--cs-structure-icon-chip);
+  margin: 0 auto var(--cs-structure-icon-gap);
+  border-radius: 10px;
+  background: rgba(138, 164, 214, 0.1);
+  border: 1px solid rgba(138, 164, 214, 0.32);
+}
+
+body.case-study-page .cs-structure__icon-chip--hub {
+  width: var(--cs-structure-icon-chip-hub);
+  height: var(--cs-structure-icon-chip-hub);
+  background: rgba(138, 164, 214, 0.14);
 }
 
 body.case-study-page .cs-structure__icon {
-  width: 18px;
-  height: 18px;
+  width: var(--cs-structure-icon);
+  height: var(--cs-structure-icon);
   stroke: var(--accent);
-  margin: 0 auto 10px;
   display: block;
-}
-
-body.case-study-page .cs-structure__title {
-  font-family: var(--font-body, 'Poppins', sans-serif);
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1.35;
-  color: var(--text);
-  margin: 0 0 6px;
-}
-
-body.case-study-page .cs-structure__line {
-  font-family: var(--font-body, 'Poppins', sans-serif);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.45;
-  color: var(--muted);
-  margin: 0;
-}
-
-body.case-study-page .cs-structure__line + .cs-structure__line {
-  margin-top: 4px;
+  flex-shrink: 0;
 }
 
 body.case-study-page .cs-structure__connector {
   width: 1px;
-  height: 28px;
-  background: var(--border);
+  height: var(--cs-structure-vlink);
+  background: var(--cs-structure-line);
   flex-shrink: 0;
 }
 
-body.case-study-page .cs-structure__connector--fan {
-  height: 20px;
+body.case-study-page .cs-structure__connector--stem {
+  height: var(--cs-structure-stem);
 }
 
 body.case-study-page .cs-structure__branches {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--cs-structure-gap);
   width: 100%;
-  max-width: 720px;
+  max-width: 100%;
   position: relative;
-  padding-top: 12px;
+  padding-top: var(--cs-structure-stem);
+  margin-top: 0;
 }
 
+/* Solid bus line — spans outer branch columns (no fade) */
 body.case-study-page .cs-structure__branches::before {
   content: '';
   position: absolute;
@@ -4751,42 +4803,142 @@ body.case-study-page .cs-structure__branches::before {
   left: 12.5%;
   right: 12.5%;
   height: 1px;
-  background: var(--border);
+  background: var(--cs-structure-line);
+  pointer-events: none;
 }
 
-body.case-study-page .cs-structure__branches .cs-structure__card {
+body.case-study-page .cs-structure__card--branch {
   max-width: none;
+  text-align: left;
+  padding: var(--cs-structure-pad-branch-y) var(--cs-structure-pad-branch-x)
+    calc(var(--cs-structure-pad-branch-y) + 1px);
   position: relative;
+  border-top: 2px solid rgba(138, 164, 214, 0.4);
+  align-self: start;
 }
 
-body.case-study-page .cs-structure__branches .cs-structure__card::before {
+body.case-study-page .cs-structure__card--branch .cs-structure__icon-chip {
+  margin: 0 0 var(--cs-structure-icon-gap);
+  width: var(--cs-structure-icon-chip-branch);
+  height: var(--cs-structure-icon-chip-branch);
+  border-radius: 9px;
+}
+
+body.case-study-page .cs-structure__card--branch::before {
   content: '';
   position: absolute;
-  top: -13px;
+  top: calc(-1 * var(--cs-structure-stem));
   left: 50%;
   width: 1px;
-  height: 12px;
-  background: var(--border);
+  height: var(--cs-structure-stem);
+  background: var(--cs-structure-line);
   transform: translateX(-50%);
+  pointer-events: none;
 }
 
-@media (max-width: 768px) {
+body.case-study-page .cs-structure__card--out {
+  border-top-color: rgba(248, 113, 113, 0.85);
+}
+
+body.case-study-page .cs-structure__card--out .cs-structure__icon-chip {
+  border-color: rgba(248, 113, 113, 0.45);
+  background: rgba(248, 113, 113, 0.12);
+}
+
+body.case-study-page .cs-structure__card--setup {
+  border-top-color: rgba(251, 191, 36, 0.9);
+}
+
+body.case-study-page .cs-structure__card--setup .cs-structure__icon-chip {
+  border-color: rgba(251, 191, 36, 0.45);
+  background: rgba(251, 191, 36, 0.12);
+}
+
+body.case-study-page .cs-structure__card--deliveries {
+  border-top-color: rgba(96, 165, 250, 0.9);
+}
+
+body.case-study-page .cs-structure__card--deliveries .cs-structure__icon-chip {
+  border-color: rgba(96, 165, 250, 0.45);
+  background: rgba(96, 165, 250, 0.12);
+}
+
+body.case-study-page .cs-structure__card--refill {
+  border-top-color: rgba(167, 139, 250, 0.9);
+}
+
+body.case-study-page .cs-structure__card--refill .cs-structure__icon-chip {
+  border-color: rgba(167, 139, 250, 0.45);
+  background: rgba(167, 139, 250, 0.12);
+}
+
+/* Chart typography — overrides global 16–18px body copy (bold title / light body) */
+body.case-study-page .cs-structure .cs-structure__title {
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: var(--cs-structure-title) !important;
+  font-weight: 600 !important;
+  line-height: 1.32 !important;
+  color: var(--text) !important;
+  margin: 0 0 var(--cs-structure-title-gap) !important;
+  letter-spacing: normal !important;
+}
+
+body.case-study-page .cs-structure .cs-structure__card--top .cs-structure__title {
+  font-size: var(--cs-structure-title-top) !important;
+}
+
+body.case-study-page .cs-structure .cs-structure__card--hub .cs-structure__title {
+  font-size: var(--cs-structure-title-hub) !important;
+}
+
+body.case-study-page .cs-structure .cs-structure__line {
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: var(--cs-structure-body) !important;
+  font-weight: 400 !important;
+  line-height: 1.45 !important;
+  color: var(--muted) !important;
+  margin: 0 !important;
+  letter-spacing: normal !important;
+}
+
+body.case-study-page .cs-structure .cs-structure__line + .cs-structure__line {
+  margin-top: var(--cs-structure-line-gap) !important;
+}
+
+@media (max-width: 960px) {
   body.case-study-page .cs-structure__branches {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--cs-structure-gap) calc(var(--cs-structure-gap) + 2px);
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Top bus connects the first row; stem from hub meets this line */
+  body.case-study-page .cs-structure__branches::before {
+    left: 25%;
+    right: 25%;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   body.case-study-page .cs-structure__branches {
     grid-template-columns: 1fr;
-    max-width: 360px;
+    max-width: min(var(--cs-structure-card-w-top), 100%);
+    padding-top: 0;
+    gap: calc(var(--cs-structure-gap) + 2px);
   }
 
-  body.case-study-page .cs-structure__branches::before {
+  body.case-study-page .cs-structure__branches::before,
+  body.case-study-page .cs-structure__branches::after {
     display: none;
   }
 
-  body.case-study-page .cs-structure__branches .cs-structure__card::before {
+  body.case-study-page .cs-structure__connector--stem {
+    display: none;
+  }
+
+  body.case-study-page .cs-structure__card--branch::before {
     display: none;
   }
 }

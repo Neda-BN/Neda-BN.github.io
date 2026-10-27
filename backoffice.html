@@ -350,7 +350,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   @media(max-width:640px){nav{padding:0 24px;height:60px;}.n-links{gap:18px;}.n-links a .n-ico{width:12px;height:12px;margin-right:4px;vertical-align:-2px;}.back-top,.hero,.hero-image,.content,.content--design-system,.bottom-back,footer{padding-left:24px;padding-right:24px;}.pain-grid,.results-grid,.ab-grid,.ds-theme-row{grid-template-columns:1fr;}.result-card--bo{grid-template-columns:1fr;gap:10px;}.result-card--bo .result-card__stat{padding-top:0;}.meta-strip{flex-direction:column;}.meta-item{border-right:none;border-bottom:1px solid var(--border);}.meta-item:last-child{border-bottom:none;}.section-header{flex-direction:column;gap:18px;padding:0 0 24px 0;}.section-icon{width:52px;height:52px;}.section-icon svg{width:24px;height:24px;}.section-chapter{font-size:clamp(1.65rem,6vw,2.35rem);}}
 </style>
 <link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
-<link rel="stylesheet" href="css/case-study.css?v=20261027b">
+<link rel="stylesheet" href="css/case-study.css?v=20261027j">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
 </head>
@@ -475,40 +475,44 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
     </div>
     <h3 class="bo-subchapter">How I structured Replenishment</h3>
     <p>One overview, four clear paths, and notifications that point to each of them.</p>
-    <div class="cs-structure" aria-label="Replenishment information architecture">
-      <div class="cs-structure__card cs-structure__card--top">
-        <svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>
-        <p class="cs-structure__title">Notifications</p>
-        <p class="cs-structure__line">Grouped by urgency</p>
-      </div>
-      <div class="cs-structure__connector" aria-hidden="true"></div>
-      <div class="cs-structure__card cs-structure__card--hub">
-        <svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
-        <p class="cs-structure__title">Replenishments overview</p>
-        <p class="cs-structure__line">Four summary cards</p>
-      </div>
-      <div class="cs-structure__connector cs-structure__connector--fan" aria-hidden="true"></div>
-      <div class="cs-structure__branches">
-        <div class="cs-structure__card">
-          <svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16v-3"/><path d="M12 22v-8"/><path d="m3.3 14 8.7-8 8.7 8"/><path d="M12 6v16"/></svg>
-          <p class="cs-structure__title">Out of stock</p>
-          <p class="cs-structure__line">Place order → Create order, emailed to the supplier</p>
+    <div class="cs-structure wide" aria-label="Replenishment information architecture">
+      <div class="cs-structure__canvas">
+        <div class="cs-structure__spine">
+          <div class="cs-structure__card cs-structure__card--top">
+            <span class="cs-structure__icon-chip" aria-hidden="true"><svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg></span>
+            <p class="cs-structure__title">Notifications</p>
+            <p class="cs-structure__line">Grouped by urgency</p>
+          </div>
+          <div class="cs-structure__connector" aria-hidden="true"></div>
+          <div class="cs-structure__card cs-structure__card--hub">
+            <span class="cs-structure__icon-chip cs-structure__icon-chip--hub" aria-hidden="true"><svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg></span>
+            <p class="cs-structure__title">Replenishments overview</p>
+            <p class="cs-structure__line">Four summary cards</p>
+          </div>
+          <div class="cs-structure__connector cs-structure__connector--stem" aria-hidden="true"></div>
         </div>
-        <div class="cs-structure__card">
-          <svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></svg>
-          <p class="cs-structure__title">Setup needed</p>
-          <p class="cs-structure__line">Set current, min and max stock inline</p>
-        </div>
-        <div class="cs-structure__card">
-          <svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.684-.948l-4.493-1.498a1 1 0 0 1-.578-.502l-1.539-3.076A1 1 0 0 0 12.382 8H11.5a1 1 0 0 0-1 1v9"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
-          <p class="cs-structure__title">Incoming deliveries</p>
-          <p class="cs-structure__line">Awaiting, with overdue warnings</p>
-          <p class="cs-structure__line">Confirm receipt: full or partial, invoice and notes</p>
-        </div>
-        <div class="cs-structure__card">
-          <svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
-          <p class="cs-structure__title">Shelf refill</p>
-          <p class="cs-structure__line">Products to restock on the shelf</p>
+        <div class="cs-structure__branches">
+          <div class="cs-structure__card cs-structure__card--branch cs-structure__card--out">
+            <span class="cs-structure__icon-chip" aria-hidden="true"><svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16v-3"/><path d="M12 22v-8"/><path d="m3.3 14 8.7-8 8.7 8"/><path d="M12 6v16"/></svg></span>
+            <p class="cs-structure__title">Out of stock</p>
+            <p class="cs-structure__line">Place order → Create order, emailed to the supplier</p>
+          </div>
+          <div class="cs-structure__card cs-structure__card--branch cs-structure__card--setup">
+            <span class="cs-structure__icon-chip" aria-hidden="true"><svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></svg></span>
+            <p class="cs-structure__title">Setup needed</p>
+            <p class="cs-structure__line">Set current, min and max stock inline</p>
+          </div>
+          <div class="cs-structure__card cs-structure__card--branch cs-structure__card--deliveries">
+            <span class="cs-structure__icon-chip" aria-hidden="true"><svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.684-.948l-4.493-1.498a1 1 0 0 1-.578-.502l-1.539-3.076A1 1 0 0 0 12.382 8H11.5a1 1 0 0 0-1 1v9"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg></span>
+            <p class="cs-structure__title">Incoming deliveries</p>
+            <p class="cs-structure__line">Awaiting, with overdue warnings</p>
+            <p class="cs-structure__line">Confirm receipt: full or partial, invoice and notes</p>
+          </div>
+          <div class="cs-structure__card cs-structure__card--branch cs-structure__card--refill">
+            <span class="cs-structure__icon-chip" aria-hidden="true"><svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span>
+            <p class="cs-structure__title">Shelf refill</p>
+            <p class="cs-structure__line">Products to restock on the shelf</p>
+          </div>
         </div>
       </div>
     </div>
