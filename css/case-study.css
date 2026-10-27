@@ -2926,6 +2926,30 @@ body.case-study-page .sb-principles p {
   margin-top: 8px !important;
 }
 
+/* Finding + connected-device cards — icon beside first line (not stacked) */
+body.case-study-page .finding-item.cs-card,
+body.case-study-page .pos-device-item.finding-item {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  gap: 16px;
+}
+
+body.case-study-page .finding-item.cs-card > div,
+body.case-study-page .pos-device-item.finding-item > div {
+  flex: 1;
+  min-width: 0;
+}
+
+body.case-study-page .content .finding-item h3.pos-device-item__title {
+  margin-top: 8px !important;
+  margin-bottom: 8px !important;
+}
+
+body.case-study-page .pos-device-item .pos-device-item__title + p {
+  margin-top: 0 !important;
+}
+
 /* --- d) Stat cards — .cs-stat --- */
 body.case-study-page .cs-stat-grid,
 body.case-study-page .mob-results-grid,

@@ -11,10 +11,13 @@
   /** Extra clearance so soft glow / arrow does not sit on the text column */
   var BUBBLE_GLOW_PAD = 40;
   var VIEW_PAD = 16;
+  /** Keep margin bubbles off the viewport edge on wide screens */
+  var VIEW_EDGE_INSET = 48;
 
   function bubbleGap(note) {
     var gap = BUBBLE_GAP;
     if (note.classList.contains('aside-note--bubble-gap-wide')) gap += 28;
+    if (note.classList.contains('aside-note--bubble-clear-copy')) gap += 24;
     return gap;
   }
 
@@ -64,19 +67,22 @@
       var noteRect = note.getBoundingClientRect();
       var textMax = Math.min(parent.offsetWidth, 720);
       var textColLeft = textAlignLeft(note);
+      var textTrackRight = textColLeft + textMax;
       var parentRect = parent.getBoundingClientRect();
       var scopeRect = scope.getBoundingClientRect();
       /* Full-width blocks (e.g. .mob-solution cards) can exceed the 720px copy track */
-      var textColRight = Math.max(
-        textColLeft + textMax,
-        parentRect.right,
-        scopeRect.right
-      );
+      var textColRight = Math.max(textTrackRight, parentRect.right, scopeRect.right);
       var gutterLeft = parentRect.left;
       var spaceLeft = gutterLeft - VIEW_PAD;
 
       var preferLeft = note.classList.contains('aside-note--bubble-prefer-left');
       var preferRight = note.classList.contains('aside-note--bubble-prefer-right');
+      if (preferRight) {
+        textColRight = textTrackRight;
+        if (note.classList.contains('aside-note--bubble-clear-copy') && prev) {
+          textColRight = Math.max(textTrackRight, prev.getBoundingClientRect().right);
+        }
+      }
       var gap = bubbleGap(note);
       var canLeft = spaceLeft >= BUBBLE_W + gap;
       var useLeftMargin = preferRight ? false : preferLeft ? canLeft : canLeft;
@@ -104,13 +110,13 @@
         }
       } else {
         var minLeftViewport = textColRight + gap + BUBBLE_GLOW_PAD;
-        bubble.style.left = minLeftViewport - noteRect.left + 'px';
-        var br0 = bubble.getBoundingClientRect();
-        if (br0.right > window.innerWidth - VIEW_PAD) {
-          var clampedLeft =
-            window.innerWidth - VIEW_PAD - br0.width - noteRect.left;
-          bubble.style.left = Math.max(minLeftViewport - noteRect.left, clampedLeft) + 'px';
+        var minLeftRel = minLeftViewport - noteRect.left;
+        var maxBubbleRight = window.innerWidth - Math.max(VIEW_PAD, VIEW_EDGE_INSET);
+        var leftRel = minLeftRel;
+        if (noteRect.left + leftRel + BUBBLE_W > maxBubbleRight) {
+          leftRel = maxBubbleRight - BUBBLE_W - noteRect.left;
         }
+        bubble.style.left = Math.max(minLeftRel, leftRel) + 'px';
       }
 
       var maxTop = top;
