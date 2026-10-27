@@ -450,7 +450,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 <section class="hero">
   <div class="hero-tag">Case Study · B2B · E-Health</div>
   <h1>Healthcare Provider Survey Application</h1>
-  <div class="meta-strip">
+  <div class="meta-strip cs-meta-strip">
     <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Lead UX/UI Designer &amp; Front-end</div></div>
     <div class="meta-item"><div class="meta-label">Company</div><div class="meta-value">Focalpay AB · 2025–2026</div></div>
     <div class="meta-item"><div class="meta-label">Platform</div><div class="meta-value">Mobile · Tablet · Desktop</div></div>
@@ -461,7 +461,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 
 <!-- Hero: Healthcare Survey Platform overview -->
 <div class="hero-image reveal reveal-media" id="hc-overview">
-  <p class="image-caption">Healthcare Survey Platform · Overview</p>
+  <p class="image-caption cs-caption">Healthcare Survey Platform · Overview</p>
   <div class="hc-media-frame">
     <img src="healthcare-survey-platform-overview.png?v=20260324" alt="Colleagues in an office reviewing a healthcare survey platform dashboard on a monitor, with charts and response metrics on screen." width="1024" height="682" loading="eager" decoding="async">
   </div>
@@ -469,7 +469,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 
 <div class="content case-main">
 
-  <div class="hc-tldr fade-in reveal">
+  <div class="hc-tldr fade-in reveal cs-summary">
     <p><strong>The problem:</strong> Administrators sent healthcare quality surveys to social workers across many municipalities, using Outlook, Excel and shared folders. Nobody could see who had answered, and reports took weeks.</p>
     <p><strong>What I did:</strong> Interviewed 4 quality managers, mapped the whole survey workflow, designed the platform and tested it with 5 administrators. I also built 100% of the front-end myself with Cursor.</p>
     <p><strong>Key decisions:</strong> A six-step wizard for sending surveys, a hierarchy that opens one level at a time, and traffic-light performance scoring.</p>
@@ -484,18 +484,20 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <div class="section-headings"><h2 class="section-chapter">The challenge</h2></div>
     </div>
     <p>In Sweden, healthcare quality surveys, for example for HVB and LSS services, go to social workers in districts across many municipalities. Administrators create them, send them, chase answers and report on the results, all in Outlook, Excel and shared folders.</p>
-    <p class="aside-note"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7"/><path d="M15 7h2a5 5 0 0 1 0 10"/><path d="M8 12h8"/><path d="m2 2 20 20"/></svg>Three tools that had never been introduced to each other.</p>
+    <p class="aside-note cs-aside"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7"/><path d="M15 7h2a5 5 0 0 1 0 10"/><path d="M8 12h8"/><path d="m2 2 20 20"/></svg>Three tools that had never been introduced to each other.</p>
     <p>Every survey round meant emails sent by hand, a separate spreadsheet per municipality, missed deadlines and no overview of who had answered. Quarterly reports meant copying data from many files, often for two full weeks.</p>
     <p>The platform started as an idea from my manager at Focalpay and became its own B2B SaaS product: one place to create surveys, send them, track answers and analyse results. Our goal was to <strong>cut administrators' workload by 50%</strong>, without lowering data quality.</p>
     <p>I led UX and UI end to end, from research to final screens, and built the whole front-end myself, since there was no front-end developer on the team. I worked closely with the PM, stakeholders and the back-end team, and designed to WCAG guidelines across mobile, tablet and desktop.</p>
-    <div class="results-grid">
-      <div class="result-card"><div class="result-number">30+</div><div class="result-label">Municipalities the platform is designed to handle</div></div>
-      <div class="result-card"><div class="result-number">8–10h</div><div class="result-label">Per week spent on manual tracking</div></div>
-      <div class="result-card"><div class="result-number">2 wks</div><div class="result-label">To prepare a single quarterly report</div></div>
+    <div class="results-grid cs-stat-grid">
+      <div class="result-card cs-stat"><div class="result-number">30+</div><div class="result-label">Municipalities the platform is designed to handle</div></div>
+      <div class="result-card cs-stat"><div class="result-number">8–10h</div><div class="result-label">Per week spent on manual tracking</div></div>
+      <div class="result-card cs-stat"><div class="result-number">2 wks</div><div class="result-label">To prepare a single quarterly report</div></div>
     </div>
     <p class="hc-stat-source">Hours and weeks from interviews with 4 quality managers.</p>
-    <div class="quote-block">
-      <p>"I spend more time chasing people for replies than actually analysing the quality of care."</p>
+    <div class="quote-block cs-quote">
+        <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
+         <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
+        <p>"I spend more time chasing people for replies than actually analysing the quality of care."</p>
       <cite>— Healthcare Administrator, Stockholm</cite>
     </div>
 
@@ -516,10 +518,10 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
     </div>
     <p>I wanted to understand how administrators actually work, not how the process looks on paper. Where does the time go, and why weren't the tools working?</p>
     <div class="findings-list">
-      <div class="finding-item"><div class="finding-icon">🗣️</div><div><p class="finding-text">"We need to see long-term trends across municipalities — not just individual survey answers."</p><div class="finding-stat">A · Interviews with 4 healthcare quality managers.</div></div></div>
-      <div class="finding-item"><div class="finding-icon">🗺️</div><div><p class="finding-text">Creating, sending, tracking and analysing surveys all happened in different tools, with nothing connecting them.</p><div class="finding-stat">B · Workflow mapping</div></div></div>
-      <div class="finding-item"><div class="finding-icon">📋</div><div><p class="finding-text">The spreadsheets were full of manual formatting and notes. People were using them for much more than they were made for.</p><div class="finding-stat">C · Document review</div></div></div>
-      <div class="finding-item"><div class="finding-icon">👀</div><div><p class="finding-text">Administrators jumped between Outlook, Excel and shared folders during a task. Sometimes they lost track and had to start their tracking again.</p><div class="finding-stat">D · Observation</div></div></div>
+      <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></span><div><p class="finding-text">"We need to see long-term trends across municipalities — not just individual survey answers."</p><div class="finding-stat">A · Interviews with 4 healthcare quality managers.</div></div></div>
+      <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></span><div><p class="finding-text">Creating, sending, tracking and analysing surveys all happened in different tools, with nothing connecting them.</p><div class="finding-stat">B · Workflow mapping</div></div></div>
+      <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg></span><div><p class="finding-text">The spreadsheets were full of manual formatting and notes. People were using them for much more than they were made for.</p><div class="finding-stat">C · Document review</div></div></div>
+      <div class="finding-item cs-card"><div class="finding-icon">👀</div><div><p class="finding-text">Administrators jumped between Outlook, Excel and shared folders during a task. Sometimes they lost track and had to start their tracking again.</p><div class="finding-stat">D · Observation</div></div></div>
     </div>
   </section>
 
@@ -532,7 +534,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
     </div>
     <aside class="hc-persona-panel wide">
       <div class="hc-persona-table-wrap">
-      <table class="hc-persona-table">
+      <table class="cs-table cs-table hc-persona-table">
         <tbody>
           <tr>
             <th scope="row">Role</th>
@@ -726,7 +728,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
         >
       </figure>
     </div>
-    <p class="image-caption">Workshop: grouping ideas and prioritising them as Must, Should and Could.</p>
+    <p class="image-caption cs-caption">Workshop: grouping ideas and prioritising them as Must, Should and Could.</p>
   </section>
 
   <div class="divider"></div>
@@ -738,7 +740,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <div class="section-headings"><h2 class="section-chapter">Hierarchy design</h2><p class="section-subtitle">Showing one level at a time</p></div>
     </div>
     <p>Showing every administrative level at once created long, impenetrable lists. So the platform shows one level at a time.</p>
-    <table class="data-table wide">
+    <table class="cs-table cs-table data-table wide">
       <thead><tr><th>Level</th><th>Description</th><th>Design solution</th></tr></thead>
       <tbody>
         <tr><td><strong>Provider</strong></td><td>Top-level healthcare organisation</td><td>Always visible in the sidebar, which can be collapsed</td></tr>
@@ -772,56 +774,56 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
         <div class="hc-wizard-shot__frame">
           <img src="Survey Builder.png" alt="Surveys section showing HVB and LSS survey templates organised by type in the healthcare platform sidebar." width="1751" height="1117" loading="lazy" decoding="async">
         </div>
-        <figcaption class="hc-wizard-caption">The Surveys section — templates organised by type (HVB, LSS), matching administrators' existing mental model.</figcaption>
+        <figcaption class="cs-caption cs-caption hc-wizard-caption">The Surveys section — templates organised by type (HVB, LSS), matching administrators' existing mental model.</figcaption>
       </figure>
 
       <figure class="hc-wizard-shot">
         <div class="hc-wizard-shot__frame">
           <img src="Select Survey Type.png" alt="Create survey dialog offering manual build or starting from a predefined HVB or LSS template." width="1751" height="1117" loading="lazy" decoding="async">
         </div>
-        <figcaption class="hc-wizard-caption">Choosing a starting point: build manually or start from a predefined HVB/LSS template.</figcaption>
+        <figcaption class="cs-caption cs-caption hc-wizard-caption">Choosing a starting point: build manually or start from a predefined HVB/LSS template.</figcaption>
       </figure>
 
       <figure class="hc-wizard-shot">
         <div class="hc-wizard-shot__frame">
           <img src="Survey Details.png" alt="Survey details form for manual setup — name, type, and configuration fields." width="1751" height="1117" loading="lazy" decoding="async">
         </div>
-        <figcaption class="hc-wizard-caption">Naming and configuring the survey — manual setup.</figcaption>
+        <figcaption class="cs-caption cs-caption hc-wizard-caption">Naming and configuring the survey — manual setup.</figcaption>
       </figure>
 
       <figure class="hc-wizard-shot">
         <div class="hc-wizard-shot__frame">
           <img src="Survey Details-1.png" alt="Survey details with predefined HVB/LSS question preview before distribution." width="1751" height="1117" loading="lazy" decoding="async">
         </div>
-        <figcaption class="hc-wizard-caption">Predefined HVB/LSS template — question preview before distribution.</figcaption>
+        <figcaption class="cs-caption cs-caption hc-wizard-caption">Predefined HVB/LSS template — question preview before distribution.</figcaption>
       </figure>
 
       <figure class="hc-wizard-shot">
         <div class="hc-wizard-shot__frame">
           <img src="Edit Survey.png" alt="Survey editor showing the full question set with categories and response options before sending." width="1751" height="1117" loading="lazy" decoding="async">
         </div>
-        <figcaption class="hc-wizard-caption">Reviewing and editing the full question set before distribution.</figcaption>
+        <figcaption class="cs-caption cs-caption hc-wizard-caption">Reviewing and editing the full question set before distribution.</figcaption>
       </figure>
 
       <figure class="hc-wizard-shot">
         <div class="hc-wizard-shot__frame">
           <img src="Add Question.png" alt="Add question panel with question type, category, and required-field settings." width="1751" height="1117" loading="lazy" decoding="async">
         </div>
-        <figcaption class="hc-wizard-caption">Adding a custom question — type, category, and required-field logic.</figcaption>
+        <figcaption class="cs-caption cs-caption hc-wizard-caption">Adding a custom question — type, category, and required-field logic.</figcaption>
       </figure>
 
       <figure class="hc-wizard-shot">
         <div class="hc-wizard-shot__frame">
           <img src="Confirm send survey.png" alt="Send confirmation screen listing template, recipient count, and district count before distribution." width="1751" height="1117" loading="lazy" decoding="async">
         </div>
-        <figcaption class="hc-wizard-caption">Final confirmation screen — template, recipient count, and district count shown before sending.</figcaption>
+        <figcaption class="cs-caption cs-caption hc-wizard-caption">Final confirmation screen — template, recipient count, and district count shown before sending.</figcaption>
       </figure>
 
       <figure class="hc-wizard-shot">
         <div class="hc-wizard-shot__frame">
           <img src="Survey Preview.png" alt="Send confirmation with a live respondent-facing survey preview alongside distribution summary." width="1751" height="1117" loading="lazy" decoding="async">
         </div>
-        <figcaption class="hc-wizard-caption">Send confirmation with a live respondent-facing preview.</figcaption>
+        <figcaption class="cs-caption cs-caption hc-wizard-caption">Send confirmation with a live respondent-facing preview.</figcaption>
       </figure>
     </div>
 
@@ -836,7 +838,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <div class="section-headings"><h2 class="section-chapter">Performance scoring</h2><p class="section-subtitle">Traffic-light colours instead of number tables</p></div>
     </div>
     <p>Managers needed to see quickly how each municipality was doing, and big number tables are tiring under time pressure. So I designed a three-colour scoring system that shows status at a glance.</p>
-    <table class="data-table wide">
+    <table class="cs-table cs-table data-table wide">
       <thead><tr><th>Status</th><th>Meaning</th><th>Action</th></tr></thead>
       <tbody>
         <tr><td><strong style="color:#1A7A4A;">Good performance</strong></td><td>Above target on all key indicators.</td><td>No action needed.</td></tr>
@@ -850,14 +852,14 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
         <div class="hc-wizard-shot__frame">
           <img src="Dashboard.png" alt="Traffic-light scoring dashboard with municipality performance color-coded green, amber, and red for instant status reading." width="1751" height="1117" loading="lazy" decoding="async">
         </div>
-        <figcaption class="hc-wizard-caption">The traffic-light scoring dashboard — municipality performance color-coded for instant status reading.</figcaption>
+        <figcaption class="cs-caption cs-caption hc-wizard-caption">The traffic-light scoring dashboard — municipality performance color-coded for instant status reading.</figcaption>
       </figure>
 
       <figure class="hc-wizard-shot">
         <div class="hc-wizard-shot__frame">
           <img src="Reports.png" alt="Real-time analytics and reporting views replacing manual spreadsheet-based reporting cycles." width="1751" height="1117" loading="lazy" decoding="async">
         </div>
-        <figcaption class="hc-wizard-caption">Real-time analytics, designed to replace the manual reporting cycle.</figcaption>
+        <figcaption class="cs-caption cs-caption hc-wizard-caption">Real-time analytics, designed to replace the manual reporting cycle.</figcaption>
       </figure>
     </div>
   </section>
@@ -872,13 +874,15 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
     </div>
     <p>I tested with 5 administrators who work with surveys regularly. Each created a survey and sent it to several municipalities, just like in their daily work.</p>
     <p>The main issue: the Select All button had low contrast and sat in the wrong place, so most people selected districts one by one.</p>
-    <p class="aside-note"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"/><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"/><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"/><path d="m2 2 20 20"/></svg>A button nobody can see is a very quiet button.</p>
-    <div class="ab-grid">
-      <div class="ab-card"><div class="ab-label">Before iteration</div><div class="ab-stat">~8 min</div><p class="ab-desc">Average time to select all districts. Select All was small, had low contrast, and participants kept missing it.</p></div>
-      <div class="ab-card winner"><div class="ab-label">✓ After iteration</div><div class="ab-stat">~5 min</div><p class="ab-desc">About 3 minutes faster. I moved the button, made it stand out more and added a counter showing how many were selected. All 5 participants found it straight away.</p></div>
+    <p class="aside-note cs-aside"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"/><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"/><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"/><path d="m2 2 20 20"/></svg>A button nobody can see is a very quiet button.</p>
+    <div class="ab-grid cs-compare-grid">
+      <div class="ab-card cs-compare"><div class="ab-label">Before iteration</div><div class="ab-stat">~8 min</div><p class="ab-desc">Average time to select all districts. Select All was small, had low contrast, and participants kept missing it.</p></div>
+      <div class="ab-card winner cs-compare"><div class="ab-label">✓ After iteration</div><div class="ab-stat">~5 min</div><p class="ab-desc">About 3 minutes faster. I moved the button, made it stand out more and added a counter showing how many were selected. All 5 participants found it straight away.</p></div>
     </div>
-    <div class="quote-block">
-      <p>"Now I can actually see what I've selected. Before I was never sure if I'd got everyone."</p>
+    <div class="quote-block cs-quote">
+        <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
+         <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
+        <p>"Now I can actually see what I've selected. Before I was never sure if I'd got everyone."</p>
       <cite>— Healthcare Administrator, Usability Testing Session</cite>
     </div>
   </section>
@@ -905,14 +909,14 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 
     <h3 class="hc-results-subhead">Measured in usability testing</h3>
     <p class="hc-results-impact-lede">5 administrators did the same task the old way and then in the prototype:</p>
-    <ol class="role-list">
+    <ol class="role-list cs-list">
       <li><strong>Creating and sending a survey: from about 2 hours to about 15 minutes.</strong> The six-step wizard replaced composing emails, attaching documents and logging recipients by hand.</li>
       <li><strong>Selecting all districts: from about 8 minutes to about 5.</strong> This came from fixing the Select All button after the first round of testing.</li>
     </ol>
 
     <h3 class="hc-results-subhead">Estimated by administrators</h3>
     <p class="hc-results-impact-lede">Not yet measured:</p>
-    <ol class="role-list" start="3">
+    <ol class="role-list cs-list" start="3">
       <li><strong>Quarterly reports: from up to two weeks to near real-time.</strong> Administrators estimated how long manual reporting took them; the dashboard brings responses together automatically.</li>
     </ol>
 
@@ -923,7 +927,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
         <div class="hc-wizard-shot__frame">
           <img src="healthcare-scoring-traffic-light-dashboard.png?v=20260324" alt="Analytics dashboard with traffic-light performance scoring across municipalities." width="1024" height="673" loading="lazy" decoding="async" sizes="(max-width:900px) 100vw, 820px">
         </div>
-        <figcaption class="hc-wizard-caption">Real-time performance overview — managers can instantly identify which municipalities need attention</figcaption>
+        <figcaption class="cs-caption cs-caption hc-wizard-caption">Real-time performance overview — managers can instantly identify which municipalities need attention</figcaption>
       </figure>
     </div>
 
@@ -939,9 +943,9 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
     </div>
     <p>The platform has launched and has two customers, and the team is working on reaching more. Next, we'll measure what testing couldn't: time per survey cycle, response rates and reporting time.</p>
     <div class="lessons-list">
-      <div class="lesson-item"><div class="lesson-num">01</div><div class="lesson-text"><h4>Show complex structures step by step.</h4><p>I didn't remove levels; I showed one at a time, so each step felt easy.</p></div></div>
-      <div class="lesson-item"><div class="lesson-num">02</div><div class="lesson-text"><h4>Guided steps help people feel safe.</h4><p>Administrators aren't afraid of technology. They're careful, because mistakes are serious. A wizard that checks each step gave them confidence nobody would be missed.</p></div></div>
-      <div class="lesson-item"><div class="lesson-num">03</div><div class="lesson-text"><h4>Building the front-end changed how I work.</h4><p>I could control every detail and still move faster. It's a skill I'm still developing.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-num">01</div><div class="lesson-text"><h4>Show complex structures step by step.</h4><p>I didn't remove levels; I showed one at a time, so each step felt easy.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-num">02</div><div class="lesson-text"><h4>Guided steps help people feel safe.</h4><p>Administrators aren't afraid of technology. They're careful, because mistakes are serious. A wizard that checks each step gave them confidence nobody would be missed.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-num">03</div><div class="lesson-text"><h4>Building the front-end changed how I work.</h4><p>I could control every detail and still move faster. It's a skill I'm still developing.</p></div></div>
     </div>
   </section>
 

@@ -2538,6 +2538,10 @@ body.case-study-page .content.case-main figcaption.hc-wizard-caption {
   padding: 0;
 }
 
+.case-study-page .sb-case section[aria-labelledby='findings'] figure:has(a.sb-zoom[href*='before-after']) {
+  margin-bottom: 0;
+}
+
 @media (max-width: 599px) {
   .case-study-page .sb-case section[aria-labelledby='findings'] ul.sb-changes + figure:has(a.sb-zoom[href*='before-after']) {
     margin-top: 32px;
@@ -2546,4 +2550,691 @@ body.case-study-page .content.case-main figcaption.hc-wizard-caption {
   .case-study-page .sb-case section[aria-labelledby='findings'] .sb-compare + .sb-compare {
     margin-top: 72px;
   }
+}
+
+/* =============================================================================
+   Shared case-study components (cs-*) — single source for all case-study pages
+   ============================================================================= */
+
+/* --- j) Text rhythm --- */
+body.case-study-page .content .section .section-chapter,
+body.case-study-page .sb-case .section-chapter {
+  margin-top: 112px;
+  margin-bottom: 16px;
+}
+
+body.case-study-page .content .section:first-of-type .section-chapter,
+body.case-study-page .sb-case .sb-section--first .section-chapter {
+  margin-top: 0;
+}
+
+body.case-study-page .section-headings .section-subtitle,
+body.case-study-page .hero-tag {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+body.case-study-page .content h3,
+body.case-study-page .sb-case h3,
+body.case-study-page .sb-case .sb-compare > h3 {
+  margin-top: 64px;
+  margin-bottom: 12px;
+}
+
+body.case-study-page .content .section-header + h3,
+body.case-study-page .section-header + h3,
+body.case-study-page .sb-case .sb-compare:first-of-type > h3 {
+  margin-top: 0;
+}
+
+body.case-study-page .content p:not(.cs-caption):not(.cs-aside):not(.screen-caption):not(.image-caption),
+body.case-study-page .section > p:not(.cs-aside),
+body.case-study-page .sb-case .sb-text p {
+  margin-bottom: 16px;
+}
+
+body.case-study-page .content p + .cs-card-grid,
+body.case-study-page .content p + .cs-stat-grid,
+body.case-study-page .content p + .cs-learn-grid,
+body.case-study-page .content p + .cs-compare-grid,
+body.case-study-page .content p + .cs-table,
+body.case-study-page .content p + .cs-quote,
+body.case-study-page .content p + .cs-list,
+body.case-study-page .section > p + ul,
+body.case-study-page .sb-case p + ul.cs-list {
+  margin-top: 24px;
+}
+
+body.case-study-page .cs-card-grid + p,
+body.case-study-page .cs-stat-grid + p,
+body.case-study-page .cs-learn-grid + p,
+body.case-study-page .cs-compare-grid + p,
+body.case-study-page .cs-table + p,
+body.case-study-page .cs-quote + p,
+body.case-study-page figure:has(.cs-caption) + p,
+body.case-study-page figure:has(.cs-caption) + h3,
+body.case-study-page figure:has(.cs-caption) + .section-header {
+  margin-top: 40px;
+}
+
+/* --- a) User quote — .cs-quote --- */
+body.case-study-page .cs-quote,
+body.case-study-page .quote-block {
+  position: relative;
+  max-width: var(--cs-text-max, 720px);
+  margin: 40px 0;
+  padding: 28px 32px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 1px solid var(--border) !important;
+}
+
+body.case-study-page .cs-quote__icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: 0 0 12px;
+  stroke: var(--accent);
+  fill: none;
+}
+
+body.case-study-page .cs-quote p,
+body.case-study-page .quote-block p {
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  font-style: normal !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0 !important;
+  color: var(--text) !important;
+  margin: 0 !important;
+}
+
+body.case-study-page .cs-quote cite,
+body.case-study-page .quote-block cite {
+  display: block;
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace) !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  color: var(--muted) !important;
+  margin-top: 16px !important;
+}
+
+body.case-study-page .mob-persona-quote {
+  font-family: var(--font-body, 'Poppins', sans-serif);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text);
+  font-style: normal;
+}
+
+@media (max-width: 599px) {
+  body.case-study-page .cs-quote p,
+  body.case-study-page .quote-block p,
+  body.case-study-page .mob-persona-quote {
+    font-size: 18px !important;
+  }
+}
+
+/* --- b) Image caption — .cs-caption --- */
+body.case-study-page .cs-caption,
+body.case-study-page figcaption.cs-caption,
+body.case-study-page p.cs-caption,
+body.case-study-page p.screen-caption,
+body.case-study-page p.image-caption {
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0 !important;
+  color: var(--muted) !important;
+  text-align: center;
+  margin-top: 12px !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+body.case-study-page .cs-caption span,
+body.case-study-page figcaption.cs-caption span {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+body.case-study-page figure:has(.cs-caption),
+body.case-study-page figure:has(figcaption) {
+  margin-bottom: 48px;
+}
+
+/* --- i) Summary box — .cs-summary (Simple Booking reference) --- */
+body.case-study-page .cs-summary,
+body.case-study-page .sb-tldr,
+body.case-study-page .pos-tldr,
+body.case-study-page .mob-tldr,
+body.case-study-page .bo-tldr,
+body.case-study-page .hc-tldr {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  margin: 40px 0 0;
+}
+
+body.case-study-page .cs-summary p,
+body.case-study-page .sb-tldr p,
+body.case-study-page .pos-tldr p,
+body.case-study-page .mob-tldr p,
+body.case-study-page .bo-tldr p,
+body.case-study-page .hc-tldr p {
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: 20px !important;
+  line-height: 1.6 !important;
+  color: var(--muted) !important;
+  font-weight: 400 !important;
+  margin-bottom: 14px !important;
+}
+
+body.case-study-page .cs-summary p:last-child,
+body.case-study-page .sb-tldr p:last-child,
+body.case-study-page .pos-tldr p:last-child,
+body.case-study-page .mob-tldr p:last-child,
+body.case-study-page .bo-tldr p:last-child,
+body.case-study-page .hc-tldr p:last-child {
+  margin-bottom: 0 !important;
+}
+
+body.case-study-page .cs-summary strong,
+body.case-study-page .sb-tldr strong,
+body.case-study-page .pos-tldr strong,
+body.case-study-page .mob-tldr strong,
+body.case-study-page .bo-tldr strong,
+body.case-study-page .hc-tldr strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* --- i) Aside notes — .cs-aside --- */
+body.case-study-page .cs-aside,
+body.case-study-page .aside-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0 20px;
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: 17px !important;
+  font-weight: 500 !important;
+  line-height: 1.5 !important;
+  color: var(--accent) !important;
+}
+
+body.case-study-page .cs-aside svg,
+body.case-study-page .aside-note svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+}
+
+/* --- i) Platform line — .cs-platform --- */
+body.case-study-page .cs-platform,
+body.case-study-page .mob-platform-line,
+body.case-study-page .bo-platform-line {
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  color: var(--muted) !important;
+  font-weight: 400 !important;
+  margin: 0 0 8px !important;
+}
+
+body.case-study-page .cs-platform a,
+body.case-study-page .mob-platform-line a,
+body.case-study-page .bo-platform-line a {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* --- i) Legend — .cs-legend (Simple Booking reference) --- */
+body.case-study-page .cs-legend,
+body.case-study-page .sb-legend {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 32px;
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 15px;
+  color: var(--muted);
+}
+
+/* --- i) Meta strip --- */
+body.case-study-page .cs-meta-strip,
+body.case-study-page .meta-strip {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+body.case-study-page .meta-label {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+body.case-study-page .meta-value {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 15px;
+  color: var(--text);
+}
+
+/* --- c) Cards — .cs-card --- */
+body.case-study-page .cs-card-grid,
+body.case-study-page .pain-grid,
+body.case-study-page .mob-methods,
+body.case-study-page .findings-grid {
+  display: grid;
+  gap: 16px;
+}
+
+body.case-study-page .cs-card,
+body.case-study-page .pain-card,
+body.case-study-page .finding-item,
+body.case-study-page .process-step,
+body.case-study-page .mob-method,
+body.case-study-page .sb-principles > div {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+body.case-study-page .pain-number,
+body.case-study-page .lesson-num,
+body.case-study-page .step-num,
+body.case-study-page .cs-card__label {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace) !important;
+  font-size: 13px !important;
+  color: var(--accent) !important;
+  opacity: 1 !important;
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+body.case-study-page .finding-icon,
+body.case-study-page .mob-method-ico,
+body.case-study-page .cs-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  font-size: 0;
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+body.case-study-page .finding-icon svg,
+body.case-study-page .mob-method-ico svg,
+body.case-study-page .cs-card__icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 1.75;
+}
+
+body.case-study-page .cs-card h4,
+body.case-study-page .pain-card h4,
+body.case-study-page .finding-item h4,
+body.case-study-page .sb-principles h4 {
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: var(--text) !important;
+  margin-top: 16px !important;
+  margin-bottom: 0 !important;
+}
+
+body.case-study-page .cs-card p,
+body.case-study-page .pain-card p,
+body.case-study-page .finding-text,
+body.case-study-page .finding-text-only,
+body.case-study-page .step-content p,
+body.case-study-page .mob-method-d,
+body.case-study-page .sb-principles p {
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  color: var(--muted) !important;
+  margin-top: 8px !important;
+}
+
+/* --- d) Stat cards — .cs-stat --- */
+body.case-study-page .cs-stat-grid,
+body.case-study-page .mob-results-grid,
+body.case-study-page .results-grid,
+body.case-study-page .hc-results-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+body.case-study-page .cs-stat,
+body.case-study-page .mob-result-cell,
+body.case-study-page .result-card,
+body.case-study-page .result-card--bo {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: left;
+}
+
+body.case-study-page .cs-stat__num,
+body.case-study-page .mob-result-num,
+body.case-study-page .result-number,
+body.case-study-page .result-card__stat {
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: clamp(32px, 3.2vw, 44px) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--accent) !important;
+  white-space: nowrap;
+  line-height: 1.1;
+}
+
+body.case-study-page .cs-stat__label,
+body.case-study-page .mob-result-lab,
+body.case-study-page .result-label,
+body.case-study-page .result-card__label {
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: var(--text) !important;
+  margin-top: 8px !important;
+}
+
+body.case-study-page .cs-stat__desc,
+body.case-study-page .mob-result-src,
+body.case-study-page .result-card__detail,
+body.case-study-page .result-card__bo-text {
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  color: var(--muted) !important;
+  margin-top: 8px !important;
+  font-weight: 400 !important;
+}
+
+/* --- e) Before/after comparison cards — .cs-compare --- */
+body.case-study-page .cs-compare-grid,
+body.case-study-page .ab-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  body.case-study-page .cs-compare-grid,
+  body.case-study-page .ab-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+body.case-study-page .cs-compare,
+body.case-study-page .ab-card {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 16px !important;
+  padding: 24px !important;
+}
+
+body.case-study-page .ab-card.winner {
+  border-color: var(--accent) !important;
+  background: var(--surface) !important;
+}
+
+body.case-study-page .cs-compare__label,
+body.case-study-page .ab-label {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace) !important;
+  font-size: 13px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: var(--muted) !important;
+}
+
+body.case-study-page .cs-compare__label--after,
+body.case-study-page .ab-card.winner .ab-label {
+  color: var(--accent) !important;
+}
+
+body.case-study-page .cs-compare__value,
+body.case-study-page .ab-stat {
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: 36px !important;
+  font-weight: 600 !important;
+  color: var(--text) !important;
+}
+
+body.case-study-page .cs-compare__text,
+body.case-study-page .ab-card p {
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: 14px !important;
+  color: var(--muted) !important;
+}
+
+/* --- f) What I learned — .cs-learn --- */
+body.case-study-page .cs-learn-grid,
+body.case-study-page .lessons-grid,
+body.case-study-page .sb-reflect-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 899px) {
+  body.case-study-page .cs-learn-grid,
+  body.case-study-page .lessons-grid,
+  body.case-study-page .sb-reflect-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+body.case-study-page .cs-learn,
+body.case-study-page .lesson-item,
+body.case-study-page .sb-insight,
+body.case-study-page .sb-reflect > div {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  display: block;
+  gap: 0;
+}
+
+body.case-study-page .cs-learn .lesson-num,
+body.case-study-page .lesson-num {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 13px;
+  color: var(--accent);
+}
+
+body.case-study-page .cs-learn h4,
+body.case-study-page .lesson-text h4,
+body.case-study-page .sb-insight h4,
+body.case-study-page .sb-reflect h4 {
+  font-family: var(--font-body, 'Poppins', sans-serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+body.case-study-page .cs-learn p,
+body.case-study-page .lesson-text p,
+body.case-study-page .sb-insight p,
+body.case-study-page .sb-reflect p {
+  font-family: var(--font-body, 'Poppins', sans-serif);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+body.case-study-page .cs-learn p strong:only-child,
+body.case-study-page .lesson-text p > strong:first-child {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+/* --- g) Tables — .cs-table --- */
+body.case-study-page .cs-table,
+body.case-study-page table.cs-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+body.case-study-page .cs-table thead th,
+body.case-study-page table.cs-table thead th {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+body.case-study-page .cs-table td,
+body.case-study-page table.cs-table td {
+  font-family: var(--font-body, 'Poppins', sans-serif);
+  font-size: 15px;
+  color: var(--text);
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+body.case-study-page .cs-table tr:last-child td,
+body.case-study-page table.cs-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* --- h) Bullet lists — .cs-list --- */
+body.case-study-page .cs-list,
+body.case-study-page .sb-changes,
+body.case-study-page .sb-resp,
+body.case-study-page .role-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+body.case-study-page .cs-list li,
+body.case-study-page .sb-changes li,
+body.case-study-page .sb-resp li,
+body.case-study-page .role-list li {
+  position: relative;
+  padding-left: 30px;
+  font-family: var(--font-body, 'Poppins', sans-serif);
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+body.case-study-page .cs-list li::before,
+body.case-study-page .sb-changes li::before,
+body.case-study-page .sb-resp li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.35em;
+  width: 18px;
+  height: 18px;
+  background-color: var(--accent);
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / contain no-repeat;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / contain no-repeat;
+  font-weight: normal;
+  color: transparent;
+}
+
+body.case-study-page .cs-list li b,
+body.case-study-page .sb-changes li b {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Force shared component box model (wins over page inline styles) */
+body.case-study-page .cs-quote,
+body.case-study-page .quote-block.cs-quote {
+  margin: 40px 0 !important;
+  padding: 28px 32px !important;
+}
+
+body.case-study-page .cs-card,
+body.case-study-page .pain-card.cs-card,
+body.case-study-page .finding-item.cs-card {
+  padding: 24px !important;
+  font-weight: 400 !important;
+}
+
+body.case-study-page.about-page a.pain-card.cs-card {
+  padding: 24px !important;
+}
+
+body.case-study-page .cs-summary,
+body.case-study-page .sb-tldr,
+body.case-study-page .pos-tldr,
+body.case-study-page .mob-tldr,
+body.case-study-page .bo-tldr,
+body.case-study-page .hc-tldr {
+  color: inherit !important;
+}
+
+body.case-study-page .cs-learn,
+body.case-study-page .lesson-item,
+body.case-study-page .sb-insight,
+body.case-study-page .sb-reflect > div {
+  margin-top: 0 !important;
+}
+
+body.case-study-page table.cs-table,
+body.case-study-page .cs-table {
+  font-size: 15px !important;
+  margin-top: 0 !important;
+}
+
+body.case-study-page .cs-aside,
+body.case-study-page .aside-note {
+  margin-bottom: 20px !important;
 }
