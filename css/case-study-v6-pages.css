@@ -507,3 +507,25 @@ body.case-study-page .section p.aside-note svg {
   stroke: currentColor;
   fill: none;
 }
+
+/* Back-office DS blocks — legacy .content p had light-theme rgba with high :not() specificity */
+body.case-study-page .cs-tradeoff__text,
+body.case-study-page .cs-flow__label,
+body.case-study-page .cs-flow__step-line,
+body.case-study-page .cs-flow__note,
+body.case-study-page .cs-flow__row-text,
+body.case-study-page .lesson-text p,
+body.case-study-page .cs-learn p:not(.cs-learn-eyebrow) {
+  color: var(--muted) !important;
+}
+
+body.case-study-page .cs-flow__step-title,
+body.case-study-page .lesson-text h4,
+body.case-study-page .cs-learn h4 {
+  color: var(--text) !important;
+}
+
+body.case-study-page .cs-flow__label--accent,
+body.case-study-page .cs-learn-eyebrow {
+  color: var(--accent) !important;
+}

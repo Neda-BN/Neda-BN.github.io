@@ -443,7 +443,7 @@
   margin-bottom: 0;
 }
 
-.case-study-page .content p:not(.screen-caption):not(.image-caption):not(.cs-structure__title):not(.cs-structure__line),
+.case-study-page .content p:not(.screen-caption):not(.image-caption):not(.cs-structure__title):not(.cs-structure__line):not(.cs-tradeoff__text):not(.cs-flow__label):not(.cs-flow__step-title):not(.cs-flow__step-line):not(.cs-flow__note):not(.cs-learn-eyebrow),
 .case-study-page .role-list li,
 .case-study-page .pain-card p,
 .case-study-page .finding-text,
@@ -454,7 +454,7 @@
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: -0.04em;
-  color: rgba(0, 0, 0, 0.8);
+  color: var(--muted);
 }
 
 .case-study-page .content p strong,
