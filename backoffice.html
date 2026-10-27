@@ -26,8 +26,8 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   .hero h1{font-family:var(--page-title);font-size:clamp(36px,5vw,52px);line-height:1.15;color:#000000;margin-bottom:24px;}
   .hero h1 em{font-style:normal;color:inherit;}
   .hero-subtitle{font-size:18px;color:var(--mid);font-weight:300;max-width:600px;margin-bottom:40px;}
-  .meta-strip{display:flex;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--surface);margin-bottom:48px;}
-  .meta-item{flex:1;padding:20px 24px;border-right:1px solid var(--border);}
+  .meta-strip{display:flex;flex-wrap:wrap;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--surface);margin-bottom:48px;}
+  .meta-item{flex:1 1 140px;padding:20px 24px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
   .meta-item:last-child{border-right:none;}
   .meta-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--light);margin-bottom:6px;}
   .meta-value{font-size:14px;font-weight:500;color:var(--dark);}
@@ -349,7 +349,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   @media(max-width:640px){nav{padding:0 24px;height:60px;}.n-links{gap:18px;}.n-links a .n-ico{width:12px;height:12px;margin-right:4px;vertical-align:-2px;}.back-top,.hero,.hero-image,.content,.content--design-system,.bottom-back,footer{padding-left:24px;padding-right:24px;}.pain-grid,.results-grid,.ab-grid,.ds-theme-row{grid-template-columns:1fr;}.result-card--bo{grid-template-columns:1fr;gap:10px;}.result-card--bo .result-card__stat{padding-top:0;}.meta-strip{flex-direction:column;}.meta-item{border-right:none;border-bottom:1px solid var(--border);}.meta-item:last-child{border-bottom:none;}.section-header{flex-direction:column;gap:18px;padding:0 0 24px 0;}.section-icon{width:52px;height:52px;}.section-icon svg{width:24px;height:24px;}.section-chapter{font-size:clamp(1.65rem,6vw,2.35rem);}}
 </style>
 <link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
-<link rel="stylesheet" href="css/case-study.css?v=20261027">
+<link rel="stylesheet" href="css/case-study.css?v=20261027b">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
 </head>
@@ -374,12 +374,13 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <div class="hero-tag">Case Study · B2B SaaS · Retail Tech</div>
   <h1>Focalpay Back-office Dashboard</h1>
   <div class="meta-strip cs-meta-strip">
-    <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">UX/UI Designer</div></div>
+    <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Product Designer</div></div>
     <div class="meta-item"><div class="meta-label">Company</div><div class="meta-value">Focalpay AB · 2023–2025</div></div>
     <div class="meta-item"><div class="meta-label">Platform</div><div class="meta-value">Web · Desktop</div></div>
-    <div class="meta-item"><div class="meta-label">Methods</div><div class="meta-value">Interviews · Card sorting · Usability testing</div></div>
+    <div class="meta-item"><div class="meta-label">Team</div><div class="meta-value">Two designers, then sole designer</div></div>
+    <div class="meta-item"><div class="meta-label">Methods</div><div class="meta-value">Interviews · Data analysis · Usability testing</div></div>
   </div>
-  <p class="hero-subtitle">Redesigning the back-office where retailers manage products, prices and campaigns</p>
+  <p class="hero-subtitle">Redesigning how retailers reorder stock and set up weighted campaigns</p>
 </section>
 
 <div class="hero-image reveal reveal-media" id="dashboard-overview">
@@ -392,21 +393,22 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 <div class="content case-main">
 
   <div class="bo-tldr fade-in reveal cs-summary">
-    <p><strong>The problem:</strong> Store teams managed thousands of products and complex pricing in a back-office built by developers, with no design input and no user testing. The product form showed 40+ fields at once, and weighted campaigns were set up by hand.</p>
-    <p><strong>What I did:</strong> Interviewed 6 managers from 6 customer businesses, ran two card-sorting sessions, and analysed three months of real campaign data. I redesigned the product form and campaign creation, working with the PM and engineering team.</p>
-    <p><strong>Key decisions:</strong> Split the product form into three tiers based on card sorting. Replaced the manual campaign form with two templates, after finding that 94% of weighted campaigns followed two patterns.</p>
-    <p><strong>Result:</strong> A seven-step inventory and pricing flow cut to two, 35% less operational friction, and campaign creation 25% faster with 78% fewer errors. The redesign is live in several stores.</p>
+    <p><strong>The problem:</strong> Store managers only found out a product had run out when the shelf was empty, and ordering took seven manual steps. Weighted campaigns were calculated and typed in by hand.</p>
+    <p><strong>What I did:</strong> Joined midway as one of two designers and owned two flows, Replenishment and Campaigns, plus the design system. Interviewed 6 managers from 6 customer businesses, analysed three months of real campaign data, and tested with 5 store managers.</p>
+    <p><strong>Key decisions:</strong> Alerts grouped by urgency, one overview to act from, orders with supplier and cost filled in, and two ready-made weight templates after finding that 94% of weighted campaigns followed two patterns.</p>
+    <p><strong>Result:</strong> Ordering went from seven steps to two, with 35% less operational friction. Campaign creation became 25% faster with 78% fewer errors. The redesign is live in several stores.</p>
   </div>
   <p class="bo-platform-line fade-in reveal cs-platform">Part of the Focalpay platform: products and prices set up here power the <a href="pos-app.html">Cashier POS</a> and the <a href="mobile-app.html">Mobile shopping app</a>.</p>
+
 
   <section class="section fade-in reveal case-anchor" id="challenge">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">The challenge</h2></div>
     </div>
-    <p>The Focalpay Back-office is where retailers set up everything the POS and the shopping app use: products, prices and campaigns. Customers ranged from the footwear brand Icebug to supermarket chains like Matrebellerna and Matvärlden.</p>
-    <p>I joined halfway through. Developers had built the back-office without a designer, and it had never been tested with users. I focused on the two areas where store teams lost the most time and made the most mistakes: managing products and creating weighted campaigns.</p>
-    <p>I worked with the same PM and engineering team as on the mobile app, from interviews and card sorting to testing, a design system in light and dark mode, and handoff to engineering.</p>
+    <p>The Focalpay Back-office is where retailers manage everything the POS and the shopping app use: products, stock, prices and campaigns. Customers ranged from the footwear brand Icebug to supermarket chains like Matrebellerna and Matvärlden.</p>
+    <p>I joined the project midway as one of two designers. I owned two flows, Replenishment and Campaigns, and the design system. When my colleague moved on, I became the only designer on the team, working with the PM and engineering.</p>
+    <p>Both flows had the same problem: the system left the remembering, the checking and the maths to store managers.</p>
   </section>
 
   <div class="divider"></div>
@@ -416,11 +418,11 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Research</h2></div>
     </div>
-    <p>I interviewed 6 managers from 6 customer businesses. They did real tasks while thinking aloud, and I followed up with questions. With a limited number of B2B customers, I could work directly with the businesses that used the product.</p>
+    <p>I interviewed 6 managers from 6 customer businesses, covering both flows. They did real tasks while thinking aloud, and I followed up with questions.</p>
     <div class="findings-list">
-      <div class="finding-item cs-card"><div class="finding-icon">💬</div><div><p class="finding-text">"I know the data I need, but I spend too long hunting for it."</p><div class="finding-stat">5 of 6 managers found the product form very complicated.</div></div></div>
-      <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg></span><div><p class="finding-text">"Every time base prices change, I'm double-checking campaigns by hand."</p><div class="finding-stat">4 of 6 managers reported inconsistencies between catalogue data and campaign rules.</div></div></div>
-      <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></span><div><p class="finding-text-only">Weighted campaigns were set up by hand. Discounts on products sold by weight had to be calculated and typed in manually. Managers often described this as slow and easy to get wrong.</p></div></div>
+      <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8.7 10a.375.375 0 0 1 .555-.078l.086.078a6.9 6.9 0 0 0 7.547 4.95"/><path d="M10.3 21h3.4"/><path d="m2 2 20 20"/><path d="M12 4a7 7 0 0 0-7 7v3"/><path d="M5.5 10H3a1 1 0 0 0-1 1v1a7 7 0 0 0 7 7"/></svg></span><div><div class="finding-stat">Replenishment</div><p class="finding-text-only">Managers had no warning before a product ran out. To prevent it, they checked their best-selling products one by one.</p></div></div>
+      <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg></span><div><p class="finding-text">"Every time base prices change, I'm double-checking campaigns by hand."</p><div class="finding-stat">4 of 6 managers reported inconsistencies between catalogue data and campaign rules.</div></div></div>
+      <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg></span><div><div class="finding-stat">Campaigns</div><p class="finding-text-only">Weighted campaigns were set up by hand. Discounts on products sold by weight had to be calculated and typed in, which managers described as slow and easy to get wrong.</p></div></div>
     </div>
   </section>
 
@@ -432,139 +434,214 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <div class="section-headings"><h2 class="section-chapter">The problem</h2></div>
     </div>
     <div class="pain-grid cs-card-grid">
-      <div class="pain-card cs-card"><div class="pain-number">01</div><h4>Too many fields at once</h4><p>Every product showed 40+ fields at the same time. Across thousands of products, that was overwhelming.</p></div>
-      <div class="pain-card cs-card"><div class="pain-number">02</div><h4>Campaigns done by hand</h4><p>Discounts on products sold by weight were calculated and typed in manually.</p></div>
-      <div class="pain-card cs-card"><div class="pain-number">03</div><h4>Data that didn't match</h4><p>Product, price and campaign data didn't always agree, so managers double-checked before trusting what they saw.</p></div>
+      <div class="pain-card cs-card"><div class="pain-number">01</div><h4>No warning before stock ran out</h4><p>Managers found out when the shelf was already empty.</p></div>
+      <div class="pain-card cs-card"><div class="pain-number">02</div><h4>Ordering by hand</h4><p>Finding the supplier, working out quantity and cost, and writing the order email, every single time.</p></div>
+      <div class="pain-card cs-card"><div class="pain-number">03</div><h4>Campaigns done by hand</h4><p>Discounts on products sold by weight were calculated and typed in manually.</p></div>
     </div>
-<p class="aside-note aside-note--bubble aside-note--bubble-shape-1 cs-aside aside-note--bubble-prefer-right"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg></span><span class="aside-note__bubble-text">Forty fields at once is less a form, more an exam.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="cs-arrow-bo-fields" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#cs-arrow-bo-fields)"/><path d="M40 11 L34 8" stroke="url(#cs-arrow-bo-fields)"/><path d="M40 11 L34 14" stroke="url(#cs-arrow-bo-fields)"/></svg></span></span></span></p>
-  </section>
-
-</div>
-
-<div class="hero-image reveal reveal-media" id="design-process-visual">
-  <picture>
-    <source type="image/webp" srcset="backoffice-design-process.webp">
-    <img class="case-hero-img" src="backoffice-design-process.png" alt="Focalpay Back-office design process: Product &amp; Campaign mapping — card sorting, product hierarchy, and campaign template analysis on a whiteboard" width="1024" height="571" loading="lazy" decoding="async">
-  </picture>
-</div>
-
-<div class="content case-main">
-
-  <section class="section fade-in reveal case-anchor" id="process">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Process</h2></div>
-    </div>
-    <div class="bo-efficiency-strip" aria-hidden="true">
-      <span class="bo-efficiency-pill">Product hierarchy</span>
-      <span class="bo-efficiency-pill">Campaign templates</span>
-      <span class="bo-efficiency-pill bo-efficiency-pill--win">Old vs new evaluation</span>
-    </div>
-    <p>I audited the existing screens, ran two card-sorting sessions with 4 retail managers each, explored three layout ideas with the PM and engineers, and built mid-fidelity prototypes. Then I tested the old and new versions with 5 store managers and handed off component specs to engineering.</p>
+    <p class="aside-note aside-note--bubble cs-aside aside-note--bubble-prefer-right"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape" style="border-radius: 53% 47% 49% 51% / 47% 55% 45% 53%;"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.7 10a.375.375 0 0 1 .555-.078l.086.078a6.9 6.9 0 0 0 7.547 4.95"/><path d="M10.3 21h3.4"/><path d="m2 2 20 20"/><path d="M12 4a7 7 0 0 0-7 7v3"/><path d="M5.5 10H3a1 1 0 0 0-1 1v1a7 7 0 0 0 7 7"/></svg></span><span class="aside-note__bubble-text">An empty shelf is a terrible notification system.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="cs-arrow-bo-shelf" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#cs-arrow-bo-shelf)"/><path d="M40 11 L34 8" stroke="url(#cs-arrow-bo-shelf)"/><path d="M40 11 L34 14" stroke="url(#cs-arrow-bo-shelf)"/></svg></span></span></span></p>
   </section>
 
   <div class="divider"></div>
 
-  <section class="section fade-in reveal case-anchor" id="product-form">
+  <section class="section fade-in reveal case-anchor" id="replenishment">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Redesigning the product form</h2></div>
+      <div class="section-headings"><h2 class="section-chapter">Replenishment: from empty shelves to early warnings</h2><p class="section-subtitle">Part 1 · Stock</p></div>
     </div>
-    <div class="reveal reveal-media" id="product-campaign-ui">
-      <figure class="case-study-figure">
-        <figcaption class="cs-caption cs-caption">Product list &amp; details</figcaption>
-        <picture>
-          <source type="image/webp" srcset="backoffice-product-list-details.webp">
-          <img src="backoffice-product-list-details.png" alt="Back-office UI: product list, product details tabs for information, supplier, and categories" width="1994" height="4878" loading="lazy" decoding="async" sizes="(max-width: 900px) 100vw, 820px">
-        </picture>
-      </figure>
+    <p>Before, ordering stock took seven steps, and the first one was a surprise.</p>
+    <div class="cs-flow" aria-label="Stock ordering before and after redesign">
+      <div class="cs-flow__panel cs-flow__panel--before">
+        <p class="cs-flow__label">Before · 7 steps</p>
+        <ol class="cs-flow__list cs-flow__list--compact">
+          <li class="cs-flow__row"><span class="cs-flow__num">1</span><span class="cs-flow__row-text">Notice a product is empty on the shelf</span><span class="cs-flow__tag">No warning</span></li>
+          <li class="cs-flow__row"><span class="cs-flow__num">2</span><span class="cs-flow__row-text">Check the stock for that product</span></li>
+          <li class="cs-flow__row"><span class="cs-flow__num">3</span><span class="cs-flow__row-text">Review other best-selling products one by one</span></li>
+          <li class="cs-flow__row"><span class="cs-flow__num">4</span><span class="cs-flow__row-text">Find the supplier and their contact details</span></li>
+          <li class="cs-flow__row"><span class="cs-flow__num">5</span><span class="cs-flow__row-text">Work out the quantity and cost</span></li>
+          <li class="cs-flow__row"><span class="cs-flow__num">6</span><span class="cs-flow__row-text">Write and send the order email</span></li>
+          <li class="cs-flow__row"><span class="cs-flow__num">7</span><span class="cs-flow__row-text">Keep track of the delivery manually</span></li>
+        </ol>
+      </div>
+      <div class="cs-flow__arrow" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+      <div class="cs-flow__panel cs-flow__panel--after">
+        <p class="cs-flow__label cs-flow__label--accent">After · 2 steps</p>
+        <ol class="cs-flow__list cs-flow__list--steps">
+          <li class="cs-flow__step"><span class="cs-flow__step-num">1</span><div><p class="cs-flow__step-title">Open the alert</p><p class="cs-flow__step-line">Out-of-stock products, grouped by urgency.</p></div></li>
+          <li class="cs-flow__step"><span class="cs-flow__step-num">2</span><div><p class="cs-flow__step-title">Place the order</p><p class="cs-flow__step-line">Supplier, stock levels and cost already filled in.</p></div></li>
+        </ol>
+        <p class="cs-flow__note">Deliveries are then tracked in the app, and overdue orders flag themselves.</p>
+      </div>
     </div>
-    <p>Card sorting showed which fields managers need first and which can wait, so I split the form into three levels.</p>
-    <table class="cs-table cs-table data-table wide">
-      <thead><tr><th>Tier</th><th>Key Fields</th><th>Display Rule</th></tr></thead>
-      <tbody>
-        <tr><td><span class="tier-tag tier-critical">Critical</span></td><td><strong>Price, PLU/EAN, Stock Level, Active Status, Product Name</strong></td><td>Primary form — visible on load</td></tr>
-        <tr><td><span class="tier-tag tier-standard">Standard</span></td><td>Weight/Unit, VAT rate, Campaign status, Category</td><td>Visible below the fold</td></tr>
-        <tr><td><span class="tier-tag tier-advanced">Advanced</span></td><td>Supplier ID, Barcode format, Internal Article Number</td><td>Collapsed accordion — on click</td></tr>
-      </tbody>
-    </table>
+    <h3 class="bo-subchapter">How I structured Replenishment</h3>
+    <p>One overview, four clear paths, and notifications that point to each of them.</p>
+    <div class="cs-structure" aria-label="Replenishment information architecture">
+      <div class="cs-structure__card cs-structure__card--top">
+        <svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>
+        <p class="cs-structure__title">Notifications</p>
+        <p class="cs-structure__line">Grouped by urgency</p>
+      </div>
+      <div class="cs-structure__connector" aria-hidden="true"></div>
+      <div class="cs-structure__card cs-structure__card--hub">
+        <svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+        <p class="cs-structure__title">Replenishments overview</p>
+        <p class="cs-structure__line">Four summary cards</p>
+      </div>
+      <div class="cs-structure__connector cs-structure__connector--fan" aria-hidden="true"></div>
+      <div class="cs-structure__branches">
+        <div class="cs-structure__card">
+          <svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16v-3"/><path d="M12 22v-8"/><path d="m3.3 14 8.7-8 8.7 8"/><path d="M12 6v16"/></svg>
+          <p class="cs-structure__title">Out of stock</p>
+          <p class="cs-structure__line">Place order → Create order, emailed to the supplier</p>
+        </div>
+        <div class="cs-structure__card">
+          <svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></svg>
+          <p class="cs-structure__title">Setup needed</p>
+          <p class="cs-structure__line">Set current, min and max stock inline</p>
+        </div>
+        <div class="cs-structure__card">
+          <svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.684-.948l-4.493-1.498a1 1 0 0 1-.578-.502l-1.539-3.076A1 1 0 0 0 12.382 8H11.5a1 1 0 0 0-1 1v9"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+          <p class="cs-structure__title">Incoming deliveries</p>
+          <p class="cs-structure__line">Awaiting, with overdue warnings</p>
+          <p class="cs-structure__line">Confirm receipt: full or partial, invoice and notes</p>
+        </div>
+        <div class="cs-structure__card">
+          <svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
+          <p class="cs-structure__title">Shelf refill</p>
+          <p class="cs-structure__line">Products to restock on the shelf</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="bo-subchapter">Alerts that sort themselves by urgency</h3>
+    <p>All notifications live on one page, grouped and colour-coded: red for products out of stock, yellow for overdue deliveries, blue for products that still need stock rules. Each group says in one plain sentence what needs doing.</p>
+    <figure class="case-study-figure reveal reveal-media">
+      <figcaption class="cs-caption cs-caption">Notifications grouped by urgency, each with one clear next step.</figcaption>
+      <img src="bo-repl-01-notifications.png" alt="Notifications page grouping alerts by urgency: 3 products out of stock, 1 overdue delivery, and 15 products needing replenishment setup." loading="lazy" decoding="async">
+    </figure>
+    <aside class="cs-tradeoff">
+      <div class="cs-tradeoff__label"><svg class="cs-tradeoff__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 5.5 5.5-1.5 1.5"/><path d="m2 16 3-8 5.5 5.5-1.5 1.5"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 7 2 7 2"/><path d="M21 7h-2c-2 0-5-1-7-2-2 1-7 2-7 2"/></svg><span>Trade-off</span></div>
+      <p class="cs-tradeoff__text">Grouping alerts means managers see "3 products out of stock" instead of three separate alerts. They get less detail at first glance, but far less noise, and the details are one click away.</p>
+    </aside>
+
+    <h3 class="bo-subchapter">One overview to start from</h3>
+    <p>The Replenishments page opens with four summary cards: Out of stock, Setup needed, Incoming deliveries and Shelf refill. Managers start from what needs them, not from a list of thousands of products.</p>
+    <figure class="case-study-figure reveal reveal-media">
+      <figcaption class="cs-caption cs-caption">Summary cards on top, every product's stock status below.</figcaption>
+      <img src="bo-repl-02-overview.png" alt="Replenishments overview with four summary cards and a product table showing current, minimum and maximum stock and a status for each product." loading="lazy" decoding="async">
+    </figure>
+
+    <h3 class="bo-subchapter">Stock rules, fixed in one place</h3>
+    <p>Alerts only work if every product has a minimum and maximum stock. Products without them are collected in one list, where managers set current, min and max stock directly, in pieces or kilos, without opening each product.</p>
+    <figure class="case-study-figure reveal reveal-media">
+      <figcaption class="cs-caption cs-caption">Setting stock rules for 15 products from one screen.</figcaption>
+      <img src="bo-repl-03-setup-needed.png" alt="Replenishment setup list where managers enter current, minimum and maximum stock for each product directly in the table." loading="lazy" decoding="async">
+    </figure>
+
+    <h3 class="bo-subchapter">Ordering without the paperwork</h3>
+    <p>From the Out of stock list, one tap opens the order. Current, min and max stock and shelf amount sit at the top. The supplier's email fills in automatically, and the total cost is calculated from the latest in-cost. Managers can add a second order for another supplier, then send it by email straight from the app.</p>
+    <figure class="case-study-figure reveal reveal-media">
+      <figcaption class="cs-caption cs-caption">Out of stock: every product one tap away from an order.</figcaption>
+      <img src="bo-repl-04-out-of-stock.png" alt="Out of stock list with three products and a Place order action on each row." loading="lazy" decoding="async">
+    </figure>
+    <figure class="case-study-figure reveal reveal-media">
+      <figcaption class="cs-caption cs-caption">Stock levels up front, supplier and cost filled in.</figcaption>
+      <img src="bo-repl-05-create-order.png" alt="Create order screen with stock levels at the top, supplier email filled in automatically, and the order sent to the supplier by email." loading="lazy" decoding="async">
+    </figure>
     <div class="quote-block cs-quote">
-        <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
-         <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
-        <p>"Moving stock level to the top sounds like a small thing. For us, it saves 20 minutes a day."</p>
+      <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
+      <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
+      <p>"Moving stock level to the top sounds like a small thing. For us, it saves 20 minutes a day."</p>
       <cite>— Assistant Manager, Matvärlden</cite>
     </div>
+
+    <h3 class="bo-subchapter">Deliveries as they really arrive</h3>
+    <p>Orders don't always arrive on time or complete. Incoming deliveries shows how many days an order is overdue, and managers confirm each delivery as received or partially received, with the invoice and a note attached.</p>
+    <figure class="case-study-figure reveal reveal-media">
+      <figcaption class="cs-caption cs-caption">Overdue deliveries show how many days late they are.</figcaption>
+      <img src="bo-repl-06-deliveries-awaiting.png" alt="Incoming deliveries list with overdue orders marked by how many days late they are." loading="lazy" decoding="async">
+    </figure>
+    <figure class="case-study-figure reveal reveal-media">
+      <figcaption class="cs-caption cs-caption">Confirming a partial delivery, with the invoice and a note.</figcaption>
+      <img src="bo-repl-07-confirm-receipt.png" alt="Confirm receipt screen for marking a delivery as received or partially received, with an uploaded invoice and a note." loading="lazy" decoding="async">
+    </figure>
   </section>
 
   <div class="divider"></div>
 
-  <section class="section fade-in reveal case-anchor" id="campaign-templates">
+  <section class="section fade-in reveal case-anchor" id="campaigns">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Campaign templates</h2><p class="section-subtitle">94% of campaigns followed two patterns</p></div>
+      <div class="section-headings"><h2 class="section-chapter">Campaigns: from maths to templates</h2><p class="section-subtitle">Part 2 · Weighted campaigns</p></div>
     </div>
-    <p>The interviews told me creating campaigns was painful, but not why. So I asked our supermarket customers, the main users of weighted campaigns, for their last three months of campaign data, and analysed it myself.</p>
-    <p>94% of weighted campaigns followed one of two patterns. So instead of a flexible form where every campaign meant doing the maths, I designed a builder with two ready-made templates.</p>
-    <div class="reveal reveal-media" id="weight-campaigns-ui">
-      <figure class="case-study-figure">
-        <figcaption class="cs-caption cs-caption">Weight campaigns</figcaption>
-        <picture>
-          <source type="image/webp" srcset="backoffice-weight-campaigns.webp">
-          <img src="backoffice-weight-campaigns.png" alt="Back-office UI: product list in category, campaign creation flow, and campaigns overview" width="1994" height="4878" loading="lazy" decoding="async" sizes="(max-width: 900px) 100vw, 820px">
-        </picture>
-      </figure>
-    </div>
+    <p>Weighted campaigns, for products sold by weight like fruit or deli items, were set up by hand. Managers calculated each discount and typed it in.</p>
+    <p>The interviews told me this was painful, but not why. So I asked our supermarket customers for their last three months of campaign data and analysed it myself. <strong>94% of weighted campaigns followed one of two patterns.</strong></p>
+    <p>So instead of a form where every campaign meant doing the maths, I designed a three-step builder: About → Terms → Products. In Terms, managers choose a campaign type in plain words, including two ready-made weight templates. Each type shows only the fields it needs.</p>
+    <figure class="case-study-figure reveal reveal-media">
+      <figcaption class="cs-caption cs-caption">Step 1: name the campaign; dates are optional.</figcaption>
+      <img src="bo-camp-01-about.png" alt="Add campaign step 1: campaign name and optional start and end dates." loading="lazy" decoding="async">
+    </figure>
+    <figure class="case-study-figure reveal reveal-media">
+      <figcaption class="cs-caption cs-caption">Step 2: two weight templates, next to the regular campaign types.</figcaption>
+      <img src="bo-camp-02-terms-templates.png" alt="Add campaign step 2: campaign type dropdown with Buy over X kg for Y SEK and Buy under X kg for Y SEK next to the regular campaign types." loading="lazy" decoding="async">
+    </figure>
     <table class="cs-table cs-table data-table wide">
-      <thead><tr><th>Template</th><th>Logic</th><th>Use Case</th></tr></thead>
+      <thead><tr><th>Template</th><th>Terms</th><th>Use case</th></tr></thead>
       <tbody>
-        <tr><td><strong>Template A</strong></td><td>Buy over X kg → pay Y SEK/kg</td><td>Near-expiry items · Bulk purchase</td></tr>
-        <tr><td><strong>Template B</strong></td><td>Buy under X kg → pay Y SEK</td><td>Premium deli · Small-portion buyers</td></tr>
+        <tr><td><strong>Template A</strong></td><td>Buy over X kg for Y SEK</td><td>Near-expiry items · Bulk purchase</td></tr>
+        <tr><td><strong>Template B</strong></td><td>Buy under X kg for Y SEK</td><td>Premium deli · Small-portion buyers</td></tr>
       </tbody>
     </table>
     <h3 class="bo-subchapter">Using the store's words</h3>
-    <p>In one session, a manager wasn't sure what "Base unit price" meant. Their business used a different term. Other users with similar businesses agreed: their everyday words, like "Bulk purchase deal", were clearer than field names from the database. So the builder uses their words.</p>
-<p class="aside-note aside-note--bubble aside-note--bubble-shape-2 cs-aside aside-note--bubble-prefer-right"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg></span><span class="aside-note__bubble-text">Nobody walks into a deli asking for the base unit price.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="cs-arrow-bo-deli" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#cs-arrow-bo-deli)"/><path d="M40 11 L34 8" stroke="url(#cs-arrow-bo-deli)"/><path d="M40 11 L34 14" stroke="url(#cs-arrow-bo-deli)"/></svg></span></span></span></p>
+    <p>In one session, a manager wasn't sure what "Base unit price" meant. Other users with similar businesses agreed: their everyday words were clearer than field names from the database. So the builder speaks the way stores talk.</p>
+    <p class="aside-note aside-note--bubble aside-note--bubble-shape-2 cs-aside aside-note--bubble-prefer-right"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg></span><span class="aside-note__bubble-text">Nobody walks into a deli asking for the base unit price.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="cs-arrow-bo-deli" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#cs-arrow-bo-deli)"/><path d="M40 11 L34 8" stroke="url(#cs-arrow-bo-deli)"/><path d="M40 11 L34 14" stroke="url(#cs-arrow-bo-deli)"/></svg></span></span></span></p>
+    <aside class="cs-tradeoff">
+      <div class="cs-tradeoff__label"><svg class="cs-tradeoff__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 5.5 5.5-1.5 1.5"/><path d="m2 16 3-8 5.5 5.5-1.5 1.5"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 7 2 7 2"/><path d="M21 7h-2c-2 0-5-1-7-2-2 1-7 2-7 2"/></svg><span>Trade-off</span></div>
+      <p class="cs-tradeoff__text">Templates make the common case fast, but they're less flexible. Covering 94% of weighted campaigns in a few clicks was worth more than a form that could do everything, slowly.</p>
+    </aside>
   </section>
 
   <div class="divider"></div>
 
-  <section class="section fade-in reveal case-anchor" id="validation-outcomes">
+  <section class="section fade-in reveal case-anchor" id="results">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Testing the old and new versions</h2></div>
+      <div class="section-headings"><h2 class="section-chapter">Results</h2><p class="section-subtitle">What changed for store teams</p></div>
     </div>
-    <p>I gave 5 store managers the same campaign tasks in the old version and in the new one, and measured how long they took and how many errors they made.</p>
-    <div class="ab-grid cs-compare-grid">
-      <div class="ab-card cs-compare"><div class="ab-label">Previous version</div><div class="ab-stat">4m 20s</div>      <p class="ab-desc">average task time · 3.6 errors per session · 2 of 5 would use it daily</p></div>
-      <div class="ab-card winner cs-compare"><div class="ab-label">✓ Redesigned version</div><div class="ab-stat">3m 14s</div><p class="ab-desc">average task time · 0.8 errors per session · 5 of 5 would use it daily</p></div>
-    </div>
-    <div class="quote-block cs-quote">
-        <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
-         <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
-        <p>"The campaign builder finally speaks our language."</p>
-      <cite>— Store Manager, Icebug</cite>
-    </div>
+    <h3 class="bo-subchapter">Replenishment</h3>
     <div class="results-grid results-grid--bo-outcomes cs-stat-grid">
       <article class="result-card result-card--bo cs-stat">
         <div class="result-card__stat">7 → 2</div>
-        <p class="result-card__bo-text">steps in the inventory and pricing flow.</p>
+        <p class="result-card__lead">Steps to order stock</p>
+        <p class="result-card__detail">From noticing an empty shelf to placing an order, down to: open the alert, place the order.</p>
       </article>
       <article class="result-card result-card--bo cs-stat">
         <div class="result-card__stat">35%</div>
-        <p class="result-card__bo-text">less operational friction for store teams.</p>
+        <p class="result-card__lead">Less operational friction for store teams</p>
       </article>
+    </div>
+    <h3 class="bo-subchapter">Campaigns</h3>
+    <p>I gave 5 store managers the same campaign tasks in the old version and in the new one, and measured how long they took and how many errors they made.</p>
+    <div class="ab-grid cs-compare-grid">
+      <div class="ab-card cs-compare"><div class="ab-label">Previous version</div><div class="ab-stat">4m 20s</div><p class="ab-desc">average task time · 3.6 errors per session · 2 of 5 would use it daily</p></div>
+      <div class="ab-card winner cs-compare"><div class="ab-label">✓ Redesigned version</div><div class="ab-stat">3m 14s</div><p class="ab-desc">average task time · 0.8 errors per session · 5 of 5 would use it daily</p></div>
+    </div>
+    <div class="results-grid results-grid--bo-outcomes cs-stat-grid">
       <article class="result-card result-card--bo cs-stat">
         <div class="result-card__stat">25%</div>
-        <p class="result-card__bo-text">faster campaign creation: average task time down from 4m 20s to 3m 14s across 5 store managers, previous version versus redesign.</p>
+        <p class="result-card__lead">Faster campaign creation</p>
+        <p class="result-card__detail">Average task time down from 4m 20s to 3m 14s.</p>
       </article>
       <article class="result-card result-card--bo cs-stat">
         <div class="result-card__stat">78%</div>
-        <p class="result-card__bo-text">fewer errors: from 3.6 to 0.8 errors per session in the same evaluation.</p>
+        <p class="result-card__lead">Fewer errors</p>
+        <p class="result-card__detail">From 3.6 to 0.8 errors per session.</p>
       </article>
-      <article class="result-card result-card--bo result-card--bo-nostat cs-stat">
-        <p class="result-card__lead">Stock level up front</p>
-        <p class="result-card__detail">Moved into the main product form after card sorting. One assistant manager estimated it saves their team about 20 minutes a day.</p>
-      </article>
+    </div>
+    <div class="quote-block cs-quote">
+      <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
+      <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
+      <p>"The campaign builder finally speaks our language."</p>
+      <cite>— Store Manager, Icebug</cite>
     </div>
   </section>
 
@@ -618,9 +695,10 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <div class="section-headings"><h2 class="section-chapter">Reflection</h2><p class="section-subtitle">What I learned</p></div>
     </div>
     <div class="lessons-list">
-      <div class="lesson-item cs-learn"><div class="lesson-num">01</div><div class="lesson-text"><h4>Use the words your users use</h4><p>Part of what made the template builder work was the vocabulary. It used the words store managers already used every day. When an interface uses database names, it feels like a tool for the system. When it uses the words from people's jobs, it feels like a tool for them.</p></div></div>
-      <div class="lesson-item cs-learn"><div class="lesson-num">02</div><div class="lesson-text"><h4>Data shows what interviews can't</h4><p>The interviews told me campaign creation was painful. Three months of campaign data showed me why, and what to build. Asking customers for their data took more effort than another workshop, but it turned a general complaint into a clear design decision.</p></div></div>
-      <div class="lesson-item cs-learn"><div class="lesson-num">03</div><div class="lesson-text"><p><strong>Small changes can matter a lot.</strong> Moving one field to the top of a form doesn't look like much in a design review. In a busy store, it adds up every single day.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-num">01</div><div class="lesson-text"><h4>Use the words your users use.</h4><p>Part of what made the template builder work was the vocabulary. It used the words store managers already used every day. When an interface uses database names, it feels like a tool for the system. When it uses the words from people's jobs, it feels like a tool for them.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-num">02</div><div class="lesson-text"><h4>Data shows what interviews can't.</h4><p>The interviews told me campaign creation was painful. Three months of campaign data showed me why, and what to build. Asking customers for their data took more effort than another workshop, but it turned a general complaint into a clear design decision.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-num">03</div><div class="lesson-text"><h4>Alerts beat checklists.</h4><p>Managers shouldn't have to remember to check. When the system warns them early, they act before the shelf is empty.</p></div></div>
+      <div class="lesson-item cs-learn cs-learn--highlight"><div class="lesson-num">04</div><div class="lesson-text"><p class="cs-learn-eyebrow">Looking back</p><h4>What I'd do differently.</h4><p>I'd ask for the campaign data at the start, alongside the interviews, instead of after them. The data explained the problem much faster than another round of conversations could.</p></div></div>
     </div>
   </section>
 
