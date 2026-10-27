@@ -32,6 +32,11 @@
   var bubbleMq = window.matchMedia('(min-width: 1320px)');
   var bubbleNotes = root.querySelectorAll('.aside-note--bubble');
 
+  function textRefLeft(scope) {
+    var textRef = scope.querySelector('.sb-text') || scope;
+    return textRef.getBoundingClientRect().left;
+  }
+
   function layoutAsideBubbles() {
     if (!bubbleMq.matches) {
       bubbleNotes.forEach(function (note) {
@@ -39,7 +44,8 @@
         if (bubble) {
           bubble.style.removeProperty('--aside-bubble-top');
           bubble.style.top = '';
-          bubble.classList.remove('is-visible');
+          bubble.style.right = '';
+          bubble.style.left = '';
         }
       });
       return;
@@ -53,27 +59,51 @@
       var top = prev.offsetTop - note.offsetTop;
       bubble.style.setProperty('--aside-bubble-top', top + 'px');
       bubble.style.top = top + 'px';
+      bubble.style.right = '';
+      bubble.style.left = '';
 
       var maxTop = top;
       var step = 12;
       var limit = 480;
       var parent = note.parentElement;
-      var textColRight =
-        parent.getBoundingClientRect().left + Math.min(parent.offsetWidth, 720);
+      var scope = note.closest('.sb-wrap') || parent;
+      var noteRect = note.getBoundingClientRect();
+      var targetBubbleRight = textRefLeft(scope) - 56;
+      bubble.style.right = 'calc(100% + 56px)';
+      var b0 = bubble.getBoundingClientRect();
+      var shiftX = targetBubbleRight - b0.right;
+      if (Math.abs(shiftX) > 0.5) {
+        bubble.style.right = 'auto';
+        bubble.style.left = b0.left - noteRect.left + shiftX + 'px';
+      }
+      var textColLeft = textRefLeft(scope);
+      var textColRight = textColLeft + Math.min(parent.offsetWidth, 720);
 
       for (var n = 0; n < limit; n += 1) {
         var br = bubble.getBoundingClientRect();
         var hit = false;
-        parent.querySelectorAll('p, ul, ol, figure, .quote-block, .cs-quote, h3, .sb-changes, img').forEach(function (el) {
+        scope.querySelectorAll('p, ul, ol, figure, .quote-block, .cs-quote, h2, h3, .section-header, .sb-changes, img').forEach(function (el) {
           if (hit || el === note || el === prev || note.contains(el)) return;
           if (el.contains(note) || el.contains(bubble)) return;
           var r = el.getBoundingClientRect();
           if (r.width < 2 || r.height < 2) return;
           if (r.top < br.top + 8) return;
           var isMedia = el.tagName === 'FIGURE' || el.tagName === 'IMG' || el.classList.contains('sb-scroll-x');
-          var boxRight = isMedia ? r.right : Math.min(r.right, textColRight);
-          var boxLeft = r.left;
-          if (boxRight <= br.left + 4 || boxLeft >= br.right - 4) return;
+          if (isMedia) {
+            var imgEl = el.tagName === 'IMG' ? el : el.querySelector('img');
+            if (imgEl) r = imgEl.getBoundingClientRect();
+          } else if (br.right <= textColLeft - 8) {
+            r = {
+              left: textColLeft,
+              right: Math.min(r.right, textColRight),
+              top: r.top,
+              bottom: r.bottom,
+              width: Math.min(r.right, textColRight) - textColLeft,
+              height: r.height
+            };
+          }
+          if (r.width < 2 || r.height < 2) return;
+          if (r.right <= br.left + 4 || r.left >= br.right - 4) return;
           var overlap = !(br.bottom < r.top + 4 || br.top > r.bottom - 4);
           if (overlap) hit = true;
         });
@@ -85,26 +115,17 @@
 
       var pad = 16;
       var bRect = bubble.getBoundingClientRect();
-      if (bRect.right > window.innerWidth - pad) {
-        var noteLeft = note.getBoundingClientRect().left;
-        var fitLeft = window.innerWidth - pad - bRect.width - noteLeft;
-        bubble.style.left = Math.max(0, fitLeft) + 'px';
+      if (bRect.left < pad) {
+        noteRect = note.getBoundingClientRect();
+        bubble.style.right = 'auto';
+        bubble.style.left = pad - noteRect.left + 'px';
+        bRect = bubble.getBoundingClientRect();
       }
-    });
-  }
-
-  if (bubbleNotes.length && 'IntersectionObserver' in window) {
-    var bubbleIo = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) entry.target.classList.add('is-visible');
-        });
-      },
-      { root: null, threshold: 0.35 }
-    );
-    bubbleNotes.forEach(function (note) {
-      var bubble = note.querySelector('.aside-note__bubble');
-      if (bubble) bubbleIo.observe(bubble);
+      if (bRect.right > textColLeft - 8) {
+        noteRect = note.getBoundingClientRect();
+        bubble.style.right = 'auto';
+        bubble.style.left = textColLeft - 8 - bRect.width - noteRect.left + 'px';
+      }
     });
   }
 

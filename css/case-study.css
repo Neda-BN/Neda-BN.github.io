@@ -4115,7 +4115,7 @@ body.case-study-page .content--design-system p + figure.ds-sheet-figure {
 }
 
 /* =============================================================================
-   Simple Booking test: margin bubbles (.aside-note--bubble) — wide screens only
+   Simple Booking: margin bubbles (.aside-note--bubble) — wide screens only
    ============================================================================= */
 
 body.case-study-page .sb-case .aside-note__arrow {
@@ -4125,6 +4125,11 @@ body.case-study-page .sb-case .aside-note__arrow {
 @media (max-width: 1319.98px) {
   body.case-study-page .sb-case .aside-note--bubble .aside-note__bubble {
     display: contents;
+  }
+
+  body.case-study-page .sb-case .aside-note--bubble .aside-note__icon {
+    width: 18px;
+    height: 18px;
   }
 }
 
@@ -4148,31 +4153,57 @@ body.case-study-page .sb-case .aside-note__arrow {
     font-size: 0 !important;
     line-height: 0 !important;
     gap: 0 !important;
+    margin-top: var(--cs-gap, 24px) !important;
+    margin-bottom: 0 !important;
   }
 
-  body.case-study-page .sb-case .aside-note--bubble .aside-note__icon {
-    display: none !important;
+  body.case-study-page .sb-case .sb-text > .aside-note--bubble + *,
+  body.case-study-page .sb-case .sb-compare > .aside-note--bubble + * {
+    margin-top: var(--cs-gap, 24px) !important;
   }
 
   body.case-study-page .sb-case .aside-note--bubble .aside-note__bubble {
     position: absolute;
-    left: calc(min(100%, var(--cs-text-max, 720px)) + 48px);
+    right: calc(100% + 56px);
+    left: auto;
     top: var(--aside-bubble-top, 0);
     box-sizing: border-box;
-    width: 176px;
-    height: 176px;
+    width: 184px;
+    height: 184px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 10px;
     padding: 28px;
     text-align: center;
-    background: var(--surface);
-    border: 1.5px solid rgba(237, 237, 240, 0.35);
+    background: radial-gradient(
+      circle at 30% 25%,
+      rgba(138, 164, 214, 0.28) 0%,
+      rgba(138, 164, 214, 0.1) 55%,
+      rgba(138, 164, 214, 0.04) 100%
+    );
+    border: 1px solid rgba(138, 164, 214, 0.45);
     border-radius: 50%;
-    box-shadow: none;
+    box-shadow:
+      0 0 48px rgba(138, 164, 214, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     transform: rotate(-4deg);
     color: var(--text);
-    pointer-events: none;
+    pointer-events: auto;
+    transition:
+      transform 300ms ease,
+      box-shadow 300ms ease;
+  }
+
+  body.case-study-page .sb-case .aside-note--bubble .aside-note__icon {
+    display: block !important;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    stroke: var(--accent);
   }
 
   body.case-study-page .sb-case .aside-note--bubble .aside-note__bubble-text {
@@ -4187,35 +4218,39 @@ body.case-study-page .sb-case .aside-note__arrow {
   body.case-study-page .sb-case .aside-note--bubble .aside-note__arrow {
     display: block;
     position: absolute;
-    right: calc(100% - 4px);
-    bottom: 6px;
-    width: 72px;
-    height: 48px;
-    color: rgba(237, 237, 240, 0.45);
+    left: calc(100% - 1px);
+    top: 60%;
+    width: 44px;
+    height: 28px;
+    margin: 0;
+    overflow: visible;
+    color: rgba(138, 164, 214, 0.75);
     pointer-events: none;
-    transform: translate(-8px, 28px) rotate(-6deg);
+    transform: translate(0, -50%);
   }
 
   @media (prefers-reduced-motion: no-preference) {
     body.case-study-page .sb-case .aside-note--bubble .aside-note__bubble {
-      opacity: 0;
-      transform: rotate(-4deg) scale(0.9);
+      animation: sb-aside-bubble-float 6s ease-in-out infinite;
     }
 
-    body.case-study-page .sb-case .aside-note--bubble .aside-note__bubble.is-visible {
-      animation: sb-aside-bubble-in 600ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    body.case-study-page .sb-case .aside-note--bubble .aside-note__bubble:hover {
+      animation: none;
+      transform: rotate(-4deg) scale(1.04);
+      box-shadow:
+        0 0 56px rgba(138, 164, 214, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
   }
 }
 
-@keyframes sb-aside-bubble-in {
-  from {
-    opacity: 0;
-    transform: rotate(-4deg) scale(0.9);
+@keyframes sb-aside-bubble-float {
+  0%,
+  100% {
+    transform: rotate(-4deg) translateY(0);
   }
 
-  to {
-    opacity: 1;
-    transform: rotate(-4deg) scale(1);
+  50% {
+    transform: rotate(-4deg) translateY(-5px);
   }
 }
