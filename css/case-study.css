@@ -2456,3 +2456,35 @@ body.case-study-page .content.case-main figcaption.hc-wizard-caption {
   border-radius: 0;
   box-shadow: none;
 }
+
+/* Simple Booking: "What I changed" before/after legend frame */
+.case-study-page .sb-case section[aria-labelledby='findings'] .sb-text > p {
+  margin-bottom: 24px;
+}
+
+.case-study-page .sb-case section[aria-labelledby='findings'] .sb-legend {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 32px;
+  margin: 0 0 56px;
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.case-study-page .sb-case section[aria-labelledby='findings'] .sb-legend i {
+  width: 8px;
+  height: 8px;
+}
+
+.case-study-page .sb-case section[aria-labelledby='findings'] .sb-compare:first-of-type > h3 {
+  margin-top: 0;
+}
+
+@media (max-width: 599px) {
+  .case-study-page .sb-case section[aria-labelledby='findings'] .sb-legend span {
+    flex: 0 0 100%;
+  }
+}
