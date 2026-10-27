@@ -3658,7 +3658,7 @@ body.case-study-page :is(.content.case-main, .content--design-system.case-main, 
   .section,
   .divider
 ),
-body.case-study-page :is(.content.case-main, .content--design-system.case-main) .section > :is(
+body.case-study-page :is(.content.case-main, .content--design-system.case-main) .section > :where(
   p,
   ul,
   ol,
@@ -3731,8 +3731,8 @@ body.case-study-page .content.case-main + .content.case-main {
   margin-top: var(--cs-gap-h2) !important;
 }
 
-/* --- Inside each section --- */
-body.case-study-page :is(.content.case-main, .content--design-system.case-main) .section > * + * {
+/* --- Inside each section (direct child .section beats margin reset on .section > :is(...)) --- */
+body.case-study-page :is(.content.case-main, .content--design-system.case-main) > .section > * + * {
   margin-top: var(--cs-gap) !important;
 }
 
@@ -3740,15 +3740,15 @@ body.case-study-page .section-headings .section-chapter + .section-subtitle {
   margin-top: var(--cs-gap-eyebrow) !important;
 }
 
-body.case-study-page :is(.content.case-main, .content--design-system.case-main) .section > .section-header + * {
+body.case-study-page :is(.content.case-main, .content--design-system.case-main) > .section > .section-header + * {
   margin-top: var(--cs-gap) !important;
 }
 
-body.case-study-page :is(.content.case-main, .content--design-system.case-main) .section > * + :is(h3, h3.bo-subchapter, h3.screens-label, .bo-subchapter) {
+body.case-study-page :is(.content.case-main, .content--design-system.case-main) > .section > * + :is(h3, h3.bo-subchapter, h3.screens-label, .bo-subchapter) {
   margin-top: var(--cs-gap-h3) !important;
 }
 
-body.case-study-page .section > * + :is(
+body.case-study-page :is(.content.case-main, .content--design-system.case-main) > .section > * + :is(
   figure,
   table,
   .data-table,
@@ -3786,7 +3786,7 @@ body.case-study-page .section > * + :is(
   margin-top: var(--cs-gap-media-before) !important;
 }
 
-body.case-study-page .section > :is(
+body.case-study-page :is(.content.case-main, .content--design-system.case-main) > .section > :is(
   figure,
   table,
   .data-table,
@@ -3821,21 +3821,20 @@ body.case-study-page .section > :is(
   .sb-compare-row,
   .ui-design-figure
 ) + *,
-body.case-study-page .content--design-system.case-main .section > div:has(.ds-theme-row) + p,
-body.case-study-page .content.case-main .section > div:has(.ds-theme-row) + p {
+body.case-study-page :is(.content.case-main, .content--design-system.case-main) > .section > div:has(.ds-theme-row) + p {
   margin-top: var(--cs-gap-media-after) !important;
 }
 
-body.case-study-page :is(.content.case-main, .content--design-system.case-main) .section > :is(table, .data-table, .cs-table) + :is(h3, h3.bo-subchapter, .bo-subchapter),
-body.case-study-page :is(.content.case-main, .content--design-system.case-main) .section > :is(figure, .reveal-media, div:has(.ds-theme-row)) + :is(h3, h3.bo-subchapter) {
+body.case-study-page :is(.content.case-main, .content--design-system.case-main) > .section > :is(table, .data-table, .cs-table) + :is(h3, h3.bo-subchapter, .bo-subchapter),
+body.case-study-page :is(.content.case-main, .content--design-system.case-main) > .section > :is(figure, .reveal-media, div:has(.ds-theme-row)) + :is(h3, h3.bo-subchapter) {
   margin-top: var(--cs-gap-media-after) !important;
 }
 
-body.case-study-page .section > * + :is(.aside-note, .cs-aside, p.aside-note) {
+body.case-study-page :is(.content.case-main, .content--design-system.case-main) > .section > * + :is(.aside-note, .cs-aside, p.aside-note) {
   margin-top: var(--cs-gap-aside-before) !important;
 }
 
-body.case-study-page .section > :is(.aside-note, .cs-aside, p.aside-note) + * {
+body.case-study-page :is(.content.case-main, .content--design-system.case-main) > .section > :is(.aside-note, .cs-aside, p.aside-note) + * {
   margin-top: var(--cs-gap-aside-after) !important;
 }
 
@@ -4165,7 +4164,7 @@ body.case-study-page .aside-note__arrow {
 
   body.case-study-page .sb-text > .aside-note--bubble + *,
   body.case-study-page .sb-compare > .aside-note--bubble + *,
-  body.case-study-page .section > .aside-note--bubble + *,
+  body.case-study-page :is(.content.case-main, .content--design-system.case-main) > .section > .aside-note--bubble + *,
   body.case-study-page .mob-solution > .aside-note--bubble + *,
   body.case-study-page .screens-section > .aside-note--bubble + * {
     margin-top: var(--cs-gap, 24px) !important;

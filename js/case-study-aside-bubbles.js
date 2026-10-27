@@ -8,7 +8,15 @@
 
   var BUBBLE_W = 188;
   var BUBBLE_GAP = 56;
+  /** Extra clearance so soft glow / arrow does not sit on the text column */
+  var BUBBLE_GLOW_PAD = 40;
   var VIEW_PAD = 16;
+
+  function bubbleGap(note) {
+    var gap = BUBBLE_GAP;
+    if (note.classList.contains('aside-note--bubble-gap-wide')) gap += 28;
+    return gap;
+  }
 
   function layoutScope(note) {
     return (
@@ -56,26 +64,38 @@
       var noteRect = note.getBoundingClientRect();
       var textMax = Math.min(parent.offsetWidth, 720);
       var textColLeft = textAlignLeft(note);
-      var textColRight = textColLeft + textMax;
-      var gutterLeft = parent.getBoundingClientRect().left;
+      var parentRect = parent.getBoundingClientRect();
+      var scopeRect = scope.getBoundingClientRect();
+      /* Full-width blocks (e.g. .mob-solution cards) can exceed the 720px copy track */
+      var textColRight = Math.max(
+        textColLeft + textMax,
+        parentRect.right,
+        scopeRect.right
+      );
+      var gutterLeft = parentRect.left;
       var spaceLeft = gutterLeft - VIEW_PAD;
 
       var preferLeft = note.classList.contains('aside-note--bubble-prefer-left');
       var preferRight = note.classList.contains('aside-note--bubble-prefer-right');
-      var canLeft = spaceLeft >= BUBBLE_W + BUBBLE_GAP;
+      var gap = bubbleGap(note);
+      var canLeft = spaceLeft >= BUBBLE_W + gap;
       var useLeftMargin = preferRight ? false : preferLeft ? canLeft : canLeft;
 
       note.classList.toggle('aside-note--bubble-margin-right', !useLeftMargin);
 
       var top = prev.offsetTop - note.offsetTop;
+      if (note.classList.contains('aside-note--bubble-nudge-down')) {
+        var nudge = note.classList.contains('aside-note--bubble-nudge-down-lg') ? 64 : 48;
+        top = prev.offsetTop - note.offsetTop + nudge;
+      }
       bubble.style.setProperty('--aside-bubble-top', top + 'px');
       bubble.style.top = top + 'px';
       bubble.style.right = '';
       bubble.style.left = '';
 
       if (useLeftMargin) {
-        var targetBubbleRight = textColLeft - BUBBLE_GAP;
-        bubble.style.right = 'calc(100% + 56px)';
+        var targetBubbleRight = textColLeft - gap;
+        bubble.style.right = 'calc(100% + ' + gap + 'px)';
         var b0 = bubble.getBoundingClientRect();
         var shiftX = targetBubbleRight - b0.right;
         if (Math.abs(shiftX) > 0.5) {
@@ -83,11 +103,13 @@
           bubble.style.left = b0.left - noteRect.left + shiftX + 'px';
         }
       } else {
-        bubble.style.left = 'calc(min(100%, var(--cs-text-max, 720px)) + 56px)';
+        var minLeftViewport = textColRight + gap + BUBBLE_GLOW_PAD;
+        bubble.style.left = minLeftViewport - noteRect.left + 'px';
         var br0 = bubble.getBoundingClientRect();
         if (br0.right > window.innerWidth - VIEW_PAD) {
-          bubble.style.left =
-            window.innerWidth - VIEW_PAD - br0.width - noteRect.left + 'px';
+          var clampedLeft =
+            window.innerWidth - VIEW_PAD - br0.width - noteRect.left;
+          bubble.style.left = Math.max(minLeftViewport - noteRect.left, clampedLeft) + 'px';
         }
       }
 
