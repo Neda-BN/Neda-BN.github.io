@@ -3630,3 +3630,417 @@ body.case-study-page .sb-case p,
 body.case-study-page .sb-case .sb-text p {
   letter-spacing: normal !important;
 }
+
+/* =============================================================================
+   Unified content-column spacing + stacked stat cards + image labels (all pages)
+   ============================================================================= */
+
+body.case-study-page {
+  --cs-gap: 24px;
+  --cs-gap-h2: 112px;
+  --cs-gap-h3: 72px;
+  --cs-gap-eyebrow: 12px;
+  --cs-gap-media-before: 40px;
+  --cs-gap-media-after: 48px;
+  --cs-gap-aside-before: 16px;
+  --cs-gap-aside-after: 24px;
+}
+
+/* --- Reset margins in main content flows --- */
+body.case-study-page :is(.content.case-main, .content--design-system.case-main, .ui-design-main) > :is(
+  .cs-summary,
+  .sb-tldr,
+  .hc-tldr,
+  .bo-tldr,
+  .mob-tldr,
+  .pos-tldr,
+  p,
+  .section,
+  .divider
+),
+body.case-study-page :is(.content.case-main, .content--design-system.case-main) .section > :is(
+  p,
+  ul,
+  ol,
+  figure,
+  table,
+  .data-table,
+  .section-header,
+  .reveal-media,
+  .ds-theme-row,
+  .ds-sheet-figure,
+  .case-study-figure,
+  .screens-section,
+  .screens-grid,
+  .hc-wizard-gallery,
+  .cs-card-grid,
+  .pain-grid,
+  .findings-list,
+  .mob-methods-grid,
+  .cs-stat-grid,
+  .results-grid,
+  .mob-results-grid,
+  .ab-grid,
+  .cs-compare-grid,
+  .quote-block,
+  .cs-quote,
+  blockquote,
+  .proto-embed,
+  .hc-persona-panel,
+  .mob-scan-feedback,
+  .mob-insight,
+  .mob-owned,
+  .aside-note,
+  .cs-aside,
+  .cs-callout,
+  div[id]
+),
+body.case-study-page .mob-owned > div > :is(p, ul, ol, figure, .mob-scan-feedback),
+body.case-study-page .sb-case .sb-section .sb-wrap > :is(.section-header, .sb-text, .sb-compare, figure, .sb-compare-row, p, ul),
+body.case-study-page .sb-case .sb-text > :is(p, ul, ol, figure, .aside-note, .cs-aside),
+body.case-study-page .ui-design-intro > :is(p),
+body.case-study-page .ui-design-main > :is(.ui-design-intro, .ui-design-tags, .ui-design-figure, figure, p, section) {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+body.case-study-page .reveal-media :is(figure, .case-study-figure, .ds-theme-row, img),
+body.case-study-page .hc-wizard-gallery figure,
+body.case-study-page .screens-grid .screen-item,
+body.case-study-page .ds-theme-row .ds-theme-item {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* --- Top-level content column (.case-main) --- */
+body.case-study-page :is(.content.case-main, .content--design-system.case-main) > * + * {
+  margin-top: var(--cs-gap) !important;
+}
+
+body.case-study-page :is(.content.case-main, .content--design-system.case-main) > .cs-summary + :is(p[class*='platform-line'], .cs-platform),
+body.case-study-page :is(.content.case-main, .content--design-system.case-main) > :is(.sb-tldr, .hc-tldr, .bo-tldr, .mob-tldr) + :is(p[class*='platform-line'], .cs-platform) {
+  margin-top: var(--cs-gap) !important;
+}
+
+body.case-study-page :is(.content.case-main, .content--design-system.case-main) > :is(p[class*='platform-line'], .cs-platform) + .section,
+body.case-study-page :is(.content.case-main, .content--design-system.case-main) > .divider + .section {
+  margin-top: var(--cs-gap-h2) !important;
+}
+
+body.case-study-page .content.case-main + .content.case-main {
+  margin-top: var(--cs-gap-h2) !important;
+}
+
+/* --- Inside each section --- */
+body.case-study-page :is(.content.case-main, .content--design-system.case-main) .section > * + * {
+  margin-top: var(--cs-gap) !important;
+}
+
+body.case-study-page .section-headings .section-chapter + .section-subtitle {
+  margin-top: var(--cs-gap-eyebrow) !important;
+}
+
+body.case-study-page :is(.content.case-main, .content--design-system.case-main) .section > .section-header + * {
+  margin-top: var(--cs-gap) !important;
+}
+
+body.case-study-page :is(.content.case-main, .content--design-system.case-main) .section > * + :is(h3, h3.bo-subchapter, h3.screens-label, .bo-subchapter) {
+  margin-top: var(--cs-gap-h3) !important;
+}
+
+body.case-study-page .section > * + :is(
+  figure,
+  table,
+  .data-table,
+  .cs-table,
+  .reveal-media,
+  .reveal.reveal-media,
+  div:has(.ds-theme-row),
+  div:has(.case-study-figure),
+  div:has(> figure),
+  .ds-theme-row,
+  .ds-sheet-figure,
+  .case-study-figure,
+  .screens-section,
+  .screens-grid,
+  .hc-wizard-gallery,
+  .cs-card-grid,
+  .pain-grid,
+  .findings-list,
+  .mob-methods-grid,
+  .cs-stat-grid,
+  .results-grid,
+  .mob-results-grid,
+  .ab-grid,
+  .cs-compare-grid,
+  .quote-block,
+  .cs-quote,
+  blockquote.cs-quote,
+  .proto-embed,
+  .hc-persona-panel,
+  .mob-scan-feedback,
+  .mob-insight,
+  .sb-compare-row,
+  .ui-design-figure
+) {
+  margin-top: var(--cs-gap-media-before) !important;
+}
+
+body.case-study-page .section > :is(
+  figure,
+  table,
+  .data-table,
+  .cs-table,
+  .reveal-media,
+  .reveal.reveal-media,
+  div:has(.ds-theme-row),
+  div:has(.case-study-figure),
+  div:has(> figure),
+  .ds-theme-row,
+  .ds-sheet-figure,
+  .case-study-figure,
+  .screens-section,
+  .screens-grid,
+  .hc-wizard-gallery,
+  .cs-card-grid,
+  .pain-grid,
+  .findings-list,
+  .mob-methods-grid,
+  .cs-stat-grid,
+  .results-grid,
+  .mob-results-grid,
+  .ab-grid,
+  .cs-compare-grid,
+  .quote-block,
+  .cs-quote,
+  blockquote.cs-quote,
+  .proto-embed,
+  .hc-persona-panel,
+  .mob-scan-feedback,
+  .mob-insight,
+  .sb-compare-row,
+  .ui-design-figure
+) + *,
+body.case-study-page .content--design-system.case-main .section > div:has(.ds-theme-row) + p,
+body.case-study-page .content.case-main .section > div:has(.ds-theme-row) + p {
+  margin-top: var(--cs-gap-media-after) !important;
+}
+
+body.case-study-page :is(.content.case-main, .content--design-system.case-main) .section > :is(table, .data-table, .cs-table) + :is(h3, h3.bo-subchapter, .bo-subchapter),
+body.case-study-page :is(.content.case-main, .content--design-system.case-main) .section > :is(figure, .reveal-media, div:has(.ds-theme-row)) + :is(h3, h3.bo-subchapter) {
+  margin-top: var(--cs-gap-media-after) !important;
+}
+
+body.case-study-page .section > * + :is(.aside-note, .cs-aside, p.aside-note) {
+  margin-top: var(--cs-gap-aside-before) !important;
+}
+
+body.case-study-page .section > :is(.aside-note, .cs-aside, p.aside-note) + * {
+  margin-top: var(--cs-gap-aside-after) !important;
+}
+
+/* mob-owned decision blocks (scan GIF example) */
+body.case-study-page .mob-owned > div > * + * {
+  margin-top: var(--cs-gap) !important;
+}
+
+body.case-study-page .mob-owned > div > * + :is(figure, .mob-scan-feedback) {
+  margin-top: var(--cs-gap-media-before) !important;
+}
+
+body.case-study-page .mob-owned > div > :is(figure, .mob-scan-feedback) + *,
+body.case-study-page .mob-owned > div > .mob-scan-feedback + p {
+  margin-top: var(--cs-gap-media-after) !important;
+}
+
+/* Simple Booking (.sb-case) sections */
+body.case-study-page .sb-case .sb-section .sb-wrap > * + * {
+  margin-top: var(--cs-gap) !important;
+}
+
+body.case-study-page .sb-case .sb-text > * + * {
+  margin-top: var(--cs-gap) !important;
+}
+
+body.case-study-page .sb-case .sb-section .sb-wrap > * + :is(figure, .sb-compare-row, .sb-scroll-x, .sb-zoom, table, .cs-card-grid),
+body.case-study-page .sb-case .sb-text > * + :is(figure, .sb-compare-row, .sb-scroll-x) {
+  margin-top: var(--cs-gap-media-before) !important;
+}
+
+body.case-study-page .sb-case .sb-section .sb-wrap > :is(figure, .sb-compare-row, .sb-scroll-x, .sb-zoom) + *,
+body.case-study-page .sb-case .sb-text > :is(figure, .sb-compare-row, .sb-scroll-x) + * {
+  margin-top: var(--cs-gap-media-after) !important;
+}
+
+body.case-study-page .sb-case .sb-section .sb-wrap > * + :is(.aside-note, .cs-aside) {
+  margin-top: var(--cs-gap-aside-before) !important;
+}
+
+body.case-study-page .sb-case .sb-section .sb-wrap > :is(.aside-note, .cs-aside) + * {
+  margin-top: var(--cs-gap-aside-after) !important;
+}
+
+body.case-study-page .sb-case .sb-section + .sb-section {
+  margin-top: var(--cs-gap-h2) !important;
+}
+
+/* UI design case pages (02 / 03 / 10 / 11) */
+body.case-study-page .ui-design-main > * + * {
+  margin-top: var(--cs-gap) !important;
+}
+
+body.case-study-page .ui-design-main > .ui-design-figure + *,
+body.case-study-page .ui-design-main > figure + * {
+  margin-top: var(--cs-gap-media-after) !important;
+}
+
+body.case-study-page .ui-design-main > * + :is(.ui-design-figure, figure) {
+  margin-top: var(--cs-gap-media-before) !important;
+}
+
+/* Supersede earlier per-element image margins */
+body.case-study-page .content.case-main figure,
+body.case-study-page .content.case-main .case-study-figure,
+body.case-study-page .content.case-main .screen-wrap,
+body.case-study-page .content.case-main .hc-wizard-gallery,
+body.case-study-page .content.case-main .screens-grid,
+body.case-study-page .sb-case figure,
+body.case-study-page .sb-case .sb-compare-row,
+body.case-study-page figure:has(.cs-caption),
+body.case-study-page figure:has(figcaption) {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+body.case-study-page .mob-insight + .mob-scan-feedback,
+body.case-study-page .mob-insight + figure {
+  margin-top: 0 !important;
+}
+
+body.case-study-page .cs-summary,
+body.case-study-page .sb-tldr,
+body.case-study-page .hc-tldr,
+body.case-study-page .bo-tldr,
+body.case-study-page .mob-tldr,
+body.case-study-page .pos-tldr {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+body.case-study-page p[class*='platform-line'],
+body.case-study-page .cs-platform {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* --- Image / sheet labels --- */
+body.case-study-page .ds-theme-title,
+body.case-study-page .screens-label,
+body.case-study-page h3.screens-label,
+body.case-study-page .sb-ds-sheet-label,
+body.case-study-page .case-study-figure > figcaption.cs-caption:first-child,
+body.case-study-page figure > figcaption.cs-caption:first-child {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace) !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: var(--muted) !important;
+  line-height: 1.4 !important;
+  margin: 0 0 12px !important;
+}
+
+body.case-study-page .ds-theme-item {
+  gap: 12px !important;
+}
+
+/* --- Stat / result cards (stacked, all pages) --- */
+body.case-study-page .cs-stat-grid,
+body.case-study-page .mob-results-grid,
+body.case-study-page .mob-results-grid.cs-stat-grid,
+body.case-study-page .results-grid,
+body.case-study-page .results-grid--bo-outcomes,
+body.case-study-page .hc-results-row {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+  gap: 16px !important;
+  align-items: stretch !important;
+}
+
+body.case-study-page .cs-stat,
+body.case-study-page .mob-result-cell,
+body.case-study-page .result-card,
+body.case-study-page .result-card--bo,
+body.case-study-page .result-card--bo.cs-stat {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
+  grid-template-columns: unset !important;
+  grid-template-rows: unset !important;
+  min-height: unset !important;
+  height: auto !important;
+  padding: 24px !important;
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 16px !important;
+}
+
+body.case-study-page .cs-stat__num,
+body.case-study-page .mob-result-num,
+body.case-study-page .result-number,
+body.case-study-page .result-card__stat,
+body.case-study-page .result-card--bo .result-card__stat {
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: clamp(32px, 3.2vw, 44px) !important;
+  font-weight: 600 !important;
+  letter-spacing: normal !important;
+  color: var(--accent) !important;
+  white-space: nowrap !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+}
+
+body.case-study-page .cs-stat__label,
+body.case-study-page .mob-result-lab,
+body.case-study-page .result-label,
+body.case-study-page .result-card__lead {
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 1.55 !important;
+  color: var(--text) !important;
+  margin: 8px 0 0 !important;
+}
+
+body.case-study-page .mob-result-src,
+body.case-study-page .result-card__bo-text,
+body.case-study-page .result-card__detail,
+body.case-study-page .result-card--bo-nostat .result-card__detail,
+body.case-study-page .cs-stat__desc {
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  line-height: 1.55 !important;
+  color: var(--muted) !important;
+  margin: 8px 0 0 !important;
+}
+
+body.case-study-page .result-card--bo-nostat .result-card__lead,
+body.case-study-page .result-card--bo-nostat > .result-card__lead:first-child {
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  line-height: 1.25 !important;
+  color: var(--text) !important;
+  margin: 0 !important;
+}
+
+body.case-study-page .result-card--bo .result-card__bo-text:only-of-type,
+body.case-study-page .result-card--bo .result-card__stat + .result-card__bo-text {
+  margin-top: 8px !important;
+}
