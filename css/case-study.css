@@ -1921,7 +1921,7 @@ body.case-study-page.about-page .sec-label {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: clamp(20px, 2.5vw, 28px);
+  margin-bottom: 0;
 }
 
 body.case-study-page.about-page .role-block,
@@ -2117,6 +2117,24 @@ body.case-study-page.about-page .about-intro h1 em {
 body.case-study-page.about-page .about-intro .hero-subtitle {
   margin-top: 16px;
   margin-bottom: 0;
+  font-size: 18px;
+  line-height: 1.7 !important;
+  letter-spacing: 0 !important;
+}
+
+/* Tighter label → grid spacing (case-study unified rules use 40px before .pain-grid) */
+body.case-study-page.about-page main.content.case-main > .section > .sec-label + :is(.pain-grid, .cs-card-grid) {
+  margin-top: 14px !important;
+}
+
+/* About — consistent gap between major blocks (intro copy → skills, skills → case studies) */
+body.case-study-page.about-page main.content.case-main {
+  --about-section-gap: 44px;
+}
+
+body.case-study-page.about-page main.content.case-main > .section[aria-label="Background and contact"] + .section,
+body.case-study-page.about-page main.content.case-main > .section:has(.about-skills-grid) + .section {
+  margin-top: var(--about-section-gap) !important;
 }
 
 @media (min-width: 900px) {
