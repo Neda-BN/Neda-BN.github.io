@@ -4115,22 +4115,22 @@ body.case-study-page .content--design-system p + figure.ds-sheet-figure {
 }
 
 /* =============================================================================
-   Simple Booking: margin bubbles (.aside-note--bubble) — wide screens only
+   Case studies: margin bubbles (.aside-note--bubble) — wide screens only
    ============================================================================= */
 
-body.case-study-page .sb-case .aside-note__arrow {
+body.case-study-page .aside-note__arrow {
   display: none;
 }
 
 @media (max-width: 1319.98px) {
-  body.case-study-page .sb-case .aside-note--bubble .aside-note__bubble,
-  body.case-study-page .sb-case .aside-note--bubble .aside-note__bubble-float,
-  body.case-study-page .sb-case .aside-note--bubble .aside-note__bubble-shape,
-  body.case-study-page .sb-case .aside-note--bubble .aside-note__icon-chip {
+  body.case-study-page .aside-note--bubble .aside-note__bubble,
+  body.case-study-page .aside-note--bubble .aside-note__bubble-float,
+  body.case-study-page .aside-note--bubble .aside-note__bubble-shape,
+  body.case-study-page .aside-note--bubble .aside-note__icon-chip {
     display: contents;
   }
 
-  body.case-study-page .sb-case .aside-note--bubble .aside-note__icon {
+  body.case-study-page .aside-note--bubble .aside-note__icon {
     width: 18px;
     height: 18px;
   }
@@ -4142,7 +4142,7 @@ body.case-study-page .sb-case .aside-note__arrow {
     position: relative;
   }
 
-  body.case-study-page .sb-case .aside-note--bubble {
+  body.case-study-page .aside-note--bubble:is(.is-left, .is-right) {
     position: relative;
     z-index: 2;
     display: block !important;
@@ -4165,11 +4165,34 @@ body.case-study-page .sb-case .aside-note__arrow {
     margin-top: var(--cs-gap, 24px) !important;
   }
 
-  body.case-study-page .sb-case .aside-note--bubble .aside-note__bubble {
-    position: absolute;
-    right: calc(100% + 56px);
-    left: auto;
-    top: var(--aside-bubble-top, 0);
+  body.case-study-page .aside-note--bubble.is-inline {
+    display: flex !important;
+    height: auto !important;
+    min-height: 0;
+    padding: 0 !important;
+    overflow: visible;
+    border: none !important;
+    background: transparent !important;
+    color: inherit !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+    gap: inherit !important;
+  }
+
+  body.case-study-page .aside-note--bubble.is-inline .aside-note__bubble,
+  body.case-study-page .aside-note--bubble.is-inline .aside-note__bubble-float,
+  body.case-study-page .aside-note--bubble.is-inline .aside-note__bubble-shape,
+  body.case-study-page .aside-note--bubble.is-inline .aside-note__icon-chip {
+    display: contents;
+  }
+
+  body.case-study-page .aside-note--bubble.is-inline .aside-note__icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  body.case-study-page .aside-note--bubble .aside-note__bubble {
+    display: none;
     box-sizing: border-box;
     width: 188px;
     height: 180px;
@@ -4177,14 +4200,30 @@ body.case-study-page .sb-case .aside-note__arrow {
     overflow: visible;
   }
 
-  body.case-study-page .sb-case .aside-note--bubble .aside-note__bubble-float {
+  body.case-study-page .aside-note--bubble:is(.is-left, .is-right) .aside-note__bubble {
+    display: block;
+    position: absolute;
+    top: var(--aside-bubble-top, 0);
+  }
+
+  body.case-study-page .aside-note--bubble.is-left .aside-note__bubble {
+    right: calc(100% + 24px);
+    left: auto;
+  }
+
+  body.case-study-page .aside-note--bubble.is-right .aside-note__bubble {
+    left: calc(100% + 24px);
+    right: auto;
+  }
+
+  body.case-study-page .aside-note--bubble .aside-note__bubble-float {
     display: block;
     width: 100%;
     height: 100%;
     will-change: transform;
   }
 
-  body.case-study-page .sb-case .aside-note--bubble .aside-note__bubble-shape {
+  body.case-study-page .aside-note--bubble .aside-note__bubble-shape {
     position: relative;
     box-sizing: border-box;
     width: 100%;
@@ -4220,15 +4259,47 @@ body.case-study-page .sb-case .aside-note__arrow {
     will-change: transform;
   }
 
-  body.case-study-page .sb-case .aside-note--bubble-cookbook .aside-note__bubble-shape {
+  body.case-study-page .aside-note--bubble-cookbook .aside-note__bubble-shape {
     border-radius: 58% 42% 52% 48% / 46% 55% 45% 54%;
   }
 
-  body.case-study-page .sb-case .aside-note--bubble-deja .aside-note__bubble-shape {
+  body.case-study-page .aside-note--bubble-deja .aside-note__bubble-shape {
     border-radius: 45% 55% 48% 52% / 55% 44% 56% 45%;
   }
 
-  body.case-study-page .sb-case .aside-note--bubble .aside-note__bubble-shape::before {
+  body.case-study-page .aside-note--bubble-hc-tools .aside-note__bubble-shape {
+    border-radius: 52% 48% 57% 43% / 47% 53% 47% 53%;
+  }
+
+  body.case-study-page .aside-note--bubble-hc-eye .aside-note__bubble-shape {
+    border-radius: 44% 56% 46% 54% / 56% 45% 55% 44%;
+  }
+
+  body.case-study-page .aside-note--bubble-pos-scan .aside-note__bubble-shape {
+    border-radius: 56% 44% 50% 50% / 44% 56% 46% 54%;
+  }
+
+  body.case-study-page .aside-note--bubble-pos-snow .aside-note__bubble-shape {
+    border-radius: 47% 53% 55% 45% / 52% 46% 54% 48%;
+  }
+
+  body.case-study-page .aside-note--bubble-mob-hand .aside-note__bubble-shape {
+    border-radius: 54% 46% 44% 56% / 49% 57% 43% 51%;
+  }
+
+  body.case-study-page .aside-note--bubble-mob-qr .aside-note__bubble-shape {
+    border-radius: 46% 54% 52% 48% / 57% 44% 56% 43%;
+  }
+
+  body.case-study-page .aside-note--bubble-bo-clipboard .aside-note__bubble-shape {
+    border-radius: 55% 45% 47% 53% / 45% 54% 46% 55%;
+  }
+
+  body.case-study-page .aside-note--bubble-bo-message .aside-note__bubble-shape {
+    border-radius: 48% 52% 58% 42% / 53% 47% 51% 49%;
+  }
+
+  body.case-study-page .aside-note--bubble .aside-note__bubble-shape::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -4250,7 +4321,7 @@ body.case-study-page .sb-case .aside-note__arrow {
     pointer-events: none;
   }
 
-  body.case-study-page .sb-case .aside-note--bubble .aside-note__icon-chip {
+  body.case-study-page .aside-note--bubble .aside-note__icon-chip {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4267,7 +4338,7 @@ body.case-study-page .sb-case .aside-note__arrow {
     will-change: transform;
   }
 
-  body.case-study-page .sb-case .aside-note--bubble .aside-note__icon {
+  body.case-study-page .aside-note--bubble .aside-note__icon {
     display: block !important;
     width: 20px;
     height: 20px;
@@ -4275,7 +4346,7 @@ body.case-study-page .sb-case .aside-note__arrow {
     stroke: var(--accent);
   }
 
-  body.case-study-page .sb-case .aside-note--bubble .aside-note__bubble-text {
+  body.case-study-page .aside-note--bubble .aside-note__bubble-text {
     font-family: var(--font-body, 'Poppins', sans-serif);
     font-size: 14px;
     font-weight: 500;
@@ -4288,7 +4359,14 @@ body.case-study-page .sb-case .aside-note__arrow {
     overflow: hidden;
   }
 
-  body.case-study-page .sb-case .aside-note--bubble .aside-note__arrow {
+
+  body.case-study-page .aside-note--bubble.is-right .aside-note__arrow {
+    left: auto;
+    right: calc(100% - 1px);
+    scale: -1 1;
+  }
+
+  body.case-study-page .aside-note--bubble .aside-note__arrow {
     display: block;
     position: absolute;
     left: calc(100% - 1px);
@@ -4304,7 +4382,7 @@ body.case-study-page .sb-case .aside-note__arrow {
     transform: none;
   }
 
-  body.case-study-page .sb-case .aside-note--bubble .aside-note__bubble:hover .aside-note__bubble-shape {
+  body.case-study-page .aside-note--bubble .aside-note__bubble:hover .aside-note__bubble-shape {
     scale: 1.035;
     box-shadow:
       0 28px 64px rgba(0, 0, 0, 0.38),
@@ -4312,32 +4390,32 @@ body.case-study-page .sb-case .aside-note__arrow {
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
-  body.case-study-page .sb-case .aside-note--bubble .aside-note__bubble:hover .aside-note__icon-chip {
+  body.case-study-page .aside-note--bubble .aside-note__bubble:hover .aside-note__icon-chip {
     translate: 0 -2px;
     rotate: 6deg;
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    body.case-study-page .sb-case .aside-note--bubble .aside-note__bubble-float {
+    body.case-study-page .aside-note--bubble:is(.is-left, .is-right) .aside-note__bubble-float {
       animation: sb-aside-bubble-float 7s ease-in-out infinite;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    body.case-study-page .sb-case .aside-note--bubble .aside-note__bubble-float {
+    body.case-study-page .aside-note--bubble .aside-note__bubble-float {
       animation: none;
     }
 
-    body.case-study-page .sb-case .aside-note--bubble .aside-note__bubble-shape,
-    body.case-study-page .sb-case .aside-note--bubble .aside-note__icon-chip {
+    body.case-study-page .aside-note--bubble .aside-note__bubble-shape,
+    body.case-study-page .aside-note--bubble .aside-note__icon-chip {
       transition: none;
     }
 
-    body.case-study-page .sb-case .aside-note--bubble .aside-note__bubble:hover .aside-note__bubble-shape {
+    body.case-study-page .aside-note--bubble .aside-note__bubble:hover .aside-note__bubble-shape {
       scale: 1;
     }
 
-    body.case-study-page .sb-case .aside-note--bubble .aside-note__bubble:hover .aside-note__icon-chip {
+    body.case-study-page .aside-note--bubble .aside-note__bubble:hover .aside-note__icon-chip {
       translate: 0 0;
       rotate: 0deg;
     }
@@ -4349,7 +4427,6 @@ body.case-study-page .sb-case .aside-note__arrow {
   100% {
     translate: 0 0;
   }
-
   50% {
     translate: 0 -4px;
   }
@@ -4361,7 +4438,7 @@ body.case-study-page .sb-case section[aria-labelledby="challenge"] .sb-text > p 
 }
 
 @media (min-width: 1320px) {
-  body.case-study-page .sb-case section[aria-labelledby="challenge"] .sb-text > .aside-note--bubble {
+  body.case-study-page .sb-case section[aria-labelledby="challenge"] .sb-text > .aside-note--bubble:is(.is-left, .is-right) {
     padding-bottom: var(--cs-gap, 24px) !important;
   }
 }
