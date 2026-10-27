@@ -33,12 +33,13 @@
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return; // allow "open in new tab"
       e.preventDefault();
       lastTrigger = link;
-      var source = link.querySelector('img');
+      var cap = link.closest('figure') && link.closest('figure').querySelector('figcaption');
+      title.textContent = link.getAttribute('data-title') || (cap && cap.textContent) || 'Before and after';
       img.src = link.getAttribute('href');
-      img.alt = source ? source.alt : '';
-      title.textContent = link.getAttribute('data-title') || 'Before and after';
+      img.alt = (cap && cap.querySelector('img') && cap.querySelector('img').alt) || title.textContent;
       dialog.showModal();
-      stage.scrollTo(0, 0);
+      stage.scrollTop = 0;
+      stage.scrollLeft = 0;
     });
   });
 })();
