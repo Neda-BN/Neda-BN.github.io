@@ -219,14 +219,17 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .pos-platform-line a { color: var(--accent); font-weight: 500; }
 
   .findings-list { display: flex; flex-direction: column; gap: 14px; margin-top: 24px; }
-  .finding-item { display: flex; gap: 16px; padding: 20px 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; align-items: flex-start; }
+  .finding-item { display: flex !important; flex-direction: row !important; gap: 16px; padding: 20px 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; align-items: flex-start !important; }
+  .finding-item > div { flex: 1; min-width: 0; }
   .finding-icon { width: 32px; height: 32px; background: var(--accent-light); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 16px; }
   .finding-text { font-size: 14px; color: var(--mid); font-style: italic; font-weight: 300; line-height: 1.6; }
   .finding-stat { font-size: 11px; font-weight: 600; color: var(--dark); margin-top: 4px; }
 
   .pos-device-list { display: flex; flex-direction: column; gap: 14px; margin-top: 24px; }
-  .pos-device-item { display: flex; gap: 16px; padding: 20px 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; align-items: flex-start; }
-  .pos-device-item__title { font-family: var(--serif); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dark); margin: 0 0 8px; }
+  .pos-device-item { display: flex !important; flex-direction: row !important; align-items: flex-start !important; gap: 16px; padding: 20px 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; }
+  .pos-device-item > div { flex: 1; min-width: 0; }
+  #external-devices .pos-device-item .finding-icon.cs-card__icon { flex-shrink: 0; margin: 0; }
+  .pos-device-item__title { font-family: var(--serif); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dark); margin: 0 0 8px; line-height: 1.25; }
   .pos-device-item p { font-size: 14px; color: var(--mid); margin: 0; line-height: 1.6; font-weight: 300; }
   #external-devices .screens-section { margin-top: 0; margin-bottom: 24px; }
 
@@ -539,6 +542,27 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     margin: 0;
     max-width: 65ch;
   }
+  .pos-results-method {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 16px 0 0;
+    font-family: var(--font-body, 'Poppins', sans-serif);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .pos-results-method__icon {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+    margin-top: 3px;
+    stroke: var(--accent);
+    fill: none;
+  }
+
   .result-card--compact {
     display: flex;
     flex-direction: column;
@@ -785,7 +809,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   }
 </style>
 <link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
-<link rel="stylesheet" href="css/case-study.css?v=20261027">
+<link rel="stylesheet" href="css/case-study.css?v=20261027c">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
 </head>
@@ -884,7 +908,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     <p><strong>The problem:</strong> Cashiers needed 4+ taps and several screens to complete a basic transaction, and stores needed a separate system just to add a product.</p>
     <p><strong>What I did:</strong> Led the redesign from research to final screens with the PM, engineering team and stakeholders. I interviewed store owners, ran workshops, and tested the app with cashiers in a real store.</p>
     <p><strong>Key decisions:</strong> One scrollable home screen with the cart always visible, and adding products straight from the till, scoped with engineering to keep product data secure.</p>
-    <p><strong>Result:</strong> 70% fewer transaction errors, 30% faster cashier tasks, and 1–2 taps per sale instead of 4+.</p>
+    <p><strong>Result:</strong> In a real-store test with 5 users, 70% fewer transaction errors, 30% faster cashier tasks, and 1–2 taps per sale instead of 4+.</p>
   </div>
   <p class="pos-platform-line fade-in reveal">Part of the Focalpay platform: the POS sells products and prices set up in the <a href="backoffice.html">Back-office</a>, and takes over cash payments from the <a href="mobile-app.html">Mobile shopping app</a>.</p>
 
@@ -918,28 +942,28 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     </div>
     <p>In a store, the POS works with a handheld scanner, a receipt printer, a keyboard and sometimes a Cash Guard cash machine. Each can fail in its own way, so one settings screen shows clearly what's connected and what isn't.</p>
     <div class="pos-device-list">
-      <div class="pos-device-item">
+      <div class="pos-device-item finding-item cs-card">
         <span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg></span>
         <div>
           <h3 class="pos-device-item__title">Handheld scanner</h3>
           <p>Cable, wireless or the device camera. The screen always shows which one is active.</p>
         </div>
       </div>
-      <div class="pos-device-item">
+      <div class="pos-device-item finding-item cs-card">
         <span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg></span>
         <div>
           <h3 class="pos-device-item__title">Receipt printer</h3>
           <p>Green when ready, red when not, so problems show up before a customer is waiting.</p>
         </div>
       </div>
-      <div class="pos-device-item">
+      <div class="pos-device-item finding-item cs-card">
         <span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="M6 8h.001"/><path d="M10 8h.001"/><path d="M14 8h.001"/><path d="M18 8h.001"/><path d="M8 12h.001"/><path d="M12 12h.001"/><path d="M16 12h.001"/><path d="M7 16h10"/></svg></span>
         <div>
           <h3 class="pos-device-item__title">Keyboard</h3>
           <p>If it disconnects, a warning appears straight away.</p>
         </div>
       </div>
-      <div class="pos-device-item">
+      <div class="pos-device-item finding-item cs-card">
         <span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg></span>
         <div>
           <h3 class="pos-device-item__title">Cash Guard</h3>
@@ -1095,7 +1119,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     <div class="screens-section reveal reveal-media">
       <div class="screens-label">2. Scanning and adding products</div>
       <p>The phone camera works as a barcode scanner. When a product is found, it goes straight into the cart. When it isn't, the app asks the cashier to add it right away, instead of sending them to another system.</p>
-<p class="aside-note aside-note--bubble aside-note--bubble-shape-1 cs-aside aside-note--bubble-prefer-right aside-note--bubble-gap-wide"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12H3"/><path d="M12 7V3"/><path d="M17 12h4"/><path d="M12 17v4"/></svg></span><span class="aside-note__bubble-text">Nothing stops a queue quite like a product that doesn't exist.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="cs-arrow-pos-queue" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#cs-arrow-pos-queue)"/><path d="M40 11 L34 8" stroke="url(#cs-arrow-pos-queue)"/><path d="M40 11 L34 14" stroke="url(#cs-arrow-pos-queue)"/></svg></span></span></span></p>
+<p class="aside-note aside-note--bubble aside-note--bubble-shape-1 cs-aside aside-note--bubble-prefer-right aside-note--bubble-clear-copy"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12H3"/><path d="M12 7V3"/><path d="M17 12h4"/><path d="M12 17v4"/></svg></span><span class="aside-note__bubble-text">Nothing stops a queue quite like a product that doesn't exist.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="cs-arrow-pos-queue" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#cs-arrow-pos-queue)"/><path d="M40 11 L34 8" stroke="url(#cs-arrow-pos-queue)"/><path d="M40 11 L34 14" stroke="url(#cs-arrow-pos-queue)"/></svg></span></span></span></p>
       <p>Adding a product takes two steps: name, EAN and sales account, then an optional photo.</p>
       <div class="screens-grid col-3">
         <div class="screen-item">
@@ -1457,11 +1481,11 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
         <div class="result-number">30%</div>
         <p class="result-label">Faster cashier task time</p>
       </article>
-      <article class="result-card result-card--featured cs-stat">
+      <article class="result-card result-card--compact cs-stat">
         <div class="result-number">60%</div>
-        <p class="result-card__lead">Fewer taps per transaction</p>
-        <p class="result-card__text">Measured by comparing the previous and redesigned versions with 5 users, on the same 5 core tasks: scan, add to cart, apply discount, process payment and generate receipt.</p>
+        <p class="result-label">Fewer taps per transaction</p>
       </article>
+      <p class="pos-results-method"><svg class="pos-results-method__icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2v7.31"/><path d="M14 9.3V2"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/></svg><span>All three measured in the same test, in a real store: 5 users completed the same 5 core tasks (scan, add to cart, apply discount, process payment and generate receipt) in the previous and the redesigned versions.</span></p>
       <article class="result-card result-card--compact cs-stat">
         <div class="result-number">0</div>
         <p class="result-label">Back-office trips needed to add a missing product: it can be created at the till</p>
@@ -1488,7 +1512,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     </div>
     <div class="lessons-list">
       <div class="lesson-item cs-learn"><div class="lesson-num">01</div><div class="lesson-text"><h4>In a cashier app, speed is part of usability.</h4><p>Every extra second matters when someone is waiting at the till. Most of my work was removing steps: less navigation, fewer decisions, and the most common actions always within reach.</p></div></div>
-      <div class="lesson-item cs-learn"><div class="lesson-num">02</div><div class="lesson-text"><h4>Test in the real environment early.</h4><p>Testing in a real store showed things the usability sessions didn't. Cashiers under pressure, with customers waiting, use the app very differently.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-num">02</div><div class="lesson-text"><h4>The real store shows what the lab can't.</h4><p>Testing in a real store showed things the usability sessions didn't. Cashiers under pressure, with customers waiting, use the app very differently.</p></div></div>
       <div class="lesson-item cs-learn"><div class="lesson-num">03</div><div class="lesson-text"><p><strong>Fewer handovers between tools means fewer problems.</strong> Things went wrong where the POS ended and another tool began. Letting cashiers create basic products at the till closed that gap without risking the product data.</p></div></div>
       <div class="lesson-item cs-learn cs-learn--highlight"><div class="lesson-num">04</div><div class="lesson-text"><p class="cs-learn-eyebrow">Looking back</p><h4>What I'd do differently.</h4><p>I'd test in a real store earlier in the process, before the main flows were finalised, because that's where the most important problems showed up.</p></div></div>
     </div>
@@ -1522,7 +1546,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 </footer>
 
 <script src="js/scroll-reveal.js?v=20260403"></script>
-<script src="js/case-study-aside-bubbles.js?v=20261028" defer></script>
+<script src="js/case-study-aside-bubbles.js?v=20261027d" defer></script>
 <script>
 
   (function heroScrollLoop() {
