@@ -2488,3 +2488,62 @@ body.case-study-page .content.case-main figcaption.hc-wizard-caption {
     flex: 0 0 100%;
   }
 }
+
+/* Simple Booking: "What I changed" before/after comparison spacing */
+.case-study-page .sb-case section[aria-labelledby='findings'] .sb-compare {
+  margin-bottom: 0;
+}
+
+.case-study-page .sb-case section[aria-labelledby='findings'] .sb-compare + .sb-compare {
+  margin-top: 96px;
+}
+
+.case-study-page .sb-case section[aria-labelledby='findings'] .sb-compare + .sb-compare > h3 {
+  margin-top: 0;
+}
+
+.case-study-page .sb-case section[aria-labelledby='findings'] ul.sb-changes:has(+ figure) {
+  margin-bottom: 0;
+}
+
+.case-study-page .sb-case section[aria-labelledby='findings'] ul.sb-changes + figure:has(a.sb-zoom[href*='before-after']) {
+  margin: 40px 0 0;
+  padding: 0;
+}
+
+.case-study-page .sb-case section[aria-labelledby='findings'] figure:has(a.sb-zoom[href*='before-after']) .sb-zoom {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.case-study-page .sb-case section[aria-labelledby='findings'] figure:has(a.sb-zoom[href*='before-after']) .sb-scroll-x {
+  margin: -1px 0 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.case-study-page .sb-case section[aria-labelledby='findings'] figure:has(a.sb-zoom[href*='before-after']) picture {
+  display: block;
+}
+
+.case-study-page .sb-case section[aria-labelledby='findings'] figure:has(a.sb-zoom[href*='before-after']) .sb-zoom img {
+  margin: 0 auto;
+}
+
+.case-study-page .sb-case section[aria-labelledby='findings'] figure:has(a.sb-zoom[href*='before-after']) figcaption {
+  margin: 12px 0 0;
+  padding: 0;
+}
+
+@media (max-width: 599px) {
+  .case-study-page .sb-case section[aria-labelledby='findings'] ul.sb-changes + figure:has(a.sb-zoom[href*='before-after']) {
+    margin-top: 32px;
+  }
+
+  .case-study-page .sb-case section[aria-labelledby='findings'] .sb-compare + .sb-compare {
+    margin-top: 72px;
+  }
+}
