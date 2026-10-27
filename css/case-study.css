@@ -3238,3 +3238,238 @@ body.case-study-page .cs-aside,
 body.case-study-page .aside-note {
   margin-bottom: 20px !important;
 }
+
+/* =============================================================================
+   Healthcare fixes + shared persona / table / results / eyebrow (case studies)
+   ============================================================================= */
+
+/* Section subtitles — beat per-page inline serif/italic rules */
+body.case-study-page .section-headings {
+  gap: 0;
+}
+
+body.case-study-page .section-headings .section-subtitle {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace) !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: var(--accent) !important;
+  line-height: 1.4 !important;
+  max-width: none !important;
+  margin: 12px 0 0 !important;
+}
+
+/* Body copy rhythm (case-main) — direct section paragraphs only (avoids :not() specificity beating quotes) */
+body.case-study-page .content.case-main > .section > p:not(.section-subtitle):not(.hc-results-impact-lede):not(.cs-caption):not(.cs-aside):not(.cs-callout) {
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+  letter-spacing: 0 !important;
+  color: var(--muted) !important;
+}
+
+body.case-study-page .content.case-main .section-headings .section-subtitle,
+body.case-study-page .content .section-headings .section-subtitle {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace) !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: var(--accent) !important;
+  line-height: 1.4 !important;
+  max-width: none !important;
+  margin: 12px 0 0 !important;
+}
+
+body.case-study-page .content.case-main > .section .hc-persona-panel .cs-quote--inset p,
+body.case-study-page .content.case-main > .section .hc-persona-panel .cs-quote.cs-quote--inset p,
+body.case-study-page .hc-persona-panel .cs-quote--inset p,
+body.case-study-page .hc-persona-panel .cs-quote.cs-quote--inset p {
+  font-weight: 500 !important;
+  font-size: 20px !important;
+  font-style: normal !important;
+  color: var(--text) !important;
+  letter-spacing: 0 !important;
+  line-height: 1.5 !important;
+}
+
+/* Persona table (Anna Andersson + shared hc-persona-table) */
+body.case-study-page .hc-persona-table th[scope='row'] {
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  color: var(--text) !important;
+  background: var(--surface) !important;
+  padding: 20px 24px !important;
+  vertical-align: top;
+}
+
+body.case-study-page .hc-persona-table td {
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: 17px !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  color: var(--muted) !important;
+  padding: 20px 24px !important;
+  vertical-align: top;
+}
+
+body.case-study-page .hc-persona-table tr:nth-child(even) th,
+body.case-study-page .hc-persona-table tr:nth-child(even) td {
+  background: var(--surface) !important;
+}
+
+body.case-study-page .hc-persona-panel .cs-quote--inset {
+  margin: 24px 0 0 !important;
+  max-width: none !important;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Text-column tables — no .wide breakout offset */
+body.case-study-page table.cs-table-align,
+body.case-study-page table.data-table:not(.wide):not(.wide-scroll),
+body.case-study-page .content.case-main .section > table.cs-table,
+body.case-study-page .hc-persona-table-wrap {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  transform: none !important;
+  left: auto !important;
+  position: static !important;
+}
+
+body.case-study-page table.data-table tr:nth-child(even) td {
+  background: transparent !important;
+}
+
+body.case-study-page .data-table th {
+  background: var(--surface-2) !important;
+  color: var(--muted) !important;
+}
+
+/* Grey / tinted callout boxes → shared card */
+body.case-study-page .cs-callout,
+body.case-study-page .hc-results-impact-lede,
+body.case-study-page .bo-validation-insight {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-left: 1px solid var(--border) !important;
+  border-radius: 12px !important;
+  padding: 16px 20px !important;
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 1.5 !important;
+  color: var(--text) !important;
+  margin: 0 0 16px !important;
+}
+
+body.case-study-page .bo-validation-insight::before {
+  display: none !important;
+}
+
+body.case-study-page .bo-validation-insight__text {
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: var(--text) !important;
+}
+
+body.case-study-page .ab-card.winner {
+  background: var(--surface) !important;
+  border-color: var(--accent) !important;
+}
+
+body.case-study-page .case-inline-subsection {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* Results list — stacked check items */
+body.case-study-page .cs-result-list {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+body.case-study-page .cs-result-list li {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  column-gap: 12px;
+  row-gap: 4px;
+  align-items: start;
+  padding: 0;
+  position: relative;
+}
+
+body.case-study-page .cs-result-list li::before {
+  content: '';
+  grid-column: 1;
+  grid-row: 1;
+  width: 18px;
+  height: 18px;
+  margin-top: 0.15em;
+  background-color: var(--accent);
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / contain no-repeat;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+body.case-study-page .cs-result-list li strong {
+  grid-column: 2;
+  display: block;
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  color: var(--text) !important;
+}
+
+body.case-study-page .cs-result-list li .cs-result-list__desc {
+  grid-column: 2;
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-body, 'Poppins', sans-serif) !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  color: var(--muted) !important;
+}
+
+/* v6-pages loads after this file — re-assert eyebrow + quote typography */
+body.case-study-page .section-headings .section-subtitle {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace) !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: var(--accent) !important;
+  margin-top: 12px !important;
+}
+
+body.case-study-page blockquote.cs-quote p,
+body.case-study-page .cs-quote:not(.quote-block) p {
+  font-weight: 500 !important;
+  font-size: 20px !important;
+  font-style: normal !important;
+  color: var(--text) !important;
+  letter-spacing: 0 !important;
+  line-height: 1.5 !important;
+}
+
+body.case-study-page .bo-validation-insight,
+body.case-study-page .bo-efficiency-pill--win {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-left: 1px solid var(--border) !important;
+}

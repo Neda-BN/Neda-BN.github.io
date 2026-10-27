@@ -532,9 +532,9 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Persona</h2><p class="section-subtitle">Anna Andersson · Primary persona</p></div>
     </div>
-    <aside class="hc-persona-panel wide">
+    <aside class="hc-persona-panel">
       <div class="hc-persona-table-wrap">
-      <table class="cs-table cs-table hc-persona-table">
+      <table class="cs-table hc-persona-table">
         <tbody>
           <tr>
             <th scope="row">Role</th>
@@ -556,16 +556,14 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
             <th scope="row">Goal</th>
             <td>Spend time analysing the quality of care — not chasing email replies</td>
           </tr>
-          <tr>
-            <th scope="row">Quote</th>
-            <td>
-              <p class="hc-persona-quote">"We live in a world of advanced technology especially in Sweden. I honestly don't understand why our survey process is still manual. It wastes so much time."</p>
-              <p class="hc-persona-quote-label">Quote from a quality manager interview.</p>
-            </td>
-          </tr>
         </tbody>
       </table>
       </div>
+      <blockquote class="cs-quote cs-quote--inset">
+        <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
+        <p>"We live in a world of advanced technology especially in Sweden. I honestly don't understand why our survey process is still manual. It wastes so much time."</p>
+        <cite>Quote from a quality manager interview.</cite>
+      </blockquote>
     </aside>
   </section>
 
@@ -740,7 +738,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <div class="section-headings"><h2 class="section-chapter">Hierarchy design</h2><p class="section-subtitle">Showing one level at a time</p></div>
     </div>
     <p>Showing every administrative level at once created long, impenetrable lists. So the platform shows one level at a time.</p>
-    <table class="cs-table cs-table data-table wide">
+    <table class="cs-table data-table cs-table-align">
       <thead><tr><th>Level</th><th>Description</th><th>Design solution</th></tr></thead>
       <tbody>
         <tr><td><strong>Provider</strong></td><td>Top-level healthcare organisation</td><td>Always visible in the sidebar, which can be collapsed</td></tr>
@@ -838,7 +836,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <div class="section-headings"><h2 class="section-chapter">Performance scoring</h2><p class="section-subtitle">Traffic-light colours instead of number tables</p></div>
     </div>
     <p>Managers needed to see quickly how each municipality was doing, and big number tables are tiring under time pressure. So I designed a three-colour scoring system that shows status at a glance.</p>
-    <table class="cs-table cs-table data-table wide">
+    <table class="cs-table data-table cs-table-align">
       <thead><tr><th>Status</th><th>Meaning</th><th>Action</th></tr></thead>
       <tbody>
         <tr><td><strong style="color:#1A7A4A;">Good performance</strong></td><td>Above target on all key indicators.</td><td>No action needed.</td></tr>
@@ -881,7 +879,6 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
     </div>
     <div class="quote-block cs-quote">
         <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
-         <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
         <p>"Now I can actually see what I've selected. Before I was never sure if I'd got everyone."</p>
       <cite>— Healthcare Administrator, Usability Testing Session</cite>
     </div>
@@ -908,16 +905,16 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
     <p>Our target was to cut administrators' workload by 50%. Here's what we know so far, kept separate by how sure we are.</p>
 
     <h3 class="hc-results-subhead">Measured in usability testing</h3>
-    <p class="hc-results-impact-lede">5 administrators did the same task the old way and then in the prototype:</p>
-    <ol class="role-list cs-list">
-      <li><strong>Creating and sending a survey: from about 2 hours to about 15 minutes.</strong> The six-step wizard replaced composing emails, attaching documents and logging recipients by hand.</li>
-      <li><strong>Selecting all districts: from about 8 minutes to about 5.</strong> This came from fixing the Select All button after the first round of testing.</li>
+    <p class="hc-results-impact-lede cs-callout">5 administrators did the same task the old way and then in the prototype:</p>
+    <ol class="cs-result-list">
+      <li><strong>Creating and sending a survey: from about 2 hours to about 15 minutes.</strong><span class="cs-result-list__desc">The six-step wizard replaced composing emails, attaching documents and logging recipients by hand.</span></li>
+      <li><strong>Selecting all districts: from about 8 minutes to about 5.</strong><span class="cs-result-list__desc">This came from fixing the Select All button after the first round of testing.</span></li>
     </ol>
 
     <h3 class="hc-results-subhead">Estimated by administrators</h3>
-    <p class="hc-results-impact-lede">Not yet measured:</p>
-    <ol class="role-list cs-list" start="3">
-      <li><strong>Quarterly reports: from up to two weeks to near real-time.</strong> Administrators estimated how long manual reporting took them; the dashboard brings responses together automatically.</li>
+    <p class="hc-results-impact-lede cs-callout">Not yet measured:</p>
+    <ol class="cs-result-list" start="3">
+      <li><strong>Quarterly reports: from up to two weeks to near real-time.</strong><span class="cs-result-list__desc">Administrators estimated how long manual reporting took them; the dashboard brings responses together automatically.</span></li>
     </ol>
 
     <p>Together, these point towards the 50% target, but a real reduction in workload can only be confirmed with usage over time. That's the next thing to measure as the customer base grows.</p>
