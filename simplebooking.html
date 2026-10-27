@@ -46,6 +46,23 @@
     background: var(--surface);
     border-radius: 16px;
   }
+  /* Adviser screenshots: full brightness, no scroll-reveal fade; never upscale past natural width */
+  .case-study-page .sb-case section[aria-labelledby="adviser"] figure.sb-ds-sheet {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  .case-study-page .sb-case section[aria-labelledby="adviser"] figure.sb-ds-sheet img {
+    width: 100%;
+    max-width: 1024px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    image-rendering: auto;
+  }
 </style>
 </head>
 <body class="has-anna-nav case-study-page">
@@ -275,7 +292,7 @@
         <p>Adviser started as an idea the team wasn't sure about. I designed it to show what it could be, and the team decided to build it. Because so much of it depended on the back end, I worked closely with the back-end team through many sessions to shape how it should work, then finalised the design and built the front-end myself.</p>
       </div>
       <figure class="sb-ds-sheet">
-        <a class="sb-zoom" href="sb-adviser.png" target="_blank" rel="noopener" data-title="Adviser · Support and answers"><img src="sb-adviser.png" width="1024" height="533" loading="lazy" decoding="async" alt="Simple Booking's Adviser panel next to the Overview: a user asks for a support ticket and Adviser confirms it was created, then answers whether two of the user's companies affect each other's revenue."></a>
+        <a class="sb-zoom" href="sb-adviser.png?v=2" target="_blank" rel="noopener" data-title="Adviser · Support and answers"><img src="sb-adviser.png?v=2" width="1024" height="533" loading="lazy" decoding="async" alt="Simple Booking's Adviser panel next to the Overview: a user asks for a support ticket and Adviser confirms it was created, then answers whether two of the user's companies affect each other's revenue."></a>
         <figcaption class="cs-caption cs-caption">Adviser answers in plain language, and creates a support ticket when it can't help.</figcaption>
       </figure>
       <div class="mob-methods-grid cs-card-grid">
@@ -285,7 +302,7 @@
         <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg></span><div><h4>Never stuck</h4><p class="finding-text">When Adviser can't solve a problem, it creates a support ticket and confirms it right in the chat, so a real person follows up.</p></div></div>
       </div>
       <figure class="sb-ds-sheet">
-        <a class="sb-zoom" href="sb-adviser-voice.png" target="_blank" rel="noopener" data-title="Adviser · Conversation mode"><img src="sb-adviser-voice.png" width="1024" height="533" loading="lazy" decoding="async" alt="Adviser in conversation mode: the user speaks a question, Adviser reads it and replies aloud."></a>
+        <a class="sb-zoom" href="sb-adviser-voice.png?v=2" target="_blank" rel="noopener" data-title="Adviser · Conversation mode"><img src="sb-adviser-voice.png?v=2" width="1024" height="533" loading="lazy" decoding="async" alt="Adviser in conversation mode: the user speaks a question, Adviser reads it and replies aloud."></a>
         <figcaption class="cs-caption cs-caption">Conversation mode: speak, pause, and hear the answer.</figcaption>
       </figure>
       <p class="aside-note aside-note--bubble aside-note--bubble-prefer-left cs-aside"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape" style="border-radius: 50% 50% 54% 46% / 46% 54% 47% 53%;"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span><span class="aside-note__bubble-text">An accountant that's available at 11 pm on a Sunday.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="sb-arrow-grad-adviser" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#sb-arrow-grad-adviser)"/><path d="M40 11 L34 8" stroke="url(#sb-arrow-grad-adviser)"/><path d="M40 11 L34 14" stroke="url(#sb-arrow-grad-adviser)"/></svg></span></span></span></p>
