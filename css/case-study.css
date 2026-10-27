@@ -4044,3 +4044,43 @@ body.case-study-page .result-card--bo .result-card__bo-text:only-of-type,
 body.case-study-page .result-card--bo .result-card__stat + .result-card__bo-text {
   margin-top: 8px !important;
 }
+
+/* =============================================================================
+   Back-office page only (body.backoffice-page) — four targeted fixes
+   ============================================================================= */
+
+body.backoffice-page .content.case-main > .bo-platform-line.cs-platform {
+  margin-top: 24px !important;
+}
+
+body.backoffice-page #campaign-templates table + h3.bo-subchapter {
+  margin-top: 72px !important;
+}
+
+body.backoffice-page .results-grid--bo-outcomes .result-card--bo:not(.result-card--bo-nostat) {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  grid-template-columns: unset !important;
+  gap: 0 !important;
+  min-height: unset !important;
+  height: auto !important;
+}
+
+body.backoffice-page .results-grid--bo-outcomes .result-card--bo .result-card__stat {
+  padding-top: 0 !important;
+  width: 100%;
+}
+
+body.backoffice-page .results-grid--bo-outcomes .result-card--bo .result-card__bo-text {
+  margin-top: 8px !important;
+}
+
+body.backoffice-page .results-grid--bo-outcomes .result-card--bo-nostat {
+  min-height: unset !important;
+  height: auto !important;
+}
+
+body.backoffice-page #design-system-interface div:has(> .ds-theme-row) + p {
+  margin-top: 48px !important;
+}
