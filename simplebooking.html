@@ -15,7 +15,7 @@
 <title>Simple Booking Accounting Application · Neda Bagheri</title>
 <meta name="description" content="Case study: redesigning Simple Booking, a developer-built accounting app, through workshops with its real users and AI-assisted implementation with Claude Code.">
 <link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
-<link rel="stylesheet" href="css/case-study.css?v=20261027">
+<link rel="stylesheet" href="css/case-study.css?v=20261027c">
 <link rel="stylesheet" href="css/simplebooking.css?v=20260408">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="preload" as="image" href="sb-hero.webp" type="image/webp" fetchpriority="high">
@@ -88,7 +88,7 @@
       <div class="sb-tldr cs-summary">
         <p><strong>The problem:</strong> A big accounting app, built by developers without a designer and never tested with users. Its core workflows were confusing, cluttered and sometimes unfinished.</p>
         <p><strong>What I did:</strong> Reviewed the whole app, built a roadmap with the PM, and ran workshops on each core area with all three real users. Then I redesigned those areas and built the new UI myself with Claude Code.</p>
-        <p><strong>Key decisions:</strong> An Overview sorted by urgency, clear statuses everywhere, search and filters for long lists, and payroll in small steps.</p>
+        <p><strong>Key decisions:</strong> An Overview sorted by urgency, clear statuses everywhere, search and filters for long lists, payroll in small steps, and Adviser, an AI assistant inside the app.</p>
         <p><strong>Status:</strong> About 50% redesigned and built. Formal testing of V2 is next.</p>
       </div>
     </div>
@@ -176,6 +176,10 @@
           <li><b>Unknown quote state</b> → visible statuses: sent, accepted, declined</li>
           <li><b>Form takes over the page</b> → new quote on demand</li>
         </ul>
+        <aside class="cs-tradeoff">
+          <div class="cs-tradeoff__label"><svg class="cs-tradeoff__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 5.5 5.5-1.5 1.5"/><path d="m2 16 3-8 5.5 5.5-1.5 1.5"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 7 2 7 2"/><path d="M21 7h-2c-2 0-5-1-7-2-2 1-7 2-7 2"/></svg><span>Trade-off</span></div>
+          <p class="cs-tradeoff__text">With one clear action per row, the less common actions are one step further away. For experienced users that's a small cost. But for people without accounting knowledge, always knowing the next step was worth more than having every option on the surface.</p>
+        </aside>
         <figure>
           <a class="sb-zoom" href="sb-quotes-before-after.png" target="_blank" rel="noopener" data-title="Quotes · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-quotes-before-after.webp" type="image/webp"><img src="sb-quotes-before-after.png" width="3000" height="1040" loading="lazy" decoding="async" alt="Quotes page before and after. Before: an always-open quote form, no overview or status filters, faint statuses and up to four look-alike buttons per row. After: form on demand, status filters with counts, one primary action with an icon per row, and aligned columns with next steps."></picture></div></a>
           <figcaption class="cs-caption cs-caption"><span>Dark mode</span><span class="sb-swipe-hint">Swipe to see the whole comparison</span><span>Click or tap to view full size</span></figcaption>
@@ -247,11 +251,47 @@
           <li><b>No sense of progress</b> → a step indicator</li>
           <li><b>No overview</b> → summary cards up front</li>
         </ul>
+        <aside class="cs-tradeoff">
+          <div class="cs-tradeoff__label"><svg class="cs-tradeoff__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 5.5 5.5-1.5 1.5"/><path d="m2 16 3-8 5.5 5.5-1.5 1.5"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 7 2 7 2"/><path d="M21 7h-2c-2 0-5-1-7-2-2 1-7 2-7 2"/></svg><span>Trade-off</span></div>
+          <p class="cs-tradeoff__text">Three short steps take more clicks than one long form. But the long form felt repetitive even though nothing was repeated. Fewer fields at a time, with a clear sense of progress, was worth the extra clicks.</p>
+        </aside>
         <figure>
           <a class="sb-zoom" href="sb-payroll-before-after.png" target="_blank" rel="noopener" data-title="Payroll · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-payroll-before-after.webp" type="image/webp"><img src="sb-payroll-before-after.png" width="2720" height="1576" loading="lazy" decoding="async" alt="Payroll before and after. Before: no overview, one giant form, dense hints, an easy-to-miss Add button. After: summary cards, an Add new employee button, and a three-step flow with fewer fields per step."></picture></div></a>
           <figcaption class="cs-caption cs-caption"><span>Light mode</span><span class="sb-swipe-hint">Swipe to see the whole comparison</span><span>Click or tap to view full size</span></figcaption>
         </figure>
       </article>
+    </div>
+  </section>
+
+  <!-- Adviser -->
+  <section class="sb-section section" aria-labelledby="adviser">
+    <div class="sb-wrap">
+      <div class="section-header">
+        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div>
+        <div class="section-headings"><h2 class="section-chapter" id="adviser">Adviser: help without leaving the page</h2><p class="section-subtitle">AI assistant · My idea, my design, my front-end</p></div>
+      </div>
+      <div class="sb-text">
+        <p>Even with clearer screens, accounting raises questions. So the redesign includes Adviser, an AI assistant that opens in a side panel next to the user's work. Nobody has to leave the page, search a help centre or call an accountant.</p>
+        <p>Adviser started as an idea the team wasn't sure about. I designed it to show what it could be, and the team decided to build it. Because so much of it depended on the back end, I worked closely with the back-end team through many sessions to shape how it should work, then finalised the design and built the front-end myself.</p>
+      </div>
+      <figure class="sb-ds-sheet">
+        <a class="sb-zoom" href="sb-adviser.png" target="_blank" rel="noopener" data-title="Adviser · Support and answers"><img src="sb-adviser.png" width="1024" height="533" loading="lazy" decoding="async" alt="Simple Booking's Adviser panel next to the Overview: a user asks for a support ticket and Adviser confirms it was created, then answers whether two of the user's companies affect each other's revenue."></a>
+        <figcaption class="cs-caption cs-caption">Adviser answers in plain language, and creates a support ticket when it can't help.</figcaption>
+      </figure>
+      <div class="mob-methods-grid cs-card-grid">
+        <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></span><div><h4>Ask in your own words</h4><p class="finding-text">Users type a question the way they'd ask a person, like whether two of their companies affect each other's revenue, and get a clear answer without accounting terms.</p></div></div>
+        <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span><div><h4>Understand your numbers</h4><p class="finding-text">Adviser explains revenue and reports in everyday language, so owners know where they stand.</p></div></div>
+        <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></span><div><h4>Speak instead of type</h4><p class="finding-text">In conversation mode, users just talk. They pause, the question is sent, and the answer is read aloud. Useful when typing is hard or the keyboard gets in the way.</p></div></div>
+        <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg></span><div><h4>Never stuck</h4><p class="finding-text">When Adviser can't solve a problem, it creates a support ticket and confirms it right in the chat, so a real person follows up.</p></div></div>
+      </div>
+      <figure class="sb-ds-sheet">
+        <a class="sb-zoom" href="sb-adviser-voice.png" target="_blank" rel="noopener" data-title="Adviser · Conversation mode"><img src="sb-adviser-voice.png" width="1024" height="533" loading="lazy" decoding="async" alt="Adviser in conversation mode: the user speaks a question, Adviser reads it and replies aloud."></a>
+        <figcaption class="cs-caption cs-caption">Conversation mode: speak, pause, and hear the answer.</figcaption>
+      </figure>
+      <p class="aside-note aside-note--bubble aside-note--bubble-prefer-left cs-aside"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape" style="border-radius: 50% 50% 54% 46% / 46% 54% 47% 53%;"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span><span class="aside-note__bubble-text">An accountant that's available at 11 pm on a Sunday.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="sb-arrow-grad-adviser" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#sb-arrow-grad-adviser)"/><path d="M40 11 L34 8" stroke="url(#sb-arrow-grad-adviser)"/><path d="M40 11 L34 14" stroke="url(#sb-arrow-grad-adviser)"/></svg></span></span></span></p>
+      <div class="sb-text">
+        <p>It closes the loop on the question behind the whole redesign: owners can do their accounting alone, but they're never stuck alone.</p>
+      </div>
     </div>
   </section>
 
