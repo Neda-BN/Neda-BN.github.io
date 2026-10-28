@@ -824,3 +824,80 @@ footer::before {
     padding-bottom: 80px;
   }
 }
+
+/* ── Proof stat hover: travelling stroke glow (homepage) ── */
+@supports (background: conic-gradient(from 0deg, red, blue)) {
+  @property --glow-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+}
+
+.proof-strip__link {
+  position: relative;
+  border: 1px solid transparent;
+  transition: border-color 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.proof-strip__link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  pointer-events: none;
+  opacity: 0;
+  box-sizing: border-box;
+  background: conic-gradient(
+    from var(--glow-angle, 0deg),
+    transparent 0deg,
+    transparent 290deg,
+    rgba(138, 164, 214, 0.9) 335deg,
+    rgba(200, 214, 240, 1) 350deg,
+    transparent 360deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  transition: opacity 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.proof-strip__link:hover,
+.proof-strip__link:focus-visible {
+  background: transparent;
+  border-color: rgba(138, 164, 214, 0.35);
+  outline: none;
+}
+
+.proof-strip__link:hover::before,
+.proof-strip__link:focus-visible::before {
+  opacity: 1;
+}
+
+@supports (background: conic-gradient(from var(--glow-angle), red, blue)) {
+  .proof-strip__link:hover::before,
+  .proof-strip__link:focus-visible::before {
+    animation: proof-stat-glow-travel 3.5s linear infinite;
+  }
+}
+
+@keyframes proof-stat-glow-travel {
+  to {
+    --glow-angle: 360deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .proof-strip__link::before {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+
+  .proof-strip__link:hover,
+  .proof-strip__link:focus-visible {
+    background: transparent;
+    border-color: rgba(138, 164, 214, 0.35);
+  }
+}
