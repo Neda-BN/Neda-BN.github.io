@@ -160,9 +160,13 @@
 @media (max-width: 420px) {
   .hero-v6__name {
     white-space: normal;
+    font-size: clamp(28px, 10.2vw, 40px);
   }
   .hero-v6__name-break {
     display: block;
+  }
+  .hero-v6__name-last {
+    white-space: nowrap;
   }
 }
 
