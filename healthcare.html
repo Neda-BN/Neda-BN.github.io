@@ -81,7 +81,14 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   .wizard-step:hover,.wizard-step:focus-within{transform:translateY(-4px) translateZ(8px) rotateX(4deg);box-shadow:0 14px 36px rgba(26,26,26,.08);border-color:rgba(59, 130, 246,.35);}
   .hc-wizard-hero{margin-bottom:24px;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:var(--surface);}
   .hc-wizard-hero img{width:100%;height:auto;display:block;vertical-align:middle;}
+  .hc-wizard-preview{display:grid;grid-template-columns:1fr;gap:24px;margin-top:clamp(24px,3vw,32px);}
+  @media (min-width:860px){.hc-wizard-preview{grid-template-columns:repeat(2,minmax(0,1fr));}}
   .hc-wizard-gallery{display:flex;flex-direction:column;gap:clamp(28px,4vw,40px);margin-top:clamp(24px,3vw,32px);}
+  .mob-screens-collapsed{margin-top:28px;border:1px solid var(--border);border-radius:12px;padding:16px 20px 20px;background:var(--surface);}
+  .mob-screens-collapsed summary{cursor:pointer;font-size:14px;font-weight:600;color:var(--dark);list-style:none;}
+  .mob-screens-collapsed summary::-webkit-details-marker{display:none;}
+  .mob-screens-collapsed .screens-section{margin-top:20px;}
+  .mob-screens-collapsed .hc-wizard-gallery{margin-top:0;}
   .hc-wizard-shot{margin:0;display:flex;flex-direction:column;gap:14px;}
   .hc-wizard-shot__frame{width:100%;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:var(--surface);box-shadow:0 4px 20px rgba(0,0,0,.06);}
   .hc-wizard-shot__frame img{width:100%;height:auto;display:block;vertical-align:middle;}
@@ -731,16 +738,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       </figure>
     </div>
     <p class="image-caption cs-caption">Workshop: grouping ideas and prioritising them as Must, Should and Could.</p>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- HIERARCHY DESIGN -->
-  <section class="section fade-in reveal case-anchor" id="hierarchy-design">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Hierarchy design</h2><p class="section-subtitle">Showing one level at a time</p></div>
-    </div>
+    <h3 class="hc-results-subhead">Showing one level at a time</h3>
     <p>Showing every administrative level at once created long, impenetrable lists. So the platform shows one level at a time.</p>
     <table class="cs-table data-table cs-table-align">
       <thead><tr><th>Level</th><th>Description</th><th>Design solution</th></tr></thead>
@@ -771,7 +769,26 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <div class="wizard-step"><div class="wizard-step-num">06</div><h4>Send</h4><p>Send to all chosen recipients at once.</p></div>
     </div>
 
-    <div class="hc-wizard-gallery reveal reveal-media">
+    <div class="hc-wizard-preview reveal reveal-media">
+      <figure class="hc-wizard-shot">
+        <div class="hc-wizard-shot__frame">
+          <img src="Select Survey Type.png" alt="Create survey dialog offering manual build or starting from a predefined HVB or LSS template." width="1751" height="1117" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="cs-caption cs-caption hc-wizard-caption">Choosing a starting point: build manually or start from a predefined HVB/LSS template.</figcaption>
+      </figure>
+
+      <figure class="hc-wizard-shot">
+        <div class="hc-wizard-shot__frame">
+          <img src="Survey Preview.png" alt="Send confirmation with a live respondent-facing survey preview alongside distribution summary." width="1751" height="1117" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="cs-caption cs-caption hc-wizard-caption">Send confirmation with a live respondent-facing preview.</figcaption>
+      </figure>
+    </div>
+
+    <details class="mob-screens-collapsed reveal reveal-media">
+      <summary>See all 8 screens</summary>
+    <div class="screens-section">
+    <div class="hc-wizard-gallery">
       <figure class="hc-wizard-shot">
         <div class="hc-wizard-shot__frame">
           <img src="Survey Builder.png" alt="Surveys section showing HVB and LSS survey templates organised by type in the healthcare platform sidebar." width="1751" height="1117" loading="lazy" decoding="async">
@@ -828,6 +845,8 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
         <figcaption class="cs-caption cs-caption hc-wizard-caption">Send confirmation with a live respondent-facing preview.</figcaption>
       </figure>
     </div>
+    </div>
+    </details>
 
   </section>
 
@@ -922,15 +941,6 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
     </ol>
 
     <p>Together, these point towards the 40% target, but a real reduction in workload can only be confirmed with usage over time. That's the next thing to measure as the customer base grows.</p>
-
-    <div class="hc-wizard-gallery reveal reveal-media">
-      <figure class="hc-wizard-shot">
-        <div class="hc-wizard-shot__frame">
-          <img src="healthcare-scoring-traffic-light-dashboard.png?v=20260324" alt="Analytics dashboard with traffic-light performance scoring across municipalities." width="1024" height="673" loading="lazy" decoding="async" sizes="(max-width:900px) 100vw, 820px">
-        </div>
-        <figcaption class="cs-caption cs-caption hc-wizard-caption">Real-time performance overview — managers can instantly identify which municipalities need attention</figcaption>
-      </figure>
-    </div>
 
     <p>Before, administrators had a separate email thread for every municipality. Now they have one live view of who has answered in each municipality, and reports built from live data instead of copied by hand.</p>
   </section>
