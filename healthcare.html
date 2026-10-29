@@ -214,8 +214,8 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   .hc-persona-table-wrap{margin:0;overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:10px;}
   .hc-persona-table{width:100%;border-collapse:collapse;margin:0;background:var(--surface);border-radius:10px;overflow:hidden;border:1px solid var(--border);font-size:14px;}
   .hc-persona-table th[scope="row"]{
-    background:#EEF6F4;
-    color:#0d5c4d;
+    background:var(--surface-2);
+    color:var(--text);
     font-family:var(--font-body);
     font-size:15px;
     font-weight:600;
@@ -234,14 +234,14 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
     font-size:15px;
     padding:12px 20px;
     border-bottom:1px solid var(--border);
-    color:#3a3a3a;
+    color:var(--muted);
     vertical-align:top;
     line-height:1.5;
     font-weight:400;
   }
   .hc-persona-table tr:last-child th,.hc-persona-table tr:last-child td{border-bottom:none;}
-  .hc-persona-table tr:nth-child(even) th{background:#E4F0EC;}
-  .hc-persona-table tr:nth-child(even) td{background:#FAFAF8;}
+  .hc-persona-table tr:nth-child(even) th{background:rgba(255,255,255,0.03);}
+  .hc-persona-table tr:nth-child(even) td{background:rgba(255,255,255,0.02);}
   .hc-persona-quote{
     font-family:var(--serif);
     font-size:16px;
@@ -440,23 +440,18 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260407">
 <style>
-  /* Persona (#persona) — compact layout; overrides shared case-study.css */
-  @media (min-width:1100px){
-    body.case-study-page #persona .hc-persona-panel{
-      display:grid;
-      grid-template-columns:minmax(0,62fr) minmax(0,38fr);
-      gap:24px;
-      align-items:start;
-      padding:24px !important;
-    }
-    body.case-study-page #persona .hc-persona-panel .cs-quote.cs-quote--inset{
-      margin:0 !important;
-    }
+  /* Persona (#persona) — compact, dark, stacked (table then quote) */
+  body.case-study-page #persona .hc-persona-panel{
+    padding:24px !important;
   }
-  @media (max-width:1099.98px){
-    body.case-study-page #persona .hc-persona-panel .cs-quote.cs-quote--inset{
-      margin:24px 0 0 !important;
-    }
+  body.case-study-page #persona .hc-persona-panel .cs-quote.cs-quote--inset{
+    margin:24px 0 0 !important;
+    padding:20px 24px !important;
+    max-width:none !important;
+    width:100%;
+    box-sizing:border-box;
+    background:rgba(255,255,255,0.02);
+    border-color:var(--border);
   }
   body.case-study-page #persona .hc-persona-table th[scope="row"]{
     font-family:var(--font-body,'Poppins',sans-serif) !important;
@@ -469,8 +464,8 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
     max-width:180px !important;
     min-width:180px !important;
     line-height:1.5 !important;
-    background:#EEF6F4 !important;
-    color:#0d5c4d !important;
+    background:var(--surface-2) !important;
+    color:var(--text) !important;
     border-color:var(--border) !important;
   }
   body.case-study-page #persona .hc-persona-table td{
@@ -479,20 +474,15 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
     font-weight:400 !important;
     line-height:1.5 !important;
     padding:12px 20px !important;
-    color:#3a3a3a !important;
+    color:var(--muted) !important;
     border-color:var(--border) !important;
+    background:transparent !important;
   }
   body.case-study-page #persona .hc-persona-table tr:nth-child(even) th{
-    background:#E4F0EC !important;
+    background:rgba(255,255,255,0.04) !important;
   }
   body.case-study-page #persona .hc-persona-table tr:nth-child(even) td{
-    background:#FAFAF8 !important;
-  }
-  body.case-study-page #persona .hc-persona-panel .cs-quote.cs-quote--inset{
-    padding:20px 24px !important;
-    max-width:none !important;
-    width:100%;
-    box-sizing:border-box;
+    background:rgba(255,255,255,0.02) !important;
   }
   body.case-study-page #persona .hc-persona-panel .cs-quote.cs-quote--inset p{
     font-family:var(--font-body,'Poppins',sans-serif) !important;
@@ -500,6 +490,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
     font-size:17px !important;
     font-style:normal !important;
     line-height:1.5 !important;
+    color:var(--text) !important;
   }
   body.case-study-page #persona .hc-persona-panel .cs-quote.cs-quote--inset cite{
     font-family:var(--font-mono,'IBM Plex Mono',monospace) !important;
@@ -507,9 +498,14 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
     font-style:normal !important;
     margin-top:12px !important;
     display:block;
+    color:var(--muted) !important;
   }
   body.case-study-page #persona .hc-persona-panel .cs-quote__icon{
     margin:0 0 8px !important;
+  }
+  body.case-study-page #persona .hc-persona-table{
+    background:var(--surface) !important;
+    border-color:var(--border) !important;
   }
 </style>
 </head>
@@ -619,7 +615,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Persona</h2><p class="section-subtitle">Anna Andersson · Primary persona</p></div>
     </div>
-    <aside class="hc-persona-panel">
+    <aside class="hc-persona-panel wide">
       <div class="hc-persona-table-wrap">
       <table class="cs-table hc-persona-table">
         <tbody>
