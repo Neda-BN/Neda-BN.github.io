@@ -882,33 +882,44 @@ footer::before {
 
 /* Contact strip: visible email + CV request */
 .footer-strip__reach {
-  margin: 20px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 32px auto 0;
   max-width: min(100%, 36em);
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
-  color: var(--muted);
 }
 
 .footer-strip__reach-link {
-  color: var(--muted);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.footer-strip__reach-link:hover {
+.footer-strip__reach-link--email {
+  color: var(--muted);
+}
+
+.footer-strip__reach-link--email:hover {
   color: var(--text);
+}
+
+.footer-strip__reach-link--cv {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.footer-strip__reach-link--cv:hover {
+  color: var(--accent-strong);
 }
 
 .footer-strip__reach-link:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 4px;
   border-radius: 4px;
-}
-
-.footer-strip__reach-sep {
-  color: var(--muted);
 }
 
 footer .footer-social a.footer-social__email {
