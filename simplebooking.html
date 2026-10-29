@@ -63,6 +63,13 @@
     transform: none !important;
     image-rendering: auto;
   }
+  .case-study-page .sb-case .cs-structure--five .cs-structure__branches {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  .case-study-page .sb-case .cs-structure--five .cs-structure__branches::before {
+    left: 10%;
+    right: 10%;
+  }
 </style>
 </head>
 <body class="has-anna-nav case-study-page">
@@ -104,7 +111,7 @@
 
       <div class="sb-tldr cs-summary">
         <p><strong>The problem:</strong> A big accounting app, built by developers without a designer and never tested with users. Its core workflows were confusing, cluttered and sometimes unfinished.</p>
-        <p><strong>What I did:</strong> Reviewed the whole app, built a roadmap with the PM, and ran workshops on each core area with all three real users. Then I redesigned those areas, proposed and designed Adviser, an AI assistant, and built the new UI myself with Claude Code.</p>
+        <p><strong>What I did:</strong> Reviewed the whole app, built a roadmap with the PM, and ran workshops on each core area with all three real users. Then I restructured the information architecture, redesigned those areas, proposed and designed Adviser, an AI assistant, and built the new UI myself with Claude Code.</p>
         <p><strong>Key decisions:</strong> An Overview sorted by urgency, clear statuses everywhere, search and filters for long lists, payroll in small steps, and Adviser, an AI assistant inside the app.</p>
         <p><strong>Status:</strong> About 50% redesigned and built. Formal testing of V2 is next.</p>
       </div>
@@ -145,6 +152,64 @@
         <li><h4>Testing in real work</h4><p>All three users did real tasks in their own environment, and I watched one of them in person.</p></li>
         <li><h4>Finding patterns</h4><p>I compared what the three users said and did, and turned it into design decisions.</p></li>
       </ol>
+    </div>
+  </section>
+
+  <!-- Information architecture -->
+  <section class="sb-section section" aria-labelledby="information-architecture">
+    <div class="sb-wrap">
+      <div class="section-header">
+        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+        <div class="section-headings"><h2 class="section-chapter" id="information-architecture">Information architecture</h2><p class="section-subtitle">Built around the business, not the database</p></div>
+      </div>
+      <div class="sb-text">
+        <p>The old app was organised around its database. I restructured the information architecture around how owners think about their business. The Overview comes first, so what needs attention is always the starting point, and the rest of the work is grouped into five clear areas.</p>
+      </div>
+      <div class="cs-structure wide cs-structure--five" aria-label="Simple Booking information architecture">
+        <div class="cs-structure__canvas">
+          <div class="cs-structure__spine">
+            <div class="cs-structure__card cs-structure__card--top">
+              <span class="cs-structure__icon-chip" aria-hidden="true"><svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M9 13v2"/><path d="M15 13v2"/></svg></span>
+              <p class="cs-structure__title">Adviser</p>
+              <p class="cs-structure__line">Available on every page, in a side panel</p>
+            </div>
+            <div class="cs-structure__connector" aria-hidden="true"></div>
+            <div class="cs-structure__card cs-structure__card--hub">
+              <span class="cs-structure__icon-chip cs-structure__icon-chip--hub" aria-hidden="true"><svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg></span>
+              <p class="cs-structure__title">Overview</p>
+              <p class="cs-structure__line">What needs your attention, first</p>
+            </div>
+            <div class="cs-structure__connector cs-structure__connector--stem" aria-hidden="true"></div>
+          </div>
+          <div class="cs-structure__branches">
+            <div class="cs-structure__card cs-structure__card--branch">
+              <span class="cs-structure__icon-chip" aria-hidden="true"><svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6"/><path d="M16 12h-6"/><path d="M10 16h6"/></svg></span>
+              <p class="cs-structure__title">Everyday</p>
+              <p class="cs-structure__line">Receipts · New transaction · Bank</p>
+            </div>
+            <div class="cs-structure__card cs-structure__card--branch">
+              <span class="cs-structure__icon-chip" aria-hidden="true"><svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span>
+              <p class="cs-structure__title">Sales</p>
+              <p class="cs-structure__line">Invoices</p>
+            </div>
+            <div class="cs-structure__card cs-structure__card--branch">
+              <span class="cs-structure__icon-chip" aria-hidden="true"><svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.684-.948l-4.493-1.498a1 1 0 0 1-.578-.502l-1.539-3.076A1 1 0 0 0 12.382 8H11.5a1 1 0 0 0-1 1v9"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg></span>
+              <p class="cs-structure__title">Purchases</p>
+              <p class="cs-structure__line">Suppliers</p>
+            </div>
+            <div class="cs-structure__card cs-structure__card--branch">
+              <span class="cs-structure__icon-chip" aria-hidden="true"><svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+              <p class="cs-structure__title">People</p>
+              <p class="cs-structure__line">Payroll · Approvers</p>
+            </div>
+            <div class="cs-structure__card cs-structure__card--branch">
+              <span class="cs-structure__icon-chip" aria-hidden="true"><svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></span>
+              <p class="cs-structure__title">Accounting</p>
+              <p class="cs-structure__line">Journal entries · Reports · Reconciliation</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 

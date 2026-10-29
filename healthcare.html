@@ -472,9 +472,9 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 
   <div class="hc-tldr fade-in reveal cs-summary">
     <p><strong>The problem:</strong> Administrators sent healthcare quality surveys to social workers across many municipalities, using Outlook, Excel and shared folders. Nobody could see who had answered, and reports took weeks.</p>
-    <p><strong>What I did:</strong> Interviewed 4 quality managers, mapped the whole survey workflow, designed the platform and tested it with 5 administrators. I also built 100% of the front-end myself with Cursor.</p>
+    <p><strong>What I did:</strong> Interviewed 4 quality managers, mapped the whole survey workflow, designed the information architecture and the platform, and tested it with 5 administrators. I also built 100% of the front-end myself with Cursor.</p>
     <p><strong>Key decisions:</strong> A six-step wizard for sending surveys, a hierarchy that opens one level at a time, and traffic-light performance scoring.</p>
-    <p><strong>Result:</strong> A production-ready, WCAG-compliant platform in under eight weeks. In testing, creating and sending a survey went from about 2 hours to about 15 minutes. The platform has launched with two customers and is used across 30+ Swedish municipalities.</p>
+    <p><strong>Result:</strong> A production-ready, WCAG-compliant platform in under eight weeks. In testing, creating and sending a survey went from about 2 hours to about 15 minutes. The platform has launched with two customers and is used in several Swedish municipalities.</p>
   </div>
 
 
@@ -490,7 +490,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
     <p>The platform started as an idea from my manager at Focalpay and became its own B2B SaaS product: one place to create surveys, send them, track answers and analyse results. Our goal was to <strong>cut administrators' workload by an estimated 40%</strong>, without lowering data quality.</p>
     <p>I led UX and UI end to end, from research to final screens, and built the whole front-end myself, since there was no front-end developer on the team. I worked closely with the PM, stakeholders and the back-end team, and designed to WCAG guidelines across mobile, tablet and desktop.</p>
     <div class="results-grid cs-stat-grid">
-      <div class="result-card cs-stat"><div class="result-number">30+</div><div class="result-label">Swedish municipalities the platform is used across</div></div>
+      <div class="result-card cs-stat"><div class="result-number">4</div><div class="result-label">Administrative levels to navigate: providers, municipalities, districts and social workers</div></div>
       <div class="result-card cs-stat"><div class="result-number">8–10h</div><div class="result-label">Per week spent on manual tracking</div></div>
       <div class="result-card cs-stat"><div class="result-number">2 wks</div><div class="result-label">To prepare a single quarterly report</div></div>
     </div>
@@ -709,9 +709,9 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <section class="section fade-in reveal case-anchor" id="process-workflow">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Process</h2><p class="section-subtitle">Making a complex structure simple to use</p></div>
+      <div class="section-headings"><h2 class="section-chapter">Information architecture</h2><p class="section-subtitle">Connecting care units, surveys, respondents and results</p></div>
     </div>
-    <p>The platform had to handle four levels: providers, municipalities, districts and individual social workers, for people who were already busy. Mapping the workflow showed three big time sinks: setting up a send, tracking answers and quarterly reporting.</p>
+    <p>I designed the information architecture that connects care units, surveys, respondents and results, for people who were already busy. The platform had to handle four levels: providers, municipalities, districts and individual social workers. Mapping the workflow showed three big time sinks: setting up a send, tracking answers and quarterly reporting.</p>
     <p>In a workshop, we grouped ideas into building the survey, sending it out, keeping track and reading the results, and prioritised them as Must, Should and Could. That became the platform's three main sections: Surveys, Analysis and Reports.</p>
     <div class="reveal reveal-media">
       <figure class="hc-figure-process-board wide">
@@ -743,7 +743,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <thead><tr><th>Level</th><th>Description</th><th>Design solution</th></tr></thead>
       <tbody>
         <tr><td><strong>Provider</strong></td><td>Top-level healthcare organisation</td><td>Always visible in the sidebar, which can be collapsed</td></tr>
-        <tr><td><strong>Municipality</strong></td><td>Many per provider; used across 30+</td><td>Opens with one tap to show its districts</td></tr>
+        <tr><td><strong>Municipality</strong></td><td>Many per provider</td><td>Opens with one tap to show its districts</td></tr>
         <tr><td><strong>District</strong></td><td>Sub-units within each municipality</td><td>Opens inside the municipality, one level at a time</td></tr>
         <tr><td><strong>Social Worker</strong></td><td>Individual survey respondents</td><td>Only shown when a district is selected</td></tr>
       </tbody>
@@ -939,7 +939,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
       <div class="section-headings"><h2 class="section-chapter">Where it is now, and what I learned</h2></div>
     </div>
-    <p>The platform has launched with two customers and is used across 30+ Swedish municipalities, and the team is working on reaching more. Next, we'll measure what testing couldn't: time per survey cycle, response rates and reporting time.</p>
+    <p>The platform has launched with two customers and is used in several Swedish municipalities, and the team is working on reaching more. Next, we'll measure what testing couldn't: time per survey cycle, response rates and reporting time.</p>
     <div class="lessons-list">
       <div class="lesson-item cs-learn"><div class="lesson-num">01</div><div class="lesson-text"><h4>Show complex structures step by step.</h4><p>I didn't remove levels; I showed one at a time, so each step felt easy.</p></div></div>
       <div class="lesson-item cs-learn"><div class="lesson-num">02</div><div class="lesson-text"><h4>Guided steps help people feel safe.</h4><p>Administrators aren't afraid of technology. They're careful, because mistakes are serious. A wizard that checks each step gave them confidence nobody would be missed.</p></div></div>
