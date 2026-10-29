@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
+<title>404 · Product not found · Neda Bagherinezhad</title>
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/case-study.css">
+<script src="/js/site-nav.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { overflow-x: clip; color-scheme: dark; }
+  body.page-404 {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    isolation: isolate;
+  }
+
+  .page-404__bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      linear-gradient(180deg, #0b0c10 0%, #101218 45%, #0b0c10 100%);
+  }
+
+  .page-404__bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 55% at 50% -8%, rgba(138, 164, 214, 0.22) 0%, transparent 58%),
+      radial-gradient(ellipse 45% 40% at 88% 72%, rgba(224, 138, 138, 0.08) 0%, transparent 55%),
+      radial-gradient(ellipse 40% 35% at 8% 68%, rgba(138, 164, 214, 0.1) 0%, transparent 50%);
+  }
+
+  .page-404__bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.35;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 42%, #000 20%, transparent 72%);
+  }
+
+  .page-404__main {
+    position: relative;
+  }
+
+  .page-404__main::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 18%;
+    width: min(520px, 92vw);
+    height: 320px;
+    transform: translateX(-50%);
+    background: radial-gradient(circle, rgba(138, 164, 214, 0.16) 0%, transparent 68%);
+    filter: blur(8px);
+    pointer-events: none;
+  }
+
+  .anna-nav {
+    position: fixed;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    gap: 40px;
+    flex-wrap: nowrap;
+    justify-content: center;
+    padding: calc(24px + env(safe-area-inset-top, 0px)) 20px 24px;
+    background: rgba(11, 12, 16, 0.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .anna-nav__pill { display: contents; }
+
+  .anna-nav a { pointer-events: auto; }
+
+  .anna-nav__pill a {
+    position: relative;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 8px 4px;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+  }
+
+  .anna-nav__pill a:hover { color: var(--text); }
+
+  .anna-nav__pill a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+  }
+
+  body.has-anna-nav main {
+    padding-top: max(72px, calc(env(safe-area-inset-top, 0px) + 56px));
+  }
+
+  body.page-404 footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 28px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    border-top: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  body.page-404 footer p {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  body.page-404 .footer-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  body.page-404 .footer-built__link {
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+  }
+
+  body.page-404 .footer-built__link:hover { color: var(--accent); }
+
+  body.page-404 .footer-social {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  body.page-404 .footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    background: transparent;
+    text-decoration: none;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  body.page-404 .footer-social a:hover {
+    color: var(--text);
+    border-color: var(--accent);
+  }
+
+  body.page-404 .footer-social a.footer-social__email {
+    width: auto;
+    height: auto;
+    min-height: 44px;
+    padding: 0 14px;
+    font-size: 14px;
+  }
+
+  body.page-404 .footer-social svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  @media (max-width: 809.98px) {
+    .anna-nav {
+      gap: 28px;
+      padding: calc(16px + env(safe-area-inset-top, 0px)) 12px 16px;
+    }
+
+    body.has-anna-nav main {
+      padding-top: max(64px, calc(env(safe-area-inset-top, 0px) + 52px));
+    }
+
+    body.page-404 footer {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 24px;
+    }
+  }
+
+  .page-404__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 120px);
+    padding: clamp(24px, 5vw, 48px) clamp(16px, 4vw, 24px) clamp(48px, 8vw, 72px);
+  }
+
+  .page-404__card {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    background:
+      linear-gradient(165deg, rgba(30, 30, 38, 0.92) 0%, rgba(22, 22, 28, 0.98) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 40px;
+    text-align: center;
+    opacity: 0;
+    transform: scale(0.96);
+    animation: page-404-enter 600ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    box-shadow:
+      0 0 0 1px rgba(138, 164, 214, 0.06) inset,
+      0 24px 64px rgba(0, 0, 0, 0.55),
+      0 8px 24px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    overflow: hidden;
+  }
+
+  .page-404__card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 16%;
+    right: 16%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(138, 164, 214, 0.55), transparent);
+    opacity: 0.9;
+  }
+
+  .page-404__card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .page-404__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding: 6px 12px 6px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: rgba(11, 12, 16, 0.55);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .page-404__eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #6ee7a0;
+    box-shadow: 0 0 10px rgba(110, 231, 160, 0.65);
+    animation: page-404-pulse 2.4s ease-in-out infinite;
+  }
+
+  @keyframes page-404-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.65; transform: scale(0.92); }
+  }
+
+  .page-404__scanner {
+    position: relative;
+    display: inline-block;
+    padding: 18px 22px 16px;
+    border-radius: 16px;
+    background:
+      linear-gradient(180deg, rgba(8, 9, 12, 0.95) 0%, rgba(14, 15, 20, 0.98) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.04),
+      inset 0 -12px 24px rgba(0, 0, 0, 0.35),
+      0 12px 28px rgba(0, 0, 0, 0.35);
+  }
+
+  .page-404__scanner-corners {
+    position: absolute;
+    inset: 10px;
+    pointer-events: none;
+    border-radius: 10px;
+  }
+
+  .page-404__scanner-corners::before,
+  .page-404__scanner-corners::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-color: rgba(138, 164, 214, 0.45);
+    border-style: solid;
+  }
+
+  .page-404__scanner-corners::before {
+    top: 0;
+    left: 0;
+    border-width: 2px 0 0 2px;
+    border-radius: 4px 0 0 0;
+  }
+
+  .page-404__scanner-corners::after {
+    bottom: 0;
+    right: 0;
+    border-width: 0 2px 2px 0;
+    border-radius: 0 0 4px 0;
+  }
+
+  @keyframes page-404-enter {
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .page-404__scan-btn {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 16px;
+    color: var(--text);
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .page-404__scan-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .page-404__scan-btn:active {
+    transform: translateY(0);
+  }
+
+  .page-404__scan-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 6px;
+  }
+
+  .page-404__barcode {
+    position: relative;
+    display: block;
+    width: 220px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: rgba(237, 237, 240, 0.04);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  .page-404__barcode svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .page-404__laser {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 2px;
+    background: #E08A8A;
+    box-shadow: 0 0 12px rgba(224, 138, 138, 0.6);
+    pointer-events: none;
+    animation: page-404-laser 2.4s ease-in-out infinite;
+  }
+
+  @keyframes page-404-laser {
+    0%, 100% { top: 0; }
+    50% { top: calc(100% - 2px); }
+  }
+
+  .page-404__laser.is-flash {
+    background: #f0a8a8;
+    box-shadow: 0 0 18px rgba(224, 138, 138, 0.95);
+  }
+
+  .page-404__beep {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--bg);
+    background: var(--accent);
+    border-radius: 999px;
+    padding: 4px 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 180ms ease;
+  }
+
+  .page-404__beep.is-visible {
+    opacity: 1;
+    animation: page-404-beep 250ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  @keyframes page-404-beep {
+    from { transform: translateX(-50%) scale(0.8); }
+    to { transform: translateX(-50%) scale(1); }
+  }
+
+  .page-404__code {
+    margin-top: 28px;
+    font-family: var(--font-body);
+    font-size: clamp(56px, 10vw, 88px);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    background: linear-gradient(180deg, #b8ccef 0%, var(--accent) 42%, #6f8bc4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: none;
+    filter: drop-shadow(0 8px 24px rgba(138, 164, 214, 0.25));
+  }
+
+  .page-404__title {
+    margin-top: 12px;
+    font-family: var(--font-body);
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.2;
+  }
+
+  .page-404__lede {
+    margin: 16px auto 0;
+    max-width: 440px;
+    font-family: var(--font-body);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .page-404__scan-result {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(11, 12, 16, 0.65);
+    border: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--muted);
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  }
+
+  .page-404__scan-result strong {
+    font-weight: 400;
+    color: #e08a8a;
+  }
+
+  .page-404__path {
+    color: var(--text);
+  }
+
+  .page-404__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .hero-v6__btn {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    padding: 14px 28px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .hero-v6__btn--primary {
+    background: var(--accent);
+    color: var(--bg);
+    border: 1px solid transparent;
+    box-shadow: 0 8px 24px rgba(138, 164, 214, 0.28);
+  }
+
+  .hero-v6__btn--primary:hover {
+    background: var(--accent-strong);
+    box-shadow: 0 10px 28px rgba(138, 164, 214, 0.34);
+    transform: translateY(-1px);
+  }
+
+  .hero-v6__btn--secondary {
+    background: rgba(11, 12, 16, 0.35);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  .hero-v6__btn--secondary:hover {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+
+  .hero-v6__btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .page-404__popular-label {
+    margin-top: 32px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .page-404__chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .page-404__chip {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: rgba(11, 12, 16, 0.45);
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text);
+    text-decoration: none;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  }
+
+  .page-404__chip:hover {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    transform: translateY(-1px);
+  }
+
+  .page-404__chip:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .page-404__note-wrap {
+    width: 100%;
+    max-width: 560px;
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .page-404__note-wrap .aside-note {
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    padding: 12px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(138, 164, 214, 0.22);
+    background: rgba(138, 164, 214, 0.08);
+    max-width: 100%;
+  }
+
+  .page-404__divider {
+    height: 1px;
+    margin: 28px 0 0;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  @media (max-width: 640px) {
+    .page-404__card {
+      padding: 28px;
+    }
+
+    .page-404__actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .page-404__actions .hero-v6__btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .page-404__card {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    .page-404__eyebrow-dot {
+      animation: none;
+    }
+
+    .page-404__scan-btn:hover,
+    .page-404__scan-btn:active,
+    .page-404__chip:hover,
+    .hero-v6__btn--primary:hover {
+      transform: none;
+    }
+
+    .page-404__laser {
+      animation: none;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .page-404__beep.is-visible {
+      animation: none;
+      transform: translateX(-50%) scale(1);
+    }
+  }
+</style>
+</head>
+<body class="has-anna-nav case-study-page page-404">
+
+<div class="page-404__bg" aria-hidden="true"></div>
+
+<header class="anna-nav anna-nav--intro-visible" id="site-nav" aria-label="Primary">
+  <div class="anna-nav__pill">
+    <a href="/index.html#hero">Home</a>
+    <a href="/index.html#projects">Work</a>
+    <a href="/about.html">About</a>
+  </div>
+  <div class="anna-nav__pill">
+    <a href="/index.html#contact">Contact</a>
+  </div>
+</header>
+
+<main class="page-404__main" id="main">
+  <article class="page-404__card" aria-labelledby="404-title">
+    <p class="page-404__eyebrow"><span class="page-404__eyebrow-dot" aria-hidden="true"></span> Scanner ready · SKU lookup</p>
+    <button type="button" class="page-404__scan-btn" id="barcode-scan" aria-label="Scan the barcode">
+      <span class="page-404__beep" id="barcode-beep" role="status" aria-live="polite" hidden>Beep!</span>
+      <span class="page-404__scanner">
+        <span class="page-404__scanner-corners" aria-hidden="true"></span>
+        <span class="page-404__barcode">
+        <svg viewBox="0 0 220 90" width="220" height="90" aria-hidden="true" focusable="false">
+          <g fill="currentColor" opacity="0.85">
+            <rect x="8" y="12" width="2" height="66"/>
+            <rect x="12" y="12" width="4" height="66"/>
+            <rect x="18" y="12" width="1" height="66"/>
+            <rect x="21" y="12" width="3" height="66"/>
+            <rect x="26" y="12" width="2" height="66"/>
+            <rect x="30" y="12" width="5" height="66"/>
+            <rect x="37" y="12" width="1" height="66"/>
+            <rect x="40" y="12" width="2" height="66"/>
+            <rect x="44" y="12" width="4" height="66"/>
+            <rect x="50" y="12" width="1" height="66"/>
+            <rect x="53" y="12" width="3" height="66"/>
+            <rect x="58" y="12" width="2" height="66"/>
+            <rect x="62" y="12" width="1" height="66"/>
+            <rect x="65" y="12" width="4" height="66"/>
+            <rect x="71" y="12" width="2" height="66"/>
+            <rect x="75" y="12" width="3" height="66"/>
+            <rect x="80" y="12" width="1" height="66"/>
+            <rect x="83" y="12" width="5" height="66"/>
+            <rect x="90" y="12" width="2" height="66"/>
+            <rect x="94" y="12" width="1" height="66"/>
+            <rect x="97" y="12" width="3" height="66"/>
+            <rect x="102" y="12" width="4" height="66"/>
+            <rect x="108" y="12" width="1" height="66"/>
+            <rect x="111" y="12" width="2" height="66"/>
+            <rect x="115" y="12" width="3" height="66"/>
+            <rect x="120" y="12" width="1" height="66"/>
+            <rect x="123" y="12" width="4" height="66"/>
+            <rect x="129" y="12" width="2" height="66"/>
+            <rect x="133" y="12" width="5" height="66"/>
+            <rect x="140" y="12" width="1" height="66"/>
+            <rect x="143" y="12" width="3" height="66"/>
+            <rect x="148" y="12" width="2" height="66"/>
+            <rect x="152" y="12" width="1" height="66"/>
+            <rect x="155" y="12" width="4" height="66"/>
+            <rect x="161" y="12" width="2" height="66"/>
+            <rect x="165" y="12" width="3" height="66"/>
+            <rect x="170" y="12" width="1" height="66"/>
+            <rect x="173" y="12" width="2" height="66"/>
+            <rect x="177" y="12" width="5" height="66"/>
+            <rect x="184" y="12" width="1" height="66"/>
+            <rect x="187" y="12" width="3" height="66"/>
+            <rect x="192" y="12" width="2" height="66"/>
+            <rect x="196" y="12" width="4" height="66"/>
+            <rect x="202" y="12" width="1" height="66"/>
+            <rect x="205" y="12" width="3" height="66"/>
+            <rect x="210" y="12" width="2" height="66"/>
+          </g>
+        </svg>
+        <span class="page-404__laser" id="barcode-laser" aria-hidden="true"></span>
+        </span>
+      </span>
+    </button>
+
+    <p class="page-404__code" aria-hidden="true">404</p>
+    <h1 class="page-404__title" id="404-title">Product not found</h1>
+    <p class="page-404__lede">We scanned every shelf, but this page isn't in stock. It may have moved, been renamed, or never existed.</p>
+    <p class="page-404__scan-result">Scanned: <span class="page-404__path" id="404-path">this link</span> · <strong>0 results</strong></p>
+
+    <div class="page-404__divider" aria-hidden="true"></div>
+
+    <div class="page-404__actions">
+      <a class="hero-v6__btn hero-v6__btn--primary" href="/index.html">Back to home</a>
+      <a class="hero-v6__btn hero-v6__btn--secondary" href="/index.html#projects">See my work</a>
+    </div>
+
+    <p class="page-404__popular-label">Popular in store</p>
+    <nav class="page-404__chips" aria-label="Popular case studies">
+      <a class="page-404__chip" href="/simplebooking.html">Simple Booking</a>
+      <a class="page-404__chip" href="/healthcare.html">Healthcare</a>
+      <a class="page-404__chip" href="/pos-app.html">Cashier POS</a>
+      <a class="page-404__chip" href="/mobile-app.html">Mobile app</a>
+      <a class="page-404__chip" href="/backoffice.html">Back-office</a>
+    </nav>
+  </article>
+
+  <div class="page-404__note-wrap">
+    <p class="aside-note cs-aside">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+      <span>Good news: unlike a real store, there's no queue.</span>
+    </p>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-meta">
+    <p class="footer-built">Designed and built by me with Claude Code and Cursor · <a class="footer-built__link" href="https://github.com/Neda-BN/neda-bn.github.io" target="_blank" rel="noopener">View the code</a></p>
+    <p>© 2026 Neda Bagherinezhad · Stockholm, Sweden</p>
+  </div>
+  <ul class="footer-social" aria-label="Social links">
+    <li>
+      <a class="footer-social__email" href="mailto:nedabagheri.nz@gmail.com">nedabagheri.nz@gmail.com</a>
+    </li>
+    <li>
+      <a href="https://www.linkedin.com/in/neda-bagheri1987/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.behance.net/nedabagheri1" target="_blank" rel="noopener noreferrer" aria-label="Behance" class="footer-social__beh">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.969 16.927a2.561 2.561 0 0 0 1.901.677 2.501 2.501 0 0 0 1.531-.475c.362-.235.636-.584.779-.99h2.585a5.091 5.091 0 0 1-1.9 2.896 5.292 5.292 0 0 1-3.091.88 5.839 5.839 0 0 1-2.284-.433 4.871 4.871 0 0 1-1.723-1.211 5.657 5.657 0 0 1-1.08-1.874 7.057 7.057 0 0 1-.383-2.393c-.005-.8.129-1.595.396-2.349a5.313 5.313 0 0 1 5.088-3.604 4.87 4.87 0 0 1 2.376.563c.661.362 1.231.87 1.668 1.485a6.2 6.2 0 0 1 .943 2.133c.194.821.263 1.666.205 2.508h-7.699c-.063.79.184 1.574.688 2.187ZM6.947 4.084a8.065 8.065 0 0 1 1.928.198 4.29 4.29 0 0 1 1.49.638c.418.303.748.711.958 1.182.241.579.357 1.203.341 1.83a3.506 3.506 0 0 1-.506 1.961 3.726 3.726 0 0 1-1.503 1.287 3.588 3.588 0 0 1 2.027 1.437c.464.747.697 1.615.67 2.494a4.593 4.593 0 0 1-.423 2.032 3.945 3.945 0 0 1-1.163 1.413 5.114 5.114 0 0 1-1.683.807 7.135 7.135 0 0 1-1.928.259H0V4.084h6.947Zm-.235 12.9c.308.004.616-.029.916-.099a2.18 2.18 0 0 0 .766-.332c.228-.158.411-.371.534-.619.142-.317.208-.663.191-1.009a2.08 2.08 0 0 0-.642-1.715 2.618 2.618 0 0 0-1.696-.505h-3.54v4.279h3.471Zm13.635-5.967a2.13 2.13 0 0 0-1.654-.619 2.336 2.336 0 0 0-1.163.259 2.474 2.474 0 0 0-.738.62 2.359 2.359 0 0 0-.396.792c-.074.239-.12.485-.137.734h4.769a3.239 3.239 0 0 0-.679-1.785l-.002-.001Zm-13.813-.648a2.254 2.254 0 0 0 1.423-.433c.399-.355.607-.88.56-1.413a1.916 1.916 0 0 0-.178-.891 1.298 1.298 0 0 0-.495-.533 1.851 1.851 0 0 0-.711-.274 3.966 3.966 0 0 0-.835-.073H3.241v3.631h3.293v-.014ZM21.62 5.122h-5.976v1.527h5.976V5.122Z"/></svg>
+      </a>
+    </li>
+    <li>
+      <a href="mailto:nedabagheri.nz@gmail.com" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </a>
+    </li>
+  </ul>
+</footer>
+
+<script>
+(function () {
+  var pathEl = document.getElementById('404-path');
+  if (pathEl) {
+    var path = window.location.pathname || '/';
+    if (path.length > 40) {
+      path = '\u2026' + path.slice(-37);
+    }
+    pathEl.textContent = path;
+  }
+
+  var scanBtn = document.getElementById('barcode-scan');
+  var beep = document.getElementById('barcode-beep');
+  var laser = document.getElementById('barcode-laser');
+  var beepTimer;
+  var flashTimer;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (scanBtn && beep && laser) {
+    scanBtn.addEventListener('click', function () {
+      if (beepTimer) {
+        clearTimeout(beepTimer);
+      }
+      if (flashTimer) {
+        clearTimeout(flashTimer);
+      }
+
+      beep.hidden = false;
+      beep.classList.remove('is-visible');
+      void beep.offsetWidth;
+      beep.classList.add('is-visible');
+
+      laser.classList.add('is-flash');
+      flashTimer = window.setTimeout(function () {
+        laser.classList.remove('is-flash');
+      }, 200);
+
+      beepTimer = window.setTimeout(function () {
+        beep.classList.remove('is-visible');
+        beep.hidden = true;
+      }, 900);
+
+      if (!reduced && typeof navigator.vibrate === 'function') {
+        try {
+          navigator.vibrate(30);
+        } catch (err) {
+          /* ignore */
+        }
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
