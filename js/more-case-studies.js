@@ -172,6 +172,18 @@
     }
   }
 
+  function usesNativeTouchScroll() {
+    try {
+      if (window.matchMedia('(max-width: 899px)').matches) return true;
+      if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return true;
+    } catch (e) {}
+    return false;
+  }
+
+  function isMousePointer(e) {
+    return e && e.pointerType === 'mouse';
+  }
+
   function initCarousel(root) {
     var track = root.querySelector('.cs-more__track');
     var viewport = root.querySelector('.cs-more__viewport');
@@ -220,9 +232,21 @@
       if (btnNext) btnNext.disabled = atEnd;
     }
 
+    function resetFocusCards() {
+      var cards = track.querySelectorAll('.cs-more__card');
+      for (var c = 0; c < cards.length; c++) {
+        cards[c].style.removeProperty('--cs-more-scale');
+        cards[c].style.removeProperty('--cs-more-opacity');
+      }
+    }
+
     function updateFocusCards() {
       focusRaf = 0;
-      if (reduced || !section.classList.contains('cs-more-section--focus-ready')) {
+      if (
+        reduced ||
+        usesNativeTouchScroll() ||
+        !section.classList.contains('cs-more-section--focus-ready')
+      ) {
         return;
       }
       var trackRect = track.getBoundingClientRect();
@@ -244,6 +268,10 @@
 
     function scheduleFocus() {
       if (reduced) return;
+      if (usesNativeTouchScroll()) {
+        resetFocusCards();
+        return;
+      }
       if (!focusRaf) {
         focusRaf = requestAnimationFrame(updateFocusCards);
       }
@@ -322,7 +350,7 @@
     }
 
     track.addEventListener('pointerdown', function (e) {
-      if (e.button !== 0) return;
+      if (!isMousePointer(e) || e.button !== 0) return;
       drag.active = true;
       drag.dragging = false;
       drag.suppressClick = false;
@@ -336,7 +364,7 @@
     });
 
     track.addEventListener('pointermove', function (e) {
-      if (!drag.active || e.pointerId !== drag.pointerId) return;
+      if (!isMousePointer(e) || !drag.active || e.pointerId !== drag.pointerId) return;
       var dx = e.clientX - drag.startX;
       if (!drag.dragging) {
         if (Math.abs(dx) <= DRAG_THRESHOLD) return;
@@ -363,7 +391,7 @@
     });
 
     function endDrag(e) {
-      if (!drag.active || e.pointerId !== drag.pointerId) return;
+      if (!isMousePointer(e) || !drag.active || e.pointerId !== drag.pointerId) return;
       drag.active = false;
       track.classList.remove('cs-more__track--dragging');
       try {

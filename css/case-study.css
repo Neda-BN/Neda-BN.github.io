@@ -5074,6 +5074,7 @@ body.case-study-page .cs-more__viewport {
   overflow: hidden;
   margin-right: calc(50% - 50vw);
   padding-right: calc(50vw - 50%);
+  pointer-events: none;
   -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 40px), transparent 100%);
   mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 40px), transparent 100%);
 }
@@ -5109,10 +5110,13 @@ body.case-study-page .cs-more__track {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x pan-y;
   scrollbar-width: none;
   padding-bottom: 4px;
   cursor: grab;
   outline: none;
+  pointer-events: auto;
 }
 
 body.case-study-page .cs-more__track::-webkit-scrollbar {
@@ -5261,6 +5265,30 @@ body.case-study-page .cs-more-mount > a {
   font-family: var(--font-mono, 'IBM Plex Mono', monospace);
   font-size: 15px;
   color: var(--accent);
+}
+
+@media (max-width: 899.98px) {
+  body.case-study-page .cs-more__track {
+    scroll-snap-type: x proximity;
+    cursor: default;
+  }
+
+  body.case-study-page .cs-more-section--focus-ready .cs-more a.cs-more__card {
+    opacity: 1 !important;
+    transform: translateY(var(--cs-more-lift, 0px)) scale(1) !important;
+    transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  body.case-study-page .cs-more__track {
+    cursor: default;
+  }
+
+  body.case-study-page .cs-more-section--focus-ready .cs-more a.cs-more__card {
+    opacity: 1 !important;
+    transform: translateY(var(--cs-more-lift, 0px)) scale(1) !important;
+  }
 }
 
 @media (max-width: 767px) {
