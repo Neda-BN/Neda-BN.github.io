@@ -2798,20 +2798,22 @@ body.case-study-page .cs-summary-jump__link {
   font-family: var(--font-mono, 'IBM Plex Mono', monospace);
   font-size: 13px;
   font-weight: 400;
-  color: var(--text);
+  color: var(--accent);
   text-decoration: underline;
   text-decoration-thickness: 1px;
+  text-decoration-color: rgba(138, 164, 214, 0.5);
   text-underline-offset: 4px;
-  transition: color 0.2s ease;
+  transition: text-decoration-color 0.2s ease;
 }
 
 body.case-study-page .cs-summary-jump__arrow {
   display: inline-block;
+  color: var(--accent);
   transition: transform 0.2s ease;
 }
 
 body.case-study-page .cs-summary-jump__link:hover {
-  color: var(--accent);
+  text-decoration-color: var(--accent);
 }
 
 body.case-study-page .cs-summary-jump__link:hover .cs-summary-jump__arrow {
