@@ -4,35 +4,51 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark">
+<meta name="description" content="A white-label in-store shopping app for grocery chains, designed in an 8-hour design challenge by Neda Bagherinezhad.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
 <link rel="stylesheet" href="css/tokens.css?v=20260405">
 <link rel="stylesheet" href="css/site-shared.css?v=20261030">
+<link rel="stylesheet" href="css/responsive.css?v=20260638">
+<link rel="stylesheet" href="css/case-study.css?v=20261030a">
+<link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
+<link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
 <script src="js/page-transition.js?v=20260633"></script>
 <script src="js/site-nav.js?v=20260326"></script>
-<title>Online Grocery app · UI Design · Neda Bagherinezhad</title>
-<link rel="stylesheet" href="css/responsive.css?v=20260638">
-<link rel="stylesheet" href="css/case-study.css?v=20260405">
-<link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
+<title>Smart In-Store Mode · Neda Bagherinezhad</title>
 <style>
   body.hero-cursor-none { cursor: none; }
-  #dot {
-    position: fixed; z-index: 9999; pointer-events: none;
-    width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
-    transform: translate(-50%, -50%); mix-blend-mode: screen;
-  }
-  #ring {
-    position: fixed; z-index: 9998; pointer-events: none;
-    width: 36px; height: 36px; border-radius: 50%;
-    border: 1.5px solid rgba(138, 164, 214, 0.35);
-    transform: translate(-50%, -50%);
-    transition: width 0.35s, height 0.35s, border-color 0.3s;
-  }
+  #dot { position: fixed; z-index: 9999; pointer-events: none; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); transform: translate(-50%, -50%); mix-blend-mode: screen; }
+  #ring { position: fixed; z-index: 9998; pointer-events: none; width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid rgba(138, 164, 214, 0.35); transform: translate(-50%, -50%); transition: width 0.35s, height 0.35s, border-color 0.3s; }
   body.lh #dot { transform: translate(-50%, -50%) scale(2); opacity: 0.5; }
   body.lh #ring { width: 60px; height: 60px; border-color: rgba(138, 164, 214, 0.55); }
-  @media (prefers-reduced-motion: reduce) {
-    body.hero-cursor-none { cursor: auto; }
-    #dot, #ring { display: none !important; }
+  @media (prefers-reduced-motion: reduce) { body.hero-cursor-none { cursor: auto; } #dot, #ring { display: none !important; } }
+  .instore-info-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 14px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--surface); }
+  .instore-info-table th { text-align: left; font-weight: 600; padding: 12px 16px; width: 120px; background: var(--surface-2); color: var(--text); border-bottom: 1px solid var(--border); vertical-align: top; }
+  .instore-info-table td { padding: 12px 16px; color: var(--muted); border-bottom: 1px solid var(--border); line-height: 1.55; }
+  .instore-info-table tr:last-child th, .instore-info-table tr:last-child td { border-bottom: none; }
+  .instore-hero-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 28px; }
+  .instore-hero-grid .ui-design-figure { margin: 0; }
+  .instore-hero-grid img { width: 100%; height: auto; object-fit: contain; }
+  .instore-disclaimer { font-size: 13px; color: var(--muted); margin-top: 12px; line-height: 1.55; max-width: 52em; }
+  .instore-quote-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; list-style: none; padding: 0; }
+  .instore-quote-chips li { font-family: var(--font-body); font-size: 14px; line-height: 1.45; color: var(--text); padding: 10px 14px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.02); }
+  .instore-journey-steps { display: flex; flex-wrap: wrap; gap: 12px 16px; margin-top: 20px; list-style: none; padding: 0; }
+  .instore-journey-steps li { display: flex; align-items: baseline; gap: 8px; min-width: 140px; flex: 1 1 140px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface); }
+  .instore-journey-steps__num { font-family: var(--font-mono); font-size: 12px; color: var(--accent); flex-shrink: 0; }
+  .instore-journey-steps__label { font-size: 14px; color: var(--text); line-height: 1.35; }
+  .instore-subhead { font-family: var(--font-body); font-size: 20px; font-weight: 600; color: var(--text); margin: 28px 0 12px; letter-spacing: -0.02em; }
+  .instore-time-table { margin-top: 16px; max-width: 420px; }
+  .instore-time-table td:last-child { text-align: right; font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+  @media (max-width: 767.98px) { .instore-hero-grid { grid-template-columns: 1fr; } }
+  @media (min-width: 1100px) {
+    body.case-study-page #persona .instore-persona-panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 340px); gap: 28px; align-items: start; }
+    body.case-study-page #persona .instore-persona-panel .cs-quote.cs-quote--inset { margin: 0 !important; }
   }
+  body.case-study-page #persona .hc-persona-panel { padding: 24px !important; }
+  body.case-study-page #persona .hc-persona-table th[scope="row"] { font-size: 15px !important; padding: 12px 20px !important; width: 140px !important; max-width: 140px !important; min-width: 140px !important; background: var(--surface-2) !important; color: var(--text) !important; border-color: var(--border) !important; }
+  body.case-study-page #persona .hc-persona-table td { font-size: 15px !important; padding: 12px 20px !important; color: var(--muted) !important; border-color: var(--border) !important; }
+  body.case-study-page #persona .hc-persona-panel .cs-quote.cs-quote--inset { margin: 24px 0 0 !important; padding: 20px 24px !important; background: rgba(255,255,255,0.02); border-color: var(--border); }
+  body.case-study-page #persona .hc-persona-panel .cs-quote.cs-quote--inset p { font-size: 17px !important; font-weight: 500 !important; color: var(--text) !important; font-style: normal !important; }
 </style>
 </head>
 <body class="hero-cursor-none has-anna-nav case-study-page ui-design-page">
@@ -51,36 +67,244 @@
   </div>
 </header>
 
+<div class="back-btn-wrap back-btn-wrap--top">
+  <a class="back-btn" href="index.html#ui-design"><svg class="back-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Back</a>
+</div>
+
 <main class="content case-main ui-design-main">
-  <a class="case-back-link" href="index.html#ui-design">← Back to work</a>
-  <div class="meta-strip">
-    <div class="meta-item"><div class="meta-label">Series</div><div class="meta-value">UI 09</div></div>
-    <div class="meta-item"><div class="meta-label">Type</div><div class="meta-value">CONCEPT</div></div>
-    <div class="meta-item"><div class="meta-label">Platform</div><div class="meta-value">MOBILE</div></div>
-  </div>
-  <div class="section-header ui-design-header">
-    <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="9" cy="21" r="1"/>
-          <circle cx="20" cy="21" r="1"/>
-          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-        </svg></div>
-    <div class="section-headings">
-      <h1 class="section-chapter" id="online-grocery-case-study">Online Grocery App</h1>
-      <p class="section-subtitle">Freelance on-demand grocery delivery</p>
+  <header class="sb-hero hero ui-design-hero">
+    <div class="sb-wrap">
+      <div class="sb-hero-text">
+        <h1 id="instore-case-study">Smart In-Store Mode</h1>
+        <div class="meta-strip cs-meta-strip">
+          <div class="meta-item"><div class="meta-label">Series</div><div class="meta-value">UI 01</div></div>
+          <div class="meta-item"><div class="meta-label">Type</div><div class="meta-value">DESIGN CHALLENGE</div></div>
+          <div class="meta-item"><div class="meta-label">Platform</div><div class="meta-value">MOBILE</div></div>
+        </div>
+        <p class="hero-subtitle">A white-label app that helps shoppers find items, catch deals and pay without queueing.</p>
+      </div>
     </div>
+  </header>
+
+  <table class="instore-info-table wide" aria-label="Project info">
+    <tbody>
+      <tr><th scope="row">Role</th><td>Product &amp; UI Designer (solo)</td></tr>
+      <tr><th scope="row">Format</th><td>Design challenge, about 8 hours</td></tr>
+      <tr><th scope="row">Platform</th><td>iOS · Android</td></tr>
+      <tr><th scope="row">Methods</th><td>Competitor analysis · Jobs-to-be-done · Affinity mapping · Sketching · Wireframing</td></tr>
+    </tbody>
+  </table>
+
+  <div class="instore-hero-grid wide">
+    <figure class="ui-design-figure"><img src="instore-hifi-list.png" alt="Scan &amp; Go screen with a shopping list over a live product scan in a grocery aisle" width="428" height="868" decoding="async" fetchpriority="high"></figure>
+    <figure class="ui-design-figure"><img src="instore-hifi-ar.png" alt="Store map in AR orientation mode with a red path on the floor and turn instruction" width="428" height="868" decoding="async" fetchpriority="high"></figure>
   </div>
-  <div class="ui-design-intro">
-    <p>A freelance project for an online grocery delivery service — designed from the ground up, which meant every decision was mine to make and defend. I started with the onboarding and sign-in flow, because first impressions in grocery apps matter more than people think: <strong>if the entry feels clunky, users assume the shopping will be too</strong>. The store grid and product detail page were built around a simple question — what does someone need to see before they add something to their cart? The answer shaped the entire layout.</p>
-    <p>The fresh green palette was chosen carefully: light enough to feel clean, saturated enough to communicate "food" without being aggressive. Font sizes and contrast were validated against WCAG AA throughout, and the spacing was kept generous so the app feels comfortable to browse — not like a vending machine.</p>
-  </div>
-  <ul class="ui-design-tags" aria-label="Project tags">
-    <li>Freelance</li>
-    <li>E-commerce UI</li>
-    <li>WCAG AA</li>
-    <li>Mobile UX</li>
-    <li>iOS &amp; Android</li>
-  </ul>
-  <figure class="ui-design-figure wide"><img src="vc-ui-05-online-grocery-app.png" alt="Online grocery delivery app — three iPhone screens showing welcome/sign-in, the store grid, and a cabbage product detail on a fresh-green composition" width="1024" height="717" decoding="async" fetchpriority="high"></figure>
+  <p class="image-caption wide">Scan &amp; Go with the shopping list, and AR orientation in the store map.</p>
+  <p class="instore-disclaimer wide">Based on a design challenge brief from a Nordic retail-tech company. The company's name has been removed, and the store brand shown is fictional.</p>
+
+  <section class="section wide" aria-labelledby="instore-brief">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter" id="instore-brief">The brief</h2></div>
+    </div>
+    <p>Design a digital solution that improves the in-store shopping experience: help customers find their way, discover relevant products, and engage with promotions and loyalty.</p>
+    <div class="mob-methods-grid cs-card-grid">
+      <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg></span><div><h4>Usability</h4><p class="finding-text">Is it calm and thumb-friendly?</p></div></div>
+      <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M3 12h18"/><path d="m19 5-7 7-4-4-3 3"/></svg></span><div><h4>Hierarchy</h4><p class="finding-text">What matters most on each screen?</p></div></div>
+      <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></span><div><h4>Aesthetics</h4><p class="finding-text">Does it feel like a real Nordic product?</p></div></div>
+    </div>
+  </section>
+
+  <section class="section wide" aria-labelledby="instore-question">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter" id="instore-question">The real question</h2></div>
+    </div>
+    <p>Why would anyone open an app inside a store? Honestly, most people don't. Including me. When I walk into a store, I usually ask someone where the oat milk is.</p>
+    <p>So the real design problem became: how do I give people a reason to keep the app open during the whole trip? I built the solution on two anchors that weren't in the brief.</p>
+    <div class="pain-grid cs-card-grid">
+      <div class="role-block cs-card"><h4>Scan &amp; Go</h4><p>A real need: scan to build your cart and pay without queueing. It puts the phone in your hand.</p></div>
+      <div class="role-block cs-card"><h4>Your List</h4><p>The weekly shopping list lives in the app, not on paper or in a chat. It brings you back every time.</p></div>
+    </div>
+    <p>Without them, the rest of the features would never reach anyone.</p>
+    <p class="aside-note aside-note--bubble aside-note--bubble-shape-2 cs-aside aside-note--bubble-prefer-right"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2h8"/><path d="M9 2v2.79a6 6 0 0 0 5 5V9a2 2 0 0 1 4 0v.79a6 6 0 0 0 5-5V2"/><path d="M8 11v2.4a4 4 0 0 0 4 4 4 4 0 0 0 4-4V11"/></svg></span><span class="aside-note__bubble-text">Most people don't open a store app. They ask someone where the oat milk is.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="instore-arrow-milk" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#instore-arrow-milk)"/><path d="M40 11 L34 8" stroke="url(#instore-arrow-milk)"/><path d="M40 11 L34 14" stroke="url(#instore-arrow-milk)"/></svg></span></span></span></p>
+  </section>
+
+  <section class="section wide" aria-labelledby="instore-for">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"/><path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"/><path d="M12 3v6"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter" id="instore-for">Who it's really for</h2></div>
+    </div>
+    <p>Before designing anything, I looked at who the company is. They don't run stores: they sell software to grocery chains. That changed everything. This isn't one consumer app, it's a white-label module: one engine that each chain runs under its own brand.</p>
+  </section>
+
+  <section class="section wide" aria-labelledby="instore-research">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter" id="instore-research">Research</h2></div>
+    </div>
+    <p>In a short competitor scan of four Nordic retail-tech vendors, nobody offered a joined-up, customer-facing in-store app. That was the gap.</p>
+    <p>I then framed shoppers' needs as jobs to be done:</p>
+    <ul class="instore-quote-chips">
+      <li>"Help me find this item fast."</li>
+      <li>"Show me deals I can actually use."</li>
+      <li>"Help me not forget anything."</li>
+      <li>"Let me pay and leave without queueing."</li>
+      <li>"Make me feel like a loyal customer."</li>
+    </ul>
+  </section>
+
+  <section class="section wide" aria-labelledby="persona">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter" id="persona">Persona</h2><p class="section-subtitle">A proto-persona based on desk research</p></div>
+    </div>
+    <aside class="hc-persona-panel wide instore-persona-panel">
+      <div class="hc-persona-table-wrap">
+        <table class="cs-table hc-persona-table">
+          <tbody>
+            <tr><th scope="row">Name</th><td>Sara, 47 · HR manager, Stockholm · Weekly shop at her local supermarket</td></tr>
+            <tr><th scope="row">Goals</th><td>Finish the weekly shop in under 45 minutes. Catch the deals she always gets. Use her points before they expire.</td></tr>
+            <tr><th scope="row">Frustration</th><td>The store moved the oat drinks, and she lost 10 minutes looking for them.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <blockquote class="cs-quote cs-quote--inset">
+        <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
+        <p>"I use the app to scan things, but I still feel like I'm missing something I should be getting."</p>
+      </blockquote>
+    </aside>
+  </section>
+
+  <section class="section wide" aria-labelledby="instore-priority">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" x2="21" y1="6" y2="6"/><line x1="8" x2="21" y1="12" y2="12"/><line x1="8" x2="21" y1="18" y2="18"/><line x1="3" x2="3.01" y1="6" y2="6"/><line x1="3" x2="3.01" y1="12" y2="12"/><line x1="3" x2="3.01" y1="18" y2="18"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter" id="instore-priority">What to solve first</h2></div>
+    </div>
+    <p>I grouped everything into ten themes, then set a priority order.</p>
+    <div class="lessons-list">
+      <div class="lesson-item cs-learn"><div class="lesson-num">1</div><div class="lesson-text"><h4>Navigation</h4><p>If you can't find things, nothing else matters.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-num">2</div><div class="lesson-text"><h4>Deals</h4><p>Most valuable once navigation works.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-num">3</div><div class="lesson-text"><h4>List &amp; routine</h4><p>Where the habit forms.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-num">4</div><div class="lesson-text"><h4>Loyalty</h4><p>Feel rewarded during the trip.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-num">5</div><div class="lesson-text"><h4>Checkout</h4><p>No friction at the last step.</p></div></div>
+    </div>
+  </section>
+
+  <section class="section wide" aria-labelledby="instore-journey">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter" id="instore-journey">Sara's Thursday shop</h2></div>
+    </div>
+    <p>I mapped her trip in eight moments, from checking her list at home to finding it ready for next week.</p>
+    <ol class="instore-journey-steps">
+      <li><span class="instore-journey-steps__num">1</span><span class="instore-journey-steps__label">Before the store</span></li>
+      <li><span class="instore-journey-steps__num">2</span><span class="instore-journey-steps__label">Arriving</span></li>
+      <li><span class="instore-journey-steps__num">3</span><span class="instore-journey-steps__label">Route</span></li>
+      <li><span class="instore-journey-steps__num">4</span><span class="instore-journey-steps__label">In the aisle</span></li>
+      <li><span class="instore-journey-steps__num">5</span><span class="instore-journey-steps__label">Scanning</span></li>
+      <li><span class="instore-journey-steps__num">6</span><span class="instore-journey-steps__label">Discovery</span></li>
+      <li><span class="instore-journey-steps__num">7</span><span class="instore-journey-steps__label">Checkout</span></li>
+      <li><span class="instore-journey-steps__num">8</span><span class="instore-journey-steps__label">After the shop</span></li>
+    </ol>
+    <blockquote class="cs-quote wide"><p>The best moments are when the app makes things easier without you noticing, not when it tries to impress you.</p></blockquote>
+  </section>
+
+  <section class="section wide" aria-labelledby="instore-principles">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter" id="instore-principles">Design principles</h2></div>
+    </div>
+    <div class="lessons-list">
+      <div class="lesson-item cs-learn"><div class="lesson-num">01</div><div class="lesson-text"><h4>Zero-effort context</h4><p>The app knows you're in the store and adapts.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-num">02</div><div class="lesson-text"><h4>One thumb, no menus</h4><p>Every key action within thumb reach.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-num">03</div><div class="lesson-text"><h4>Calm notifications</h4><p>Opt-in, location-based, never blocking pop-ups.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-num">04</div><div class="lesson-text"><h4>Loyalty in the moment</h4><p>Points are always visible.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-num">05</div><div class="lesson-text"><h4>Accessible by default</h4><p>WCAG AA, large touch targets, Swedish-ready.</p></div></div>
+    </div>
+  </section>
+
+  <section class="section wide" aria-labelledby="instore-tabs">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter" id="instore-tabs">Three tabs, nothing more</h2></div>
+    </div>
+    <div class="mob-methods-grid cs-card-grid">
+      <div class="finding-item cs-card"><div><h4>Home</h4><p class="finding-text">Deals, categories and your list</p></div></div>
+      <div class="finding-item cs-card"><div><h4>Scan &amp; Go</h4><p class="finding-text">The heart of the app</p></div></div>
+      <div class="finding-item cs-card"><div><h4>Profile</h4><p class="finding-text">Loyalty, payment and history</p></div></div>
+    </div>
+    <aside class="cs-tradeoff">
+      <div class="cs-tradeoff__label"><svg class="cs-tradeoff__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 5.5 5.5-1.5 1.5"/><path d="m2 16 3-8 5.5 5.5-1.5 1.5"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 7 2 7 2"/><path d="M21 7h-2c-2 0-5-1-7-2-2 1-7 2-7 2"/></svg><span>Trade-off</span></div>
+      <p class="cs-tradeoff__text">The map lives inside Scan &amp; Go as a sheet, not as its own tab, so the flow never breaks. While scanning, the bottom menu disappears and an X takes its place, because you're in a focused task.</p>
+    </aside>
+  </section>
+
+  <section class="section wide" aria-labelledby="instore-paper">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter" id="instore-paper">From paper to pixels</h2></div>
+    </div>
+    <p>I started on paper: first a list of what each area needed to do, then the first screens.</p>
+    <figure class="ui-design-figure wide"><img src="instore-sketches-areas.jpg" alt="Handwritten list of what each app area needs to do" width="1024" height="417" loading="lazy" decoding="async"><figcaption class="image-caption">Listing what each area needs to do.</figcaption></figure>
+    <figure class="ui-design-figure wide"><img src="instore-sketches-screens.jpg" alt="Paper sketches of Home, Scan and Go, Store map and Profile screens" width="1024" height="420" loading="lazy" decoding="async"><figcaption class="image-caption">First screens on paper: Home, Scan &amp; Go, Store map and Profile.</figcaption></figure>
+    <p>Next came 10 low-fidelity wireframes covering the whole flow, from Home and store detection to scanning, the map, checkout and profile.</p>
+    <figure class="ui-design-figure wide"><img src="instore-wireframes-1.png" alt="Low-fidelity wireframes one through five: Home, store detection and Scan and Go" width="288" height="1024" loading="lazy" decoding="async"><figcaption class="image-caption">Wireframes 1–5: Home, store detection and Scan &amp; Go.</figcaption></figure>
+    <figure class="ui-design-figure wide"><img src="instore-wireframes-2.png" alt="Low-fidelity wireframes six through ten: offers, map, AR, cart and profile" width="286" height="1024" loading="lazy" decoding="async"><figcaption class="image-caption">Wireframes 6–10: offers, map, AR, cart and profile.</figcaption></figure>
+  </section>
+
+  <section class="section wide" aria-labelledby="instore-visual">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter" id="instore-visual">Visual design</h2></div>
+    </div>
+    <p>Since it's white-label, colour is a setting, not a style. I designed it in a grocery chain's red to show it running in a real store; another chain would switch it to its own colour, and the system adapts.</p>
+    <p>Accessibility was built in: WCAG AA contrast, 44 pt minimum touch targets, a clear type hierarchy, and support for Sweden's bottle deposit (pant).</p>
+    <h3 class="instore-subhead">AR, but only for a moment</h3>
+    <p>AR orientation runs for a few seconds when you need it, not all the time: a red path on the floor and one plain instruction, like "Turn left in 10 meters". A superpower, not a gimmick.</p>
+  </section>
+
+  <section class="section wide" aria-labelledby="instore-more">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter" id="instore-more">With more time</h2></div>
+    </div>
+    <p>My favourite idea is a Family List: a shared list that updates live, so if my husband adds batteries while I'm already in the store, I see it right away.</p>
+    <div class="mob-methods-grid cs-card-grid">
+      <div class="finding-item cs-card"><div><h4>Rush mode</h4><p class="finding-text">Just the route, no discovery.</p></div></div>
+      <div class="finding-item cs-card"><div><h4>Gentle reminders</h4><p class="finding-text">"You usually buy oat milk on Thursdays."</p></div></div>
+      <div class="finding-item cs-card"><div><h4>Staff help</h4><p class="finding-text">Opt-in help when you're stuck.</p></div></div>
+    </div>
+  </section>
+
+  <section class="section wide" aria-labelledby="instore-hours">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter" id="instore-hours">How I spent 8 hours</h2></div>
+    </div>
+    <table class="cs-table instore-time-table wide">
+      <tbody>
+        <tr><td>Research</td><td>1 h</td></tr>
+        <tr><td>Affinity mapping and persona</td><td>1 h</td></tr>
+        <tr><td>Journey</td><td>45 min</td></tr>
+        <tr><td>Problem framing and principles</td><td>30 min</td></tr>
+        <tr><td>Ideas</td><td>1 h</td></tr>
+        <tr><td>Wireframes</td><td>1.5 h</td></tr>
+        <tr><td>High fidelity</td><td>1.5 h</td></tr>
+        <tr><td>Write-up</td><td>1 h</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section wide" aria-labelledby="instore-learned">
+    <div class="section-header">
+      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+      <div class="section-headings"><h2 class="section-chapter" id="instore-learned">What I learned</h2></div>
+    </div>
+    <div class="lessons-list">
+      <div class="lesson-item cs-learn cs-learn--highlight"><div class="lesson-text"><p>The brief asked for navigation, discovery and loyalty. The most important decision was adding two things it didn't ask for, because without a reason to open the app, none of the rest would ever be used.</p></div></div>
+    </div>
+  </section>
 </main>
 
 <div class="footer-strip">
@@ -95,27 +319,15 @@
     <p>© 2026 Neda Bagherinezhad · Stockholm, Sweden</p>
   </div>
   <ul class="footer-social" aria-label="Social links">
-    <li>
-      <a class="footer-social__email" href="mailto:nedabagheri.nz@gmail.com">nedabagheri.nz@gmail.com</a>
-    </li>
-    <li>
-      <a href="https://www.linkedin.com/in/neda-bagheri1987/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-      </a>
-    </li>
-    <li>
-      <a href="https://www.behance.net/nedabagheri1" target="_blank" rel="noopener noreferrer" aria-label="Behance" class="footer-social__beh">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.969 16.927a2.561 2.561 0 0 0 1.901.677 2.501 2.501 0 0 0 1.531-.475c.362-.235.636-.584.779-.99h2.585a5.091 5.091 0 0 1-1.9 2.896 5.292 5.292 0 0 1-3.091.88 5.839 5.839 0 0 1-2.284-.433 4.871 4.871 0 0 1-1.723-1.211 5.657 5.657 0 0 1-1.08-1.874 7.057 7.057 0 0 1-.383-2.393c-.005-.8.129-1.595.396-2.349a5.313 5.313 0 0 1 5.088-3.604 4.87 4.87 0 0 1 2.376.563c.661.362 1.231.87 1.668 1.485a6.2 6.2 0 0 1 .943 2.133c.194.821.263 1.666.205 2.508h-7.699c-.063.79.184 1.574.688 2.187ZM6.947 4.084a8.065 8.065 0 0 1 1.928.198 4.29 4.29 0 0 1 1.49.638c.418.303.748.711.958 1.182.241.579.357 1.203.341 1.83a3.506 3.506 0 0 1-.506 1.961 3.726 3.726 0 0 1-1.503 1.287 3.588 3.588 0 0 1 2.027 1.437c.464.747.697 1.615.67 2.494a4.593 4.593 0 0 1-.423 2.032 3.945 3.945 0 0 1-1.163 1.413 5.114 5.114 0 0 1-1.683.807 7.135 7.135 0 0 1-1.928.259H0V4.084h6.947Zm-.235 12.9c.308.004.616-.029.916-.099a2.18 2.18 0 0 0 .766-.332c.228-.158.411-.371.534-.619.142-.317.208-.663.191-1.009a2.08 2.08 0 0 0-.642-1.715 2.618 2.618 0 0 0-1.696-.505h-3.54v4.279h3.471Zm13.635-5.967a2.13 2.13 0 0 0-1.654-.619 2.336 2.336 0 0 0-1.163.259 2.474 2.474 0 0 0-.738.62 2.359 2.359 0 0 0-.396.792c-.074.239-.12.485-.137.734h4.769a3.239 3.239 0 0 0-.679-1.785l-.002-.001Zm-13.813-.648a2.254 2.254 0 0 0 1.423-.433c.399-.355.607-.88.56-1.413a1.916 1.916 0 0 0-.178-.891 1.298 1.298 0 0 0-.495-.533 1.851 1.851 0 0 0-.711-.274 3.966 3.966 0 0 0-.835-.073H3.241v3.631h3.293v-.014ZM21.62 5.122h-5.976v1.527h5.976V5.122Z"/></svg>
-      </a>
-    </li>
-    <li>
-      <a href="mailto:nedabagheri.nz@gmail.com" aria-label="Email">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-      </a>
-    </li>
+    <li><a class="footer-social__email" href="mailto:nedabagheri.nz@gmail.com">nedabagheri.nz@gmail.com</a></li>
+    <li><a href="https://www.linkedin.com/in/neda-bagheri1987/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a></li>
+    <li><a href="https://www.behance.net/nedabagheri1" target="_blank" rel="noopener noreferrer" aria-label="Behance" class="footer-social__beh"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.969 16.927a2.561 2.561 0 0 0 1.901.677 2.501 2.501 0 0 0 1.531-.475c.362-.235.636-.584.779-.99h2.585a5.091 5.091 0 0 1-1.9 2.896 5.292 5.292 0 0 1-3.091.88 5.839 5.839 0 0 1-2.284-.433 4.871 4.871 0 0 1-1.723-1.211 5.657 5.657 0 0 1-1.08-1.874 7.057 7.057 0 0 1-.383-2.393c-.005-.8.129-1.595.396-2.349a5.313 5.313 0 0 1 5.088-3.604 4.87 4.87 0 0 1 2.376.563c.661.362 1.231.87 1.668 1.485a6.2 6.2 0 0 1 .943 2.133c.194.821.263 1.666.205 2.508h-7.699c-.063.79.184 1.574.688 2.187ZM6.947 4.084a8.065 8.065 0 0 1 1.928.198 4.29 4.29 0 0 1 1.49.638c.418.303.748.711.958 1.182.241.579.357 1.203.341 1.83a3.506 3.506 0 0 1-.506 1.961 3.726 3.726 0 0 1-1.503 1.287 3.588 3.588 0 0 1 2.027 1.437c.464.747.697 1.615.67 2.494a4.593 4.593 0 0 1-.423 2.032 3.945 3.945 0 0 1-1.163 1.413 5.114 5.114 0 0 1-1.683.807 7.135 7.135 0 0 1-1.928.259H0V4.084h6.947Zm-.235 12.9c.308.004.616-.029.916-.099a2.18 2.18 0 0 0 .766-.332c.228-.158.411-.371.534-.619.142-.317.208-.663.191-1.009a2.08 2.08 0 0 0-.642-1.715 2.618 2.618 0 0 0-1.696-.505h-3.54v4.279h3.471Zm13.635-5.967a2.13 2.13 0 0 0-1.654-.619 2.336 2.336 0 0 0-1.163.259 2.474 2.474 0 0 0-.738.62 2.359 2.359 0 0 0-.396.792c-.074.239-.12.485-.137.734h4.769a3.239 3.239 0 0 0-.679-1.785l-.002-.001Zm-13.813-.648a2.254 2.254 0 0 0 1.423-.433c.399-.355.607-.88.56-1.413a1.916 1.916 0 0 0-.178-.891 1.298 1.298 0 0 0-.495-.533 1.851 1.851 0 0 0-.711-.274 3.966 3.966 0 0 0-.835-.073H3.241v3.631h3.293v-.014ZM21.62 5.122h-5.976v1.527h5.976V5.122Z"/></svg></a></li>
+    <li><a href="mailto:nedabagheri.nz@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a></li>
   </ul>
 </footer>
 
+<script src="js/scroll-reveal.js?v=20260403"></script>
+<script src="js/case-study-aside-bubbles.js?v=20261027d" defer></script>
 <script>
 (function () {
   var dot = document.getElementById('dot');
