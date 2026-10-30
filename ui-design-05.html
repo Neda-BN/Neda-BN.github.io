@@ -912,8 +912,8 @@
       </div>
 
       <div class="instore-hero-grid">
-        <figure class="ui-design-figure"><img src="instore-hifi-list.png" alt="Scan &amp; Go screen with a shopping list over a live product scan in a grocery aisle" width="428" height="868" decoding="async" fetchpriority="high"></figure>
-        <figure class="ui-design-figure"><img src="instore-hifi-ar.png" alt="Store map in AR orientation mode with a red path on the floor and turn instruction" width="428" height="868" decoding="async" fetchpriority="high"></figure>
+        <figure class="ui-design-figure"><img src="instore-hifi-list.png?v=20261030c" alt="Scan &amp; Go screen with a shopping list over a live product scan in a grocery aisle" width="428" height="868" decoding="async" fetchpriority="high"></figure>
+        <figure class="ui-design-figure"><img src="instore-hifi-ar.png?v=20261030c" alt="Store map in AR orientation mode with a red path on the floor and turn instruction" width="428" height="868" decoding="async" fetchpriority="high"></figure>
       </div>
 
       <div class="instore-hero-copy">
@@ -1023,14 +1023,6 @@
     </div>
     <p>I mapped her trip in eight moments, from checking her list at home to finding it ready for next week.</p>
     <div class="instore-journey-board wide" aria-label="Eight connected moments in Sara's shop trip">
-      <svg class="instore-journey-board__lines" aria-hidden="true">
-        <defs>
-          <marker id="instore-journey-arrow" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
-            <path d="M 1 1 L 10 6 L 1 11 Z" fill="rgba(168, 192, 232, 0.9)" stroke="none" />
-          </marker>
-        </defs>
-        <g class="instore-journey-board__paths"></g>
-      </svg>
       <ol class="instore-journey-board__steps">
         <li class="instore-journey-node"><span class="instore-journey-node__num">1</span><span class="instore-journey-node__label">Before the store</span></li>
         <li class="instore-journey-node"><span class="instore-journey-node__num">2</span><span class="instore-journey-node__label">Arriving</span></li>
@@ -1124,25 +1116,6 @@
     </div>
   </section>
 
-  <section class="sb-section section" aria-labelledby="instore-hours">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter" id="instore-hours">How I spent 8 hours</h2></div>
-    </div>
-    <table class="cs-table instore-time-table wide">
-      <tbody>
-        <tr><td>Research</td><td>1 h</td></tr>
-        <tr><td>Affinity mapping and persona</td><td>1 h</td></tr>
-        <tr><td>Journey</td><td>45 min</td></tr>
-        <tr><td>Problem framing and principles</td><td>30 min</td></tr>
-        <tr><td>Ideas</td><td>1 h</td></tr>
-        <tr><td>Wireframes</td><td>1.5 h</td></tr>
-        <tr><td>High fidelity</td><td>1.5 h</td></tr>
-        <tr><td>Write-up</td><td>1 h</td></tr>
-      </tbody>
-    </table>
-  </section>
-
   <section class="sb-section section" aria-labelledby="instore-learned">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
@@ -1203,135 +1176,6 @@
     el.addEventListener('mouseenter', function () { document.body.classList.add('lh'); });
     el.addEventListener('mouseleave', function () { document.body.classList.remove('lh'); });
   });
-})();
-</script>
-<script>
-(function () {
-  var board = document.querySelector('.instore-journey-board');
-  if (!board) return;
-  var svg = board.querySelector('.instore-journey-board__lines');
-  var group = board.querySelector('.instore-journey-board__paths');
-  var nodes = board.querySelectorAll('.instore-journey-node');
-  if (!svg || !group || nodes.length < 2) return;
-
-  function relBox(el) {
-    var b = board.getBoundingClientRect();
-    var r = el.getBoundingClientRect();
-    return {
-      left: r.left - b.left,
-      top: r.top - b.top,
-      right: r.right - b.left,
-      bottom: r.bottom - b.top,
-      cx: r.left - b.left + r.width / 2,
-      cy: r.top - b.top + r.height / 2,
-      width: r.width,
-      height: r.height
-    };
-  }
-
-  function anchors(from, to) {
-    var dx = to.cx - from.cx;
-    var dy = to.cy - from.cy;
-    var pad = 6;
-    if (Math.abs(dy) < Math.max(from.height, to.height) * 0.45) {
-      if (dx >= 0) {
-        return {
-          x1: from.right - pad,
-          y1: from.cy,
-          x2: to.left + pad,
-          y2: to.cy,
-          mode: 'h'
-        };
-      }
-      return {
-        x1: from.left + pad,
-        y1: from.cy,
-        x2: to.right - pad,
-        y2: to.cy,
-        mode: 'h'
-      };
-    }
-    if (dy > 0 && dx < -from.width * 0.35) {
-      return {
-        x1: from.right - pad,
-        y1: from.cy,
-        x2: to.cx,
-        y2: to.top + pad,
-        mode: 'wrap'
-      };
-    }
-    if (dy > 0) {
-      return {
-        x1: from.cx,
-        y1: from.bottom - pad,
-        x2: to.cx,
-        y2: to.top + pad,
-        mode: 'v'
-      };
-    }
-    return {
-      x1: from.cx,
-      y1: from.top + pad,
-      x2: to.cx,
-      y2: to.bottom - pad,
-      mode: 'v'
-    };
-  }
-
-  function curvePath(a) {
-    var x1 = a.x1;
-    var y1 = a.y1;
-    var x2 = a.x2;
-    var y2 = a.y2;
-    if (a.mode === 'h') {
-      var mx = (x1 + x2) / 2;
-      return 'M ' + x1 + ' ' + y1 + ' C ' + mx + ' ' + y1 + ', ' + mx + ' ' + y2 + ', ' + x2 + ' ' + y2;
-    }
-    if (a.mode === 'wrap') {
-      var drop = Math.max(56, (y2 - y1) * 0.45);
-      var out = Math.max(40, (x1 - x2) * 0.15);
-      return 'M ' + x1 + ' ' + y1
-        + ' C ' + (x1 + out) + ' ' + y1 + ', ' + (x1 + out) + ' ' + (y1 + drop) + ', ' + x2 + ' ' + y2;
-    }
-    var my = (y1 + y2) / 2;
-    return 'M ' + x1 + ' ' + y1 + ' C ' + x1 + ' ' + my + ', ' + x2 + ' ' + my + ', ' + x2 + ' ' + y2;
-  }
-
-  function draw() {
-    var w = board.offsetWidth;
-    var h = board.offsetHeight;
-    if (w < 1 || h < 1) return;
-    svg.setAttribute('width', String(w));
-    svg.setAttribute('height', String(h));
-    svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
-    group.innerHTML = '';
-    for (var i = 0; i < nodes.length - 1; i++) {
-      var from = relBox(nodes[i]);
-      var to = relBox(nodes[i + 1]);
-      var a = anchors(from, to);
-      var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-      path.setAttribute('d', curvePath(a));
-      path.setAttribute('marker-end', 'url(#instore-journey-arrow)');
-      group.appendChild(path);
-    }
-  }
-
-  var t;
-  function schedule() {
-    clearTimeout(t);
-    t = setTimeout(draw, 50);
-  }
-
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(draw).catch(draw);
-  } else {
-    draw();
-  }
-  window.addEventListener('load', draw);
-  window.addEventListener('resize', schedule);
-  if (typeof ResizeObserver !== 'undefined') {
-    new ResizeObserver(schedule).observe(board);
-  }
 })();
 </script>
 <script>
