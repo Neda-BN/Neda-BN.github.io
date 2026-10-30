@@ -85,6 +85,11 @@
     margin-top: var(--cs-gap, 24px) !important;
   }
 
+  /* simplebooking.css zeros main.sb-case padding-bottom — restore rhythm before footer strip */
+  body.has-anna-nav.case-study-page main.instore-sb-main.sb-case {
+    padding-bottom: clamp(72px, 10vw, 112px);
+  }
+
   .instore-intro-block {
     display: flex;
     flex-direction: column;
@@ -1106,7 +1111,7 @@
   <section class="sb-section section" aria-labelledby="instore-more">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><polyline points="12 6 12 12 16 14"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter" id="instore-more">With more time</h2></div>
+      <div class="section-headings"><h2 class="section-chapter" id="instore-more">With more time 😉</h2></div>
     </div>
     <p>My favourite idea is a Family List: a shared list that updates live, so if my husband adds batteries while I'm already in the store, I see it right away.</p>
     <div class="mob-methods-grid cs-card-grid">
