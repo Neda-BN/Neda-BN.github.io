@@ -115,6 +115,10 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
     }
   }
 
+  a.work-card[data-align-pair="top"][href="healthcare.html"] .work-card__media {
+    margin-top: calc(28px + var(--pair-offset, 0px));
+  }
+
   .page-works .vc-section {
     max-width: 1440px;
     margin-left: auto;
@@ -569,7 +573,7 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
     <h2 class="selected-work__heading" id="works-anna-heading">Selected work</h2>
     <div class="selected-work__grid">
 
-      <a class="work-card work-card--col-left work-card--img-top" href="simplebooking.html" aria-label="Simple Booking — read case study">
+      <a class="work-card work-card--col-left work-card--img-top" href="simplebooking.html" data-align-pair="top" aria-label="Simple Booking — read case study">
         <div class="work-card__line" aria-hidden="true"></div>
         <div class="work-card__meta work-card__reveal">
           <span>CASE 01 · FINTECH</span>
@@ -587,7 +591,7 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
         <span class="work-card__link work-card__reveal" aria-hidden="true">Read case study <span class="work-card__arrow">→</span></span>
       </a>
 
-      <a class="work-card work-card--col-right work-card--img-center" href="healthcare.html" aria-label="Healthcare Survey Platform — read case study">
+      <a class="work-card work-card--col-right work-card--img-center" href="healthcare.html" data-align-pair="top" aria-label="Healthcare Survey Platform — read case study">
         <div class="work-card__line" aria-hidden="true"></div>
         <div class="work-card__meta work-card__reveal">
           <span>CASE 02 · HEALTHTECH</span>
@@ -792,7 +796,7 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
 
 <script src="js/proof-strip-stroke.js?v=20261028" defer></script>
 <script src="js/hero-v6.js?v=20260327"></script>
-<script src="js/selected-work-v6.js?v=20260406"></script>
+<script src="js/selected-work-v6.js?v=20261101"></script>
 <script src="js/scroll-reveal.js?v=20260403"></script>
 <script src="js/statement-reveal.js?v=20260406" defer></script>
 

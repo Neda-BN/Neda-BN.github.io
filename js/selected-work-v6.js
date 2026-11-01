@@ -78,3 +78,70 @@
     });
   });
 })();
+
+(function () {
+  var sbCard = document.querySelector('a.work-card[data-align-pair="top"][href="simplebooking.html"]');
+  var hcCard = document.querySelector('a.work-card[data-align-pair="top"][href="healthcare.html"]');
+  if (!sbCard || !hcCard) return;
+
+  var sbMedia = sbCard.querySelector('.work-card__media');
+  var hcMedia = hcCard.querySelector('.work-card__media');
+  if (!sbMedia || !hcMedia) return;
+
+  var pairMq = window.matchMedia('(min-width: 900px)');
+  var resizeTimer;
+
+  function measurePairTop() {
+    if (!pairMq.matches) {
+      hcMedia.style.removeProperty('--pair-offset');
+      return;
+    }
+    hcMedia.style.setProperty('--pair-offset', '0px');
+    void hcMedia.offsetHeight;
+    var sbTop = sbMedia.getBoundingClientRect().top;
+    var hcTop = hcMedia.getBoundingClientRect().top;
+    var delta = Math.round(sbTop - hcTop);
+    if (delta < 0) delta = 0;
+    hcMedia.style.setProperty('--pair-offset', delta + 'px');
+  }
+
+  function schedulePairAlign() {
+    requestAnimationFrame(measurePairTop);
+  }
+
+  function debouncedPairAlign() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(schedulePairAlign, 150);
+  }
+
+  function whenPairImagesReady(cb) {
+    var imgs = [sbMedia.querySelector('img'), hcMedia.querySelector('img')].filter(Boolean);
+    var waiting = imgs.filter(function (img) { return !img.complete; });
+    if (!waiting.length) {
+      cb();
+      return;
+    }
+    var left = waiting.length;
+    waiting.forEach(function (img) {
+      img.addEventListener('load', function () {
+        left -= 1;
+        if (left === 0) cb();
+      }, { once: true });
+      img.addEventListener('error', function () {
+        left -= 1;
+        if (left === 0) cb();
+      }, { once: true });
+    });
+  }
+
+  window.addEventListener('load', function () {
+    whenPairImagesReady(schedulePairAlign);
+    schedulePairAlign();
+  });
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(schedulePairAlign).catch(schedulePairAlign);
+  }
+  pairMq.addEventListener('change', schedulePairAlign);
+  window.addEventListener('resize', debouncedPairAlign);
+  schedulePairAlign();
+})();
