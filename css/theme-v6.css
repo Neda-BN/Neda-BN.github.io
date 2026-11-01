@@ -165,16 +165,6 @@ footer p,
 .site-footer p {
   color: var(--muted);
 }
-.footer-social a {
-  background: var(--surface);
-  border-color: var(--border);
-  color: var(--muted);
-}
-.footer-social a:hover {
-  color: var(--accent);
-  border-color: rgba(138, 164, 214, 0.35);
-  background: var(--accent-soft);
-}
 
 /* ── Case studies ── */
 .case-study-page {
