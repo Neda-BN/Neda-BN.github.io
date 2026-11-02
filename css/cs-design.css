@@ -754,6 +754,33 @@ body.cs-design-page .cs-glance__result-sub {
   color: var(--ink);
 }
 
+body.cs-design-page .cs-glance__result-line {
+  margin: 0 0 6px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--body);
+}
+
+body.cs-design-page .cs-glance__result-line:last-of-type {
+  margin-bottom: 0;
+}
+
+body.cs-design-page .cs-glance__result-meta {
+  margin: 12px 0 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--meta);
+}
+
+body.cs-design-page .cs-glance__col--result .cs-glance__result-line,
+body.cs-design-page .cs-glance__col--result .cs-glance__result-meta {
+  max-width: none;
+}
+
 body.cs-design-page .cs-glance__col--result .cs-glance__status-detail,
 body.cs-design-page .cs-glance__col--result .sb-glance__status-note {
   font-size: 15px;
