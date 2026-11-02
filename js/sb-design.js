@@ -4,6 +4,7 @@
   var progress = document.querySelector(".sb-read-progress");
   var processFrame = document.querySelector(".sb-process-frame");
   var processSection = document.querySelector('section[aria-labelledby="how-i-worked"]');
+  var glance = document.querySelector(".sb-glance");
 
   function updateProgress() {
     if (!progress) return;
@@ -35,6 +36,31 @@
         { threshold: 0.2 }
       );
       obs.observe(processSection);
+    }
+  }
+
+  function showGlanceStatus() {
+    if (!glance) return;
+    glance.classList.add("is-status-visible");
+  }
+
+  if (glance && "IntersectionObserver" in window) {
+    var reducedGlance = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reducedGlance) {
+      showGlanceStatus();
+    } else {
+      var glanceObs = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              showGlanceStatus();
+              glanceObs.disconnect();
+            }
+          });
+        },
+        { threshold: 0.25 }
+      );
+      glanceObs.observe(glance);
     }
   }
 

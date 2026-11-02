@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="css/case-study.css?v=20261102g">
 <link rel="stylesheet" href="css/simplebooking.css?v=20260408">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
-<link rel="stylesheet" href="css/sb-design.css?v=20261102a">
+<link rel="stylesheet" href="css/sb-design.css?v=20261102c">
 <link rel="preload" as="image" href="sb-hero.webp" type="image/webp" fetchpriority="high">
 <style>
   /* Before/after comparisons: keep slider layout; do not hide scroll/zoom wrappers */
@@ -191,24 +191,35 @@
       </div>
 
       <div class="sb-tldr cs-summary sb-glance">
-        <div class="sb-glance__grid">
-          <div class="sb-glance__cell">
-            <p class="sb-label">The problem</p>
-            <p class="sb-glance__text">A big accounting app, built by developers without a designer and never tested with users. Its core workflows were confusing, cluttered and sometimes unfinished.</p>
+        <div class="sb-glance__problem">
+          <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">The problem</p></div>
+          <p class="sb-glance__statement">A big accounting app, <span class="sb-glance-em">built by developers without a designer and never tested with users</span>. Its core workflows were confusing, cluttered and sometimes unfinished.</p>
+        </div>
+        <div class="sb-glance__divider" role="presentation"></div>
+        <div class="sb-glance__lower">
+          <div class="sb-glance__col sb-glance__col--did">
+            <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">What I did</p></div>
+            <p class="sb-glance__body">Reviewed the whole app, built a roadmap with the PM, and ran workshops on each core area with <span class="sb-glance-em">all three real users</span>. Then I restructured the information architecture, redesigned those areas, <span class="sb-glance-em">proposed and designed Adviser, an AI assistant</span>, and built the new UI myself with Claude Code.</p>
           </div>
-          <div class="sb-glance__cell">
-            <p class="sb-label">What I did</p>
-            <p class="sb-glance__text">Reviewed the whole app, built a roadmap with the PM, and ran workshops on each core area with all three real users. Then I restructured the information architecture, redesigned those areas, proposed and designed Adviser, an AI assistant, and built the new UI myself with Claude Code.</p>
+          <div class="sb-glance__col sb-glance__col--decisions">
+            <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">Key decisions</p></div>
+            <ul class="sb-glance__list">
+              <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>An Overview sorted by urgency</li>
+              <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Clear statuses everywhere</li>
+              <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Search and filters for long lists</li>
+              <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Payroll in small steps</li>
+              <li class="sb-glance__list-item--lead"><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Adviser, an AI assistant that answers from the owner's own numbers and never acts without confirmation</li>
+            </ul>
           </div>
-          <div class="sb-glance__cell">
-            <p class="sb-label">Key decisions</p>
-            <p class="sb-glance__text">An Overview sorted by urgency, clear statuses everywhere, search and filters for long lists, payroll in small steps, and Adviser, an AI assistant that answers from the owner's own numbers and never acts without confirmation.</p>
-          </div>
-          <div class="sb-glance__cell">
-            <p class="sb-label">Status</p>
-            <p class="sb-glance__text">About 50% redesigned and built. Formal testing of V2 is next.</p>
+          <div class="sb-glance__col sb-glance__col--status">
+            <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">Status</p></div>
+            <p class="sb-glance__pct" aria-hidden="true">50%</p>
+            <div class="sb-glance__status-bar" aria-hidden="true"><span class="sb-glance__status-fill"></span></div>
+            <p class="sb-glance__status-note">About 50% redesigned and built. Formal testing of V2 is next.</p>
+            <p class="sb-glance__ongoing"><span class="sb-glance__status-dot" aria-hidden="true"></span>Ongoing</p>
           </div>
         </div>
+        <div class="sb-glance__jump-divider" role="presentation"></div>
         <div class="cs-summary-jump">
           <a class="cs-summary-jump__link" href="#where-it-is-now">Jump to where it is now <span class="cs-summary-jump__arrow" aria-hidden="true">↓</span></a>
         </div>
@@ -777,6 +788,6 @@
 <script src="js/simplebooking.js?v=20261027" defer></script>
 <script src="js/scroll-reveal.js?v=20261102f" defer></script>
 <script src="js/more-case-studies.js?v=20261029" defer></script>
-<script src="js/sb-design.js?v=20261102a" defer></script>
+<script src="js/sb-design.js?v=20261102b" defer></script>
 </body>
 </html>
