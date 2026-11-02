@@ -38,6 +38,44 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .meta-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin-bottom: 6px; }
   .meta-value { font-size: 14px; font-weight: 500; color: var(--dark); }
 
+  /* At a glance — same full-width shell as simplebooking.html (pos only) */
+  body.case-study-page.cs-design-page .pos-summary-shell.sb-case {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+  body.case-study-page.cs-design-page .pos-summary-shell .sb-tldr.cs-summary.sb-glance {
+    text-align: left;
+  }
+  body.case-study-page.cs-design-page .pos-summary-shell .sb-glance__result-sub {
+    margin: 0 0 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--ink);
+  }
+  body.case-study-page.cs-design-page .pos-summary-shell .sb-glance__result-line {
+    margin: 0 0 6px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--body);
+  }
+  body.case-study-page.cs-design-page .pos-summary-shell .sb-glance__result-meta {
+    margin: 12px 0 0;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--meta);
+  }
+  body.case-study-page.cs-design-page .pos-summary-shell .sb-glance__result-sub,
+  body.case-study-page.cs-design-page .pos-summary-shell .sb-glance__result-line,
+  body.case-study-page.cs-design-page .pos-summary-shell .sb-glance__result-meta {
+    max-width: none;
+    text-align: left;
+  }
   .hero-image { max-width: min(1100px, 100%); margin: 0 auto 80px; padding: 0 48px; }
   .image-placeholder { width: 100%; aspect-ratio: 16/8; background: linear-gradient(135deg, #0F0F0F 0%, #1A1A1A 40%, #2A2A2A 70%, #404040 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
   .image-placeholder.image-placeholder--screen { aspect-ratio: 572 / 1024; border-radius: 0; }
@@ -765,7 +803,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   }
 </style>
 <link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
-<link rel="stylesheet" href="css/case-study.css?v=20261031a">
+<link rel="stylesheet" href="css/case-study.css?v=20261102e">
 <link rel="stylesheet" href="css/cs-design.css?v=20261102d">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
@@ -860,40 +898,44 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   </div>
 </div>
 
-<div class="content case-main sb-case">
-
-  <div class="cs-glance sb-glance cs-summary fade-in reveal">
-    <div class="cs-glance__problem sb-glance__problem">
-      <div class="cs-glance__label-head sb-glance__label-head"><span class="cs-glance__label-mark sb-glance__label-mark" aria-hidden="true"></span><p class="cs-label sb-label">The problem</p></div>
-      <p class="cs-glance__statement sb-glance__statement">Cashiers needed <span class="sb-glance-em">4+ taps and several screens</span> to complete a basic transaction, and stores needed a separate system just to add a product.</p>
-    </div>
-    <div class="cs-glance__divider sb-glance__divider" role="presentation"></div>
-    <div class="cs-glance__lower sb-glance__lower">
-      <div class="cs-glance__col sb-glance__col cs-glance__col--did sb-glance__col--did">
-        <div class="cs-glance__label-head sb-glance__label-head"><span class="cs-glance__label-mark sb-glance__label-mark" aria-hidden="true"></span><p class="cs-label sb-label">What I did</p></div>
-        <p class="cs-glance__body sb-glance__body">Designed the mobile version of the POS, from research to final screens, with the PM, engineering and stakeholders. I interviewed store owners, ran workshops and <span class="sb-glance-em">tested the app with cashiers in a real store</span>. After my colleague left, I also designed Connected devices.</p>
+<div class="sb-case pos-summary-shell">
+  <div class="sb-wrap">
+    <div class="sb-tldr cs-summary sb-glance">
+      <div class="sb-glance__problem">
+        <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">The problem</p></div>
+        <p class="sb-glance__statement">Cashiers needed <span class="sb-glance-em">4+ taps and several screens</span> to complete a basic transaction, and stores needed a separate system just to add a product.</p>
       </div>
-      <div class="cs-glance__col sb-glance__col cs-glance__col--decisions sb-glance__col--decisions">
-        <div class="cs-glance__label-head sb-glance__label-head"><span class="cs-glance__label-mark sb-glance__label-mark" aria-hidden="true"></span><p class="cs-label sb-label">Key decisions</p></div>
-        <ul class="cs-glance__list sb-glance__list">
-          <li class="cs-glance__list-item--lead sb-glance__list-item--lead"><svg class="cs-glance__check sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>One scrollable home screen with the cart always visible</li>
-          <li><svg class="cs-glance__check sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Adding products straight from the till, scoped with engineering to keep product data secure</li>
-        </ul>
+      <div class="sb-glance__divider" role="presentation"></div>
+      <div class="sb-glance__lower">
+        <div class="sb-glance__col sb-glance__col--did">
+          <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">What I did</p></div>
+          <p class="sb-glance__body">Designed the mobile version of the POS, from research to final screens, with the PM, engineering and stakeholders. I interviewed store owners, ran workshops and <span class="sb-glance-em">tested the app with cashiers in a real store</span>. After my colleague left, I also designed Connected devices.</p>
+        </div>
+        <div class="sb-glance__col sb-glance__col--decisions">
+          <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">Key decisions</p></div>
+          <ul class="sb-glance__list">
+            <li class="sb-glance__list-item--lead"><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>One scrollable home screen with the cart always visible</li>
+            <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Adding products straight from the till, scoped with engineering to keep product data secure</li>
+          </ul>
+        </div>
+        <div class="sb-glance__col sb-glance__col--status sb-glance__col--result">
+          <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">Result</p></div>
+          <p class="sb-glance__pct" aria-hidden="true">70%</p>
+          <p class="sb-glance__result-sub">fewer transaction errors</p>
+          <p class="sb-glance__result-line">30% faster cashier tasks</p>
+          <p class="sb-glance__result-line">1–2 taps per sale instead of 4+</p>
+          <p class="sb-glance__result-meta">Real-store test with 5 users</p>
+        </div>
       </div>
-      <div class="cs-glance__col sb-glance__col cs-glance__col--result sb-glance__col--status">
-        <div class="cs-glance__label-head sb-glance__label-head"><span class="cs-glance__label-mark sb-glance__label-mark" aria-hidden="true"></span><p class="cs-label sb-label">Result</p></div>
-        <p class="sb-glance__pct" aria-hidden="true">70%</p>
-        <p class="cs-glance__result-sub">fewer transaction errors</p>
-        <p class="cs-glance__result-line">30% faster cashier tasks</p>
-        <p class="cs-glance__result-line">1–2 taps per sale instead of 4+</p>
-        <p class="cs-glance__result-meta">Real-store test with 5 users</p>
+      <div class="sb-glance__jump-divider" role="presentation"></div>
+      <div class="cs-summary-jump">
+        <a class="cs-summary-jump__link" href="#results">Jump to results <span class="cs-summary-jump__arrow" aria-hidden="true">↓</span></a>
       </div>
-    </div>
-    <div class="cs-glance__jump-divider sb-glance__jump-divider" role="presentation"></div>
-    <div class="cs-summary-jump">
-      <a class="cs-summary-jump__link" href="#results">Jump to results <span class="cs-summary-jump__arrow" aria-hidden="true">↓</span></a>
     </div>
   </div>
+</div>
+
+<div class="content case-main sb-case">
   <p class="pos-platform-line fade-in reveal">Part of the Focalpay platform: the POS sells products and prices set up in the <a href="backoffice.html">Back-office</a>, and takes over cash payments from the <a href="mobile-app.html">Mobile shopping app</a>.</p>
   <section class="section fade-in reveal case-anchor" id="challenge">
     <div class="section-header">

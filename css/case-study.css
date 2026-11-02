@@ -2748,8 +2748,8 @@ body.case-study-page .hc-tldr {
   margin: 40px 0 0;
 }
 
-body.case-study-page .cs-summary p,
-body.case-study-page .sb-tldr p,
+body.case-study-page .cs-summary:not(.sb-glance) p,
+body.case-study-page .sb-tldr:not(.sb-glance) p,
 body.case-study-page .pos-tldr p,
 body.case-study-page .mob-tldr p,
 body.case-study-page .bo-tldr p,
@@ -2762,14 +2762,16 @@ body.case-study-page .hc-tldr p {
   margin-bottom: 14px !important;
 }
 
-body.case-study-page .cs-summary p:last-child,
-body.case-study-page .sb-tldr p:last-child,
+body.case-study-page .cs-summary:not(.sb-glance) p:last-child,
+body.case-study-page .sb-tldr:not(.sb-glance) p:last-child,
 body.case-study-page .pos-tldr p:last-child,
 body.case-study-page .mob-tldr p:last-child,
 body.case-study-page .bo-tldr p:last-child,
 body.case-study-page .hc-tldr p:last-child {
   margin-bottom: 0 !important;
 }
+
+/* At a glance (.sb-glance): typography comes from cs-design.css — do not blanket-reset p */
 
 body.case-study-page {
   scroll-behavior: smooth;

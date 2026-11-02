@@ -787,7 +787,8 @@ body.cs-design-page .cs-glance__col--result .sb-glance__status-note {
 }
 
 body.cs-design-page .cs-glance__col--result .cs-glance__status-bar,
-body.cs-design-page .cs-glance__col--result .sb-glance__status-bar {
+body.cs-design-page .cs-glance__col--result .sb-glance__status-bar,
+body.cs-design-page .sb-glance__col--result .sb-glance__status-bar {
   display: none;
 }
 
