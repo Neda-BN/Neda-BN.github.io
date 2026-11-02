@@ -5868,6 +5868,11 @@ body.case-study-page .cs-feature__text {
     transform: none;
     animation: none;
   }
+
+  body.case-study-page .cs-status-flow .cs-status-flow__connector {
+    opacity: 1;
+    animation: none;
+  }
 }
 
 /* ── Reusable: invoice / lifecycle status flow ── */
@@ -5888,6 +5893,8 @@ body.case-study-page .cs-status-flow {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 16px;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 body.case-study-page .cs-status-flow__label {
@@ -5902,80 +5909,114 @@ body.case-study-page .cs-status-flow__label {
 
 body.case-study-page .cs-status-flow__grid {
   display: grid;
-  grid-template-columns: max-content max-content max-content max-content max-content;
+  grid-template-columns: max-content max-content max-content max-content max-content 1fr;
   grid-template-rows: auto auto;
-  column-gap: 10px;
-  row-gap: 8px;
-  justify-content: start;
+  column-gap: 12px;
+  row-gap: 16px;
   align-items: center;
+  justify-content: start;
+  min-width: 0;
 }
 
-body.case-study-page .cs-status-flow__grid > .cs-status-pill--draft {
+body.case-study-page .cs-status-flow__cell {
+  justify-self: start;
+  align-self: center;
+  min-width: 0;
+  max-width: 100%;
+}
+
+body.case-study-page .cs-status-flow__cell--draft {
   grid-column: 1;
   grid-row: 1;
 }
 
-body.case-study-page .cs-status-flow__grid > .cs-status-flow__arrow:first-of-type {
+body.case-study-page .cs-status-flow__cell--arrow-a {
   grid-column: 2;
   grid-row: 1;
 }
 
-body.case-study-page .cs-status-flow__sent {
+body.case-study-page .cs-status-flow__cell--sent {
   grid-column: 3;
   grid-row: 1;
 }
 
-body.case-study-page .cs-status-flow__grid > .cs-status-flow__arrow:last-of-type {
+body.case-study-page .cs-status-flow__cell--arrow-b {
   grid-column: 4;
   grid-row: 1;
 }
 
-body.case-study-page .cs-status-flow__grid > .cs-status-pill--paid {
+body.case-study-page .cs-status-flow__cell--paid {
   grid-column: 5;
   grid-row: 1;
 }
 
-body.case-study-page .cs-status-flow__exceptions {
-  grid-column: 3 / 6;
+body.case-study-page .cs-status-flow__cell--branch {
+  grid-column: 3 / -1;
   grid-row: 2;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px 18px;
-  align-items: flex-start;
-  padding-top: 8px;
-  margin-top: 4px;
-  border-top: 1px dashed var(--border);
-  position: relative;
+  align-self: start;
+  justify-self: stretch;
+  width: 100%;
+  min-width: 0;
 }
 
 body.case-study-page .cs-status-flow__branch {
+  position: relative;
+  min-width: 0;
+  max-width: 100%;
+  padding: 4px 0 0 20px;
+  box-sizing: border-box;
+}
+
+body.case-study-page .cs-status-flow__stem {
   position: absolute;
-  top: -22px;
-  left: 50%;
+  left: 7px;
+  top: -20px;
   width: 0;
-  height: 18px;
-  transform: translateX(-50%);
+  height: calc(100% + 12px);
   border-left: 1px dashed var(--border);
   pointer-events: none;
 }
 
+body.case-study-page .cs-status-flow__exceptions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  max-width: 100%;
+}
+
 body.case-study-page .cs-status-flow__exception {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   align-items: center;
-  gap: 8px 12px;
+  gap: 12px;
   min-width: 0;
+  max-width: 100%;
+}
+
+body.case-study-page .cs-status-flow__elbow {
+  flex-shrink: 0;
+  width: 16px;
+  height: 18px;
+  margin-left: -20px;
+  border-left: 1px dashed var(--border);
+  border-bottom: 1px dashed var(--border);
+  box-sizing: border-box;
 }
 
 body.case-study-page .cs-status-flow__note {
   margin: 0;
-  flex: 1 1 140px;
+  flex: 1 1 0;
   min-width: 0;
   font-family: var(--font-body, 'Poppins', sans-serif);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.45;
   color: var(--muted);
+  overflow-wrap: anywhere;
 }
 
 body.case-study-page .cs-status-flow__arrow {
@@ -5984,12 +6025,21 @@ body.case-study-page .cs-status-flow__arrow {
   justify-content: center;
   flex-shrink: 0;
   color: var(--muted);
-  margin-top: 6px;
 }
 
-body.case-study-page .cs-status-flow__arrow svg {
+body.case-study-page .cs-status-flow__arrow--right svg {
   width: 18px;
   height: 18px;
+  stroke: currentColor;
+}
+
+body.case-study-page .cs-status-flow__arrow--down {
+  display: none;
+}
+
+body.case-study-page .cs-status-flow__arrow--down svg {
+  width: 16px;
+  height: 16px;
   stroke: currentColor;
 }
 
@@ -5997,6 +6047,9 @@ body.case-study-page .cs-status-pill {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  width: max-content;
+  max-width: 100%;
+  flex: 0 0 auto;
   padding: 8px 16px;
   border-radius: 999px;
   border: 1px solid color-mix(in srgb, var(--status-color) 45%, transparent);
@@ -6008,6 +6061,7 @@ body.case-study-page .cs-status-pill {
   color: var(--status-text, var(--status-color));
   opacity: 0;
   transform: translateY(8px);
+  box-sizing: border-box;
 }
 
 body.case-study-page .cs-status-flow.is-status-visible .cs-status-pill {
@@ -6015,10 +6069,25 @@ body.case-study-page .cs-status-flow.is-status-visible .cs-status-pill {
   animation-delay: calc(var(--pill-i, 0) * 80ms);
 }
 
+body.case-study-page .cs-status-flow__connector {
+  opacity: 0;
+}
+
+body.case-study-page .cs-status-flow.is-status-visible .cs-status-flow__connector {
+  animation: cs-status-connector-in 500ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--pill-i, 0) * 80ms + 40ms);
+}
+
 @keyframes cs-status-pill-in {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes cs-status-connector-in {
+  to {
+    opacity: 1;
   }
 }
 
@@ -6200,23 +6269,65 @@ body.case-study-page .cs-customer-view > .cs-caption {
   text-align: center;
 }
 
-@media (max-width: 599.98px) {
+@media (max-width: 639.98px) {
   body.case-study-page .cs-status-flow {
     padding: 20px;
   }
 
   body.case-study-page .cs-status-flow__grid {
-    grid-template-columns: repeat(5, max-content);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 
-  body.case-study-page .cs-status-flow__exceptions {
-    grid-column: 1 / -1;
-    flex-direction: column;
-    padding-left: 0;
+  body.case-study-page .cs-status-flow__cell {
+    width: auto;
+    max-width: 100%;
+  }
+
+  body.case-study-page .cs-status-flow__cell--draft {
+    order: 1;
+  }
+
+  body.case-study-page .cs-status-flow__cell--arrow-a {
+    order: 2;
+  }
+
+  body.case-study-page .cs-status-flow__cell--sent {
+    order: 3;
+  }
+
+  body.case-study-page .cs-status-flow__cell--branch {
+    order: 4;
+    width: 100%;
+    padding-left: 24px;
+    box-sizing: border-box;
+  }
+
+  body.case-study-page .cs-status-flow__cell--arrow-b {
+    order: 5;
+  }
+
+  body.case-study-page .cs-status-flow__cell--paid {
+    order: 6;
+  }
+
+  body.case-study-page .cs-status-flow__arrow--right {
+    display: none;
+  }
+
+  body.case-study-page .cs-status-flow__arrow--down {
+    display: inline-flex;
   }
 
   body.case-study-page .cs-status-flow__branch {
-    display: none;
+    padding-left: 16px;
+  }
+
+  body.case-study-page .cs-status-flow__stem {
+    top: -8px;
+    left: 3px;
   }
 
   body.case-study-page .cs-status-flow__exception {
@@ -6226,7 +6337,9 @@ body.case-study-page .cs-customer-view > .cs-caption {
   }
 
   body.case-study-page .cs-status-flow__note {
-    flex-basis: auto;
+    font-size: 13px;
+    flex: none;
+    width: 100%;
   }
 
   body.case-study-page .cs-customer-view__panel {
