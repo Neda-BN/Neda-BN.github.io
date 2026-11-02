@@ -15,7 +15,7 @@
 <title>Simple Booking Accounting Application · Neda Bagherinezhad</title>
 <meta name="description" content="Case study: redesigning Simple Booking, a developer-built accounting app, through workshops with its real users and AI-assisted implementation with Claude Code.">
 <link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
-<link rel="stylesheet" href="css/case-study.css?v=20261102e">
+<link rel="stylesheet" href="css/case-study.css?v=20261102f">
 <link rel="stylesheet" href="css/simplebooking.css?v=20260408">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="preload" as="image" href="sb-hero.webp" type="image/webp" fetchpriority="high">
@@ -246,10 +246,43 @@
 
       <article class="sb-compare">
         <h3>Invoices</h3>
-        <p class="sb-finding-lede">Users couldn't see which invoices were paid, or find a specific one.</p>
+        <div class="sb-text cs-compare-prose">
+          <p>Invoicing is the task owners do most often, and usually the first reason they open the app. If sending an invoice and getting paid feels easy, they trust the app with the rest of their accounting.</p>
+          <p>But users couldn't see which invoices were paid, or find a specific one. The app had only a few statuses, all in the same grey, so users had to read carefully to understand where an invoice stood.</p>
+          <p>So I designed the invoice's whole journey as statuses you can read at a glance:</p>
+        </div>
+        <div class="cs-status-flow">
+          <p class="cs-status-flow__label">The invoice journey</p>
+          <div class="cs-status-flow__grid">
+            <span class="cs-status-pill cs-status-pill--draft" style="--pill-i: 0"><span class="cs-status-pill__dot" aria-hidden="true"></span><span class="cs-status-pill__text">Draft</span></span>
+            <span class="cs-status-flow__arrow" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            <span class="cs-status-pill cs-status-pill--sent cs-status-flow__sent" style="--pill-i: 1"><span class="cs-status-pill__dot" aria-hidden="true"></span><span class="cs-status-pill__text">Sent</span></span>
+            <span class="cs-status-flow__arrow" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            <span class="cs-status-pill cs-status-pill--paid" style="--pill-i: 2"><span class="cs-status-pill__dot" aria-hidden="true"></span><span class="cs-status-pill__text">Paid</span></span>
+            <div class="cs-status-flow__exceptions">
+              <div class="cs-status-flow__branch" aria-hidden="true"></div>
+              <div class="cs-status-flow__exception">
+                <span class="cs-status-pill cs-status-pill--overdue" style="--pill-i: 3"><span class="cs-status-pill__dot" aria-hidden="true"></span><span class="cs-status-pill__text">Overdue</span></span>
+                <p class="cs-status-flow__note">Not paid by the due date</p>
+              </div>
+              <div class="cs-status-flow__exception">
+                <span class="cs-status-pill cs-status-pill--credited" style="--pill-i: 4"><span class="cs-status-pill__dot" aria-hidden="true"></span><span class="cs-status-pill__text">Credited</span></span>
+                <p class="cs-status-flow__note">Cancelled or corrected with a credit invoice</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <aside class="cs-research-note">
+          <span class="cs-research-note__icon-chip" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m8 11 2 2 4-4"/><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
+          <div class="cs-research-note__body">
+            <p class="cs-research-note__label">Research</p>
+            <p class="cs-research-note__text">Before designing reminders, I looked at how competitors handle late payments, then checked the idea with two users. Both confirmed it would be genuinely helpful.</p>
+          </div>
+        </aside>
         <ul class="sb-changes cs-list">
-          <li><b>No clear statuses</b> → colour-coded status on every invoice</li>
+          <li><b>A few grey statuses</b> → a full lifecycle, each status with its own colour</li>
           <li><b>No way to find an invoice</b> → search and filtering</li>
+          <li><b>No warning when a payment is late</b> → an Overdue status and reminders</li>
         </ul>
         <div class="sb-compare-sub">
           <h4>Recurring invoices</h4>
@@ -269,10 +302,12 @@
       <article class="sb-compare">
         <h3>Quotes</h3>
         <p class="sb-finding-lede">Every button looked equally important and some statuses were missing, so users couldn't tell where a quote stood.</p>
+        <p class="sb-finding-lede">The quote flow itself was unfinished and didn't work correctly, so I redesigned it from the start. Owners can now send a quote in two ways: by email, or as a link. The customer opens the link, sees the full quote, and accepts or declines it, without creating an account or signing in. The owner gets the answer straight away.</p>
         <ul class="sb-changes cs-list">
           <li><b>Equal-weight buttons</b> → one clear next action</li>
           <li><b>Unknown quote state</b> → visible statuses: sent, accepted, declined</li>
           <li><b>Form takes over the page</b> → new quote on demand</li>
+          <li><b>Unfinished quote flow</b> → send by email, or as a link the customer can accept or decline without signing in <span class="cs-list-tag">New flow</span></li>
         </ul>
         <aside class="cs-tradeoff">
           <div class="cs-tradeoff__label"><svg class="cs-tradeoff__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 5.5 5.5-1.5 1.5"/><path d="m2 16 3-8 5.5 5.5-1.5 1.5"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 7 2 7 2"/><path d="M21 7h-2c-2 0-5-1-7-2-2 1-7 2-7 2"/></svg><span>Trade-off</span></div>
@@ -282,6 +317,22 @@
           <a class="sb-zoom" href="sb-quotes-before-after.png" target="_blank" rel="noopener" data-title="Quotes · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-quotes-before-after.webp" type="image/webp"><img src="sb-quotes-before-after.png" width="3000" height="1040" loading="lazy" decoding="async" alt="Quotes page before and after. Before: an always-open quote form, no overview or status filters, faint statuses and up to four look-alike buttons per row. After: form on demand, status filters with counts, one primary action with an icon per row, and aligned columns with next steps."></picture></div></a>
           <figcaption class="cs-caption cs-caption"><span>Dark mode</span><span class="sb-swipe-hint">Swipe to see the whole comparison</span><span>Click or tap to view full size</span></figcaption>
         </figure>
+        <div class="cs-customer-view">
+          <p class="cs-customer-view__label">
+            <svg class="cs-customer-view__label-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>The customer's view</span>
+          </p>
+          <div class="cs-customer-view__panel">
+            <figure class="cs-customer-view__figure">
+              <img src="sb-quote-customer-view.png" width="760" height="520" loading="lazy" decoding="async" alt="The customer's view of a quote: the quote details, a reply deadline, and buttons to accept or decline, with no sign-in needed.">
+            </figure>
+            <ul class="cs-customer-view__pills" aria-label="Customer experience highlights">
+              <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> No account needed</li>
+              <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Answer sent instantly</li>
+            </ul>
+          </div>
+          <figcaption class="cs-caption cs-caption">What the customer sees: accept or decline a quote, no account needed.</figcaption>
+        </div>
       </article>
 
       <article class="sb-compare">
@@ -570,7 +621,7 @@
 
 <script src="js/case-study-aside-bubbles.js?v=20261027" defer></script>
 <script src="js/simplebooking.js?v=20261027" defer></script>
-<script src="js/scroll-reveal.js?v=20261102" defer></script>
+<script src="js/scroll-reveal.js?v=20261102f" defer></script>
 <script src="js/more-case-studies.js?v=20261029" defer></script>
 </body>
 </html>

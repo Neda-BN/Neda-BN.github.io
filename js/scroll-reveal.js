@@ -159,6 +159,35 @@
     });
   }
 
+  function initCsStatusFlow() {
+    var flows = document.querySelectorAll('.cs-status-flow');
+    if (!flows.length) return;
+
+    function reveal(flow) {
+      flow.classList.add('is-status-visible');
+    }
+
+    if (reducedMotion() || !window.IntersectionObserver) {
+      flows.forEach(reveal);
+      return;
+    }
+
+    var fio = new IntersectionObserver(
+      function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          reveal(entry.target);
+          obs.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.2, rootMargin: '0px 0px -8% 0px' }
+    );
+
+    flows.forEach(function (flow) {
+      fio.observe(flow);
+    });
+  }
+
   function initCsTurningShift() {
     var panels = document.querySelectorAll('.cs-turning');
     if (!panels.length) return;
@@ -215,6 +244,7 @@
       initProtoPosters();
       initHcWizardSteps();
       initCsTurningShift();
+      initCsStatusFlow();
       return;
     }
 
@@ -228,6 +258,7 @@
     initProtoPosters();
     initHcWizardSteps();
     initCsTurningShift();
+    initCsStatusFlow();
   }
 
   if (document.readyState === 'loading') {
