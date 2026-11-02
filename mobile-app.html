@@ -90,7 +90,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .result-label { font-size: 13px; color: var(--mid); font-weight: 400; line-height: 1.4; }
   .lessons-list { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
   .lesson-item { display: flex; gap: 20px; padding: 22px 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; }
-  .lesson-num { font-family: var(--serif); font-size: 22px; color: var(--accent); opacity: 0.4; flex-shrink: 0; line-height: 1.2; }
+  .lesson-num { flex-shrink: 0; line-height: 1.2; }
   .lesson-text h4 { font-family: var(--serif); font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
   .lesson-text p { font-size: 14px; margin: 0; }
   footer { border-top: 1px solid var(--border); padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; max-width: 820px; margin: 0 auto; }
@@ -656,24 +656,23 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   }
   .mob-result-lab { font-size: 13px; line-height: 1.5; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
   .mob-result-src { font-size: 12px; color: var(--mid); line-height: 1.5; margin: 0; font-weight: 400; }
-  .mob-tldr {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 28px 32px;
-    margin-bottom: 20px;
+  body.case-study-page.cs-design-page .mob-summary-shell.sb-case {
+    max-width: none;
+    margin: 0;
+    padding: 0;
   }
-  .mob-tldr p { font-size: 15px; line-height: 1.65; margin-bottom: 14px; color: var(--mid); }
-  .mob-tldr p:last-child { margin-bottom: 0; }
-  .mob-tldr strong { color: var(--dark); }
-  .mob-platform-line {
-    font-size: 14px;
-    color: var(--mid);
-    line-height: 1.6;
-    margin: 0 0 48px;
-    font-weight: 400;
+  body.case-study-page.cs-design-page .mob-summary-shell .sb-tldr.cs-summary.sb-glance {
+    text-align: left;
   }
-  .mob-platform-line a { color: var(--accent); font-weight: 500; }
+  body.case-study-page .meta-value-list { margin: 0; padding: 0 0 0 1.1em; list-style: disc; }
+  body.case-study-page .meta-value-list li {
+    font-family: var(--font-body, 'Poppins', sans-serif);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.45;
+  }
+  body.case-study-page .meta-value-list li + li { margin-top: 4px; }
   .mob-owned { display: flex; flex-direction: column; gap: 28px; margin-top: 8px; }
   .mob-owned h3 {
     font-family: var(--serif);
@@ -861,11 +860,12 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   }
 </style>
 <link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
-<link rel="stylesheet" href="css/case-study.css?v=20261031a">
+<link rel="stylesheet" href="css/case-study.css?v=20261102e">
+<link rel="stylesheet" href="css/cs-design.css?v=20261102g">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
 </head>
-<body class="has-anna-nav case-study-page">
+<body class="has-anna-nav case-study-page cs-design-page">
 <header class="anna-nav anna-nav--intro-visible" id="site-nav" aria-label="Primary">
   <div class="anna-nav__pill">
     <a href="index.html#hero">Home</a>
@@ -876,6 +876,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     <a href="index.html#contact">Contact</a>
   </div>
 </header>
+<div class="cs-read-progress" aria-hidden="true"></div>
 
 <div class="back-btn-wrap back-btn-wrap--top">
   <a class="back-btn" href="index.html#projects"><svg class="back-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Back</a>
@@ -887,8 +888,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <div class="meta-strip cs-meta-strip">
     <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Product Designer</div></div>
     <div class="meta-item"><div class="meta-label">Company</div><div class="meta-value">Focalpay AB · 2023–2024</div></div>
-    <div class="meta-item"><div class="meta-label">Platform</div><div class="meta-value">iOS · Web (PWA)</div></div>
-    <div class="meta-item"><div class="meta-label">Methods</div><div class="meta-value">Interviews · Survey · Usability testing · A/B testing</div></div>
+    <div class="meta-item"><div class="meta-label">Platform</div><ul class="meta-value-list"><li>iOS</li><li>Web (PWA)</li></ul></div>
+    <div class="meta-item"><div class="meta-label">Methods</div><ul class="meta-value-list"><li>Interviews</li><li>Survey</li><li>Usability testing</li><li>A/B testing</li></ul></div>
   </div>
   <p class="hero-subtitle">Letting shoppers scan and pay with their own phone, without queueing at the till</p>
 </section>
@@ -899,23 +900,49 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   </div>
 </div>
 
-<div class="content case-main">
-
-  <div class="mob-tldr fade-in reveal cs-summary">
-    <p><strong>The problem:</strong> Shoppers had to choose between carrying a store scanner and standing in a queue. Both were real barriers, especially for parents and people with accessibility needs.</p>
-    <p><strong>What I did:</strong> Led the design from research to launch, working with the PM and engineering team. I tested in office workshops and in a live store before launch, and ran an A/B test with real shoppers after launch.</p>
-    <p><strong>Key decisions:</strong> Made sign-up optional after 3 testers abandoned at registration. Added visual, haptic and audio scan feedback after finding that the app was too silent: shoppers couldn't tell whether a scan had worked.</p>
-    <p><strong>Result:</strong> In an A/B test after launch, checkout completion rose by 40% with scan feedback. Usability testing before launch also showed about 30% better checkout task performance, and sign-up abandonments dropped from 3 to 0. The app has launched; adoption is still early.</p>
-    <div class="cs-summary-jump">
-      <a class="cs-summary-jump__link" href="#results">Jump to results <span class="cs-summary-jump__arrow" aria-hidden="true">↓</span></a>
+<div class="sb-case mob-summary-shell">
+  <div class="sb-wrap">
+    <div class="sb-tldr cs-summary sb-glance fade-in reveal">
+      <div class="sb-glance__problem">
+        <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">The problem</p></div>
+        <p class="sb-glance__statement">Shoppers had to choose between carrying a store scanner and standing in a queue. Both were real barriers, <span class="sb-glance-em">especially for parents and people with accessibility needs</span>.</p>
+      </div>
+      <div class="sb-glance__divider" role="presentation"></div>
+      <div class="sb-glance__lower">
+        <div class="sb-glance__col sb-glance__col--did">
+          <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">What I did</p></div>
+          <p class="sb-glance__body">Led the design from research to launch, working with the PM and engineering team. I <span class="sb-glance-em">tested in office workshops and in a live store before launch</span>, and ran an A/B test with real shoppers after launch.</p>
+        </div>
+        <div class="sb-glance__col sb-glance__col--decisions">
+          <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">Key decisions</p></div>
+          <ul class="sb-glance__list">
+            <li class="sb-glance__list-item--lead"><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Made sign-up optional after 3 testers abandoned at registration</li>
+            <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Added visual, haptic and audio scan feedback after finding that the app was too silent: shoppers couldn't tell whether a scan had worked</li>
+          </ul>
+        </div>
+        <div class="sb-glance__col sb-glance__col--status sb-glance__col--result">
+          <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">Result</p></div>
+          <p class="sb-glance__pct" aria-hidden="true">+40%</p>
+          <p class="sb-glance__result-sub">checkout completion</p>
+          <p class="sb-glance__result-line">In an A/B test after launch, checkout completion rose by 40% with scan feedback. Usability testing before launch also showed about 30% better checkout task performance, and sign-up abandonments dropped from 3 to 0. The app has launched; adoption is still early.</p>
+          <p class="sb-glance__result-meta">A/B test after launch with 10 real shoppers</p>
+        </div>
+      </div>
+      <div class="sb-glance__jump-divider" role="presentation"></div>
+      <div class="cs-summary-jump">
+        <a class="cs-summary-jump__link" href="#results">Jump to results <span class="cs-summary-jump__arrow" aria-hidden="true">↓</span></a>
+      </div>
     </div>
+    <p class="cs-platform-note fade-in reveal">Part of the Focalpay platform: this app connects to the <a href="pos-app.html">Cashier POS</a> for cash payments and to the <a href="backoffice.html">Back-office</a> for products and prices.</p>
   </div>
-  <p class="mob-platform-line fade-in reveal cs-platform">Part of the Focalpay platform: this app connects to the <a href="pos-app.html">Cashier POS</a> for cash payments and to the <a href="backoffice.html">Back-office</a> for products and prices.</p>
+</div>
+
+<div class="content case-main sb-case">
 
   <section class="section fade-in reveal case-anchor" id="challenge">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">The challenge</h2></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">01</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">The challenge</h2></div>
     </div>
     <p>In Swedish grocery stores like ICA and Coop, self-scanning means carrying a store scanner around, or standing in the queue at the till. For a parent with a stroller, or someone shopping with a sensory-sensitive child, neither works well.</p>
     <p>Focalpay's app turns the shopper's own phone into the scanner. Shoppers scan as they go, then pay by scanning a QR code on the store wall. If they want to pay with cash, one tap sends their cart to the cashier.</p>
@@ -933,7 +960,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="onboarding">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Onboarding</h2><p class="section-subtitle">Explaining the flow before the first scan</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">02</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Onboarding</h2><p class="section-subtitle">Explaining the flow before the first scan</p></div>
     </div>
     <p>Before the first scan, a short, skippable carousel explains the store flow in four plain steps: scan, pay, get the receipt, and exit.</p>
     <div class="screens-section reveal reveal-media">
@@ -963,7 +990,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="research">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Research</h2><p class="section-subtitle">Understanding the problem</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">03</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Research</h2><p class="section-subtitle">Understanding the problem</p></div>
     </div>
     <p>I started with competitors, checked the problem with shoppers before designing anything, and tested in two very different settings.</p>
     <div class="mob-methods-grid cs-card-grid">
@@ -996,13 +1023,13 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
       <div class="mob-logo-pill mob-logo-hemkop">Hemköp</div>
     </div>
     <div class="mob-comp-grid">
-      <div class="mob-comp-card">
+      <div class="mob-comp-card cs-card">
         <div class="mob-comp-title">1. Self-scanning devices</div>
         <div class="mob-comp-row"><div class="mob-comp-k">Competitors</div><div class="mob-comp-v">ICA and Coop give shoppers handheld scanners at the store entrance.</div></div>
         <div class="mob-comp-row"><div class="mob-comp-k">Weakness</div><div class="mob-comp-v">Shoppers have to manage an extra device. That's hard for parents with strollers and for people with accessibility needs.</div></div>
         <div class="mob-comp-row mob-comp-row--opp"><div class="mob-comp-k">Opportunity</div><div class="mob-comp-v">Let shoppers scan with the phone they already have.</div></div>
       </div>
-      <div class="mob-comp-card">
+      <div class="mob-comp-card cs-card">
         <div class="mob-comp-title">2. Fully automatic checkout</div>
         <div class="mob-comp-row"><div class="mob-comp-k">Competitors</div><div class="mob-comp-v">Amazon's "Just Walk Out" removes the checkout completely, but needs expensive store infrastructure.</div></div>
         <div class="mob-comp-row"><div class="mob-comp-k">Weakness</div><div class="mob-comp-v">Most Swedish stores can't rebuild their stores for it.</div></div>
@@ -1016,7 +1043,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="persona">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Persona</h2><p class="section-subtitle">Who we designed for</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">04</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Persona</h2><p class="section-subtitle">Who we designed for</p></div>
     </div>
     <p>The research pointed to one group that existing solutions were failing: parents shopping with young children, especially when a child has extra needs.</p>
     <div class="mob-persona-photo reveal reveal-media">
@@ -1044,7 +1071,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="discover">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">The problem</h2><p class="section-subtitle">What wasn't working</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">05</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">The problem</h2><p class="section-subtitle">What wasn't working</p></div>
     </div>
     <p>Checkout was designed around the store's systems, not the people using them.</p>
     <div class="pain-grid cs-card-grid">
@@ -1060,7 +1087,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="decisions-owned">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Two decisions I made</h2></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">06</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Two decisions I made</h2></div>
     </div>
     <div class="mob-owned">
       <div>
@@ -1092,11 +1119,11 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="design-solutions">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">What I designed</h2><p class="section-subtitle">Designed for one free hand</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">07</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">What I designed</h2><p class="section-subtitle">Designed for one free hand</p></div>
     </div>
     <p>I designed every screen around one idea: the phone in the shopper's hand should be the only device they need, even while they push a stroller, check a list and watch two children.</p>
     <div class="mob-solution-list">
-      <div class="mob-solution">
+      <div class="mob-solution cs-card">
         <div class="mob-sol-head">
           <div class="mob-sol-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
           <div>
@@ -1106,7 +1133,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
         </div>
         <p class="mob-sol-body">When the app opens, the camera is already on and the cart is visible. Each scan goes straight into the cart, and the total and shortcuts are always one tap away. The whole home screen is for scanning.</p>
       </div>
-      <div class="mob-solution">
+      <div class="mob-solution cs-card">
         <div class="mob-sol-head">
           <div class="mob-sol-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
           <div>
@@ -1116,7 +1143,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
         </div>
         <p class="mob-sol-body">A bag without scanning, a Baked goods category for items without barcodes, and manual barcode entry, added after testing showed that damaged barcodes left shoppers stuck.</p>
       </div>
-      <div class="mob-solution">
+      <div class="mob-solution cs-card">
         <div class="mob-sol-head">
           <div class="mob-sol-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
           <div>
@@ -1127,7 +1154,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
         <p class="mob-sol-body">Shoppers tap "Go to payment" and scan the large QR code on the store wall, from up to 10 metres away, tested in a real store.</p>
 <p class="aside-note aside-note--bubble aside-note--bubble-shape-4 cs-aside aside-note--bubble-prefer-right"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/><path d="M3 12h.01"/><path d="M12 3h.01"/><path d="M12 16v.01"/><path d="M16 12h1"/><path d="M21 12v.01"/><path d="M12 21v-1"/></svg></span><span class="aside-note__bubble-text">Checkout from the cereal aisle, if you like.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="cs-arrow-mob-cereal" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#cs-arrow-mob-cereal)"/><path d="M40 11 L34 8" stroke="url(#cs-arrow-mob-cereal)"/><path d="M40 11 L34 14" stroke="url(#cs-arrow-mob-cereal)"/></svg></span></span></span></p>
       </div>
-      <div class="mob-solution">
+      <div class="mob-solution cs-card">
         <div class="mob-sol-head">
           <div class="mob-sol-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
           <div>
@@ -1137,7 +1164,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
         </div>
         <p class="mob-sol-body">Apple Pay, Swish, card and cash. Cash users tap once to send their cart to the nearest cashier, without scanning everything again.</p>
       </div>
-      <div class="mob-solution">
+      <div class="mob-solution cs-card">
         <div class="mob-sol-head">
           <div class="mob-sol-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
           <div>
@@ -1183,7 +1210,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="prototype">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="M13 13l6 6"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Interactive prototype</h2><p class="section-subtitle">Try the flow yourself</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">08</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Interactive prototype</h2><p class="section-subtitle">Try the flow yourself</p></div>
     </div>
     <p>You can click through the prototype to scan, add products to the cart and check out like a shopper would. No Figma account is needed. It loads when you tap it, to keep the page fast.</p>
     <div class="proto-embed reveal reveal-media">
@@ -1206,7 +1233,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="user-journey">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">User journey map</h2><p class="section-subtitle">From the entrance to the exit gate</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">09</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">User journey map</h2><p class="section-subtitle">From the entrance to the exit gate</p></div>
     </div>
     <p>Sara's whole trip, from opening the app in the car park to scanning the exit QR code. The low points showed where design changes mattered most.</p>
     <div class="mob-journey-wrap wide">
@@ -1315,7 +1342,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="results">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Results</h2></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">10</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Results</h2></div>
     </div>
     <p>The +40% comes from an A/B test after launch. The other results come from usability testing before launch, across several rounds, and show the direction of improvement.</p>
     <div class="mob-results-grid cs-stat-grid">
@@ -1425,7 +1452,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="reflection">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Where it is now, and what I learned</h2></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">11</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Where it is now, and what I learned</h2></div>
     </div>
     <p>The app has launched, and a small number of shoppers use it so far. As it grows, I'd track guest checkout versus sign-ups, checkout completion, how often manual barcode entry is used, and cash handovers to the cashier.</p>
     <div class="lessons-list">
@@ -1470,6 +1497,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   </ul>
 </footer>
 
+<script src="js/cs-design.js?v=20261102d"></script>
 <script src="js/scroll-reveal.js?v=20260403"></script>
 <script src="js/more-case-studies.js?v=20261029" defer></script>
 <script src="js/case-study-aside-bubbles.js?v=20261028" defer></script>
