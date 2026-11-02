@@ -10,6 +10,9 @@
   --accent: #8AA4D6;
   --accent-strong: #6F8BC4;
   --accent-soft: rgba(138, 164, 214, 0.14);
+  --attention: #E8B86D;
+  --attention-soft: rgba(232, 184, 109, 0.12);
+  --attention-border: rgba(232, 184, 109, 0.45);
   --accent-text: var(--accent);
   --font-stack: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-display: var(--font-stack);

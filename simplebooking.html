@@ -8,14 +8,14 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/tokens.css?v=20260401">
+<link rel="stylesheet" href="css/tokens.css?v=20261102">
 <link rel="stylesheet" href="css/site-shared.css?v=20261101">
 <script src="js/page-transition.js?v=20260633"></script>
 <script src="js/site-nav.js?v=20260326"></script>
 <title>Simple Booking Accounting Application · Neda Bagherinezhad</title>
 <meta name="description" content="Case study: redesigning Simple Booking, a developer-built accounting app, through workshops with its real users and AI-assisted implementation with Claude Code.">
 <link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
-<link rel="stylesheet" href="css/case-study.css?v=20261031a">
+<link rel="stylesheet" href="css/case-study.css?v=20261102">
 <link rel="stylesheet" href="css/simplebooking.css?v=20260408">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="preload" as="image" href="sb-hero.webp" type="image/webp" fetchpriority="high">
@@ -124,7 +124,7 @@
       <div class="sb-tldr cs-summary">
         <p><strong>The problem:</strong> A big accounting app, built by developers without a designer and never tested with users. Its core workflows were confusing, cluttered and sometimes unfinished.</p>
         <p><strong>What I did:</strong> Reviewed the whole app, built a roadmap with the PM, and ran workshops on each core area with all three real users. Then I restructured the information architecture, redesigned those areas, proposed and designed Adviser, an AI assistant, and built the new UI myself with Claude Code.</p>
-        <p><strong>Key decisions:</strong> An Overview sorted by urgency, clear statuses everywhere, search and filters for long lists, payroll in small steps, and Adviser, an AI assistant inside the app.</p>
+        <p><strong>Key decisions:</strong> An Overview sorted by urgency, clear statuses everywhere, search and filters for long lists, payroll in small steps, and Adviser, an AI assistant that answers from the owner's own numbers and never acts without confirmation.</p>
         <p><strong>Status:</strong> About 50% redesigned and built. Formal testing of V2 is next.</p>
         <div class="cs-summary-jump">
           <a class="cs-summary-jump__link" href="#where-it-is-now">Jump to where it is now <span class="cs-summary-jump__arrow" aria-hidden="true">↓</span></a>
@@ -141,10 +141,11 @@
         <div class="section-headings"><h2 class="section-chapter" id="challenge">The challenge</h2></div>
       </div>
       <div class="sb-text">
-        <p>Simple Booking wants business owners to do their own accounting, taxes and month-end included, for a low monthly price, instead of hiring an accountant. Along the way, Adviser, an AI assistant, helps them understand their numbers.</p>
+        <p>Simple Booking makes a bold promise: a Swedish small business can do its own accounting, from invoices to VAT and year-end, without paying an accountant.</p>
+        <p>That promise is the product. And the stakes are real: Swedish bookkeeping rules are strict, deadlines come with penalties, and most owners aren't accountants. Every time an owner gets stuck, they either contact support or hire an accountant, and the promise breaks.</p>
         <p>When I joined, the product was already big: invoices, quotes, receipts, journal, payroll and more. But it was built around the database, not around people. There was no clear hierarchy, statuses were missing, some parts were unfinished, and the app expected users to know accounting, which is exactly what they don't know.</p>
         <p class="aside-note aside-note--bubble aside-note--bubble-shape-1 aside-note--bubble-prefer-left cs-aside"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z"/><path d="M6 17h12"/></svg></span><span class="aside-note__bubble-text">A bit like a cookbook that assumes you're already a chef.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="sb-arrow-grad-cookbook" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#sb-arrow-grad-cookbook)"/><path d="M40 11 L34 8" stroke="url(#sb-arrow-grad-cookbook)"/><path d="M40 11 L34 14" stroke="url(#sb-arrow-grad-cookbook)"/></svg></span></span></span></p>
-        <p>If an owner can't see whether an invoice is paid, they'll hire an accountant instead, and the whole idea fails. So every decision had to answer one question: <strong>can someone without accounting knowledge do this alone?</strong></p>
+        <p>So every decision had to answer one question: <strong>can someone without accounting knowledge do this alone?</strong> Because if they can't, they won't stay.</p>
       </div>
     </div>
   </section>
@@ -360,27 +361,93 @@
     </div>
   </section>
 
+  <!-- Turning point -->
+  <section class="sb-section section" aria-labelledby="turning-point">
+    <div class="sb-wrap">
+      <div class="cs-turning">
+        <p class="cs-turning__eyebrow">
+          <span class="cs-icon-chip" aria-hidden="true"><svg class="cs-icon-chip__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h13l4-3-4-3z"/><path d="M12 11v10"/><path d="M9 21h6"/></svg></span>
+          <span class="cs-turning__eyebrow-text">Turning point</span>
+        </p>
+        <h2 class="section-chapter" id="turning-point">When simpler screens weren't enough</h2>
+        <div class="cs-turning__shift" aria-label="From the plan to the shift">
+          <div class="cs-turning__shift-box">
+            <span class="cs-turning__shift-label">The plan</span>
+            <p class="cs-turning__shift-text">Make the screens simpler</p>
+          </div>
+          <span class="cs-turning__shift-arrow cs-turning__shift-arrow--right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          <span class="cs-turning__shift-arrow cs-turning__shift-arrow--down" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></span>
+          <div class="cs-turning__shift-box cs-turning__shift-box--accent">
+            <span class="cs-turning__shift-label cs-turning__shift-label--accent">The shift</span>
+            <p class="cs-turning__shift-text cs-turning__shift-text--accent">Never leave people alone with a question</p>
+          </div>
+        </div>
+        <div class="cs-turning__prose sb-text">
+          <p>As the redesign moved forward, the team kept talking about simplicity. But I saw a problem: accounting can't be made simple by removing things. Every feature in the app was needed, and none could be skipped. Clearer screens would help people find things, but not understand them.</p>
+          <p>The idea came from my own first weeks. I was new to the product, my manager was busy, and I had questions about how everything worked. I kept wishing someone could just answer them, right away. Then I noticed what I do myself these days: when I have a question, I don't search first. I ask an AI.</p>
+          <p>That's when it clicked. Our users were in the same position as me, just with more at stake. What if the app had an adviser that explained things in plain language, using the owner's own numbers?</p>
+        </div>
+        <p class="cs-turning__callout">Simplicity wasn't about showing less. It was about never leaving people alone with a question.</p>
+        <div class="cs-turning__prose sb-text">
+          <p>The team was focused on launching the MVP quickly, and Adviser meant more time and effort. So instead of arguing for it, I designed a prototype in two hours and showed them. Once they saw how many different problems one assistant could solve, they were genuinely excited, and we decided to build it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Adviser -->
   <section class="sb-section section" aria-labelledby="adviser">
     <div class="sb-wrap">
       <div class="section-header">
         <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div>
-        <div class="section-headings"><h2 class="section-chapter" id="adviser">Adviser: help without leaving the page</h2><p class="section-subtitle">AI assistant · My idea, my design, my front-end</p></div>
+        <div class="section-headings"><h2 class="section-chapter" id="adviser">Designing an adviser people can trust</h2><p class="section-subtitle">AI assistant · My idea, my design, my front-end</p></div>
       </div>
       <div class="sb-text">
-        <p>Even with clearer screens, accounting raises questions. So the redesign includes Adviser, an AI assistant that opens in a side panel next to the user's work. Nobody has to leave the page, search a help centre or call an accountant.</p>
-        <p>Adviser started as an idea the team wasn't sure about. I designed it to show what it could be, and the team decided to build it. Because so much of it depended on the back end, I worked closely with the back-end team through many sessions to shape how it should work, then finalised the design and built the front-end myself.</p>
+        <p>Accounting is the last place for an AI that guesses. So we built Adviser around a few clear rules, and two of them were my design ideas: taking users straight to the right page, and the Needs attention list.</p>
+        <p>Because so much of Adviser depended on the back end, I worked closely with the back-end team through many sessions to shape how it should work, then finalised the design and built the front-end myself.</p>
       </div>
       <figure class="sb-ds-sheet">
         <a class="sb-zoom" href="sb-adviser@2x.png?v=4" target="_blank" rel="noopener" data-title="Adviser · Support and answers"><img src="sb-adviser.png?v=4" srcset="sb-adviser.png?v=4 1024w, sb-adviser@2x.png?v=4 2048w" sizes="(min-width: 720px) 1024px, calc(100vw - 40px)" width="1024" height="533" loading="lazy" decoding="async" alt="Simple Booking's Adviser panel next to the Overview: a user asks for a support ticket and Adviser confirms it was created, then answers whether two of the user's companies affect each other's revenue."></a>
         <figcaption class="cs-caption cs-caption">Adviser answers in plain language, and creates a support ticket when it can't help.</figcaption>
       </figure>
-      <div class="mob-methods-grid cs-card-grid">
-        <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></span><div><h4>Ask in your own words</h4><p class="finding-text">Users type a question the way they'd ask a person, like whether two of their companies affect each other's revenue, and get a clear answer without accounting terms.</p></div></div>
-        <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span><div><h4>Understand your numbers</h4><p class="finding-text">Adviser explains revenue and reports in everyday language, so owners know where they stand.</p></div></div>
-        <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></span><div><h4>Speak instead of type</h4><p class="finding-text">In conversation mode, users just talk. They pause, the question is sent, and the answer is read aloud. Useful when typing is hard or the keyboard gets in the way.</p></div></div>
-        <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg></span><div><h4>Never stuck</h4><p class="finding-text">When Adviser can't solve a problem, it creates a support ticket and confirms it right in the chat, so a real person follows up.</p></div></div>
-      </div>
+      <ul class="cs-feature-grid" role="list">
+        <li class="cs-feature">
+          <span class="cs-icon-chip" aria-hidden="true"><svg class="cs-icon-chip__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></svg></span>
+          <h3 class="cs-feature__title">Answers from your own numbers</h3>
+          <p class="cs-feature__text">Users ask in their own words and get answers based on the company's real figures, never made-up ones.</p>
+        </li>
+        <li class="cs-feature">
+          <span class="cs-icon-chip" aria-hidden="true"><svg class="cs-icon-chip__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
+          <span class="cs-feature__tag">My design idea</span>
+          <h3 class="cs-feature__title">Takes you to the right place</h3>
+          <p class="cs-feature__text">Every answer links straight to the page where you can act, so users never have to hunt through menus.</p>
+        </li>
+        <li class="cs-feature is-attention">
+          <span class="cs-icon-chip cs-icon-chip--attention" aria-hidden="true"><svg class="cs-icon-chip__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/><path d="M18 8a3 3 0 0 1 0 6"/><path d="M21 6a6 6 0 0 1 0 12"/></svg></span>
+          <span class="cs-feature__tag">My design idea</span>
+          <h3 class="cs-feature__title cs-feature__title--attention">Flags what needs attention</h3>
+          <p class="cs-feature__text">Missing receipts and upcoming deadlines appear in one Needs attention list, so problems find the owner before they become penalties.</p>
+        </li>
+        <li class="cs-feature">
+          <span class="cs-icon-chip" aria-hidden="true"><svg class="cs-icon-chip__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <h3 class="cs-feature__title">Suggests, never acts alone</h3>
+          <p class="cs-feature__text">Adviser can prepare a booking, but nothing is recorded until the user confirms.</p>
+        </li>
+        <li class="cs-feature">
+          <span class="cs-icon-chip" aria-hidden="true"><svg class="cs-icon-chip__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/></svg></span>
+          <h3 class="cs-feature__title">Never stuck</h3>
+          <p class="cs-feature__text">When it can't help, it creates a support ticket with a short summary, so a real person follows up.</p>
+        </li>
+        <li class="cs-feature">
+          <span class="cs-icon-chip" aria-hidden="true"><svg class="cs-icon-chip__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></span>
+          <h3 class="cs-feature__title">Speak instead of type</h3>
+          <p class="cs-feature__text">In conversation mode, users just talk. They pause, the question is sent, and the answer is read aloud. Useful when typing is hard or the keyboard gets in the way.</p>
+        </li>
+      </ul>
+      <aside class="cs-tradeoff">
+        <div class="cs-tradeoff__label"><svg class="cs-tradeoff__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 5.5 5.5-1.5 1.5"/><path d="m2 16 3-8 5.5 5.5-1.5 1.5"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 7 2 7 2"/><path d="M21 7h-2c-2 0-5-1-7-2-2 1-7 2-7 2"/></svg><span>Trade-off</span></div>
+        <p class="cs-tradeoff__text">An assistant that does things for you would be faster. But for people afraid of booking something wrong, confirming each step is both a safety net and a way to learn.</p>
+      </aside>
       <figure class="sb-ds-sheet">
         <a class="sb-zoom" href="sb-adviser-voice@2x.png?v=4" target="_blank" rel="noopener" data-title="Adviser · Conversation mode"><img src="sb-adviser-voice.png?v=4" srcset="sb-adviser-voice.png?v=4 1024w, sb-adviser-voice@2x.png?v=4 2048w" sizes="(min-width: 720px) 1024px, calc(100vw - 40px)" width="1024" height="533" loading="lazy" decoding="async" alt="Adviser in conversation mode: the user speaks a question, Adviser reads it and replies aloud."></a>
         <figcaption class="cs-caption cs-caption">Conversation mode: speak, pause, and hear the answer.</figcaption>
