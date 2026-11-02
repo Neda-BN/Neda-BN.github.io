@@ -63,12 +63,23 @@
     transform: none !important;
     image-rendering: auto;
   }
-  .case-study-page .sb-case .cs-structure--five .cs-structure__branches {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
-  .case-study-page .sb-case .cs-structure--five .cs-structure__branches::before {
-    left: 10%;
-    right: 10%;
+  @media (min-width: 961px) {
+    .case-study-page .sb-case .cs-structure--five .cs-structure__branches {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      align-items: stretch;
+    }
+    .case-study-page .sb-case .cs-structure--five .cs-structure__card--branch {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      height: 100%;
+      box-sizing: border-box;
+    }
+    .case-study-page .sb-case .cs-structure--five .cs-structure__branches::before {
+      left: var(--cs-structure-bus-left, 10%);
+      right: var(--cs-structure-bus-right, 10%);
+    }
   }
 </style>
 </head>
@@ -206,7 +217,7 @@
             <div class="cs-structure__card cs-structure__card--branch">
               <span class="cs-structure__icon-chip" aria-hidden="true"><svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span>
               <p class="cs-structure__title">Sales</p>
-              <p class="cs-structure__line">Invoices</p>
+              <p class="cs-structure__line">Invoices · Quotes · Recurring invoices</p>
             </div>
             <div class="cs-structure__card cs-structure__card--branch">
               <span class="cs-structure__icon-chip" aria-hidden="true"><svg class="cs-structure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.684-.948l-4.493-1.498a1 1 0 0 1-.578-.502l-1.539-3.076A1 1 0 0 0 12.382 8H11.5a1 1 0 0 0-1 1v9"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg></span>
@@ -638,6 +649,50 @@
 </footer>
 
 <script src="js/case-study-aside-bubbles.js?v=20261027" defer></script>
+<script>
+(function () {
+  function layoutCsStructureBus() {
+    var branches = document.querySelector('.sb-case .cs-structure--five .cs-structure__branches');
+    if (!branches) return;
+    if (!window.matchMedia('(min-width: 961px)').matches) {
+      branches.style.removeProperty('--cs-structure-bus-left');
+      branches.style.removeProperty('--cs-structure-bus-right');
+      return;
+    }
+    var cards = branches.querySelectorAll(':scope > .cs-structure__card--branch');
+    if (cards.length < 2) return;
+    var box = branches.getBoundingClientRect();
+    var first = cards[0].getBoundingClientRect();
+    var last = cards[cards.length - 1].getBoundingClientRect();
+    var left = first.left + first.width / 2 - box.left;
+    var right = box.right - (last.left + last.width / 2);
+    branches.style.setProperty('--cs-structure-bus-left', left + 'px');
+    branches.style.setProperty('--cs-structure-bus-right', right + 'px');
+  }
+
+  function scheduleLayout() {
+    requestAnimationFrame(layoutCsStructureBus);
+  }
+
+  function init() {
+    scheduleLayout();
+    window.addEventListener('resize', scheduleLayout);
+    var branches = document.querySelector('.sb-case .cs-structure--five .cs-structure__branches');
+    if (branches && typeof ResizeObserver !== 'undefined') {
+      new ResizeObserver(scheduleLayout).observe(branches);
+    }
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(scheduleLayout);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
 <script src="js/simplebooking.js?v=20261027" defer></script>
 <script src="js/scroll-reveal.js?v=20261102f" defer></script>
 <script src="js/more-case-studies.js?v=20261029" defer></script>
