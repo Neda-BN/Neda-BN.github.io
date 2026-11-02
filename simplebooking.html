@@ -8,14 +8,14 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/tokens.css?v=20261102">
+<link rel="stylesheet" href="css/tokens.css?v=20261102c">
 <link rel="stylesheet" href="css/site-shared.css?v=20261101">
 <script src="js/page-transition.js?v=20260633"></script>
 <script src="js/site-nav.js?v=20260326"></script>
 <title>Simple Booking Accounting Application · Neda Bagherinezhad</title>
 <meta name="description" content="Case study: redesigning Simple Booking, a developer-built accounting app, through workshops with its real users and AI-assisted implementation with Claude Code.">
 <link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
-<link rel="stylesheet" href="css/case-study.css?v=20261102">
+<link rel="stylesheet" href="css/case-study.css?v=20261102d">
 <link rel="stylesheet" href="css/simplebooking.css?v=20260408">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="preload" as="image" href="sb-hero.webp" type="image/webp" fetchpriority="high">
@@ -365,31 +365,42 @@
   <section class="sb-section section" aria-labelledby="turning-point">
     <div class="sb-wrap">
       <div class="cs-turning">
-        <p class="cs-turning__eyebrow">
-          <span class="cs-icon-chip" aria-hidden="true"><svg class="cs-icon-chip__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h13l4-3-4-3z"/><path d="M12 11v10"/><path d="M9 21h6"/></svg></span>
-          <span class="cs-turning__eyebrow-text">Turning point</span>
-        </p>
-        <h2 class="section-chapter" id="turning-point">When simpler screens weren't enough</h2>
-        <div class="cs-turning__shift" aria-label="From the plan to the shift">
-          <div class="cs-turning__shift-box">
-            <span class="cs-turning__shift-label">The plan</span>
-            <p class="cs-turning__shift-text">Make the screens simpler</p>
+        <div class="cs-turning__column">
+          <p class="cs-turning__eyebrow">
+            <span class="cs-icon-chip" aria-hidden="true"><svg class="cs-icon-chip__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h13l4-3-4-3z"/><path d="M12 11v10"/><path d="M9 21h6"/></svg></span>
+            <span class="cs-turning__eyebrow-text">Turning point</span>
+          </p>
+          <h2 class="section-chapter" id="turning-point">When simpler screens weren't enough</h2>
+          <div class="cs-turning__shift" aria-label="From the plan to the shift">
+            <div class="cs-turning__shift-box cs-turning__shift-box--plan">
+              <span class="cs-turning__shift-label">The plan</span>
+              <p class="cs-turning__shift-text">Make the screens simpler</p>
+            </div>
+            <span class="cs-turning__shift-arrow cs-turning__shift-arrow--right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            <span class="cs-turning__shift-arrow cs-turning__shift-arrow--down" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></span>
+            <div class="cs-turning__shift-box cs-turning__shift-box--highlight">
+              <span class="cs-turning__shift-label cs-turning__shift-label--accent">The shift</span>
+              <p class="cs-turning__shift-text cs-turning__shift-text--highlight">
+                <svg class="cs-turning__shift-bulb" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+                <span>Never leave people alone with a question</span>
+              </p>
+            </div>
           </div>
-          <span class="cs-turning__shift-arrow cs-turning__shift-arrow--right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-          <span class="cs-turning__shift-arrow cs-turning__shift-arrow--down" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></span>
-          <div class="cs-turning__shift-box cs-turning__shift-box--accent">
-            <span class="cs-turning__shift-label cs-turning__shift-label--accent">The shift</span>
-            <p class="cs-turning__shift-text cs-turning__shift-text--accent">Never leave people alone with a question</p>
+          <div class="cs-turning__prose sb-text">
+            <p>As the redesign moved forward, the team kept talking about simplicity. But I saw a problem: accounting can't be made simple by removing things. Every feature in the app was needed, and none could be skipped. <strong>Clearer screens would help people find things, but not understand them.</strong></p>
+            <p>The idea came from my own first weeks. I was new to the product, my manager was busy, and I had questions about how everything worked. I kept wishing someone could just answer them, right away. Then I noticed what I do myself these days: when I have a question, I don't search first. <strong>I ask an AI.</strong></p>
+            <p><strong>That's when it clicked.</strong> Our users were in the same position as me, just with more at stake. What if the app had an adviser that explained things in plain language, using the owner's own numbers?</p>
           </div>
-        </div>
-        <div class="cs-turning__prose sb-text">
-          <p>As the redesign moved forward, the team kept talking about simplicity. But I saw a problem: accounting can't be made simple by removing things. Every feature in the app was needed, and none could be skipped. Clearer screens would help people find things, but not understand them.</p>
-          <p>The idea came from my own first weeks. I was new to the product, my manager was busy, and I had questions about how everything worked. I kept wishing someone could just answer them, right away. Then I noticed what I do myself these days: when I have a question, I don't search first. I ask an AI.</p>
-          <p>That's when it clicked. Our users were in the same position as me, just with more at stake. What if the app had an adviser that explained things in plain language, using the owner's own numbers?</p>
-        </div>
-        <p class="cs-turning__callout">Simplicity wasn't about showing less. It was about never leaving people alone with a question.</p>
-        <div class="cs-turning__prose sb-text">
-          <p>The team was focused on launching the MVP quickly, and Adviser meant more time and effort. So instead of arguing for it, I designed a prototype in two hours and showed them. Once they saw how many different problems one assistant could solve, they were genuinely excited, and we decided to build it.</p>
+          <div class="cs-turning__callout-block">
+            <p class="cs-turning__callout-label">
+              <svg class="cs-turning__callout-label-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .962L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
+              <span>The aha moment</span>
+            </p>
+            <p class="cs-turning__callout">Simplicity wasn't about showing less. <span class="cs-turning__callout-accent">It was about never leaving people alone with a question.</span></p>
+          </div>
+          <div class="cs-turning__prose sb-text">
+            <p>The team was focused on launching the MVP quickly, and Adviser meant more time and effort. So instead of arguing for it, I designed a prototype in two hours and showed them. Once they saw how many different problems one assistant could solve, they were genuinely excited, and we decided to build it.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -559,7 +570,7 @@
 
 <script src="js/case-study-aside-bubbles.js?v=20261027" defer></script>
 <script src="js/simplebooking.js?v=20261027" defer></script>
-<script src="js/scroll-reveal.js?v=20260403" defer></script>
+<script src="js/scroll-reveal.js?v=20261102" defer></script>
 <script src="js/more-case-studies.js?v=20261029" defer></script>
 </body>
 </html>
