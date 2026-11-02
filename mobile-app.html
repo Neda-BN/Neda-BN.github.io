@@ -876,6 +876,27 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 <link rel="stylesheet" href="css/cs-design.css?v=20261102g">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
+<style>
+  /* Turning point: even spacing around scan feedback GIF (overrides case-study margin reset) */
+  body.case-study-page.cs-design-page section[aria-labelledby="turning-point"] .cs-turning__prose > p:has(+ .mob-scan-feedback) {
+    margin-bottom: 32px !important;
+  }
+  body.case-study-page.cs-design-page section[aria-labelledby="turning-point"] .cs-turning__prose > .mob-scan-feedback {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  body.case-study-page.cs-design-page section[aria-labelledby="turning-point"] .cs-turning__prose > .mob-scan-feedback + p {
+    margin-top: 32px !important;
+  }
+  @media (max-width: 767px) {
+    body.case-study-page.cs-design-page section[aria-labelledby="turning-point"] .cs-turning__prose > p:has(+ .mob-scan-feedback) {
+      margin-bottom: 24px !important;
+    }
+    body.case-study-page.cs-design-page section[aria-labelledby="turning-point"] .cs-turning__prose > .mob-scan-feedback + p {
+      margin-top: 24px !important;
+    }
+  }
+</style>
 </head>
 <body class="has-anna-nav case-study-page cs-design-page">
 <header class="anna-nav anna-nav--intro-visible" id="site-nav" aria-label="Primary">
