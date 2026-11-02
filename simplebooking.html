@@ -63,6 +63,61 @@
     transform: none !important;
     image-rendering: auto;
   }
+  /* What I changed — one gap between areas only */
+  :root {
+    --cs-change-gap: 72px;
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    :root {
+      --cs-change-gap: 60px;
+    }
+  }
+  @media (max-width: 767px) {
+    :root {
+      --cs-change-gap: 48px;
+    }
+  }
+  .case-study-page .sb-case section[aria-labelledby="findings"] .sb-compare + .sb-compare {
+    margin-top: 0 !important;
+  }
+  .case-study-page .sb-case section[aria-labelledby="findings"] .cs-change {
+    margin: 0 !important;
+    padding: 0;
+    display: flow-root;
+    box-sizing: border-box;
+  }
+  .case-study-page .sb-case section[aria-labelledby="findings"] .cs-change + .cs-change {
+    margin-top: var(--cs-change-gap) !important;
+    padding-top: 0 !important;
+  }
+  .case-study-page .sb-case section[aria-labelledby="findings"] .cs-change > h3 {
+    margin-top: 0 !important;
+    padding-top: 0;
+  }
+  .case-study-page .sb-case section[aria-labelledby="findings"] .cs-change > h3.cs-reveal {
+    transform: none !important;
+  }
+  html.js .case-study-page .sb-case section[aria-labelledby="findings"] .cs-change > h3.cs-reveal.is-visible {
+    animation: scroll-cs-reveal-fade 800ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  @keyframes scroll-cs-reveal-fade {
+    to {
+      opacity: 1;
+    }
+  }
+  .case-study-page .sb-case section[aria-labelledby="findings"] .cs-change > *:last-child {
+    margin-bottom: 0 !important;
+  }
+  .case-study-page .sb-case section[aria-labelledby="findings"] .cs-change .sb-compare-sub {
+    margin-top: 47px !important;
+    padding-top: 0 !important;
+  }
+  @media (max-width: 767px) {
+    .case-study-page .sb-case section[aria-labelledby="findings"] .cs-change .sb-compare-sub {
+      margin-top: 39px !important;
+    }
+  }
+
   @media (min-width: 961px) {
     .case-study-page .sb-case .cs-structure--five .cs-structure__branches {
       grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -255,7 +310,7 @@
         <span><i class="sb-dot-after"></i>After: my redesign, implemented with Claude Code</span>
       </div>
 
-      <article class="sb-compare">
+      <article class="sb-compare cs-change">
         <h3>Invoices</h3>
         <div class="sb-text cs-compare-prose">
           <p>Invoicing is the task owners do most often, and usually the first reason they open the app. If sending an invoice and getting paid feels easy, they trust the app with the rest of their accounting.</p>
@@ -328,7 +383,7 @@
         </div>
       </article>
 
-      <article class="sb-compare">
+      <article class="sb-compare cs-change">
         <h3>Quotes</h3>
         <p class="sb-finding-lede">Every button looked equally important and some statuses were missing, so users couldn't tell where a quote stood.</p>
         <p class="sb-finding-lede">The quote flow itself was unfinished and didn't work correctly, so I redesigned it from the start. Owners can now send a quote in two ways: by email, or as a link. The customer opens the link, sees the full quote, and accepts or declines it, without creating an account or signing in. The owner gets the answer straight away.</p>
@@ -364,7 +419,7 @@
         </div>
       </article>
 
-      <article class="sb-compare">
+      <article class="sb-compare cs-change">
         <h3>Receipts</h3>
         <p class="sb-finding-lede">The upload area was so big that users had to scroll to find their receipts, and every status was the same grey.</p>
         <ul class="sb-changes cs-list">
@@ -380,7 +435,7 @@
         </figure>
       </article>
 
-      <article class="sb-compare">
+      <article class="sb-compare cs-change">
         <h3>Journal entries</h3>
         <p class="sb-finding-lede">The longest list in the app, with no search, filters or sorting. Finding one transaction meant scrolling through everything.</p>
         <ul class="sb-changes cs-list">
@@ -396,7 +451,7 @@
         </figure>
       </article>
 
-      <article class="sb-compare">
+      <article class="sb-compare cs-change">
         <h3>Overview</h3>
         <p class="sb-finding-lede">One big block of repeated information, and nothing told users what to do first. So I organised the page by time.</p>
         <ul class="sb-changes cs-list">
@@ -412,7 +467,7 @@
         </figure>
       </article>
 
-      <article class="sb-compare">
+      <article class="sb-compare cs-change">
         <h3>Payroll</h3>
         <p class="sb-finding-lede">Registering an employee meant filling in two long forms. During the workshop, one user stopped and asked:</p>
         <div class="quote-block cs-quote">
