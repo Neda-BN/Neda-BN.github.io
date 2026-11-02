@@ -76,6 +76,18 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     max-width: none;
     text-align: left;
   }
+  body.case-study-page.cs-design-page .content.case-main section[aria-labelledby="turning-point"] .cs-turning__column > .cs-turning__eyebrow {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 16px;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    color: var(--yellow);
+  }
   .hero-image { max-width: min(1100px, 100%); margin: 0 auto 80px; padding: 0 48px; }
   .image-placeholder { width: 100%; aspect-ratio: 16/8; background: linear-gradient(135deg, #0F0F0F 0%, #1A1A1A 40%, #2A2A2A 70%, #404040 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
   .image-placeholder.image-placeholder--screen { aspect-ratio: 572 / 1024; border-radius: 0; }
@@ -254,6 +266,10 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .pos-tldr p:last-child { margin-bottom: 0; }
   .pos-tldr strong { color: var(--dark); font-weight: 600; }
   .pos-platform-line { font-size: 14px; color: var(--mid); line-height: 1.6; margin: 0 0 32px; font-weight: 300; }
+  body.case-study-page .content.case-main > .pos-platform-line {
+    margin-top: 16px !important;
+    margin-bottom: 32px !important;
+  }
   .pos-platform-line a { color: var(--accent); font-weight: 500; }
 
   .findings-list { display: flex; flex-direction: column; gap: 14px; margin-top: 24px; }
@@ -625,7 +641,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
   .lessons-list { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
   .lesson-item { display: flex; gap: 20px; padding: 22px 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; }
-  .lesson-num { font-family: var(--serif); font-size: 22px; color: var(--dark); opacity: 0.3; flex-shrink: 0; line-height: 1.2; }
+  .lesson-num { flex-shrink: 0; line-height: 1.2; }
   .lesson-text h4 { font-family: var(--serif); font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
   .lesson-text p { font-size: 14px; margin: 0; }
 
@@ -804,7 +820,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 </style>
 <link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
 <link rel="stylesheet" href="css/case-study.css?v=20261102e">
-<link rel="stylesheet" href="css/cs-design.css?v=20261102d">
+<link rel="stylesheet" href="css/cs-design.css?v=20261102f">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
 </head>
@@ -944,7 +960,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     </div>
     <p>At a store till, every second counts twice: once for the cashier, and once for the customer waiting in line. For the retailers using Focalpay, a slow checkout means longer queues, impatient customers and fewer sales per hour. So a cashier app that makes people stop and think isn't just a usability problem. <span class="ink">It's a business problem.</span></p>
     <p>Traditional POS terminals are heavy and expensive. Focalpay, a Swedish retail-tech company, built a cashier app that runs on any smartphone, tablet or touchscreen instead: on iOS, Android and in the browser.</p>
-    <p>When I joined, the first version was already used in several stores. I joined as one of two designers and owned the mobile version of the POS, the phone-sized screens cashiers hold in their hand, while my colleague designed the tablet and desktop versions.</p>
+    <p>When I joined as one of two designers, the first version was already used in several stores. I owned the mobile version of the POS, the phone-sized screens cashiers hold in their hand, while my colleague designed the tablet and desktop versions.</p>
     <p>One sale meant moving between several screens, and when a product was missing at the till, the store had to add it in a separate back-office system.</p>
     <div class="cs-question sb-question-frame">
       <p class="cs-label sb-label">The one question</p>

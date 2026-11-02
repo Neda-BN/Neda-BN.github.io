@@ -929,3 +929,29 @@ body.cs-design-page.case-study-page .content.case-main .section-subtitle {
   font-family: "Poppins", sans-serif !important;
   color: var(--meta) !important;
 }
+
+/* Reflection learning numbers (01–04) — quiet meta, not section yellow */
+body.cs-design-page .cs-learn .lesson-num,
+body.sb-design-page .cs-learn .lesson-num,
+body.cs-design-page .lesson-item .lesson-num {
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  color: var(--meta) !important;
+  opacity: 1 !important;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+body.cs-design-page .cs-learn.cs-learn--highlight .lesson-num,
+body.sb-design-page .cs-learn.cs-learn--highlight .lesson-num {
+  font-weight: 500 !important;
+  color: var(--meta) !important;
+}
+
+body.cs-design-page .sb-reflect .cs-learn,
+body.sb-design-page .sb-reflect .cs-learn {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
