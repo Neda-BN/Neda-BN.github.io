@@ -1,0 +1,520 @@
+/* Simple Booking — editorial art direction (simplebooking.html only) */
+
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@300;400;600&display=swap");
+
+body.editorial-case {
+  --font-serif-accent: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --text-strong: #f4f4f6;
+  --text-body: rgba(237, 237, 240, 0.8);
+  --c-decision: var(--accent);
+  --c-problem: #e8b86d;
+  --c-outcome: #5cc48a;
+}
+
+/* ── Typography base ── */
+body.editorial-case .sb-case {
+  color: var(--text-body);
+}
+
+body.editorial-case .sb-case .sb-text > p,
+body.editorial-case .sb-case .cs-turning__prose.sb-text > p,
+body.editorial-case .sb-case article.sb-compare .cs-compare-prose.sb-text > p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--text-body);
+  max-width: 66ch;
+}
+
+body.editorial-case .sb-case .sb-text > p:first-child,
+body.editorial-case .sb-case section[aria-labelledby="findings"] > .sb-wrap > .sb-text > p:first-child,
+body.editorial-case .sb-case .cs-turning__prose.sb-text > p:first-child,
+body.editorial-case .sb-case .sb-finding-lede {
+  font-weight: 300;
+  font-size: clamp(20px, 1.9vw, 24px);
+  line-height: 1.55;
+  color: var(--text-strong);
+  max-width: 66ch;
+}
+
+body.editorial-case .sb-case strong:not([class]) {
+  font-weight: 600;
+  color: var(--text-strong);
+}
+
+body.editorial-case .sb-case .hero-tag,
+body.editorial-case .sb-case .meta-label,
+body.editorial-case .sb-case .cs-summary strong,
+body.editorial-case .sb-case .sb-ds-sheet-label,
+body.editorial-case .sb-case .cs-turning__eyebrow-text,
+body.editorial-case .sb-case .cs-learn-eyebrow {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Emphasis utilities ── */
+body.editorial-case .hl-mark {
+  background: linear-gradient(transparent 60%, rgba(138, 164, 214, 0.28) 60%);
+  color: var(--text-strong);
+  font-weight: 600;
+  padding: 0 2px;
+}
+
+body.editorial-case .hl-serif {
+  font-family: var(--font-serif-accent);
+  font-style: italic;
+  font-size: 1.12em;
+  color: var(--text-strong);
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+body.editorial-case .hl-problem {
+  color: var(--c-problem);
+  font-weight: 500;
+}
+
+/* ── Pull statement ── */
+body.editorial-case .ed-pull {
+  margin: 56px 0;
+  padding: 0;
+  border: 0;
+  max-width: 22ch;
+  font-weight: 300;
+  font-size: clamp(26px, 3vw, 38px);
+  line-height: 1.3;
+  color: var(--text-strong);
+}
+
+body.editorial-case .ed-pull__serif {
+  font-family: var(--font-serif-accent);
+  font-style: italic;
+  color: var(--c-decision);
+}
+
+/* ── Editorial quotes ── */
+body.editorial-case .sb-case .quote-block.ed-quote,
+body.editorial-case .sb-case .quote-block.cs-quote.ed-quote {
+  position: relative;
+  margin: 32px 0 32px 0.15em;
+  padding: 0 0 0 clamp(48px, 6vw, 72px);
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+body.editorial-case .sb-case .ed-quote .cs-quote__icon {
+  display: none;
+}
+
+body.editorial-case .sb-case .ed-quote::before {
+  content: "\201C";
+  position: absolute;
+  left: 0;
+  top: -0.12em;
+  font-family: var(--font-serif-accent);
+  font-size: 64px;
+  line-height: 1;
+  color: var(--c-decision);
+  pointer-events: none;
+}
+
+body.editorial-case .sb-case .ed-quote p {
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 1.45;
+  color: var(--text-strong);
+  max-width: none;
+  margin: 0;
+}
+
+body.editorial-case .sb-case .ed-quote cite {
+  display: block;
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-style: normal;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+/* ── At-a-glance ledger (summary) ── */
+body.editorial-case .sb-case .cs-summary,
+body.editorial-case .sb-case .sb-tldr {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin-top: 40px !important;
+  border-top: 1px solid var(--border) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+body.editorial-case .sb-case .cs-summary p,
+body.editorial-case .sb-case .sb-tldr p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  align-items: flex-start;
+  margin: 0 !important;
+  padding: 18px 0 !important;
+  border-bottom: 1px solid var(--border);
+  font-size: 18px !important;
+  line-height: 1.65 !important;
+  color: var(--text-body) !important;
+  max-width: none !important;
+}
+
+body.editorial-case .sb-case .cs-summary p:last-of-type,
+body.editorial-case .sb-case .sb-tldr p:last-of-type {
+  border-bottom: 0;
+}
+
+body.editorial-case .sb-case .cs-summary strong,
+body.editorial-case .sb-case .sb-tldr strong {
+  flex: 0 0 160px;
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+body.editorial-case .sb-case .cs-summary-jump {
+  padding: 16px 0 4px;
+  border-top: 1px solid var(--border);
+  margin-top: 0 !important;
+}
+
+@media (max-width: 767px) {
+  body.editorial-case .sb-case .cs-summary strong,
+  body.editorial-case .sb-case .sb-tldr strong {
+    flex: 0 0 100%;
+  }
+}
+
+/* ── Before → after rows (What I changed) ── */
+body.editorial-case .sb-case .sb-changes {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+  gap: 0;
+}
+
+body.editorial-case .sb-case .sb-changes li {
+  padding: 16px 0;
+  margin: 0;
+  border-bottom: 1px solid var(--border);
+  padding-left: 0;
+  font-size: 18px;
+  line-height: 1.55;
+  font-weight: 600;
+  color: var(--text-strong);
+  position: relative;
+}
+
+body.editorial-case .sb-case .sb-changes li::before {
+  content: none !important;
+  display: none !important;
+}
+
+body.editorial-case .sb-case .sb-changes li b {
+  font-weight: 400;
+  color: var(--c-problem);
+  text-decoration: line-through;
+  text-decoration-color: rgba(232, 184, 109, 0.5);
+}
+
+body.editorial-case .sb-case .sb-changes .cs-list-tag {
+  display: inline-block;
+  margin-left: 0.35em;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-outcome);
+}
+
+/* ── Trade-off ── */
+body.editorial-case .sb-case .cs-tradeoff {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 0 0 20px !important;
+  margin: 28px 0 32px !important;
+  border-left: 2px solid var(--c-decision) !important;
+}
+
+body.editorial-case .sb-case .cs-tradeoff__icon {
+  display: none;
+}
+
+body.editorial-case .sb-case .cs-tradeoff__label {
+  font-family: var(--font-serif-accent);
+  font-style: italic;
+  font-size: 20px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text-strong);
+}
+
+body.editorial-case .sb-case .cs-tradeoff__text {
+  color: var(--text-body);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* ── Adviser features — hairline list ── */
+body.editorial-case .sb-case .cs-feature-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 32px;
+}
+
+body.editorial-case .sb-case .cs-feature {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 22px 24px 22px 0;
+  border-bottom: 1px solid var(--border) !important;
+  transform: none !important;
+}
+
+body.editorial-case .sb-case .cs-feature:hover {
+  border-color: var(--border) !important;
+  transform: none !important;
+}
+
+body.editorial-case .sb-case .cs-feature > .cs-icon-chip {
+  display: none !important;
+}
+
+body.editorial-case .sb-case .cs-feature__tag {
+  display: inline-block;
+  margin: 0 0 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none !important;
+  box-shadow: none !important;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-decision);
+  font-weight: 500;
+}
+
+body.editorial-case .sb-case .cs-feature__title {
+  margin-top: 0;
+  color: var(--text-strong);
+  font-weight: 600;
+}
+
+body.editorial-case .sb-case .cs-feature__text {
+  color: var(--text-body);
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+body.editorial-case .sb-case .cs-feature.is-attention {
+  border-bottom-color: var(--border) !important;
+}
+
+@media (max-width: 899px) {
+  body.editorial-case .sb-case .cs-feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Design principles ── */
+body.editorial-case .sb-case .sb-principles.cs-learn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+}
+
+body.editorial-case .sb-case .sb-principles > div {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 22px 24px 22px 0;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+body.editorial-case .sb-case .sb-principles h4 {
+  margin-top: 0;
+  color: var(--text-strong);
+}
+
+body.editorial-case .sb-case .sb-principles p {
+  color: var(--text-body);
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+body.editorial-case .sb-case .sb-principle-src {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+@media (max-width: 899px) {
+  body.editorial-case .sb-case .sb-principles.cs-learn-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Learnings — numbered editorial list ── */
+body.editorial-case .sb-case .sb-reflect {
+  counter-reset: ed-lesson;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 8px;
+}
+
+body.editorial-case .sb-case .sb-reflect > div:not(.cs-learn--highlight) {
+  counter-increment: ed-lesson;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 22px 0 !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+body.editorial-case .sb-case .sb-reflect > div h4::before {
+  content: counter(ed-lesson, decimal-leading-zero) "\a0";
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  color: var(--c-decision);
+  font-weight: 400;
+}
+
+body.editorial-case .sb-case .sb-reflect > div h4 {
+  margin-top: 0;
+  color: var(--text-strong);
+}
+
+body.editorial-case .sb-case .sb-reflect > div p {
+  color: var(--text-body);
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+body.editorial-case .sb-case .sb-reflect > .cs-learn--highlight {
+  margin-top: 16px;
+  padding-top: 28px !important;
+  border-top: 1px solid var(--border) !important;
+  border-bottom: 1px solid var(--border) !important;
+  background: transparent !important;
+}
+
+body.editorial-case .sb-case .sb-reflect > .cs-learn--highlight h4::before {
+  content: none;
+}
+
+body.editorial-case .sb-case .sb-reflect > .cs-learn--highlight h4 {
+  font-family: var(--font-serif-accent);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(22px, 2.2vw, 26px);
+  color: var(--text-strong);
+}
+
+body.editorial-case .sb-case .sb-reflect .cs-learn-eyebrow {
+  display: none;
+}
+
+/* ── Process steps — tabular numbers ── */
+body.editorial-case .sb-case .sb-process {
+  counter-reset: ed-step;
+  list-style: none;
+  padding: 0;
+  margin: 32px 0 0;
+}
+
+body.editorial-case .sb-case .sb-process li {
+  counter-increment: ed-step;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+body.editorial-case .sb-case .sb-process li h4::before {
+  content: counter(ed-step, decimal-leading-zero) "\a0";
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--c-decision);
+  font-weight: 400;
+}
+
+/* ── De-box: reduce generic chrome ── */
+body.editorial-case .sb-case .section-header .section-icon {
+  display: none;
+}
+
+body.editorial-case .sb-case .sb-status {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font-family: var(--font-mono);
+  color: var(--text-body);
+}
+
+body.editorial-case .sb-case .sb-status::before {
+  background: var(--c-outcome);
+}
+
+body.editorial-case .sb-case .cs-turning__shift-box {
+  background: transparent !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: none !important;
+}
+
+body.editorial-case .sb-case .cs-turning__shift-box--highlight {
+  border-color: color-mix(in srgb, var(--c-decision) 45%, var(--border)) !important;
+}
+
+body.editorial-case .sb-case .cs-turning__callout {
+  background: transparent !important;
+  border: 0 !important;
+  border-top: 1px solid var(--border) !important;
+  border-bottom: 1px solid var(--border) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 28px 0 !important;
+  font-weight: 300;
+  font-size: clamp(22px, 2.4vw, 28px);
+}
+
+body.editorial-case .sb-case .cs-turning__callout-accent {
+  color: var(--c-decision);
+  font-weight: 600;
+}
+
+body.editorial-case .sb-case .cs-research-note {
+  background: transparent !important;
+  border: 0 !important;
+  border-left: 2px solid var(--border) !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+body.editorial-case .sb-case .cs-research-note__icon-chip {
+  display: none;
+}
+
+body.editorial-case .sb-case .cs-customer-view__panel {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}

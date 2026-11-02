@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="css/case-study.css?v=20261102g">
 <link rel="stylesheet" href="css/simplebooking.css?v=20260408">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
+<link rel="stylesheet" href="css/editorial.css?v=20261102">
 <link rel="preload" as="image" href="sb-hero.webp" type="image/webp" fetchpriority="high">
 <style>
   /* Before/after comparisons: keep slider layout; do not hide scroll/zoom wrappers */
@@ -138,7 +139,7 @@
   }
 </style>
 </head>
-<body class="has-anna-nav case-study-page">
+<body class="has-anna-nav case-study-page editorial-case">
 
 <header class="anna-nav anna-nav--intro-visible" id="site-nav" aria-label="Primary">
   <div class="anna-nav__pill">
@@ -208,10 +209,12 @@
       </div>
       <div class="sb-text">
         <p>Simple Booking makes a bold promise: a Swedish small business can do its own accounting, from invoices to VAT and year-end, without paying an accountant.</p>
-        <p>That promise is the product. And the stakes are real: Swedish bookkeeping rules are strict, deadlines come with penalties, and most owners aren't accountants. Every time an owner gets stuck, they either contact support or hire an accountant, and the promise breaks.</p>
-        <p>When I joined, the product was already big: invoices, quotes, receipts, journal, payroll and more. But it was built around the database, not around people. There was no clear hierarchy, statuses were missing, some parts were unfinished, and the app expected users to know accounting, which is exactly what they don't know.</p>
+        <p><span class="hl-serif">That promise is the product.</span> And the stakes are real: Swedish bookkeeping rules are strict, deadlines come with penalties, and most owners aren't accountants. Every time an owner gets stuck, they either contact support or hire an accountant, and the promise breaks.</p>
+        <p>When I joined, the product was already big: invoices, quotes, receipts, journal, payroll and more. But it was <span class="hl-problem">built around the database, not around people</span>. There was no clear hierarchy, statuses were missing, some parts were unfinished, and the app expected users to know accounting, which is exactly what they don't know.</p>
         <p class="aside-note aside-note--bubble aside-note--bubble-shape-1 aside-note--bubble-prefer-left cs-aside"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z"/><path d="M6 17h12"/></svg></span><span class="aside-note__bubble-text">A bit like a cookbook that assumes you're already a chef.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="sb-arrow-grad-cookbook" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#sb-arrow-grad-cookbook)"/><path d="M40 11 L34 8" stroke="url(#sb-arrow-grad-cookbook)"/><path d="M40 11 L34 14" stroke="url(#sb-arrow-grad-cookbook)"/></svg></span></span></span></p>
-        <p>So every decision had to answer one question: <strong>can someone without accounting knowledge do this alone?</strong> Because if they can't, they won't stay.</p>
+        <p>So every decision had to answer one question:</p>
+        <p class="ed-pull">can someone without accounting knowledge <span class="ed-pull__serif">do this alone?</span></p>
+        <p>Because if they can't, they won't stay.</p>
       </div>
     </div>
   </section>
@@ -225,7 +228,7 @@
       </div>
       <div class="sb-text">
         <p>The app was too big to fix at once, so I started by reviewing everything myself. Together with the PM, I ranked each part by business importance and how badly it was broken. Six areas came first: Overview, Invoices, Quotes, Receipts, Journal entries and Payroll.</p>
-        <p>The startup had three real users, all running small companies in Stockholm. That's a small group, but it meant I could work with every one of them. They did real tasks in their own work environment and told me how it felt, and in one session I sat beside a user and watched him think out loud. Then I turned the patterns into design decisions.</p>
+        <p>The startup had three real users, all running small companies in Stockholm. That's a small group, but it meant <span class="hl-mark">I could work with every one of them</span>. They did real tasks in their own work environment and told me how it felt, and in one session I sat beside a user and watched him think out loud. Then I turned the patterns into design decisions.</p>
         <p>I lead the UX work end to end, side by side with the PM, and with the back-end team, who connect the front-end I build to the rest of the product.</p>
       </div>
       <ol class="sb-process">
@@ -245,7 +248,7 @@
         <div class="section-headings"><h2 class="section-chapter" id="information-architecture">Information architecture</h2><p class="section-subtitle">Built around the business, not the database</p></div>
       </div>
       <div class="sb-text">
-        <p>The old app was organised around its database. I restructured the information architecture around how owners think about their business. The Overview comes first, so what needs attention is always the starting point, and the rest of the work is grouped into five clear areas.</p>
+        <p>The old app was organised around its database. I restructured the information architecture <span class="hl-serif">around how owners think about their business</span>. The Overview comes first, so what needs attention is always the starting point, and the rest of the work is grouped into five clear areas.</p>
       </div>
       <div class="cs-structure wide cs-structure--five" aria-label="Simple Booking information architecture">
         <div class="cs-structure__canvas">
@@ -314,8 +317,8 @@
         <h3>Invoices</h3>
         <div class="sb-text cs-compare-prose">
           <p>Invoicing is the task owners do most often, and usually the first reason they open the app. If sending an invoice and getting paid feels easy, they trust the app with the rest of their accounting.</p>
-          <p>But users couldn't see which invoices were paid, or find a specific one. The app had only a few statuses, all in the same grey, so users had to read carefully to understand where an invoice stood.</p>
-          <p>So I designed the invoice's whole journey as statuses you can read at a glance:</p>
+          <p>But users couldn't see which invoices were paid, or find a specific one. The app had only a few statuses, <span class="hl-problem">all in the same grey</span>, so users had to read carefully to understand where an invoice stood.</p>
+          <p>So I designed the invoice's whole journey as <span class="hl-mark">statuses you can read at a glance</span>:</p>
         </div>
         <div class="cs-status-flow">
           <p class="cs-status-flow__label">The invoice journey</p>
@@ -386,7 +389,7 @@
       <article class="sb-compare cs-change">
         <h3>Quotes</h3>
         <p class="sb-finding-lede">Every button looked equally important and some statuses were missing, so users couldn't tell where a quote stood.</p>
-        <p class="sb-finding-lede">The quote flow itself was unfinished and didn't work correctly, so I redesigned it from the start. Owners can now send a quote in two ways: by email, or as a link. The customer opens the link, sees the full quote, and accepts or declines it, without creating an account or signing in. The owner gets the answer straight away.</p>
+        <p class="sb-finding-lede">The quote flow itself was unfinished and didn't work correctly, so I redesigned it from the start. Owners can now send a quote in two ways: by email, or as a link. The customer opens the link, sees the full quote, and accepts or declines it, <span class="hl-mark">without creating an account or signing in</span>. The owner gets the answer straight away.</p>
         <ul class="sb-changes cs-list">
           <li><b>Equal-weight buttons</b> → one clear next action</li>
           <li><b>Unknown quote state</b> → visible statuses: sent, accepted, declined</li>
@@ -470,13 +473,13 @@
       <article class="sb-compare cs-change">
         <h3>Payroll</h3>
         <p class="sb-finding-lede">Registering an employee meant filling in two long forms. During the workshop, one user stopped and asked:</p>
-        <div class="quote-block cs-quote">
+        <div class="quote-block cs-quote ed-quote">
         <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
          <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
         <p>"I filled in this option above. Why is the system asking me to fill it in again?"</p>
           <cite>— Workshop participant, Payroll session</cite>
         </div>
-        <p>No field was actually repeated.</p>
+        <p><span class="hl-serif">No field was actually repeated.</span></p>
         <p class="aside-note aside-note--bubble aside-note--bubble-shape-2 aside-note--bubble-prefer-right cs-aside"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg></span><span class="aside-note__bubble-text">The form was just long enough to give everyone déjà vu.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="sb-arrow-grad-deja" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#sb-arrow-grad-deja)"/><path d="M40 11 L34 8" stroke="url(#sb-arrow-grad-deja)"/><path d="M40 11 L34 14" stroke="url(#sb-arrow-grad-deja)"/></svg></span></span></span></p>
         <p>So the fix wasn't the data, it was how much we showed at once.</p>
         <ul class="sb-changes cs-list">
@@ -522,8 +525,8 @@
             </div>
           </div>
           <div class="cs-turning__prose sb-text">
-            <p>As the redesign moved forward, the team kept talking about simplicity. But I saw a problem: accounting can't be made simple by removing things. Every feature in the app was needed, and none could be skipped. <strong>Clearer screens would help people find things, but not understand them.</strong></p>
-            <p>The idea came from my own first weeks. I was new to the product, my manager was busy, and I had questions about how everything worked. I kept wishing someone could just answer them, right away. Then I noticed what I do myself these days: when I have a question, I don't search first. <strong>I ask an AI.</strong></p>
+            <p>As the redesign moved forward, the team kept talking about simplicity. But I saw a problem: accounting can't be made simple by removing things. Every feature in the app was needed, and none could be skipped. <span class="hl-mark">Clearer screens would help people find things, but not understand them.</span></p>
+            <p>The idea came from my own first weeks. I was new to the product, my manager was busy, and I had questions about how everything worked. I kept wishing someone could just answer them, right away. Then I noticed what I do myself these days: when I have a question, I don't search first. <span class="hl-serif">I ask an AI.</span></p>
             <p><strong>That's when it clicked.</strong> Our users were in the same position as me, just with more at stake. What if the app had an adviser that explained things in plain language, using the owner's own numbers?</p>
           </div>
           <div class="cs-turning__callout-block">
@@ -549,7 +552,7 @@
         <div class="section-headings"><h2 class="section-chapter" id="adviser">Designing an adviser people can trust</h2><p class="section-subtitle">AI assistant · My idea, my design, my front-end</p></div>
       </div>
       <div class="sb-text">
-        <p>Accounting is the last place for an AI that guesses. So we built Adviser around a few clear rules, and three of them were my design ideas: taking users straight to the right page, the Needs attention list, and speaking instead of typing.</p>
+        <p><span class="hl-serif">Accounting is the last place for an AI that guesses.</span> So we built Adviser around a few clear rules, and three of them were my design ideas: taking users straight to the right page, the Needs attention list, and speaking instead of typing.</p>
         <p>Because so much of Adviser depended on the back end, I worked closely with the back-end team through many sessions to shape how it should work, then finalised the design and built the front-end myself.</p>
       </div>
       <figure class="sb-ds-sheet">
@@ -658,7 +661,7 @@
         <div class="section-headings"><h2 class="section-chapter" id="status-learned">Where it is now, and what I learned</h2></div>
       </div>
       <div class="sb-text">
-        <p>About half of the app is redesigned and built. Next comes formal usability testing of V2 with the same three users and the same tasks, comparing V1 and V2 on task completion and errors. Until then, this page shows my decisions and why I made them, not results. I'll add the numbers after testing.</p>
+        <p>About half of the app is redesigned and built. Next comes formal usability testing of V2 with the same three users and the same tasks, comparing V1 and V2 on task completion and errors. Until then, <span class="hl-mark">this page shows my decisions and why I made them, not results</span>. I'll add the numbers after testing.</p>
       </div>
       <div class="sb-reflect">
         <div><h4>Three users can teach you a lot.</h4><p>Working with every real user on every core area went deeper than a bigger, quicker study would have.</p></div>
