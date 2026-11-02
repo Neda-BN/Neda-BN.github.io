@@ -664,6 +664,18 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   body.case-study-page.cs-design-page .mob-summary-shell .sb-tldr.cs-summary.sb-glance {
     text-align: left;
   }
+  body.case-study-page.cs-design-page .content.case-main section[aria-labelledby="turning-point"] .cs-turning__column > .cs-turning__eyebrow {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 16px;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    color: var(--yellow);
+  }
   body.case-study-page .meta-value-list { margin: 0; padding: 0 0 0 1.1em; list-style: disc; }
   body.case-study-page .meta-value-list li {
     font-family: var(--font-body, 'Poppins', sans-serif);
@@ -889,6 +901,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Product Designer</div></div>
     <div class="meta-item"><div class="meta-label">Company</div><div class="meta-value">Focalpay AB · 2023–2024</div></div>
     <div class="meta-item"><div class="meta-label">Platform</div><ul class="meta-value-list"><li>iOS</li><li>Web (PWA)</li></ul></div>
+    <div class="meta-item"><div class="meta-label">Team</div><div class="meta-value">Sole designer</div></div>
     <div class="meta-item"><div class="meta-label">Methods</div><ul class="meta-value-list"><li>Interviews</li><li>Survey</li><li>Usability testing</li><li>A/B testing</li></ul></div>
   </div>
   <p class="hero-subtitle">Letting shoppers scan and pay with their own phone, without queueing at the till</p>
@@ -944,6 +957,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
       <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">01</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">The challenge</h2></div>
     </div>
+    <p>For retailers, the whole idea depends on one thing: shoppers finishing checkout on their own phone. Every shopper who gives up halfway ends up back in the queue, or leaves without paying for what's in their cart. So in this app, a confusing moment isn't a small UX issue. <span class="ink">It's a lost sale.</span></p>
     <p>In Swedish grocery stores like ICA and Coop, self-scanning means carrying a store scanner around, or standing in the queue at the till. For a parent with a stroller, or someone shopping with a sensory-sensitive child, neither works well.</p>
     <p>Focalpay's app turns the shopper's own phone into the scanner. Shoppers scan as they go, then pay by scanning a QR code on the store wall. If they want to pay with cash, one tap sends their cart to the cashier.</p>
     <p>For retailers, it removes the cost of buying, charging and replacing scanners, and it's part of one platform with the cashier POS and the back-office. That gave us three constraints:</p>
@@ -952,6 +966,11 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
       <li><strong>Cash had to work too.</strong> Not everyone pays by card, so the app needed a way to hand over to the cashier.</li>
       <li><strong>Stopping theft without slowing people down.</strong> The store needed to confirm payment at the exit, without making honest shoppers wait.</li>
     </ul>
+    <div class="cs-question sb-question-frame">
+      <p class="cs-label sb-label">The one question</p>
+      <p class="cs-question__lead sb-question-frame__lead">So every decision had to answer one question:</p>
+      <p class="cs-question__q sb-question-frame__q">does the shopper finish checkout on their own phone?</p>
+    </div>
     <p>I led the design from competitor research and interviews to final screens and usability testing, working closely with the PM and engineering. The PM joined some of the testing sessions.</p>
   </section>
 
@@ -1087,29 +1106,13 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="decisions-owned">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">06</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Two decisions I made</h2></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">06</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">A key decision</h2></div>
     </div>
     <div class="mob-owned">
       <div>
-        <h3>Decision 1: Making sign-up optional</h3>
+        <h3>Making sign-up optional</h3>
         <p>The first version asked shoppers to create an account before checking out. In testing, three participants gave up right there. They just wanted a faster way to pay.</p>
         <p>I moved sign-up to the end and made it optional. Shoppers now check out as guests with their card and get the receipt by email, while those who want purchase history and saved cards can still sign up. In the next round, nobody gave up, and one participant chose to sign up.</p>
-      </div>
-      <div>
-        <h3>Decision 2: Making every scan clear</h3>
-        <p>After launch, too many shoppers didn't complete checkout. My first guess was the scanner: maybe it wasn't optimised enough, so I asked the dev team to improve it. But the drop-off didn't go away.</p>
-        <p>Testing showed the real problem: the app was too silent. Shoppers scanned a product, then stopped and stared at the screen, unsure if it had worked. Some scanned twice. With noise, trolleys and children around, a visual sign alone was easy to miss.</p>
-        <p>So I added three kinds of feedback after each scan:</p>
-        <ul>
-          <li><strong>Visual:</strong> the product moves into the cart.</li>
-          <li><strong>Haptic:</strong> the phone vibrates briefly.</li>
-          <li><strong>Sound:</strong> a short sound plays.</li>
-        </ul>
-        <p>This follows the WCAG guidance that a change shouldn't rely on only one sense.</p>
-        <figure class="mob-scan-feedback reveal reveal-media">
-          <img src="mobile-scan-three-layer-feedback.gif" alt="In-app demonstration of three-layer scan feedback: barcode scan on Coca-Cola, vibration and sound cues, and the product animating into the cart" width="800" height="695" loading="lazy" decoding="async">
-        </figure>
-        <p>To prove it, we ran an A/B test with 10 real shoppers: 5 used V1, the silent version, and 5 used V2, with visual, haptic and sound feedback. Checkout completion was 40% higher with V2.</p>
       </div>
     </div>
   </section>
@@ -1339,10 +1342,62 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
   <div class="divider"></div>
 
+  <section class="section fade-in reveal case-anchor" aria-labelledby="turning-point">
+    <div class="cs-turning">
+      <div class="cs-turning__column">
+        <p class="cs-turning__eyebrow">
+          <span class="cs-icon-chip" aria-hidden="true"><svg class="cs-icon-chip__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h13l4-3-4-3z"/><path d="M12 11v10"/><path d="M9 21h6"/></svg></span>
+          <span class="cs-turning__eyebrow-text">Turning point</span>
+        </p>
+        <div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">10</span><span class="cs-sec-line sb-sec-line"></span></div>
+        <h2 class="section-chapter" id="turning-point">The scanner wasn't the problem. The silence was.</h2>
+        <div class="cs-turning__shift" aria-label="From first guess to what testing showed">
+          <div class="cs-turning__shift-box cs-turning__shift-box--plan">
+            <span class="cs-turning__shift-label">My first guess</span>
+            <p class="cs-turning__shift-text">The scanner is too slow</p>
+          </div>
+          <span class="cs-turning__shift-arrow cs-turning__shift-arrow--right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          <span class="cs-turning__shift-arrow cs-turning__shift-arrow--down" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></span>
+          <div class="cs-turning__shift-box cs-turning__shift-box--highlight">
+            <span class="cs-turning__shift-label cs-turning__shift-label--accent">What testing showed</span>
+            <p class="cs-turning__shift-text cs-turning__shift-text--highlight">The app is too silent</p>
+          </div>
+        </div>
+        <div class="cs-turning__prose">
+          <p>After launch, I sat down with my PM to review how shoppers were using the app. The data showed a drop-off: many shoppers started scanning but never completed checkout.</p>
+          <p>My first guess was the scanner: maybe it wasn't optimised enough, so I asked the dev team to improve it. <span class="ink">But the drop-off didn't go away.</span></p>
+          <p>So I went back to testing, and found the real problem: <span class="ink">the app was too silent.</span> Shoppers scanned a product, then stopped and stared at the screen, unsure if it had worked. Some scanned twice. With noise, trolleys and children around, a visual sign alone was easy to miss.</p>
+        </div>
+        <div class="cs-turning__callout-block">
+          <p class="cs-turning__callout-label">
+            <svg class="cs-turning__callout-label-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .962L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
+            <span>The aha moment</span>
+          </p>
+          <p class="cs-turning__callout">Shoppers didn't need a faster scanner. <span class="cs-turning__callout-accent">They needed to know the scan had worked.</span></p>
+        </div>
+        <div class="cs-turning__prose">
+          <p>So I added three kinds of feedback after each scan:</p>
+          <ul>
+            <li><strong>Visual:</strong> the product moves into the cart.</li>
+            <li><strong>Haptic:</strong> the phone vibrates briefly.</li>
+            <li><strong>Sound:</strong> a short sound plays.</li>
+          </ul>
+          <p>This follows the WCAG guidance that a change shouldn't rely on only one sense.</p>
+          <figure class="mob-scan-feedback reveal reveal-media">
+            <img src="mobile-scan-three-layer-feedback.gif" alt="In-app demonstration of three-layer scan feedback: barcode scan on Coca-Cola, vibration and sound cues, and the product animating into the cart" width="800" height="695" loading="lazy" decoding="async">
+          </figure>
+          <p>To prove it, we ran an A/B test with 10 real shoppers: 5 used V1, the silent version, and 5 used V2, with visual, haptic and sound feedback. Checkout completion was 40% higher with V2.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <section class="section fade-in reveal case-anchor" id="results">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">10</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Results</h2></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">11</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Results</h2></div>
     </div>
     <p>The +40% comes from an A/B test after launch. The other results come from usability testing before launch, across several rounds, and show the direction of improvement.</p>
     <div class="mob-results-grid cs-stat-grid">
@@ -1452,7 +1507,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="reflection">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">11</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Where it is now, and what I learned</h2></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">12</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Where it is now, and what I learned</h2></div>
     </div>
     <p>The app has launched, and a small number of shoppers use it so far. As it grows, I'd track guest checkout versus sign-ups, checkout completion, how often manual barcode entry is used, and cash handovers to the cashier.</p>
     <div class="lessons-list">
