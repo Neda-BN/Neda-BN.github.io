@@ -766,10 +766,11 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 </style>
 <link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
 <link rel="stylesheet" href="css/case-study.css?v=20261031a">
+<link rel="stylesheet" href="css/cs-design.css?v=20261102d">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
 </head>
-<body class="has-anna-nav case-study-page">
+<body class="has-anna-nav case-study-page cs-design-page">
 
 <header class="anna-nav anna-nav--intro-visible" id="site-nav" aria-label="Primary">
   <div class="anna-nav__pill">
@@ -781,6 +782,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     <a href="index.html#contact">Contact</a>
   </div>
 </header>
+<div class="cs-read-progress" aria-hidden="true"></div>
 
 <div class="back-btn-wrap back-btn-wrap--top">
   <a class="back-btn" href="index.html#projects"><svg class="back-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Back</a>
@@ -858,13 +860,34 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   </div>
 </div>
 
-<div class="content case-main">
+<div class="content case-main sb-case">
 
-  <div class="pos-tldr fade-in reveal cs-summary">
-    <p><strong>The problem:</strong> Cashiers needed 4+ taps and several screens to complete a basic transaction, and stores needed a separate system just to add a product.</p>
-    <p><strong>What I did:</strong> Designed the mobile version of the POS, from research to final screens, with the PM, engineering and stakeholders. I interviewed store owners, ran workshops and tested the app with cashiers in a real store. After my colleague left, I also designed Connected devices.</p>
-    <p><strong>Key decisions:</strong> One scrollable home screen with the cart always visible, and adding products straight from the till, scoped with engineering to keep product data secure.</p>
-    <p><strong>Result:</strong> In a real-store test with 5 users, 70% fewer transaction errors, 30% faster cashier tasks, and 1–2 taps per sale instead of 4+.</p>
+  <div class="cs-glance sb-glance cs-summary fade-in reveal">
+    <div class="cs-glance__problem sb-glance__problem">
+      <div class="cs-glance__label-head sb-glance__label-head"><span class="cs-glance__label-mark sb-glance__label-mark" aria-hidden="true"></span><p class="cs-label sb-label">The problem</p></div>
+      <p class="cs-glance__statement sb-glance__statement">Cashiers needed 4+ taps and several screens to complete a basic transaction, and stores needed a separate system just to add a product.</p>
+    </div>
+    <div class="cs-glance__divider sb-glance__divider" role="presentation"></div>
+    <div class="cs-glance__lower sb-glance__lower">
+      <div class="cs-glance__col sb-glance__col cs-glance__col--did sb-glance__col--did">
+        <div class="cs-glance__label-head sb-glance__label-head"><span class="cs-glance__label-mark sb-glance__label-mark" aria-hidden="true"></span><p class="cs-label sb-label">What I did</p></div>
+        <p class="cs-glance__body sb-glance__body">Designed the mobile version of the POS, from research to final screens, with the PM, engineering and stakeholders. I interviewed store owners, ran workshops and tested the app with cashiers in a real store. After my colleague left, I also designed Connected devices.</p>
+      </div>
+      <div class="cs-glance__col sb-glance__col cs-glance__col--decisions sb-glance__col--decisions">
+        <div class="cs-glance__label-head sb-glance__label-head"><span class="cs-glance__label-mark sb-glance__label-mark" aria-hidden="true"></span><p class="cs-label sb-label">Key decisions</p></div>
+        <ul class="cs-glance__list sb-glance__list">
+          <li class="cs-glance__list-item--lead sb-glance__list-item--lead"><svg class="cs-glance__check sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>One scrollable home screen with the cart always visible</li>
+          <li><svg class="cs-glance__check sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Adding products straight from the till, scoped with engineering to keep product data secure</li>
+        </ul>
+      </div>
+      <div class="cs-glance__col sb-glance__col cs-glance__col--result sb-glance__col--status">
+        <div class="cs-glance__label-head sb-glance__label-head"><span class="cs-glance__label-mark sb-glance__label-mark" aria-hidden="true"></span><p class="cs-label sb-label">Result</p></div>
+        <p class="sb-glance__pct" aria-hidden="true">70%</p>
+        <p class="cs-glance__result-sub">fewer transaction errors</p>
+        <p class="sb-glance__status-note">In a real-store test with 5 users, 70% fewer transaction errors, 30% faster cashier tasks, and 1–2 taps per sale instead of 4+.</p>
+      </div>
+    </div>
+    <div class="cs-glance__jump-divider sb-glance__jump-divider" role="presentation"></div>
     <div class="cs-summary-jump">
       <a class="cs-summary-jump__link" href="#results">Jump to results <span class="cs-summary-jump__arrow" aria-hidden="true">↓</span></a>
     </div>
@@ -873,23 +896,29 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="challenge">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">The challenge</h2></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">01</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">The challenge</h2></div>
     </div>
-    <p>Traditional POS terminals are heavy and expensive. Focalpay, a Swedish retail-tech company, built a cashier app that runs on any smartphone, tablet or touchscreen instead: on iOS, Android and in the browser.</p>
-    <p>I joined as one of two designers when the first version was already used in several stores. I owned the mobile version of the POS, the phone-sized screens cashiers hold in their hand, while my colleague designed the tablet and desktop versions. One sale meant moving between several screens, and when a product was missing at the till, the store had to add it in a separate back-office system. My job was to find what slowed cashiers down, redesign the main flows and test them in a real store.</p>
-    <p>I worked from research to final screens with the PM, engineering and stakeholders, the same team behind the Back-office and the Mobile app, and designed every screen to WCAG AA.</p>
+    <p>At a store till, every second counts twice: once for the cashier, and once for the customer waiting in line. For the retailers using Focalpay, a slow checkout means longer queues, impatient customers and fewer sales per hour. So a cashier app that makes people stop and think isn't just a usability problem. <span class="ink">It's a business problem.</span></p>
+    <p>When I joined, the first version was already used in several stores. I joined as one of two designers and owned the mobile version of the POS, the phone-sized screens cashiers hold in their hand, while my colleague designed the tablet and desktop versions.</p>
+    <p>One sale meant moving between several screens, and when a product was missing at the till, the store had to add it in a separate back-office system.</p>
+    <div class="cs-question sb-question-frame">
+      <p class="cs-label sb-label">The one question</p>
+      <p class="cs-question__lead sb-question-frame__lead">So every decision had to answer one question:</p>
+      <p class="cs-question__q sb-question-frame__q">does this keep the queue moving?</p>
+    </div>
     <div class="quote-block cs-quote">
         <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
          <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
         <p>"We want something that just works — fast. Our staff shouldn't need training to use a cashier app."</p>
       <cite>— Store manager, research session. The same person also worked with us on the <a href="mobile-app.html">Mobile shopping app</a>.</cite>
     </div>
+    <p>I worked from research to final screens with the PM, engineering and stakeholders, the same team behind the Back-office and the Mobile app, and designed every screen to WCAG AA.</p>
   </section>
   <div class="divider"></div>
   <section class="section fade-in reveal case-anchor" id="methods-research">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Research</h2><p class="section-subtitle">Watching cashiers work</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">02</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Research</h2><p class="section-subtitle">Watching cashiers work</p></div>
     </div>
     <p>I combined interviews, workshops, observation and testing in a real store. Watching cashiers serve real customers taught me the most.</p>
     <div class="findings-list">
@@ -979,11 +1008,11 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   </div>
   </div>
   <div class="divider"></div>
-  <div class="content case-main">
+  <div class="content case-main sb-case">
   <section class="section fade-in reveal case-anchor" id="user-journey">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">User Journey</h2><p class="section-subtitle">Emotion curve across a full transaction day</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">03</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">User Journey</h2><p class="section-subtitle">Emotion curve across a full transaction day</p></div>
     </div>
     <div class="screens-section reveal reveal-media">
       <h3 class="screens-label">User journey map</h3>
@@ -1112,10 +1141,54 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
   </section>
   <div class="divider"></div>
+  <section class="section fade-in reveal case-anchor" aria-labelledby="turning-point">
+    <div class="cs-turning">
+      <div class="cs-turning__column">
+        <p class="cs-turning__eyebrow">
+          <span class="cs-icon-chip" aria-hidden="true"><svg class="cs-icon-chip__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h13l4-3-4-3z"/><path d="M12 11v10"/><path d="M9 21h6"/></svg></span>
+          <span class="cs-turning__eyebrow-text">Turning point</span>
+        </p>
+        <div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">04</span><span class="cs-sec-line sb-sec-line"></span></div>
+        <h2 class="section-chapter" id="turning-point">The problem wasn't the speed. It was the tabs.</h2>
+        <div class="cs-turning__shift" aria-label="From data to what the store showed">
+          <div class="cs-turning__shift-box cs-turning__shift-box--plan">
+            <span class="cs-turning__shift-label">What the data said</span>
+            <p class="cs-turning__shift-text">Sales take too long</p>
+          </div>
+          <span class="cs-turning__shift-arrow cs-turning__shift-arrow--right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          <span class="cs-turning__shift-arrow cs-turning__shift-arrow--down" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></span>
+          <div class="cs-turning__shift-box cs-turning__shift-box--highlight">
+            <span class="cs-turning__shift-label cs-turning__shift-label--accent">What the store showed</span>
+            <p class="cs-turning__shift-text cs-turning__shift-text--highlight">
+              <svg class="cs-turning__shift-bulb" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+              <span>The tabs break the cashier's focus</span>
+            </p>
+          </div>
+        </div>
+        <div class="cs-turning__prose">
+          <p>The data told me something was wrong: sales were slow, and cashiers spent too long on each customer. <strong>But it couldn't tell me why.</strong></p>
+          <p>So I went to the store and watched cashiers work. That's where I saw it: <strong>the tabs.</strong> Every sale meant jumping between them, and every jump broke the cashier's focus. With a customer waiting, some got lost in the middle of a sale.</p>
+          <p>I shared what I'd seen with my manager, who asked a simple question: "What if the app had no tabs at all?" That question changed the direction of the whole redesign.</p>
+        </div>
+        <div class="cs-turning__callout-block">
+          <p class="cs-turning__callout-label">
+            <svg class="cs-turning__callout-label-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .962L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
+            <span>The aha moment</span>
+          </p>
+          <p class="cs-turning__callout">Speed didn't come from faster screens. <span class="cs-turning__callout-accent">It came from never leaving the one screen.</span></p>
+        </div>
+        <div class="cs-turning__prose">
+          <p>The team, including the engineers, worried that one screen without tabs would become messy and hard to manage. So I designed the new version and walked them through it: everything a cashier needs, on one scrollable screen, in a clear order. Once they saw it, the concerns turned into support.</p>
+          <p>In the real-store test, transaction errors fell by 70%, and tasks were 30% faster.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="divider"></div>
   <section class="section fade-in reveal case-anchor" id="product-decision">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">A key decision</h2><p class="section-subtitle">Adding products at the till, safely</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">05</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">A key decision</h2><p class="section-subtitle">Adding products at the till, safely</p></div>
     </div>
     <p>Store owners wanted to add products in the POS. Engineering was worried: product data is sensitive, and the cashier app shouldn't be able to change the catalogue.</p>
     <p>With the PM and the engineering lead, I found a middle ground. Cashiers can create a basic product record at the till (name, EAN and sales account), while full editing stays in the back-office. The data stays safe, and nobody gets stuck at the scanner.</p>
@@ -1124,7 +1197,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="design-solutions">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">What I designed</h2><p class="section-subtitle">The main flows</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">06</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">What I designed</h2><p class="section-subtitle">The main flows</p></div>
     </div>
     <p>Instead of many separate pages, I built the app around one scrollable home screen. The cart, product list, quick actions and daily summary are all on the same page. The Purchase button and the quick actions (Scan, Add bag, Add discount) are always visible, however many items are in the cart.</p>
 
@@ -1274,7 +1347,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     <div class="content case-main">
       <div class="section-header">
         <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
-        <div class="section-headings"><h2 class="section-chapter">Before and after</h2><p class="section-subtitle">Home, products and refunds</p></div>
+        <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">07</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Before and after</h2><p class="section-subtitle">Home, products and refunds</p></div>
       </div>
     </div>
     <div class="pos-transformation-strip wide">
@@ -1294,7 +1367,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="prototype">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="M13 13l6 6"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Interactive prototype</h2><p class="section-subtitle">Try the flow yourself</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">08</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Interactive prototype</h2><p class="section-subtitle">Try the flow yourself</p></div>
     </div>
     <p>You can click through the prototype to scan items, take a payment and move through the POS like a cashier would. No Figma account is needed. It loads when you tap it, to keep the page fast.</p>
     <div class="proto-embed reveal reveal-media">
@@ -1317,7 +1390,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="external-devices">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Connected devices</h2><p class="section-subtitle">The POS works with the store's hardware</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">09</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Connected devices</h2><p class="section-subtitle">The POS works with the store's hardware</p></div>
     </div>
     <div class="screens-section reveal reveal-media">
       <div class="screen-wrap screen-wrap--natural-photo">
@@ -1364,7 +1437,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="design-system">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Design system</h2><p class="section-subtitle">The foundation for every screen</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">10</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Design system</h2><p class="section-subtitle">The foundation for every screen</p></div>
     </div>
     <p>From the start, I set up a design system: colours, typography, spacing, corner radius and component states, so design and engineering stayed consistent as the app grew. This release is light-theme only, to keep contrast predictable under bright store lighting.</p>
 
@@ -1387,7 +1460,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="results">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Results</h2></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">11</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Results</h2></div>
     </div>
     <p>We tested the app in a real store as well as in usability sessions. In the store, we could see how cashiers worked under time pressure, with real customers waiting.</p>
     <div class="ab-grid cs-compare-grid">
@@ -1442,7 +1515,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   <section class="section fade-in reveal case-anchor" id="reflection">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Reflection</h2><p class="section-subtitle">What I learned</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">12</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Reflection</h2><p class="section-subtitle">What I learned</p></div>
     </div>
     <div class="lessons-list">
       <div class="lesson-item cs-learn"><div class="lesson-num">01</div><div class="lesson-text"><h4>In a cashier app, speed is part of usability.</h4><p>Every extra second matters when someone is waiting at the till. Most of my work was removing steps: less navigation, fewer decisions, and the most common actions always within reach.</p></div></div>
@@ -1487,6 +1560,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 </footer>
 
 <script src="js/scroll-reveal.js?v=20260403"></script>
+<script src="js/cs-design.js?v=20261102d" defer></script>
 <script src="js/more-case-studies.js?v=20261029" defer></script>
 <script src="js/case-study-aside-bubbles.js?v=20261027d" defer></script>
 <script>

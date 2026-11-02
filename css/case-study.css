@@ -5714,6 +5714,23 @@ body.case-study-page .cs-turning__callout-accent {
   color: var(--accent);
 }
 
+/* cs-design.css pages: turning point uses shared case-study tokens (see cs-design.css for layout) */
+body.case-study-page.cs-design-page .cs-turning__shift-label--accent {
+  color: var(--yellow);
+}
+
+body.case-study-page.cs-design-page .cs-turning__shift-bulb {
+  stroke: var(--yellow);
+}
+
+body.case-study-page.cs-design-page .cs-turning__shift-arrow {
+  color: var(--yellow);
+}
+
+body.case-study-page.cs-design-page .cs-turning__callout-accent {
+  color: var(--yellow);
+}
+
 body.case-study-page .cs-feature-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

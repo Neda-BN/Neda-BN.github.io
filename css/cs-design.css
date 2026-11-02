@@ -1,0 +1,903 @@
+/* Shared case study design system (cs-design.css) */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+body.cs-design-page,
+body.sb-design-page {
+
+  --ink: #f3f1ec;
+  --body: rgba(243, 241, 236, 0.84);
+  --meta: rgba(243, 241, 236, 0.56);
+  --yellow: #e8b86d;
+  --yellow-soft: rgba(232, 184, 109, 0.14);
+  --yellow-line: rgba(232, 184, 109, 0.55);
+  --blue: var(--accent);
+  --frame-bg: var(--surface);
+  --frame-line: var(--border);
+
+}
+body.cs-design-page .cs-read-progress, .sb-read-progress,
+body.sb-design-page .cs-read-progress, .sb-read-progress {
+
+  position: fixed;
+  top: calc(env(safe-area-inset-top, 0px) + var(--nav-h, 85px));
+  left: 0;
+  z-index: 90;
+  height: 2px;
+  width: 0;
+  background: var(--yellow);
+  pointer-events: none;
+
+}
+@media (prefers-reduced-motion: reduce) {
+body.cs-design-page .cs-read-progress, .sb-read-progress,
+body.sb-design-page .cs-read-progress, .sb-read-progress {
+
+    transition: none;
+  
+}}
+body.cs-design-page .sb-case,
+body.sb-design-page .sb-case {
+
+  font-family: "Poppins", var(--font-stack);
+
+}
+body.cs-design-page .sb-case .sb-text > p,
+body.sb-design-page .sb-case .sb-text > p,
+body.cs-design-page .sb-case .sb-section .sb-wrap > .sb-text > p,
+body.sb-design-page .sb-case .sb-section .sb-wrap > .sb-text > p {
+
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--body);
+  max-width: 66ch;
+
+}
+body.cs-design-page .sb-case .hero-tag,
+body.sb-design-page .sb-case .hero-tag,
+body.cs-design-page .sb-case .meta-label,
+body.sb-design-page .sb-case .meta-label,
+body.cs-design-page .sb-case .meta-value,
+body.sb-design-page .sb-case .meta-value,
+body.cs-design-page .sb-case .cs-caption,
+body.sb-design-page .sb-case .cs-caption,
+body.cs-design-page .sb-case figcaption,
+body.sb-design-page .sb-case figcaption {
+
+  font-family: "Poppins", sans-serif !important;
+
+}
+body.cs-design-page .sb-case .meta-label,
+body.sb-design-page .sb-case .meta-label {
+
+  color: var(--meta);
+  text-transform: none;
+  letter-spacing: 0.04em;
+
+}
+body.cs-design-page .sb-case .section-chapter,
+body.sb-design-page .sb-case .section-chapter {
+
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 600;
+  color: var(--ink);
+
+}
+body.cs-design-page .sb-case .cs-label, .sb-label,
+body.sb-design-page .sb-case .cs-label, .sb-label {
+
+  margin: 0 0 8px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--yellow);
+  text-transform: none;
+
+}
+body.cs-design-page .sb-case .ink,
+body.sb-design-page .sb-case .ink {
+
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: var(--ink);
+  background: linear-gradient(
+    transparent 62%,
+    var(--yellow-soft) 62%,
+    var(--yellow-soft) 92%,
+    transparent 92%
+  );
+  padding: 0 2px;
+
+}
+body.cs-design-page .sb-case .cs-em-yellow, .sb-highlight-yellow,
+body.sb-design-page .sb-case .cs-em-yellow, .sb-highlight-yellow {
+
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: var(--yellow);
+
+}
+body.cs-design-page .sb-case .cs-sec-eyebrow, .sb-sec-eyebrow,
+body.sb-design-page .sb-case .cs-sec-eyebrow, .sb-sec-eyebrow {
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 12px;
+
+}
+body.cs-design-page .sb-case .cs-sec-num, .sb-sec-num,
+body.sb-design-page .sb-case .cs-sec-num, .sb-sec-num {
+
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  color: var(--yellow);
+  font-variant-numeric: tabular-nums;
+
+}
+body.cs-design-page .sb-case .cs-sec-line, .sb-sec-line,
+body.sb-design-page .sb-case .cs-sec-line, .sb-sec-line {
+
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--yellow-line);
+  flex-shrink: 0;
+
+}
+body.cs-design-page .sb-case section[aria-labelledby="turning-point"] .cs-turning__eyebrow,
+body.sb-design-page .sb-case section[aria-labelledby="turning-point"] .cs-turning__eyebrow {
+
+  display: none;
+
+}
+body.cs-design-page .sb-case .cs-glance, .sb-glance.cs-summary,
+body.sb-design-page .sb-case .cs-glance, .sb-glance.cs-summary {
+
+  background: var(--frame-bg) !important;
+  border: 1px solid var(--frame-line) !important;
+  border-radius: 16px !important;
+  padding: 36px !important;
+  margin-top: 40px !important;
+  overflow: hidden;
+  max-width: none;
+  width: 100%;
+  box-sizing: border-box;
+
+}
+body.cs-design-page .sb-case .cs-glance, .sb-glance .cs-label, .sb-label,
+body.sb-design-page .sb-case .cs-glance, .sb-glance .cs-label, .sb-label {
+
+  margin-bottom: 0 !important;
+  color: var(--yellow) !important;
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+
+}
+body.cs-design-page .sb-case .cs-glance, .sb-glance p,
+body.sb-design-page .sb-case .cs-glance, .sb-glance p {
+
+  margin-bottom: 0 !important;
+
+}
+body.cs-design-page .sb-case .cs-glance__label-head, .sb-glance__label-head,
+body.sb-design-page .sb-case .cs-glance__label-head, .sb-glance__label-head {
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+
+}
+body.cs-design-page .sb-case .cs-glance__label-mark, .sb-glance__label-mark,
+body.sb-design-page .sb-case .cs-glance__label-mark, .sb-glance__label-mark {
+
+  display: block;
+  width: 16px;
+  height: 1px;
+  background: var(--yellow-line);
+  flex-shrink: 0;
+
+}
+body.cs-design-page .sb-case .cs-glance__divider, .sb-glance__divider,
+body.sb-design-page .sb-case .cs-glance__divider, .sb-glance__divider,
+body.cs-design-page .sb-case .cs-glance__jump-divider, .sb-glance__jump-divider,
+body.sb-design-page .sb-case .cs-glance__jump-divider, .sb-glance__jump-divider {
+
+  height: 1px;
+  background: var(--frame-line);
+  border: 0;
+  margin: 0;
+
+}
+body.cs-design-page .sb-case .cs-glance__divider, .sb-glance__divider,
+body.sb-design-page .sb-case .cs-glance__divider, .sb-glance__divider {
+
+  margin: 18px 0;
+
+}
+body.cs-design-page .sb-case .cs-glance__statement, .sb-glance__statement,
+body.sb-design-page .sb-case .cs-glance__statement, .sb-glance__statement {
+
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: clamp(20px, 2vw, 24px);
+  line-height: 1.5;
+  color: var(--ink);
+  max-width: 60ch;
+
+}
+body.cs-design-page .sb-case .sb-glance-em,
+body.sb-design-page .sb-case .sb-glance-em {
+
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: var(--ink);
+
+}
+body.cs-design-page .sb-case .cs-glance__lower, .sb-glance__lower,
+body.sb-design-page .sb-case .cs-glance__lower, .sb-glance__lower {
+
+  display: grid;
+  grid-template-columns: 1.25fr 1.25fr 1fr;
+  gap: 24px;
+  align-items: start;
+
+}
+body.cs-design-page .sb-case .cs-glance__col, .sb-glance__col,
+body.sb-design-page .sb-case .cs-glance__col, .sb-glance__col {
+
+  min-width: 0;
+
+}
+body.cs-design-page .sb-case .cs-glance__col--did, .sb-glance__col--did,
+body.sb-design-page .sb-case .cs-glance__col--did, .sb-glance__col--did,
+body.cs-design-page .sb-case .cs-glance__col--decisions, .sb-glance__col--decisions,
+body.sb-design-page .sb-case .cs-glance__col--decisions, .sb-glance__col--decisions {
+
+  border-right: 1px solid var(--frame-line);
+  padding-right: 24px;
+
+}
+body.cs-design-page .sb-case .cs-glance__body, .sb-glance__body,
+body.sb-design-page .sb-case .cs-glance__body, .sb-glance__body {
+
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--body);
+
+}
+body.cs-design-page .sb-case .cs-glance__list, .sb-glance__list,
+body.sb-design-page .sb-case .cs-glance__list, .sb-glance__list {
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+}
+body.cs-design-page .sb-case .cs-glance__list, .sb-glance__list li,
+body.sb-design-page .sb-case .cs-glance__list, .sb-glance__list li {
+
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--body);
+
+}
+body.cs-design-page .sb-case .cs-glance__list-item--lead, .sb-glance__list-item--lead,
+body.sb-design-page .sb-case .cs-glance__list-item--lead, .sb-glance__list-item--lead {
+
+  font-weight: 600;
+  color: var(--ink);
+
+}
+body.cs-design-page .sb-case .cs-glance__check, .sb-glance__check,
+body.sb-design-page .sb-case .cs-glance__check, .sb-glance__check {
+
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  margin-top: 3px;
+  stroke: var(--yellow);
+
+}
+body.cs-design-page .sb-case .cs-glance__pct, .sb-glance__pct,
+body.sb-design-page .sb-case .cs-glance__pct, .sb-glance__pct {
+
+  margin: 0 0 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1;
+  color: var(--yellow);
+
+}
+body.cs-design-page .sb-case .cs-glance__status-bar, .sb-glance__status-bar,
+body.sb-design-page .sb-case .cs-glance__status-bar, .sb-glance__status-bar {
+
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(243, 241, 236, 0.1);
+  overflow: hidden;
+  margin-bottom: 12px;
+
+}
+body.cs-design-page .sb-case .cs-glance__status-fill, .sb-glance__status-fill,
+body.sb-design-page .sb-case .cs-glance__status-fill, .sb-glance__status-fill {
+
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: var(--yellow);
+  transition: width 900ms ease-out;
+
+}
+body.cs-design-page .sb-case .cs-glance, .sb-glance.is-status-visible .cs-glance__status-fill, .sb-glance__status-fill,
+body.sb-design-page .sb-case .cs-glance, .sb-glance.is-status-visible .cs-glance__status-fill, .sb-glance__status-fill {
+
+  width: 50%;
+
+}
+@media (prefers-reduced-motion: reduce) {
+body.cs-design-page .sb-case .cs-glance__status-fill, .sb-glance__status-fill,
+body.sb-design-page .sb-case .cs-glance__status-fill, .sb-glance__status-fill {
+
+    width: 50%;
+    transition: none;
+  
+}}
+body.cs-design-page .sb-case .cs-glance__status-note, .sb-glance__status-note,
+body.sb-design-page .sb-case .cs-glance__status-note, .sb-glance__status-note {
+
+  margin: 0 0 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--body);
+
+}
+body.cs-design-page .sb-case .cs-glance__ongoing, .sb-glance__ongoing,
+body.sb-design-page .sb-case .cs-glance__ongoing, .sb-glance__ongoing {
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--ink);
+
+}
+body.cs-design-page .sb-case .cs-glance__status-dot, .sb-glance__status-dot,
+body.sb-design-page .sb-case .cs-glance__status-dot, .sb-glance__status-dot {
+
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #5cc48a;
+  flex-shrink: 0;
+
+}
+body.cs-design-page .sb-case .cs-glance__jump-divider, .sb-glance__jump-divider,
+body.sb-design-page .sb-case .cs-glance__jump-divider, .sb-glance__jump-divider {
+
+  margin: 18px 0 12px;
+
+}
+body.cs-design-page .sb-case .cs-glance, .sb-glance .cs-summary-jump,
+body.sb-design-page .sb-case .cs-glance, .sb-glance .cs-summary-jump {
+
+  margin: 0;
+  padding: 0;
+  text-align: right;
+
+}
+body.cs-design-page .sb-case .cs-glance, .sb-glance .cs-summary-jump__link,
+body.sb-design-page .sb-case .cs-glance, .sb-glance .cs-summary-jump__link {
+
+  font-family: "Poppins", sans-serif !important;
+  color: var(--blue) !important;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: none;
+
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+body.cs-design-page .sb-case .cs-glance__lower, .sb-glance__lower,
+body.sb-design-page .sb-case .cs-glance__lower, .sb-glance__lower {
+
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 32px;
+  
+}
+body.cs-design-page .sb-case .cs-glance__col--did, .sb-glance__col--did,
+body.sb-design-page .sb-case .cs-glance__col--did, .sb-glance__col--did {
+
+    border-right: 1px solid var(--frame-line);
+    padding-right: 32px;
+  
+}
+body.cs-design-page .sb-case .cs-glance__col--decisions, .sb-glance__col--decisions,
+body.sb-design-page .sb-case .cs-glance__col--decisions, .sb-glance__col--decisions {
+
+    border-right: 0;
+    padding-right: 0;
+  
+}
+body.cs-design-page .sb-case .cs-glance__col--status, .sb-glance__col--status,
+body.sb-design-page .sb-case .cs-glance__col--status, .sb-glance__col--status {
+
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--frame-line);
+    padding-top: 28px;
+  
+}}
+@media (max-width: 767px) {
+body.cs-design-page .sb-case .cs-glance, .sb-glance.cs-summary,
+body.sb-design-page .sb-case .cs-glance, .sb-glance.cs-summary {
+
+    padding: 24px !important;
+  
+}
+body.cs-design-page .sb-case .cs-glance__lower, .sb-glance__lower,
+body.sb-design-page .sb-case .cs-glance__lower, .sb-glance__lower {
+
+    grid-template-columns: 1fr;
+    gap: 0;
+  
+}
+body.cs-design-page .sb-case .cs-glance__col, .sb-glance__col,
+body.sb-design-page .sb-case .cs-glance__col, .sb-glance__col {
+
+    padding: 0 0 24px !important;
+    margin-bottom: 24px;
+    border: 0 !important;
+    border-bottom: 1px solid var(--frame-line) !important;
+  
+}
+body.cs-design-page .sb-case .cs-glance__col--status, .sb-glance__col--status,
+body.sb-design-page .sb-case .cs-glance__col--status, .sb-glance__col--status {
+
+    margin-bottom: 0;
+    padding-bottom: 0 !important;
+    border-bottom: 0 !important;
+  
+}}
+body.cs-design-page .sb-case section[aria-labelledby="challenge"] .sb-text > p:first-child,
+body.sb-design-page .sb-case section[aria-labelledby="challenge"] .sb-text > p:first-child {
+
+  font-weight: 300;
+  font-size: clamp(22px, 2.2vw, 28px);
+  line-height: 1.45;
+  color: var(--ink);
+  max-width: 66ch;
+
+}
+body.cs-design-page .sb-case .cs-question, .sb-question-frame,
+body.sb-design-page .sb-case .cs-question, .sb-question-frame {
+
+  position: relative;
+  margin: 24px 0 0;
+  padding: 28px 32px 28px 40px;
+  max-width: 66ch;
+  background: var(--frame-bg);
+  border: 1px solid var(--frame-line);
+  border-radius: 16px;
+  overflow: hidden;
+
+}
+body.cs-design-page .sb-case .cs-question, .sb-question-frame::before,
+body.sb-design-page .sb-case .cs-question, .sb-question-frame::before {
+
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  width: 4px;
+  height: 40px;
+  transform: translateY(-50%);
+  background: var(--yellow);
+  border-radius: 2px;
+
+}
+body.cs-design-page .sb-case .cs-question__lead, .sb-question-frame__lead,
+body.sb-design-page .sb-case .cs-question__lead, .sb-question-frame__lead,
+body.cs-design-page .sb-case .cs-question__after, .sb-question-frame__after,
+body.sb-design-page .sb-case .cs-question__after, .sb-question-frame__after {
+
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--body);
+  max-width: none;
+
+}
+body.cs-design-page .sb-case .cs-question__q, .sb-question-frame__q,
+body.sb-design-page .sb-case .cs-question__q, .sb-question-frame__q {
+
+  margin: 12px 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.35;
+  color: var(--ink);
+  max-width: none;
+
+}
+body.cs-design-page .sb-case .cs-question__after, .sb-question-frame__after,
+body.sb-design-page .sb-case .cs-question__after, .sb-question-frame__after {
+
+  margin-top: 12px;
+
+}
+body.cs-design-page .sb-case .cs-process-frame, .sb-process-frame,
+body.sb-design-page .sb-case .cs-process-frame, .sb-process-frame {
+
+  position: relative;
+  margin-top: 32px;
+  background: var(--frame-bg);
+  border: 1px solid var(--frame-line);
+  border-radius: 16px;
+  overflow: hidden;
+  max-width: var(--cs-wide-max, 1200px);
+
+}
+body.cs-design-page .sb-case .cs-process-frame__bar, .sb-process-frame__bar,
+body.sb-design-page .sb-case .cs-process-frame__bar, .sb-process-frame__bar {
+
+  height: 2px;
+  background: transparent;
+  overflow: hidden;
+
+}
+body.cs-design-page .sb-case .cs-process-frame__fill, .sb-process-frame__fill,
+body.sb-design-page .sb-case .cs-process-frame__fill, .sb-process-frame__fill {
+
+  display: block;
+  height: 2px;
+  width: 0;
+  background: var(--yellow);
+  transition: width 800ms ease-out;
+
+}
+body.cs-design-page .sb-case .cs-process-frame, .sb-process-frame.is-advanced .cs-process-frame__fill, .sb-process-frame__fill,
+body.sb-design-page .sb-case .cs-process-frame, .sb-process-frame.is-advanced .cs-process-frame__fill, .sb-process-frame__fill {
+
+  width: 100%;
+
+}
+@media (prefers-reduced-motion: reduce) {
+body.cs-design-page .sb-case .cs-process-frame__fill, .sb-process-frame__fill,
+body.sb-design-page .sb-case .cs-process-frame__fill, .sb-process-frame__fill {
+
+    width: 100%;
+    transition: none;
+  
+}}
+body.cs-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process,
+body.sb-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process {
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: sb-step;
+
+}
+body.cs-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process li,
+body.sb-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process li {
+
+  counter-increment: sb-step;
+  margin: 0;
+  padding: 24px;
+  border: 0;
+  border-right: 1px solid var(--frame-line);
+
+}
+body.cs-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process li:last-child,
+body.sb-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process li:last-child {
+
+  border-right: 0;
+
+}
+body.cs-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process li::before,
+body.sb-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process li::before {
+
+  content: counter(sb-step, decimal-leading-zero);
+  display: block;
+  margin-bottom: 12px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--yellow);
+  font-variant-numeric: tabular-nums;
+
+}
+body.cs-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process li h4,
+body.sb-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process li h4 {
+
+  margin: 0 0 8px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--ink);
+
+}
+body.cs-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process li h4::before,
+body.sb-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process li h4::before {
+
+  content: none !important;
+
+}
+body.cs-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process li p,
+body.sb-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process li p {
+
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--body);
+  max-width: none;
+
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+body.cs-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process,
+body.sb-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process {
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  
+}
+body.cs-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process li:nth-child(2),
+body.sb-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process li:nth-child(2) {
+
+    border-right: 0;
+  
+}
+body.cs-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process li:nth-child(1),
+body.sb-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process li:nth-child(1),
+body.cs-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process li:nth-child(2),
+body.sb-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process li:nth-child(2) {
+
+    border-bottom: 1px solid var(--frame-line);
+  
+}}
+@media (max-width: 767px) {
+body.cs-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process,
+body.sb-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process {
+
+    grid-template-columns: 1fr;
+  
+}
+body.cs-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process li,
+body.sb-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process li {
+
+    border-right: 0;
+    border-bottom: 1px solid var(--frame-line);
+  
+}
+body.cs-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process li:last-child,
+body.sb-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .sb-process-frame .sb-process li:last-child {
+
+    border-bottom: 0;
+  
+}}
+
+body.cs-design-page .content.case-main {
+  font-family: "Poppins", var(--font-stack);
+}
+
+body.cs-design-page .content.case-main .section-chapter {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+body.cs-design-page .content.case-main section > p:not(.cs-turning__eyebrow):not(.hero-subtitle) {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--body);
+  max-width: 66ch;
+}
+
+body.cs-design-page .content.case-main .cs-glance p,
+body.cs-design-page .content.case-main .sb-glance p {
+  max-width: none;
+}
+
+body.cs-design-page .content.case-main section#challenge > p:first-of-type {
+  font-weight: 300;
+  color: var(--ink);
+}
+
+body.cs-design-page .content.case-main .pos-tldr {
+  display: none;
+}
+
+body.cs-design-page .cs-glance__col--result .cs-glance__status-num,
+body.cs-design-page .cs-glance__col--result .sb-glance__pct {
+  font-size: 40px;
+}
+
+body.cs-design-page .cs-glance__result-sub {
+  margin: 0 0 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+body.cs-design-page .cs-glance__col--result .cs-glance__status-detail,
+body.cs-design-page .cs-glance__col--result .sb-glance__status-note {
+  font-size: 15px;
+}
+
+body.cs-design-page .cs-glance__col--result .cs-glance__status-bar,
+body.cs-design-page .cs-glance__col--result .sb-glance__status-bar {
+  display: none;
+}
+
+body.cs-design-page .content.case-main .cs-turning .cs-turning__prose > p,
+body.cs-design-page .sb-case .cs-turning .cs-turning__prose.sb-text > p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--body) !important;
+  max-width: 66ch;
+}
+
+body.cs-design-page .content.case-main .cs-turning .cs-turning__prose > p strong,
+body.cs-design-page .sb-case .cs-turning .cs-turning__prose.sb-text > p strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+body.cs-design-page .cs-turning {
+  background: var(--frame-bg);
+  border: 1px solid var(--frame-line);
+  border-radius: 16px;
+  padding: 36px;
+  overflow: visible;
+}
+
+body.cs-design-page .cs-turning::before,
+body.cs-design-page .cs-turning::after {
+  display: none;
+}
+
+body.cs-design-page .cs-turning__eyebrow {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--yellow);
+}
+
+body.cs-design-page .cs-turning__shift-label,
+body.cs-design-page .cs-turning__shift-label--accent {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--meta);
+}
+
+body.cs-design-page .cs-turning__shift-label--accent {
+  color: var(--yellow);
+}
+
+body.cs-design-page .cs-turning__shift-text {
+  color: var(--body);
+  font-size: 16px;
+}
+
+body.cs-design-page .cs-turning__shift-text--highlight {
+  color: var(--ink);
+}
+
+body.cs-design-page .cs-turning__shift-box--plan {
+  background: var(--frame-bg);
+  border: 1px solid var(--frame-line);
+  opacity: 1;
+}
+
+body.cs-design-page .cs-turning__shift-box--highlight {
+  background: var(--yellow-soft);
+  border: 1px solid var(--yellow-line);
+  opacity: 1;
+  box-shadow: none;
+}
+
+body.cs-design-page .cs-turning.is-shift-revealed .cs-turning__shift-box.cs-turning__shift-box--highlight {
+  box-shadow: none;
+}
+
+body.cs-design-page .cs-turning__shift-bulb {
+  stroke: var(--yellow);
+}
+
+body.cs-design-page .cs-turning__shift-arrow {
+  color: var(--yellow);
+}
+
+body.cs-design-page .cs-turning__callout-label {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--yellow);
+}
+
+body.cs-design-page .cs-turning__callout-label-icon {
+  stroke: var(--yellow);
+}
+
+body.cs-design-page .cs-turning__callout {
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  font-weight: 600;
+  font-size: clamp(22px, 2.5vw, 28px);
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+body.cs-design-page .cs-turning__callout-accent {
+  color: var(--yellow);
+}
+
+body.cs-design-page .sb-section:has(.cs-sec-eyebrow) .cs-turning__eyebrow,
+body.cs-design-page .sb-section:has(.sb-sec-eyebrow) .cs-turning__eyebrow,
+body.cs-design-page section:has(.cs-sec-eyebrow) .cs-turning__eyebrow,
+body.cs-design-page section:has(.sb-sec-eyebrow) .cs-turning__eyebrow {
+  display: none;
+}
+
+body.cs-design-page.case-study-page .content.case-main .section-chapter {
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 600 !important;
+  font-size: clamp(2rem, 4vw + 1rem, 2.95rem) !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.12 !important;
+  color: var(--ink) !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
+}
+
+body.cs-design-page.case-study-page .content.case-main .section-subtitle {
+  font-family: "Poppins", sans-serif !important;
+  color: var(--meta) !important;
+}
