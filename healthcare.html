@@ -57,10 +57,16 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
     -ms-interpolation-mode:bicubic;
   }
   .image-caption{font-size:12px;color:var(--light);text-align:center;margin-top:10px;font-style:italic;}
-  .hc-tldr{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin:0 0 20px;}
-  .hc-tldr p{font-size:15px;line-height:1.65;color:var(--mid);margin-bottom:14px;font-weight:300;}
-  .hc-tldr p:last-child{margin-bottom:0;}
-  .hc-tldr strong{color:var(--dark);font-weight:600;}
+  body.case-study-page.cs-design-page .hc-summary-shell.sb-case{max-width:none;margin:0;padding:0;}
+  body.case-study-page.cs-design-page .hc-summary-shell .sb-tldr.cs-summary.sb-glance{text-align:left;}
+  body.case-study-page .meta-value-list{margin:0;padding:0 0 0 1.1em;list-style:disc;}
+  body.case-study-page .meta-value-list li{font-family:var(--font-body,'Poppins',sans-serif);font-size:15px;font-weight:500;color:var(--text);line-height:1.45;}
+  body.case-study-page .meta-value-list li+li{margin-top:4px;}
+  @media (max-width:640px){
+    body.case-study-page.cs-design-page .hc-summary-shell .sb-glance__pct{font-size:clamp(26px,7.5vw,40px);white-space:nowrap;}
+  }
+  body.case-study-page.cs-design-page .sb-process-frame.wizard-steps{display:block;grid-template-columns:none;gap:0;margin-top:24px;}
+  body.case-study-page.cs-design-page .sb-process-frame .wizard-step{background:transparent;border:none;border-radius:0;padding:0;text-align:left;transform:none!important;box-shadow:none!important;}
   .hc-stat-source{font-size:13px;color:var(--light);font-style:italic;margin-top:12px;}
   .hc-persona-quote-label{font-size:13px;color:var(--mid);font-style:italic;margin-top:10px;}
   .hc-results-subhead{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--dark);margin:28px 0 14px;}
@@ -385,7 +391,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   }
   .lessons-list{display:flex;flex-direction:column;gap:16px;margin-top:24px;}
   .lesson-item{display:flex;gap:20px;padding:22px 24px;background:var(--surface);border:1px solid var(--border);border-radius:10px;}
-  .lesson-num{font-family:var(--serif);font-size:22px;color:var(--accent);opacity:0.4;flex-shrink:0;line-height:1.2;}
+  .lesson-num{flex-shrink:0;line-height:1.2;}
   .lesson-text h4{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--dark);margin-bottom:6px;}
   .lesson-text p{font-size:14px;margin:0;}
   .persona-block{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin-top:24px;display:flex;gap:28px;align-items:flex-start;}
@@ -427,7 +433,8 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   }
 </style>
 <link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
-<link rel="stylesheet" href="css/case-study.css?v=20261031a">
+<link rel="stylesheet" href="css/case-study.css?v=20261102e">
+<link rel="stylesheet" href="css/cs-design.css?v=20261102g">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260407">
 <style>
@@ -484,12 +491,13 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
     color:var(--text) !important;
   }
   body.case-study-page #persona .hc-persona-panel .cs-quote.cs-quote--inset cite{
-    font-family:var(--font-mono,'IBM Plex Mono',monospace) !important;
-    font-size:12px !important;
+    font-family:var(--font-body,'Poppins',sans-serif) !important;
+    font-size:13px !important;
+    font-weight:500 !important;
     font-style:normal !important;
     margin-top:12px !important;
     display:block;
-    color:var(--muted) !important;
+    color:var(--meta,#9a9aa5) !important;
   }
   body.case-study-page #persona .hc-persona-panel .cs-quote__icon{
     margin:0 0 8px !important;
@@ -500,7 +508,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   }
 </style>
 </head>
-<body class="has-anna-nav case-study-page">
+<body class="has-anna-nav case-study-page cs-design-page">
 
 <header class="anna-nav anna-nav--intro-visible" id="site-nav" aria-label="Primary">
   <div class="anna-nav__pill">
@@ -512,6 +520,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
     <a href="index.html#contact">Contact</a>
   </div>
 </header>
+<div class="cs-read-progress" aria-hidden="true"></div>
 
 <div class="back-btn-wrap back-btn-wrap--top">
   <a class="back-btn" href="index.html#projects"><svg class="back-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Back</a>
@@ -523,9 +532,9 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <div class="meta-strip cs-meta-strip">
     <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Product Designer</div></div>
     <div class="meta-item"><div class="meta-label">Company</div><div class="meta-value">Focalpay AB · 2025–2026</div></div>
-    <div class="meta-item"><div class="meta-label">Platform</div><div class="meta-value">Mobile · Tablet · Desktop</div></div>
+    <div class="meta-item"><div class="meta-label">Platform</div><ul class="meta-value-list"><li>Mobile</li><li>Tablet</li><li>Desktop</li></ul></div>
     <div class="meta-item meta-item--highlight"><div class="meta-label">Timeline</div><div class="meta-value">Under 8 weeks to production</div></div>
-    <div class="meta-item"><div class="meta-label">Methods</div><div class="meta-value">Interviews · Workflow mapping · Workshop · Usability testing</div></div>
+    <div class="meta-item"><div class="meta-label">Methods</div><ul class="meta-value-list"><li>Interviews</li><li>Workflow mapping</li><li>Workshop</li><li>Usability testing</li></ul></div>
   </div>
   <p class="hero-subtitle">Replacing emails and spreadsheets with one platform for healthcare quality surveys</p>
 </section>
@@ -538,24 +547,49 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   </div>
 </div>
 
-<div class="content case-main">
-
-  <div class="hc-tldr fade-in reveal cs-summary">
-    <p><strong>The problem:</strong> Administrators sent healthcare quality surveys to social workers across many municipalities, using Outlook, Excel and shared folders. Nobody could see who had answered, and reports took weeks.</p>
-    <p><strong>What I did:</strong> Interviewed 4 quality managers, mapped the whole survey workflow, designed the information architecture and the platform, and tested it with 5 administrators. I also built 100% of the front-end myself with Cursor.</p>
-    <p><strong>Key decisions:</strong> A six-step wizard for sending surveys, a hierarchy that opens one level at a time, and traffic-light performance scoring.</p>
-    <p><strong>Result:</strong> A production-ready, WCAG-compliant platform in under eight weeks. In testing, creating and sending a survey went from about 2 hours to about 15 minutes. The platform has launched with two customers and is used in several Swedish municipalities.</p>
-    <div class="cs-summary-jump">
-      <a class="cs-summary-jump__link" href="#results">Jump to results <span class="cs-summary-jump__arrow" aria-hidden="true">↓</span></a>
+<div class="sb-case hc-summary-shell">
+  <div class="sb-wrap">
+    <div class="sb-tldr cs-summary sb-glance fade-in reveal">
+      <div class="sb-glance__problem">
+        <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">The problem</p></div>
+        <p class="sb-glance__statement">Administrators sent healthcare quality surveys to social workers across many municipalities, using Outlook, Excel and shared folders. <span class="sb-glance-em">Nobody could see who had answered</span>, and <span class="sb-glance-em">reports took weeks</span>.</p>
+      </div>
+      <div class="sb-glance__divider" role="presentation"></div>
+      <div class="sb-glance__lower">
+        <div class="sb-glance__col sb-glance__col--did">
+          <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">What I did</p></div>
+          <p class="sb-glance__body">Interviewed 4 quality managers, mapped the whole survey workflow, designed the information architecture and the platform, and tested it with 5 administrators. I also <span class="sb-glance-em">built 100% of the front-end myself with Cursor</span>.</p>
+        </div>
+        <div class="sb-glance__col sb-glance__col--decisions">
+          <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">Key decisions</p></div>
+          <ul class="sb-glance__list">
+            <li class="sb-glance__list-item--lead"><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A six-step wizard for sending surveys</li>
+            <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>a hierarchy that opens one level at a time</li>
+            <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>traffic-light performance scoring</li>
+          </ul>
+        </div>
+        <div class="sb-glance__col sb-glance__col--status sb-glance__col--result">
+          <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">Result</p></div>
+          <p class="sb-glance__pct" aria-hidden="true">2h → 15 min</p>
+          <p class="sb-glance__result-sub">to send a survey, in testing</p>
+          <p class="sb-glance__result-line">A production-ready, WCAG-compliant platform in under eight weeks. In testing, creating and sending a survey went from about 2 hours to about 15 minutes. The platform has launched with two customers and is used in several Swedish municipalities.</p>
+        </div>
+      </div>
+      <div class="sb-glance__jump-divider" role="presentation"></div>
+      <div class="cs-summary-jump">
+        <a class="cs-summary-jump__link" href="#results">Jump to results <span class="cs-summary-jump__arrow" aria-hidden="true">↓</span></a>
+      </div>
     </div>
   </div>
+</div>
 
+<div class="content case-main sb-case">
 
   <!-- THE CHALLENGE -->
   <section class="section fade-in reveal case-anchor" id="challenge">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">The challenge</h2></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">01</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">The challenge</h2></div>
     </div>
     <p>In Sweden, healthcare quality surveys, for example for HVB and LSS services, go to social workers in districts across many municipalities. Administrators create them, send them, chase answers and report on the results, all in Outlook, Excel and shared folders.</p>
 <p class="aside-note aside-note--bubble aside-note--bubble-shape-3 cs-aside aside-note--bubble-prefer-left"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7"/><path d="M15 7h2a5 5 0 0 1 0 10"/><path d="M8 12h8"/><path d="m2 2 20 20"/></svg></span><span class="aside-note__bubble-text">Three tools that had never been introduced to each other.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="cs-arrow-hc-tools" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#cs-arrow-hc-tools)"/><path d="M40 11 L34 8" stroke="url(#cs-arrow-hc-tools)"/><path d="M40 11 L34 14" stroke="url(#cs-arrow-hc-tools)"/></svg></span></span></span></p>
@@ -588,7 +622,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <section class="section fade-in reveal case-anchor" id="methods-research">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Research</h2><p class="section-subtitle">Four ways of understanding the problem</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">02</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Research</h2><p class="section-subtitle">Four ways of understanding the problem</p></div>
     </div>
     <p>I wanted to understand how administrators actually work, not how the process looks on paper. Where does the time go, and why weren't the tools working?</p>
     <div class="findings-list">
@@ -604,7 +638,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <section class="section fade-in reveal case-anchor" id="persona">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Persona</h2><p class="section-subtitle">Anna Andersson · Primary persona</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">03</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Persona</h2><p class="section-subtitle">Anna Andersson · Primary persona</p></div>
     </div>
     <aside class="hc-persona-panel wide">
       <div class="hc-persona-table-wrap">
@@ -646,7 +680,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <section class="section fade-in reveal case-anchor" id="user-journey">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">User journey</h2><p class="section-subtitle">How a survey round feels, from start to report</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">04</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">User journey</h2><p class="section-subtitle">How a survey round feels, from start to report</p></div>
     </div>
     <div class="hc-reveal-journey reveal reveal-media" id="hc-journey-block">
     <div class="screens-section">
@@ -782,7 +816,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <section class="section fade-in reveal case-anchor" id="process-workflow">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Information architecture</h2><p class="section-subtitle">Connecting care units, surveys, respondents and results</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">05</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Information architecture</h2><p class="section-subtitle">Connecting care units, surveys, respondents and results</p></div>
     </div>
     <p>I designed the information architecture that connects care units, surveys, respondents and results, for people who were already busy. The platform had to handle four levels: providers, municipalities, districts and individual social workers. Mapping the workflow showed three big time sinks: setting up a send, tracking answers and quarterly reporting.</p>
     <p>In a workshop, we grouped ideas into building the survey, sending it out, keeping track and reading the results, and prioritised them as Must, Should and Could. That became the platform's three main sections: Surveys, Analysis and Reports.</p>
@@ -820,16 +854,19 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <section class="section fade-in reveal case-anchor" id="wizard-design">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Send wizard</h2><p class="section-subtitle">Sending a survey in six steps</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">06</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Send wizard</h2><p class="section-subtitle">Sending a survey in six steps</p></div>
     </div>
     <p>Sending a survey used to mean choosing recipients by hand, managing email lists and checking everything in separate documents. Missing just one municipality could ruin a whole reporting round. So I split sending into six steps, each checked before the next one opens.</p>
-    <div class="wizard-steps" id="hc-wizard-steps">
-      <div class="wizard-step"><div class="wizard-step-num">01</div><h4>Choose survey</h4><p>Pick the template to send.</p></div>
-      <div class="wizard-step"><div class="wizard-step-num">02</div><h4>Choose recipients</h4><p>Find and select municipalities in the hierarchy.</p></div>
-      <div class="wizard-step"><div class="wizard-step-num">03</div><h4>Set language</h4><p>Choose the language for each municipality or region.</p></div>
-      <div class="wizard-step"><div class="wizard-step-num">04</div><h4>Set deadline</h4><p>Choose the answer deadline for each group.</p></div>
-      <div class="wizard-step"><div class="wizard-step-num">05</div><h4>Review</h4><p>Check all the details before sending.</p></div>
-      <div class="wizard-step"><div class="wizard-step-num">06</div><h4>Send</h4><p>Send to all chosen recipients at once.</p></div>
+    <div class="sb-process-frame cs-process-frame wizard-steps" id="hc-wizard-steps">
+      <div class="sb-process-frame__bar cs-process-frame__bar" aria-hidden="true"><span class="sb-process-frame__fill cs-process-frame__fill"></span></div>
+      <ol class="sb-process cs-process">
+        <li class="wizard-step"><h4>Choose survey</h4><p>Pick the template to send.</p></li>
+        <li class="wizard-step"><h4>Choose recipients</h4><p>Find and select municipalities in the hierarchy.</p></li>
+        <li class="wizard-step"><h4>Set language</h4><p>Choose the language for each municipality or region.</p></li>
+        <li class="wizard-step"><h4>Set deadline</h4><p>Choose the answer deadline for each group.</p></li>
+        <li class="wizard-step"><h4>Review</h4><p>Check all the details before sending.</p></li>
+        <li class="wizard-step"><h4>Send</h4><p>Send to all chosen recipients at once.</p></li>
+      </ol>
     </div>
 
     <div class="hc-wizard-preview reveal reveal-media">
@@ -919,7 +956,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <section class="section fade-in reveal case-anchor" id="scoring-system">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Performance scoring</h2><p class="section-subtitle">Traffic-light colours instead of number tables</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">07</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Performance scoring</h2><p class="section-subtitle">Traffic-light colours instead of number tables</p></div>
     </div>
     <p>Managers needed to see quickly how each municipality was doing, and big number tables are tiring under time pressure. So I designed a three-colour scoring system that shows status at a glance.</p>
     <table class="cs-table data-table cs-table-align">
@@ -954,7 +991,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <section class="section fade-in reveal case-anchor" id="validation-usability">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Usability testing</h2><p class="section-subtitle">5 administrators</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">08</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Usability testing</h2><p class="section-subtitle">5 administrators</p></div>
     </div>
     <p>I tested with 5 administrators who work with surveys regularly. Each created a survey and sent it to several municipalities, just like in their daily work.</p>
     <p>The main issue: the Select All button had low contrast and sat in the wrong place, so most people selected districts one by one.</p>
@@ -975,7 +1012,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <section class="section fade-in reveal case-anchor" id="built-it-myself">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Building the front-end</h2><p class="section-subtitle">From design to working product</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">09</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Building the front-end</h2><p class="section-subtitle">From design to working product</p></div>
     </div>
     <p>There was no front-end developer, so I built the whole front-end with Cursor while the back-end team built the server side. My design didn't stop in Figma: I set and checked every spacing value, colour, state and interaction in the product, using detailed prompts with exact tokens and accessibility requirements. When testing found the Select All problem, I fixed it in the code myself, without waiting for a handoff. The back-end team reviewed the front-end code, so it stayed consistent with their side of the product.</p>
   </section>
@@ -986,7 +1023,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <section class="section fade-in reveal case-anchor" id="results">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Results</h2><p class="section-subtitle">Measured, estimated, and what comes next</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">10</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Results</h2><p class="section-subtitle">Measured, estimated, and what comes next</p></div>
     </div>
     <p>Our target was to cut administrators' workload by about 40%. Here's what we know so far, kept separate by how sure we are.</p>
 
@@ -1013,7 +1050,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <section class="section fade-in reveal case-anchor" id="where-it-is-now">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter">Where it is now, and what I learned</h2></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">11</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Where it is now, and what I learned</h2></div>
     </div>
     <p>The platform has launched with two customers and is used in several Swedish municipalities, and the team is working on reaching more. Next, we'll measure what testing couldn't: time per survey cycle, response rates and reporting time.</p>
     <div class="lessons-list">
@@ -1058,6 +1095,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   </ul>
 </footer>
 
+<script src="js/cs-design.js?v=20261102d"></script>
 <script src="js/scroll-reveal.js?v=20260403"></script>
 <script src="js/more-case-studies.js?v=20261029" defer></script>
 <script src="js/case-study-aside-bubbles.js?v=20261027" defer></script>
