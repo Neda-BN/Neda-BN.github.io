@@ -343,6 +343,208 @@ body.sb-design-page .sb-case .cs-summary__problem-block:last-child {
     padding-left: 0;
   
 }}
+body.cs-design-page .sb-case .cs-summary--by-flow .cs-summary__shared,
+body.sb-design-page .sb-case .cs-summary--by-flow .cs-summary__shared {
+
+  margin-bottom: 24px;
+
+}
+body.cs-design-page .sb-case .cs-summary--by-flow .cs-summary__role-text,
+body.sb-design-page .sb-case .cs-summary--by-flow .cs-summary__role-text {
+
+  margin: 0 0 12px;
+  max-width: none;
+
+}
+body.cs-design-page .sb-case .cs-summary--by-flow .cs-summary__live,
+body.sb-design-page .sb-case .cs-summary--by-flow .cs-summary__live {
+
+  margin: 0 0 20px;
+  font-size: 14px;
+
+}
+body.cs-design-page .sb-case .cs-summary--by-flow .cs-summary__shared .sb-glance__divider,
+body.sb-design-page .sb-case .cs-summary--by-flow .cs-summary__shared .sb-glance__divider {
+
+  margin: 0;
+
+}
+body.cs-design-page .sb-case .cs-summary__flow-grid,
+body.sb-design-page .sb-case .cs-summary__flow-grid {
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+
+}
+@media (max-width: 900px) {
+body.cs-design-page .sb-case .cs-summary__flow-grid,
+body.sb-design-page .sb-case .cs-summary__flow-grid {
+
+    grid-template-columns: 1fr;
+
+}}
+body.cs-design-page .sb-case .cs-summary__flow-card,
+body.sb-design-page .sb-case .cs-summary__flow-card {
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  height: 100%;
+
+}
+body.cs-design-page .sb-case .cs-summary__flow-card-head,
+body.sb-design-page .sb-case .cs-summary__flow-card-head {
+
+  margin: -24px -28px 20px;
+  padding: 18px 28px 16px;
+  border-bottom: 1px solid var(--frame-line);
+
+}
+body.cs-design-page .sb-case .cs-summary__flow-card-title,
+body.sb-design-page .sb-case .cs-summary__flow-card-title {
+
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+
+}
+body.cs-design-page .sb-case .cs-summary__flow-card-num,
+body.sb-design-page .sb-case .cs-summary__flow-card-num {
+
+  font-weight: 600;
+  color: var(--yellow);
+
+}
+body.cs-design-page .sb-case .cs-summary__flow-card-name,
+body.sb-design-page .sb-case .cs-summary__flow-card-name {
+
+  font-weight: 500;
+  color: var(--ink);
+
+}
+body.cs-design-page .sb-case .cs-summary__flow-card-body,
+body.sb-design-page .sb-case .cs-summary__flow-card-body {
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1 1 auto;
+
+}
+body.cs-design-page .sb-case .cs-summary__flow-block-text,
+body.sb-design-page .sb-case .cs-summary__flow-block-text {
+
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--body);
+  max-width: none;
+
+}
+body.cs-design-page .sb-case .cs-summary__flow-block .sb-glance__list,
+body.sb-design-page .sb-case .cs-summary__flow-block .sb-glance__list {
+
+  margin: 0;
+
+}
+body.cs-design-page .sb-case .cs-summary__flow-stat,
+body.sb-design-page .sb-case .cs-summary__flow-stat {
+
+  margin: 0 0 4px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 44px;
+  line-height: 1.05;
+  color: var(--yellow);
+  white-space: nowrap;
+
+}
+body.cs-design-page .sb-case .cs-summary__flow-stat-label,
+body.sb-design-page .sb-case .cs-summary__flow-stat-label {
+
+  margin: 0 0 8px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--ink);
+
+}
+body.cs-design-page .sb-case .cs-summary__flow-stat-detail,
+body.sb-design-page .sb-case .cs-summary__flow-stat-detail {
+
+  margin: 0 0 6px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--body);
+
+}
+body.cs-design-page .sb-case .cs-summary__flow-stat-meta,
+body.sb-design-page .sb-case .cs-summary__flow-stat-meta {
+
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--meta);
+
+}
+body.cs-design-page .sb-case .cs-summary__flow-card-foot,
+body.sb-design-page .sb-case .cs-summary__flow-card-foot {
+
+  margin-top: 20px;
+  padding-top: 4px;
+  text-align: right;
+
+}
+body.cs-design-page .sb-case .cs-summary__flow-card-foot .cs-summary-jump__link,
+body.sb-design-page .sb-case .cs-summary__flow-card-foot .cs-summary-jump__link {
+
+  font-family: "Poppins", sans-serif !important;
+  color: var(--blue) !important;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+
+}
+body.cs-design-page .content.case-main .section-headings .cs-flow-eyebrow,
+body.sb-design-page .sb-case .section-headings .cs-flow-eyebrow {
+
+  margin: 0 0 12px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 1.35;
+
+}
+body.cs-design-page .content.case-main .cs-flow-eyebrow__flow,
+body.sb-design-page .sb-case .cs-flow-eyebrow__flow {
+
+  font-weight: 600;
+  color: var(--yellow);
+
+}
+body.cs-design-page .content.case-main .cs-flow-eyebrow__name,
+body.sb-design-page .sb-case .cs-flow-eyebrow__name {
+
+  font-weight: 500;
+  color: var(--ink);
+
+}
+body.cs-design-page .content.case-main .section-headings .cs-flow-eyebrow + .section-chapter,
+body.sb-design-page .sb-case .section-headings .cs-flow-eyebrow + .section-chapter {
+
+  margin-top: 0;
+
+}
 body.cs-design-page .sb-case .cs-problem-divider,
 body.sb-design-page .sb-case .cs-problem-divider {
 
