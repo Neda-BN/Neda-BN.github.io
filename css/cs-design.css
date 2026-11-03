@@ -381,7 +381,7 @@ body.sb-design-page .sb-case .cs-glance__col--result, .sb-glance__col--result {
   border-left: 3px solid var(--yellow);
   padding-left: 25px;
   display: grid;
-  grid-template-columns: minmax(180px, max-content) 1px minmax(0, 1fr);
+  grid-template-columns: minmax(180px, auto) 1px 1fr;
   column-gap: 28px;
   row-gap: 8px;
   align-items: start;
@@ -398,51 +398,59 @@ body.sb-design-page .sb-case .cs-glance__col--result::before {
   align-self: stretch;
   width: 1px;
   background: var(--frame-line);
-  min-height: 48px;
 
 }
-body.cs-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > .sb-glance__label-head,
-body.sb-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > .sb-glance__label-head,
-body.cs-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > .sb-glance__label-head,
-body.sb-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > .sb-glance__label-head {
+body.cs-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status, .cs-glance__col--result, .sb-glance__col--result) > .sb-glance__label-head,
+body.sb-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status, .cs-glance__col--result, .sb-glance__col--result) > .sb-glance__label-head {
 
   grid-column: 1 / -1;
+  grid-row: 1;
 
 }
-body.cs-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > .sb-glance__pct,
-body.sb-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > .sb-glance__pct,
-body.cs-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > .sb-glance__pct,
-body.sb-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > .sb-glance__pct {
+body.cs-design-page .sb-case .sb-glance__result-left,
+body.sb-design-page .sb-case .sb-glance__result-left {
 
   grid-column: 1;
   grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+  align-self: start;
 
 }
-body.cs-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > .sb-glance__result-sub,
-body.sb-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > .sb-glance__result-sub,
-body.cs-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > .sb-glance__result-sub,
-body.sb-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > .sb-glance__result-sub {
-
-  grid-column: 1;
-  grid-row: 3;
-
-}
-body.cs-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > .sb-glance__status-bar,
-body.sb-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > .sb-glance__status-bar {
-
-  grid-column: 1;
-  grid-row: 4;
-  display: block !important;
-
-}
-body.cs-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > :is(.sb-glance__result-line, .sb-glance__result-meta),
-body.sb-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > :is(.sb-glance__result-line, .sb-glance__result-meta),
-body.cs-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > :is(.sb-glance__status-note, .sb-glance__ongoing),
-body.sb-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > :is(.sb-glance__status-note, .sb-glance__ongoing) {
+body.cs-design-page .sb-case .sb-glance__result-right,
+body.sb-design-page .sb-case .sb-glance__result-right {
 
   grid-column: 3;
   grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  align-self: start;
+
+}
+body.cs-design-page .sb-case .sb-glance__result-left .sb-glance__pct,
+body.sb-design-page .sb-case .sb-glance__result-left .sb-glance__pct {
+
+  margin-bottom: 0;
+
+}
+body.cs-design-page .sb-case .sb-glance__result-left .sb-glance__status-bar,
+body.sb-design-page .sb-case .sb-glance__result-left .sb-glance__status-bar {
+
+  display: block !important;
+  width: 100%;
+  margin-bottom: 0;
+
+}
+body.cs-design-page .sb-case .sb-glance__result-right :is(.sb-glance__result-line, .sb-glance__result-meta, .sb-glance__status-note, .sb-glance__ongoing),
+body.sb-design-page .sb-case .sb-glance__result-right :is(.sb-glance__result-line, .sb-glance__result-meta, .sb-glance__status-note, .sb-glance__ongoing) {
+
   max-width: 60ch;
+  margin: 0;
 
 }
 body.cs-design-page .sb-case .cs-glance__body, .sb-glance__body,
@@ -643,33 +651,22 @@ body.sb-design-page .sb-case .cs-glance__col--result::before {
     display: none;
   
 }
-body.cs-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > .sb-glance__pct,
-body.sb-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > .sb-glance__pct,
-body.cs-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > .sb-glance__pct,
-body.sb-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > .sb-glance__pct {
+body.cs-design-page .sb-case .sb-glance__result-left,
+body.sb-design-page .sb-case .sb-glance__result-left,
+body.cs-design-page .sb-case .sb-glance__result-right,
+body.sb-design-page .sb-case .sb-glance__result-right {
 
     grid-column: unset;
     grid-row: unset;
   
 }
-body.cs-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > :is(.sb-glance__result-line, .sb-glance__result-meta),
-body.sb-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > :is(.sb-glance__result-line, .sb-glance__result-meta),
-body.cs-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > :is(.sb-glance__status-note, .sb-glance__ongoing),
-body.sb-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > :is(.sb-glance__status-note, .sb-glance__ongoing) {
-
-    grid-column: unset;
-    grid-row: unset;
-    max-width: none;
-  
-}
-body.cs-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > .sb-glance__result-line:first-of-type,
-body.sb-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > .sb-glance__result-line:first-of-type,
-body.cs-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > .sb-glance__status-note,
-body.sb-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > .sb-glance__status-note {
+body.cs-design-page .sb-case .sb-glance__result-right,
+body.sb-design-page .sb-case .sb-glance__result-right {
 
     border-top: 1px solid var(--frame-line);
     margin-top: 20px;
     padding-top: 20px;
+    max-width: none;
   
 }
 body.cs-design-page .sb-case .sb-glance .sb-glance__pct,
