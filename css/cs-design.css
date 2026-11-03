@@ -177,7 +177,7 @@ body.sb-design-page .sb-case .cs-glance, .sb-glance .cs-label, .sb-label {
   color: var(--yellow) !important;
   font-family: "Poppins", sans-serif !important;
   font-weight: 500 !important;
-  font-size: 13px !important;
+  font-size: 15px !important;
   letter-spacing: 0.04em !important;
   text-transform: none !important;
 
@@ -194,7 +194,7 @@ body.sb-design-page .sb-case .cs-glance__label-head, .sb-glance__label-head {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 
 }
 body.cs-design-page .sb-case .cs-glance__label-mark, .sb-glance__label-mark,
@@ -248,15 +248,20 @@ body.cs-design-page .sb-case .cs-glance__lower, .sb-glance__lower,
 body.sb-design-page .sb-case .cs-glance__lower, .sb-glance__lower {
 
   display: grid;
-  grid-template-columns: 1.25fr 1.25fr 1fr;
-  gap: 24px;
-  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: stretch;
 
 }
 body.cs-design-page .sb-case .cs-glance__col, .sb-glance__col,
 body.sb-design-page .sb-case .cs-glance__col, .sb-glance__col {
 
   min-width: 0;
+  box-sizing: border-box;
+  background: rgba(243, 241, 236, 0.03);
+  border: 1px solid var(--frame-line);
+  border-radius: 12px;
+  padding: 24px 28px;
 
 }
 body.cs-design-page .sb-case .cs-glance__col--did, .sb-glance__col--did,
@@ -264,8 +269,81 @@ body.sb-design-page .sb-case .cs-glance__col--did, .sb-glance__col--did,
 body.cs-design-page .sb-case .cs-glance__col--decisions, .sb-glance__col--decisions,
 body.sb-design-page .sb-case .cs-glance__col--decisions, .sb-glance__col--decisions {
 
-  border-right: 1px solid var(--frame-line);
-  padding-right: 24px;
+  border-right: none;
+  padding-right: 28px;
+
+}
+body.cs-design-page .sb-case .cs-glance__col--status, .sb-glance__col--status,
+body.sb-design-page .sb-case .cs-glance__col--status, .sb-glance__col--status,
+body.cs-design-page .sb-case .cs-glance__col--result, .sb-glance__col--result,
+body.sb-design-page .sb-case .cs-glance__col--result, .sb-glance__col--result {
+
+  grid-column: 1 / -1;
+  border-left: 3px solid var(--yellow);
+  padding-left: 25px;
+  display: grid;
+  grid-template-columns: minmax(180px, max-content) 1px minmax(0, 1fr);
+  column-gap: 28px;
+  row-gap: 8px;
+  align-items: start;
+
+}
+body.cs-design-page .sb-case .cs-glance__col--status::before,
+body.sb-design-page .sb-case .cs-glance__col--status::before,
+body.cs-design-page .sb-case .cs-glance__col--result::before,
+body.sb-design-page .sb-case .cs-glance__col--result::before {
+
+  content: "";
+  grid-column: 2;
+  grid-row: 2;
+  align-self: stretch;
+  width: 1px;
+  background: var(--frame-line);
+  min-height: 48px;
+
+}
+body.cs-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > .sb-glance__label-head,
+body.sb-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > .sb-glance__label-head,
+body.cs-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > .sb-glance__label-head,
+body.sb-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > .sb-glance__label-head {
+
+  grid-column: 1 / -1;
+
+}
+body.cs-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > .sb-glance__pct,
+body.sb-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > .sb-glance__pct,
+body.cs-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > .sb-glance__pct,
+body.sb-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > .sb-glance__pct {
+
+  grid-column: 1;
+  grid-row: 2;
+
+}
+body.cs-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > .sb-glance__result-sub,
+body.sb-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > .sb-glance__result-sub,
+body.cs-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > .sb-glance__result-sub,
+body.sb-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > .sb-glance__result-sub {
+
+  grid-column: 1;
+  grid-row: 3;
+
+}
+body.cs-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > .sb-glance__status-bar,
+body.sb-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > .sb-glance__status-bar {
+
+  grid-column: 1;
+  grid-row: 4;
+  display: block !important;
+
+}
+body.cs-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > :is(.sb-glance__result-line, .sb-glance__result-meta),
+body.sb-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > :is(.sb-glance__result-line, .sb-glance__result-meta),
+body.cs-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > :is(.sb-glance__status-note, .sb-glance__ongoing),
+body.sb-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > :is(.sb-glance__status-note, .sb-glance__ongoing) {
+
+  grid-column: 3;
+  grid-row: 2;
+  max-width: 60ch;
 
 }
 body.cs-design-page .sb-case .cs-glance__body, .sb-glance__body,
@@ -287,7 +365,7 @@ body.sb-design-page .sb-case .cs-glance__list, .sb-glance__list {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 
 }
 body.cs-design-page .sb-case .cs-glance__list, .sb-glance__list li,
@@ -299,9 +377,17 @@ body.sb-design-page .sb-case .cs-glance__list, .sb-glance__list li {
   margin: 0;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.5;
   color: var(--body);
+
+}
+body.cs-design-page .sb-case .cs-glance__list li::first-letter,
+body.sb-design-page .sb-case .cs-glance__list li::first-letter,
+body.cs-design-page .sb-case .sb-glance__list li::first-letter,
+body.sb-design-page .sb-case .sb-glance__list li::first-letter {
+
+  text-transform: uppercase;
 
 }
 body.cs-design-page .sb-case .cs-glance__list-item--lead, .sb-glance__list-item--lead,
@@ -321,15 +407,18 @@ body.sb-design-page .sb-case .cs-glance__check, .sb-glance__check {
   stroke: var(--yellow);
 
 }
-body.cs-design-page .sb-case .cs-glance__pct, .sb-glance__pct,
-body.sb-design-page .sb-case .cs-glance__pct, .sb-glance__pct {
+body.cs-design-page .sb-case .sb-glance .sb-glance__pct,
+body.sb-design-page .sb-case .sb-glance .sb-glance__pct,
+body.cs-design-page .sb-case .cs-glance .cs-glance__pct,
+body.sb-design-page .sb-case .cs-glance .cs-glance__pct {
 
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
-  font-size: 40px;
-  line-height: 1;
+  font-size: 48px;
+  line-height: 1.05;
   color: var(--yellow);
+  white-space: nowrap;
 
 }
 body.cs-design-page .sb-case .cs-glance__status-bar, .sb-glance__status-bar,
@@ -373,8 +462,8 @@ body.sb-design-page .sb-case .cs-glance__status-note, .sb-glance__status-note {
   margin: 0 0 10px;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  font-size: 15px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.65;
   color: var(--body);
 
 }
@@ -425,36 +514,6 @@ body.sb-design-page .sb-case .cs-glance, .sb-glance .cs-summary-jump__link {
   text-transform: none;
 
 }
-@media (min-width: 768px) and (max-width: 1023px) {
-body.cs-design-page .sb-case .cs-glance__lower, .sb-glance__lower,
-body.sb-design-page .sb-case .cs-glance__lower, .sb-glance__lower {
-
-    grid-template-columns: 1fr 1fr;
-    gap: 28px 32px;
-  
-}
-body.cs-design-page .sb-case .cs-glance__col--did, .sb-glance__col--did,
-body.sb-design-page .sb-case .cs-glance__col--did, .sb-glance__col--did {
-
-    border-right: 1px solid var(--frame-line);
-    padding-right: 32px;
-  
-}
-body.cs-design-page .sb-case .cs-glance__col--decisions, .sb-glance__col--decisions,
-body.sb-design-page .sb-case .cs-glance__col--decisions, .sb-glance__col--decisions {
-
-    border-right: 0;
-    padding-right: 0;
-  
-}
-body.cs-design-page .sb-case .cs-glance__col--status, .sb-glance__col--status,
-body.sb-design-page .sb-case .cs-glance__col--status, .sb-glance__col--status {
-
-    grid-column: 1 / -1;
-    border-top: 1px solid var(--frame-line);
-    padding-top: 28px;
-  
-}}
 @media (max-width: 767px) {
 body.cs-design-page .sb-case .cs-glance, .sb-glance.cs-summary,
 body.sb-design-page .sb-case .cs-glance, .sb-glance.cs-summary {
@@ -466,24 +525,68 @@ body.cs-design-page .sb-case .cs-glance__lower, .sb-glance__lower,
 body.sb-design-page .sb-case .cs-glance__lower, .sb-glance__lower {
 
     grid-template-columns: 1fr;
-    gap: 0;
+    gap: 20px;
   
 }
 body.cs-design-page .sb-case .cs-glance__col, .sb-glance__col,
 body.sb-design-page .sb-case .cs-glance__col, .sb-glance__col {
 
-    padding: 0 0 24px !important;
-    margin-bottom: 24px;
-    border: 0 !important;
-    border-bottom: 1px solid var(--frame-line) !important;
+    padding: 20px !important;
   
 }
 body.cs-design-page .sb-case .cs-glance__col--status, .sb-glance__col--status,
-body.sb-design-page .sb-case .cs-glance__col--status, .sb-glance__col--status {
+body.sb-design-page .sb-case .cs-glance__col--status, .sb-glance__col--status,
+body.cs-design-page .sb-case .cs-glance__col--result, .sb-glance__col--result,
+body.sb-design-page .sb-case .cs-glance__col--result, .sb-glance__col--result {
 
-    margin-bottom: 0;
-    padding-bottom: 0 !important;
-    border-bottom: 0 !important;
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: none;
+  
+}
+body.cs-design-page .sb-case .cs-glance__col--status::before,
+body.sb-design-page .sb-case .cs-glance__col--status::before,
+body.cs-design-page .sb-case .cs-glance__col--result::before,
+body.sb-design-page .sb-case .cs-glance__col--result::before {
+
+    display: none;
+  
+}
+body.cs-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > .sb-glance__pct,
+body.sb-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > .sb-glance__pct,
+body.cs-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > .sb-glance__pct,
+body.sb-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > .sb-glance__pct {
+
+    grid-column: unset;
+    grid-row: unset;
+  
+}
+body.cs-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > :is(.sb-glance__result-line, .sb-glance__result-meta),
+body.sb-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > :is(.sb-glance__result-line, .sb-glance__result-meta),
+body.cs-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > :is(.sb-glance__status-note, .sb-glance__ongoing),
+body.sb-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > :is(.sb-glance__status-note, .sb-glance__ongoing) {
+
+    grid-column: unset;
+    grid-row: unset;
+    max-width: none;
+  
+}
+body.cs-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > .sb-glance__result-line:first-of-type,
+body.sb-design-page .sb-case :is(.cs-glance__col--result, .sb-glance__col--result) > .sb-glance__result-line:first-of-type,
+body.cs-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > .sb-glance__status-note,
+body.sb-design-page .sb-case :is(.cs-glance__col--status, .sb-glance__col--status) > .sb-glance__status-note {
+
+    border-top: 1px solid var(--frame-line);
+    margin-top: 20px;
+    padding-top: 20px;
+  
+}
+body.cs-design-page .sb-case .sb-glance .sb-glance__pct,
+body.sb-design-page .sb-case .sb-glance .sb-glance__pct,
+body.cs-design-page .sb-case .cs-glance .cs-glance__pct,
+body.sb-design-page .sb-case .cs-glance .cs-glance__pct {
+
+    font-size: clamp(28px, 11vw, 40px);
   
 }}
 body.cs-design-page .sb-case section[aria-labelledby="challenge"] .sb-text > p:first-child,
@@ -741,13 +844,16 @@ body.cs-design-page .content.case-main .pos-tldr {
   display: none;
 }
 
-body.cs-design-page .cs-glance__col--result .cs-glance__status-num,
-body.cs-design-page .cs-glance__col--result .sb-glance__pct {
-  font-size: 40px;
+body.cs-design-page :is(.cs-glance__col--result, .sb-glance__col--result) .cs-glance__status-num,
+body.cs-design-page :is(.cs-glance__col--result, .sb-glance__col--result, .cs-glance__col--status, .sb-glance__col--status) .sb-glance__pct,
+body.sb-design-page :is(.cs-glance__col--result, .sb-glance__col--result, .cs-glance__col--status, .sb-glance__col--status) .sb-glance__pct {
+  font-size: 48px;
+  line-height: 1.05;
+  font-weight: 600;
 }
 
 body.cs-design-page .cs-glance__result-sub {
-  margin: 0 0 10px;
+  margin: 0 0 0;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 15px;
@@ -755,11 +861,11 @@ body.cs-design-page .cs-glance__result-sub {
 }
 
 body.cs-design-page .cs-glance__result-line {
-  margin: 0 0 6px;
+  margin: 0 0 8px;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  font-size: 15px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.65;
   color: var(--body);
 }
 
@@ -776,19 +882,18 @@ body.cs-design-page .cs-glance__result-meta {
   color: var(--meta);
 }
 
-body.cs-design-page .cs-glance__col--result .cs-glance__result-line,
-body.cs-design-page .cs-glance__col--result .cs-glance__result-meta {
-  max-width: none;
+body.cs-design-page :is(.cs-glance__col--result, .sb-glance__col--result) :is(.cs-glance__result-line, .sb-glance__result-line, .cs-glance__result-meta, .sb-glance__result-meta),
+body.sb-design-page :is(.cs-glance__col--result, .sb-glance__col--result) :is(.cs-glance__result-line, .sb-glance__result-line, .cs-glance__result-meta, .sb-glance__result-meta) {
+  max-width: 60ch;
 }
 
-body.cs-design-page .cs-glance__col--result .cs-glance__status-detail,
-body.cs-design-page .cs-glance__col--result .sb-glance__status-note {
-  font-size: 15px;
+body.cs-design-page :is(.cs-glance__col--result, .sb-glance__col--result) :is(.cs-glance__status-detail, .sb-glance__status-note),
+body.sb-design-page :is(.cs-glance__col--status, .sb-glance__col--status) .sb-glance__status-note {
+  font-size: 16px;
+  line-height: 1.65;
 }
 
-body.cs-design-page .cs-glance__col--result .cs-glance__status-bar,
-body.cs-design-page .cs-glance__col--result .sb-glance__status-bar,
-body.cs-design-page .sb-glance__col--result .sb-glance__status-bar {
+body.cs-design-page :is(.cs-glance__col--result, .sb-glance__col--result) :is(.cs-glance__status-bar, .sb-glance__status-bar) {
   display: none;
 }
 
