@@ -244,6 +244,105 @@ body.sb-design-page .sb-case .sb-glance-em {
   color: var(--ink);
 
 }
+body.cs-design-page .sb-case .cs-summary__problems-grid,
+body.sb-design-page .sb-case .cs-summary__problems-grid {
+
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  align-items: stretch;
+  margin: 0;
+
+}
+body.cs-design-page .sb-case .cs-summary__problems-divider,
+body.sb-design-page .sb-case .cs-summary__problems-divider {
+
+  width: 1px;
+  background: var(--frame-line);
+  margin: 0;
+
+}
+body.cs-design-page .sb-case .cs-summary__problem-block,
+body.sb-design-page .sb-case .cs-summary__problem-block {
+
+  min-width: 0;
+
+}
+body.cs-design-page .sb-case .cs-summary__problem-block:first-child,
+body.sb-design-page .sb-case .cs-summary__problem-block:first-child {
+
+  padding-right: 32px;
+
+}
+body.cs-design-page .sb-case .cs-summary__problem-block:last-child,
+body.sb-design-page .sb-case .cs-summary__problem-block:last-child {
+
+  padding-left: 32px;
+
+}
+body.cs-design-page .sb-case .cs-summary__problem-head,
+body.sb-design-page .sb-case .cs-summary__problem-head {
+
+  margin: 0 0 12px;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+
+}
+body.cs-design-page .sb-case .cs-summary__problem-num,
+body.sb-design-page .sb-case .cs-summary__problem-num {
+
+  font-weight: 600;
+  color: var(--yellow);
+
+}
+body.cs-design-page .sb-case .cs-summary__problem-name,
+body.sb-design-page .sb-case .cs-summary__problem-name {
+
+  font-weight: 500;
+  color: var(--ink);
+
+}
+body.cs-design-page .sb-case .cs-summary__problem-text,
+body.sb-design-page .sb-case .cs-summary__problem-text {
+
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: clamp(19px, 1.8vw, 22px);
+  line-height: 1.5;
+  color: var(--ink);
+  max-width: none;
+
+}
+@media (max-width: 767px) {
+body.cs-design-page .sb-case .cs-summary__problems-grid,
+body.sb-design-page .sb-case .cs-summary__problems-grid {
+
+    grid-template-columns: 1fr;
+    gap: 0;
+  
+}
+body.cs-design-page .sb-case .cs-summary__problems-divider,
+body.sb-design-page .sb-case .cs-summary__problems-divider {
+
+    display: none;
+  
+}
+body.cs-design-page .sb-case .cs-summary__problem-block:first-child,
+body.sb-design-page .sb-case .cs-summary__problem-block:first-child {
+
+    padding-right: 0;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--frame-line);
+  
+}
+body.cs-design-page .sb-case .cs-summary__problem-block:last-child,
+body.sb-design-page .sb-case .cs-summary__problem-block:last-child {
+
+    padding-left: 0;
+  
+}}
 body.cs-design-page .sb-case .cs-glance__lower, .sb-glance__lower,
 body.sb-design-page .sb-case .cs-glance__lower, .sb-glance__lower {
 
@@ -380,14 +479,6 @@ body.sb-design-page .sb-case .cs-glance__list, .sb-glance__list li {
   font-size: 16px;
   line-height: 1.5;
   color: var(--body);
-
-}
-body.cs-design-page .sb-case .cs-glance__list li::first-letter,
-body.sb-design-page .sb-case .cs-glance__list li::first-letter,
-body.cs-design-page .sb-case .sb-glance__list li::first-letter,
-body.sb-design-page .sb-case .sb-glance__list li::first-letter {
-
-  text-transform: uppercase;
 
 }
 body.cs-design-page .sb-case .cs-glance__list-item--lead, .sb-glance__list-item--lead,

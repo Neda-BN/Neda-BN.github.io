@@ -387,9 +387,19 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 <div class="sb-case bo-summary-shell">
   <div class="sb-wrap">
     <div class="sb-tldr cs-summary sb-glance fade-in reveal">
-      <div class="sb-glance__problem">
-        <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">The problem</p></div>
-        <p class="sb-glance__statement">Store managers only found out a product had run out <span class="sb-glance-em">when the shelf was empty</span>, and ordering took <span class="sb-glance-em">seven manual steps</span>. Weighted campaigns were calculated and typed in by hand.</p>
+      <div class="sb-glance__problem cs-summary__problems">
+        <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">The problems</p></div>
+        <div class="cs-summary__problems-grid">
+          <div class="cs-summary__problem-block">
+            <p class="cs-summary__problem-head"><span class="cs-summary__problem-num">01</span><span class="cs-summary__problem-name"> · Replenishment</span></p>
+            <p class="cs-summary__problem-text">Store managers only found out a product had run out <span class="sb-glance-em">when the shelf was empty</span>, and ordering took <span class="sb-glance-em">seven manual steps</span>.</p>
+          </div>
+          <div class="cs-summary__problems-divider" role="presentation" aria-hidden="true"></div>
+          <div class="cs-summary__problem-block">
+            <p class="cs-summary__problem-head"><span class="cs-summary__problem-num">02</span><span class="cs-summary__problem-name"> · Campaigns</span></p>
+            <p class="cs-summary__problem-text">Discounts on products sold by weight were <span class="sb-glance-em">calculated and typed in by hand</span>, which was slow and easy to get wrong.</p>
+          </div>
+        </div>
       </div>
       <div class="sb-glance__divider" role="presentation"></div>
       <div class="sb-glance__lower">
@@ -401,9 +411,9 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
           <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">Key decisions</p></div>
           <ul class="sb-glance__list">
             <li class="sb-glance__list-item--lead"><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Alerts grouped by urgency</li>
-            <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>one overview to act from</li>
-            <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>orders with supplier and cost filled in</li>
-            <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>two ready-made weight templates after finding that 94% of weighted campaigns followed two patterns</li>
+            <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>One overview to act from</li>
+            <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Orders with supplier and cost filled in</li>
+            <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Two ready-made weight templates after finding that 94% of weighted campaigns followed two patterns</li>
           </ul>
         </div>
         <div class="sb-glance__col sb-glance__col--status sb-glance__col--result">
