@@ -2789,6 +2789,8 @@ body.case-study-page {
 }
 
 body.case-study-page #results,
+body.case-study-page #results-replenishment,
+body.case-study-page #results-campaigns,
 body.case-study-page #where-it-is-now {
   scroll-margin-top: calc(var(--nav-h) + 24px);
 }

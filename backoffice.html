@@ -180,6 +180,10 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   .step-content h4{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--dark);margin-bottom:6px;}
   .step-content p{font-size:14px;margin:0;}
   .findings-list{display:flex;flex-direction:column;gap:14px;margin-top:24px;}
+  .findings-list--part{margin-top:0;margin-bottom:24px;}
+  .findings-list--part-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .pain-grid--two{grid-template-columns:1fr 1fr;}
+  .cs-summary-jump__sep{font-family:"Poppins",sans-serif;color:var(--blue);font-size:13px;letter-spacing:0.04em;}
   .finding-item{display:flex;gap:16px;padding:20px 24px;background:var(--surface);border:1px solid var(--border);border-radius:10px;}
   .finding-icon{width:32px;height:32px;background:var(--accent-light);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;}
   .finding-text{font-size:14px;color:var(--mid);font-style:italic;font-weight:300;line-height:1.6;}
@@ -350,7 +354,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
     .back-top:hover,.back-top:focus-visible,.bottom-back a:hover,.bottom-back a:focus-visible{transform:none;}
     .fade-in,.fade-in.visible{opacity:1;transform:none;transition:none;}
   }
-  @media(max-width:640px){nav{padding:0 24px;height:60px;}.n-links{gap:18px;}.n-links a .n-ico{width:12px;height:12px;margin-right:4px;vertical-align:-2px;}.back-top,.hero,.hero-image,.content,.content--design-system,.bottom-back,footer{padding-left:24px;padding-right:24px;}.pain-grid,.results-grid,.ab-grid,.ds-theme-row{grid-template-columns:1fr;}.result-card--bo{grid-template-columns:1fr;gap:10px;}.result-card--bo .result-card__stat{padding-top:0;}.meta-strip{flex-direction:column;}.meta-item{border-right:none;border-bottom:1px solid var(--border);}.meta-item:last-child{border-bottom:none;}.section-header{flex-direction:column;gap:18px;padding:0 0 24px 0;}.section-icon{width:52px;height:52px;}.section-icon svg{width:24px;height:24px;}.section-chapter{font-size:clamp(1.65rem,6vw,2.35rem);}}
+  @media(max-width:640px){nav{padding:0 24px;height:60px;}.n-links{gap:18px;}.n-links a .n-ico{width:12px;height:12px;margin-right:4px;vertical-align:-2px;}.back-top,.hero,.hero-image,.content,.content--design-system,.bottom-back,footer{padding-left:24px;padding-right:24px;}.pain-grid,.pain-grid--two,.findings-list--part-grid,.results-grid,.ab-grid,.ds-theme-row{grid-template-columns:1fr;}.result-card--bo{grid-template-columns:1fr;gap:10px;}.result-card--bo .result-card__stat{padding-top:0;}.meta-strip{flex-direction:column;}.meta-item{border-right:none;border-bottom:1px solid var(--border);}.meta-item:last-child{border-bottom:none;}.section-header{flex-direction:column;gap:18px;padding:0 0 24px 0;}.section-icon{width:52px;height:52px;}.section-icon svg{width:24px;height:24px;}.section-chapter{font-size:clamp(1.65rem,6vw,2.35rem);}}
 </style>
 <link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
 <link rel="stylesheet" href="css/case-study.css?v=20261102e">
@@ -441,7 +445,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       </div>
       <div class="sb-glance__jump-divider" role="presentation"></div>
       <div class="cs-summary-jump">
-        <a class="cs-summary-jump__link" href="#results">Jump to results <span class="cs-summary-jump__arrow" aria-hidden="true">↓</span></a>
+        <a class="cs-summary-jump__link" href="#results-replenishment">Replenishment results <span class="cs-summary-jump__arrow" aria-hidden="true">↓</span></a><span class="cs-summary-jump__sep" aria-hidden="true"> · </span><a class="cs-summary-jump__link" href="#results-campaigns">Campaigns results <span class="cs-summary-jump__arrow" aria-hidden="true">↓</span></a>
       </div>
     </div>
     <p class="cs-platform-note fade-in reveal">Part of the Focalpay platform: products and prices set up here power the <a href="pos-app.html">Cashier POS</a> and the <a href="mobile-app.html">Mobile shopping app</a>.</p>
@@ -458,36 +462,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
     <p>The Focalpay Back-office is where retailers manage everything the POS and the shopping app use: products, stock, prices and campaigns. Customers ranged from the footwear brand Icebug to supermarket chains like Matrebellerna and Matvärlden.</p>
     <p>I joined the project midway as one of two designers. I owned two flows, Replenishment and Campaigns, and the design system. When my colleague moved on, I became the only designer on the team, working with the PM and engineering.</p>
     <p>Both flows had the same problem: the system left the remembering, the checking and the maths to store managers.</p>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section fade-in reveal case-anchor" id="methods-research">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">02</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Research</h2></div>
-    </div>
     <p>I interviewed 6 managers from 6 customer businesses, covering both flows. They did real tasks while thinking aloud, and I followed up with questions.</p>
-    <div class="findings-list">
-      <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8.7 10a.375.375 0 0 1 .555-.078l.086.078a6.9 6.9 0 0 0 7.547 4.95"/><path d="M10.3 21h3.4"/><path d="m2 2 20 20"/><path d="M12 4a7 7 0 0 0-7 7v3"/><path d="M5.5 10H3a1 1 0 0 0-1 1v1a7 7 0 0 0 7 7"/></svg></span><div><div class="finding-stat">Replenishment</div><p class="finding-text-only">Managers had no warning before a product ran out. To prevent it, they checked their best-selling products one by one.</p></div></div>
-      <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg></span><div><p class="finding-text">"Every time base prices change, I'm double-checking campaigns by hand."</p><div class="finding-stat">4 of 6 managers reported inconsistencies between catalogue data and campaign rules.</div></div></div>
-      <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg></span><div><div class="finding-stat">Campaigns</div><p class="finding-text-only">Weighted campaigns were set up by hand. Discounts on products sold by weight had to be calculated and typed in, which managers described as slow and easy to get wrong.</p></div></div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section fade-in reveal case-anchor" id="discover">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">03</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">The problem</h2></div>
-    </div>
-    <div class="pain-grid cs-card-grid">
-      <div class="pain-card cs-card"><div class="pain-number">01</div><h4>No warning before stock ran out</h4><p>Managers found out when the shelf was already empty.</p></div>
-      <div class="pain-card cs-card"><div class="pain-number">02</div><h4>Ordering by hand</h4><p>Finding the supplier, working out quantity and cost, and writing the order email, every single time.</p></div>
-      <div class="pain-card cs-card"><div class="pain-number">03</div><h4>Campaigns done by hand</h4><p>Discounts on products sold by weight were calculated and typed in manually.</p></div>
-    </div>
-    <p class="aside-note aside-note--bubble cs-aside aside-note--bubble-prefer-right"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape" style="border-radius: 53% 47% 49% 51% / 47% 55% 45% 53%;"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.7 10a.375.375 0 0 1 .555-.078l.086.078a6.9 6.9 0 0 0 7.547 4.95"/><path d="M10.3 21h3.4"/><path d="m2 2 20 20"/><path d="M12 4a7 7 0 0 0-7 7v3"/><path d="M5.5 10H3a1 1 0 0 0-1 1v1a7 7 0 0 0 7 7"/></svg></span><span class="aside-note__bubble-text">An empty shelf is a terrible notification system.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="cs-arrow-bo-shelf" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#cs-arrow-bo-shelf)"/><path d="M40 11 L34 8" stroke="url(#cs-arrow-bo-shelf)"/><path d="M40 11 L34 14" stroke="url(#cs-arrow-bo-shelf)"/></svg></span></span></span></p>
   </section>
 
   <div class="divider"></div>
@@ -495,12 +470,22 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <section class="section fade-in reveal case-anchor" id="replenishment">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
-      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">04</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Replenishment: from empty shelves to early warnings</h2><p class="section-subtitle">Part 1 · Replenishment</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">02</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Replenishment: from empty shelves to early warnings</h2><p class="section-subtitle">Part 1 · Replenishment</p></div>
     </div>
     <div class="cs-problem-divider">
       <p class="cs-problem-divider__label"><span class="cs-problem-divider__num">Problem 01 of 02</span><span class="cs-problem-divider__name"> · Replenishment</span></p>
       <p class="cs-problem-divider__text">Store managers only found out a product had run out <span class="sb-glance-em">when the shelf was empty</span>, and ordering took <span class="sb-glance-em">seven manual steps</span>.</p>
     </div>
+    <h3 class="bo-subchapter">Research</h3>
+    <div class="findings-list findings-list--part">
+      <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8.7 10a.375.375 0 0 1 .555-.078l.086.078a6.9 6.9 0 0 0 7.547 4.95"/><path d="M10.3 21h3.4"/><path d="m2 2 20 20"/><path d="M12 4a7 7 0 0 0-7 7v3"/><path d="M5.5 10H3a1 1 0 0 0-1 1v1a7 7 0 0 0 7 7"/></svg></span><div><div class="finding-stat">Replenishment</div><p class="finding-text-only">Managers had no warning before a product ran out. To prevent it, they checked their best-selling products one by one.</p></div></div>
+    </div>
+    <h3 class="bo-subchapter">The problem</h3>
+    <div class="pain-grid pain-grid--two cs-card-grid">
+      <div class="pain-card cs-card"><div class="pain-number">01</div><h4>No warning before stock ran out</h4><p>Managers found out when the shelf was already empty.</p></div>
+      <div class="pain-card cs-card"><div class="pain-number">02</div><h4>Ordering by hand</h4><p>Finding the supplier, working out quantity and cost, and writing the order email, every single time.</p></div>
+    </div>
+    <p class="aside-note aside-note--bubble cs-aside aside-note--bubble-prefer-right"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape" style="border-radius: 53% 47% 49% 51% / 47% 55% 45% 53%;"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.7 10a.375.375 0 0 1 .555-.078l.086.078a6.9 6.9 0 0 0 7.547 4.95"/><path d="M10.3 21h3.4"/><path d="m2 2 20 20"/><path d="M12 4a7 7 0 0 0-7 7v3"/><path d="M5.5 10H3a1 1 0 0 0-1 1v1a7 7 0 0 0 7 7"/></svg></span><span class="aside-note__bubble-text">An empty shelf is a terrible notification system.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="cs-arrow-bo-shelf" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#cs-arrow-bo-shelf)"/><path d="M40 11 L34 8" stroke="url(#cs-arrow-bo-shelf)"/><path d="M40 11 L34 14" stroke="url(#cs-arrow-bo-shelf)"/></svg></span></span></span></p>
     <p>Before, ordering stock took seven steps, and the first one was a surprise.</p>
     <div class="cs-flow" aria-label="Stock ordering before and after redesign">
       <div class="cs-flow__panel cs-flow__panel--before">
@@ -621,6 +606,22 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <img src="bo-repl-07-confirm-receipt.png" alt="Confirm receipt screen for marking a delivery as received or partially received, with an uploaded invoice and a note." loading="lazy" decoding="async" width="1024" height="552">
       <p class="screen-caption cs-caption">Confirming a partial delivery, with the invoice and a note.</p>
     </figure>
+    <h3 class="bo-subchapter">Results</h3>
+    <div class="cs-problem-divider cs-problem-divider--results" id="results-replenishment">
+      <p class="cs-problem-divider__label"><span class="cs-problem-divider__num">Problem 01 of 02</span><span class="cs-problem-divider__name"> · Replenishment</span></p>
+      <div class="results-grid results-grid--bo-outcomes cs-stat-grid cs-problem-results__stat-grid">
+        <article class="result-card result-card--bo cs-stat">
+          <div class="result-card__stat">7 → 2</div>
+          <p class="result-card__lead">Steps to order stock</p>
+          <p class="result-card__detail">Ordering used to start with an empty shelf. Now it's two steps: open the alert, place the order.</p>
+        </article>
+        <article class="result-card result-card--bo cs-stat">
+          <div class="result-card__stat">35%</div>
+          <p class="result-card__lead">Less operational friction for store teams</p>
+          <p class="result-card__detail">Assessed in a workshop with the same 5 store managers, from prospective customers, who tested the campaign builder.</p>
+        </article>
+      </div>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -628,11 +629,16 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <section class="section fade-in reveal case-anchor" id="campaigns">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
-      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">05</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Campaigns: from maths to templates</h2><p class="section-subtitle">Part 2 · Campaigns</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">03</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Campaigns: from maths to templates</h2><p class="section-subtitle">Part 2 · Campaigns</p></div>
     </div>
     <div class="cs-problem-divider">
       <p class="cs-problem-divider__label"><span class="cs-problem-divider__num">Problem 02 of 02</span><span class="cs-problem-divider__name"> · Campaigns</span></p>
       <p class="cs-problem-divider__text">Discounts on products sold by weight were <span class="sb-glance-em">calculated and typed in by hand</span>, which was slow and easy to get wrong.</p>
+    </div>
+    <h3 class="bo-subchapter">Research</h3>
+    <div class="findings-list findings-list--part findings-list--part-grid">
+      <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg></span><div><p class="finding-text">"Every time base prices change, I'm double-checking campaigns by hand."</p><div class="finding-stat">4 of 6 managers reported inconsistencies between catalogue data and campaign rules.</div></div></div>
+      <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg></span><div><div class="finding-stat">Campaigns</div><p class="finding-text-only">Weighted campaigns were set up by hand. Discounts on products sold by weight had to be calculated and typed in, which managers described as slow and easy to get wrong.</p></div></div>
     </div>
     <div class="cs-turning">
       <div class="cs-turning__column">
@@ -654,7 +660,6 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
           </div>
         </div>
         <div class="cs-turning__prose sb-text">
-          <p>Weighted campaigns, for products sold by weight like fruit or deli items, were set up by hand. Managers calculated each discount and typed it in.</p>
           <p>In interviews, managers told me this was slow and easy to get wrong. <span class="ink">But the interviews couldn't tell me why.</span></p>
           <p>So instead of another round of interviews, I asked our supermarket customers for their last three months of campaign data and analysed it myself. The answer was clear: <span class="ink">94% of weighted campaigns followed one of just two patterns.</span></p>
         </div>
@@ -697,56 +702,31 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
       <img src="bo-camp-03-campaign-detail.png" alt="A live weight campaign called Fruits, with status Active, campaign type Less than 1 kg and its products." loading="lazy" decoding="async" width="1024" height="576">
       <p class="screen-caption cs-caption">A live weight campaign, in plain words.</p>
     </figure>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section fade-in reveal case-anchor" id="results">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">06</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Results</h2><p class="section-subtitle">What changed for store teams</p></div>
-    </div>
-    <div class="cs-problem-results-stack">
-      <div class="cs-problem-divider cs-problem-divider--results">
-        <p class="cs-problem-divider__label"><span class="cs-problem-divider__num">Problem 01 of 02</span><span class="cs-problem-divider__name"> · Replenishment</span></p>
-        <div class="results-grid results-grid--bo-outcomes cs-stat-grid cs-problem-results__stat-grid">
-          <article class="result-card result-card--bo cs-stat">
-            <div class="result-card__stat">7 → 2</div>
-            <p class="result-card__lead">Steps to order stock</p>
-            <p class="result-card__detail">Ordering used to start with an empty shelf. Now it's two steps: open the alert, place the order.</p>
-          </article>
-          <article class="result-card result-card--bo cs-stat">
-            <div class="result-card__stat">35%</div>
-            <p class="result-card__lead">Less operational friction for store teams</p>
-            <p class="result-card__detail">Assessed in a workshop with the same 5 store managers, from prospective customers, who tested the campaign builder.</p>
-          </article>
-        </div>
+    <h3 class="bo-subchapter">Results</h3>
+    <div class="cs-problem-divider cs-problem-divider--results" id="results-campaigns">
+      <p class="cs-problem-divider__label"><span class="cs-problem-divider__num">Problem 02 of 02</span><span class="cs-problem-divider__name"> · Campaigns</span></p>
+      <p>I gave 5 store managers the same campaign tasks in the old version and in the new one, and measured how long they took and how many errors they made.</p>
+      <div class="ab-grid cs-compare-grid">
+        <div class="ab-card cs-compare"><div class="ab-label">Previous version</div><div class="ab-stat">4m 20s</div><p class="ab-desc">average task time · 3.6 errors per session · 2 of 5 would use it daily</p></div>
+        <div class="ab-card winner cs-compare"><div class="ab-label">✓ Redesigned version</div><div class="ab-stat">3m 14s</div><p class="ab-desc">average task time · 0.8 errors per session · 5 of 5 would use it daily</p></div>
       </div>
-      <div class="cs-problem-divider cs-problem-divider--results">
-        <p class="cs-problem-divider__label"><span class="cs-problem-divider__num">Problem 02 of 02</span><span class="cs-problem-divider__name"> · Campaigns</span></p>
-        <p>I gave 5 store managers the same campaign tasks in the old version and in the new one, and measured how long they took and how many errors they made.</p>
-        <div class="ab-grid cs-compare-grid">
-          <div class="ab-card cs-compare"><div class="ab-label">Previous version</div><div class="ab-stat">4m 20s</div><p class="ab-desc">average task time · 3.6 errors per session · 2 of 5 would use it daily</p></div>
-          <div class="ab-card winner cs-compare"><div class="ab-label">✓ Redesigned version</div><div class="ab-stat">3m 14s</div><p class="ab-desc">average task time · 0.8 errors per session · 5 of 5 would use it daily</p></div>
-        </div>
-        <div class="results-grid results-grid--bo-outcomes cs-stat-grid cs-problem-results__stat-grid">
-          <article class="result-card result-card--bo cs-stat">
-            <div class="result-card__stat">25%</div>
-            <p class="result-card__lead">Faster campaign creation</p>
-            <p class="result-card__detail">Average task time down from 4m 20s to 3m 14s.</p>
-          </article>
-          <article class="result-card result-card--bo cs-stat">
-            <div class="result-card__stat">78%</div>
-            <p class="result-card__lead">Fewer errors</p>
-            <p class="result-card__detail">From 3.6 to 0.8 errors per session.</p>
-          </article>
-        </div>
-        <div class="quote-block cs-quote">
-          <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
-          <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
-          <p>"The campaign builder finally speaks our language."</p>
-          <cite>— Store Manager, Icebug</cite>
-        </div>
+      <div class="results-grid results-grid--bo-outcomes cs-stat-grid cs-problem-results__stat-grid">
+        <article class="result-card result-card--bo cs-stat">
+          <div class="result-card__stat">25%</div>
+          <p class="result-card__lead">Faster campaign creation</p>
+          <p class="result-card__detail">Average task time down from 4m 20s to 3m 14s.</p>
+        </article>
+        <article class="result-card result-card--bo cs-stat">
+          <div class="result-card__stat">78%</div>
+          <p class="result-card__lead">Fewer errors</p>
+          <p class="result-card__detail">From 3.6 to 0.8 errors per session.</p>
+        </article>
+      </div>
+      <div class="quote-block cs-quote">
+        <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
+        <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
+        <p>"The campaign builder finally speaks our language."</p>
+        <cite>— Store Manager, Icebug</cite>
       </div>
     </div>
   </section>
@@ -760,7 +740,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <section class="section fade-in reveal case-anchor" id="design-system">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
-      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">07</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Design system</h2><p class="section-subtitle">Light and dark mode, and the main components</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">04</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Design system</h2><p class="section-subtitle">Light and dark mode, and the main components</p></div>
     </div>
     <div class="reveal reveal-media">
       <div class="ds-theme-row" role="group" aria-label="Product detail screen in dark and light themes">
@@ -798,7 +778,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   <section class="section fade-in reveal case-anchor" id="reflection">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">08</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Reflection</h2><p class="section-subtitle">What I learned</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">05</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Reflection</h2><p class="section-subtitle">What I learned</p></div>
     </div>
     <div class="lessons-list">
       <div class="lesson-item cs-learn"><div class="lesson-num">01</div><div class="lesson-text"><h4>Use the words your users use.</h4><p>Part of what made the template builder work was the vocabulary. It used the words store managers already used every day. When an interface uses database names, it feels like a tool for the system. When it uses the words from people's jobs, it feels like a tool for them.</p></div></div>

@@ -441,8 +441,10 @@ body.sb-design-page .sb-case .cs-problem-divider--results .cs-problem-divider__l
   margin-bottom: 20px;
 
 }
-body.cs-design-page .sb-case #results .cs-problem-results__stat-grid,
-body.sb-design-page .sb-case #results .cs-problem-results__stat-grid {
+body.cs-design-page .sb-case #results-replenishment .cs-problem-results__stat-grid,
+body.cs-design-page .sb-case #results-campaigns .cs-problem-results__stat-grid,
+body.sb-design-page .sb-case #results-replenishment .cs-problem-results__stat-grid,
+body.sb-design-page .sb-case #results-campaigns .cs-problem-results__stat-grid {
 
   display: grid !important;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -452,43 +454,45 @@ body.sb-design-page .sb-case #results .cs-problem-results__stat-grid {
 
 }
 @media (max-width: 767px) {
-body.cs-design-page .sb-case #results .cs-problem-results__stat-grid,
-body.sb-design-page .sb-case #results .cs-problem-results__stat-grid {
+body.cs-design-page .sb-case #results-replenishment .cs-problem-results__stat-grid,
+body.cs-design-page .sb-case #results-campaigns .cs-problem-results__stat-grid,
+body.sb-design-page .sb-case #results-replenishment .cs-problem-results__stat-grid,
+body.sb-design-page .sb-case #results-campaigns .cs-problem-results__stat-grid {
 
     grid-template-columns: 1fr;
   
 }}
-body.cs-design-page .sb-case #results .cs-problem-divider--results .result-card__stat,
-body.sb-design-page .sb-case #results .cs-problem-divider--results .result-card__stat {
+body.cs-design-page .sb-case #results-replenishment .result-card__stat,
+body.cs-design-page .sb-case #results-campaigns .result-card__stat,
+body.sb-design-page .sb-case #results-replenishment .result-card__stat,
+body.sb-design-page .sb-case #results-campaigns .result-card__stat {
 
   font-family: "Poppins", sans-serif !important;
   font-weight: 600 !important;
   color: var(--yellow) !important;
 
 }
-body.cs-design-page .sb-case #results .cs-problem-divider--results > p,
-body.sb-design-page .sb-case #results .cs-problem-divider--results > p {
+body.cs-design-page .sb-case #results-campaigns > p,
+body.sb-design-page .sb-case #results-campaigns > p {
 
   max-width: none;
   margin-top: 0;
 
 }
-body.cs-design-page .sb-case #results .cs-problem-divider--results .ab-grid,
-body.sb-design-page .sb-case #results .cs-problem-divider--results .ab-grid {
+body.cs-design-page .sb-case #results-campaigns .ab-grid,
+body.sb-design-page .sb-case #results-campaigns .ab-grid {
 
   margin-top: 24px;
 
 }
-body.cs-design-page .sb-case #results .cs-problem-divider--results .cs-problem-results__stat-grid + .cs-problem-results__stat-grid,
-body.sb-design-page .sb-case #results .cs-problem-divider--results .cs-problem-results__stat-grid:not(:first-child),
-body.sb-design-page .sb-case #results .cs-problem-divider--results .ab-grid + .cs-problem-results__stat-grid,
-body.sb-design-page .sb-case #results .cs-problem-divider--results .ab-grid + .cs-problem-results__stat-grid {
+body.cs-design-page .sb-case #results-campaigns .ab-grid + .cs-problem-results__stat-grid,
+body.sb-design-page .sb-case #results-campaigns .ab-grid + .cs-problem-results__stat-grid {
 
   margin-top: 28px;
 
 }
-body.cs-design-page .sb-case #results .cs-problem-divider--results .quote-block,
-body.sb-design-page .sb-case #results .cs-problem-divider--results .quote-block {
+body.cs-design-page .sb-case #results-campaigns .quote-block,
+body.sb-design-page .sb-case #results-campaigns .quote-block {
 
   margin-top: 28px;
   margin-bottom: 0;
