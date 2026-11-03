@@ -59,6 +59,18 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   .image-caption{font-size:12px;color:var(--light);text-align:center;margin-top:10px;font-style:italic;}
   body.case-study-page.cs-design-page .hc-summary-shell.sb-case{max-width:none;margin:0;padding:0;}
   body.case-study-page.cs-design-page .hc-summary-shell .sb-tldr.cs-summary.sb-glance{text-align:left;}
+  body.case-study-page.cs-design-page .content.case-main section[aria-labelledby="turning-point"] .cs-turning__column > .cs-turning__eyebrow {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 16px;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    color: var(--yellow);
+  }
   body.case-study-page .meta-value-list{margin:0;padding:0 0 0 1.1em;list-style:disc;}
   body.case-study-page .meta-value-list li{font-family:var(--font-body,'Poppins',sans-serif);font-size:15px;font-weight:500;color:var(--text);line-height:1.45;}
   body.case-study-page .meta-value-list li+li{margin-top:4px;}
@@ -991,11 +1003,52 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 
   <div class="divider"></div>
 
+  <section class="section fade-in reveal case-anchor" aria-labelledby="turning-point">
+    <div class="cs-turning">
+      <div class="cs-turning__column">
+        <p class="cs-turning__eyebrow">
+          <span class="cs-icon-chip" aria-hidden="true"><svg class="cs-icon-chip__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h13l4-3-4-3z"/><path d="M12 11v10"/><path d="M9 21h6"/></svg></span>
+          <span class="cs-turning__eyebrow-text">Turning point</span>
+        </p>
+        <div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">08</span><span class="cs-sec-line sb-sec-line"></span></div>
+        <h2 class="section-chapter" id="turning-point">No front-end developer. So I became one.</h2>
+        <div class="cs-turning__shift" aria-label="From situation to decision">
+          <div class="cs-turning__shift-box cs-turning__shift-box--plan">
+            <span class="cs-turning__shift-label">The situation</span>
+            <p class="cs-turning__shift-text">No front-end developer on the team</p>
+          </div>
+          <span class="cs-turning__shift-arrow cs-turning__shift-arrow--right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          <span class="cs-turning__shift-arrow cs-turning__shift-arrow--down" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></span>
+          <div class="cs-turning__shift-box cs-turning__shift-box--highlight">
+            <span class="cs-turning__shift-label cs-turning__shift-label--accent">The decision</span>
+            <p class="cs-turning__shift-text cs-turning__shift-text--highlight">Build the front-end myself</p>
+          </div>
+        </div>
+        <div class="cs-turning__prose sb-text">
+          <p>The team had back-end developers, but no front-end developer. <span class="ink">Without one, the designs would have stayed in Figma.</span></p>
+          <p>So I built the whole front-end myself with Cursor, while the back-end team built the server side. I set and checked every spacing value, colour, state and interaction in the product, using detailed prompts with exact tokens and accessibility requirements. The back-end team reviewed my code, so it stayed consistent with their side.</p>
+        </div>
+        <div class="cs-turning__callout-block">
+          <p class="cs-turning__callout-label">
+            <svg class="cs-turning__callout-label-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .962L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
+            <span>The aha moment</span>
+          </p>
+          <p class="cs-turning__callout">My design didn't stop in Figma. <span class="cs-turning__callout-accent">It stopped when it worked in the product.</span></p>
+        </div>
+        <div class="cs-turning__prose sb-text">
+          <p>When testing found a problem with the Select All button, I fixed it in the code myself, <span class="ink">without waiting for a handoff.</span> The platform reached production in under eight weeks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <!-- VALIDATION & USABILITY TESTING -->
   <section class="section fade-in reveal case-anchor" id="validation-usability">
     <div class="section-header">
       <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">08</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Usability testing</h2><p class="section-subtitle">5 administrators</p></div>
+      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">09</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Usability testing</h2><p class="section-subtitle">5 administrators</p></div>
     </div>
     <p>I tested with 5 administrators who work with surveys regularly. Each created a survey and sent it to several municipalities, just like in their daily work.</p>
     <p>The main issue: the Select All button had low contrast and sat in the wrong place, so most people selected districts one by one.</p>
@@ -1009,16 +1062,6 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
         <p>"Now I can actually see what I've selected. Before I was never sure if I'd got everyone."</p>
       <cite>— Healthcare Administrator, Usability Testing Session</cite>
     </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section fade-in reveal case-anchor" id="built-it-myself">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">09</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Building the front-end</h2><p class="section-subtitle">From design to working product</p></div>
-    </div>
-    <p>There was no front-end developer, so I built the whole front-end with Cursor while the back-end team built the server side. My design didn't stop in Figma: I set and checked every spacing value, colour, state and interaction in the product, using detailed prompts with exact tokens and accessibility requirements. When testing found the Select All problem, I fixed it in the code myself, without waiting for a handoff. The back-end team reviewed the front-end code, so it stayed consistent with their side of the product.</p>
   </section>
 
   <div class="divider"></div>
