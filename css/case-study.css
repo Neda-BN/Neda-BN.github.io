@@ -2581,6 +2581,11 @@ body.case-study-page .sb-case .section-chapter {
   margin-bottom: 16px;
 }
 
+body.case-study-page .content .section .cs-turning .section-chapter,
+body.case-study-page .sb-case .cs-turning .section-chapter {
+  margin-top: 0;
+}
+
 body.case-study-page .content .section:first-of-type .section-chapter,
 body.case-study-page .sb-case .sb-section--first .section-chapter {
   margin-top: 0;
