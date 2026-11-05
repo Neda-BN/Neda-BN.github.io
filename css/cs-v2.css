@@ -1019,7 +1019,7 @@ body.cs-v2 .cs-v2-compare-title {
   font-family: "Poppins", sans-serif;
   font-size: var(--fs-body);
   font-weight: 600;
-  color: var(--ink);
+  color: var(--yellow);
   line-height: var(--lh-body);
   margin: 0 0 12px;
 }
@@ -1095,4 +1095,12 @@ body.case-study-page.cs-v2 .sb-case #design > .cs-match-img + .sb-ds-sheets.wide
 
 body.case-study-page.cs-v2 .sb-case #design .cs-customer-view > .cs-caption {
   margin-top: 12px;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .cs-v2-compare-title {
+  color: var(--yellow) !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .cs-customer-view__label {
+  color: var(--yellow) !important;
 }
