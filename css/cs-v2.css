@@ -1097,6 +1097,28 @@ body.case-study-page.cs-v2 .sb-case #design .cs-customer-view > .cs-caption {
   margin-top: 12px;
 }
 
+/* Simple Booking — image / list / image stacks (e.g. Adviser in Decision 4) */
+body.case-study-page.cs-v2 .cs-v2-decision-media-stack {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: calc(var(--space-block) * 2) !important;
+  row-gap: calc(var(--space-block) * 2) !important;
+  margin-top: var(--space-block) !important;
+  width: 100%;
+  max-width: none;
+}
+
+body.case-study-page.cs-v2 .cs-v2-decision-media-stack .screens-section,
+body.case-study-page.cs-v2 .cs-v2-decision-media-stack .cs-match-img.cs-v2-list {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+body.case-study-page.cs-v2 .sb-case #design figure.sb-ds-sheet > figcaption.cs-caption {
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
 body.case-study-page.cs-v2 .cs-v2-study .cs-v2-compare-title {
   color: var(--yellow) !important;
 }
