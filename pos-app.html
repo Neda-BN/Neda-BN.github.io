@@ -817,8 +817,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 <link rel="stylesheet" href="css/cs-design.css?v=20261102g">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
+<link rel="stylesheet" href="css/cs-v2.css?v=20261105f">
 </head>
-<body class="has-anna-nav case-study-page cs-design-page">
+<body class="has-anna-nav case-study-page cs-design-page cs-v2">
 
 <header class="anna-nav anna-nav--intro-visible" id="site-nav" aria-label="Primary">
   <div class="anna-nav__pill">
@@ -908,7 +909,12 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   </div>
 </div>
 
-<div class="sb-case pos-summary-shell">
+
+<div class="content case-main sb-case cs-v2-study">
+
+  <section class="section fade-in reveal cs-v2-phase cs-v2-phase--overview" aria-labelledby="overview">
+    <div class="cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg><span class="cs-v2-phase-label">Overview</span></div>
+    <div class="sb-case pos-summary-shell" id="overview">
   <div class="sb-wrap">
     <div class="sb-tldr cs-summary sb-glance">
       <div class="sb-glance__problem">
@@ -949,132 +955,52 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     <p class="cs-platform-note fade-in reveal">Part of the Focalpay platform: the POS sells products and prices set up in the <a href="backoffice.html">Back-office</a>, and takes over cash payments from the <a href="mobile-app.html">Mobile shopping app</a>.</p>
   </div>
 </div>
+  </section>
 
-<div class="content case-main sb-case">
-  <section class="section fade-in reveal case-anchor" id="challenge">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
-      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">01</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">The challenge</h2></div>
-    </div>
-    <p>At a store till, every second counts twice: once for the cashier, and once for the customer waiting in line. For the retailers using Focalpay, a slow checkout means longer queues, impatient customers and fewer sales per hour. So a cashier app that makes people stop and think isn't just a usability problem. <span class="ink">It's a business problem.</span></p>
-    <p>Traditional POS terminals are heavy and expensive. Focalpay, a Swedish retail-tech company, built a cashier app that runs on any smartphone, tablet or touchscreen instead: on iOS, Android and in the browser.</p>
-    <p>When I joined as one of two designers, the first version was already used in several stores. I owned the mobile version of the POS, the phone-sized screens cashiers hold in their hand, while my colleague designed the tablet and desktop versions.</p>
-    <p>One sale meant moving between several screens, and when a product was missing at the till, the store had to add it in a separate back-office system.</p>
+  <section class="section fade-in reveal cs-v2-phase" id="introduction">
+    <div class="cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="cs-v2-phase-label">Introduction</span></div>
+    <h2 class="cs-v2-heading">The challenge</h2>
+    <p>At a store till, every second counts twice: for the cashier, and for the customer waiting in line. A slow checkout means longer queues and fewer sales per hour, so a cashier app that makes people stop and think is a business problem, not just a usability problem.</p>
+    <p>Focalpay, a Swedish retail-tech company, built a cashier app that runs on any phone, tablet or touchscreen. When I joined, it was already used in several stores, but one sale meant moving between several screens, and a missing product had to be added in a separate back-office system.</p>
     <div class="cs-question sb-question-frame">
       <p class="cs-label sb-label">The one question</p>
       <p class="cs-question__lead sb-question-frame__lead">So every decision had to answer one question:</p>
       <p class="cs-question__q sb-question-frame__q">does this keep the queue moving?</p>
     </div>
-    <p>I worked from research to final screens with the PM, engineering and stakeholders, the same team behind the Back-office and the Mobile app, and designed every screen to WCAG AA.</p>
-    <div class="quote-block cs-quote">
-        <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
-         <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
-        <p>"We want something that just works — fast. Our staff shouldn't need training to use a cashier app."</p>
-      <cite>— Store manager, research session. The same person also worked with us on the <a href="mobile-app.html">Mobile shopping app</a>.</cite>
-    </div>
+    <p class="cs-v2-subtitle">My role</p>
+    <ul class="cs-v2-list">
+      <li>One of two designers. I owned the mobile version, the phone screens cashiers hold in their hand; my colleague designed tablet and desktop.</li>
+      <li>From research to final screens, with the PM, engineering and stakeholders.</li>
+      <li>After my colleague left, I also designed Connected devices, as the only designer.</li>
+      <li>Every screen designed to WCAG AA.</li>
+    </ul>
   </section>
-  <div class="divider"></div>
-  <section class="section fade-in reveal case-anchor" id="methods-research">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">02</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Research</h2><p class="section-subtitle">Watching cashiers work</p></div>
-    </div>
-    <p>I combined interviews, workshops, observation and testing in a real store. Watching cashiers serve real customers taught me the most.</p>
-    <div class="findings-list">
-      <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg></span><div><p class="finding-text">In the store, we saw that cashiers rarely look at the screen during a sale. They rely on muscle memory and peripheral vision.</p><div class="finding-stat">In-store observation · Live cashier sessions</div></div></div>
-      <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></span><div><p class="finding-text">"We need the cart front and centre, always. Everything else is secondary."</p><div class="finding-stat">Store owner interviews · 3 sessions</div></div></div>
-      <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31"/><path d="M14 9.3V2"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/></svg></span><div><p class="finding-text">In usability testing, cashiers wanted to add products, apply discounts and scan barcodes without leaving the home screen.</p><div class="finding-stat">Moderated usability testing · 5 participants</div></div></div>
-      <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><div><p class="finding-text">In the workshops, store owners said adding products was a big problem. They wanted to do it in the POS, not in a separate system.</p><div class="finding-stat">Stakeholder workshops · Product &amp; Engineering teams</div></div></div>
-    </div>
+
+  <section class="section fade-in reveal cs-v2-phase" id="discover">
+    <div class="cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span class="cs-v2-phase-label">Discover</span></div>
+    <h2 class="cs-v2-heading">What we found</h2>
+    <p>I combined interviews, workshops, in-store observation and usability testing. Four findings shaped the work:</p>
+    <ul class="cs-v2-list cs-v2-findings">
+      <li><strong>Cashiers rarely look at the screen during a sale.</strong> They rely on muscle memory and peripheral vision. <span class="cs-v2-meta">— In-store observation</span></li>
+      <li><strong>The cart must always be visible.</strong> "We need the cart front and centre, always. Everything else is secondary." <span class="cs-v2-meta">— Store owner interviews · 3 sessions</span></li>
+      <li><strong>Cashiers wanted to stay on the home screen</strong> to add products, apply discounts and scan barcodes. <span class="cs-v2-meta">— Usability testing · 5 participants</span></li>
+      <li><strong>Adding products in a separate system was a big problem for store owners.</strong> <span class="cs-v2-meta">— Workshops with product and engineering</span></li>
+    </ul>
   </section>
-</div>
-  <div class="divider"></div>
 
-  <div class="pos-affinity-strip">
-  <div class="pos-affinity-embed wide" role="region" aria-label="Affinity mapping and card sorting synthesis">
-    <div class="pos-affinity-wrap fade-in reveal reveal-media">
-        <h3 class="pos-aff-heading">What we learned</h3>
-
-        <div class="pos-aff-board-grid">
-          <div class="pos-aff-cluster pos-aff-cluster-speed">
-            <div class="pos-aff-cluster-header">
-              <span class="pos-aff-cluster-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></span>
-              <div class="pos-aff-cluster-name">Speed &amp; Flow</div>
-            </div>
-            <div class="pos-aff-notes-pile">
-              <div class="pos-aff-note">Every extra tap costs time when a customer is waiting</div>
-              <div class="pos-aff-note">The old POS needed 4+ taps for one purchase</div>
-              <div class="pos-aff-note">The cart and quick actions must always be within reach</div>
-            </div>
-            <div class="pos-aff-insight-row">
-              <div class="pos-aff-insight-arrow" aria-hidden="true">→</div>
-              <div class="pos-aff-insight-text">One scrollable home screen, so the main tasks don't need extra navigation</div>
-            </div>
-          </div>
-
-          <div class="pos-aff-cluster pos-aff-cluster-products">
-            <div class="pos-aff-cluster-header">
-              <span class="pos-aff-cluster-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><path d="m3.29 7 9 5 9-5"/></svg></span>
-              <div class="pos-aff-cluster-name">Product Management</div>
-            </div>
-            <div class="pos-aff-notes-pile">
-              <div class="pos-aff-note">Adding a product meant opening the back-office</div>
-              <div class="pos-aff-note">An unknown barcode left the cashier stuck at the till</div>
-              <div class="pos-aff-note">Not every item has a barcode, so search by EAN or name</div>
-              <div class="pos-aff-note-quote">"We shouldn't need two systems. Everything should be in one place."</div>
-            </div>
-            <div class="pos-aff-insight-row">
-              <div class="pos-aff-insight-arrow" aria-hidden="true">→</div>
-              <div class="pos-aff-insight-text">Creating a product from an unknown scan removes the dead end at the till</div>
-            </div>
-          </div>
-
-          <div class="pos-aff-cluster pos-aff-cluster-discounts">
-            <div class="pos-aff-cluster-header">
-              <span class="pos-aff-cluster-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="19" x2="5" y1="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>
-              <div class="pos-aff-cluster-name">Discounts &amp; Refunds</div>
-            </div>
-            <div class="pos-aff-notes-pile">
-              <div class="pos-aff-note">Discounts apply to one product or the whole receipt, in SEK or %</div>
-              <div class="pos-aff-note">Refundable vs non-refundable caused real confusion</div>
-              <div class="pos-aff-note">Large keypad keys, because cashiers sometimes wear gloves</div>
-              <div class="pos-aff-note-quote">"Make it simple — 2 choices max. I don't have time to read options."</div>
-            </div>
-            <div class="pos-aff-insight-row">
-              <div class="pos-aff-insight-arrow" aria-hidden="true">→</div>
-              <div class="pos-aff-insight-text">Two simple choices: what the discount applies to, and whether it's in kronor or percent</div>
-            </div>
-          </div>
-
-          <div class="pos-aff-cluster pos-aff-cluster-reports">
-            <div class="pos-aff-cluster-header">
-              <span class="pos-aff-cluster-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span>
-              <div class="pos-aff-cluster-name">Reports &amp; End-of-Day</div>
-            </div>
-            <div class="pos-aff-notes-pile">
-              <div class="pos-aff-note">Daily totals without opening a second app</div>
-              <div class="pos-aff-note">Days with no sales left gaps, a compliance risk</div>
-              <div class="pos-aff-note">Register vs control check is mandatory at end of day</div>
-              <div class="pos-aff-note-quote">"Done in 2 minutes. No spreadsheet, no second app — finally."</div>
-            </div>
-            <div class="pos-aff-insight-row">
-              <div class="pos-aff-insight-arrow" aria-hidden="true">→</div>
-              <div class="pos-aff-insight-text">The Coming up feature prevents gaps, and reports are built into the POS, so there's no second app for end-of-day</div>
-            </div>
-          </div>
-        </div>
-    </div>
-  </div>
-  </div>
-  <div class="divider"></div>
-  <div class="content case-main sb-case">
-  <section class="section fade-in reveal case-anchor" id="user-journey">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">03</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">User Journey</h2><p class="section-subtitle">Emotion curve across a full transaction day</p></div>
-    </div>
+  <section class="section fade-in reveal cs-v2-phase" id="connect">
+    <div class="cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg><span class="cs-v2-phase-label">Connect</span></div>
+    <h2 class="cs-v2-heading">From findings to directions</h2>
+    <p>I grouped the findings into four themes, each pointing to a design direction:</p>
+    <ul class="cs-v2-list">
+      <li><strong>Speed &amp; flow:</strong> every extra tap costs time → one scrollable home screen</li>
+      <li><strong>Product management:</strong> an unknown barcode left cashiers stuck → create a product right from the scan</li>
+      <li><strong>Discounts &amp; refunds:</strong> too many options under pressure → two simple choices</li>
+      <li><strong>Reports &amp; end of day:</strong> totals needed a second app → reports built into the POS</li>
+    </ul>
+    <p class="cs-v2-subtitle">User journey</p>
     <div class="screens-section reveal reveal-media">
-      <h3 class="screens-label">User journey map</h3>
+      
       <div class="pos-ujm-strip wide">
         <div class="pos-ujm-strip-inner">
           <div class="pos-ujm" role="img" aria-label="Cashier POS user journey map — Erik (cashier / store owner), emotion curve from login through purchase, refund, and daily report; Focalpay AB 2024–2025">
@@ -1197,17 +1123,15 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
         </div>
       </div>
     </div>
-
+    <p>The low points were an unknown barcode and adding products in another system, exactly where the redesign needed to help most.</p>
   </section>
-  <div class="divider"></div>
-  <section class="section fade-in reveal case-anchor" aria-labelledby="turning-point">
+
+  <section class="section fade-in reveal cs-v2-phase" aria-labelledby="turning-point">
+    <div class="cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h13l4-3-4-3z"/><path d="M12 11v10"/><path d="M9 21h6"/></svg><span class="cs-v2-phase-label">Turning point</span></div>
+    
     <div class="cs-turning">
       <div class="cs-turning__column">
-        <p class="cs-turning__eyebrow">
-          <span class="cs-icon-chip" aria-hidden="true"><svg class="cs-icon-chip__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h13l4-3-4-3z"/><path d="M12 11v10"/><path d="M9 21h6"/></svg></span>
-          <span class="cs-turning__eyebrow-text">Turning point</span>
-        </p>
-        <div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">04</span><span class="cs-sec-line sb-sec-line"></span></div>
+        <p class="cs-turning__eyebrow"><span class="cs-turning__eyebrow-text">Turning point</span></p>
         <h2 class="section-chapter" id="turning-point">The problem wasn't the speed. It was the tabs.</h2>
         <div class="cs-turning__shift" aria-label="From data to what the store showed">
           <div class="cs-turning__shift-box cs-turning__shift-box--plan">
@@ -1225,43 +1149,29 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
           </div>
         </div>
         <div class="cs-turning__prose">
-          <p>The data told me something was wrong: sales were slow, and cashiers spent too long on each customer. <strong>But it couldn't tell me why.</strong></p>
-          <p>So I went to the store and watched cashiers work. That's where I saw it: <strong>the tabs.</strong> Every sale meant jumping between them, and every jump broke the cashier's focus. With a customer waiting, some got lost in the middle of a sale.</p>
-          <p>I shared what I'd seen with my manager, who asked a simple question: "What if the app had no tabs at all?" That question changed the direction of the whole redesign.</p>
+          <p>The data showed that sales were slow, but not why. So I went to the store and watched cashiers work. Every sale meant jumping between tabs, and every jump broke their focus. With a customer waiting, some got lost in the middle of a sale.</p>
+          <p>I shared this with my manager, who asked: "What if the app had no tabs at all?" That question changed the direction of the redesign.</p>
         </div>
         <div class="cs-turning__callout-block">
-          <p class="cs-turning__callout-label">
-            <svg class="cs-turning__callout-label-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .962L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
-            <span>The aha moment</span>
-          </p>
-          <p class="cs-turning__callout">Speed didn't come from faster screens. <span class="cs-turning__callout-accent">It came from never leaving the one screen.</span></p>
+          <p class="cs-turning__callout-label"><span>The aha moment</span></p>
+          <p class="cs-v2-aha-text">Speed didn't come from faster screens. It came from never leaving the one screen.</p>
         </div>
         <div class="cs-turning__prose">
-          <p>The team, including the engineers, worried that one screen without tabs would become messy and hard to manage. So I designed the new version and walked them through it: everything a cashier needs, on one scrollable screen, in a clear order. Once they saw it, the concerns turned into support.</p>
-          <p>In the real-store test, transaction errors fell by 70%, and tasks were 30% faster.</p>
+          <p>The engineers worried one screen would become messy. I designed the new version and walked them through it, and once they saw it, their concerns turned into support.</p>
         </div>
       </div>
     </div>
   </section>
-  <div class="divider"></div>
-  <section class="section fade-in reveal case-anchor" id="product-decision">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">05</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">A key decision</h2><p class="section-subtitle">Adding products at the till, safely</p></div>
-    </div>
-    <p>Store owners wanted to add products in the POS. Engineering was worried: product data is sensitive, and the cashier app shouldn't be able to change the catalogue.</p>
-    <p>With the PM and the engineering lead, I found a middle ground. Cashiers can create a basic product record at the till (name, EAN and sales account), while full editing stays in the back-office. The data stays safe, and nobody gets stuck at the scanner.</p>
-  </section>
-  <div class="divider"></div>
-  <section class="section fade-in reveal case-anchor" id="design-solutions">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">06</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">What I designed</h2><p class="section-subtitle">The main flows</p></div>
-    </div>
-    <p>Instead of many separate pages, I built the app around one scrollable home screen. The cart, product list, quick actions and daily summary are all on the same page. The Purchase button and the quick actions (Scan, Add bag, Add discount) are always visible, however many items are in the cart.</p>
 
-    <div class="screens-section reveal reveal-media">
-      <div class="screens-label">1. One home screen for the whole sale</div>
+  <section class="section fade-in reveal cs-v2-phase" id="design">
+    <div class="cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg><span class="cs-v2-phase-label">Design</span></div>
+    <h2 class="cs-v2-heading">Four decisions</h2>
+
+    <div class="cs-v2-decision cs-v2-frame">
+      <p class="cs-v2-decision__title">Decision 1 · One home screen for the whole sale</p>
+      <p>The cart, product list, quick actions and daily summary all live on one scrollable screen. Purchase, Scan, Add bag and Add discount are always visible, however full the cart is.</p>
+      <div class="screens-section reveal reveal-media">
+      
       <div class="screens-grid col-3">
         <div class="screen-item">
           <div class="screen-wrap">
@@ -1283,12 +1193,19 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
         </div>
       </div>
     </div>
+      <div class="pos-transformation-strip wide">
+      <figure class="pos-transformation-figure reveal reveal-media">
+        <img class="pos-transformation-img" src="Homepage.png" sizes="100vw" alt="Redesigned POS home screen — cart, quick actions, and product list on one scrollable view" loading="lazy" decoding="async" width="11535" height="6642">
+      </figure>
+    </div>
+    </div>
 
-    <div class="screens-section reveal reveal-media">
-      <div class="screens-label">2. Scanning and adding products</div>
-      <p>The phone camera works as a barcode scanner. When a product is found, it goes straight into the cart. When it isn't, the app asks the cashier to add it right away, instead of sending them to another system.</p>
-<p class="aside-note aside-note--bubble aside-note--bubble-shape-1 cs-aside aside-note--bubble-prefer-right aside-note--bubble-clear-copy"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12H3"/><path d="M12 7V3"/><path d="M17 12h4"/><path d="M12 17v4"/></svg></span><span class="aside-note__bubble-text">Nothing stops a queue quite like a product that doesn't exist.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="cs-arrow-pos-queue" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#cs-arrow-pos-queue)"/><path d="M40 11 L34 8" stroke="url(#cs-arrow-pos-queue)"/><path d="M40 11 L34 14" stroke="url(#cs-arrow-pos-queue)"/></svg></span></span></span></p>
-      <p>Adding a product takes two steps: name, EAN and sales account, then an optional photo.</p>
+    <div class="cs-v2-decision cs-v2-frame">
+      <p class="cs-v2-decision__title">Decision 2 · Adding products at the till, safely</p>
+      <p>Store owners wanted to add products in the POS, but engineering worried about changing sensitive catalogue data. With the PM and engineering lead, I found a middle ground: cashiers create a basic product (name, EAN and sales account) at the till, while full editing stays in the back-office. When a scan finds nothing, the app offers to add the product right away.</p>
+      <div class="screens-section reveal reveal-media">
+      
+      <p class="aside-note aside-note--bubble aside-note--bubble-shape-1 cs-aside aside-note--bubble-prefer-right aside-note--bubble-clear-copy"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12H3"/><path d="M12 7V3"/><path d="M17 12h4"/><path d="M12 17v4"/></svg></span><span class="aside-note__bubble-text">Nothing stops a queue quite like a product that doesn't exist.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="cs-arrow-pos-queue" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#cs-arrow-pos-queue)"/><path d="M40 11 L34 8" stroke="url(#cs-arrow-pos-queue)"/><path d="M40 11 L34 14" stroke="url(#cs-arrow-pos-queue)"/></svg></span></span></span></p>
       <div class="screens-grid col-3">
         <div class="screen-item">
           <div class="screen-wrap">
@@ -1310,8 +1227,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
         </div>
       </div>
     </div>
-
-    <div class="screens-section reveal reveal-media">
+      <div class="screens-section reveal reveal-media">
       <div class="screens-grid col-2">
         <div class="screen-item">
           <div class="screen-wrap">
@@ -1327,13 +1243,20 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
         </div>
       </div>
     </div>
+      <div class="pos-transformation-strip wide">
+      <figure class="pos-transformation-figure reveal reveal-media">
+        <img class="pos-transformation-img" src="Products.png" sizes="100vw" alt="Redesigned product management flow — scan, add, and search without leaving the register" loading="lazy" decoding="async" width="11535" height="6642">
+      </figure>
+    </div>
+    </div>
 
-    <div class="screens-section reveal reveal-media">
-      <div class="screens-label">3. Discounts on a product or the whole receipt</div>
-      <p>Discounts can apply to one product, shown as a badge on that item, or to the whole receipt. Cashiers can choose kronor or percent.</p>
-      <p>The keypad has large keys that work well on a touchscreen, even with gloves on, and clear toggles for the type and scope of the discount.</p>
-<p class="aside-note aside-note--bubble aside-note--bubble-shape-2 cs-aside aside-note--bubble-prefer-right aside-note--bubble-nudge-down aside-note--bubble-nudge-down-lg"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m10 20-1.25-2.5L6 18"/><path d="M10 4 8.75 6.5 6 6"/><path d="m14 20 1.25-2.5L18 18"/><path d="m14 4 1.25 2.5L18 6"/><path d="m17 21-3-6h-4"/><path d="m17 3-3 6 1.5 3"/><path d="M2 12h6.5L10 9"/><path d="m20 10-1.5 2 1.5 2"/><path d="M22 12h-6.5L14 15"/><path d="m4 10 1.5 2L4 14"/><path d="m7 21 3-6-1.5-3"/><path d="m7 3 3 6h4"/></svg></span><span class="aside-note__bubble-text">Swedish winters are part of the brief.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="cs-arrow-pos-winter" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#cs-arrow-pos-winter)"/><path d="M40 11 L34 8" stroke="url(#cs-arrow-pos-winter)"/><path d="M40 11 L34 14" stroke="url(#cs-arrow-pos-winter)"/></svg></span></span></span></p>
-      <div class="screens-grid col-2">
+    <div class="cs-v2-decision cs-v2-frame">
+      <p class="cs-v2-decision__title">Decision 3 · Discounts, refunds and reports in two choices or less</p>
+      <p>Discounts apply to one product or the whole receipt, in kronor or percent, with large keys that work even with gloves. Refunds separate refundable from non-refundable items. Daily reports are built in, and a "Coming up" list prevents gaps on days without sales.</p>
+      <div class="screens-section reveal reveal-media">
+      
+      
+<div class="screens-grid col-2">
         <div class="screen-item">
           <div class="screen-wrap">
           <img src="Discount.png" alt="Discount keypad screen" loading="lazy" decoding="async" width="576" height="1024">
@@ -1348,10 +1271,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
         </div>
       </div>
     </div>
-
-    <div class="screens-section reveal reveal-media">
-      <div class="screens-label">4. Refunds</div>
-      <p>The refund screen has two tabs, Refundable and Non-refundable, so cashiers can see straight away what can be returned. They tap items to select them, the total updates as they go, and "Do refund" completes it.</p>
+      <div class="screens-section reveal reveal-media">
+      
+      
       <div class="screens-grid col-3">
         <div class="screen-item">
           <div class="screen-wrap">
@@ -1373,11 +1295,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
         </div>
       </div>
     </div>
-
-    <div class="screens-section reveal reveal-media">
-      <div class="screens-label">5. Transactions and daily reports</div>
-      <p>Reporting is built into the POS. Cashiers can see the day's transactions, fetch the daily report, compare the register with the control check, and submit it, all in the same app.</p>
-      <p>The "Coming up" list shows upcoming report deadlines, so store managers can also submit empty reports for days with no sales. This prevents gaps in the reports.</p>
+      <div class="screens-section reveal reveal-media">
+      
+      
       <div class="screens-grid col-3">
         <div class="screen-item">
           <div class="screen-wrap">
@@ -1399,36 +1319,29 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
         </div>
       </div>
     </div>
-  </section>
-  </div>
-  <div class="divider"></div>
-  <section class="section fade-in reveal case-anchor pos-transformation" id="transformation">
-    <div class="content case-main">
-      <div class="section-header">
-        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
-        <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">07</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Before and after</h2><p class="section-subtitle">Home, products and refunds</p></div>
-      </div>
-    </div>
-    <div class="pos-transformation-strip wide">
-      <figure class="pos-transformation-figure reveal reveal-media">
-        <img class="pos-transformation-img" src="Homepage.png" sizes="100vw" alt="Redesigned POS home screen — cart, quick actions, and product list on one scrollable view" loading="lazy" decoding="async" width="11535" height="6642">
-      </figure>
-      <figure class="pos-transformation-figure reveal reveal-media">
-        <img class="pos-transformation-img" src="Products.png" sizes="100vw" alt="Redesigned product management flow — scan, add, and search without leaving the register" loading="lazy" decoding="async" width="11535" height="6642">
-      </figure>
+  
+      <div class="pos-transformation-strip wide">
       <figure class="pos-transformation-figure reveal reveal-media">
         <img class="pos-transformation-img" src="Refund products.png" sizes="100vw" alt="Redesigned refund flow — refundable and non-refundable items clearly separated" loading="lazy" decoding="async" width="11535" height="6642">
       </figure>
     </div>
-  </section>
-  <div class="divider"></div>
-  <div class="content case-main">
-  <section class="section fade-in reveal case-anchor" id="prototype">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="M13 13l6 6"/></svg></div>
-      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">08</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Interactive prototype</h2><p class="section-subtitle">Try the flow yourself</p></div>
     </div>
-    <p>You can click through the prototype to scan items, take a payment and move through the POS like a cashier would. No Figma account is needed. It loads when you tap it, to keep the page fast.</p>
+
+    <div class="cs-v2-decision cs-v2-frame">
+      <p class="cs-v2-decision__title">Decision 4 · Hardware status at a glance</p>
+      <p>In a store, the POS works with a scanner, a receipt printer, a keyboard and sometimes a Cash Guard. One settings screen shows what's connected and what isn't, so problems show up before a customer is waiting. I designed this as the only designer, after my colleague left.</p>
+      <div class="screens-section reveal reveal-media">
+      <div class="screen-wrap screen-wrap--natural-photo">
+        <img src="External Devices.png" alt="External Devices settings screen — handheld scanner, receipt printer, keyboard, and Cash Guard connection status in the Focalpay POS" loading="lazy" decoding="async" width="9198" height="5316">
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="section fade-in reveal cs-v2-phase" id="prototype">
+    <div class="cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg><span class="cs-v2-phase-label">Prototype</span></div>
+    <h2 class="cs-v2-heading">Try it yourself</h2>
+    <p>Click through the POS like a cashier would: scan items, take a payment and move through the flows.</p>
     <div class="proto-embed reveal reveal-media">
       <div class="proto-frame">
         <button type="button" class="proto-poster" data-embed="https://embed.figma.com/proto/PL87ABRLiYVHUmikDvnsF3/PORTFOLIO?page-id=583%3A472148&amp;node-id=1525-50894&amp;viewport=31%2C-908%2C0.2&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=1525%3A50894&amp;embed-host=share" data-title="Cashier POS & Payment Application — interactive Figma prototype" aria-label="Launch the interactive Cashier POS prototype">
@@ -1442,64 +1355,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
         <p class="proto-note">Opens the full prototype in a new tab.</p>
       </div>
     </div>
-  </section>
-  </div>
-  <div class="divider"></div>
-  <div class="content case-main">
-  <section class="section fade-in reveal case-anchor" id="external-devices">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div>
-      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">09</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Connected devices</h2><p class="section-subtitle">The POS works with the store's hardware</p></div>
-    </div>
-    <div class="screens-section reveal reveal-media">
-      <div class="screen-wrap screen-wrap--natural-photo">
-        <img src="External Devices.png" alt="External Devices settings screen — handheld scanner, receipt printer, keyboard, and Cash Guard connection status in the Focalpay POS" loading="lazy" decoding="async" width="9198" height="5316">
-      </div>
-    </div>
-    <p>In a store, the POS works with a handheld scanner, a receipt printer, a keyboard and sometimes a Cash Guard cash machine. Each can fail in its own way, so one settings screen shows clearly what's connected and what isn't. I designed this after my colleague left, as the only designer on the team.</p>
-    <div class="pos-device-list">
-      <div class="pos-device-item finding-item cs-card">
-        <span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg></span>
-        <div>
-          <h3 class="pos-device-item__title">Handheld scanner</h3>
-          <p>Cable, wireless or the device camera. The screen always shows which one is active.</p>
-        </div>
-      </div>
-      <div class="pos-device-item finding-item cs-card">
-        <span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg></span>
-        <div>
-          <h3 class="pos-device-item__title">Receipt printer</h3>
-          <p>Green when ready, red when not, so problems show up before a customer is waiting.</p>
-        </div>
-      </div>
-      <div class="pos-device-item finding-item cs-card">
-        <span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="M6 8h.001"/><path d="M10 8h.001"/><path d="M14 8h.001"/><path d="M18 8h.001"/><path d="M8 12h.001"/><path d="M12 12h.001"/><path d="M16 12h.001"/><path d="M7 16h10"/></svg></span>
-        <div>
-          <h3 class="pos-device-item__title">Keyboard</h3>
-          <p>If it disconnects, a warning appears straight away.</p>
-        </div>
-      </div>
-      <div class="pos-device-item finding-item cs-card">
-        <span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg></span>
-        <div>
-          <h3 class="pos-device-item__title">Cash Guard</h3>
-          <p>Opens from the Functions panel, with no separate system to switch to.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  </div>
-  <div class="divider"></div>
-
-  <div class="content content--pos-ds">
-
-  <section class="section fade-in reveal case-anchor" id="design-system">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
-      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">10</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Design system</h2><p class="section-subtitle">The foundation for every screen</p></div>
-    </div>
-    <p>From the start, I set up a design system: colours, typography, spacing, corner radius and component states, so design and engineering stayed consistent as the app grew. This release is light-theme only, to keep contrast predictable under bright store lighting.</p>
-
+  
+    <p>Every screen is built on a design system I set up from the start: colours, typography, spacing and component states. It's light-theme only, for bright store lighting.</p>
     <figure class="ds-sheet-figure ds-cap-10500 reveal reveal-media">
       <figcaption class="cs-caption cs-caption">Sheet 01 · Foundations — Colour, Typography, Spacing &amp; States</figcaption>
       <img class="ds-img" src="pos-design-system-01.png" srcset="pos-design-system-01.png 10500w" sizes="(max-width: 640px) calc(100vw - 48px), min(1024px, 100vw - 96px)" alt="Focalpay POS design system sheet 01: brand colours, neutrals, semantic tokens, typography scale, spacing, border radius, and button state matrix" width="10500" height="13865" loading="lazy" decoding="async">
@@ -1513,55 +1370,19 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     <p class="screen-caption cs-caption">Buttons, refund flow pattern, inputs, segmented controls, and search + scanning</p>
   </section>
 
-  </div>
-  <div class="divider"></div>
-  <div class="content case-main">
-  <section class="section fade-in reveal case-anchor" id="results">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">11</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Results</h2></div>
+  <section class="section fade-in reveal cs-v2-phase" id="results">
+    <div class="cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg><span class="cs-v2-phase-label">Results</span></div>
+    <h2 class="cs-v2-heading">What changed</h2>
+    <p>5 cashiers completed the same 5 core tasks (scan, add to cart, apply a discount, take a payment and print a receipt) in the old and the new version, in a real store.</p>
+    <div class="cs-v2-results-grid">
+      <div><p class="cs-v2-result-num">70%</p><p class="cs-v2-result-label">fewer transaction errors</p></div>
+      <div><p class="cs-v2-result-num">30%</p><p class="cs-v2-result-label">faster cashier tasks</p></div>
+      <div><p class="cs-v2-result-num">1–2 taps</p><p class="cs-v2-result-label">per sale instead of 4+</p></div>
+      <div><p class="cs-v2-result-num">0</p><p class="cs-v2-result-label">back-office trips to add a missing product</p></div>
     </div>
-    <p>We tested the app in a real store as well as in usability sessions. In the store, we could see how cashiers worked under time pressure, with real customers waiting.</p>
-    <div class="ab-grid cs-compare-grid">
-      <div class="ab-card cs-compare">
-        <div class="ab-label">Before Redesign</div>
-        <div class="ab-stat">4+ taps</div>
-        <p class="ab-desc">Average taps to complete a basic transaction. Multiple page navigations required.</p>
-      </div>
-      <div class="ab-card winner cs-compare">
-        <div class="ab-label">✓ After Redesign</div>
-        <div class="ab-stat">1–2 taps</div>
-        <p class="ab-desc">Cart, product list, Purchase and quick actions all on one scrollable screen.</p>
-      </div>
-    </div>
-    <div class="quote-block cs-quote">
-        <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
-         <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
-        <p>"The scroll feels natural. I don't have to think about where anything is."</p>
-      <cite>— Cashier, In-Store Usability Test</cite>
-    </div>
-    <div class="results-grid cs-stat-grid">
-      <article class="result-card result-card--compact cs-stat">
-        <div class="result-number">70%</div>
-        <p class="result-label">Fewer transaction errors</p>
-      </article>
-      <article class="result-card result-card--compact cs-stat">
-        <div class="result-number">30%</div>
-        <p class="result-label">Faster cashier task time</p>
-      </article>
-      <article class="result-card result-card--compact cs-stat">
-        <div class="result-number">60%</div>
-        <p class="result-label">Fewer taps per transaction</p>
-      </article>
-      <p class="pos-results-method"><svg class="pos-results-method__icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2v7.31"/><path d="M14 9.3V2"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/></svg><span>All three measured in the same test, in a real store: 5 users completed the same 5 core tasks (scan, add to cart, apply discount, process payment and generate receipt) in the previous and the redesigned versions.</span></p>
-      <article class="result-card result-card--compact cs-stat">
-        <div class="result-number">0</div>
-        <p class="result-label">Back-office trips needed to add a missing product: it can be created at the till</p>
-      </article>
-      <article class="result-card result-card--compact cs-stat">
-        <div class="result-number">WCAG</div>
-        <p class="result-label">WCAG AA, checked with colour-contrast checks and screen-reader testing on the core flows, across the supported screen sizes.</p>
-      </article>
+    <div class="quote-block cs-quote cs-v2-quote">
+      <p>"The scroll feels natural. I don't have to think about where anything is."</p>
+      <cite>— Cashier, in-store test</cite>
     </div>
     <div class="screens-section reveal reveal-media">
       <div class="screen-wrap screen-wrap--natural-photo">
@@ -1570,18 +1391,15 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
       <p class="screen-caption cs-caption">The POS on a handheld device during in-store testing</p>
     </div>
   </section>
-  <div class="divider"></div>
-  <section class="section fade-in reveal case-anchor" id="reflection">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-      <div class="section-headings"><div class="cs-sec-eyebrow sb-sec-eyebrow" aria-hidden="true"><span class="cs-sec-num sb-sec-num">12</span><span class="cs-sec-line sb-sec-line"></span></div><h2 class="section-chapter">Reflection</h2><p class="section-subtitle">What I learned</p></div>
-    </div>
-    <div class="lessons-list">
-      <div class="lesson-item cs-learn"><div class="lesson-num">01</div><div class="lesson-text"><h4>In a cashier app, speed is part of usability.</h4><p>Every extra second matters when someone is waiting at the till. Most of my work was removing steps: less navigation, fewer decisions, and the most common actions always within reach.</p></div></div>
-      <div class="lesson-item cs-learn"><div class="lesson-num">02</div><div class="lesson-text"><h4>The real store shows what the lab can't.</h4><p>Testing in a real store showed things the usability sessions didn't. Cashiers under pressure, with customers waiting, use the app very differently.</p></div></div>
-      <div class="lesson-item cs-learn"><div class="lesson-num">03</div><div class="lesson-text"><p><strong>Fewer handovers between tools means fewer problems.</strong> Things went wrong where the POS ended and another tool began. Letting cashiers create basic products at the till closed that gap without risking the product data.</p></div></div>
-      <div class="lesson-item cs-learn cs-learn--highlight"><div class="lesson-num">04</div><div class="lesson-text"><p class="cs-learn-eyebrow">Looking back</p><h4>What I'd do differently.</h4><p>I'd test in a real store earlier in the process, before the main flows were finalised, because that's where the most important problems showed up.</p></div></div>
-    </div>
+
+  <section class="section fade-in reveal cs-v2-phase" id="reflection">
+    <div class="cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg><span class="cs-v2-phase-label">Reflection</span></div>
+    <h2 class="cs-v2-heading">What I learned</h2>
+    <ul class="cs-v2-list">
+      <li>Speed is part of usability. When someone is waiting at the till, most of the work is removing steps.</li>
+      <li>The real store shows what the lab can't. Cashiers under pressure use the app very differently.</li>
+      <li><span class="cs-v2-reflect-yellow">What I'd do differently:</span> I'd test in a real store earlier, before the main flows were finalised, because that's where the most important problems showed up.</li>
+    </ul>
   </section>
 
   <section class="section cs-more-section" aria-labelledby="cs-more-heading">
