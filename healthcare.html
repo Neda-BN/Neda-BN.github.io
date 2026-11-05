@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="css/cs-design.css?v=20261102g">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
-<link rel="stylesheet" href="css/cs-v2.css?v=20261105y">
+<link rel="stylesheet" href="css/cs-v2.css?v=20261105z">
 <style>
   body.case-study-page.cs-design-page .pos-summary-shell.sb-case{max-width:none;margin:0;padding:0;}
   body.case-study-page.cs-design-page .pos-summary-shell .sb-tldr.cs-summary.sb-glance{text-align:left;}
@@ -29,8 +29,6 @@
   body.case-study-page .meta-value-list li{font-family:var(--font-body,'Poppins',sans-serif);font-size:15px;font-weight:500;color:var(--text);line-height:1.45;}
   body.case-study-page .meta-value-list li+li{margin-top:4px;}
   @media (max-width:640px){body.case-study-page.cs-design-page .pos-summary-shell .sb-glance__pct{font-size:clamp(26px,7.5vw,40px);white-space:nowrap;}}
-  body.case-study-page.cs-design-page .sb-process-frame.wizard-steps{display:block;grid-template-columns:none;gap:0;margin-top:24px;}
-  body.case-study-page.cs-design-page .sb-process-frame .wizard-step{background:transparent;border:none;border-radius:0;padding:0;text-align:left;transform:none!important;box-shadow:none!important;}
   .hc-figure-process-board{margin:0 auto;width:100%;max-width:1024px;}
   .hc-figure-process-board img{width:100%;max-width:1024px;height:auto;display:block;border-radius:12px;border:1px solid var(--border);background:var(--surface);box-sizing:border-box;image-rendering:auto;}
   .hc-media-frame{width:100%;max-width:100%;border-radius:16px;overflow:hidden;border:1px solid var(--border);background:var(--surface);}
@@ -43,9 +41,7 @@
   @media (max-width:899.98px){.hc-ujm-strip.wide .hc-ujm-chart-scroll{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;}}
   body.case-study-page.cs-v2 .hc-case .hc-ujm,body.case-study-page.cs-v2 .hc-case .hc-ujm *{opacity:1!important;transform:none!important;animation:none!important;}
   body.case-study-page.cs-v2 .hc-case .reveal-media,body.case-study-page.cs-v2 .hc-case .reveal-media img,body.case-study-page.cs-v2 .hc-case .hc-media-frame img,body.case-study-page.cs-v2 .hc-case .hc-figure-process-board img,body.case-study-page.cs-v2 .hc-case .hc-discover-fullbleed img,body.case-study-page.cs-v2 .hc-case .hc-wizard-shot__frame img{opacity:1!important;transform:none!important;animation:none!important;filter:none!important;}
-  .hc-wizard-preview{display:grid;grid-template-columns:1fr;gap:24px;margin-top:clamp(24px,3vw,32px);}
-  @media (min-width:860px){.hc-wizard-preview{grid-template-columns:repeat(2,minmax(0,1fr));}}
-  .hc-wizard-gallery{display:flex;flex-direction:column;gap:clamp(28px,4vw,40px);margin-top:clamp(24px,3vw,32px);}
+  .hc-wizard-gallery{display:flex;flex-direction:column;gap:var(--space-block,24px);}
   .mob-screens-collapsed{margin-top:28px;border:1px solid var(--border);border-radius:12px;padding:16px 20px 20px;background:var(--surface);}
   .mob-screens-collapsed summary{cursor:pointer;font-size:14px;font-weight:600;color:var(--dark);list-style:none;}
   .mob-screens-collapsed summary::-webkit-details-marker{display:none;}
@@ -67,26 +63,13 @@
   body.case-study-page.cs-v2 .hc-case .hc-figure-process-board.wide{width:min(1200px,calc(100vw - 64px));max-width:min(1200px,calc(100vw - 64px));margin-left:calc((100% - min(1200px,calc(100vw - 64px)))/2);margin-right:auto;}
   body.case-study-page.cs-v2 .hc-case .hc-figure-process-board.wide img{max-width:min(1200px,100%);}
   body.case-study-page.cs-v2 .hc-case .hc-discover-fullbleed-wrap.wide{width:min(1200px,calc(100vw - 64px));max-width:min(1200px,calc(100vw - 64px));margin-left:calc((100% - min(1200px,calc(100vw - 64px)))/2);margin-right:auto;}
-  body.case-study-page.cs-v2 .hc-case .hc-wizard-preview{max-width:min(816px,100%);margin-left:auto;margin-right:auto;width:100%;}
-  body.case-study-page.cs-v2 .hc-case .mob-screens-collapsed{max-width:min(776px,100%);margin-left:auto;margin-right:auto;width:100%;box-sizing:border-box;}
-  body.case-study-page.cs-v2 .hc-case #design .cs-v2-decision:last-child .hc-wizard-gallery{max-width:min(818px,100%);margin-left:auto;margin-right:auto;width:100%;}
-  @media (min-width:901px){
-    body.case-study-page.cs-v2 .hc-case .mob-screens-collapsed{width:778px;max-width:778px;padding-left:0;padding-right:0;}
-    body.case-study-page.cs-v2 .hc-case #design .cs-v2-decision:last-child .hc-wizard-gallery{width:818px;max-width:818px;}
-  }
   @media (max-width:640px){
     body.case-study-page.cs-v2 .hero-image{padding:0!important;max-width:min(349px,calc(100vw - 26px))!important;}
     body.case-study-page.cs-v2 .hc-case .hc-discover-fullbleed-wrap.wide,
     body.case-study-page.cs-v2 .hc-case .hc-figure-process-board.wide{width:calc(100vw - 64px);max-width:calc(100vw - 64px);margin-left:auto;margin-right:auto;}
-    body.case-study-page.cs-v2 .hc-case .hc-wizard-preview{width:min(349px,calc(100vw - 26px))!important;max-width:min(349px,calc(100vw - 26px))!important;}
-    body.case-study-page.cs-v2 .hc-case .mob-screens-collapsed{width:calc(100vw - 66px);max-width:calc(100vw - 66px);padding-left:0;padding-right:0;}
-    body.case-study-page.cs-v2 .hc-case #design .cs-v2-decision:last-child .hc-wizard-gallery{width:min(349px,calc(100vw - 26px))!important;max-width:min(349px,calc(100vw - 26px))!important;}
   }
   @media (min-width:641px) and (max-width:859px){
     body.case-study-page.cs-v2 .hero-image{max-width:min(742px,calc(100vw - 26px))!important;}
-    body.case-study-page.cs-v2 .hc-case .hc-wizard-preview{width:min(742px,calc(100vw - 26px))!important;max-width:min(742px,calc(100vw - 26px))!important;}
-    body.case-study-page.cs-v2 .hc-case .mob-screens-collapsed{width:min(702px,calc(100vw - 66px));max-width:min(702px,calc(100vw - 66px));padding-left:0;padding-right:0;}
-    body.case-study-page.cs-v2 .hc-case #design .cs-v2-decision:last-child .hc-wizard-gallery{width:min(742px,calc(100vw - 26px))!important;max-width:min(742px,calc(100vw - 26px))!important;}
   }
 </style>
 </head>
@@ -380,6 +363,12 @@
       </div>
     </div>
   </div>
+    <div class="hc-discover-fullbleed-wrap wide reveal reveal-media">
+      <figure class="hc-discover-fullbleed">
+        <img src="monitors.png" alt="Healthcare Provider Survey Management platform shown on two laptop screens — sign-in and survey sent confirmation views." width="1451" height="482" loading="lazy" decoding="async" sizes="100vw">
+      </figure>
+    </div>
+    <p class="cs-match-img screen-caption cs-caption">Healthcare Provider Survey Management platform on two laptop screens.</p>
     <p class="cs-match-img">The high points were the guided steps with clear feedback. The low points were choosing recipients by hand and waiting for answers without knowing who had replied.</p>
   </section>
   <section class="section fade-in reveal cs-v2-phase" aria-labelledby="turning-point">
@@ -414,18 +403,15 @@
     <div class="cs-v2-decision">
       <p class="cs-v2-decision__title">Decision 1 · Sending a survey in six checked steps</p>
       <p>Missing just one municipality could ruin a whole reporting round. So I split sending into six steps, each checked before the next one opens.</p>
-      <div class="sb-process-frame cs-process-frame wizard-steps" id="hc-wizard-steps">
-<div class="sb-process-frame__bar cs-process-frame__bar" aria-hidden="true"><span class="sb-process-frame__fill cs-process-frame__fill"></span></div>
-      <ol class="sb-process cs-process">
-        <li class="wizard-step"><h4>Choose survey</h4><p>Pick the template to send.</p></li>
-        <li class="wizard-step"><h4>Choose recipients</h4><p>Find and select municipalities in the hierarchy.</p></li>
-        <li class="wizard-step"><h4>Set language</h4><p>Choose the language for each municipality or region.</p></li>
-        <li class="wizard-step"><h4>Set deadline</h4><p>Choose the answer deadline for each group.</p></li>
-        <li class="wizard-step"><h4>Review</h4><p>Check all the details before sending.</p></li>
-        <li class="wizard-step"><h4>Send</h4><p>Send to all chosen recipients at once.</p></li>
-      </ol>
+      <div class="hc-wizard-steps-grid" id="hc-wizard-steps">
+        <div class="hc-wizard-step-card"><span class="hc-wizard-step-card__num">01</span><h4>Choose survey</h4><p>Pick the template to send.</p></div>
+        <div class="hc-wizard-step-card"><span class="hc-wizard-step-card__num">02</span><h4>Choose recipients</h4><p>Find and select municipalities in the hierarchy.</p></div>
+        <div class="hc-wizard-step-card"><span class="hc-wizard-step-card__num">03</span><h4>Set language</h4><p>Choose the language for each municipality or region.</p></div>
+        <div class="hc-wizard-step-card"><span class="hc-wizard-step-card__num">04</span><h4>Set deadline</h4><p>Choose the answer deadline for each group.</p></div>
+        <div class="hc-wizard-step-card"><span class="hc-wizard-step-card__num">05</span><h4>Review</h4><p>Check all the details before sending.</p></div>
+        <div class="hc-wizard-step-card"><span class="hc-wizard-step-card__num">06</span><h4>Send</h4><p>Send to all chosen recipients at once.</p></div>
       </div>
-      <div class="hc-wizard-preview reveal reveal-media">
+      <div class="hc-wizard-preview hc-hifi-stack reveal reveal-media">
       <figure class="hc-wizard-shot">
         <div class="hc-wizard-shot__frame">
           <img src="Select Survey Type.png" alt="Create survey dialog offering manual build or starting from a predefined HVB or LSS template." width="1751" height="1117" loading="lazy" decoding="async">
@@ -443,7 +429,7 @@
       <details class="mob-screens-collapsed reveal reveal-media">
       <summary>See all 8 screens</summary>
     <div class="screens-section">
-    <div class="hc-wizard-gallery">
+    <div class="hc-wizard-gallery hc-hifi-stack">
       <figure class="hc-wizard-shot">
         <div class="hc-wizard-shot__frame">
           <img src="Survey Builder.png" alt="Surveys section showing HVB and LSS survey templates organised by type in the healthcare platform sidebar." width="1751" height="1117" loading="lazy" decoding="async">
@@ -517,7 +503,6 @@
       </tbody>
     </table>
       <p>In testing, most participants missed the Select All button: it had low contrast and sat in the wrong place, so they selected districts one by one. I moved it, made it stand out and added a counter. All 5 participants found it straight away.</p>
-      <p class="aside-note aside-note--bubble aside-note--bubble-shape-4 cs-aside aside-note--bubble-prefer-right"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"/><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"/><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"/><path d="m2 2 20 20"/></svg></span><span class="aside-note__bubble-text">A button nobody can see is a very quiet button.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="cs-arrow-hc-button" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#cs-arrow-hc-button)"/><path d="M40 11 L34 8" stroke="url(#cs-arrow-hc-button)"/><path d="M40 11 L34 14" stroke="url(#cs-arrow-hc-button)"/></svg></span></span></span></p>
     </div>
 
     <div class="cs-v2-decision">
@@ -531,7 +516,7 @@
         <tr><td><strong style="color:#B91C1C;">Critical</strong></td><td>Below the acceptable level.</td><td>Needs action now.</td></tr>
       </tbody>
     </table>
-      <div class="hc-wizard-gallery reveal reveal-media">
+      <div class="hc-wizard-gallery hc-hifi-stack reveal reveal-media">
 <figure class="hc-wizard-shot">
         <div class="hc-wizard-shot__frame">
           <img src="Dashboard.png" alt="Traffic-light scoring dashboard with municipality performance color-coded green, amber, and red for instant status reading." width="1751" height="1117" loading="lazy" decoding="async">
@@ -563,12 +548,6 @@
       <p>"Now I can actually see what I've selected. Before I was never sure if I'd got everyone."</p>
       <cite>— Healthcare administrator, usability testing</cite>
     </div>
-    <div class="hc-discover-fullbleed-wrap wide reveal reveal-media">
-      <figure class="hc-discover-fullbleed">
-        <img src="monitors.png" alt="Healthcare Provider Survey Management platform shown on two laptop screens — sign-in and survey sent confirmation views." width="1451" height="482" loading="lazy" decoding="async" sizes="100vw">
-      </figure>
-    </div>
-    <p class="cs-match-img screen-caption cs-caption">Healthcare Provider Survey Management platform on two laptop screens.</p>
   </section>
   <section class="section fade-in reveal cs-v2-phase" id="reflection">
     <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg><span class="cs-v2-phase-label">Reflection</span></div>
