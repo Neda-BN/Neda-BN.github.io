@@ -1,342 +1,22 @@
-/* POS v2 pilot — body.cs-v2 only (pos-app.html) */
+/* POS pilot — scoped under body.cs-v2 only (pos-app.html) */
 
 body.cs-v2 {
-  --content-w: 920px;
   --fs-large: clamp(26px, 2.6vw, 32px);
   --fs-body: 17px;
   --lh-large: 1.25;
   --lh-body: 1.7;
-  /* Measured: vertical gap above first Before/After image in a decision block (1440/1024/375) */
-  --space-block: 20px;
-  --space-phase: calc(var(--space-block) * 2);
-  --space-text: 16px;
-  --pad-frame: 32px;
-  --gap-frame: 20px;
-  --caption-gap: 12px;
+  --cs-v2-phase-gap: 80px;
+  --cs-v2-col: 720px;
 }
 
 @media (max-width: 767px) {
   body.cs-v2 {
     --fs-body: 16px;
-    --pad-frame: 24px;
+    --cs-v2-phase-gap: 56px;
   }
 }
 
-/* ── One content width ── */
-body.cs-v2 .hero,
-body.cs-v2 .hero-image,
-body.cs-v2 .content.case-main.cs-v2-study {
-  width: min(var(--content-w), calc(100% - 48px));
-  max-width: none !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  box-sizing: border-box;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-@media (max-width: 960px) {
-  body.cs-v2 .hero,
-  body.cs-v2 .hero-image,
-  body.cs-v2 .content.case-main.cs-v2-study {
-    width: calc(100% - 48px);
-  }
-}
-
-@media (max-width: 480px) {
-  body.cs-v2 .hero,
-  body.cs-v2 .hero-image,
-  body.cs-v2 .content.case-main.cs-v2-study {
-    width: calc(100% - 32px);
-  }
-}
-
-body.cs-v2 .cs-v2-study *,
-body.cs-v2 .hero,
-body.cs-v2 .hero-image,
-body.cs-v2 .pos-summary-shell {
-  max-width: 100%;
-}
-
-body.cs-v2 .cs-v2-study p,
-body.cs-v2 .cs-v2-study .cs-v2-list,
-body.cs-v2 .cs-platform-note,
-body.cs-v2 .cs-v2-study .cs-v2-quote {
-  max-width: none !important;
-}
-
-/* At a glance + platform note: full content column (same edges as Before/After strip) */
-body.cs-v2 .pos-summary-shell.sb-case {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin-inline: 0 !important;
-  padding: 0 !important;
-}
-
-body.cs-v2 .pos-summary-shell .sb-wrap {
-  max-width: none !important;
-  width: 100% !important;
-  margin-inline: 0 !important;
-  padding-inline: 0 !important;
-}
-
-body.cs-v2 .pos-summary-shell .sb-tldr.cs-summary.sb-glance {
-  max-width: none !important;
-  width: 100% !important;
-  margin-inline: 0 !important;
-}
-
-body.cs-v2 .pos-summary-shell .cs-platform-note {
-  max-width: none !important;
-  width: 100% !important;
-  margin-inline: 0 !important;
-}
-
-body.cs-v2 .cs-v2-study .wide {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  transform: none !important;
-}
-
-body.cs-v2 .cs-v2-study .pos-ujm-strip,
-body.cs-v2 .cs-v2-study .pos-transformation-strip,
-body.cs-v2 .cs-v2-study .screens-section,
-body.cs-v2 .cs-v2-study .proto-embed,
-body.cs-v2 .cs-v2-study .ds-sheet-figure,
-body.cs-v2 .cs-v2-study .cs-v2-media-block {
-  width: 100%;
-  max-width: 100%;
-  margin-left: 0;
-  margin-right: 0;
-}
-
-/* ── Spacing reset (case study only) ── */
-body.cs-v2 .cs-v2-study .screens-section,
-body.cs-v2 .cs-v2-study .screens-grid,
-body.cs-v2 .cs-v2-study .screen-item,
-body.cs-v2 .cs-v2-study .screen-wrap,
-body.cs-v2 .cs-v2-study figure,
-body.cs-v2 .cs-v2-study .pos-transformation-figure,
-body.cs-v2 .cs-v2-study .pos-transformation-strip,
-body.cs-v2 .cs-v2-study .ds-sheet-figure,
-body.cs-v2 .cs-v2-study .proto-embed,
-body.cs-v2 .cs-v2-study .proto-frame,
-body.cs-v2 .cs-v2-study .cs-v2-results-grid,
-body.cs-v2 .cs-v2-study .cs-v2-quote,
-body.cs-v2 .cs-v2-study .cs-v2-media-block,
-body.cs-v2 .cs-v2-study .cs-v2-journey-frame,
-body.cs-v2 .hero-image .screen-caption {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-body.cs-v2 .cs-v2-study .screen-caption,
-body.cs-v2 .cs-v2-study figcaption.cs-caption {
-  margin-top: var(--caption-gap);
-}
-
-/* Phase separators */
-body.cs-v2 .cs-v2-study .cs-v2-phase + .cs-v2-phase {
-  border-top: 1px solid var(--frame-line);
-  margin-top: var(--space-phase);
-  padding-top: var(--space-phase);
-}
-
-body.cs-v2 .cs-v2-phase--overview {
-  border-top: none;
-  margin-top: 0;
-  padding-top: 0;
-}
-
-/* Block stack inside phases */
-body.cs-v2 .cs-v2-phase > * {
-  margin-block: 0;
-}
-
-body.cs-v2 .cs-v2-phase > * + * {
-  margin-top: var(--space-block);
-}
-
-body.cs-v2 .cs-v2-phase > p + p,
-body.cs-v2 .cs-v2-phase > .cs-v2-heading + p,
-body.cs-v2 .cs-v2-phase > .cs-v2-subtitle + p,
-body.cs-v2 .cs-v2-phase > ul + p,
-body.cs-v2 .cs-v2-phase > p + ul,
-body.cs-v2 .cs-v2-phase > .cs-v2-list li + li {
-  margin-top: var(--space-text) !important;
-}
-
-body.cs-v2 .cs-v2-phase > .cs-v2-phase-label-row + .cs-v2-heading,
-body.cs-v2 .cs-v2-phase > .cs-v2-phase-label-row + .sb-case,
-body.cs-v2 .cs-v2-phase > .cs-v2-phase-label-row + .cs-v2-frame {
-  margin-top: var(--space-block);
-}
-
-/* ── Frames ── */
-body.cs-v2 .sb-tldr.cs-summary,
-body.cs-v2 .cs-question.sb-question-frame,
-body.cs-v2 .cs-v2-study .cs-turning,
-body.cs-v2 .cs-v2-study .cs-v2-decision,
-body.cs-v2 .cs-v2-study .cs-v2-frame {
-  padding-block: var(--pad-frame) !important;
-  padding-inline: 0 !important;
-  box-sizing: border-box;
-}
-
-body.cs-v2 .pos-summary-shell .sb-wrap,
-body.cs-v2 .cs-question.sb-question-frame > *,
-body.cs-v2 .cs-v2-study .cs-turning__column > *,
-body.cs-v2 .cs-v2-decision > :not(.screens-section):not(.pos-transformation-strip),
-body.cs-v2 .cs-v2-results-frame > :not(.cs-v2-media-block),
-body.cs-v2 .proto-embed.cs-v2-frame > .proto-actions {
-  padding-inline: var(--pad-frame);
-  box-sizing: border-box;
-}
-
-body.cs-v2 .cs-v2-decision .screens-section,
-body.cs-v2 .cs-v2-decision .pos-transformation-strip,
-body.cs-v2 .cs-v2-journey-frame,
-body.cs-v2 .cs-v2-media-block,
-body.cs-v2 .cs-v2-frame .ds-sheet-figure,
-body.cs-v2 .proto-embed.cs-v2-frame > .proto-frame {
-  width: 100%;
-  max-width: 100%;
-  margin-inline: 0;
-  padding-inline: 0;
-}
-
-body.cs-v2 .cs-v2-journey-frame {
-  padding-block: var(--pad-frame) !important;
-  padding-inline: 0 !important;
-}
-
-body.cs-v2 .cs-v2-study .cs-v2-decision,
-body.cs-v2 .cs-v2-study .cs-v2-frame:not(.cs-v2-journey-frame),
-body.cs-v2 .cs-v2-study .cs-turning__column {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap-frame);
-}
-
-body.cs-v2 .cs-v2-study .cs-v2-frame > * {
-  margin: 0 !important;
-}
-
-body.cs-v2 .cs-v2-study .cs-v2-frame > .cs-v2-heading + p,
-body.cs-v2 .cs-v2-study .cs-v2-decision > p + p,
-body.cs-v2 .cs-v2-study .cs-v2-decision > .cs-v2-decision__title + p {
-  margin-top: 0 !important;
-}
-
-body.cs-v2 .cs-v2-study .cs-v2-decision {
-  background: rgba(243, 241, 236, 0.03);
-  border: 1px solid var(--frame-line);
-  border-radius: 12px;
-}
-
-body.cs-v2 .cs-v2-study .cs-v2-decision + .cs-v2-decision {
-  margin-top: var(--space-block);
-}
-
-body.cs-v2 .cs-v2-study .pos-transformation-strip {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap-frame);
-  padding: 0;
-}
-
-body.cs-v2 .cs-v2-study .cs-v2-results-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: var(--gap-frame);
-}
-
-@media (max-width: 767px) {
-  body.cs-v2 .cs-v2-study .cs-v2-results-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-body.cs-v2 .cs-v2-study .cs-v2-result-num {
-  margin: 0 0 6px;
-}
-
-body.cs-v2 .cs-v2-study .section {
-  margin-bottom: 0 !important;
-}
-
-/* ── User journey: restore pre–cs-v2 typography (case-study.css values) ── */
-body.case-study-page.cs-v2 .pos-ujm-title {
-  font-family: var(--font-body) !important;
-  font-size: clamp(18px, 2.5vw, 22px) !important;
-  font-weight: 700 !important;
-  color: var(--text) !important;
-  letter-spacing: -0.3px !important;
-  line-height: 1.2 !important;
-}
-
-body.case-study-page.cs-v2 .pos-ujm-subtitle {
-  font-family: var(--font-body) !important;
-  font-size: 13px !important;
-  color: var(--muted) !important;
-  font-weight: 400 !important;
-  line-height: normal !important;
-}
-
-body.case-study-page.cs-v2 .pos-ujm-persona-name {
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  color: var(--text) !important;
-}
-
-body.case-study-page.cs-v2 .pos-ujm-persona-role {
-  font-size: 11px !important;
-  color: var(--accent) !important;
-  font-weight: 400 !important;
-}
-
-body.case-study-page.cs-v2 .pos-ujm-persona-avatar {
-  font-size: 15px !important;
-  font-weight: 700 !important;
-}
-
-body.case-study-page.cs-v2 .pos-ujm-legend-item {
-  font-size: 12px !important;
-  color: var(--muted) !important;
-  line-height: normal !important;
-}
-
-body.case-study-page.cs-v2 .pos-ujm-step-cell {
-  font-size: clamp(8px, 1.5vw, 12px) !important;
-  font-weight: 600 !important;
-  color: var(--muted) !important;
-  line-height: 1.25 !important;
-}
-
-body.case-study-page.cs-v2 .pos-ujm-label-box {
-  font-size: clamp(9px, 1.05vw, 11.5px) !important;
-  font-weight: 600 !important;
-  line-height: 1.35 !important;
-  color: var(--muted) !important;
-}
-
-body.cs-v2 .cs-v2-journey-frame {
-  border: 1px solid var(--frame-line);
-  border-radius: 12px;
-  background: rgba(243, 241, 236, 0.03);
-  box-sizing: border-box;
-}
-
-body.cs-v2 .cs-v2-journey-frame .screens-section {
-  margin: 0;
-  padding: 0;
-  border: none;
-  background: transparent;
-}
-
-/* ── Typography (two sizes; not .pos-ujm) ── */
+/* Typography reset inside case study (not nav / footer / more) */
 body.cs-v2 .hero,
 body.cs-v2 .hero-image,
 body.cs-v2 .sb-case.pos-summary-shell,
@@ -376,6 +56,7 @@ body.cs-v2 .cs-v2-study .screen-caption,
 body.cs-v2 .cs-v2-study .cs-caption,
 body.cs-v2 .cs-v2-study .cs-v2-decision__title,
 body.cs-v2 .cs-v2-study .cs-v2-result-label,
+body.cs-v2 .cs-v2-study .cs-v2-list strong,
 body.cs-v2 .cs-v2-study .cs-turning__prose p,
 body.cs-v2 .cs-v2-study .cs-turning__shift-label,
 body.cs-v2 .cs-v2-study .cs-turning__shift-text,
@@ -383,7 +64,15 @@ body.cs-v2 .cs-v2-study .cs-question__lead,
 body.cs-v2 .cs-v2-study .cs-label,
 body.cs-v2 .cs-v2-study .proto-poster-t,
 body.cs-v2 .cs-v2-study .proto-poster-h,
-body.cs-v2 .cs-v2-study .proto-note {
+body.cs-v2 .cs-v2-study .proto-note,
+body.cs-v2 .cs-v2-study table,
+body.cs-v2 .cs-v2-study .pos-ujm-title,
+body.cs-v2 .cs-v2-study .pos-ujm-subtitle,
+body.cs-v2 .cs-v2-study .pos-ujm-persona-name,
+body.cs-v2 .cs-v2-study .pos-ujm-persona-role,
+body.cs-v2 .cs-v2-study .pos-ujm-label-box,
+body.cs-v2 .cs-v2-study .pos-ujm-step-cell,
+body.cs-v2 .cs-v2-study .pos-ujm-legend-item {
   font-family: "Poppins", sans-serif !important;
   font-size: var(--fs-body) !important;
   line-height: var(--lh-body) !important;
@@ -397,15 +86,20 @@ body.cs-v2 .pos-summary-shell .sb-glance__statement {
 }
 
 body.cs-v2 .cs-v2-study p,
+body.cs-v2 .cs-v2-study .cs-v2-body,
 body.cs-v2 .cs-v2-study p.reveal {
   font-weight: 400;
   color: var(--body);
+  max-width: var(--cs-v2-col);
+  font-size: var(--fs-body) !important;
+  line-height: var(--lh-body) !important;
 }
 
 body.cs-v2 .cs-v2-study .cs-v2-meta,
-body.cs-v2 .cs-v2-study cite,
 body.cs-v2 .cs-v2-study .screen-caption,
-body.cs-v2 .cs-v2-study .cs-caption {
+body.cs-v2 .cs-v2-study .cs-caption,
+body.cs-v2 .cs-v2-study cite,
+body.cs-v2 .cs-v2-study .cs-v2-findings li span.cs-v2-meta {
   color: var(--meta);
   font-weight: 400;
 }
@@ -427,20 +121,22 @@ body.cs-v2 .cs-v2-study .cs-v2-result-num {
   color: var(--yellow) !important;
 }
 
+body.cs-v2 .cs-v2-study a:not(.back-btn):not(.anna-nav a):not(.footer-built__link):not(.footer-social a) {
+  color: var(--blue);
+}
+
 body.cs-v2 .cs-v2-study .cs-v2-reflect-yellow {
   font-weight: 600;
   color: var(--yellow);
 }
 
-body.cs-v2 .cs-v2-study a:not(.back-btn):not(.anna-nav a):not(.footer-built__link):not(.footer-social a) {
-  color: var(--blue);
-}
-
+/* Hide old section chrome */
 body.cs-v2 .cs-v2-study .section-header,
 body.cs-v2 .cs-v2-study .section-icon,
 body.cs-v2 .cs-v2-study .cs-sec-eyebrow,
 body.cs-v2 .cs-v2-study .divider,
-body.cs-v2 .cs-v2-study .cs-turning__eyebrow {
+body.cs-v2 .cs-v2-study .cs-turning__eyebrow,
+body.cs-v2 .cs-v2-study .cs-turning .cs-sec-eyebrow {
   display: none !important;
 }
 
@@ -448,10 +144,18 @@ body.cs-v2 .cs-v2-study .section-chapter {
   margin-top: 0 !important;
 }
 
+/* Phase layout */
+body.cs-v2 .cs-v2-study .cs-v2-phase + .cs-v2-phase {
+  border-top: 1px solid var(--frame-line);
+  margin-top: var(--cs-v2-phase-gap);
+  padding-top: var(--cs-v2-phase-gap);
+}
+
 body.cs-v2 .cs-v2-study .cs-v2-phase-label-row {
   display: flex;
   align-items: center;
   gap: 10px;
+  margin: 0 0 20px;
 }
 
 body.cs-v2 .cs-v2-study .cs-v2-phase-label-row svg {
@@ -461,15 +165,24 @@ body.cs-v2 .cs-v2-study .cs-v2-phase-label-row svg {
   stroke: var(--yellow);
 }
 
-body.cs-v2 .cs-v2-study .cs-v2-heading,
-body.cs-v2 .cs-v2-study h2.section-chapter {
-  margin: 0;
+body.cs-v2 .cs-v2-study .cs-v2-heading {
+  margin: 0 0 20px;
+}
+
+body.cs-v2 .cs-v2-study .cs-v2-subtitle {
+  margin: 24px 0 12px;
+}
+
+body.cs-v2 .cs-v2-study p + p,
+body.cs-v2 .cs-v2-study .cs-v2-list li + li {
+  margin-top: 16px;
 }
 
 body.cs-v2 .cs-v2-study .cs-v2-list {
   list-style: none;
   margin: 0;
   padding: 0;
+  max-width: var(--cs-v2-col);
 }
 
 body.cs-v2 .cs-v2-study .cs-v2-list li {
@@ -492,8 +205,37 @@ body.cs-v2 .cs-v2-study .cs-v2-findings li::before {
   content: none;
 }
 
+body.cs-v2 .cs-v2-study .cs-v2-findings li + li {
+  margin-top: 16px;
+}
+
+/* Decision frames */
+body.cs-v2 .cs-v2-study .cs-v2-decision {
+  margin-top: 32px;
+  padding: 28px 32px;
+  background: rgba(243, 241, 236, 0.03);
+  border: 1px solid var(--frame-line);
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+body.cs-v2 .cs-v2-study .cs-v2-decision__title {
+  margin: 0 0 16px;
+}
+
+body.cs-v2 .cs-v2-study .cs-v2-decision .screens-section,
+body.cs-v2 .cs-v2-study .cs-v2-decision .pos-transformation-strip {
+  margin-top: 24px;
+  max-width: none;
+}
+
+/* Turning aha in large type */
+body.cs-v2 .cs-v2-study .cs-turning__callout-block {
+  margin: 24px 0;
+}
+
 body.cs-v2 .cs-v2-study .cs-v2-aha-text {
-  margin: 0;
+  margin: 8px 0 0;
 }
 
 body.cs-v2 .cs-v2-study .cs-turning__callout-label {
@@ -502,16 +244,62 @@ body.cs-v2 .cs-v2-study .cs-turning__callout-label {
   color: var(--yellow);
 }
 
+/* Results grid */
+body.cs-v2 .cs-v2-study .cs-v2-results-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px 20px;
+  margin: 24px 0;
+  max-width: none;
+}
+
+@media (max-width: 767px) {
+  body.cs-v2 .cs-v2-study .cs-v2-results-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+body.cs-v2 .cs-v2-study .cs-v2-result-num {
+  margin: 0 0 6px;
+  white-space: nowrap;
+}
+
+body.cs-v2 .cs-v2-study .cs-v2-quote {
+  margin: 24px 0;
+  max-width: var(--cs-v2-col);
+}
+
 body.cs-v2 .cs-v2-study .cs-v2-quote .cs-quote__icon {
   display: none;
+}
+
+/* Overview phase — summary full width */
+body.cs-v2 .cs-v2-phase--overview {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+body.cs-v2 .cs-v2-phase--overview .cs-v2-phase-label-row {
+  margin-bottom: 24px;
 }
 
 body.cs-v2 .pos-summary-shell {
   margin-bottom: 0;
 }
 
-body.cs-v2 .pos-summary-shell .sb-tldr.cs-summary.sb-glance {
-  margin-top: 0 !important;
+body.cs-v2 .cs-platform-note {
+  max-width: var(--cs-v2-col);
+}
+
+/* Wide media escapes text column only for layout wrappers */
+body.cs-v2 .cs-v2-study .wide,
+body.cs-v2 .cs-v2-study .pos-ujm-strip,
+body.cs-v2 .cs-v2-study .pos-transformation-strip,
+body.cs-v2 .cs-v2-study .screens-section,
+body.cs-v2 .cs-v2-study .proto-embed,
+body.cs-v2 .cs-v2-study .ds-sheet-figure {
+  max-width: none;
 }
 
 body.cs-v2 .hero-tag,
@@ -533,21 +321,95 @@ body.cs-v2 .hero-subtitle {
   color: var(--body);
 }
 
+body.cs-v2 .cs-v2-study .screens-label,
+body.cs-v2 .pos-summary-shell .sb-glance__body,
+body.cs-v2 .pos-summary-shell .sb-glance__result-sub,
+body.cs-v2 .pos-summary-shell .sb-glance__result-line,
+body.cs-v2 .pos-summary-shell .sb-glance__result-meta,
+body.cs-v2 .pos-summary-shell .sb-glance__list,
+body.cs-v2 .pos-summary-shell .cs-summary-jump__link,
+body.cs-v2 .cs-v2-study .ds-sheet-figure figcaption,
+body.cs-v2 .cs-v2-study .cs-turning__callout,
+body.cs-v2 .cs-v2-study .cs-turning__callout-accent {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-body) !important;
+  line-height: var(--lh-body) !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+body.cs-v2 .cs-v2-study .pos-ujm *,
+body.cs-v2 .cs-v2-study .pos-ujm-label-box {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-body) !important;
+  line-height: var(--lh-body) !important;
+}
+
+body.cs-v2 .cs-v2-study .cs-turning {
+  max-width: none;
+}
+
+body.cs-v2 .cs-v2-study .cs-v2-quote p {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+body.cs-v2 .cs-v2-study h2.section-chapter,
+body.cs-v2 .cs-v2-study .cs-turning h2.section-chapter,
+body.case-study-page.cs-v2 .cs-v2-study .cs-turning h2#turning-point {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-large) !important;
+  line-height: var(--lh-large) !important;
+  font-weight: 600 !important;
+  color: var(--ink) !important;
+  letter-spacing: -0.02em !important;
+}
+
+body.cs-v2 .cs-v2-study .cs-sec-num {
+  display: none !important;
+}
+
+body.cs-v2 .hero-image .screen-caption,
+body.cs-v2 .cs-v2-study .screen-caption,
+body.cs-v2 .cs-v2-study figcaption.cs-caption {
+  font-size: var(--fs-body) !important;
+}
+
+body.cs-v2 .cs-v2-study .proto-poster,
+body.cs-v2 .cs-v2-study .proto-link {
+  font-size: var(--fs-body) !important;
+}
+
 body.cs-v2 .cs-v2-study .aside-note__bubble-text {
   font-size: var(--fs-body) !important;
   line-height: var(--lh-body) !important;
 }
 
-/* Two-size enforcement vs shared case-study CSS */
-body.cs-v2 .hero :is(p, li, a, cite, figcaption, button, .meta-label, .meta-value, .hero-tag, .hero-subtitle),
+body.cs-v2 .cs-v2-study .cs-v2-subtitle {
+  font-size: var(--fs-body) !important;
+}
+
+body.cs-v2 .cs-v2-study figcaption,
+body.cs-v2 .cs-v2-study .cs-v2-quote cite {
+  font-size: var(--fs-body) !important;
+  line-height: var(--lh-body) !important;
+  color: var(--meta);
+}
+
+/* Final two-size enforcement (overrides page inline + cs-design on this page only) */
+body.cs-v2 .hero :is(
+    p, li, a, cite, figcaption, button, .meta-label, .meta-value, .hero-tag, .hero-subtitle
+  ),
 body.cs-v2 .hero-image :is(p, .screen-caption),
 body.cs-v2 .cs-v2-study :is(
     p, li, a, cite, figcaption, button, span, .cs-v2-subtitle, .cs-v2-decision__title,
     .cs-label, .cs-question__lead, .cs-turning__shift-label, .cs-turning__shift-text,
     .cs-turning__callout-label, .screen-caption, .cs-caption, .proto-poster-t, .proto-poster-h,
-    .proto-link, .proto-note, .aside-note__bubble-text, .cs-v2-result-label, .sb-label,
-    .sb-glance__body, .sb-glance__result-sub, .sb-glance__result-line, .sb-glance__result-meta,
-    .sb-glance__list, .cs-summary-jump__link, .cs-platform-note, .cs-v2-quote p
+    .proto-link, .proto-note, .aside-note__bubble-text, .pos-ujm-title, .pos-ujm-subtitle,
+    .pos-ujm-persona-name, .pos-ujm-persona-role, .pos-ujm-legend-item, .pos-ujm-step-cell,
+    .pos-ujm-label-box, .cs-v2-result-label, .sb-label, .sb-glance__body, .sb-glance__result-sub,
+    .sb-glance__result-line, .sb-glance__result-meta, .sb-glance__list, .cs-summary-jump__link,
+    .cs-platform-note, .cs-v2-quote p
   ) {
   font-family: "Poppins", sans-serif !important;
   font-size: var(--fs-body) !important;
@@ -558,7 +420,9 @@ body.cs-v2 .cs-v2-study :is(
 }
 
 body.cs-v2 .hero h1,
-body.cs-v2 .cs-v2-study :is(h2.cs-v2-heading, h2.section-chapter, .cs-v2-aha-text, .cs-question__q, .cs-v2-result-num),
+body.cs-v2 .cs-v2-study :is(
+    h2.cs-v2-heading, h2.section-chapter, .cs-v2-aha-text, .cs-question__q, .cs-v2-result-num
+  ),
 body.cs-v2 .pos-summary-shell .sb-glance__pct {
   font-family: "Poppins", sans-serif !important;
   font-size: var(--fs-large) !important;
@@ -571,13 +435,65 @@ body.cs-v2 .pos-summary-shell .sb-glance__pct {
   text-overflow: unset !important;
 }
 
+body.cs-v2 .cs-v2-study .cs-v2-result-num {
+  color: var(--yellow) !important;
+}
+
 body.cs-v2 .cs-v2-study .cs-v2-quote p {
   font-weight: 600 !important;
   color: var(--ink) !important;
 }
 
+/* ── Match Before/After image track (same as .case-study-page .wide) ── */
+body.case-study-page.cs-v2 .cs-match-img {
+  --cs-wide-track: min(1200px, calc(100vw - 64px));
+  width: var(--cs-wide-track);
+  max-width: var(--cs-wide-track) !important;
+  margin-left: calc((100% - var(--cs-wide-track)) / 2);
+  margin-right: 0;
+  position: static;
+  left: auto;
+  transform: none;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+body.case-study-page.cs-v2 p.cs-match-img,
+body.case-study-page.cs-v2 ul.cs-match-img,
+body.case-study-page.cs-v2 h2.cs-match-img,
+body.case-study-page.cs-v2 .cs-match-img.cs-v2-results-grid,
+body.case-study-page.cs-v2 .cs-match-img.cs-v2-quote,
+body.case-study-page.cs-v2 .cs-match-img.cs-v2-phase-label-row {
+  display: block;
+}
+
+body.case-study-page.cs-v2 .cs-match-img.cs-v2-phase-label-row {
+  display: flex;
+}
+
+body.case-study-page.cs-v2 .content.case-main.cs-v2-study > .section > p.cs-match-img:not(.section-subtitle):not(.hc-results-impact-lede):not(.cs-caption):not(.cs-aside):not(.cs-callout):not(.cs-structure__title):not(.cs-structure__line),
+body.case-study-page.cs-v2 .content.case-main.cs-v2-study section p.cs-match-img:not(.cs-turning__eyebrow):not(.hero-subtitle):not(.cs-turning__callout-label),
+body.case-study-page.cs-v2 .content.case-main.cs-v2-study > .section > h2.cs-match-img,
+body.case-study-page.cs-v2 .content.case-main.cs-v2-study > .section > ul.cs-match-img,
+body.case-study-page.cs-v2 .content.case-main.cs-v2-study .cs-v2-decision.cs-match-img > p.cs-match-img:first-of-type,
+body.case-study-page.cs-v2 .content.case-main.cs-v2-study .cs-v2-decision.cs-match-img > p:not(.cs-v2-decision__title) {
+  width: var(--cs-wide-track) !important;
+  max-width: var(--cs-wide-track) !important;
+  margin-left: calc((100% - var(--cs-wide-track)) / 2) !important;
+  margin-right: 0 !important;
+}
+
+body.case-study-page.cs-v2 .cs-match-img.cs-v2-quote,
+body.case-study-page.cs-v2 .cs-match-img.cs-v2-results-grid {
+  width: var(--cs-wide-track) !important;
+  max-width: var(--cs-wide-track) !important;
+  margin-left: calc((100% - var(--cs-wide-track)) / 2) !important;
+  margin-right: 0 !important;
+}
+
 body.case-study-page.cs-v2 .content.case-main > .section > p:not(.section-subtitle):not(.hc-results-impact-lede):not(.cs-caption):not(.cs-aside):not(.cs-callout):not(.cs-structure__title):not(.cs-structure__line),
 body.case-study-page.cs-design-page.cs-v2 .content.case-main.sb-case.cs-v2-study section p:not(.cs-turning__eyebrow):not(.hero-subtitle):not(.cs-turning__callout-label),
+body.case-study-page.cs-v2 .content.case-main.cs-v2-study section > p:not(.cs-turning__eyebrow):not(.hero-subtitle),
 body.cs-design-page.cs-v2 .content.case-main section > p:not(.cs-turning__eyebrow):not(.hero-subtitle) {
   font-family: "Poppins", sans-serif !important;
   font-size: 17px !important;
@@ -585,7 +501,7 @@ body.cs-design-page.cs-v2 .content.case-main section > p:not(.cs-turning__eyebro
   line-height: 1.7 !important;
   letter-spacing: 0 !important;
   color: var(--body) !important;
-  max-width: none !important;
+  max-width: var(--cs-v2-col) !important;
 }
 
 @media (max-width: 767px) {
@@ -614,26 +530,20 @@ body.case-study-page.cs-v2 .cs-v2-study cite {
 }
 
 body.case-study-page.cs-v2 .content.case-main.cs-v2-study .section-chapter,
-body.case-study-page.cs-v2 .content.case-main.cs-v2-study .cs-turning h2.section-chapter,
-body.case-study-page.cs-v2 .hero h1 {
+body.case-study-page.cs-v2 .content.case-main.cs-v2-study .cs-turning h2.section-chapter {
   font-family: "Poppins", sans-serif !important;
   font-size: var(--fs-large) !important;
   line-height: var(--lh-large) !important;
   font-weight: 600 !important;
   color: var(--ink) !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
 }
 
-body.case-study-page.cs-v2 .hero,
-body.case-study-page.cs-v2 .hero-image,
-body.case-study-page.cs-v2 .meta-strip {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  max-width: 100% !important;
-}
-
-body.case-study-page.cs-v2 .hero h1,
-body.case-study-page.cs-v2 .hero-subtitle,
-body.case-study-page.cs-v2 .meta-strip {
-  width: 100%;
-  max-width: 100% !important;
+body.case-study-page.cs-v2 .hero h1 {
+  font-size: var(--fs-large) !important;
+  line-height: var(--lh-large) !important;
+  font-weight: 600 !important;
+  font-family: "Poppins", sans-serif !important;
 }
