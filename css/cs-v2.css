@@ -6,8 +6,8 @@ body.cs-v2 {
   --fs-body: 17px;
   --lh-large: 1.25;
   --lh-body: 1.7;
-  /* STEP B — measured Before/After gap (gallery bottom → first BA image top) = 24px */
-  --space-block: 24px;
+  /* Measured: vertical gap above first Before/After image in a decision block (1440/1024/375) */
+  --space-block: 20px;
   --space-phase: calc(var(--space-block) * 2);
   --space-text: 16px;
   --pad-frame: 32px;
@@ -63,6 +63,33 @@ body.cs-v2 .cs-v2-study .cs-v2-list,
 body.cs-v2 .cs-platform-note,
 body.cs-v2 .cs-v2-study .cs-v2-quote {
   max-width: none !important;
+}
+
+/* At a glance + platform note: full content column (same edges as Before/After strip) */
+body.cs-v2 .pos-summary-shell.sb-case {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-inline: 0 !important;
+  padding: 0 !important;
+}
+
+body.cs-v2 .pos-summary-shell .sb-wrap {
+  max-width: none !important;
+  width: 100% !important;
+  margin-inline: 0 !important;
+  padding-inline: 0 !important;
+}
+
+body.cs-v2 .pos-summary-shell .sb-tldr.cs-summary.sb-glance {
+  max-width: none !important;
+  width: 100% !important;
+  margin-inline: 0 !important;
+}
+
+body.cs-v2 .pos-summary-shell .cs-platform-note {
+  max-width: none !important;
+  width: 100% !important;
+  margin-inline: 0 !important;
 }
 
 body.cs-v2 .cs-v2-study .wide {
@@ -481,6 +508,10 @@ body.cs-v2 .cs-v2-study .cs-v2-quote .cs-quote__icon {
 
 body.cs-v2 .pos-summary-shell {
   margin-bottom: 0;
+}
+
+body.cs-v2 .pos-summary-shell .sb-tldr.cs-summary.sb-glance {
+  margin-top: 0 !important;
 }
 
 body.cs-v2 .hero-tag,
