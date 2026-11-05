@@ -7,6 +7,8 @@ body.cs-v2 {
   --lh-body: 1.7;
   --cs-v2-phase-gap: 80px;
   --cs-v2-col: 720px;
+  --space-text: 16px;
+  --space-block: 24px;
 }
 
 @media (max-width: 767px) {
@@ -93,6 +95,16 @@ body.cs-v2 .cs-v2-study p.reveal {
   max-width: var(--cs-v2-col);
   font-size: var(--fs-body) !important;
   line-height: var(--lh-body) !important;
+}
+
+body.cs-v2 .cs-v2-study .cs-match-img.cs-turning p,
+body.cs-v2 .cs-v2-study .cs-match-img.sb-glance p,
+body.cs-v2 .cs-v2-study .cs-v2-decision > p {
+  max-width: none !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .cs-v2-heading + .cs-v2-decision {
+  margin-top: var(--space-block);
 }
 
 body.cs-v2 .cs-v2-study .cs-v2-meta,
@@ -209,23 +221,42 @@ body.cs-v2 .cs-v2-study .cs-v2-findings li + li {
   margin-top: 16px;
 }
 
-/* Decision frames */
-body.cs-v2 .cs-v2-study .cs-v2-decision {
-  margin-top: 32px;
-  padding: 28px 32px;
-  background: rgba(243, 241, 236, 0.03);
-  border: 1px solid var(--frame-line);
-  border-radius: 12px;
+/* Decisions — frameless, content-track aligned */
+body.case-study-page.cs-v2 .cs-v2-study .cs-v2-decision {
+  --cs-wide-track: min(1200px, calc(100vw - 64px));
+  width: var(--cs-wide-track);
+  max-width: var(--cs-wide-track);
+  margin-left: calc((100% - var(--cs-wide-track)) / 2);
+  margin-right: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
   box-sizing: border-box;
 }
 
+body.cs-v2 .cs-v2-study .cs-v2-decision {
+  margin-top: 0;
+}
+
+body.cs-v2 .cs-v2-study .cs-v2-decision + .cs-v2-decision {
+  margin-top: calc(var(--space-block) * 1.5);
+}
+
 body.cs-v2 .cs-v2-study .cs-v2-decision__title {
-  margin: 0 0 16px;
+  margin: 0 0 var(--space-text);
+  font-weight: 600 !important;
+  color: var(--ink) !important;
+}
+
+body.cs-v2 .cs-v2-study .cs-v2-decision > p:not(.cs-v2-decision__title) {
+  margin: 0 0 var(--space-block);
+  max-width: none !important;
 }
 
 body.cs-v2 .cs-v2-study .cs-v2-decision .screens-section,
 body.cs-v2 .cs-v2-study .cs-v2-decision .pos-transformation-strip {
-  margin-top: 24px;
+  margin-top: var(--space-block);
   max-width: none;
 }
 
@@ -248,20 +279,32 @@ body.cs-v2 .cs-v2-study .cs-turning__callout-label {
 body.cs-v2 .cs-v2-study .cs-v2-results-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 24px 20px;
-  margin: 24px 0;
+  gap: 24px;
+  margin: var(--space-block) 0;
   max-width: none;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 899.98px) {
   body.cs-v2 .cs-v2-study .cs-v2-results-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
+@media (max-width: 479.98px) {
+  body.cs-v2 .cs-v2-study .cs-v2-results-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 body.cs-v2 .cs-v2-study .cs-v2-result-num {
-  margin: 0 0 6px;
+  margin: 0;
   white-space: nowrap;
+}
+
+body.cs-v2 .cs-v2-study .cs-v2-result-label {
+  margin: 8px 0 0;
+  font-weight: 400 !important;
+  color: var(--body) !important;
 }
 
 body.cs-v2 .cs-v2-study .cs-v2-quote {
@@ -402,7 +445,7 @@ body.cs-v2 .hero :is(
   ),
 body.cs-v2 .hero-image :is(p, .screen-caption),
 body.cs-v2 .cs-v2-study :is(
-    p, li, a, cite, figcaption, button, span, .cs-v2-subtitle, .cs-v2-decision__title,
+    p:not(.cs-v2-result-num):not(.cs-v2-one-question__q), li, a, cite, figcaption, button, span, .cs-v2-subtitle, .cs-v2-decision__title,
     .cs-label, .cs-question__lead, .cs-turning__shift-label, .cs-turning__shift-text,
     .cs-turning__callout-label, .screen-caption, .cs-caption, .proto-poster-t, .proto-poster-h,
     .proto-link, .proto-note, .aside-note__bubble-text, .pos-ujm-title, .pos-ujm-subtitle,
@@ -429,10 +472,14 @@ body.cs-v2 .pos-summary-shell .sb-glance__pct {
   line-height: var(--lh-large) !important;
   font-weight: 600 !important;
   letter-spacing: -0.02em !important;
-  color: var(--ink) !important;
+  color: var(--yellow) !important;
   white-space: normal !important;
   overflow: visible !important;
   text-overflow: unset !important;
+}
+
+body.case-study-page.cs-v2 .pos-summary-shell .sb-glance__statement {
+  max-width: none !important;
 }
 
 body.cs-v2 .cs-v2-study .cs-v2-result-num {
@@ -490,6 +537,57 @@ body.case-study-page.cs-v2 .cs-match-img.sb-glance :is(.sb-wrap, .sb-glance__pro
   margin-right: 0 !important;
 }
 
+body.case-study-page.cs-v2 .cs-match-img.sb-glance .sb-glance__statement {
+  max-width: none !important;
+}
+
+body.case-study-page.cs-v2 .cs-match-img.sb-glance .sb-glance__pct {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-large) !important;
+  line-height: var(--lh-large) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--yellow) !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study p.cs-v2-result-num {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-large) !important;
+  line-height: var(--lh-large) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--yellow) !important;
+}
+
+body.case-study-page.cs-design-page.cs-v2 .content.case-main .cs-turning .cs-turning__prose > p,
+body.case-study-page.cs-design-page.cs-v2 .sb-case .cs-turning .cs-turning__prose.sb-text > p {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+body.case-study-page.cs-v2 .cs-match-img.cs-turning .cs-turning__prose > p,
+body.case-study-page.cs-v2 .cs-match-img.cs-turning .cs-turning__prose p {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .cs-v2-decision :is(.cs-v2-decision__title, > p) {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .ds-sheet-figure > figcaption.cs-caption {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-body) !important;
+  line-height: var(--lh-body) !important;
+  font-weight: 400 !important;
+  color: var(--meta) !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
 body.case-study-page.cs-v2 .cs-match-img.cs-v2-quote,
 body.case-study-page.cs-v2 .cs-match-img.cs-v2-results-grid {
   width: var(--cs-wide-track) !important;
@@ -499,7 +597,7 @@ body.case-study-page.cs-v2 .cs-match-img.cs-v2-results-grid {
 }
 
 body.case-study-page.cs-v2 .content.case-main > .section > p:not(.section-subtitle):not(.hc-results-impact-lede):not(.cs-caption):not(.cs-aside):not(.cs-callout):not(.cs-structure__title):not(.cs-structure__line),
-body.case-study-page.cs-design-page.cs-v2 .content.case-main.sb-case.cs-v2-study section p:not(.cs-turning__eyebrow):not(.hero-subtitle):not(.cs-turning__callout-label),
+body.case-study-page.cs-design-page.cs-v2 .content.case-main.sb-case.cs-v2-study section > p:not(.cs-turning__eyebrow):not(.hero-subtitle):not(.cs-turning__callout-label),
 body.case-study-page.cs-v2 .content.case-main.cs-v2-study section > p:not(.cs-turning__eyebrow):not(.hero-subtitle),
 body.cs-design-page.cs-v2 .content.case-main section > p:not(.cs-turning__eyebrow):not(.hero-subtitle) {
   font-family: "Poppins", sans-serif !important;
@@ -513,7 +611,7 @@ body.cs-design-page.cs-v2 .content.case-main section > p:not(.cs-turning__eyebro
 
 @media (max-width: 767px) {
   body.case-study-page.cs-v2 .content.case-main > .section > p:not(.section-subtitle):not(.hc-results-impact-lede):not(.cs-caption):not(.cs-aside):not(.cs-callout):not(.cs-structure__title):not(.cs-structure__line),
-  body.case-study-page.cs-design-page.cs-v2 .content.case-main.sb-case.cs-v2-study section p:not(.cs-turning__eyebrow):not(.hero-subtitle):not(.cs-turning__callout-label),
+  body.case-study-page.cs-design-page.cs-v2 .content.case-main.sb-case.cs-v2-study section > p:not(.cs-turning__eyebrow):not(.hero-subtitle):not(.cs-turning__callout-label),
   body.cs-design-page.cs-v2 .content.case-main section > p:not(.cs-turning__eyebrow):not(.hero-subtitle) {
     font-size: 16px !important;
   }
@@ -555,16 +653,20 @@ body.case-study-page.cs-v2 .hero h1 {
   font-family: "Poppins", sans-serif !important;
 }
 
-/* ── Introduction: plain “one question” block (no frame) ── */
-body.case-study-page.cs-v2 .cs-v2-one-question {
-  --space-text: 16px;
-  --space-block: 24px;
-  margin: 0 0 var(--space-block) !important;
-  padding: 0 !important;
+/* ── Introduction: “one question” accent bar (no box) ── */
+body.case-study-page.cs-v2 .cs-match-img.cs-v2-one-question {
+  margin-top: var(--space-block) !important;
+  margin-bottom: var(--space-block) !important;
+  padding: 0 0 0 23px !important;
   background: none !important;
   border: none !important;
   border-radius: 0 !important;
   overflow: visible !important;
+  box-sizing: border-box !important;
+  background-image: linear-gradient(var(--yellow), var(--yellow)) !important;
+  background-size: 3px 100% !important;
+  background-repeat: no-repeat !important;
+  background-position: 0 0 !important;
 }
 
 body.case-study-page.cs-v2 .cs-v2-one-question::before {
@@ -578,7 +680,7 @@ body.case-study-page.cs-v2 .cs-v2-one-question > .cs-v2-subtitle {
   font-size: var(--fs-body) !important;
   line-height: var(--lh-body) !important;
   font-weight: 600 !important;
-  color: var(--ink) !important;
+  color: var(--yellow) !important;
 }
 
 body.case-study-page.cs-v2 #introduction .cs-v2-one-question + .cs-v2-subtitle {
@@ -768,4 +870,72 @@ body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-step-cell {
   body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(11) {
     top: calc(250 / 340 * 100%) !important;
   }
+}
+
+/* ── Enforce fixes after two-size block ── */
+body.case-study-page.cs-design-page.cs-v2 .pos-summary-shell .cs-match-img.sb-glance p.sb-glance__pct,
+body.case-study-page.cs-design-page.cs-v2 .content.case-main.cs-v2-study p.cs-v2-result-num {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-large) !important;
+  line-height: var(--lh-large) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--yellow) !important;
+}
+
+body.case-study-page.cs-design-page.cs-v2 .content.case-main.cs-v2-study .cs-match-img.cs-turning .cs-turning__prose > p {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+body.case-study-page.cs-design-page.cs-v2 .pos-summary-shell .sb-glance__statement {
+  max-width: none !important;
+}
+
+/* IMAGE LOCK — decision mocks (match pre-frameless rendered sizes) */
+@media (min-width: 860px) {
+  body.case-study-page.cs-v2 .cs-v2-decision .screens-grid.col-3 .screen-wrap {
+    max-width: 242px;
+  }
+
+  body.case-study-page.cs-v2 .cs-v2-decision .screens-grid.col-2 .screen-wrap {
+    max-width: 240.7px;
+  }
+
+  body.case-study-page.cs-v2 .cs-v2-decision .screen-wrap.screen-wrap--natural-photo {
+    max-width: 754px;
+  }
+
+  body.case-study-page.cs-v2 .cs-v2-decision img[src*="Add_discount_to_cart.png"] {
+    width: 238.7px !important;
+    max-width: 238.7px !important;
+    height: auto !important;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 859.98px) {
+  body.case-study-page.cs-v2 .cs-v2-decision .screens-grid .screen-wrap {
+    max-width: 678px;
+  }
+
+  body.case-study-page.cs-v2 .cs-v2-decision .screen-wrap.screen-wrap--natural-photo {
+    max-width: 678px;
+  }
+}
+
+@media (max-width: 375.98px) {
+  body.case-study-page.cs-v2 .cs-v2-decision .screens-grid .screen-wrap {
+    max-width: 285px;
+  }
+
+  body.case-study-page.cs-v2 .cs-v2-decision .screen-wrap.screen-wrap--natural-photo {
+    max-width: 285px;
+  }
+}
+
+body.case-study-page.cs-v2 .cs-v2-decision .screen-wrap img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
