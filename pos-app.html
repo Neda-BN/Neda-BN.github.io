@@ -817,7 +817,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 <link rel="stylesheet" href="css/cs-design.css?v=20261102g">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
-<link rel="stylesheet" href="css/cs-v2.css?v=20261105r">
+<link rel="stylesheet" href="css/cs-v2.css?v=20261105v">
 </head>
 <body class="has-anna-nav case-study-page cs-design-page cs-v2">
 
@@ -980,12 +980,12 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span class="cs-v2-phase-label">Discover</span></div>
     <h2 class="cs-match-img cs-v2-heading">What we found</h2>
     <p class="cs-match-img">I combined interviews, workshops, in-store observation and usability testing. Four findings shaped the work:</p>
-    <ul class="cs-match-img cs-v2-list cs-v2-findings">
+    <ol class="cs-match-img cs-v2-list cs-v2-findings">
       <li><strong>Cashiers rarely look at the screen during a sale.</strong> They rely on muscle memory and peripheral vision. <span class="cs-v2-meta">— In-store observation</span></li>
       <li><strong>The cart must always be visible.</strong> "We need the cart front and centre, always. Everything else is secondary." <span class="cs-v2-meta">— Store owner interviews · 3 sessions</span></li>
       <li><strong>Cashiers wanted to stay on the home screen</strong> to add products, apply discounts and scan barcodes. <span class="cs-v2-meta">— Usability testing · 5 participants</span></li>
       <li><strong>Adding products in a separate system was a big problem for store owners.</strong> <span class="cs-v2-meta">— Workshops with product and engineering</span></li>
-    </ul>
+    </ol>
   </section>
 
   <section class="section fade-in reveal cs-v2-phase" id="connect">
@@ -998,6 +998,82 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
       <li><strong>Discounts &amp; refunds:</strong> too many options under pressure → two simple choices</li>
       <li><strong>Reports &amp; end of day:</strong> totals needed a second app → reports built into the POS</li>
     </ul>
+    <div class="pos-affinity-strip">
+      <div class="pos-affinity-embed wide" role="region" aria-label="Affinity mapping and card sorting synthesis">
+        <div class="pos-affinity-wrap fade-in reveal reveal-media">
+          <h3 class="pos-aff-heading">What we learned</h3>
+
+          <div class="pos-aff-board-grid">
+            <div class="pos-aff-cluster pos-aff-cluster-speed">
+              <div class="pos-aff-cluster-header">
+                <span class="pos-aff-cluster-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></span>
+                <div class="pos-aff-cluster-name">Speed &amp; Flow</div>
+              </div>
+              <div class="pos-aff-notes-pile">
+                <div class="pos-aff-note">Every extra tap costs time when a customer is waiting</div>
+                <div class="pos-aff-note">The old POS needed 4+ taps for one purchase</div>
+                <div class="pos-aff-note">The cart and quick actions must always be within reach</div>
+              </div>
+              <div class="pos-aff-insight-row">
+                <div class="pos-aff-insight-arrow" aria-hidden="true">→</div>
+                <div class="pos-aff-insight-text">One scrollable home screen, so the main tasks don't need extra navigation</div>
+              </div>
+            </div>
+
+            <div class="pos-aff-cluster pos-aff-cluster-products">
+              <div class="pos-aff-cluster-header">
+                <span class="pos-aff-cluster-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><path d="m3.29 7 9 5 9-5"/></svg></span>
+                <div class="pos-aff-cluster-name">Product Management</div>
+              </div>
+              <div class="pos-aff-notes-pile">
+                <div class="pos-aff-note">Adding a product meant opening the back-office</div>
+                <div class="pos-aff-note">An unknown barcode left the cashier stuck at the till</div>
+                <div class="pos-aff-note">Not every item has a barcode, so search by EAN or name</div>
+                <div class="pos-aff-note-quote">"We shouldn't need two systems. Everything should be in one place."</div>
+              </div>
+              <div class="pos-aff-insight-row">
+                <div class="pos-aff-insight-arrow" aria-hidden="true">→</div>
+                <div class="pos-aff-insight-text">Creating a product from an unknown scan removes the dead end at the till</div>
+              </div>
+            </div>
+
+            <div class="pos-aff-cluster pos-aff-cluster-discounts">
+              <div class="pos-aff-cluster-header">
+                <span class="pos-aff-cluster-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="19" x2="5" y1="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>
+                <div class="pos-aff-cluster-name">Discounts &amp; Refunds</div>
+              </div>
+              <div class="pos-aff-notes-pile">
+                <div class="pos-aff-note">Discounts apply to one product or the whole receipt, in SEK or %</div>
+                <div class="pos-aff-note">Refundable vs non-refundable caused real confusion</div>
+                <div class="pos-aff-note">Large keypad keys, because cashiers sometimes wear gloves</div>
+                <div class="pos-aff-note-quote">"Make it simple — 2 choices max. I don't have time to read options."</div>
+              </div>
+              <div class="pos-aff-insight-row">
+                <div class="pos-aff-insight-arrow" aria-hidden="true">→</div>
+                <div class="pos-aff-insight-text">Two simple choices: what the discount applies to, and whether it's in kronor or percent</div>
+              </div>
+            </div>
+
+            <div class="pos-aff-cluster pos-aff-cluster-reports">
+              <div class="pos-aff-cluster-header">
+                <span class="pos-aff-cluster-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span>
+                <div class="pos-aff-cluster-name">Reports &amp; End-of-Day</div>
+              </div>
+              <div class="pos-aff-notes-pile">
+                <div class="pos-aff-note">Daily totals without opening a second app</div>
+                <div class="pos-aff-note">Days with no sales left gaps, a compliance risk</div>
+                <div class="pos-aff-note">Register vs control check is mandatory at end of day</div>
+                <div class="pos-aff-note-quote">"Done in 2 minutes. No spreadsheet, no second app — finally."</div>
+              </div>
+              <div class="pos-aff-insight-row">
+                <div class="pos-aff-insight-arrow" aria-hidden="true">→</div>
+                <div class="pos-aff-insight-text">The Coming up feature prevents gaps, and reports are built into the POS, so there's no second app for end-of-day</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <p class="cs-match-img cs-v2-subtitle">User journey</p>
     <div class="screens-section reveal reveal-media">
       

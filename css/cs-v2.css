@@ -209,12 +209,22 @@ body.cs-v2 .cs-v2-study .cs-v2-list li::before {
   color: var(--body);
 }
 
+body.cs-v2 .cs-v2-study .cs-v2-findings {
+  list-style: none;
+  counter-reset: cs-v2-finding;
+}
+
 body.cs-v2 .cs-v2-study .cs-v2-findings li {
-  padding-left: 0;
+  counter-increment: cs-v2-finding;
+  padding-left: 2.25em;
 }
 
 body.cs-v2 .cs-v2-study .cs-v2-findings li::before {
-  content: none;
+  content: counter(cs-v2-finding) ".";
+  position: absolute;
+  left: 0;
+  font-weight: 600;
+  color: var(--yellow);
 }
 
 body.cs-v2 .cs-v2-study .cs-v2-findings li + li {
@@ -335,9 +345,20 @@ body.cs-v2 .cs-platform-note {
   max-width: var(--cs-v2-col);
 }
 
+/* Platform note: same wide track as At a glance card (not centred in sb-wrap) */
+body.case-study-page.cs-v2 .pos-summary-shell .sb-wrap > .cs-platform-note.cs-match-img {
+  --cs-wide-track: min(1200px, calc(100vw - 64px));
+  width: var(--cs-wide-track) !important;
+  max-width: var(--cs-wide-track) !important;
+  margin-left: calc((100% - var(--cs-wide-track)) / 2) !important;
+  margin-right: 0 !important;
+  box-sizing: border-box;
+}
+
 /* Wide media escapes text column only for layout wrappers */
 body.cs-v2 .cs-v2-study .wide,
 body.cs-v2 .cs-v2-study .pos-ujm-strip,
+body.cs-v2 .cs-v2-study .pos-affinity-strip,
 body.cs-v2 .cs-v2-study .pos-transformation-strip,
 body.cs-v2 .cs-v2-study .screens-section,
 body.cs-v2 .cs-v2-study .proto-embed,
@@ -386,6 +407,68 @@ body.cs-v2 .cs-v2-study .pos-ujm-label-box {
   font-family: "Poppins", sans-serif !important;
   font-size: var(--fs-body) !important;
   line-height: var(--lh-body) !important;
+}
+
+/* Affinity board — diagram typography (page stylesheet sizes, not two-size rule) */
+body.case-study-page.cs-v2 .cs-v2-study .pos-affinity-wrap .pos-aff-heading {
+  display: none !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .pos-affinity-wrap .pos-aff-cluster-name {
+  font-family: var(--serif) !important;
+  font-size: 14px !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.2px !important;
+  text-transform: none !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .pos-affinity-wrap .pos-aff-note {
+  font-family: var(--font-body) !important;
+  font-size: 15px !important;
+  line-height: 1.45 !important;
+  font-weight: 400 !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .pos-affinity-wrap .pos-aff-note-quote {
+  font-family: var(--font-body) !important;
+  font-size: 14.5px !important;
+  line-height: 1.5 !important;
+  font-weight: 600 !important;
+  font-style: italic !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .pos-affinity-wrap .pos-aff-insight-text {
+  font-family: var(--font-body) !important;
+  font-size: 11.5px !important;
+  line-height: 1.5 !important;
+  font-weight: 400 !important;
+  font-style: italic !important;
+  color: rgba(0, 0, 0, 0.45) !important;
+}
+
+body.case-study-page.cs-v2 #connect .pos-affinity-strip {
+  --cs-wide-track: min(1200px, calc(100vw - 64px));
+  width: var(--cs-wide-track);
+  max-width: var(--cs-wide-track);
+  margin-left: calc((100% - var(--cs-wide-track)) / 2);
+  margin-right: 0;
+  margin-top: var(--space-block);
+  margin-bottom: 0;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box;
+}
+
+body.case-study-page.cs-v2 #connect .pos-affinity-strip + .cs-v2-subtitle {
+  margin-top: var(--space-block) !important;
+}
+
+body.case-study-page.cs-v2 #connect .pos-affinity-embed.wide {
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  margin-bottom: 0;
 }
 
 body.cs-v2 .cs-v2-study .cs-turning {
@@ -507,6 +590,7 @@ body.case-study-page.cs-v2 .cs-match-img {
 
 body.case-study-page.cs-v2 p.cs-match-img,
 body.case-study-page.cs-v2 ul.cs-match-img,
+body.case-study-page.cs-v2 ol.cs-match-img,
 body.case-study-page.cs-v2 h2.cs-match-img,
 body.case-study-page.cs-v2 .cs-match-img.cs-v2-results-grid,
 body.case-study-page.cs-v2 .cs-match-img.cs-v2-quote,
@@ -520,7 +604,8 @@ body.case-study-page.cs-v2 .cs-match-img.cs-v2-phase-label-row {
 
 body.case-study-page.cs-v2 .content.case-main.cs-v2-study > .section > p.cs-match-img:not(.section-subtitle):not(.hc-results-impact-lede):not(.cs-caption):not(.cs-aside):not(.cs-callout):not(.cs-structure__title):not(.cs-structure__line),
 body.case-study-page.cs-v2 .content.case-main.cs-v2-study > .section > h2.cs-match-img,
-body.case-study-page.cs-v2 .content.case-main.cs-v2-study > .section > ul.cs-match-img {
+body.case-study-page.cs-v2 .content.case-main.cs-v2-study > .section > ul.cs-match-img,
+body.case-study-page.cs-v2 .content.case-main.cs-v2-study > .section > ol.cs-match-img {
   width: var(--cs-wide-track) !important;
   max-width: var(--cs-wide-track) !important;
   margin-left: calc((100% - var(--cs-wide-track)) / 2) !important;
@@ -684,7 +769,7 @@ body.case-study-page.cs-v2 .cs-v2-one-question > .cs-v2-subtitle {
 }
 
 body.case-study-page.cs-v2 #introduction .cs-v2-one-question + .cs-v2-subtitle {
-  margin-top: 0 !important;
+  margin-top: calc(var(--space-block) * 2) !important;
 }
 
 body.case-study-page.cs-v2 .cs-v2-one-question__lead {
