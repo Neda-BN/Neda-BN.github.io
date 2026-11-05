@@ -1581,5 +1581,174 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     }
   })();
 </script>
+<script>
+(function () {
+  var CHART_ID = 'posChartWrap';
+  var VB_W = 1200;
+  var VB_H = 340;
+  var MID_CY = 170;
+  var GAP = 12;
+  var DOT_R = 9;
+  var MAX_SHIFT = 24;
+  var MIN_MAX_W = 100;
+
+  function rectsOverlap(a, b, pad) {
+    pad = pad || 0;
+    return !(a.right + pad <= b.left || a.left - pad >= b.right || a.bottom + pad <= b.top || a.top - pad >= b.bottom);
+  }
+
+  function dotRect(dotX, dotY, layerH) {
+    var r = (DOT_R / VB_H) * layerH;
+    return { left: dotX - r, right: dotX + r, top: dotY - r, bottom: dotY + r };
+  }
+
+  function localRect(el, layerRect) {
+    var r = el.getBoundingClientRect();
+    return {
+      left: r.left - layerRect.left,
+      right: r.right - layerRect.left,
+      top: r.top - layerRect.top,
+      bottom: r.bottom - layerRect.top
+    };
+  }
+
+  function layoutPosUjmLabels() {
+    var wrap = document.getElementById(CHART_ID);
+    if (!wrap) return;
+    var svg = wrap.querySelector('svg.pos-ujm-journey');
+    var layer = wrap.querySelector('.pos-ujm-label-layer');
+    if (!svg || !layer) return;
+
+    layer.querySelectorAll('.pos-ujm-label-connector').forEach(function (n) { n.remove(); });
+
+    var boxes = Array.prototype.slice.call(layer.querySelectorAll('.pos-ujm-label-box'));
+    var circles = Array.prototype.slice.call(svg.querySelectorAll('circle'));
+    if (boxes.length !== circles.length) return;
+
+    var layerRect = layer.getBoundingClientRect();
+    var w = layerRect.width;
+    var h = layerRect.height;
+    if (!w || !h) return;
+
+    var dots = circles.map(function (c) {
+      var cx = parseFloat(c.getAttribute('cx'));
+      var cy = parseFloat(c.getAttribute('cy'));
+      return { x: (cx / VB_W) * w, y: (cy / VB_H) * h, cy: cy, cx: cx };
+    });
+
+    var stepRow = wrap.closest('.pos-ujm-chart-scroll-inner');
+    stepRow = stepRow ? stepRow.querySelector('.pos-ujm-step-row') : null;
+    var stepRects = [];
+    if (stepRow) {
+      var sr = stepRow.getBoundingClientRect();
+      Array.prototype.slice.call(stepRow.querySelectorAll('.pos-ujm-step-cell')).forEach(function (cell) {
+        stepRects.push(localRect(cell, layerRect));
+      });
+    }
+
+    var placements = [];
+
+    boxes.forEach(function (box, i) {
+      var dot = dots[i];
+      var below = dot.cy <= MID_CY;
+      var rPx = (DOT_R / VB_H) * h;
+      var baseMax = parseFloat(getComputedStyle(box).maxWidth) || 120;
+      if (!isFinite(baseMax)) baseMax = 120;
+
+      var best = { shift: 0, maxW: baseMax, gap: GAP };
+
+      function applyPlacement(s, mw, gap) {
+        if (below) {
+          box.style.top = (dot.y + rPx + gap) + 'px';
+          box.style.transform = 'translateX(calc(-50% + ' + s + 'px))';
+        } else {
+          box.style.top = (dot.y - rPx - gap) + 'px';
+          box.style.transform = 'translateX(calc(-50% + ' + s + 'px)) translateY(-100%)';
+        }
+        box.style.maxWidth = mw + 'px';
+      }
+
+      function violates() {
+        var br = localRect(box, layerRect);
+        if (rectsOverlap(br, dotRect(dot.x, dot.y, h), 0)) return true;
+        for (var d = 0; d < dots.length; d++) {
+          if (d === i) continue;
+          if (rectsOverlap(br, dotRect(dots[d].x, dots[d].y, h), 0)) return true;
+        }
+        for (var p = 0; p < placements.length; p++) {
+          if (rectsOverlap(br, placements[p].rect, 2)) return true;
+        }
+        for (var s = 0; s < stepRects.length; s++) {
+          if (rectsOverlap(br, stepRects[s], 2)) return true;
+        }
+        return false;
+      }
+
+      var shifts = [0, -12, 12, -24, 24];
+      var maxWidths = [baseMax];
+      if (baseMax > MIN_MAX_W) maxWidths.push(Math.max(MIN_MAX_W, baseMax - 10), MIN_MAX_W);
+      var gaps = [];
+      for (var g = GAP; g <= 200; g += 4) gaps.push(g);
+
+      outer: for (var wi = 0; wi < maxWidths.length; wi++) {
+        for (var gi = 0; gi < gaps.length; gi++) {
+          for (var si = 0; si < shifts.length; si++) {
+            if (Math.abs(shifts[si]) > MAX_SHIFT) continue;
+            applyPlacement(shifts[si], maxWidths[wi], gaps[gi]);
+            if (!violates()) {
+              best = { shift: shifts[si], maxW: maxWidths[wi], gap: gaps[gi] };
+              break outer;
+            }
+          }
+        }
+      }
+
+      applyPlacement(best.shift, best.maxW, best.gap);
+      var finalRect = localRect(box, layerRect);
+      placements.push({ rect: finalRect, dot: dot, below: below, shift: best.shift, box: box });
+
+      if (Math.abs(best.shift) > 0 || best.gap > GAP + 4) {
+        var anchorY = below ? finalRect.top : finalRect.bottom;
+        var lineTop = Math.min(anchorY, dot.y);
+        var lineH = Math.abs(dot.y - anchorY);
+        if (lineH > 1) {
+          var conn = document.createElement('div');
+          conn.className = 'pos-ujm-label-connector';
+          conn.setAttribute('aria-hidden', 'true');
+          conn.style.left = dot.x + 'px';
+          conn.style.top = lineTop + 'px';
+          conn.style.height = lineH + 'px';
+          conn.style.transform = 'translateX(-50%)';
+          layer.insertBefore(conn, layer.firstChild);
+        }
+      }
+    });
+  }
+
+  function scheduleLayout() {
+    requestAnimationFrame(layoutPosUjmLabels);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', scheduleLayout);
+  } else {
+    scheduleLayout();
+  }
+
+  window.addEventListener('resize', function () {
+    clearTimeout(window.__posUjmLayoutTimer);
+    window.__posUjmLayoutTimer = setTimeout(scheduleLayout, 120);
+  });
+
+  var wrapEl = document.getElementById(CHART_ID);
+  if (wrapEl && typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(scheduleLayout).observe(wrapEl);
+  }
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(scheduleLayout);
+  }
+})();
+</script>
 </body>
 </html>

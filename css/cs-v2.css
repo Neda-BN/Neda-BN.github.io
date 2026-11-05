@@ -755,6 +755,28 @@ body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-legend-item {
   letter-spacing: normal !important;
 }
 
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm-chart-svg-wrap .pos-ujm-label-layer {
+  z-index: 1;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm-chart-svg-wrap svg.pos-ujm-journey {
+  position: relative;
+  z-index: 2;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm-journey circle {
+  stroke: var(--surface) !important;
+  stroke-width: 2 !important;
+  paint-order: stroke fill;
+}
+
 body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box {
   font-family: "Poppins", sans-serif !important;
   font-size: 12px !important;
@@ -764,47 +786,15 @@ body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box {
   max-width: 120px !important;
   white-space: normal !important;
   box-sizing: border-box !important;
+  z-index: 1;
 }
 
-/* Curve label vertical stagger (position only; inline left unchanged) */
-body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(2) {
-  top: calc(6 / 340 * 100%) !important;
-}
-
-body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(3) {
-  top: calc(82 / 340 * 100%) !important;
-}
-
-body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(4) {
-  top: calc(122 / 340 * 100%) !important;
-}
-
-body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(5) {
-  top: calc(218 / 340 * 100%) !important;
-}
-
-body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(6) {
-  top: calc(8 / 340 * 100%) !important;
-}
-
-body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(7) {
-  top: calc(104 / 340 * 100%) !important;
-}
-
-body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(8) {
-  top: calc(176 / 340 * 100%) !important;
-}
-
-body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(9) {
-  top: calc(252 / 340 * 100%) !important;
-}
-
-body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(10) {
-  top: calc(6 / 340 * 100%) !important;
-}
-
-body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(11) {
-  top: calc(248 / 340 * 100%) !important;
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-connector {
+  position: absolute;
+  width: 1px;
+  background: var(--frame-line);
+  pointer-events: none;
+  z-index: 0;
 }
 
 body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-step-cell {
@@ -820,32 +810,11 @@ body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-step-cell {
     max-width: 118px !important;
     font-size: 11px !important;
   }
-
-  body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(9) {
-    top: calc(256 / 340 * 100%) !important;
-  }
-}
-
-@media (max-width: 1024px) and (min-width: 900px) {
-  body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(5) {
-    top: calc(234 / 340 * 100%) !important;
-  }
-  body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(3) {
-    top: calc(100 / 340 * 100%) !important;
-  }
-
-  body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(4) {
-    top: calc(168 / 340 * 100%) !important;
-  }
 }
 
 @media (max-width: 899.98px) {
   body.case-study-page.cs-v2 .cs-v2-study .pos-ujm-chart-scroll-inner {
     min-width: 960px !important;
-  }
-
-  body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(3) {
-    top: calc(88 / 340 * 100%) !important;
   }
 }
 
@@ -857,18 +826,6 @@ body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-step-cell {
 
   body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-step-row {
     margin-top: 32px !important;
-  }
-
-  body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(5) {
-    top: calc(208 / 340 * 100%) !important;
-  }
-
-  body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(9) {
-    top: calc(258 / 340 * 100%) !important;
-  }
-
-  body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(11) {
-    top: calc(250 / 340 * 100%) !important;
   }
 }
 
