@@ -187,11 +187,11 @@
             <div class="sb-glance__col sb-glance__col--decisions">
               <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">Key decisions</p></div>
               <ul class="sb-glance__list">
+                <li class="sb-glance__list-item--lead"><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Adviser, an AI assistant that answers from the owner's own numbers and never acts without confirmation</li>
                 <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>An Overview sorted by urgency</li>
                 <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Clear statuses everywhere</li>
                 <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Search and filters for long lists</li>
                 <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Payroll in small steps</li>
-                <li class="sb-glance__list-item--lead"><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Adviser, an AI assistant that answers from the owner's own numbers and never acts without confirmation</li>
               </ul>
             </div>
             <div class="sb-glance__col sb-glance__col--status sb-glance__col--result">
@@ -346,9 +346,37 @@
   <section class="section fade-in reveal cs-v2-phase" id="design">
     <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg><span class="cs-v2-phase-label">Design</span></div>
     <h2 class="cs-match-img cs-v2-heading">Four decisions</h2>
+    <p class="cs-match-img">Adviser came out of the turning point. The other three decisions made the core screens clearer, alongside it.</p>
 
     <div class="cs-v2-decision">
-      <p class="cs-v2-decision__title">Decision 1 · An Overview that starts with what needs attention</p>
+      <p class="cs-v2-decision__title">Decision 1 · An adviser people can trust</p>
+      <p>Accounting is the last place for an AI that guesses. Adviser answers from the owner's own numbers and never records anything without confirmation. I worked with the back-end team through many sessions to shape how it works, then designed it and built its front-end.</p>
+      <div class="cs-v2-decision-media-stack">
+        <div class="screens-section reveal reveal-media wide">
+          <figure class="sb-ds-sheet">
+            <a class="sb-zoom" href="sb-adviser@2x.png?v=4" target="_blank" rel="noopener" data-title="Adviser · Support and answers"><img src="sb-adviser.png?v=4" srcset="sb-adviser.png?v=4 1024w, sb-adviser@2x.png?v=4 2048w" sizes="(min-width: 720px) 1024px, calc(100vw - 40px)" width="1024" height="533" loading="lazy" decoding="async" alt="Simple Booking's Adviser panel next to the Overview: a user asks for a support ticket and Adviser confirms it was created, then answers whether two of the user's companies affect each other's revenue."></a>
+            <figcaption class="cs-caption cs-caption">Adviser answers in plain language, and creates a support ticket when it can't help.</figcaption>
+          </figure>
+        </div>
+        <ul class="cs-match-img cs-v2-list">
+          <li><strong>Answers from your own numbers:</strong> users ask in their own words and get answers from the company's real figures.</li>
+          <li><strong>Takes you to the right place</strong> <span class="cs-v2-reflect-yellow">(My idea)</span>: every answer links to the page where you can act.</li>
+          <li><strong>Flags what needs attention</strong> <span class="cs-v2-reflect-yellow">(My idea)</span>: missing receipts and upcoming deadlines appear before they become penalties.</li>
+          <li><strong>Suggests, never acts alone:</strong> nothing is recorded until the user confirms.</li>
+          <li><strong>Never stuck:</strong> when it can't help, it creates a support ticket with a short summary.</li>
+          <li><strong>Speak instead of type</strong> <span class="cs-v2-reflect-yellow">(My idea)</span>: users talk, pause, and hear the answer read aloud.</li>
+        </ul>
+        <div class="screens-section reveal reveal-media wide">
+          <figure class="sb-ds-sheet">
+            <a class="sb-zoom" href="sb-adviser-voice@2x.png?v=4" target="_blank" rel="noopener" data-title="Adviser · Conversation mode"><img src="sb-adviser-voice.png?v=4" srcset="sb-adviser-voice.png?v=4 1024w, sb-adviser-voice@2x.png?v=4 2048w" sizes="(min-width: 720px) 1024px, calc(100vw - 40px)" width="1024" height="533" loading="lazy" decoding="async" alt="Adviser in conversation mode: the user speaks a question, Adviser reads it and replies aloud."></a>
+            <figcaption class="cs-caption cs-caption">Conversation mode: speak, pause, and hear the answer.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-v2-decision">
+      <p class="cs-v2-decision__title">Decision 2 · An Overview that starts with what needs attention</p>
       <p>The Overview is organised by time: one "Needs your attention" list first, then "Due soon" and "Later this month", a separate financial snapshot, and one-click actions with plain-language advice.</p>
       <div class="screens-section reveal reveal-media wide">
         <figure class="cs-v2-compare-block">
@@ -360,8 +388,8 @@
     </div>
 
     <div class="cs-v2-decision">
-      <p class="cs-v2-decision__title">Decision 2 · Statuses and next steps you can read at a glance</p>
-      <p>Invoicing is what owners do most often, so it had to feel easy. I designed the invoice's whole journey as colour-coded statuses, and before adding reminders, I looked at how competitors handle late payments and checked the idea with two users. Quotes got one clear next action per row and a new flow: owners send a quote by email or as a link the customer can accept or decline without signing in. Receipts got a compact upload, a date column and colour-coded statuses.</p>
+      <p class="cs-v2-decision__title">Decision 3 · Statuses and next steps you can read at a glance</p>
+      <p class="cs-match-img" style="margin: 0 0 var(--space-text);">Invoicing is what owners do most often, so it had to feel easy. I designed the invoice's whole journey as colour-coded statuses. Before adding reminders, I looked at how competitors handle late payments and checked the idea with two users.</p>
       <div class="screens-section reveal reveal-media wide">
         <div class="cs-status-flow">
           <p class="cs-status-flow__label">The invoice journey</p>
@@ -407,6 +435,9 @@
           <a class="sb-zoom" href="sb-recurring-before-after.png" target="_blank" rel="noopener" data-title="Recurring invoices · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-recurring-before-after.webp" type="image/webp"><img src="sb-recurring-before-after.png" width="3000" height="1040" loading="lazy" decoding="async" alt="Recurring invoices before and after. Before: setup form on top, vague bulk action, no sense of what happens next, crowded row actions. After: clear expectations, attention section, upcoming 30 days, plans in plain sentences, and actions only when needed."></picture></div></a>
           <figcaption class="cs-caption cs-v2-zoom-hint"><svg class="cs-v2-zoom-hint__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg><span>Click or tap to view full size</span><span class="cs-v2-swipe-hint">Swipe to see the whole comparison</span></figcaption>
         </figure>
+      </div>
+      <p class="cs-match-img" style="margin: var(--space-block) 0 var(--space-text);">Quotes got one clear next action per row and a new flow: owners send a quote by email or as a link the customer can accept or decline without signing in.</p>
+      <div class="screens-section reveal reveal-media wide">
         <figure class="cs-v2-compare-block">
           <p class="cs-v2-compare-title">Quotes · before and after</p>
           <a class="sb-zoom" href="sb-quotes-before-after.png" target="_blank" rel="noopener" data-title="Quotes · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-quotes-before-after.webp" type="image/webp"><img src="sb-quotes-before-after.png" width="3000" height="1040" loading="lazy" decoding="async" alt="Quotes page before and after. Before: an always-open quote form, no overview or status filters, faint statuses and up to four look-alike buttons per row. After: form on demand, status filters with counts, one primary action with an icon per row, and aligned columns with next steps."></picture></div></a>
@@ -428,6 +459,9 @@
           </div>
           <figcaption class="cs-caption cs-caption">What the customer sees: accept or decline a quote, no account needed.</figcaption>
         </div>
+      </div>
+      <p class="cs-match-img" style="margin: var(--space-block) 0 var(--space-text);">Receipts got a compact upload, a date column and colour-coded statuses.</p>
+      <div class="screens-section reveal reveal-media wide">
         <figure class="cs-v2-compare-block">
           <p class="cs-v2-compare-title">Receipts · before and after</p>
           <a class="sb-zoom" href="sb-receipts-before-after.png" target="_blank" rel="noopener" data-title="Receipts · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-receipts-before-after.webp" type="image/webp"><img src="sb-receipts-before-after.png" width="2720" height="1297" loading="lazy" decoding="async" alt="Receipts page before and after. Before: four actions per inbox row, oversized upload, faded main button, list without supplier or amount. After: compact upload first, one action per row, search and paging, full context in the list."></picture></div></a>
@@ -437,7 +471,7 @@
     </div>
 
     <div class="cs-v2-decision">
-      <p class="cs-v2-decision__title">Decision 3 · Long lists and long forms, made manageable</p>
+      <p class="cs-v2-decision__title">Decision 4 · Long lists and long forms, made manageable</p>
       <p>Journal entries, the longest list in the app, got search by any value, filters, sorting and collapsible cards. Payroll's two long forms became three short steps with a progress indicator: more clicks, but fewer fields at a time.</p>
       <div class="screens-section reveal reveal-media wide">
         <figure class="cs-v2-compare-block">
@@ -450,33 +484,6 @@
           <a class="sb-zoom" href="sb-payroll-before-after.png" target="_blank" rel="noopener" data-title="Payroll · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-payroll-before-after.webp" type="image/webp"><img src="sb-payroll-before-after.png" width="2720" height="1576" loading="lazy" decoding="async" alt="Payroll before and after. Before: no overview, one giant form, dense hints, an easy-to-miss Add button. After: summary cards, an Add new employee button, and a three-step flow with fewer fields per step."></picture></div></a>
           <figcaption class="cs-caption cs-v2-zoom-hint"><svg class="cs-v2-zoom-hint__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg><span>Click or tap to view full size</span><span class="cs-v2-swipe-hint">Swipe to see the whole comparison</span></figcaption>
         </figure>
-      </div>
-    </div>
-
-    <div class="cs-v2-decision">
-      <p class="cs-v2-decision__title">Decision 4 · An adviser people can trust</p>
-      <p>Accounting is the last place for an AI that guesses. Adviser answers from the owner's own numbers and never records anything without confirmation. I worked with the back-end team through many sessions to shape how it works, then designed it and built its front-end.</p>
-      <div class="cs-v2-decision-media-stack">
-        <div class="screens-section reveal reveal-media wide">
-          <figure class="sb-ds-sheet">
-            <a class="sb-zoom" href="sb-adviser@2x.png?v=4" target="_blank" rel="noopener" data-title="Adviser · Support and answers"><img src="sb-adviser.png?v=4" srcset="sb-adviser.png?v=4 1024w, sb-adviser@2x.png?v=4 2048w" sizes="(min-width: 720px) 1024px, calc(100vw - 40px)" width="1024" height="533" loading="lazy" decoding="async" alt="Simple Booking's Adviser panel next to the Overview: a user asks for a support ticket and Adviser confirms it was created, then answers whether two of the user's companies affect each other's revenue."></a>
-            <figcaption class="cs-caption cs-caption">Adviser answers in plain language, and creates a support ticket when it can't help.</figcaption>
-          </figure>
-        </div>
-        <ul class="cs-match-img cs-v2-list">
-          <li><strong>Answers from your own numbers:</strong> users ask in their own words and get answers from the company's real figures.</li>
-          <li><strong>Takes you to the right place</strong> <span class="cs-v2-reflect-yellow">(My idea)</span>: every answer links to the page where you can act.</li>
-          <li><strong>Flags what needs attention</strong> <span class="cs-v2-reflect-yellow">(My idea)</span>: missing receipts and upcoming deadlines appear before they become penalties.</li>
-          <li><strong>Suggests, never acts alone:</strong> nothing is recorded until the user confirms.</li>
-          <li><strong>Never stuck:</strong> when it can't help, it creates a support ticket with a short summary.</li>
-          <li><strong>Speak instead of type</strong> <span class="cs-v2-reflect-yellow">(My idea)</span>: users talk, pause, and hear the answer read aloud.</li>
-        </ul>
-        <div class="screens-section reveal reveal-media wide">
-          <figure class="sb-ds-sheet">
-            <a class="sb-zoom" href="sb-adviser-voice@2x.png?v=4" target="_blank" rel="noopener" data-title="Adviser · Conversation mode"><img src="sb-adviser-voice.png?v=4" srcset="sb-adviser-voice.png?v=4 1024w, sb-adviser-voice@2x.png?v=4 2048w" sizes="(min-width: 720px) 1024px, calc(100vw - 40px)" width="1024" height="533" loading="lazy" decoding="async" alt="Adviser in conversation mode: the user speaks a question, Adviser reads it and replies aloud."></a>
-            <figcaption class="cs-caption cs-caption">Conversation mode: speak, pause, and hear the answer.</figcaption>
-          </figure>
-        </div>
       </div>
     </div>
 
@@ -501,7 +508,7 @@
     <h2 class="cs-match-img cs-v2-heading">Where it is now</h2>
     <p class="cs-match-img">About half of the app is redesigned and built. Next is formal usability testing of V2 with the same three users and the same tasks, comparing V1 and V2 on task completion and errors. Until then, this page shows my decisions, not results.</p>
     <div class="cs-match-img cs-v2-results-grid">
-      <div><p class="cs-v2-result-num">50%</p><p class="cs-v2-result-label">redesigned and built</p></div>
+      <div><p class="cs-v2-result-num">50%</p><p class="cs-v2-result-label">of the whole app built</p></div>
       <div><p class="cs-v2-result-num">6</p><p class="cs-v2-result-label">core areas redesigned</p></div>
       <div><p class="cs-v2-result-num">3</p><p class="cs-v2-result-label">real users in every workshop</p></div>
       <div><p class="cs-v2-result-num">Next</p><p class="cs-v2-result-label">formal V2 testing</p></div>
