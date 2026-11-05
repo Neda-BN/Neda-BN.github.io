@@ -1128,33 +1128,19 @@ body.case-study-page.cs-v2 .cs-v2-study .cs-customer-view__label {
 }
 
 /* ── Healthcare (healthcare.html) ── */
-body.case-study-page.cs-v2:has(.content.hc-case) .back-btn-wrap--top,
-body.case-study-page.cs-v2:has(.content.hc-case) .back-btn-wrap--bottom,
 body.case-study-page.cs-v2:has(.content.hc-case) > .hero {
-  --cs-wide-track: min(1200px, calc(100vw - 64px));
-  max-width: var(--cs-wide-track) !important;
-  width: 100%;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  box-sizing: border-box;
+  overflow: visible;
 }
 
 body.case-study-page.cs-v2:has(.content.hc-case) > .hero .meta-strip {
-  width: 100%;
-  flex-wrap: nowrap;
+  box-sizing: border-box;
+  width: calc(var(--cs-track) * 1.15);
+  max-width: calc(var(--cs-track) * 1.15);
 }
 
-body.case-study-page.cs-v2:has(.content.hc-case) > .hero .meta-item {
-  flex: 1 1 0;
-  min-width: 0;
-}
-
-@media (min-width: 900px) {
-  body.case-study-page.cs-v2:has(.content.hc-case) > .hero .meta-value {
-    white-space: nowrap;
-  }
+body.case-study-page.cs-v2:has(.content.hc-case) > .hero .meta-value {
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 body.case-study-page.cs-v2 .hc-case .hc-wizard-steps-grid {
