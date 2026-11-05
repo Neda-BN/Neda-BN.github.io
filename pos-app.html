@@ -817,7 +817,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 <link rel="stylesheet" href="css/cs-design.css?v=20261102g">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
-<link rel="stylesheet" href="css/cs-v2.css?v=20261105q">
+<link rel="stylesheet" href="css/cs-v2.css?v=20261105r">
 </head>
 <body class="has-anna-nav case-study-page cs-design-page cs-v2">
 
@@ -1748,6 +1748,68 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(scheduleLayout);
   }
+})();
+</script>
+<script>
+(function () {
+  var mq = window.matchMedia('(min-width: 1320px)');
+  var note = document.querySelector('#design .aside-note--bubble');
+  var BUBBLE_W = 188;
+  var VIEW_INSET = 48;
+
+  function layoutPosAsideBubble() {
+    if (!note) return;
+    var bubble = note.querySelector('.aside-note__bubble');
+    var grid = note.nextElementSibling;
+    if (!bubble || !grid || !grid.classList.contains('screens-grid')) return;
+
+    if (!mq.matches) {
+      bubble.style.removeProperty('left');
+      bubble.style.removeProperty('right');
+      bubble.style.removeProperty('top');
+      bubble.style.removeProperty('--aside-bubble-top');
+      return;
+    }
+
+    var gap = 80;
+    var noteRect = note.getBoundingClientRect();
+    var gridRect = grid.getBoundingClientRect();
+    var top = Math.max(0, gridRect.top - noteRect.top + 12);
+    var leftGutter = gridRect.left - VIEW_INSET;
+    var rightSpace = window.innerWidth - VIEW_INSET - gridRect.right;
+    var leftRel;
+
+    if (rightSpace >= BUBBLE_W + gap) {
+      leftRel = gridRect.right - noteRect.left + gap;
+    } else if (leftGutter >= BUBBLE_W + gap) {
+      leftRel = gridRect.left - noteRect.left - gap - BUBBLE_W;
+    } else {
+      leftRel = Math.max(VIEW_INSET - noteRect.left, gridRect.right - noteRect.left + 16);
+    }
+
+    var maxLeft = window.innerWidth - VIEW_INSET - BUBBLE_W - noteRect.left;
+    leftRel = Math.min(Math.max(leftRel, VIEW_INSET - noteRect.left), maxLeft);
+
+    bubble.style.right = 'auto';
+    bubble.style.left = leftRel + 'px';
+    bubble.style.top = top + 'px';
+    bubble.style.setProperty('--aside-bubble-top', top + 'px');
+    note.classList.add('aside-note--bubble-margin-right');
+  }
+
+  function afterLayout() {
+    requestAnimationFrame(function () {
+      layoutPosAsideBubble();
+      window.dispatchEvent(new Event('resize'));
+    });
+  }
+
+  if (document.readyState === 'complete') afterLayout();
+  else window.addEventListener('load', afterLayout, { once: true });
+  window.addEventListener('resize', layoutPosAsideBubble);
+  if (mq.addEventListener) mq.addEventListener('change', layoutPosAsideBubble);
+  else mq.addListener(layoutPosAsideBubble);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(afterLayout);
 })();
 </script>
 </body>

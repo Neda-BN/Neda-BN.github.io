@@ -849,45 +849,25 @@ body.case-study-page.cs-design-page.cs-v2 .pos-summary-shell .sb-glance__stateme
   max-width: none !important;
 }
 
-/* IMAGE LOCK — decision mocks (match pre-frameless rendered sizes) */
-@media (min-width: 860px) {
-  body.case-study-page.cs-v2 .cs-v2-decision .screens-grid.col-3 .screen-wrap {
-    max-width: 242px;
-  }
-
-  body.case-study-page.cs-v2 .cs-v2-decision .screens-grid.col-2 .screen-wrap {
-    max-width: 240.7px;
-  }
-
-  body.case-study-page.cs-v2 .cs-v2-decision .screen-wrap.screen-wrap--natural-photo {
-    max-width: 754px;
-  }
-
-  body.case-study-page.cs-v2 .cs-v2-decision img[src*="Add_discount_to_cart.png"] {
-    width: 238.7px !important;
-    max-width: 238.7px !important;
-    height: auto !important;
-  }
+/* Design section — phone groups (framed inner width), centred in wide track */
+body.case-study-page.cs-v2 .cs-v2-decision .screens-section > .screens-grid {
+  width: fit-content;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
 }
 
-@media (min-width: 376px) and (max-width: 859.98px) {
-  body.case-study-page.cs-v2 .cs-v2-decision .screens-grid .screen-wrap {
-    max-width: 678px;
-  }
-
-  body.case-study-page.cs-v2 .cs-v2-decision .screen-wrap.screen-wrap--natural-photo {
-    max-width: 678px;
-  }
+body.case-study-page.cs-v2 .cs-v2-decision .screens-section > .screen-wrap.screen-wrap--natural-photo {
+  width: 100%;
+  max-width: 754px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-@media (max-width: 375.98px) {
-  body.case-study-page.cs-v2 .cs-v2-decision .screens-grid .screen-wrap {
-    max-width: 285px;
-  }
-
-  body.case-study-page.cs-v2 .cs-v2-decision .screen-wrap.screen-wrap--natural-photo {
-    max-width: 285px;
-  }
+body.case-study-page.cs-v2 .cs-v2-decision .screen-wrap {
+  width: 100%;
+  max-width: 100%;
 }
 
 body.case-study-page.cs-v2 .cs-v2-decision .screen-wrap img {
@@ -895,4 +875,56 @@ body.case-study-page.cs-v2 .cs-v2-decision .screen-wrap img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+@media (min-width: 860px) {
+  body.case-study-page.cs-v2 .cs-v2-decision .screens-grid.col-3 {
+    grid-template-columns: repeat(3, 242px);
+    gap: 14px;
+  }
+
+  body.case-study-page.cs-v2 .cs-v2-decision .screens-grid.col-2 {
+    width: 754px;
+    max-width: 100%;
+    grid-template-columns: repeat(2, minmax(0, calc((100% - 32px) / 3)));
+    gap: 14px;
+    justify-content: start;
+  }
+
+  body.case-study-page.cs-v2 .cs-v2-decision .screens-grid.col-3 .screen-wrap,
+  body.case-study-page.cs-v2 .cs-v2-decision .screens-grid.col-2 .screen-wrap {
+    max-width: none;
+  }
+
+  body.case-study-page.cs-v2 .cs-v2-decision img[src*="Add_discount_to_cart.png"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 859.98px) {
+  body.case-study-page.cs-v2 .cs-v2-decision .screens-grid.col-3,
+  body.case-study-page.cs-v2 .cs-v2-decision .screens-grid.col-2 {
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    max-width: 678px;
+  }
+
+  body.case-study-page.cs-v2 .cs-v2-decision .screens-section > .screen-wrap.screen-wrap--natural-photo {
+    max-width: 678px;
+  }
+}
+
+@media (max-width: 375.98px) {
+  body.case-study-page.cs-v2 .cs-v2-decision .screens-grid.col-3,
+  body.case-study-page.cs-v2 .cs-v2-decision .screens-grid.col-2 {
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    max-width: 285px;
+  }
+
+  body.case-study-page.cs-v2 .cs-v2-decision .screens-section > .screen-wrap.screen-wrap--natural-photo {
+    max-width: 285px;
+  }
 }
