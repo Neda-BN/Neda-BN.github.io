@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="css/cs-design.css?v=20261102g">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
-<link rel="stylesheet" href="css/cs-v2.css?v=20261105z">
+<link rel="stylesheet" href="css/cs-v2.css?v=20261105aa">
 <style>
   body.case-study-page.cs-design-page .pos-summary-shell.sb-case{max-width:none;margin:0;padding:0;}
   body.case-study-page.cs-design-page .pos-summary-shell .sb-tldr.cs-summary.sb-glance{text-align:left;}
@@ -55,21 +55,37 @@
   body.case-study-page #discover .hc-persona-table th[scope="row"]{font-family:var(--font-body,'Poppins',sans-serif)!important;font-size:15px!important;font-weight:600!important;padding:12px 20px!important;width:180px!important;max-width:180px!important;min-width:180px!important;background:var(--surface-2)!important;color:var(--text)!important;border-color:var(--border)!important;}
   body.case-study-page #discover .hc-persona-table td{font-family:var(--font-body,'Poppins',sans-serif)!important;font-size:15px!important;padding:12px 20px!important;color:var(--muted)!important;border-color:var(--border)!important;}
   body.case-study-page #discover .hc-persona-table{background:var(--surface)!important;border-color:var(--border)!important;}
-  body.case-study-page.cs-v2 .hc-case .fs-note{font-size:13px;color:var(--meta,#9a9aa5);font-style:italic;margin:12px 0 0;font-weight:400;}
-  /* IMAGE LOCK (pre-restructure rendered sizes; scoped to Healthcare) */
-  body.case-study-page.cs-v2 .hero-image{max-width:min(818px,calc(100vw - 40px))!important;width:100%;margin:0 auto 64px;padding:0!important;box-sizing:border-box;}
-  body.case-study-page.cs-v2 .hero-image .hc-media-frame{width:100%;max-width:100%;}
-  body.case-study-page.cs-v2 .hero-image .hc-media-frame img{width:100%;max-width:100%;height:auto;}
+  body.case-study-page.cs-v2 .hc-case .fs-note{font-size:13px;color:var(--meta,#9a9aa5);font-style:italic;font-weight:400;}
+  /* Hero image — same rules as simplebooking.html */
+  body.case-study-page.cs-v2 .hero-image {
+    max-width: min(1200px, calc(100vw - 40px)) !important;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body.case-study-page.cs-v2 .hero-image :is(picture, img, .hc-media-frame, .hc-media-frame img) {
+    display: block;
+    width: 100%;
+    max-width: min(1136px, calc(100vw - 40px));
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    body.case-study-page.cs-v2 .hero-image :is(picture, img, .hc-media-frame, .hc-media-frame img) {
+      max-width: min(1136px, calc(100vw - 80px));
+    }
+  }
+  body.case-study-page.cs-v2 .hero-image .hc-media-frame {
+    border: none;
+    background: transparent;
+    border-radius: 0;
+    overflow: visible;
+  }
   body.case-study-page.cs-v2 .hc-case .hc-figure-process-board.wide{width:min(1200px,calc(100vw - 64px));max-width:min(1200px,calc(100vw - 64px));margin-left:calc((100% - min(1200px,calc(100vw - 64px)))/2);margin-right:auto;}
   body.case-study-page.cs-v2 .hc-case .hc-figure-process-board.wide img{max-width:min(1200px,100%);}
   body.case-study-page.cs-v2 .hc-case .hc-discover-fullbleed-wrap.wide{width:min(1200px,calc(100vw - 64px));max-width:min(1200px,calc(100vw - 64px));margin-left:calc((100% - min(1200px,calc(100vw - 64px)))/2);margin-right:auto;}
   @media (max-width:640px){
-    body.case-study-page.cs-v2 .hero-image{padding:0!important;max-width:min(349px,calc(100vw - 26px))!important;}
     body.case-study-page.cs-v2 .hc-case .hc-discover-fullbleed-wrap.wide,
     body.case-study-page.cs-v2 .hc-case .hc-figure-process-board.wide{width:calc(100vw - 64px);max-width:calc(100vw - 64px);margin-left:auto;margin-right:auto;}
-  }
-  @media (min-width:641px) and (max-width:859px){
-    body.case-study-page.cs-v2 .hero-image{max-width:min(742px,calc(100vw - 26px))!important;}
   }
 </style>
 </head>
@@ -411,7 +427,7 @@
         <div class="hc-wizard-step-card"><span class="hc-wizard-step-card__num">05</span><h4>Review</h4><p>Check all the details before sending.</p></div>
         <div class="hc-wizard-step-card"><span class="hc-wizard-step-card__num">06</span><h4>Send</h4><p>Send to all chosen recipients at once.</p></div>
       </div>
-      <div class="hc-wizard-preview hc-hifi-stack reveal reveal-media">
+      <div class="hc-wizard-preview hc-featured-screens reveal reveal-media">
       <figure class="hc-wizard-shot">
         <div class="hc-wizard-shot__frame">
           <img src="Select Survey Type.png" alt="Create survey dialog offering manual build or starting from a predefined HVB or LSS template." width="1751" height="1117" loading="lazy" decoding="async">
@@ -429,7 +445,7 @@
       <details class="mob-screens-collapsed reveal reveal-media">
       <summary>See all 8 screens</summary>
     <div class="screens-section">
-    <div class="hc-wizard-gallery hc-hifi-stack">
+    <div class="hc-wizard-gallery">
       <figure class="hc-wizard-shot">
         <div class="hc-wizard-shot__frame">
           <img src="Survey Builder.png" alt="Surveys section showing HVB and LSS survey templates organised by type in the healthcare platform sidebar." width="1751" height="1117" loading="lazy" decoding="async">
@@ -516,7 +532,7 @@
         <tr><td><strong style="color:#B91C1C;">Critical</strong></td><td>Below the acceptable level.</td><td>Needs action now.</td></tr>
       </tbody>
     </table>
-      <div class="hc-wizard-gallery hc-hifi-stack reveal reveal-media">
+      <div class="hc-wizard-gallery hc-featured-screens reveal reveal-media">
 <figure class="hc-wizard-shot">
         <div class="hc-wizard-shot__frame">
           <img src="Dashboard.png" alt="Traffic-light scoring dashboard with municipality performance color-coded green, amber, and red for instant status reading." width="1751" height="1117" loading="lazy" decoding="async">

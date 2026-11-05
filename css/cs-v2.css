@@ -1130,8 +1130,7 @@ body.case-study-page.cs-v2 .cs-v2-study .cs-customer-view__label {
 /* ── Healthcare (healthcare.html) ── */
 body.case-study-page.cs-v2:has(.content.hc-case) .back-btn-wrap--top,
 body.case-study-page.cs-v2:has(.content.hc-case) .back-btn-wrap--bottom,
-body.case-study-page.cs-v2:has(.content.hc-case) > .hero,
-body.case-study-page.cs-v2:has(.content.hc-case) > .hero-image {
+body.case-study-page.cs-v2:has(.content.hc-case) > .hero {
   --cs-wide-track: min(1200px, calc(100vw - 64px));
   max-width: var(--cs-wide-track) !important;
   width: 100%;
@@ -1167,7 +1166,6 @@ body.case-study-page.cs-v2 .hc-case .hc-wizard-steps-grid {
   max-width: var(--cs-wide-track);
   margin-left: calc((100% - var(--cs-wide-track)) / 2);
   margin-right: 0;
-  margin-top: var(--space-block);
   box-sizing: border-box;
 }
 
@@ -1187,7 +1185,7 @@ body.case-study-page.cs-v2 .hc-case .hc-wizard-step-card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 20px;
+  padding: 24px;
   box-sizing: border-box;
   text-align: left;
 }
@@ -1221,11 +1219,12 @@ body.case-study-page.cs-v2 .hc-case .hc-wizard-step-card p {
   max-width: none !important;
 }
 
-body.case-study-page.cs-v2 .hc-case .hc-hifi-stack,
-body.case-study-page.cs-v2 .hc-case .mob-screens-collapsed {
+body.case-study-page.cs-v2 .hc-case .hc-featured-screens {
   --cs-wide-track: min(1200px, calc(100vw - 64px));
+  --hc-featured-max: min(880px, calc(var(--cs-wide-track) * 0.8));
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--space-block);
   width: var(--cs-wide-track);
   max-width: var(--cs-wide-track);
@@ -1234,23 +1233,33 @@ body.case-study-page.cs-v2 .hc-case .mob-screens-collapsed {
   box-sizing: border-box;
 }
 
-body.case-study-page.cs-v2 .hc-case .mob-screens-collapsed .hc-hifi-stack {
+body.case-study-page.cs-v2 .hc-case .hc-featured-screens .hc-wizard-shot {
   width: 100%;
-  max-width: 100%;
-  margin-left: 0;
+  max-width: var(--hc-featured-max);
+  align-items: center;
+  text-align: center;
 }
 
-body.case-study-page.cs-v2 .hc-case .hc-hifi-stack .hc-wizard-shot,
-body.case-study-page.cs-v2 .hc-case .hc-hifi-stack .hc-wizard-shot__frame {
+body.case-study-page.cs-v2 .hc-case .hc-featured-screens .hc-wizard-shot__frame {
   width: 100%;
-  max-width: 100%;
+  max-width: var(--hc-featured-max);
+  margin-left: auto;
+  margin-right: auto;
 }
 
-body.case-study-page.cs-v2 .hc-case .hc-hifi-stack .hc-wizard-shot__frame img {
+body.case-study-page.cs-v2 .hc-case .hc-featured-screens .hc-wizard-shot__frame img {
   width: 100%;
-  max-width: min(1751px, 100%);
+  max-width: 100%;
   height: auto;
   display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body.case-study-page.cs-v2 .hc-case .hc-featured-screens .hc-wizard-caption,
+body.case-study-page.cs-v2 .hc-case .hc-featured-screens .cs-caption {
+  text-align: center;
+  max-width: var(--hc-featured-max);
   margin-left: auto;
   margin-right: auto;
 }
@@ -1269,39 +1278,13 @@ body.case-study-page.cs-v2 .hc-case .cs-v2-decision > table.cs-table.data-table 
   width: 16%;
 }
 
+body.case-study-page.cs-v2:has(.content.hc-case) .content.case-main > .section > * + .hc-persona-panel {
+  margin-top: var(--cs-gap) !important;
+}
+
 body.case-study-page.cs-v2 .hc-case #discover .hc-persona-table th[scope="row"] {
   width: 22% !important;
   max-width: none !important;
   min-width: 0 !important;
 }
 
-body.case-study-page.cs-v2 .hc-case #discover .hc-persona-panel.wide {
-  width: var(--cs-wide-track);
-  max-width: var(--cs-wide-track);
-  margin-left: calc((100% - var(--cs-wide-track)) / 2);
-  margin-right: 0;
-  box-sizing: border-box;
-}
-
-body.case-study-page.cs-v2 .hc-case .cs-v2-decision > p + table.cs-table,
-body.case-study-page.cs-v2 .hc-case #discover .cs-v2-subtitle + .hc-persona-panel {
-  margin-top: var(--space-block) !important;
-}
-
-body.case-study-page.cs-v2 .hc-case .cs-v2-decision > table.cs-table {
-  margin-bottom: var(--space-block) !important;
-}
-
-body.case-study-page.cs-v2 .hc-case .cs-v2-decision > table.cs-table + p,
-body.case-study-page.cs-v2 .hc-case .cs-v2-decision > table.cs-table + .hc-hifi-stack,
-body.case-study-page.cs-v2 .hc-case .cs-v2-decision > table.cs-table + .hc-wizard-gallery {
-  margin-top: var(--space-block) !important;
-}
-
-body.case-study-page.cs-v2 .hc-case .cs-v2-decision > .hc-wizard-steps-grid + .hc-hifi-stack {
-  margin-top: var(--space-block);
-}
-
-body.case-study-page.cs-v2 .hc-case #connect .hc-reveal-journey + .hc-discover-fullbleed-wrap {
-  margin-top: var(--space-block);
-}
