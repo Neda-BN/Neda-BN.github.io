@@ -8,28 +8,32 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/tokens.css?v=20261102c">
+<link rel="stylesheet" href="css/tokens.css?v=20260401">
 <link rel="stylesheet" href="css/site-shared.css?v=20261101">
 <script src="js/page-transition.js?v=20260633"></script>
 <script src="js/site-nav.js?v=20260326"></script>
 <title>Simple Booking Accounting Application · Neda Bagherinezhad</title>
 <meta name="description" content="Case study: redesigning Simple Booking, a developer-built accounting app, through workshops with its real users and AI-assisted implementation with Claude Code.">
 <link rel="stylesheet" href="css/scroll-reveal.css?v=20260403">
-<link rel="stylesheet" href="css/case-study.css?v=20261102g">
-<link rel="stylesheet" href="css/cs-design.css?v=20261102f">
+<link rel="stylesheet" href="css/case-study.css?v=20261102e">
+<link rel="stylesheet" href="css/cs-design.css?v=20261102g">
 <link rel="stylesheet" href="css/simplebooking.css?v=20260408">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
-<link rel="stylesheet" href="css/sb-design.css?v=20261102d">
+<link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
+<link rel="stylesheet" href="css/cs-v2.css?v=20261105v">
 <link rel="preload" as="image" href="sb-hero.webp" type="image/webp" fetchpriority="high">
 <style>
   /* Before/after comparisons: keep slider layout; do not hide scroll/zoom wrappers */
   .case-study-page .sb-case .sb-compare .sb-zoom,
-  .case-study-page .sb-case .sb-compare .sb-scroll-x {
+  .case-study-page .sb-case .sb-compare .sb-scroll-x,
+  .case-study-page .sb-case .cs-v2-decision .sb-zoom,
+  .case-study-page .sb-case .cs-v2-decision .sb-scroll-x {
     opacity: 1 !important;
     transform: none !important;
     animation: none !important;
   }
-  .case-study-page .sb-case .sb-compare .sb-scroll-x img {
+  .case-study-page .sb-case .sb-compare .sb-scroll-x img,
+  .case-study-page .sb-case .cs-v2-decision .sb-scroll-x img {
     width: auto;
     max-width: none;
     height: auto;
@@ -37,24 +41,26 @@
     object-fit: unset;
   }
   @media (min-width: 901px) {
-    .case-study-page .sb-case .sb-compare .sb-scroll-x img {
+    .case-study-page .sb-case .sb-compare .sb-scroll-x img,
+    .case-study-page .sb-case .cs-v2-decision .sb-scroll-x img {
       width: 100%;
       max-width: 100%;
     }
   }
-  .case-study-page .sb-case .sb-compare .sb-zoom {
+  .case-study-page .sb-case .sb-compare .sb-zoom,
+  .case-study-page .sb-case .cs-v2-decision .sb-zoom {
     overflow: hidden;
     border: 1px solid var(--border);
     background: var(--surface);
     border-radius: 16px;
   }
   /* Adviser screenshots: full brightness, no scroll-reveal fade; never upscale past natural width */
-  .case-study-page .sb-case section[aria-labelledby="adviser"] figure.sb-ds-sheet {
+  .case-study-page.cs-v2 .sb-case #design figure.sb-ds-sheet {
     opacity: 1 !important;
     transform: none !important;
     animation: none !important;
   }
-  .case-study-page .sb-case section[aria-labelledby="adviser"] figure.sb-ds-sheet img {
+  .case-study-page.cs-v2 .sb-case #design figure.sb-ds-sheet img {
     width: 100%;
     max-width: 1024px;
     height: auto;
@@ -65,61 +71,62 @@
     transform: none !important;
     image-rendering: auto;
   }
-  /* What I changed — one gap between areas only */
-  :root {
-    --cs-change-gap: 72px;
-  }
-  @media (min-width: 768px) and (max-width: 1023px) {
-    :root {
-      --cs-change-gap: 60px;
-    }
-  }
-  @media (max-width: 767px) {
-    :root {
-      --cs-change-gap: 48px;
-    }
-  }
-  .case-study-page .sb-case section[aria-labelledby="findings"] .sb-compare + .sb-compare {
-    margin-top: 0 !important;
-  }
-  .case-study-page .sb-case section[aria-labelledby="findings"] .cs-change {
-    margin: 0 !important;
+  /* IMAGE LOCK (pre-restructure rendered sizes; scoped to Simple Booking) */
+  body.case-study-page.cs-v2 .hero-image {
+    max-width: min(1200px, calc(100vw - 40px)) !important;
     padding: 0;
-    display: flow-root;
     box-sizing: border-box;
   }
-  .case-study-page .sb-case section[aria-labelledby="findings"] .cs-change + .cs-change {
-    margin-top: var(--cs-change-gap) !important;
-    padding-top: 0 !important;
+  body.case-study-page.cs-v2 .hero-image :is(picture, img) {
+    display: block;
+    width: 100%;
+    max-width: min(1136px, calc(100vw - 40px));
+    margin-left: auto;
+    margin-right: auto;
   }
-  .case-study-page .sb-case section[aria-labelledby="findings"] .cs-change > h3 {
-    margin-top: 0 !important;
-    padding-top: 0;
-  }
-  .case-study-page .sb-case section[aria-labelledby="findings"] .cs-change > h3.cs-reveal {
-    transform: none !important;
-  }
-  html.js .case-study-page .sb-case section[aria-labelledby="findings"] .cs-change > h3.cs-reveal.is-visible {
-    animation: scroll-cs-reveal-fade 800ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  }
-  @keyframes scroll-cs-reveal-fade {
-    to {
-      opacity: 1;
+  @media (min-width: 769px) and (max-width: 1024px) {
+    body.case-study-page.cs-v2 .hero-image :is(picture, img) {
+      max-width: min(1136px, calc(100vw - 80px));
     }
   }
-  .case-study-page .sb-case section[aria-labelledby="findings"] .cs-change > *:last-child {
-    margin-bottom: 0 !important;
+  body.case-study-page.cs-v2 .sb-case .sb-video-wrap {
+    max-width: min(720px, calc(100vw - 48px));
+    margin-left: auto;
+    margin-right: auto;
   }
-  .case-study-page .sb-case section[aria-labelledby="findings"] .cs-change .sb-compare-sub {
-    margin-top: 47px !important;
-    padding-top: 0 !important;
+  body.case-study-page.cs-v2 .sb-case .sb-video-wrap .sb-overview-video {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+  body.case-study-page.cs-v2 .sb-case .sb-ds-sheets.wide {
+    --cs-wide-track: min(1200px, calc(100vw - 64px));
+    width: var(--cs-wide-track) !important;
+    max-width: min(1136px, var(--cs-wide-track)) !important;
+    margin-left: calc((100% - var(--cs-wide-track)) / 2) !important;
+    margin-right: auto !important;
+    box-sizing: border-box;
+  }
+  body.case-study-page.cs-v2 .sb-case #design figure.sb-ds-sheet img {
+    max-width: min(1024px, calc(100vw - 40px));
+  }
+  body.case-study-page.cs-v2 .sb-case .cs-v2-decision figure:has(.sb-scroll-x) {
+    width: min(1134px, calc(100% - 66px));
+    max-width: 1134px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  body.case-study-page.cs-v2 .sb-case .cs-customer-view__figure img {
+    width: 100%;
+    max-width: 760px;
+    height: auto !important;
   }
   @media (max-width: 767px) {
-    .case-study-page .sb-case section[aria-labelledby="findings"] .cs-change .sb-compare-sub {
-      margin-top: 39px !important;
+    body.case-study-page.cs-v2 .sb-case .sb-video-wrap {
+      width: min(720px, calc(100vw - 40px));
+      max-width: min(720px, calc(100vw - 40px));
     }
   }
-
   @media (min-width: 961px) {
     .case-study-page .sb-case .cs-structure--five .cs-structure__branches {
       grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -140,7 +147,7 @@
   }
 </style>
 </head>
-<body class="has-anna-nav case-study-page cs-design-page sb-design-page">
+<body class="has-anna-nav case-study-page cs-design-page cs-v2">
 
 <header class="anna-nav anna-nav--intro-visible" id="site-nav" aria-label="Primary">
   <div class="anna-nav__pill">
@@ -153,141 +160,122 @@
   </div>
 </header>
 
-<div class="cs-read-progress sb-read-progress" aria-hidden="true"></div>
+<div class="cs-read-progress" aria-hidden="true"></div>
 
 <div class="back-btn-wrap back-btn-wrap--top">
   <a class="back-btn" href="index.html#projects"><svg class="back-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Back</a>
 </div>
-<main class="sb-case" id="simplebooking-case-study">
-  <!-- Hero -->
-  <header class="sb-hero hero">
-    <div class="sb-wrap">
-      <div class="sb-hero-text">
-        <p class="hero-tag">Case Study · B2B SaaS · FinTech · 8 MIN READ</p>
-        <h1>Simple Booking Accounting Application</h1>
-        <video
-          class="sb-overview-video"
-          src="sb-video.mp4?v=2"
-          poster="sb-video-cover.jpg?v=2"
-          controls
-          playsinline
-          preload="none"
-          width="1920"
-          height="1080"
-          aria-label="One-minute overview of the Simple Booking case study">
-          Your browser doesn't support video. Scroll down to read the full case study.
-        </video>
-        <div class="meta-strip cs-meta-strip">
-          <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Product Designer</div></div>
-          <div class="meta-item"><div class="meta-label">Company</div><div class="meta-value">Cyberdesign AB · 2026–present</div></div>
-          <div class="meta-item"><div class="meta-label">Platform</div><div class="meta-value">Web application</div></div>
-          <div class="meta-item"><div class="meta-label">Methods</div><div class="meta-value">Expert review · Workshops · In-context testing</div></div>
-        </div>
-        <p class="hero-subtitle">Redesigning an accounting app so business owners can do their own bookkeeping, without an accountant</p>
-        <span class="sb-status">Ongoing · about 50% redesigned and implemented</span>
-      </div>
 
-      <div class="sb-hero-img">
-        <picture><source srcset="sb-hero.webp" type="image/webp"><img src="sb-hero.png" width="2400" height="1300" alt="Redesigned Simple Booking: the dark-mode home page with tasks that need attention, and the light-mode receipts page with upload, inbox and previous receipts" fetchpriority="high" decoding="async"></picture>
-      </div>
+<section class="hero">
+  <div class="hero-tag">Case Study · B2B SaaS · FinTech · 8 MIN READ</div>
+  <h1>Simple Booking Accounting Application</h1>
+  <div class="meta-strip cs-meta-strip">
+    <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Product Designer</div></div>
+    <div class="meta-item"><div class="meta-label">Company</div><div class="meta-value">Cyberdesign AB · 2026–present</div></div>
+    <div class="meta-item"><div class="meta-label">Platform</div><div class="meta-value">Web application</div></div>
+    <div class="meta-item"><div class="meta-label">Team</div><div class="meta-value">Sole designer</div></div>
+    <div class="meta-item"><div class="meta-label">Methods</div><div class="meta-value">Expert review · Workshops · In-context testing</div></div>
+  </div>
+  <p class="hero-subtitle">Redesigning an accounting app so business owners can do their own bookkeeping, without an accountant</p>
+</section>
 
-      <div class="sb-tldr cs-summary sb-glance">
-        <div class="sb-glance__problem">
-          <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">The problem</p></div>
-          <p class="sb-glance__statement">A big accounting app, <span class="sb-glance-em">built by developers without a designer and never tested with users</span>. Its core workflows were confusing, cluttered and sometimes unfinished.</p>
-        </div>
-        <div class="sb-glance__divider" role="presentation"></div>
-        <div class="sb-glance__lower">
-          <div class="sb-glance__col sb-glance__col--did">
-            <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">What I did</p></div>
-            <p class="sb-glance__body">Reviewed the whole app, built a roadmap with the PM, and ran workshops on each core area with <span class="sb-glance-em">all three real users</span>. Then I restructured the information architecture, redesigned those areas, <span class="sb-glance-em">proposed and designed Adviser, an AI assistant</span>, and built the new UI myself with Claude Code.</p>
+<div class="hero-image">
+  <picture><source srcset="sb-hero.webp" type="image/webp"><img src="sb-hero.png" width="2400" height="1300" alt="Redesigned Simple Booking: the dark-mode home page with tasks that need attention, and the light-mode receipts page with upload, inbox and previous receipts" fetchpriority="high" decoding="async"></picture>
+</div>
+
+<div class="content case-main sb-case cs-v2-study">
+
+  <section class="section fade-in reveal cs-v2-phase cs-v2-phase--overview" aria-labelledby="overview">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg><span class="cs-v2-phase-label">Overview</span></div>
+    <div class="sb-case pos-summary-shell" id="overview">
+      <div class="sb-wrap">
+        <div class="cs-match-img sb-tldr cs-summary sb-glance">
+          <div class="sb-glance__problem">
+            <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">The problem</p></div>
+            <p class="sb-glance__statement">A big accounting app, <span class="sb-glance-em">built by developers without a designer and never tested with users</span>. Its core workflows were confusing, cluttered and sometimes unfinished.</p>
           </div>
-          <div class="sb-glance__col sb-glance__col--decisions">
-            <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">Key decisions</p></div>
-            <ul class="sb-glance__list">
-              <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>An Overview sorted by urgency</li>
-              <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Clear statuses everywhere</li>
-              <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Search and filters for long lists</li>
-              <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Payroll in small steps</li>
-              <li class="sb-glance__list-item--lead"><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Adviser, an AI assistant that answers from the owner's own numbers and never acts without confirmation</li>
-            </ul>
-          </div>
-          <div class="sb-glance__col sb-glance__col--status">
-            <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">Status</p></div>
-            <div class="cs-result__lead">
-              <p class="sb-glance__pct" aria-hidden="true">50%</p>
-              <div class="sb-glance__status-bar" aria-hidden="true"><span class="sb-glance__status-fill"></span></div>
+          <div class="sb-glance__divider" role="presentation"></div>
+          <div class="sb-glance__lower">
+            <div class="sb-glance__col sb-glance__col--did">
+              <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">What I did</p></div>
+              <p class="sb-glance__body">Reviewed the whole app, built a roadmap with the PM, and ran workshops on each core area with <span class="sb-glance-em">all three real users</span>. Then I restructured the information architecture, redesigned those areas, <span class="sb-glance-em">proposed and designed Adviser, an AI assistant</span>, and built the new UI myself with Claude Code.</p>
             </div>
-            <div class="cs-result__body">
-              <p class="sb-glance__status-note">About 50% redesigned and built. Formal testing of V2 is next.</p>
-              <p class="sb-glance__ongoing"><span class="sb-glance__status-dot" aria-hidden="true"></span>Ongoing</p>
+            <div class="sb-glance__col sb-glance__col--decisions">
+              <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">Key decisions</p></div>
+              <ul class="sb-glance__list">
+                <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>An Overview sorted by urgency</li>
+                <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Clear statuses everywhere</li>
+                <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Search and filters for long lists</li>
+                <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Payroll in small steps</li>
+                <li class="sb-glance__list-item--lead"><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Adviser, an AI assistant that answers from the owner's own numbers and never acts without confirmation</li>
+              </ul>
+            </div>
+            <div class="sb-glance__col sb-glance__col--status sb-glance__col--result">
+              <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">Status</p></div>
+              <div class="cs-result__lead">
+                <p class="sb-glance__pct" aria-hidden="true">50%</p>
+                <p class="sb-glance__result-sub">redesigned and built</p>
+              </div>
+              <div class="cs-result__body">
+                <p class="sb-glance__result-line">Formal testing of V2 is next.</p>
+                <p class="sb-glance__ongoing"><span class="sb-glance__status-dot" aria-hidden="true"></span>Ongoing</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="sb-glance__jump-divider" role="presentation"></div>
-        <div class="cs-summary-jump">
-          <a class="cs-summary-jump__link" href="#where-it-is-now">Jump to where it is now <span class="cs-summary-jump__arrow" aria-hidden="true">↓</span></a>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- The challenge -->
-  <section class="sb-section section sb-section--first" aria-labelledby="challenge">
-    <div class="sb-wrap">
-            <div class="section-header">
-        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
-        <div class="section-headings"><div class="sb-sec-eyebrow" aria-hidden="true"><span class="sb-sec-num">01</span><span class="sb-sec-line"></span></div><h2 class="section-chapter" id="challenge">The challenge</h2></div>
-      </div>
-      <div class="sb-text">
-        <p>Simple Booking makes a bold promise: a Swedish small business can do its own accounting, from invoices to VAT and year-end, without paying an accountant.</p>
-        <p><span class="ink">That promise is the product.</span> And the stakes are real: Swedish bookkeeping rules are strict, deadlines come with penalties, and most owners aren't accountants. Every time an owner gets stuck, they either contact support or hire an accountant, and the promise breaks.</p>
-        <p>When I joined, the product was already big: invoices, quotes, receipts, journal, payroll and more. But it was <span class="sb-highlight-yellow">built around the database, not around people</span>. There was no clear hierarchy, statuses were missing, some parts were unfinished, and the app expected users to know accounting, which is exactly what they don't know.</p>
-        <p class="aside-note aside-note--bubble aside-note--bubble-shape-1 aside-note--bubble-prefer-left cs-aside"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z"/><path d="M6 17h12"/></svg></span><span class="aside-note__bubble-text">A bit like a cookbook that assumes you're already a chef.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="sb-arrow-grad-cookbook" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#sb-arrow-grad-cookbook)"/><path d="M40 11 L34 8" stroke="url(#sb-arrow-grad-cookbook)"/><path d="M40 11 L34 14" stroke="url(#sb-arrow-grad-cookbook)"/></svg></span></span></span></p>
-        <div class="sb-question-frame">
-          <p class="sb-label">The one question</p>
-          <p class="sb-question-frame__lead">So every decision had to answer one question:</p>
-          <p class="sb-question-frame__q">can someone without accounting knowledge do this alone?</p>
-          <p class="sb-question-frame__after">Because if they can't, they won't stay.</p>
+          <div class="sb-glance__jump-divider" role="presentation"></div>
+          <div class="cs-summary-jump">
+            <a class="cs-summary-jump__link" href="#results">Jump to where it is now <span class="cs-summary-jump__arrow" aria-hidden="true">↓</span></a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- How I worked -->
-  <section class="sb-section section" aria-labelledby="how-i-worked">
-    <div class="sb-wrap">
-      <div class="section-header">
-        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <div class="section-headings"><div class="sb-sec-eyebrow" aria-hidden="true"><span class="sb-sec-num">02</span><span class="sb-sec-line"></span></div><h2 class="section-chapter" id="how-i-worked">How I worked</h2></div>
-      </div>
-      <div class="sb-text">
-        <p>The app was too big to fix at once, so I started by reviewing everything myself. Together with the PM, I ranked each part by business importance and how badly it was broken. Six areas came first: Overview, Invoices, Quotes, Receipts, Journal entries and Payroll.</p>
-        <p>The startup had three real users, all running small companies in Stockholm. That's a small group, but it meant I could work with every one of them. They did real tasks in their own work environment and told me how it felt, and in one session I sat beside a user and watched him think out loud. Then I turned the patterns into design decisions.</p>
-        <p>I lead the UX work end to end, side by side with the PM, and with the back-end team, who connect the front-end I build to the rest of the product.</p>
-      </div>
-      <div class="sb-process-frame">
-        <div class="sb-process-frame__bar" aria-hidden="true"><span class="sb-process-frame__fill"></span></div>
-        <ol class="sb-process">
-          <li><h4>Expert review</h4><p>I went through the whole app and listed problems, gaps and bugs.</p></li>
-          <li><h4>Roadmap with the PM</h4><p>We ranked each part by business importance and how serious the problems were.</p></li>
-          <li><h4>Testing in real work</h4><p>All three users did real tasks in their own environment, and I watched one of them in person.</p></li>
-          <li><h4>Finding patterns</h4><p>I compared what the three users said and did, and turned it into design decisions.</p></li>
-        </ol>
-      </div>
+  <section class="section fade-in reveal cs-v2-phase" id="introduction">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="cs-v2-phase-label">Introduction</span></div>
+    <h2 class="cs-match-img cs-v2-heading">The challenge</h2>
+    <p class="cs-match-img">Simple Booking makes a bold promise: a Swedish small business can do its own accounting, from invoices to VAT and year-end, without paying an accountant. The stakes are real: bookkeeping rules are strict, deadlines come with penalties, and most owners aren't accountants. Every time an owner gets stuck, they contact support or hire an accountant, and the promise breaks.</p>
+    <p class="cs-match-img">When I joined, the product was already big, but it was built around the database, not around people. There was no clear hierarchy, statuses were missing, some parts were unfinished, and the app expected users to know accounting.</p>
+    <div class="cs-match-img cs-v2-one-question">
+      <p class="cs-v2-subtitle">The one question</p>
+      <p class="cs-v2-one-question__lead">So every decision had to answer one question:</p>
+      <p class="cs-v2-one-question__q">can someone without accounting knowledge do this alone?</p>
     </div>
+    <p class="cs-match-img cs-v2-subtitle">My role</p>
+    <ul class="cs-match-img cs-v2-list">
+      <li>Sole product designer, working side by side with the PM and the back-end team.</li>
+      <li>From an expert review and workshops to final screens.</li>
+      <li>I build the front-end myself with Claude Code.</li>
+      <li>I proposed and designed Adviser, an AI assistant.</li>
+    </ul>
   </section>
 
-  <!-- Information architecture -->
-  <section class="sb-section section" aria-labelledby="information-architecture">
-    <div class="sb-wrap">
-      <div class="section-header">
-        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-        <div class="section-headings"><div class="sb-sec-eyebrow" aria-hidden="true"><span class="sb-sec-num">03</span><span class="sb-sec-line"></span></div><h2 class="section-chapter" id="information-architecture">Information architecture</h2><p class="section-subtitle">Built around the business, not the database</p></div>
-      </div>
-      <div class="sb-text">
-        <p>The old app was organised around its database. I restructured the information architecture around how owners think about their business. The Overview comes first, so what needs attention is always the starting point, and the rest of the work is grouped into five clear areas.</p>
-      </div>
+  <section class="section fade-in reveal cs-v2-phase" id="discover">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span class="cs-v2-phase-label">Discover</span></div>
+    <h2 class="cs-match-img cs-v2-heading">What we found</h2>
+    <p class="cs-match-img">I reviewed the whole app and ranked each part with the PM by business importance and how badly it was broken. Then I ran workshops and in-context testing with all three real users, small business owners in Stockholm, doing real tasks in their own work. Four findings shaped the work:</p>
+    <ol class="cs-match-img cs-v2-list cs-v2-findings">
+      <li><strong>Nothing told users what to do first.</strong> The Overview was one big block of repeated information. <span class="cs-v2-meta">— Workshops · Overview</span></li>
+      <li><strong>Statuses were missing or all the same grey.</strong> Users had to read carefully to know if something was sent, paid or overdue. <span class="cs-v2-meta">— Workshops · Invoices, Quotes, Receipts</span></li>
+      <li><strong>Long lists had no search or filters.</strong> Finding one transaction meant scrolling through everything. <span class="cs-v2-meta">— In-context testing · Journal entries</span></li>
+      <li><strong>Long forms felt repetitive, even when nothing was repeated.</strong> "I filled in this option above. Why is the system asking me to fill it in again?" <span class="cs-v2-meta">— Workshop · Payroll</span></li>
+    </ol>
+  </section>
+
+  <section class="section fade-in reveal cs-v2-phase" id="connect">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg><span class="cs-v2-phase-label">Connect</span></div>
+    <h2 class="cs-match-img cs-v2-heading">From findings to principles</h2>
+    <p class="cs-match-img">I turned the findings into five principles, and I check every new screen against them:</p>
+    <ul class="cs-match-img cs-v2-list">
+      <li><strong>Show what matters first</strong> → from the Overview</li>
+      <li><strong>Make status visible</strong> → from Invoices, Quotes and Receipts</li>
+      <li><strong>Make things easy to find</strong> → from Journal entries and Invoices</li>
+      <li><strong>One clear next step</strong> → from Quotes</li>
+      <li><strong>Less at once</strong> → from Payroll</li>
+    </ul>
+    <p class="cs-match-img cs-v2-subtitle">Information architecture</p>
+    <p class="cs-match-img">I restructured the app around how owners think about their business, not around the database. The Overview comes first, and the rest of the work is grouped into five clear areas.</p>
+    <div class="wide reveal reveal-media">
       <div class="cs-structure wide cs-structure--five" aria-label="Simple Booking information architecture">
         <div class="cs-structure__canvas">
           <div class="cs-structure__spine">
@@ -336,28 +324,60 @@
     </div>
   </section>
 
-  <!-- Findings and changes -->
-  <section class="sb-section section" aria-labelledby="findings">
-    <div class="sb-wrap sb-compare-wide wide">
-      <div class="section-header">
-        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-        <div class="section-headings"><div class="sb-sec-eyebrow" aria-hidden="true"><span class="sb-sec-num">04</span><span class="sb-sec-line"></span></div><h2 class="section-chapter" id="findings">What I changed</h2></div>
-      </div>
-      <div class="sb-text">
-        <p>Here's what we found in each area, in the order people use the app. V1 is the original, V2 is my redesign.</p>
-      </div>
-      <div class="sb-legend cs-legend" aria-hidden="true">
-        <span><i class="sb-dot-before"></i>Before: original, developer-built</span>
-        <span><i class="sb-dot-after"></i>After: my redesign, implemented with Claude Code</span>
-      </div>
-
-      <article class="sb-compare cs-change">
-        <h3>Invoices</h3>
-        <div class="sb-text cs-compare-prose">
-          <p>Invoicing is the task owners do most often, and usually the first reason they open the app. If sending an invoice and getting paid feels easy, they trust the app with the rest of their accounting.</p>
-          <p>But users couldn't see which invoices were paid, or find a specific one. The app had only a few statuses, all in the same grey, so users had to read carefully to understand where an invoice stood.</p>
-          <p>So I designed the invoice's whole journey as statuses you can read at a glance:</p>
+  <section class="section fade-in reveal cs-v2-phase" aria-labelledby="turning-point">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h13l4-3-4-3z"/><path d="M12 11v10"/><path d="M9 21h6"/></svg><span class="cs-v2-phase-label">Turning point</span></div>
+    <div class="cs-match-img cs-turning">
+      <div class="cs-turning__column">
+        <h2 class="section-chapter" id="turning-point">When simpler screens weren't enough</h2>
+        <div class="cs-turning__shift" aria-label="From the plan to the shift">
+          <div class="cs-turning__shift-box cs-turning__shift-box--plan">
+            <span class="cs-turning__shift-label">The plan</span>
+            <p class="cs-turning__shift-text">Make the screens simpler</p>
+          </div>
+          <span class="cs-turning__shift-arrow cs-turning__shift-arrow--right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          <span class="cs-turning__shift-arrow cs-turning__shift-arrow--down" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></span>
+          <div class="cs-turning__shift-box cs-turning__shift-box--highlight">
+            <span class="cs-turning__shift-label cs-turning__shift-label--accent">The shift</span>
+            <p class="cs-turning__shift-text cs-turning__shift-text--highlight">
+              <svg class="cs-turning__shift-bulb" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+              <span>Never leave people alone with a question</span>
+            </p>
+          </div>
         </div>
+        <div class="cs-turning__prose">
+          <p>As the redesign moved forward, the team kept talking about simplicity. But accounting can't be made simple by removing things: every feature was needed. Clearer screens would help people find things, but not understand them.</p>
+          <p>The idea came from my own first weeks. I was new, my manager was busy, and I kept wishing someone could answer my questions right away. When I have a question these days, I don't search first. I ask an AI. Our users were in the same position, just with more at stake.</p>
+        </div>
+        <div class="cs-turning__callout-block">
+          <p class="cs-turning__callout-label"><span>The aha moment</span></p>
+          <p class="cs-v2-aha-text">Simplicity wasn't about showing less. It was about never leaving people alone with a question.</p>
+        </div>
+        <div class="cs-turning__prose">
+          <p>The team was focused on launching the MVP quickly, and Adviser meant more work. So I designed a prototype in two hours and showed them. Once they saw how many problems one assistant could solve, they were genuinely excited, and we decided to build it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade-in reveal cs-v2-phase" id="design">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg><span class="cs-v2-phase-label">Design</span></div>
+    <h2 class="cs-match-img cs-v2-heading">Four decisions</h2>
+
+    <div class="cs-v2-decision">
+      <p class="cs-v2-decision__title">Decision 1 · An Overview that starts with what needs attention</p>
+      <p>The Overview is organised by time: one "Needs your attention" list first, then "Due soon" and "Later this month", a separate financial snapshot, and one-click actions with plain-language advice.</p>
+      <div class="screens-section reveal reveal-media wide">
+        <figure>
+          <a class="sb-zoom" href="sb-overview-before-after.png" target="_blank" rel="noopener" data-title="Overview · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-overview-before-after.webp" type="image/webp"><img src="sb-overview-before-after.png" width="2720" height="1634" loading="lazy" decoding="async" alt="Overview page before and after. Before: seven equal-weight alerts, charts without legends, and deadlines repeated. After: Needs your attention list, due soon grouping, financial snapshot, plain-language advice and readable charts."></picture></div></a>
+          <figcaption class="cs-caption cs-caption"><span>Dark mode</span><span class="sb-swipe-hint">Swipe to see the whole comparison</span><span>Click or tap to view full size</span></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="cs-v2-decision">
+      <p class="cs-v2-decision__title">Decision 2 · Statuses and next steps you can read at a glance</p>
+      <p>Invoicing is what owners do most often, so it had to feel easy. I designed the invoice's whole journey as colour-coded statuses, and before adding reminders, I looked at how competitors handle late payments and checked the idea with two users. Quotes got one clear next action per row and a new flow: owners send a quote by email or as a link the customer can accept or decline without signing in. Receipts got a compact upload, a date column and colour-coded statuses.</p>
+      <div class="screens-section reveal reveal-media wide">
         <div class="cs-status-flow">
           <p class="cs-status-flow__label">The invoice journey</p>
           <div class="cs-status-flow__grid">
@@ -397,47 +417,10 @@
             </div>
           </div>
         </div>
-        <aside class="cs-research-note">
-          <span class="cs-research-note__icon-chip" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m8 11 2 2 4-4"/><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
-          <div class="cs-research-note__body">
-            <p class="cs-research-note__label">Research</p>
-            <p class="cs-research-note__text">Before designing reminders, I looked at how competitors handle late payments, then checked the idea with two users. Both confirmed it would be genuinely helpful.</p>
-          </div>
-        </aside>
-        <ul class="sb-changes cs-list">
-          <li><b>A few grey statuses</b> → a full lifecycle, each status with its own colour</li>
-          <li><b>No way to find an invoice</b> → search and filtering</li>
-          <li><b>No warning when a payment is late</b> → an Overdue status and reminders</li>
-        </ul>
-        <div class="sb-compare-sub">
-          <h4>Recurring invoices</h4>
-          <p class="sb-finding-lede">The setup form came first, so users couldn't see what would be sent next.</p>
-          <ul class="sb-changes cs-list">
-            <li><b>Setup form on top</b> → expectations and upcoming schedule first</li>
-            <li><b>No upcoming view</b> → next 30 days at a glance</li>
-            <li><b>Crowded row actions</b> → actions only when needed</li>
-          </ul>
-          <figure>
-            <a class="sb-zoom" href="sb-recurring-before-after.png" target="_blank" rel="noopener" data-title="Recurring invoices · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-recurring-before-after.webp" type="image/webp"><img src="sb-recurring-before-after.png" width="3000" height="1040" loading="lazy" decoding="async" alt="Recurring invoices before and after. Before: setup form on top, vague bulk action, no sense of what happens next, crowded row actions. After: clear expectations, attention section, upcoming 30 days, plans in plain sentences, and actions only when needed."></picture></div></a>
-            <figcaption class="cs-caption cs-caption"><span>Dark mode</span><span class="sb-swipe-hint">Swipe to see the whole comparison</span><span>Click or tap to view full size</span></figcaption>
-          </figure>
-        </div>
-      </article>
-
-      <article class="sb-compare cs-change">
-        <h3>Quotes</h3>
-        <p class="sb-finding-lede">Every button looked equally important and some statuses were missing, so users couldn't tell where a quote stood.</p>
-        <p class="sb-finding-lede">The quote flow itself was unfinished and didn't work correctly, so I redesigned it from the start. Owners can now send a quote in two ways: by email, or as a link. The customer opens the link, sees the full quote, and accepts or declines it, without creating an account or signing in. The owner gets the answer straight away.</p>
-        <ul class="sb-changes cs-list">
-          <li><b>Equal-weight buttons</b> → one clear next action</li>
-          <li><b>Unknown quote state</b> → visible statuses: sent, accepted, declined</li>
-          <li><b>Form takes over the page</b> → new quote on demand</li>
-          <li><b>Unfinished quote flow</b> → send by email, or as a link the customer can accept or decline without signing in <span class="cs-list-tag">New flow</span></li>
-        </ul>
-        <aside class="cs-tradeoff">
-          <div class="cs-tradeoff__label"><svg class="cs-tradeoff__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 5.5 5.5-1.5 1.5"/><path d="m2 16 3-8 5.5 5.5-1.5 1.5"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 7 2 7 2"/><path d="M21 7h-2c-2 0-5-1-7-2-2 1-7 2-7 2"/></svg><span>Trade-off</span></div>
-          <p class="cs-tradeoff__text">With one clear action per row, the less common actions are one step further away. For experienced users that's a small cost. But for people without accounting knowledge, always knowing the next step was worth more than having every option on the surface.</p>
-        </aside>
+        <figure>
+          <a class="sb-zoom" href="sb-recurring-before-after.png" target="_blank" rel="noopener" data-title="Recurring invoices · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-recurring-before-after.webp" type="image/webp"><img src="sb-recurring-before-after.png" width="3000" height="1040" loading="lazy" decoding="async" alt="Recurring invoices before and after. Before: setup form on top, vague bulk action, no sense of what happens next, crowded row actions. After: clear expectations, attention section, upcoming 30 days, plans in plain sentences, and actions only when needed."></picture></div></a>
+          <figcaption class="cs-caption cs-caption"><span>Dark mode</span><span class="sb-swipe-hint">Swipe to see the whole comparison</span><span>Click or tap to view full size</span></figcaption>
+        </figure>
         <figure>
           <a class="sb-zoom" href="sb-quotes-before-after.png" target="_blank" rel="noopener" data-title="Quotes · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-quotes-before-after.webp" type="image/webp"><img src="sb-quotes-before-after.png" width="3000" height="1040" loading="lazy" decoding="async" alt="Quotes page before and after. Before: an always-open quote form, no overview or status filters, faint statuses and up to four look-alike buttons per row. After: form on demand, status filters with counts, one primary action with an icon per row, and aligned columns with next steps."></picture></div></a>
           <figcaption class="cs-caption cs-caption"><span>Dark mode</span><span class="sb-swipe-hint">Swipe to see the whole comparison</span><span>Click or tap to view full size</span></figcaption>
@@ -458,267 +441,121 @@
           </div>
           <figcaption class="cs-caption cs-caption">What the customer sees: accept or decline a quote, no account needed.</figcaption>
         </div>
-      </article>
-
-      <article class="sb-compare cs-change">
-        <h3>Receipts</h3>
-        <p class="sb-finding-lede">The upload area was so big that users had to scroll to find their receipts, and every status was the same grey.</p>
-        <ul class="sb-changes cs-list">
-          <li><b>Oversized upload area</b> → compact upload, receipts visible straight away</li>
-          <li><b>No receipt date</b> → date column with sorting</li>
-          <li><b>Grey statuses</b> → colour-coded statuses that scan at a glance</li>
-          <li><b>One long list</b> → search and paging</li>
-          <li><b>Four actions per row</b> → one clear review action</li>
-        </ul>
         <figure>
           <a class="sb-zoom" href="sb-receipts-before-after.png" target="_blank" rel="noopener" data-title="Receipts · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-receipts-before-after.webp" type="image/webp"><img src="sb-receipts-before-after.png" width="2720" height="1297" loading="lazy" decoding="async" alt="Receipts page before and after. Before: four actions per inbox row, oversized upload, faded main button, list without supplier or amount. After: compact upload first, one action per row, search and paging, full context in the list."></picture></div></a>
           <figcaption class="cs-caption cs-caption"><span>Light mode</span><span class="sb-swipe-hint">Swipe to see the whole comparison</span><span>Click or tap to view full size</span></figcaption>
         </figure>
-      </article>
+      </div>
+    </div>
 
-      <article class="sb-compare cs-change">
-        <h3>Journal entries</h3>
-        <p class="sb-finding-lede">The longest list in the app, with no search, filters or sorting. Finding one transaction meant scrolling through everything.</p>
-        <ul class="sb-changes cs-list">
-          <li><b>Endless scrolling</b> → search by any value: an amount, a name or a reference</li>
-          <li><b>One unfiltered list</b> → filters by transaction type</li>
-          <li><b>Fixed order</b> → sorting by column</li>
-          <li><b>Hidden manual entry</b> → a clear Add journal entry button</li>
-          <li><b>Everything expanded</b> → collapsible cards</li>
-        </ul>
+    <div class="cs-v2-decision">
+      <p class="cs-v2-decision__title">Decision 3 · Long lists and long forms, made manageable</p>
+      <p>Journal entries, the longest list in the app, got search by any value, filters, sorting and collapsible cards. Payroll's two long forms became three short steps with a progress indicator: more clicks, but fewer fields at a time.</p>
+      <p class="aside-note aside-note--bubble aside-note--bubble-shape-2 aside-note--bubble-prefer-right cs-aside"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg></span><span class="aside-note__bubble-text">The form was just long enough to give everyone déjà vu.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="sb-arrow-grad-deja" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#sb-arrow-grad-deja)"/><path d="M40 11 L34 8" stroke="url(#sb-arrow-grad-deja)"/><path d="M40 11 L34 14" stroke="url(#sb-arrow-grad-deja)"/></svg></span></span></span></p>
+      <div class="screens-section reveal reveal-media wide">
         <figure>
           <a class="sb-zoom" href="sb-journal-before-after.png" target="_blank" rel="noopener" data-title="Journal entries · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-journal-before-after.webp" type="image/webp"><img src="sb-journal-before-after.png" width="2720" height="1213" loading="lazy" decoding="async" alt="Journal entries before and after. Before: no search, manual entry hidden as a link, every entry fully expanded. After: Add manual journal entry button, search and filters, collapsible cards with key info in the header."></picture></div></a>
           <figcaption class="cs-caption cs-caption"><span>Dark mode</span><span class="sb-swipe-hint">Swipe to see the whole comparison</span><span>Click or tap to view full size</span></figcaption>
         </figure>
-      </article>
-
-      <article class="sb-compare cs-change">
-        <h3>Overview</h3>
-        <p class="sb-finding-lede">One big block of repeated information, and nothing told users what to do first. So I organised the page by time.</p>
-        <ul class="sb-changes cs-list">
-          <li><b>Seven equal alerts</b> → one "Needs your attention" list</li>
-          <li><b>Repeated deadlines</b> → "Due soon", then "Later this month"</li>
-          <li><b>Numbers mixed into tasks</b> → a separate financial snapshot</li>
-          <li><b>No clear next step</b> → one-click actions and plain-language advice</li>
-          <li><b>No sense of timing</b> → a calendar of what's now and what's next</li>
-        </ul>
-        <figure>
-          <a class="sb-zoom" href="sb-overview-before-after.png" target="_blank" rel="noopener" data-title="Overview · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-overview-before-after.webp" type="image/webp"><img src="sb-overview-before-after.png" width="2720" height="1634" loading="lazy" decoding="async" alt="Overview page before and after. Before: seven equal-weight alerts, charts without legends, and deadlines repeated. After: Needs your attention list, due soon grouping, financial snapshot, plain-language advice and readable charts."></picture></div></a>
-          <figcaption class="cs-caption cs-caption"><span>Dark mode</span><span class="sb-swipe-hint">Swipe to see the whole comparison</span><span>Click or tap to view full size</span></figcaption>
-        </figure>
-      </article>
-
-      <article class="sb-compare cs-change">
-        <h3>Payroll</h3>
-        <p class="sb-finding-lede">Registering an employee meant filling in two long forms. During the workshop, one user stopped and asked:</p>
-        <div class="quote-block cs-quote">
-        <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
-         <svg class="cs-quote__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>
-        <p>"I filled in this option above. Why is the system asking me to fill it in again?"</p>
-          <cite>— Workshop participant, Payroll session</cite>
-        </div>
-        <p>No field was actually repeated.</p>
-        <p class="aside-note aside-note--bubble aside-note--bubble-shape-2 aside-note--bubble-prefer-right cs-aside"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg></span><span class="aside-note__bubble-text">The form was just long enough to give everyone déjà vu.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="sb-arrow-grad-deja" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#sb-arrow-grad-deja)"/><path d="M40 11 L34 8" stroke="url(#sb-arrow-grad-deja)"/><path d="M40 11 L34 14" stroke="url(#sb-arrow-grad-deja)"/></svg></span></span></span></p>
-        <p>So the fix wasn't the data, it was how much we showed at once.</p>
-        <ul class="sb-changes cs-list">
-          <li><b>Two long forms</b> → three short steps, related fields grouped together</li>
-          <li><b>No sense of progress</b> → a step indicator</li>
-          <li><b>No overview</b> → summary cards up front</li>
-        </ul>
-        <aside class="cs-tradeoff">
-          <div class="cs-tradeoff__label"><svg class="cs-tradeoff__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 5.5 5.5-1.5 1.5"/><path d="m2 16 3-8 5.5 5.5-1.5 1.5"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 7 2 7 2"/><path d="M21 7h-2c-2 0-5-1-7-2-2 1-7 2-7 2"/></svg><span>Trade-off</span></div>
-          <p class="cs-tradeoff__text">Three short steps take more clicks than one long form. But the long form felt repetitive even though nothing was repeated. Fewer fields at a time, with a clear sense of progress, was worth the extra clicks.</p>
-        </aside>
         <figure>
           <a class="sb-zoom" href="sb-payroll-before-after.png" target="_blank" rel="noopener" data-title="Payroll · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-payroll-before-after.webp" type="image/webp"><img src="sb-payroll-before-after.png" width="2720" height="1576" loading="lazy" decoding="async" alt="Payroll before and after. Before: no overview, one giant form, dense hints, an easy-to-miss Add button. After: summary cards, an Add new employee button, and a three-step flow with fewer fields per step."></picture></div></a>
           <figcaption class="cs-caption cs-caption"><span>Light mode</span><span class="sb-swipe-hint">Swipe to see the whole comparison</span><span>Click or tap to view full size</span></figcaption>
         </figure>
-      </article>
-    </div>
-  </section>
-
-  <!-- Turning point -->
-  <section class="sb-section section" aria-labelledby="turning-point">
-    <div class="sb-wrap">
-      <div class="cs-turning">
-        <div class="cs-turning__column">
-          <p class="cs-turning__eyebrow">
-            <span class="cs-icon-chip" aria-hidden="true"><svg class="cs-icon-chip__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h13l4-3-4-3z"/><path d="M12 11v10"/><path d="M9 21h6"/></svg></span>
-            <span class="cs-turning__eyebrow-text">Turning point</span>
-          </p>
-          <div class="sb-sec-eyebrow" aria-hidden="true"><span class="sb-sec-num">05</span><span class="sb-sec-line"></span></div>
-          <h2 class="section-chapter" id="turning-point">When simpler screens weren't enough</h2>
-          <div class="cs-turning__shift" aria-label="From the plan to the shift">
-            <div class="cs-turning__shift-box cs-turning__shift-box--plan">
-              <span class="cs-turning__shift-label">The plan</span>
-              <p class="cs-turning__shift-text">Make the screens simpler</p>
-            </div>
-            <span class="cs-turning__shift-arrow cs-turning__shift-arrow--right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-            <span class="cs-turning__shift-arrow cs-turning__shift-arrow--down" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></span>
-            <div class="cs-turning__shift-box cs-turning__shift-box--highlight">
-              <span class="cs-turning__shift-label cs-turning__shift-label--accent">The shift</span>
-              <p class="cs-turning__shift-text cs-turning__shift-text--highlight">
-                <svg class="cs-turning__shift-bulb" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
-                <span>Never leave people alone with a question</span>
-              </p>
-            </div>
-          </div>
-          <div class="cs-turning__prose sb-text">
-            <p>As the redesign moved forward, the team kept talking about simplicity. But I saw a problem: accounting can't be made simple by removing things. Every feature in the app was needed, and none could be skipped. <strong>Clearer screens would help people find things, but not understand them.</strong></p>
-            <p>The idea came from my own first weeks. I was new to the product, my manager was busy, and I had questions about how everything worked. I kept wishing someone could just answer them, right away. Then I noticed what I do myself these days: when I have a question, I don't search first. <strong>I ask an AI.</strong></p>
-            <p><strong>That's when it clicked.</strong> Our users were in the same position as me, just with more at stake. What if the app had an adviser that explained things in plain language, using the owner's own numbers?</p>
-          </div>
-          <div class="cs-turning__callout-block">
-            <p class="cs-turning__callout-label">
-              <svg class="cs-turning__callout-label-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .962L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
-              <span>The aha moment</span>
-            </p>
-            <p class="cs-turning__callout">Simplicity wasn't about showing less. <span class="cs-turning__callout-accent">It was about never leaving people alone with a question.</span></p>
-          </div>
-          <div class="cs-turning__prose sb-text">
-            <p>The team was focused on launching the MVP quickly, and Adviser meant more time and effort. So instead of arguing for it, I designed a prototype in two hours and showed them. Once they saw how many different problems one assistant could solve, they were genuinely excited, and we decided to build it.</p>
-          </div>
-        </div>
       </div>
     </div>
-  </section>
 
-  <!-- Adviser -->
-  <section class="sb-section section" aria-labelledby="adviser">
-    <div class="sb-wrap">
-      <div class="section-header">
-        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div>
-        <div class="section-headings"><div class="sb-sec-eyebrow" aria-hidden="true"><span class="sb-sec-num">06</span><span class="sb-sec-line"></span></div><h2 class="section-chapter" id="adviser">Designing an adviser people can trust</h2><p class="section-subtitle">AI assistant · My idea, my design, my front-end</p></div>
+    <div class="cs-v2-decision">
+      <p class="cs-v2-decision__title">Decision 4 · An adviser people can trust</p>
+      <p>Accounting is the last place for an AI that guesses. Adviser answers from the owner's own numbers and never records anything without confirmation. I worked with the back-end team through many sessions to shape how it works, then designed it and built its front-end.</p>
+      <div class="screens-section reveal reveal-media wide">
+        <figure class="sb-ds-sheet">
+          <a class="sb-zoom" href="sb-adviser@2x.png?v=4" target="_blank" rel="noopener" data-title="Adviser · Support and answers"><img src="sb-adviser.png?v=4" srcset="sb-adviser.png?v=4 1024w, sb-adviser@2x.png?v=4 2048w" sizes="(min-width: 720px) 1024px, calc(100vw - 40px)" width="1024" height="533" loading="lazy" decoding="async" alt="Simple Booking's Adviser panel next to the Overview: a user asks for a support ticket and Adviser confirms it was created, then answers whether two of the user's companies affect each other's revenue."></a>
+          <figcaption class="cs-caption cs-caption">Adviser answers in plain language, and creates a support ticket when it can't help.</figcaption>
+        </figure>
       </div>
-      <div class="sb-text">
-        <p>Accounting is the last place for an AI that guesses. So we built Adviser around a few clear rules, and three of them were my design ideas: taking users straight to the right page, the Needs attention list, and speaking instead of typing.</p>
-        <p>Because so much of Adviser depended on the back end, I worked closely with the back-end team through many sessions to shape how it should work, then finalised the design and built the front-end myself.</p>
-      </div>
-      <figure class="sb-ds-sheet">
-        <a class="sb-zoom" href="sb-adviser@2x.png?v=4" target="_blank" rel="noopener" data-title="Adviser · Support and answers"><img src="sb-adviser.png?v=4" srcset="sb-adviser.png?v=4 1024w, sb-adviser@2x.png?v=4 2048w" sizes="(min-width: 720px) 1024px, calc(100vw - 40px)" width="1024" height="533" loading="lazy" decoding="async" alt="Simple Booking's Adviser panel next to the Overview: a user asks for a support ticket and Adviser confirms it was created, then answers whether two of the user's companies affect each other's revenue."></a>
-        <figcaption class="cs-caption cs-caption">Adviser answers in plain language, and creates a support ticket when it can't help.</figcaption>
-      </figure>
-      <ul class="cs-feature-grid" role="list">
-        <li class="cs-feature">
-          <span class="cs-icon-chip" aria-hidden="true"><svg class="cs-icon-chip__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></svg></span>
-          <h3 class="cs-feature__title">Answers from your own numbers</h3>
-          <p class="cs-feature__text">Users ask in their own words and get answers based on the company's real figures, never made-up ones.</p>
-        </li>
-        <li class="cs-feature">
-          <span class="cs-icon-chip" aria-hidden="true"><svg class="cs-icon-chip__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
-          <span class="cs-feature__tag">My design idea</span>
-          <h3 class="cs-feature__title">Takes you to the right place</h3>
-          <p class="cs-feature__text">Every answer links straight to the page where you can act, so users never have to hunt through menus.</p>
-        </li>
-        <li class="cs-feature is-attention">
-          <span class="cs-icon-chip cs-icon-chip--attention" aria-hidden="true"><svg class="cs-icon-chip__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/><path d="M18 8a3 3 0 0 1 0 6"/><path d="M21 6a6 6 0 0 1 0 12"/></svg></span>
-          <span class="cs-feature__tag">My design idea</span>
-          <h3 class="cs-feature__title cs-feature__title--attention">Flags what needs attention</h3>
-          <p class="cs-feature__text">Missing receipts and upcoming deadlines appear in one Needs attention list, so problems find the owner before they become penalties.</p>
-        </li>
-        <li class="cs-feature">
-          <span class="cs-icon-chip" aria-hidden="true"><svg class="cs-icon-chip__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
-          <h3 class="cs-feature__title">Suggests, never acts alone</h3>
-          <p class="cs-feature__text">Adviser can prepare a booking, but nothing is recorded until the user confirms.</p>
-        </li>
-        <li class="cs-feature">
-          <span class="cs-icon-chip" aria-hidden="true"><svg class="cs-icon-chip__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/></svg></span>
-          <h3 class="cs-feature__title">Never stuck</h3>
-          <p class="cs-feature__text">When it can't help, it creates a support ticket with a short summary, so a real person follows up.</p>
-        </li>
-        <li class="cs-feature">
-          <span class="cs-icon-chip" aria-hidden="true"><svg class="cs-icon-chip__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></span>
-          <span class="cs-feature__tag">My design idea</span>
-          <h3 class="cs-feature__title">Speak instead of type</h3>
-          <p class="cs-feature__text">In conversation mode, users just talk. They pause, the question is sent, and the answer is read aloud. Useful when typing is hard or the keyboard gets in the way.</p>
-        </li>
+      <ul class="cs-match-img cs-v2-list">
+        <li><strong>Answers from your own numbers:</strong> users ask in their own words and get answers from the company's real figures.</li>
+        <li><strong>Takes you to the right place</strong> <span class="cs-v2-reflect-yellow">(My idea)</span>: every answer links to the page where you can act.</li>
+        <li><strong>Flags what needs attention</strong> <span class="cs-v2-reflect-yellow">(My idea)</span>: missing receipts and upcoming deadlines appear before they become penalties.</li>
+        <li><strong>Suggests, never acts alone:</strong> nothing is recorded until the user confirms.</li>
+        <li><strong>Never stuck:</strong> when it can't help, it creates a support ticket with a short summary.</li>
+        <li><strong>Speak instead of type</strong> <span class="cs-v2-reflect-yellow">(My idea)</span>: users talk, pause, and hear the answer read aloud.</li>
       </ul>
-      <aside class="cs-tradeoff">
-        <div class="cs-tradeoff__label"><svg class="cs-tradeoff__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 5.5 5.5-1.5 1.5"/><path d="m2 16 3-8 5.5 5.5-1.5 1.5"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 7 2 7 2"/><path d="M21 7h-2c-2 0-5-1-7-2-2 1-7 2-7 2"/></svg><span>Trade-off</span></div>
-        <p class="cs-tradeoff__text">An assistant that does things for you would be faster. But for people afraid of booking something wrong, confirming each step is both a safety net and a way to learn.</p>
-      </aside>
+      <div class="screens-section reveal reveal-media wide">
+        <figure class="sb-ds-sheet">
+          <a class="sb-zoom" href="sb-adviser-voice@2x.png?v=4" target="_blank" rel="noopener" data-title="Adviser · Conversation mode"><img src="sb-adviser-voice.png?v=4" srcset="sb-adviser-voice.png?v=4 1024w, sb-adviser-voice@2x.png?v=4 2048w" sizes="(min-width: 720px) 1024px, calc(100vw - 40px)" width="1024" height="533" loading="lazy" decoding="async" alt="Adviser in conversation mode: the user speaks a question, Adviser reads it and replies aloud."></a>
+          <figcaption class="cs-caption cs-caption">Conversation mode: speak, pause, and hear the answer.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade-in reveal cs-v2-phase" id="prototype">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg><span class="cs-v2-phase-label">Prototype</span></div>
+    <h2 class="cs-match-img cs-v2-heading">See it in action</h2>
+    <p class="cs-match-img">A one-minute walk through the redesigned app.</p>
+    <div class="screens-section reveal reveal-media wide">
+      <div class="proto-embed sb-video-wrap">
+        <video
+          class="sb-overview-video"
+          src="sb-video.mp4?v=2"
+          poster="sb-video-cover.jpg?v=2"
+          controls
+          playsinline
+          preload="none"
+          width="1920"
+          height="1080"
+          aria-label="One-minute overview of the Simple Booking case study">
+          Your browser doesn't support video. Scroll down to read the full case study.
+        </video>
+      </div>
+    </div>
+    <p class="cs-match-img cs-v2-subtitle">Design system</p>
+    <p class="cs-match-img">Before redesigning screen by screen, I built a design system, keeping what worked and improving the rest. Claude Code uses the same colours, type and components as my Figma file, so every screen looks and behaves the same.</p>
+    <div class="sb-ds-sheets wide reveal reveal-media">
       <figure class="sb-ds-sheet">
-        <a class="sb-zoom" href="sb-adviser-voice@2x.png?v=4" target="_blank" rel="noopener" data-title="Adviser · Conversation mode"><img src="sb-adviser-voice.png?v=4" srcset="sb-adviser-voice.png?v=4 1024w, sb-adviser-voice@2x.png?v=4 2048w" sizes="(min-width: 720px) 1024px, calc(100vw - 40px)" width="1024" height="533" loading="lazy" decoding="async" alt="Adviser in conversation mode: the user speaks a question, Adviser reads it and replies aloud."></a>
-        <figcaption class="cs-caption cs-caption">Conversation mode: speak, pause, and hear the answer.</figcaption>
+        <p class="sb-ds-sheet-label">Sheet 01 · Foundations</p>
+        <a class="sb-zoom" href="simplebooking-design-system-01.png" target="_blank" rel="noopener" data-title="Sheet 01 · Foundations"><img src="simplebooking-design-system-01.png" width="2400" height="1600" loading="lazy" decoding="async" alt="Simple Booking design system foundations: brand colours, surfaces and text, status colours, Figtree typography scale, and corner radius tokens"></a>
+        <figcaption class="cs-caption cs-caption">Colour, typography and corner radius</figcaption>
       </figure>
-      <p class="aside-note aside-note--bubble aside-note--bubble-prefer-left cs-aside"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape" style="border-radius: 50% 50% 54% 46% / 46% 54% 47% 53%;"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span><span class="aside-note__bubble-text">An accountant that's available at 11 pm on a Sunday.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="sb-arrow-grad-adviser" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#sb-arrow-grad-adviser)"/><path d="M40 11 L34 8" stroke="url(#sb-arrow-grad-adviser)"/><path d="M40 11 L34 14" stroke="url(#sb-arrow-grad-adviser)"/></svg></span></span></span></p>
-      <div class="sb-text">
-        <p>It closes the loop on the question behind the whole redesign: owners can do their accounting alone, but they're never stuck alone.</p>
-      </div>
+      <figure class="sb-ds-sheet">
+        <p class="sb-ds-sheet-label">Sheet 02 · Components</p>
+        <a class="sb-zoom" href="simplebooking-design-system-02.png" target="_blank" rel="noopener" data-title="Sheet 02 · Components"><img src="simplebooking-design-system-02.png" width="2400" height="1600" loading="lazy" decoding="async" alt="Simple Booking design system components: button variants, form fields, status badges, alerts, stat tiles, and needs your attention pattern"></a>
+        <figcaption class="cs-caption cs-caption">Buttons, form fields, status, stat tiles and key patterns</figcaption>
+      </figure>
     </div>
   </section>
 
-  <!-- Design principles -->
-  <section class="sb-section section" aria-labelledby="principles">
-    <div class="sb-wrap">
-      <div class="section-header">
-        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
-        <div class="section-headings"><div class="sb-sec-eyebrow" aria-hidden="true"><span class="sb-sec-num">07</span><span class="sb-sec-line"></span></div><h2 class="section-chapter" id="principles">Design principles</h2></div>
-      </div>
-      <div class="sb-text"><p>From the workshops, I wrote five principles. I check every new screen against them.</p></div>
-      <div class="sb-principles cs-learn cs-learn-grid">
-        <div><h4>Show what matters first</h4><p>Start with what needs attention.<span class="sb-principle-src">From the Overview</span></p></div>
-        <div><h4>Make status visible</h4><p>Users should never have to guess if something is sent, paid or overdue.<span class="sb-principle-src">From Invoices, Quotes and Receipts</span></p></div>
-        <div><h4>Make things easy to find</h4><p>Long lists always get search, filters and sorting.<span class="sb-principle-src">From Journal entries and Invoices</span></p></div>
-        <div><h4>One clear next step</h4><p>Each screen has one obvious main action.<span class="sb-principle-src">From Quotes</span></p></div>
-        <div><h4>Less at once</h4><p>Split long tasks into short steps.<span class="sb-principle-src">From Payroll</span></p></div>
-      </div>
+  <section class="section fade-in reveal cs-v2-phase" id="results">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg><span class="cs-v2-phase-label">Results</span></div>
+    <h2 class="cs-match-img cs-v2-heading">Where it is now</h2>
+    <p class="cs-match-img">About half of the app is redesigned and built. Next is formal usability testing of V2 with the same three users and the same tasks, comparing V1 and V2 on task completion and errors. Until then, this page shows my decisions, not results.</p>
+    <div class="cs-match-img cs-v2-results-grid">
+      <div><p class="cs-v2-result-num">50%</p><p class="cs-v2-result-label">redesigned and built</p></div>
+      <div><p class="cs-v2-result-num">6</p><p class="cs-v2-result-label">core areas redesigned</p></div>
+      <div><p class="cs-v2-result-num">3</p><p class="cs-v2-result-label">real users in every workshop</p></div>
+      <div><p class="cs-v2-result-num">Next</p><p class="cs-v2-result-label">formal V2 testing</p></div>
     </div>
   </section>
 
-  <!-- Design system -->
-  <section class="sb-section section" id="design-system" aria-labelledby="design-system-heading">
-    <div class="sb-wrap">
-      <div class="section-header">
-        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-        <div class="section-headings"><div class="sb-sec-eyebrow" aria-hidden="true"><span class="sb-sec-num">08</span><span class="sb-sec-line"></span></div><h2 class="section-chapter" id="design-system-heading">One foundation for Figma and code</h2></div>
-      </div>
-      <div class="sb-text">
-        <p>Before redesigning screen by screen, I built a design system, keeping what worked in the old design and improving the rest. It's also what makes building with AI reliable: Claude Code uses the same colours, type and components as my Figma file, so every screen looks and behaves the same.</p>
-        <p>I build the front-end myself, directly in the product: design in Figma → build with Claude Code, one component at a time → check it in dark and light mode → hand it to the back-end team → improve it with user feedback.</p>
-      </div>
-      <div class="sb-ds-sheets">
-        <figure class="sb-ds-sheet">
-          <p class="sb-ds-sheet-label">Sheet 01 · Foundations</p>
-          <a class="sb-zoom" href="simplebooking-design-system-01.png" target="_blank" rel="noopener" data-title="Sheet 01 · Foundations"><img src="simplebooking-design-system-01.png" width="2400" height="1600" loading="lazy" decoding="async" alt="Simple Booking design system foundations: brand colours, surfaces and text, status colours, Figtree typography scale, and corner radius tokens"></a>
-          <figcaption class="cs-caption cs-caption">Colour, typography and corner radius</figcaption>
-        </figure>
-        <figure class="sb-ds-sheet">
-          <p class="sb-ds-sheet-label">Sheet 02 · Components</p>
-          <a class="sb-zoom" href="simplebooking-design-system-02.png" target="_blank" rel="noopener" data-title="Sheet 02 · Components"><img src="simplebooking-design-system-02.png" width="2400" height="1600" loading="lazy" decoding="async" alt="Simple Booking design system components: button variants, form fields, status badges, alerts, stat tiles, and needs your attention pattern"></a>
-          <figcaption class="cs-caption cs-caption">Buttons, form fields, status, stat tiles and key patterns</figcaption>
-        </figure>
-      </div>
+  <section class="section fade-in reveal cs-v2-phase" id="reflection">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg><span class="cs-v2-phase-label">Reflection</span></div>
+    <h2 class="cs-match-img cs-v2-heading">What I learned</h2>
+    <ul class="cs-match-img cs-v2-list">
+      <li>Three users can teach you a lot. Working with every real user on every core area went deeper than a bigger, quicker study would have.</li>
+      <li>"Feels repetitive" is a real problem. If something feels complicated, it needs fixing, even when the data is correct.</li>
+      <li><span class="cs-v2-reflect-yellow">What I'd do differently:</span> I'd add short sessions with a few new users, to check that the patterns hold as the product grows.</li>
+    </ul>
+  </section>
+
+  <section class="section cs-more-section" aria-labelledby="cs-more-heading">
+    <div class="cs-more-mount" data-current-page="simplebooking.html">
+      <a href="index.html#projects">See all case studies</a>
     </div>
   </section>
 
-  <!-- Where it is now, and what I learned -->
-  <section class="sb-section section" id="where-it-is-now" aria-labelledby="status-learned">
-    <div class="sb-wrap">
-            <div class="section-header">
-        <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-        <div class="section-headings"><div class="sb-sec-eyebrow" aria-hidden="true"><span class="sb-sec-num">09</span><span class="sb-sec-line"></span></div><h2 class="section-chapter" id="status-learned">Where it is now, and what I learned</h2></div>
-      </div>
-      <div class="sb-text">
-        <p>About half of the app is redesigned and built. Next comes formal usability testing of V2 with the same three users and the same tasks, comparing V1 and V2 on task completion and errors. Until then, this page shows my decisions and why I made them, not results. I'll add the numbers after testing.</p>
-      </div>
-      <div class="sb-reflect">
-        <div class="cs-learn"><div class="lesson-num">01</div><div class="lesson-text"><h4>Three users can teach you a lot.</h4><p>Working with every real user on every core area went deeper than a bigger, quicker study would have.</p></div></div>
-        <div class="cs-learn"><div class="lesson-num">02</div><div class="lesson-text"><h4>"Feels repetitive" is a real problem.</h4><p>If something feels complicated, it needs fixing, even when the data is correct.</p></div></div>
-        <div class="cs-learn"><div class="lesson-num">03</div><div class="lesson-text"><h4>Building it myself protects the design.</h4><p>My decisions make it all the way into the product.</p></div></div>
-        <div class="cs-learn cs-learn--highlight"><div class="lesson-num">04</div><div class="lesson-text"><p class="cs-learn-eyebrow">Looking back</p><h4>What I'd do differently.</h4><p>I'd add short sessions with a few new users, beyond the three existing ones, to check that the patterns hold as the product grows.</p></div></div>
-      </div>
-    </div>
-  </section>
+</div>
 
-  <section class="sb-section section cs-more-section" aria-labelledby="cs-more-heading">
-    <div class="sb-wrap">
-      <div class="cs-more-mount" data-current-page="simplebooking.html">
-        <a href="index.html#projects">See all case studies</a>
-      </div>
-    </div>
-  </section>
-</main>
 <div class="back-btn-wrap back-btn-wrap--bottom">
   <a class="back-btn" href="index.html#projects"><svg class="back-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Back</a>
 </div>
@@ -745,7 +582,11 @@
   </ul>
 </footer>
 
-<script src="js/case-study-aside-bubbles.js?v=20261027" defer></script>
+<script src="js/scroll-reveal.js?v=20261102f" defer></script>
+<script src="js/cs-design.js?v=20261102d" defer></script>
+<script src="js/more-case-studies.js?v=20261029" defer></script>
+<script src="js/case-study-aside-bubbles.js?v=20261027d" defer></script>
+<script src="js/simplebooking.js?v=20261027" defer></script>
 <script>
 (function () {
   function layoutCsStructureBus() {
@@ -790,9 +631,67 @@
   }
 })();
 </script>
-<script src="js/simplebooking.js?v=20261027" defer></script>
-<script src="js/scroll-reveal.js?v=20261102f" defer></script>
-<script src="js/more-case-studies.js?v=20261029" defer></script>
-<script src="js/cs-design.js?v=20261102d" defer></script>
+<script>
+(function () {
+  var mq = window.matchMedia('(min-width: 1320px)');
+  var note = document.querySelector('#design .aside-note--bubble');
+  var BUBBLE_W = 188;
+  var VIEW_INSET = 48;
+
+  function layoutSbAsideBubble() {
+    if (!note) return;
+    var bubble = note.querySelector('.aside-note__bubble');
+    var anchor = note.nextElementSibling;
+    if (!bubble || !anchor) return;
+
+    if (!mq.matches) {
+      bubble.style.removeProperty('left');
+      bubble.style.removeProperty('right');
+      bubble.style.removeProperty('top');
+      bubble.style.removeProperty('--aside-bubble-top');
+      return;
+    }
+
+    var gap = 80;
+    var noteRect = note.getBoundingClientRect();
+    var anchorRect = anchor.getBoundingClientRect();
+    var top = Math.max(0, anchorRect.top - noteRect.top + 12);
+    var leftGutter = anchorRect.left - VIEW_INSET;
+    var rightSpace = window.innerWidth - VIEW_INSET - anchorRect.right;
+    var leftRel;
+
+    if (rightSpace >= BUBBLE_W + gap) {
+      leftRel = anchorRect.right - noteRect.left + gap;
+    } else if (leftGutter >= BUBBLE_W + gap) {
+      leftRel = anchorRect.left - noteRect.left - gap - BUBBLE_W;
+    } else {
+      leftRel = Math.max(VIEW_INSET - noteRect.left, anchorRect.right - noteRect.left + 16);
+    }
+
+    var maxLeft = window.innerWidth - VIEW_INSET - BUBBLE_W - noteRect.left;
+    leftRel = Math.min(Math.max(leftRel, VIEW_INSET - noteRect.left), maxLeft);
+
+    bubble.style.right = 'auto';
+    bubble.style.left = leftRel + 'px';
+    bubble.style.top = top + 'px';
+    bubble.style.setProperty('--aside-bubble-top', top + 'px');
+    note.classList.add('aside-note--bubble-margin-right');
+  }
+
+  function afterLayout() {
+    requestAnimationFrame(function () {
+      layoutSbAsideBubble();
+      window.dispatchEvent(new Event('resize'));
+    });
+  }
+
+  if (document.readyState === 'complete') afterLayout();
+  else window.addEventListener('load', afterLayout, { once: true });
+  window.addEventListener('resize', layoutSbAsideBubble);
+  if (mq.addEventListener) mq.addEventListener('change', layoutSbAsideBubble);
+  else mq.addListener(layoutSbAsideBubble);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(afterLayout);
+})();
+</script>
 </body>
 </html>
