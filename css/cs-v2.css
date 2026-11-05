@@ -472,14 +472,21 @@ body.case-study-page.cs-v2 .cs-match-img.cs-v2-phase-label-row {
 }
 
 body.case-study-page.cs-v2 .content.case-main.cs-v2-study > .section > p.cs-match-img:not(.section-subtitle):not(.hc-results-impact-lede):not(.cs-caption):not(.cs-aside):not(.cs-callout):not(.cs-structure__title):not(.cs-structure__line),
-body.case-study-page.cs-v2 .content.case-main.cs-v2-study section p.cs-match-img:not(.cs-turning__eyebrow):not(.hero-subtitle):not(.cs-turning__callout-label),
 body.case-study-page.cs-v2 .content.case-main.cs-v2-study > .section > h2.cs-match-img,
-body.case-study-page.cs-v2 .content.case-main.cs-v2-study > .section > ul.cs-match-img,
-body.case-study-page.cs-v2 .content.case-main.cs-v2-study .cs-v2-decision.cs-match-img > p.cs-match-img:first-of-type,
-body.case-study-page.cs-v2 .content.case-main.cs-v2-study .cs-v2-decision.cs-match-img > p:not(.cs-v2-decision__title) {
+body.case-study-page.cs-v2 .content.case-main.cs-v2-study > .section > ul.cs-match-img {
   width: var(--cs-wide-track) !important;
   max-width: var(--cs-wide-track) !important;
   margin-left: calc((100% - var(--cs-wide-track)) / 2) !important;
+  margin-right: 0 !important;
+}
+
+/* Inside cards/frames: no wide-track breakout (frame only uses .cs-match-img) */
+body.case-study-page.cs-v2 .cs-match-img.cs-turning :is(.cs-turning__column, .cs-turning__prose, .cs-turning__prose p, .cs-turning__shift, .cs-turning__callout-block, .cs-v2-aha-text, h2.section-chapter),
+body.case-study-page.cs-v2 .cs-match-img.cs-question :is(p, .cs-question__q, .cs-question__lead, .cs-label),
+body.case-study-page.cs-v2 .cs-match-img.sb-glance :is(.sb-wrap, .sb-glance__problem, .sb-glance__lower, .sb-glance__col, p, ul, li, .cs-summary-jump, .sb-label, .sb-glance__pct, .sb-glance__result-sub, .sb-glance__result-line, .sb-glance__result-meta, .sb-glance__body, .sb-glance__list) {
+  width: auto !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
   margin-right: 0 !important;
 }
 
