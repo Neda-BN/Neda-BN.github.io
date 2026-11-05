@@ -482,7 +482,7 @@ body.case-study-page.cs-v2 .content.case-main.cs-v2-study > .section > ul.cs-mat
 
 /* Inside cards/frames: no wide-track breakout (frame only uses .cs-match-img) */
 body.case-study-page.cs-v2 .cs-match-img.cs-turning :is(.cs-turning__column, .cs-turning__prose, .cs-turning__prose p, .cs-turning__shift, .cs-turning__callout-block, .cs-v2-aha-text, h2.section-chapter),
-body.case-study-page.cs-v2 .cs-match-img.cs-question :is(p, .cs-question__q, .cs-question__lead, .cs-label),
+body.case-study-page.cs-v2 .cs-match-img.cs-v2-one-question :is(p),
 body.case-study-page.cs-v2 .cs-match-img.sb-glance :is(.sb-wrap, .sb-glance__problem, .sb-glance__lower, .sb-glance__col, p, ul, li, .cs-summary-jump, .sb-label, .sb-glance__pct, .sb-glance__result-sub, .sb-glance__result-line, .sb-glance__result-meta, .sb-glance__body, .sb-glance__list) {
   width: auto !important;
   max-width: 100% !important;
@@ -553,4 +553,219 @@ body.case-study-page.cs-v2 .hero h1 {
   line-height: var(--lh-large) !important;
   font-weight: 600 !important;
   font-family: "Poppins", sans-serif !important;
+}
+
+/* ── Introduction: plain “one question” block (no frame) ── */
+body.case-study-page.cs-v2 .cs-v2-one-question {
+  --space-text: 16px;
+  --space-block: 24px;
+  margin: 0 0 var(--space-block) !important;
+  padding: 0 !important;
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-one-question::before {
+  display: none !important;
+  content: none !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-one-question > .cs-v2-subtitle {
+  margin: 0 0 var(--space-text) !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-body) !important;
+  line-height: var(--lh-body) !important;
+  font-weight: 600 !important;
+  color: var(--ink) !important;
+}
+
+body.case-study-page.cs-v2 #introduction .cs-v2-one-question + .cs-v2-subtitle {
+  margin-top: 0 !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-one-question__lead {
+  margin: 0 0 var(--space-text) !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-body) !important;
+  line-height: var(--lh-body) !important;
+  font-weight: 400 !important;
+  color: var(--body) !important;
+  max-width: none !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-one-question__q {
+  margin: 0 !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-large) !important;
+  line-height: var(--lh-large) !important;
+  font-weight: 600 !important;
+  color: var(--ink) !important;
+  max-width: none !important;
+}
+
+@media (max-width: 767px) {
+  body.case-study-page.cs-v2 .cs-v2-one-question__lead {
+    font-size: 16px !important;
+  }
+}
+
+/* ── User journey map: diagram typography (exempt from two-size rule) ── */
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-title {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--text) !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-subtitle,
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-persona-name,
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-persona-role {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1.35 !important;
+  font-weight: 400 !important;
+  color: var(--muted) !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-persona-name {
+  font-weight: 600 !important;
+  color: var(--text) !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-legend-item,
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-y-label {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 12px !important;
+  line-height: 1.3 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  color: var(--muted) !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-legend-item {
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 12px !important;
+  line-height: 1.35 !important;
+  font-weight: 500 !important;
+  padding: 6px 8px !important;
+  max-width: 120px !important;
+  white-space: normal !important;
+  box-sizing: border-box !important;
+}
+
+/* Curve label vertical stagger (position only; inline left unchanged) */
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(2) {
+  top: calc(6 / 340 * 100%) !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(3) {
+  top: calc(82 / 340 * 100%) !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(4) {
+  top: calc(122 / 340 * 100%) !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(5) {
+  top: calc(218 / 340 * 100%) !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(6) {
+  top: calc(8 / 340 * 100%) !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(7) {
+  top: calc(104 / 340 * 100%) !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(8) {
+  top: calc(176 / 340 * 100%) !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(9) {
+  top: calc(252 / 340 * 100%) !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(10) {
+  top: calc(6 / 340 * 100%) !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(11) {
+  top: calc(248 / 340 * 100%) !important;
+}
+
+body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-step-cell {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 12px !important;
+  line-height: 1.3 !important;
+  font-weight: 600 !important;
+  color: var(--muted) !important;
+}
+
+@media (max-width: 1024px) {
+  body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box {
+    max-width: 118px !important;
+    font-size: 11px !important;
+  }
+
+  body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(9) {
+    top: calc(256 / 340 * 100%) !important;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 900px) {
+  body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(5) {
+    top: calc(234 / 340 * 100%) !important;
+  }
+  body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(3) {
+    top: calc(100 / 340 * 100%) !important;
+  }
+
+  body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(4) {
+    top: calc(168 / 340 * 100%) !important;
+  }
+}
+
+@media (max-width: 899.98px) {
+  body.case-study-page.cs-v2 .cs-v2-study .pos-ujm-chart-scroll-inner {
+    min-width: 960px !important;
+  }
+
+  body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(3) {
+    top: calc(88 / 340 * 100%) !important;
+  }
+}
+
+@media (max-width: 767px) {
+
+  body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box {
+    max-width: 118px !important;
+  }
+
+  body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-step-row {
+    margin-top: 32px !important;
+  }
+
+  body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(5) {
+    top: calc(208 / 340 * 100%) !important;
+  }
+
+  body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(9) {
+    top: calc(258 / 340 * 100%) !important;
+  }
+
+  body.case-study-page.cs-v2 .cs-v2-study .pos-ujm .pos-ujm-label-box:nth-child(11) {
+    top: calc(250 / 340 * 100%) !important;
+  }
 }
