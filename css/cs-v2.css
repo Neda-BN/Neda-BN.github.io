@@ -1013,3 +1013,86 @@ body.case-study-page.cs-v2 .cs-v2-decision .screen-wrap img {
     max-width: 285px;
   }
 }
+
+/* ── Before/after compare: title + zoom hint (Simple Booking & POS) ── */
+body.cs-v2 .cs-v2-compare-title {
+  font-family: "Poppins", sans-serif;
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: var(--lh-body);
+  margin: 0 0 12px;
+}
+
+body.cs-v2 .cs-v2-compare-block {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+}
+
+body.cs-v2 figcaption.cs-v2-zoom-hint {
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px 8px;
+  text-align: center;
+  color: var(--meta) !important;
+  font-size: var(--fs-body) !important;
+  font-weight: 400 !important;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+body.cs-v2 .cs-v2-zoom-hint__icon {
+  width: 16px;
+  height: 16px;
+  stroke: var(--meta);
+  flex-shrink: 0;
+}
+
+body.cs-v2 .cs-v2-swipe-hint {
+  display: none;
+  flex-basis: 100%;
+  text-align: center;
+  color: var(--meta);
+  font-size: var(--fs-body);
+  font-weight: 400;
+}
+
+@media (max-width: 900px) {
+  body.cs-v2 .cs-v2-compare-block:has(.sb-scroll-x) .cs-v2-swipe-hint {
+    display: block;
+  }
+}
+
+body.case-study-page.cs-v2 .cs-v2-decision .pos-transformation-figure.cs-v2-compare-block {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Simple Booking — Design section: space between media blocks */
+body.case-study-page.cs-v2 .sb-case #design .cs-v2-decision .screens-section > * + * {
+  margin-top: var(--space-block) !important;
+}
+
+body.case-study-page.cs-v2 .sb-case #design .cs-v2-decision .screens-section + .cs-match-img.cs-v2-list,
+body.case-study-page.cs-v2 .sb-case #design .cs-v2-decision .cs-match-img.cs-v2-list + .screens-section {
+  margin-top: var(--space-block);
+}
+
+body.case-study-page.cs-v2 .sb-case #design .cs-v2-decision:last-of-type + .cs-match-img.cs-v2-subtitle {
+  margin-top: var(--space-block);
+}
+
+body.case-study-page.cs-v2 .sb-case #design > .cs-match-img.cs-v2-subtitle + .cs-match-img {
+  margin-top: 0;
+}
+
+body.case-study-page.cs-v2 .sb-case #design > .cs-match-img + .sb-ds-sheets.wide {
+  margin-top: var(--space-block);
+}
+
+body.case-study-page.cs-v2 .sb-case #design .cs-customer-view > .cs-caption {
+  margin-top: 12px;
+}

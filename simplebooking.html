@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="css/simplebooking.css?v=20260408">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
-<link rel="stylesheet" href="css/cs-v2.css?v=20261105v">
+<link rel="stylesheet" href="css/cs-v2.css?v=20261105w">
 <link rel="preload" as="image" href="sb-hero.webp" type="image/webp" fetchpriority="high">
 <style>
   /* Before/after comparisons: keep slider layout; do not hide scroll/zoom wrappers */
@@ -89,16 +89,6 @@
       max-width: min(1136px, calc(100vw - 80px));
     }
   }
-  body.case-study-page.cs-v2 .sb-case .sb-video-wrap {
-    max-width: min(720px, calc(100vw - 48px));
-    margin-left: auto;
-    margin-right: auto;
-  }
-  body.case-study-page.cs-v2 .sb-case .sb-video-wrap .sb-overview-video {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-  }
   body.case-study-page.cs-v2 .sb-case .sb-ds-sheets.wide {
     --cs-wide-track: min(1200px, calc(100vw - 64px));
     width: var(--cs-wide-track) !important;
@@ -120,12 +110,6 @@
     width: 100%;
     max-width: 760px;
     height: auto !important;
-  }
-  @media (max-width: 767px) {
-    body.case-study-page.cs-v2 .sb-case .sb-video-wrap {
-      width: min(720px, calc(100vw - 40px));
-      max-width: min(720px, calc(100vw - 40px));
-    }
   }
   @media (min-width: 961px) {
     .case-study-page .sb-case .cs-structure--five .cs-structure__branches {
@@ -367,9 +351,10 @@
       <p class="cs-v2-decision__title">Decision 1 · An Overview that starts with what needs attention</p>
       <p>The Overview is organised by time: one "Needs your attention" list first, then "Due soon" and "Later this month", a separate financial snapshot, and one-click actions with plain-language advice.</p>
       <div class="screens-section reveal reveal-media wide">
-        <figure>
+        <figure class="cs-v2-compare-block">
+          <p class="cs-v2-compare-title">Overview · before and after</p>
           <a class="sb-zoom" href="sb-overview-before-after.png" target="_blank" rel="noopener" data-title="Overview · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-overview-before-after.webp" type="image/webp"><img src="sb-overview-before-after.png" width="2720" height="1634" loading="lazy" decoding="async" alt="Overview page before and after. Before: seven equal-weight alerts, charts without legends, and deadlines repeated. After: Needs your attention list, due soon grouping, financial snapshot, plain-language advice and readable charts."></picture></div></a>
-          <figcaption class="cs-caption cs-caption"><span>Dark mode</span><span class="sb-swipe-hint">Swipe to see the whole comparison</span><span>Click or tap to view full size</span></figcaption>
+          <figcaption class="cs-caption cs-v2-zoom-hint"><svg class="cs-v2-zoom-hint__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg><span>Click or tap to view full size</span><span class="cs-v2-swipe-hint">Swipe to see the whole comparison</span></figcaption>
         </figure>
       </div>
     </div>
@@ -417,13 +402,15 @@
             </div>
           </div>
         </div>
-        <figure>
+        <figure class="cs-v2-compare-block">
+          <p class="cs-v2-compare-title">Recurring invoices · before and after</p>
           <a class="sb-zoom" href="sb-recurring-before-after.png" target="_blank" rel="noopener" data-title="Recurring invoices · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-recurring-before-after.webp" type="image/webp"><img src="sb-recurring-before-after.png" width="3000" height="1040" loading="lazy" decoding="async" alt="Recurring invoices before and after. Before: setup form on top, vague bulk action, no sense of what happens next, crowded row actions. After: clear expectations, attention section, upcoming 30 days, plans in plain sentences, and actions only when needed."></picture></div></a>
-          <figcaption class="cs-caption cs-caption"><span>Dark mode</span><span class="sb-swipe-hint">Swipe to see the whole comparison</span><span>Click or tap to view full size</span></figcaption>
+          <figcaption class="cs-caption cs-v2-zoom-hint"><svg class="cs-v2-zoom-hint__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg><span>Click or tap to view full size</span><span class="cs-v2-swipe-hint">Swipe to see the whole comparison</span></figcaption>
         </figure>
-        <figure>
+        <figure class="cs-v2-compare-block">
+          <p class="cs-v2-compare-title">Quotes · before and after</p>
           <a class="sb-zoom" href="sb-quotes-before-after.png" target="_blank" rel="noopener" data-title="Quotes · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-quotes-before-after.webp" type="image/webp"><img src="sb-quotes-before-after.png" width="3000" height="1040" loading="lazy" decoding="async" alt="Quotes page before and after. Before: an always-open quote form, no overview or status filters, faint statuses and up to four look-alike buttons per row. After: form on demand, status filters with counts, one primary action with an icon per row, and aligned columns with next steps."></picture></div></a>
-          <figcaption class="cs-caption cs-caption"><span>Dark mode</span><span class="sb-swipe-hint">Swipe to see the whole comparison</span><span>Click or tap to view full size</span></figcaption>
+          <figcaption class="cs-caption cs-v2-zoom-hint"><svg class="cs-v2-zoom-hint__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg><span>Click or tap to view full size</span><span class="cs-v2-swipe-hint">Swipe to see the whole comparison</span></figcaption>
         </figure>
         <div class="cs-customer-view">
           <p class="cs-customer-view__label">
@@ -441,9 +428,10 @@
           </div>
           <figcaption class="cs-caption cs-caption">What the customer sees: accept or decline a quote, no account needed.</figcaption>
         </div>
-        <figure>
+        <figure class="cs-v2-compare-block">
+          <p class="cs-v2-compare-title">Receipts · before and after</p>
           <a class="sb-zoom" href="sb-receipts-before-after.png" target="_blank" rel="noopener" data-title="Receipts · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-receipts-before-after.webp" type="image/webp"><img src="sb-receipts-before-after.png" width="2720" height="1297" loading="lazy" decoding="async" alt="Receipts page before and after. Before: four actions per inbox row, oversized upload, faded main button, list without supplier or amount. After: compact upload first, one action per row, search and paging, full context in the list."></picture></div></a>
-          <figcaption class="cs-caption cs-caption"><span>Light mode</span><span class="sb-swipe-hint">Swipe to see the whole comparison</span><span>Click or tap to view full size</span></figcaption>
+          <figcaption class="cs-caption cs-v2-zoom-hint"><svg class="cs-v2-zoom-hint__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg><span>Click or tap to view full size</span><span class="cs-v2-swipe-hint">Swipe to see the whole comparison</span></figcaption>
         </figure>
       </div>
     </div>
@@ -451,15 +439,16 @@
     <div class="cs-v2-decision">
       <p class="cs-v2-decision__title">Decision 3 · Long lists and long forms, made manageable</p>
       <p>Journal entries, the longest list in the app, got search by any value, filters, sorting and collapsible cards. Payroll's two long forms became three short steps with a progress indicator: more clicks, but fewer fields at a time.</p>
-      <p class="aside-note aside-note--bubble aside-note--bubble-shape-2 aside-note--bubble-prefer-right cs-aside"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg></span><span class="aside-note__bubble-text">The form was just long enough to give everyone déjà vu.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="sb-arrow-grad-deja" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(138,164,214)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(138,164,214)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#sb-arrow-grad-deja)"/><path d="M40 11 L34 8" stroke="url(#sb-arrow-grad-deja)"/><path d="M40 11 L34 14" stroke="url(#sb-arrow-grad-deja)"/></svg></span></span></span></p>
       <div class="screens-section reveal reveal-media wide">
-        <figure>
+        <figure class="cs-v2-compare-block">
+          <p class="cs-v2-compare-title">Journal entries · before and after</p>
           <a class="sb-zoom" href="sb-journal-before-after.png" target="_blank" rel="noopener" data-title="Journal entries · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-journal-before-after.webp" type="image/webp"><img src="sb-journal-before-after.png" width="2720" height="1213" loading="lazy" decoding="async" alt="Journal entries before and after. Before: no search, manual entry hidden as a link, every entry fully expanded. After: Add manual journal entry button, search and filters, collapsible cards with key info in the header."></picture></div></a>
-          <figcaption class="cs-caption cs-caption"><span>Dark mode</span><span class="sb-swipe-hint">Swipe to see the whole comparison</span><span>Click or tap to view full size</span></figcaption>
+          <figcaption class="cs-caption cs-v2-zoom-hint"><svg class="cs-v2-zoom-hint__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg><span>Click or tap to view full size</span><span class="cs-v2-swipe-hint">Swipe to see the whole comparison</span></figcaption>
         </figure>
-        <figure>
+        <figure class="cs-v2-compare-block">
+          <p class="cs-v2-compare-title">Payroll · before and after</p>
           <a class="sb-zoom" href="sb-payroll-before-after.png" target="_blank" rel="noopener" data-title="Payroll · Before and after"><div class="sb-scroll-x"><picture><source srcset="sb-payroll-before-after.webp" type="image/webp"><img src="sb-payroll-before-after.png" width="2720" height="1576" loading="lazy" decoding="async" alt="Payroll before and after. Before: no overview, one giant form, dense hints, an easy-to-miss Add button. After: summary cards, an Add new employee button, and a three-step flow with fewer fields per step."></picture></div></a>
-          <figcaption class="cs-caption cs-caption"><span>Light mode</span><span class="sb-swipe-hint">Swipe to see the whole comparison</span><span>Click or tap to view full size</span></figcaption>
+          <figcaption class="cs-caption cs-v2-zoom-hint"><svg class="cs-v2-zoom-hint__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg><span>Click or tap to view full size</span><span class="cs-v2-swipe-hint">Swipe to see the whole comparison</span></figcaption>
         </figure>
       </div>
     </div>
@@ -488,28 +477,7 @@
         </figure>
       </div>
     </div>
-  </section>
 
-  <section class="section fade-in reveal cs-v2-phase" id="prototype">
-    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg><span class="cs-v2-phase-label">Prototype</span></div>
-    <h2 class="cs-match-img cs-v2-heading">See it in action</h2>
-    <p class="cs-match-img">A one-minute walk through the redesigned app.</p>
-    <div class="screens-section reveal reveal-media wide">
-      <div class="proto-embed sb-video-wrap">
-        <video
-          class="sb-overview-video"
-          src="sb-video.mp4?v=2"
-          poster="sb-video-cover.jpg?v=2"
-          controls
-          playsinline
-          preload="none"
-          width="1920"
-          height="1080"
-          aria-label="One-minute overview of the Simple Booking case study">
-          Your browser doesn't support video. Scroll down to read the full case study.
-        </video>
-      </div>
-    </div>
     <p class="cs-match-img cs-v2-subtitle">Design system</p>
     <p class="cs-match-img">Before redesigning screen by screen, I built a design system, keeping what worked and improving the rest. Claude Code uses the same colours, type and components as my Figma file, so every screen looks and behaves the same.</p>
     <div class="sb-ds-sheets wide reveal reveal-media">
@@ -585,7 +553,6 @@
 <script src="js/scroll-reveal.js?v=20261102f" defer></script>
 <script src="js/cs-design.js?v=20261102d" defer></script>
 <script src="js/more-case-studies.js?v=20261029" defer></script>
-<script src="js/case-study-aside-bubbles.js?v=20261027d" defer></script>
 <script src="js/simplebooking.js?v=20261027" defer></script>
 <script>
 (function () {
@@ -629,68 +596,6 @@
   } else {
     init();
   }
-})();
-</script>
-<script>
-(function () {
-  var mq = window.matchMedia('(min-width: 1320px)');
-  var note = document.querySelector('#design .aside-note--bubble');
-  var BUBBLE_W = 188;
-  var VIEW_INSET = 48;
-
-  function layoutSbAsideBubble() {
-    if (!note) return;
-    var bubble = note.querySelector('.aside-note__bubble');
-    var anchor = note.nextElementSibling;
-    if (!bubble || !anchor) return;
-
-    if (!mq.matches) {
-      bubble.style.removeProperty('left');
-      bubble.style.removeProperty('right');
-      bubble.style.removeProperty('top');
-      bubble.style.removeProperty('--aside-bubble-top');
-      return;
-    }
-
-    var gap = 80;
-    var noteRect = note.getBoundingClientRect();
-    var anchorRect = anchor.getBoundingClientRect();
-    var top = Math.max(0, anchorRect.top - noteRect.top + 12);
-    var leftGutter = anchorRect.left - VIEW_INSET;
-    var rightSpace = window.innerWidth - VIEW_INSET - anchorRect.right;
-    var leftRel;
-
-    if (rightSpace >= BUBBLE_W + gap) {
-      leftRel = anchorRect.right - noteRect.left + gap;
-    } else if (leftGutter >= BUBBLE_W + gap) {
-      leftRel = anchorRect.left - noteRect.left - gap - BUBBLE_W;
-    } else {
-      leftRel = Math.max(VIEW_INSET - noteRect.left, anchorRect.right - noteRect.left + 16);
-    }
-
-    var maxLeft = window.innerWidth - VIEW_INSET - BUBBLE_W - noteRect.left;
-    leftRel = Math.min(Math.max(leftRel, VIEW_INSET - noteRect.left), maxLeft);
-
-    bubble.style.right = 'auto';
-    bubble.style.left = leftRel + 'px';
-    bubble.style.top = top + 'px';
-    bubble.style.setProperty('--aside-bubble-top', top + 'px');
-    note.classList.add('aside-note--bubble-margin-right');
-  }
-
-  function afterLayout() {
-    requestAnimationFrame(function () {
-      layoutSbAsideBubble();
-      window.dispatchEvent(new Event('resize'));
-    });
-  }
-
-  if (document.readyState === 'complete') afterLayout();
-  else window.addEventListener('load', afterLayout, { once: true });
-  window.addEventListener('resize', layoutSbAsideBubble);
-  if (mq.addEventListener) mq.addEventListener('change', layoutSbAsideBubble);
-  else mq.addListener(layoutSbAsideBubble);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(afterLayout);
 })();
 </script>
 </body>
