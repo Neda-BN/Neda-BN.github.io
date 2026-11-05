@@ -1132,15 +1132,34 @@ body.case-study-page.cs-v2:has(.content.hc-case) > .hero {
   overflow: visible;
 }
 
-body.case-study-page.cs-v2:has(.content.hc-case) > .hero .meta-strip {
+body.case-study-page.cs-v2:has(.content.hc-case) > .hero .meta-strip,
+body.case-study-page.cs-v2:has(.content.hc-case) > .hero .hero-subtitle {
+  --hc-meta-width: min(calc(var(--cs-track) * 1.15), calc(100vw - 2 * var(--cs-pad, 32px)));
   box-sizing: border-box;
-  width: calc(var(--cs-track) * 1.15);
-  max-width: calc(var(--cs-track) * 1.15);
+  width: var(--hc-meta-width);
+  max-width: var(--hc-meta-width);
+  margin-left: calc((100% - var(--hc-meta-width)) / 2);
+  margin-right: calc((100% - var(--hc-meta-width)) / 2);
+}
+
+body.case-study-page.cs-v2:has(.content.hc-case) > .hero .hero-subtitle {
+  text-align: center;
 }
 
 body.case-study-page.cs-v2:has(.content.hc-case) > .hero .meta-value {
   overflow-wrap: anywhere;
   word-break: normal;
+}
+
+/* Design decisions — space between step cards / tables and screenshots */
+body.case-study-page.cs-v2 .hc-case .cs-v2-decision > .hc-wizard-steps-grid {
+  margin-top: var(--space-block);
+}
+
+body.case-study-page.cs-v2 .hc-case .cs-v2-decision > .hc-wizard-steps-grid + :is(.hc-featured-screens, .hc-wizard-gallery),
+body.case-study-page.cs-v2 .hc-case .cs-v2-decision > table.cs-table.data-table + :is(.hc-featured-screens, .hc-wizard-gallery),
+body.case-study-page.cs-v2 .hc-case .cs-v2-decision > table.cs-table.data-table + p {
+  margin-top: calc(var(--space-block) * 2) !important;
 }
 
 body.case-study-page.cs-v2 .hc-case .hc-wizard-steps-grid {
