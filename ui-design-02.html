@@ -5,40 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#121011">
 <meta name="color-scheme" content="dark">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
 <link rel="stylesheet" href="css/tokens.css?v=ember2">
 <link rel="stylesheet" href="css/site-shared.css?v=ember2">
 <script src="js/page-transition.js?v=ember2"></script>
 <script src="js/site-nav.js?v=ember2"></script>
 <title>Self service app · UI Design · Neda Bagherinezhad</title>
-<link rel="stylesheet" href="css/responsive.css?v=ember2">
+<link rel="stylesheet" href="css/scroll-reveal.css?v=ember2">
 <link rel="stylesheet" href="css/case-study.css?v=ember2">
+<link rel="stylesheet" href="css/cs-design.css?v=ember2">
+<link rel="stylesheet" href="css/simplebooking.css?v=ember2">
+<link rel="stylesheet" href="css/responsive.css?v=ember2">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=ember2">
-<style>
-  body.hero-cursor-none { cursor: none; }
-  #dot {
-    position: fixed; z-index: 9999; pointer-events: none;
-    width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
-    transform: translate(-50%, -50%); mix-blend-mode: screen;
-  }
-  #ring {
-    position: fixed; z-index: 9998; pointer-events: none;
-    width: 36px; height: 36px; border-radius: 50%;
-    border: 1.5px solid color-mix(in srgb, var(--primary) 35%, transparent);
-    transform: translate(-50%, -50%);
-    transition: width 0.35s, height 0.35s, border-color 0.3s;
-  }
-  body.lh #dot { transform: translate(-50%, -50%) scale(2); opacity: 0.5; }
-  body.lh #ring { width: 60px; height: 60px; border-color: color-mix(in srgb, var(--primary) 55%, transparent); }
-  @media (prefers-reduced-motion: reduce) {
-    body.hero-cursor-none { cursor: auto; }
-    #dot, #ring { display: none !important; }
-  }
-</style>
-    <link rel="stylesheet" href="css/theme.css?v=ember2">
-  <script src="js/palette-preview.js?v=ember2"></script>
+<link rel="stylesheet" href="css/cs-v2.css?v=ember2">
+<link rel="stylesheet" href="css/cs-hero-match.css?v=ember2">
+<link rel="stylesheet" href="css/ui-design-cs-v2.css?v=ember2">
+<link rel="stylesheet" href="css/theme.css?v=ember2">
+<script src="js/palette-preview.js?v=ember2"></script>
 </head>
-<body class="hero-cursor-none has-anna-nav case-study-page ui-design-page">
+<body class="hero-cursor-none has-anna-nav case-study-page cs-design-page cs-v2 ui-design-page ui-design-cursor-page">
 
 <div id="dot" aria-hidden="true"></div>
 <div id="ring" aria-hidden="true"></div>
@@ -54,10 +42,12 @@
   </div>
 </header>
 
+<div class="cs-read-progress" aria-hidden="true"></div>
+
 <div class="back-btn-wrap back-btn-wrap--top">
   <a class="back-btn" href="index.html#ui-design"><svg class="back-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Back</a>
 </div>
-<main class="content case-main ui-design-main">
+<main class="content case-main ui-design-main cs-v2-study ui-design-gallery">
   <header class="sb-hero hero ui-design-hero">
     <div class="sb-wrap">
       <div class="sb-hero-text">
@@ -71,26 +61,35 @@
       </div>
     </div>
   </header>
-  <div class="ui-design-intro">
-    <p>This self-service ordering app was designed to run on large-format kiosk hardware — the kind you find at MAX and McDonald's. The user is standing right in front of the screen, often in a noisy environment, usually hungry, and almost always in a rush. That context shaped every decision. Touch targets were sized for <strong>real fingers on real glass</strong>, not a mouse cursor. The visual hierarchy was built to guide someone through a full order in under two minutes — category, item, size, cart, done — without needing to read instructions.</p>
-    <p>The deep blue system creates a calm anchor in a typically chaotic environment. Font sizes and contrast ratios were validated against WCAG standards, with extra attention to how the UI holds up under the harsh overhead lighting common in fast-food restaurants. When the environment is loud and busy, the interface needs to be the quietest thing in the room.</p>
-  </div>
-  <ul class="ui-design-tags" aria-label="Project tags">
-    <li>Kiosk UI</li>
-    <li>Multi-device</li>
-    <li>WCAG</li>
-    <li>Usability</li>
-    <li>Restaurant Tech</li>
-  </ul>
-  <figure class="ui-design-figure wide"><img src="vc-ui-02-self-service-kiosk.png" alt="Two physical self-service kiosk terminals — a smaller countertop unit showing the cart screen with burger and pizza orders, and a larger floor-standing unit showing the pepperoni pizza size-select screen" width="1024" height="999" decoding="async" fetchpriority="high"></figure>
-  <figure class="ui-design-figure wide"><img src="vc-ui-02-self-service-app.png" alt="Restaurant self-service kiosk app — three iPhone screens showing food categories, pizza menu, and pepperoni size selection on a deep blue gradient" width="1024" height="716" loading="lazy" decoding="async"></figure>
-  <figure class="ui-design-figure wide"><img src="vc-ui-02-self-service-flows.png" alt="Self-service app user flows — three iPhone screens showing the take-away vs eat-in choice on an iridescent backdrop, the cart with burger and pizza items, and the table-service screen with a numbered seating grid" width="1024" height="716" loading="lazy" decoding="async"></figure>
+
+  <section class="section fade-in reveal cs-v2-phase cs-v2-phase--overview" aria-labelledby="self-service-overview">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg><span class="cs-v2-phase-label">Overview</span></div>
+    <h2 class="cs-match-img cs-v2-heading" id="self-service-overview">Project overview</h2>
+    <div class="ui-design-intro">
+      <p class="cs-match-img">This self-service ordering app was designed to run on large-format kiosk hardware — the kind you find at MAX and McDonald's. The user is standing right in front of the screen, often in a noisy environment, usually hungry, and almost always in a rush. That context shaped every decision. Touch targets were sized for <strong>real fingers on real glass</strong>, not a mouse cursor. The visual hierarchy was built to guide someone through a full order in under two minutes — category, item, size, cart, done — without needing to read instructions.</p>
+      <p class="cs-match-img">The deep blue system creates a calm anchor in a typically chaotic environment. Font sizes and contrast ratios were validated against WCAG standards, with extra attention to how the UI holds up under the harsh overhead lighting common in fast-food restaurants. When the environment is loud and busy, the interface needs to be the quietest thing in the room.</p>
+    </div>
+    <ul class="ui-design-tags" aria-label="Project tags">
+      <li>Kiosk UI</li>
+      <li>Multi-device</li>
+      <li>WCAG</li>
+      <li>Usability</li>
+      <li>Restaurant Tech</li>
+    </ul>
+    <figure class="ui-design-figure wide"><img src="vc-ui-02-self-service-kiosk.png" alt="Two physical self-service kiosk terminals — a smaller countertop unit showing the cart screen with burger and pizza orders, and a larger floor-standing unit showing the pepperoni pizza size-select screen" width="1024" height="999" decoding="async" fetchpriority="high"></figure>
+    <figure class="ui-design-figure wide"><img src="vc-ui-02-self-service-app.png" alt="Restaurant self-service kiosk app — three iPhone screens showing food categories, pizza menu, and pepperoni size selection on a deep blue gradient" width="1024" height="716" loading="lazy" decoding="async"></figure>
+    <figure class="ui-design-figure wide"><img src="vc-ui-02-self-service-flows.png" alt="Self-service app user flows — three iPhone screens showing the take-away vs eat-in choice on an iridescent backdrop, the cart with burger and pizza items, and the table-service screen with a numbered seating grid" width="1024" height="716" loading="lazy" decoding="async"></figure>
+  </section>
+
+  <section class="section cs-more-section" aria-labelledby="cs-more-heading">
+    <div class="cs-more-mount" data-current-page="ui-design-02.html">
+      <a href="index.html#ui-design">See all case studies</a>
+    </div>
+  </section>
 </main>
 
-<div class="footer-strip">
-  <h2>Let's work together</h2>
-  <p>Based in Stockholm · Open to new opportunities</p>
-  <a class="footer-strip__cta" href="mailto:nedabagheri.nz@gmail.com">Get in touch</a>
+<div class="back-btn-wrap back-btn-wrap--bottom">
+  <a class="back-btn" href="index.html#ui-design"><svg class="back-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Back</a>
 </div>
 
 <footer>
@@ -115,6 +114,8 @@
   </ul>
 </footer>
 
+<script src="js/scroll-reveal.js?v=ember2" defer></script>
+<script src="js/more-case-studies.js?v=ember2" defer></script>
 <script>
 (function () {
   var dot = document.getElementById('dot');

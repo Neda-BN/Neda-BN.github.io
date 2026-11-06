@@ -5,873 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#121011">
 <meta name="color-scheme" content="dark">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <meta name="description" content="A white-label in-store shopping app for grocery chains, designed in an 8-hour design challenge by Neda Bagherinezhad.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
 <link rel="stylesheet" href="css/tokens.css?v=ember2">
 <link rel="stylesheet" href="css/site-shared.css?v=ember2">
-<link rel="stylesheet" href="css/responsive.css?v=ember2">
-<link rel="stylesheet" href="css/case-study.css?v=ember2">
-<link rel="stylesheet" href="css/simplebooking.css?v=ember2">
-<link rel="stylesheet" href="css/case-study-v6-pages.css?v=ember2">
-<link rel="stylesheet" href="css/scroll-reveal.css?v=ember2">
 <script src="js/page-transition.js?v=ember2"></script>
 <script src="js/site-nav.js?v=ember2"></script>
+<link rel="stylesheet" href="css/scroll-reveal.css?v=ember2">
+<link rel="stylesheet" href="css/case-study.css?v=ember2">
+<link rel="stylesheet" href="css/cs-design.css?v=ember2">
+<link rel="stylesheet" href="css/simplebooking.css?v=ember2">
+<link rel="stylesheet" href="css/responsive.css?v=ember2">
+<link rel="stylesheet" href="css/case-study-v6-pages.css?v=ember2">
+<link rel="stylesheet" href="css/cs-v2.css?v=ember2">
+<link rel="stylesheet" href="css/cs-hero-match.css?v=ember2">
+<link rel="stylesheet" href="css/ui-design-cs-v2.css?v=ember2">
+<link rel="stylesheet" href="css/instore-page.css?v=ember2">
 <title>Smart In-Store Mode · Neda Bagherinezhad</title>
-<style>
-  body.hero-cursor-none { cursor: none; }
-  #dot { position: fixed; z-index: 9999; pointer-events: none; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); transform: translate(-50%, -50%); mix-blend-mode: screen; }
-  #ring { position: fixed; z-index: 9998; pointer-events: none; width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid color-mix(in srgb, var(--primary) 35%, transparent); transform: translate(-50%, -50%); transition: width 0.35s, height 0.35s, border-color 0.3s; }
-  body.lh #dot { transform: translate(-50%, -50%) scale(2); opacity: 0.5; }
-  body.lh #ring { width: 60px; height: 60px; border-color: color-mix(in srgb, var(--primary) 55%, transparent); }
-  @media (prefers-reduced-motion: reduce) { body.hero-cursor-none { cursor: auto; } #dot, #ring { display: none !important; } }
-
-  /* Page margins — match Simple Booking: 1200px gutter + 720px text column */
-  body.case-study-page:has(main.instore-sb-main) > .back-btn-wrap--top {
-    max-width: min(100%, 1200px);
-    padding-left: 32px;
-    padding-right: 32px;
-    padding-top: var(--cs-content-below-nav);
-    margin-bottom: 40px;
-  }
-  body.case-study-page:has(main.instore-sb-main) > .back-btn-wrap--top .back-btn {
-    margin-left: max(0px, calc((100% - min(100%, 720px)) / 2));
-  }
-  main.instore-sb-main > .instore-intro-block,
-  main.instore-sb-main > .sb-section {
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-  main.instore-sb-main .section-header,
-  main.instore-sb-main .section > p,
-  main.instore-sb-main .instore-brief-stack,
-  main.instore-sb-main .instore-anchor-grid,
-  main.instore-sb-main .instore-jtbd-list,
-  main.instore-sb-main .lessons-list,
-  main.instore-sb-main .instore-journey-board,
-  main.instore-sb-main .instore-tabs-row,
-  main.instore-sb-main .mob-methods-grid,
-  main.instore-sb-main .cs-tradeoff,
-  main.instore-sb-main .instore-subhead,
-  main.instore-sb-main .instore-time-table:not(.wide) {
-    max-width: 720px;
-  }
-  @media (max-width: 809.98px) {
-    main.instore-sb-main > .instore-intro-block,
-    main.instore-sb-main > .sb-section {
-      padding-left: var(--cs-pad);
-      padding-right: var(--cs-pad);
-    }
-    body.case-study-page:has(main.instore-sb-main) > .back-btn-wrap--top {
-      padding-left: var(--cs-pad);
-      padding-right: var(--cs-pad);
-    }
-    body.case-study-page:has(main.instore-sb-main) > .back-btn-wrap--top .back-btn {
-      margin-left: 0;
-    }
-  }
-
-  /* Subtitle → project info table: one rhythm step (not SB hero’s 48px pad + 32px subtitle) */
-  main.instore-sb-main > header.sb-hero.hero {
-    padding-bottom: 0;
-  }
-  main.instore-sb-main .sb-hero-text .hero-subtitle {
-    margin-bottom: 0;
-  }
-  main.instore-sb-main > header.sb-hero.hero + .instore-intro-block {
-    margin-top: var(--cs-gap, 24px) !important;
-  }
-
-  /* simplebooking.css zeros main.sb-case padding-bottom — restore rhythm before footer strip */
-  body.has-anna-nav.case-study-page main.instore-sb-main.sb-case {
-    padding-bottom: clamp(72px, 10vw, 112px);
-  }
-
-  .instore-intro-block {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 18px;
-    width: 100%;
-  }
-  .instore-hero-stack {
-    width: fit-content;
-    max-width: 100%;
-    margin: 0 auto;
-    align-self: center;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
-  .instore-hero-stack .instore-info-wrap {
-    width: 100%;
-    margin: 0;
-  }
-  .instore-info-wrap {
-    align-self: center;
-    width: fit-content;
-    max-width: 100%;
-    margin: 0 auto;
-  }
-  .instore-info-table {
-    width: max-content;
-    max-width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    overflow: hidden;
-    background: linear-gradient(165deg, rgba(30, 30, 38, 0.55) 0%, rgba(22, 22, 28, 0.85) 100%);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  }
-  .instore-info-table th {
-    text-align: left;
-    font-weight: 600;
-    padding: 10px 14px;
-    width: 88px;
-    white-space: nowrap;
-    font-size: 12px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    font-family: var(--font-mono);
-    background: var(--surface-2);
-    color: var(--muted);
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-  }
-  .instore-info-table td {
-    padding: 10px 14px;
-    color: var(--text);
-    border-bottom: 1px solid var(--border);
-    line-height: 1.5;
-    font-size: 14px;
-  }
-  @media (max-width: 599.98px) {
-    .instore-info-wrap {
-      width: 100%;
-    }
-    .instore-info-table {
-      width: 100%;
-      max-width: 100%;
-    }
-    .instore-info-table td {
-      word-wrap: break-word;
-      overflow-wrap: anywhere;
-    }
-  }
-  .instore-info-table tr:last-child th,
-  .instore-info-table tr:last-child td { border-bottom: none; }
-
-  .instore-hero-stack .instore-hero-grid {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 0;
-    width: 100%;
-    max-width: none;
-    margin: 0;
-  }
-  .instore-hero-stack .instore-hero-grid .ui-design-figure {
-    margin: 0;
-    flex: 0 0 auto;
-    display: block;
-  }
-  main.instore-sb-main .instore-hero-grid .ui-design-figure img {
-    display: block;
-    width: clamp(232px, 29vw, 308px) !important;
-    max-width: 100% !important;
-    height: auto !important;
-    margin: 0 auto;
-    object-fit: contain;
-  }
-  .instore-hero-stack .instore-hero-copy {
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    text-align: center;
-  }
-  .instore-hero-stack .instore-hero-copy p {
-    margin: 0;
-    font-family: var(--font-body);
-    font-size: 14px;
-    line-height: 1.55;
-    color: var(--muted);
-  }
-  .instore-hero-stack .instore-hero-copy p + p {
-    margin-top: 6px;
-  }
-  .instore-hero-stack .instore-hero-copy p:first-child {
-    color: var(--text);
-    font-size: 14px;
-  }
-
-  .instore-brief-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 34rem;
-    margin-top: 4px;
-  }
-  .instore-brief-stack .finding-item.cs-card {
-    padding: 12px 14px 12px 13px !important;
-    gap: 12px;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(
-      118deg,
-      color-mix(in srgb, var(--primary) 14%, transparent) 0%,
-      rgba(28, 30, 38, 0.92) 38%,
-      rgba(16, 17, 22, 0.98) 100%
-    );
-    border: 1px solid color-mix(in srgb, var(--primary) 28%, transparent);
-    border-left-width: 3px;
-    border-left-color: var(--accent);
-    box-shadow:
-      0 10px 28px rgba(0, 0, 0, 0.28),
-      inset 0 1px 0 rgba(255, 255, 255, 0.06);
-    transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
-  }
-  .instore-brief-stack .finding-item.cs-card::after {
-    content: "";
-    position: absolute;
-    top: -40%;
-    right: -12%;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: radial-gradient(circle, color-mix(in srgb, var(--primary) 18%, transparent) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  @media (hover: hover) {
-    .instore-brief-stack .finding-item.cs-card:hover {
-      border-color: color-mix(in srgb, var(--primary) 42%, transparent);
-      border-left-color: #a8c0e8;
-      box-shadow:
-        0 14px 36px rgba(0, 0, 0, 0.34),
-        0 0 0 1px color-mix(in srgb, var(--primary) 10%, transparent),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      transform: translateY(-1px);
-    }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .instore-brief-stack .finding-item.cs-card {
-      transition: none;
-    }
-  }
-
-  @media (min-width: 1320px) {
-    main.instore-sb-main .instore-oat-bubble.aside-note--bubble {
-      margin-top: 0 !important;
-    }
-  }
-
-  main.instore-sb-main .instore-lead-question {
-    color: var(--accent) !important;
-    font-weight: 600;
-  }
-
-  main.instore-sb-main .instore-lesson-stack {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 12px !important;
-    margin-top: 4px;
-  }
-  main.instore-sb-main .instore-lesson-stack > .lesson-item.cs-learn {
-    display: flex !important;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 14px;
-    padding: 12px 16px !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-  }
-  main.instore-sb-main .instore-lesson-stack .lesson-num {
-    flex-shrink: 0;
-    line-height: 1.2;
-    margin-top: 1px;
-  }
-  body.case-study-page main.instore-sb-main .instore-lesson-stack .lesson-text h4 {
-    font-size: 16px !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-  }
-  body.case-study-page main.instore-sb-main .instore-lesson-stack .lesson-text p {
-    font-size: 14px !important;
-    line-height: 1.45 !important;
-    margin-top: 4px !important;
-  }
-  .instore-brief-stack .finding-item:nth-child(1) { border-left-color: var(--primary); }
-  .instore-brief-stack .finding-item:nth-child(2) { border-left-color: var(--primary-tint-light); }
-  .instore-brief-stack .finding-item:nth-child(3) { border-left-color: #c4a8e8; }
-  .instore-brief-stack .finding-icon.cs-card__icon {
-    width: 32px !important;
-    height: 32px !important;
-    min-width: 32px;
-    border-radius: 10px;
-    background: color-mix(in srgb, var(--primary) 16%, transparent);
-    border: 1px solid color-mix(in srgb, var(--primary) 32%, transparent);
-    box-shadow: 0 4px 14px color-mix(in srgb, var(--primary) 20%, transparent);
-  }
-  .instore-brief-stack .finding-item:nth-child(3) .finding-icon.cs-card__icon {
-    background: rgba(255, 186, 163, 0.14);
-    border-color: rgba(255, 186, 163, 0.35);
-    box-shadow: 0 4px 14px rgba(255, 186, 163, 0.18);
-  }
-  .instore-brief-stack .finding-icon svg {
-    width: 16px;
-    height: 16px;
-    stroke: var(--accent);
-  }
-  .instore-brief-stack .finding-item:nth-child(3) .finding-icon svg {
-    stroke: #c4a8e8;
-  }
-  body.case-study-page .instore-brief-stack .finding-item h4 {
-    color: var(--text) !important;
-    font-size: 15px !important;
-    margin-top: 0 !important;
-    margin-bottom: 2px !important;
-  }
-  body.case-study-page .instore-brief-stack .finding-text {
-    font-size: 14px !important;
-    line-height: 1.45 !important;
-    margin-top: 0 !important;
-  }
-
-  .instore-anchor-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
-    margin-top: 4px;
-  }
-  main.instore-sb-main .instore-anchor-grid + p {
-    margin-top: clamp(20px, 2.5vw, 28px) !important;
-  }
-  .instore-anchor-grid .role-block.cs-card {
-    padding: 18px 20px !important;
-    margin: 0;
-  }
-  body.case-study-page .instore-anchor-grid .role-block h4 {
-    font-size: 16px !important;
-    margin-top: 0 !important;
-    margin-bottom: 8px !important;
-  }
-  body.case-study-page .instore-anchor-grid .role-block p {
-    font-size: 14px !important;
-    line-height: 1.55 !important;
-    margin-top: 0 !important;
-  }
-
-  main.instore-sb-main .instore-tabs-row {
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 14px !important;
-    margin-top: 4px !important;
-    background: transparent !important;
-    border: none !important;
-    padding: 0 !important;
-  }
-  main.instore-sb-main .instore-tabs-row .finding-item.cs-card {
-    display: block !important;
-    padding: 16px 14px 18px !important;
-    margin: 0;
-    position: relative;
-    overflow: hidden;
-    min-height: 100%;
-    background: linear-gradient(
-      145deg,
-      color-mix(in srgb, var(--primary) 16%, transparent) 0%,
-      rgba(24, 26, 34, 0.96) 42%,
-      rgba(14, 15, 20, 0.98) 100%
-    );
-    border: 1px solid color-mix(in srgb, var(--primary) 32%, transparent) !important;
-    border-top: 2px solid color-mix(in srgb, var(--primary) 55%, transparent);
-    border-radius: 14px !important;
-    box-shadow:
-      0 12px 32px rgba(0, 0, 0, 0.32),
-      inset 0 1px 0 rgba(255, 255, 255, 0.07);
-    transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
-  }
-  main.instore-sb-main .instore-tabs-row .finding-item.cs-card::after {
-    content: "";
-    position: absolute;
-    inset: auto -20% -35% auto;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: radial-gradient(circle, color-mix(in srgb, var(--primary) 20%, transparent) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  main.instore-sb-main .instore-tabs-row .finding-item:nth-child(1) {
-    border-top-color: var(--primary);
-  }
-  main.instore-sb-main .instore-tabs-row .finding-item:nth-child(2) {
-    border-top-color: #a8c0e8;
-    box-shadow:
-      0 14px 36px rgba(0, 0, 0, 0.36),
-      0 0 0 1px rgba(255, 158, 128, 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  }
-  main.instore-sb-main .instore-tabs-row .finding-item:nth-child(3) {
-    border-top-color: #c4a8e8;
-  }
-  @media (hover: hover) {
-    main.instore-sb-main .instore-tabs-row .finding-item.cs-card:hover {
-      border-color: color-mix(in srgb, var(--primary) 48%, transparent) !important;
-      box-shadow:
-        0 16px 40px rgba(0, 0, 0, 0.38),
-        0 0 0 1px color-mix(in srgb, var(--primary) 14%, transparent),
-        inset 0 1px 0 rgba(255, 255, 255, 0.09);
-      transform: translateY(-2px);
-    }
-  }
-  body.case-study-page main.instore-sb-main .instore-tabs-row .finding-item h4 {
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    margin-top: 0 !important;
-    margin-bottom: 6px !important;
-    color: var(--text) !important;
-  }
-  body.case-study-page main.instore-sb-main .instore-tabs-row .finding-text {
-    font-size: 13px !important;
-    line-height: 1.45 !important;
-    margin-top: 0 !important;
-    color: var(--muted);
-  }
-  @media (max-width: 639.98px) {
-    main.instore-sb-main .instore-tabs-row {
-      grid-template-columns: 1fr !important;
-    }
-  }
-
-  main.instore-sb-main .instore-paper-center {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    max-width: 720px;
-  }
-
-  main.instore-sb-main .instore-paper-wireframes {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: clamp(32px, 3.5vw, 44px);
-    margin-top: clamp(36px, 4.5vw, 52px);
-    margin-bottom: clamp(12px, 2vw, 20px);
-    width: 100%;
-  }
-  main.instore-sb-main .instore-paper-wireframes__lead {
-    align-self: center;
-    width: 100%;
-    max-width: 720px;
-    margin: 0 !important;
-    padding-bottom: clamp(20px, 2.5vw, 28px);
-    border-bottom: 1px solid color-mix(in srgb, var(--primary) 18%, transparent);
-    text-align: center !important;
-  }
-  main.instore-sb-main .instore-paper-wireframes .instore-wireframes-row {
-    margin-top: 0;
-  }
-  main.instore-sb-main .instore-wireframes-row {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    column-gap: clamp(28px, 4vw, 56px);
-    align-items: start;
-    width: var(--cs-wide-track, min(1200px, calc(100vw - 64px)));
-    max-width: var(--cs-wide-track, min(1200px, calc(100vw - 64px)));
-    margin-left: calc((100% - var(--cs-wide-track, min(1200px, calc(100vw - 64px)))) / 2);
-    margin-right: 0;
-    box-sizing: border-box;
-  }
-  main.instore-sb-main .instore-wireframes-row__copy {
-    margin: 0;
-    max-width: 20rem;
-    font-family: var(--font-body);
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.55;
-    color: var(--text);
-  }
-  main.instore-sb-main .instore-wireframes-row__figures {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-end;
-    gap: 48px;
-    flex-shrink: 0;
-  }
-  main.instore-sb-main .instore-wireframes-row .ui-design-figure {
-    margin: 0;
-    flex: 0 0 auto;
-  }
-  main.instore-sb-main .instore-wireframes-row .ui-design-figure img {
-    width: auto !important;
-    max-width: none !important;
-    height: auto !important;
-    display: block;
-  }
-  @media (max-width: 767.98px) {
-    main.instore-sb-main .instore-wireframes-row {
-      grid-template-columns: 1fr;
-      row-gap: 20px;
-      width: 100%;
-      max-width: 720px;
-      margin-left: 0;
-      margin-right: 0;
-    }
-    main.instore-sb-main .instore-wireframes-row__figures {
-      justify-content: flex-end;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 4px;
-    }
-  }
-
-  main.instore-sb-main .instore-visual-split {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    column-gap: 0;
-    align-items: start;
-    width: var(--cs-wide-track, min(1200px, calc(100vw - 64px)));
-    max-width: var(--cs-wide-track, min(1200px, calc(100vw - 64px)));
-    margin-left: calc((100% - var(--cs-wide-track, min(1200px, calc(100vw - 64px)))) / 2);
-    margin-right: 0;
-    box-sizing: border-box;
-  }
-  main.instore-sb-main .instore-visual-split__copy {
-    grid-column: 1;
-    grid-row: 1;
-    max-width: min(480px, 100%);
-    min-width: 0;
-  }
-  main.instore-sb-main .instore-visual-split__copy > p,
-  main.instore-sb-main .instore-visual-split__copy > .instore-subhead {
-    max-width: none;
-  }
-  main.instore-sb-main .instore-visual-split__copy > .instore-subhead {
-    margin-top: 28px;
-  }
-  main.instore-sb-main .instore-visual-split__figure {
-    grid-column: 2;
-    grid-row: 1;
-    margin: 0 !important;
-    justify-self: end;
-    align-self: start !important;
-    flex-shrink: 0;
-  }
-  main.instore-sb-main .instore-visual-split .ui-design-figure.instore-visual-split__figure {
-    margin-top: 0 !important;
-  }
-  main.instore-sb-main .instore-visual-split__figure img {
-    display: block;
-    width: auto;
-    height: auto;
-    max-width: min(630px, 69vw);
-    object-fit: contain;
-    object-position: top center;
-  }
-  @media (max-width: 767.98px) {
-    main.instore-sb-main .instore-visual-split {
-      grid-template-columns: 1fr;
-      width: 100%;
-      max-width: 720px;
-      margin-left: 0;
-      margin-right: 0;
-    }
-    main.instore-sb-main .instore-visual-split__copy,
-    main.instore-sb-main .instore-visual-split__figure {
-      grid-column: 1;
-    }
-    main.instore-sb-main .instore-visual-split__figure {
-      grid-row: 2;
-      justify-self: end;
-    }
-    main.instore-sb-main .instore-visual-split__figure img {
-      max-width: min(540px, 88vw);
-      max-height: none !important;
-    }
-  }
-
-  .instore-jtbd-list {
-    list-style: none;
-    margin: 20px 0 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    overflow: hidden;
-    background: var(--surface);
-  }
-  .instore-jtbd-list li {
-    display: grid;
-    grid-template-columns: 3.25rem minmax(0, 1fr);
-    gap: 0;
-    align-items: stretch;
-    border-bottom: 1px solid var(--border);
-  }
-  .instore-jtbd-list li:last-child { border-bottom: none; }
-  .instore-jtbd-list__num {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.06em;
-    color: var(--accent);
-    background: color-mix(in srgb, var(--primary) 8%, transparent);
-    border-right: 1px solid var(--border);
-    padding: 14px 8px;
-  }
-  .instore-jtbd-list__text {
-    margin: 0;
-    padding: 14px 18px;
-    font-family: var(--font-body);
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1.45;
-    color: var(--text);
-  }
-
-  .instore-persona {
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-    background: linear-gradient(160deg, rgba(22, 22, 28, 0.95) 0%, rgba(14, 15, 20, 0.98) 100%);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
-  }
-  .instore-persona__header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 20px 22px;
-    border-bottom: 1px solid var(--border);
-    background: color-mix(in srgb, var(--primary) 6%, transparent);
-  }
-  .instore-persona__avatar {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-body);
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--bg);
-    background: linear-gradient(145deg, var(--primary-tint-light) 0%, var(--accent) 55%, var(--primary-hover) 100%);
-    flex-shrink: 0;
-    box-shadow: 0 4px 14px color-mix(in srgb, var(--primary) 35%, transparent);
-  }
-  .instore-persona__name {
-    margin: 0;
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--text);
-    letter-spacing: -0.02em;
-  }
-  .instore-persona__role {
-    margin: 4px 0 0;
-    font-size: 14px;
-    line-height: 1.45;
-    color: var(--muted);
-  }
-  .instore-persona__body {
-    padding: 20px 22px 22px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  .instore-persona__facts {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .instore-persona__facts div {
-    display: grid;
-    grid-template-columns: 5.5rem minmax(0, 1fr);
-    gap: 12px;
-    align-items: start;
-  }
-  .instore-persona__facts dt {
-    margin: 0;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--muted);
-    padding-top: 2px;
-  }
-  .instore-persona__facts dd {
-    margin: 0;
-    font-size: 14px;
-    line-height: 1.55;
-    color: var(--text);
-  }
-  .instore-persona__quote {
-    margin: 0;
-    padding: 16px 18px 16px 20px;
-    border-radius: 12px;
-    border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
-    background: color-mix(in srgb, var(--primary) 8%, transparent);
-    position: relative;
-  }
-  .instore-persona__quote::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 12px;
-    bottom: 12px;
-    width: 3px;
-    border-radius: 0 2px 2px 0;
-    background: linear-gradient(180deg, var(--accent) 0%, color-mix(in srgb, var(--primary) 35%, transparent) 100%);
-  }
-  .instore-persona__quote p {
-    margin: 0;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1.55;
-    color: var(--text);
-  }
-  /* .wide sets position:static in case-study.css — keep SVG connectors inside the board */
-  main.instore-sb-main .instore-journey-board.wide {
-    position: relative;
-    overflow: hidden;
-  }
-  .instore-journey-board {
-    position: relative;
-    margin-top: 20px;
-    padding: 16px 8px 20px;
-    max-width: min(1200px, 100%);
-    border-radius: 16px;
-    background-color: rgba(12, 13, 18, 0.6);
-    background-image: radial-gradient(color-mix(in srgb, var(--primary) 14%, transparent) 1px, transparent 1px);
-    background-size: 18px 18px;
-    border: 1px solid color-mix(in srgb, var(--primary) 12%, transparent);
-  }
-  .instore-journey-board__lines {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-    overflow: hidden;
-  }
-  .instore-journey-board__lines path {
-    fill: none;
-    stroke: rgba(255, 158, 128, 0.82);
-    stroke-width: 2.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-  .instore-journey-board__steps {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 28px 14px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .instore-journey-node {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    padding: 12px 14px;
-    border-radius: 12px;
-    border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
-    background: linear-gradient(145deg, rgba(32, 34, 42, 0.95) 0%, rgba(18, 19, 24, 0.98) 100%);
-    box-shadow:
-      0 8px 22px rgba(0, 0, 0, 0.28),
-      inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  }
-  .instore-journey-node__num {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    color: var(--accent);
-    line-height: 1;
-  }
-  .instore-journey-node__label {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text);
-    line-height: 1.35;
-  }
-  @media (min-width: 700px) {
-    .instore-journey-board {
-      min-height: 200px;
-    }
-    .instore-journey-node:nth-child(1) { grid-column: 1; grid-row: 1; }
-    .instore-journey-node:nth-child(2) { grid-column: 2; grid-row: 1; }
-    .instore-journey-node:nth-child(3) { grid-column: 3; grid-row: 1; }
-    .instore-journey-node:nth-child(4) { grid-column: 4; grid-row: 1; }
-    .instore-journey-node:nth-child(5) { grid-column: 1; grid-row: 2; }
-    .instore-journey-node:nth-child(6) { grid-column: 2; grid-row: 2; }
-    .instore-journey-node:nth-child(7) { grid-column: 3; grid-row: 2; }
-    .instore-journey-node:nth-child(8) { grid-column: 4; grid-row: 2; }
-  }
-  @media (max-width: 699.98px) {
-    .instore-journey-board__steps {
-      grid-template-columns: 1fr;
-      gap: 10px;
-      padding-left: 20px;
-      border-left: 2px solid color-mix(in srgb, var(--primary) 28%, transparent);
-    }
-    .instore-journey-node {
-      position: relative;
-    }
-    .instore-journey-node::before {
-      content: "";
-      position: absolute;
-      left: -27px;
-      top: 18px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 20%, transparent);
-    }
-  }
-  .instore-subhead { font-family: var(--font-body); font-size: 20px; font-weight: 600; color: var(--text); margin: 28px 0 12px; letter-spacing: -0.02em; }
-  .instore-time-table { margin-top: 16px; max-width: 420px; }
-  .instore-time-table td:last-child { text-align: right; font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
-  @media (max-width: 767.98px) {
-    .instore-hero-stack {
-      width: 100%;
-    }
-    .instore-hero-stack .instore-hero-grid {
-      justify-content: space-between;
-    }
-    .instore-anchor-grid { grid-template-columns: 1fr; }
-    .instore-persona__facts div { grid-template-columns: 1fr; gap: 4px; }
-  }
-  @media (min-width: 900px) {
-    .instore-persona__body {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(240px, 42%);
-      gap: 20px;
-      align-items: start;
-    }
-    .instore-persona__quote { align-self: stretch; display: flex; align-items: center; }
-  }
-</style>
-    <link rel="stylesheet" href="css/theme.css?v=ember2">
+<link rel="stylesheet" href="css/theme.css?v=ember2">
   <script src="js/palette-preview.js?v=ember2"></script>
 </head>
-<body class="hero-cursor-none has-anna-nav case-study-page">
+<body class="hero-cursor-none has-anna-nav case-study-page cs-design-page cs-v2 ui-design-page ui-design-cursor-page instore-page">
 
 <div id="dot" aria-hidden="true"></div>
 <div id="ring" aria-hidden="true"></div>
@@ -887,12 +44,14 @@
   </div>
 </header>
 
+<div class="cs-read-progress" aria-hidden="true"></div>
+
 <div class="back-btn-wrap back-btn-wrap--top">
   <a class="back-btn" href="index.html#ui-design"><svg class="back-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Back</a>
 </div>
 
-<main class="sb-case ui-design-main instore-sb-main" id="instore-case-study-main">
-  <header class="sb-hero hero">
+<main class="sb-case ui-design-main instore-sb-main cs-v2-study content case-main" id="instore-case-study-main">
+  <header class="sb-hero hero ui-design-hero">
     <div class="sb-wrap">
       <div class="sb-hero-text">
         <h1 id="instore-case-study">Smart In-Store Mode</h1>
@@ -925,19 +84,17 @@
       </div>
 
       <div class="instore-hero-copy">
-        <p>Scan &amp; Go with the shopping list, and AR orientation in the store map.</p>
-        <p>Based on a design challenge brief from a Nordic retail-tech company.</p>
-        <p>The company's name has been removed, and the store brand shown is fictional.</p>
+        <p class="cs-match-img">Scan &amp; Go with the shopping list, and AR orientation in the store map.</p>
+        <p class="cs-match-img">Based on a design challenge brief from a Nordic retail-tech company.</p>
+        <p class="cs-match-img">The company's name has been removed, and the store brand shown is fictional.</p>
       </div>
     </div>
   </div>
 
-  <section class="sb-section section sb-section--first" aria-labelledby="instore-brief">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter" id="instore-brief">The brief</h2></div>
-    </div>
-    <p>Design a digital solution that improves the in-store shopping experience: help customers find their way, discover relevant products, and engage with promotions and loyalty.</p>
+  <section class="sb-section section sb-section--first fade-in reveal cs-v2-phase" aria-labelledby="instore-brief">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="cs-v2-phase-label">Introduction</span></div>
+    <h2 class="cs-match-img cs-v2-heading" id="instore-brief">The brief</h2>
+    <p class="cs-match-img">Design a digital solution that improves the in-store shopping experience: help customers find their way, discover relevant products, and engage with promotions and loyalty.</p>
     <div class="instore-brief-stack">
       <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg></span><div><h4>Usability</h4><p class="finding-text">Is it calm and thumb-friendly?</p></div></div>
       <div class="finding-item cs-card"><span class="finding-icon cs-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M3 12h18"/><path d="m19 5-7 7-4-4-3 3"/></svg></span><div><h4>Hierarchy</h4><p class="finding-text">What matters most on each screen?</p></div></div>
@@ -945,37 +102,31 @@
     </div>
   </section>
 
-  <section class="sb-section section" aria-labelledby="instore-question">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter" id="instore-question">The real question</h2></div>
-    </div>
-    <p>Why would anyone open an app inside a store? Honestly, most people don't. Including me. When I walk into a store, I usually ask someone where the oat milk is.</p>
+  <section class="sb-section section fade-in reveal cs-v2-phase" aria-labelledby="instore-question">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="cs-v2-phase-label">Introduction</span></div>
+    <h2 class="cs-match-img cs-v2-heading" id="instore-question">The real question</h2>
+    <p class="cs-match-img">Why would anyone open an app inside a store? Honestly, most people don't. Including me. When I walk into a store, I usually ask someone where the oat milk is.</p>
     <p class="aside-note aside-note--bubble aside-note--bubble-shape-2 cs-aside aside-note--bubble-prefer-right instore-oat-bubble"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2h8"/><path d="M9 2v2.79a6 6 0 0 0 5 5V9a2 2 0 0 1 4 0v.79a6 6 0 0 0 5-5V2"/><path d="M8 11v2.4a4 4 0 0 0 4 4 4 4 0 0 0 4-4V11"/></svg></span><span class="aside-note__bubble-text">Most people don't open a store app. They ask someone where the oat milk is.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="instore-arrow-milk" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(255, 138, 101)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(255, 138, 101)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#instore-arrow-milk)"/><path d="M40 11 L34 8" stroke="url(#instore-arrow-milk)"/><path d="M40 11 L34 14" stroke="url(#instore-arrow-milk)"/></svg></span></span></span></p>
-    <p>So the real design problem became: <strong class="instore-lead-question">how do I give people a reason to keep the app open during the whole trip?</strong> I built the solution on two anchors that weren't in the brief.</p>
+    <p class="cs-match-img">So the real design problem became: <strong class="instore-lead-question">how do I give people a reason to keep the app open during the whole trip?</strong> I built the solution on two anchors that weren't in the brief.</p>
     <div class="instore-anchor-grid">
       <div class="role-block cs-card"><h4>Scan &amp; Go</h4><p>A real need: scan to build your cart and pay without queueing. It puts the phone in your hand.</p></div>
       <div class="role-block cs-card"><h4>Your List</h4><p>The weekly shopping list lives in the app, not on paper or in a chat. It brings you back every time.</p></div>
     </div>
-    <p>Without them, the rest of the features would never reach anyone.</p>
+    <p class="cs-match-img">Without them, the rest of the features would never reach anyone.</p>
   </section>
 
-  <section class="sb-section section" aria-labelledby="instore-for">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"/><path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"/><path d="M12 3v6"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter" id="instore-for">Who it's really for</h2></div>
-    </div>
-    <p>Before designing anything, I looked at who the company is. They don't run stores: they sell software to grocery chains. That changed everything. This isn't one consumer app, it's a white-label module: one engine that each chain runs under its own brand.</p>
+  <section class="sb-section section fade-in reveal cs-v2-phase" aria-labelledby="instore-for">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="cs-v2-phase-label">Introduction</span></div>
+    <h2 class="cs-match-img cs-v2-heading" id="instore-for">Who it's really for</h2>
+    <p class="cs-match-img">Before designing anything, I looked at who the company is. They don't run stores: they sell software to grocery chains. That changed everything. This isn't one consumer app, it's a white-label module: one engine that each chain runs under its own brand.</p>
   </section>
 
-  <section class="sb-section section" aria-labelledby="instore-research">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter" id="instore-research">Research</h2></div>
-    </div>
-    <p>In a short competitor scan of four Nordic retail-tech vendors, nobody offered a joined-up, customer-facing in-store app. That was the gap.</p>
-    <p>I then framed shoppers' needs as jobs to be done:</p>
-    <ol class="instore-jtbd-list" aria-label="Jobs to be done">
+  <section class="sb-section section fade-in reveal cs-v2-phase" aria-labelledby="instore-research">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span class="cs-v2-phase-label">Discover</span></div>
+    <h2 class="cs-match-img cs-v2-heading" id="instore-research">Research</h2>
+    <p class="cs-match-img">In a short competitor scan of four Nordic retail-tech vendors, nobody offered a joined-up, customer-facing in-store app. That was the gap.</p>
+    <p class="cs-match-img">I then framed shoppers' needs as jobs to be done:</p>
+    <ol class="instore-jtbd-list cs-match-img cs-v2-list" aria-label="Jobs to be done">
       <li><span class="instore-jtbd-list__num">01</span><p class="instore-jtbd-list__text">Help me find this item fast.</p></li>
       <li><span class="instore-jtbd-list__num">02</span><p class="instore-jtbd-list__text">Show me deals I can actually use.</p></li>
       <li><span class="instore-jtbd-list__num">03</span><p class="instore-jtbd-list__text">Help me not forget anything.</p></li>
@@ -984,11 +135,10 @@
     </ol>
   </section>
 
-  <section class="sb-section section" aria-labelledby="persona">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter" id="persona">Persona</h2><p class="section-subtitle">A proto-persona based on desk research</p></div>
-    </div>
+  <section class="sb-section section fade-in reveal cs-v2-phase" aria-labelledby="persona">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span class="cs-v2-phase-label">Discover</span></div>
+    <h2 class="cs-match-img cs-v2-heading" id="persona">Persona</h2>
+    <p class="cs-match-img cs-v2-subtitle section-subtitle">A proto-persona based on desk research</p>
     <aside class="instore-persona wide" aria-label="Sara, proto-persona">
       <div class="instore-persona__header">
         <div class="instore-persona__avatar" aria-hidden="true">S</div>
@@ -1009,27 +159,23 @@
     </aside>
   </section>
 
-  <section class="sb-section section" aria-labelledby="instore-priority">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" x2="21" y1="6" y2="6"/><line x1="8" x2="21" y1="12" y2="12"/><line x1="8" x2="21" y1="18" y2="18"/><line x1="3" x2="3.01" y1="6" y2="6"/><line x1="3" x2="3.01" y1="12" y2="12"/><line x1="3" x2="3.01" y1="18" y2="18"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter" id="instore-priority">What to solve first</h2></div>
-    </div>
-    <p>I grouped everything into ten themes, then set a priority order.</p>
+  <section class="sb-section section fade-in reveal cs-v2-phase" aria-labelledby="instore-priority">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg><span class="cs-v2-phase-label">Connect</span></div>
+    <h2 class="cs-match-img cs-v2-heading" id="instore-priority">What to solve first</h2>
+    <p class="cs-match-img">I grouped everything into ten themes, then set a priority order.</p>
     <div class="lessons-list instore-lesson-stack">
-      <div class="lesson-item cs-learn"><div class="lesson-num">1</div><div class="lesson-text"><h4>Navigation</h4><p>If you can't find things, nothing else matters.</p></div></div>
-      <div class="lesson-item cs-learn"><div class="lesson-num">2</div><div class="lesson-text"><h4>Deals</h4><p>Most valuable once navigation works.</p></div></div>
-      <div class="lesson-item cs-learn"><div class="lesson-num">3</div><div class="lesson-text"><h4>List &amp; routine</h4><p>Where the habit forms.</p></div></div>
-      <div class="lesson-item cs-learn"><div class="lesson-num">4</div><div class="lesson-text"><h4>Loyalty</h4><p>Feel rewarded during the trip.</p></div></div>
-      <div class="lesson-item cs-learn"><div class="lesson-num">5</div><div class="lesson-text"><h4>Checkout</h4><p>No friction at the last step.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-text"><h4>Navigation</h4><p>If you can't find things, nothing else matters.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-text"><h4>Deals</h4><p>Most valuable once navigation works.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-text"><h4>List &amp; routine</h4><p>Where the habit forms.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-text"><h4>Loyalty</h4><p>Feel rewarded during the trip.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-text"><h4>Checkout</h4><p>No friction at the last step.</p></div></div>
     </div>
   </section>
 
-  <section class="sb-section section" aria-labelledby="instore-journey">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter" id="instore-journey">Sara's Thursday shop</h2></div>
-    </div>
-    <p>I mapped her trip in eight moments, from checking her list at home to finding it ready for next week.</p>
+  <section class="sb-section section fade-in reveal cs-v2-phase" aria-labelledby="instore-journey">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg><span class="cs-v2-phase-label">Connect</span></div>
+    <h2 class="cs-match-img cs-v2-heading" id="instore-journey">Sara's Thursday shop</h2>
+    <p class="cs-match-img">I mapped her trip in eight moments, from checking her list at home to finding it ready for next week.</p>
     <div class="instore-journey-board wide" aria-label="Eight connected moments in Sara's shop trip">
       <ol class="instore-journey-board__steps">
         <li class="instore-journey-node"><span class="instore-journey-node__num">1</span><span class="instore-journey-node__label">Before the store</span></li>
@@ -1042,28 +188,24 @@
         <li class="instore-journey-node"><span class="instore-journey-node__num">8</span><span class="instore-journey-node__label">After the shop</span></li>
       </ol>
     </div>
-    <blockquote class="cs-quote wide"><p>The best moments are when the app makes things easier without you noticing, not when it tries to impress you.</p></blockquote>
+    <blockquote class="cs-quote wide cs-match-img"><p>The best moments are when the app makes things easier without you noticing, not when it tries to impress you.</p></blockquote>
   </section>
 
-  <section class="sb-section section" aria-labelledby="instore-principles">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter" id="instore-principles">Design principles</h2></div>
-    </div>
+  <section class="sb-section section fade-in reveal cs-v2-phase" aria-labelledby="instore-principles">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg><span class="cs-v2-phase-label">Design</span></div>
+    <h2 class="cs-match-img cs-v2-heading" id="instore-principles">Design principles</h2>
     <div class="lessons-list instore-lesson-stack">
-      <div class="lesson-item cs-learn"><div class="lesson-num">01</div><div class="lesson-text"><h4>Zero-effort context</h4><p>The app knows you're in the store and adapts.</p></div></div>
-      <div class="lesson-item cs-learn"><div class="lesson-num">02</div><div class="lesson-text"><h4>One thumb, no menus</h4><p>Every key action within thumb reach.</p></div></div>
-      <div class="lesson-item cs-learn"><div class="lesson-num">03</div><div class="lesson-text"><h4>Calm notifications</h4><p>Opt-in, location-based, never blocking pop-ups.</p></div></div>
-      <div class="lesson-item cs-learn"><div class="lesson-num">04</div><div class="lesson-text"><h4>Loyalty in the moment</h4><p>Points are always visible.</p></div></div>
-      <div class="lesson-item cs-learn"><div class="lesson-num">05</div><div class="lesson-text"><h4>Accessible by default</h4><p>WCAG AA, large touch targets, Swedish-ready.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-text"><h4>Zero-effort context</h4><p>The app knows you're in the store and adapts.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-text"><h4>One thumb, no menus</h4><p>Every key action within thumb reach.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-text"><h4>Calm notifications</h4><p>Opt-in, location-based, never blocking pop-ups.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-text"><h4>Loyalty in the moment</h4><p>Points are always visible.</p></div></div>
+      <div class="lesson-item cs-learn"><div class="lesson-text"><h4>Accessible by default</h4><p>WCAG AA, large touch targets, Swedish-ready.</p></div></div>
     </div>
   </section>
 
-  <section class="sb-section section" aria-labelledby="instore-tabs">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter" id="instore-tabs">Three tabs, nothing more</h2></div>
-    </div>
+  <section class="sb-section section fade-in reveal cs-v2-phase" aria-labelledby="instore-tabs">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg><span class="cs-v2-phase-label">Design</span></div>
+    <h2 class="cs-match-img cs-v2-heading" id="instore-tabs">Three tabs, nothing more</h2>
     <div class="instore-tabs-row">
       <div class="finding-item cs-card"><div><h4>Home</h4><p class="finding-text">Deals, categories and your list</p></div></div>
       <div class="finding-item cs-card"><div><h4>Scan &amp; Go</h4><p class="finding-text">The heart of the app</p></div></div>
@@ -1075,18 +217,16 @@
     </aside>
   </section>
 
-  <section class="sb-section section" aria-labelledby="instore-paper">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter" id="instore-paper">From paper to pixels</h2></div>
-    </div>
-    <p>I started on paper: first a list of what each area needed to do, then the first screens.</p>
-    <figure class="ui-design-figure wide"><img src="instore-sketches-areas.jpg" alt="Handwritten list of what each app area needs to do" width="1024" height="417" loading="lazy" decoding="async"><figcaption class="image-caption">Listing what each area needs to do.</figcaption></figure>
-    <figure class="ui-design-figure wide"><img src="instore-sketches-screens.jpg" alt="Paper sketches of Home, Scan and Go, Store map and Profile screens" width="1024" height="420" loading="lazy" decoding="async"><figcaption class="image-caption instore-paper-center">First screens on paper: Home, Scan &amp; Go, Store map and Profile.</figcaption></figure>
+  <section class="sb-section section fade-in reveal cs-v2-phase" aria-labelledby="instore-paper">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg><span class="cs-v2-phase-label">Prototype</span></div>
+    <h2 class="cs-match-img cs-v2-heading" id="instore-paper">From paper to pixels</h2>
+    <p class="cs-match-img">I started on paper: first a list of what each area needed to do, then the first screens.</p>
+    <figure class="ui-design-figure wide"><img src="instore-sketches-areas.jpg" alt="Handwritten list of what each app area needs to do" width="1024" height="417" loading="lazy" decoding="async"><figcaption class="image-caption screen-caption">Listing what each area needs to do.</figcaption></figure>
+    <figure class="ui-design-figure wide"><img src="instore-sketches-screens.jpg" alt="Paper sketches of Home, Scan and Go, Store map and Profile screens" width="1024" height="420" loading="lazy" decoding="async"><figcaption class="image-caption instore-paper-center screen-caption">First screens on paper: Home, Scan &amp; Go, Store map and Profile.</figcaption></figure>
     <div class="instore-paper-wireframes">
-      <p class="instore-paper-center instore-paper-wireframes__lead">10 low-fidelity wireframes covering the whole flow, from Home and store detection to scanning, the map, checkout and profile.</p>
+      <p class="cs-match-img instore-paper-center instore-paper-wireframes__lead">10 low-fidelity wireframes covering the whole flow, from Home and store detection to scanning, the map, checkout and profile.</p>
       <div class="instore-wireframes-row wide" aria-label="Wireframe scroll views">
-        <p class="instore-wireframes-row__copy">Full scrollable views of the Home and Profile screens.</p>
+        <p class="cs-match-img instore-wireframes-row__copy">Full scrollable views of the Home and Profile screens.</p>
         <div class="instore-wireframes-row__figures">
           <figure class="ui-design-figure"><img src="instore-wireframes-1.png" alt="Low-fidelity wireframes one through five: Home, store detection and Scan and Go" width="288" height="1024" loading="lazy" decoding="async"></figure>
           <figure class="ui-design-figure"><img src="instore-wireframes-2.png" alt="Low-fidelity wireframes six through ten: offers, map, AR, cart and profile" width="286" height="1024" loading="lazy" decoding="async"></figure>
@@ -1095,28 +235,24 @@
     </div>
   </section>
 
-  <section class="sb-section section" aria-labelledby="instore-visual">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter" id="instore-visual">Visual design</h2></div>
-    </div>
+  <section class="sb-section section fade-in reveal cs-v2-phase" aria-labelledby="instore-visual">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg><span class="cs-v2-phase-label">Design</span></div>
+    <h2 class="cs-match-img cs-v2-heading" id="instore-visual">Visual design</h2>
     <div class="instore-visual-split wide">
       <div class="instore-visual-split__copy">
-        <p>Since it's white-label, colour is a setting, not a style. I designed it in a grocery chain's red to show it running in a real store; another chain would switch it to its own colour, and the system adapts.</p>
-        <p>Accessibility was built in: WCAG AA contrast, 44 pt minimum touch targets, a clear type hierarchy, and support for Sweden's bottle deposit (pant).</p>
-        <h3 class="instore-subhead">AR, but only for a moment</h3>
-        <p>AR orientation runs for a few seconds when you need it, not all the time: a red path on the floor and one plain instruction, like "Turn left in 10 meters". A superpower, not a gimmick.</p>
+        <p class="cs-match-img">Since it's white-label, colour is a setting, not a style. I designed it in a grocery chain's red to show it running in a real store; another chain would switch it to its own colour, and the system adapts.</p>
+        <p class="cs-match-img">Accessibility was built in: WCAG AA contrast, 44 pt minimum touch targets, a clear type hierarchy, and support for Sweden's bottle deposit (pant).</p>
+        <h3 class="instore-subhead cs-v2-subtitle">AR, but only for a moment</h3>
+        <p class="cs-match-img">AR orientation runs for a few seconds when you need it, not all the time: a red path on the floor and one plain instruction, like "Turn left in 10 meters". A superpower, not a gimmick.</p>
       </div>
       <figure class="ui-design-figure instore-visual-split__figure"><img src="instore-visual-design.png?v=20261030" alt="Two phones showing Scan and Go with a live list over a product scan, and AR store navigation with a floor path and turn instruction" width="784" height="819" loading="lazy" decoding="async"></figure>
     </div>
   </section>
 
-  <section class="sb-section section" aria-labelledby="instore-more">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><polyline points="12 6 12 12 16 14"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter" id="instore-more">With more time 😉</h2></div>
-    </div>
-    <p>My favourite idea is a Family List: a shared list that updates live, so if my husband adds batteries while I'm already in the store, I see it right away.</p>
+  <section class="sb-section section fade-in reveal cs-v2-phase" aria-labelledby="instore-more">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg><span class="cs-v2-phase-label">Results</span></div>
+    <h2 class="cs-match-img cs-v2-heading" id="instore-more">With more time 😉</h2>
+    <p class="cs-match-img">My favourite idea is a Family List: a shared list that updates live, so if my husband adds batteries while I'm already in the store, I see it right away.</p>
     <div class="mob-methods-grid cs-card-grid">
       <div class="finding-item cs-card"><div><h4>Rush mode</h4><p class="finding-text">Just the route, no discovery.</p></div></div>
       <div class="finding-item cs-card"><div><h4>Gentle reminders</h4><p class="finding-text">"You usually buy oat milk on Thursdays."</p></div></div>
@@ -1124,21 +260,23 @@
     </div>
   </section>
 
-  <section class="sb-section section" aria-labelledby="instore-learned">
-    <div class="section-header">
-      <div class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-      <div class="section-headings"><h2 class="section-chapter" id="instore-learned">What I learned</h2></div>
-    </div>
+  <section class="sb-section section fade-in reveal cs-v2-phase" aria-labelledby="instore-learned">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg><span class="cs-v2-phase-label">Reflection</span></div>
+    <h2 class="cs-match-img cs-v2-heading" id="instore-learned">What I learned</h2>
     <div class="lessons-list">
       <div class="lesson-item cs-learn cs-learn--highlight"><div class="lesson-text"><p>The brief asked for navigation, discovery and loyalty. The most important decision was adding two things it didn't ask for, because without a reason to open the app, none of the rest would ever be used.</p></div></div>
     </div>
   </section>
+
+  <section class="section cs-more-section" aria-labelledby="cs-more-heading">
+    <div class="cs-more-mount" data-current-page="ui-design-05.html">
+      <a href="index.html#ui-design">See all case studies</a>
+    </div>
+  </section>
 </main>
 
-<div class="footer-strip">
-  <h2>Let's work together</h2>
-  <p>Based in Stockholm · Open to new opportunities</p>
-  <a class="footer-strip__cta" href="mailto:nedabagheri.nz@gmail.com">Get in touch</a>
+<div class="back-btn-wrap back-btn-wrap--bottom">
+  <a class="back-btn" href="index.html#ui-design"><svg class="back-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Back</a>
 </div>
 
 <footer>
@@ -1153,8 +291,9 @@
   </ul>
 </footer>
 
-<script src="js/scroll-reveal.js?v=ember2"></script>
+<script src="js/scroll-reveal.js?v=ember2" defer></script>
 <script src="js/case-study-aside-bubbles.js?v=ember2" defer></script>
+<script src="js/more-case-studies.js?v=ember2" defer></script>
 <script>
 (function () {
   var dot = document.getElementById('dot');

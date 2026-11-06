@@ -1,0 +1,401 @@
+/**
+ * UI design detail pages — cs-v2 typography scoped to main.cs-v2-study
+ * without affecting global nav/footer. Image layout locks stay in page-specific CSS.
+ */
+
+/* ── Cursor demo (also on ui-design-02/03/11) ── */
+body.ui-design-cursor-page.hero-cursor-none {
+  cursor: none;
+}
+
+body.ui-design-cursor-page #dot {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+}
+
+body.ui-design-cursor-page #ring {
+  position: fixed;
+  z-index: 9998;
+  pointer-events: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid color-mix(in srgb, var(--primary) 35%, transparent);
+  transform: translate(-50%, -50%);
+  transition: width 0.35s, height 0.35s, border-color 0.3s;
+}
+
+body.ui-design-cursor-page.lh #dot {
+  transform: translate(-50%, -50%) scale(2);
+  opacity: 0.5;
+}
+
+body.ui-design-cursor-page.lh #ring {
+  width: 60px;
+  height: 60px;
+  border-color: color-mix(in srgb, var(--primary) 55%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.ui-design-cursor-page.hero-cursor-none {
+    cursor: auto;
+  }
+
+  body.ui-design-cursor-page #dot,
+  body.ui-design-cursor-page #ring {
+    display: none !important;
+  }
+}
+
+/* ── Main is the cs-v2 “study” surface (not .sb-case Simple Booking chrome) ── */
+body.case-study-page.cs-v2.ui-design-page main.content.case-main.ui-design-main.cs-v2-study {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+
+/* Drop Simple Booking .sb-section borders; spacing comes from .cs-v2-phase + .cs-v2-phase */
+body.case-study-page.cs-v2 .ui-design-main.cs-v2-study.sb-case .sb-section {
+  border-top: none;
+  padding-top: 0;
+  scroll-margin-top: 96px;
+}
+
+body.case-study-page.cs-v2 .ui-design-main.cs-v2-study .sb-section--first {
+  padding-top: 0;
+}
+
+/* First phase after hero / intro: align with case study rhythm */
+body.case-study-page.cs-v2 .ui-design-main.cs-v2-study > .instore-intro-block + .sb-section.cs-v2-phase,
+body.case-study-page.cs-v2 .ui-design-main.cs-v2-study:not(.instore-sb-main) > header + .ui-design-intro + .section.cs-v2-phase {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+/* Hide legacy section-header row (replaced by cs-v2-phase-label-row + cs-v2-heading) */
+body.case-study-page.cs-v2 .ui-design-main.cs-v2-study .section-header,
+body.case-study-page.cs-v2 .ui-design-main.cs-v2-study .section-icon {
+  display: none !important;
+}
+
+/* Phase label + heading: wide track (same as other cs-v2 pages) */
+body.case-study-page.cs-v2 .ui-design-main.cs-v2-study .cs-v2-phase .cs-match-img.cs-v2-phase-label-row,
+body.case-study-page.cs-v2 .ui-design-main.cs-v2-study .cs-v2-phase h2.cs-match-img.cs-v2-heading {
+  width: var(--cs-wide-track);
+  max-width: var(--cs-wide-track);
+  margin-left: calc((100% - var(--cs-wide-track)) / 2);
+  margin-right: 0;
+  box-sizing: border-box;
+}
+
+/*
+ * Smart In-Store: pre–cs-v2 <main> was not `.content`, so it did not get the shared case-study
+ * column (max-width: var(--cs-track) / 820px). Adding `.content` narrowed the whole page and
+ * shifted hero images — neutralise that on this page only (sections keep their own tracks).
+ */
+body.case-study-page.cs-v2.ui-design-page main.instore-sb-main.content.case-main {
+  max-width: none;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+}
+
+/* Hero + ui-design-hero: match cs-v2 / case-study hero strip */
+body.case-study-page.cs-v2.ui-design-page .ui-design-hero .sb-hero-text h1 {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-large) !important;
+  line-height: var(--lh-large) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--accent-2) !important;
+}
+
+body.case-study-page.cs-v2.ui-design-page .ui-design-hero .hero-subtitle {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-body) !important;
+  line-height: var(--lh-body) !important;
+  font-weight: 400 !important;
+  letter-spacing: normal !important;
+  color: var(--body) !important;
+}
+
+body.case-study-page.cs-design-page.cs-v2.ui-design-page .ui-design-main.cs-v2-study > header.sb-hero.hero.ui-design-hero .meta-strip {
+  font-family: "Poppins", sans-serif !important;
+}
+
+/* Figure captions: align with cs-v2 screen-caption */
+body.case-study-page.cs-v2 .ui-design-main.cs-v2-study figcaption.image-caption,
+body.case-study-page.cs-v2 .ui-design-main.cs-v2-study .image-caption {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-body) !important;
+  line-height: var(--lh-body) !important;
+  font-weight: 400 !important;
+  letter-spacing: normal !important;
+  color: var(--meta) !important;
+  text-align: center;
+}
+
+/* In-store subheads: same as cs-v2 decision titles (see body.cs-v2 .cs-v2-study .cs-v2-decision__title) — no h3+cs-v2-subtitle combo override */
+
+/* Section subtitle under chapter — same rhythm as cs-v2-subtitle */
+body.case-study-page.cs-v2 .ui-design-main.cs-v2-study p.section-subtitle {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-body) !important;
+  line-height: var(--lh-body) !important;
+  font-weight: 400 !important;
+  color: var(--body) !important;
+}
+
+/* Aside notes & tradeoffs keep component styles; ensure body text color where needed */
+body.case-study-page.cs-v2 .ui-design-main.cs-v2-study .cs-tradeoff__text {
+  color: var(--body) !important;
+}
+
+/* Quotes */
+body.case-study-page.cs-v2 .ui-design-main.cs-v2-study blockquote.cs-quote p {
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 600 !important;
+  color: var(--ink) !important;
+}
+
+/* ── Simple gallery pages (02, 03, 11): single “Overview” section ── */
+body.case-study-page.cs-v2.ui-design-page main.content.case-main.ui-design-main.cs-v2-study.ui-design-gallery {
+  padding-bottom: clamp(48px, 6vw, 80px);
+}
+
+body.case-study-page.cs-v2.ui-design-page .ui-design-gallery .ui-design-intro p {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-body) !important;
+  line-height: var(--lh-body) !important;
+  font-weight: 400 !important;
+  letter-spacing: normal !important;
+  color: var(--body) !important;
+}
+
+body.case-study-page.cs-v2.ui-design-page .ui-design-gallery .ui-design-intro p strong {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+
+/* Beat case-study.css `.ui-design-intro p { color: var(--muted) }` on cs-v2 pages */
+body.case-study-page.cs-v2.ui-design-page .ui-design-gallery .ui-design-intro p.cs-match-img {
+  color: var(--body) !important;
+}
+
+body.case-study-page.cs-v2.ui-design-page .cs-v2-study p.cs-match-img {
+  color: var(--body) !important;
+}
+
+/* ── Instore page (05): layout + project-info table typography stay in css/instore-page.css (font sizes affect table width → hero image x). ── */
+
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-hero-stack .instore-hero-copy p {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-body) !important;
+  line-height: var(--lh-body) !important;
+  font-weight: 400 !important;
+  color: var(--body) !important;
+}
+
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-hero-stack .instore-hero-copy p:first-child {
+  color: var(--body) !important;
+  font-size: var(--fs-body) !important;
+}
+
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-wireframes-row__copy {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-body) !important;
+  line-height: var(--lh-body) !important;
+  font-weight: 400 !important;
+  color: var(--body) !important;
+}
+
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-brief-stack .finding-item h4,
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-tabs-row .finding-item h4,
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-anchor-grid .role-block h4,
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .mob-methods-grid .finding-item h4 {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-body) !important;
+  line-height: var(--lh-body) !important;
+  font-weight: 600 !important;
+  color: var(--ink) !important;
+}
+
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-brief-stack .finding-text,
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-tabs-row .finding-text,
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .mob-methods-grid .finding-text {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-body) !important;
+  line-height: var(--lh-body) !important;
+  font-weight: 400 !important;
+  color: var(--body) !important;
+}
+
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-jtbd-list__num {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
+  color: var(--accent-2) !important;
+}
+
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-jtbd-list__text {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-body) !important;
+  line-height: var(--lh-body) !important;
+  font-weight: 500 !important;
+  color: var(--ink) !important;
+}
+
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-persona__name {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-large) !important;
+  line-height: var(--lh-large) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--ink) !important;
+}
+
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-persona__role {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-body) !important;
+  line-height: var(--lh-body) !important;
+  color: var(--body) !important;
+}
+
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-persona__facts dt {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: var(--meta) !important;
+}
+
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-persona__facts dd {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-body) !important;
+  line-height: var(--lh-body) !important;
+  color: var(--body) !important;
+}
+
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-persona__quote p {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-body) !important;
+  line-height: var(--lh-body) !important;
+  font-weight: 600 !important;
+  color: var(--ink) !important;
+}
+
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-journey-node__num {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
+  color: var(--accent-2) !important;
+}
+
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-journey-node__label {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-body) !important;
+  line-height: var(--lh-body) !important;
+  font-weight: 500 !important;
+  color: var(--ink) !important;
+}
+
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-lesson-stack .lesson-text h4 {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-body) !important;
+  line-height: var(--lh-body) !important;
+  font-weight: 600 !important;
+  color: var(--ink) !important;
+}
+
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-lesson-stack .lesson-text p {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-body) !important;
+  line-height: var(--lh-body) !important;
+  font-weight: 400 !important;
+  color: var(--body) !important;
+}
+
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-time-table td:last-child {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-body) !important;
+  color: var(--meta) !important;
+}
+
+/* Wide figures inside cs-v2 main: same wide track as other case studies */
+body.case-study-page.cs-v2 .ui-design-main.cs-v2-study .ui-design-figure.wide {
+  --cs-wide-track: min(1200px, calc(100vw - 64px));
+  width: var(--cs-wide-track);
+  max-width: var(--cs-wide-track);
+  margin-left: calc((100% - var(--cs-wide-track)) / 2);
+  margin-right: 0;
+  position: static;
+  left: auto;
+  transform: none;
+  box-sizing: border-box;
+}
+
+/* Tag pills under Overview sections */
+body.case-study-page.cs-v2.ui-design-page .ui-design-gallery .cs-v2-phase .ui-design-tags,
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .cs-v2-phase .ui-design-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: var(--cs-stack-lg, 24px) 0 0;
+  padding: 0;
+  list-style: none;
+  max-width: var(--cs-wide-track);
+  width: var(--cs-wide-track);
+  margin-left: calc((100% - var(--cs-wide-track)) / 2);
+  box-sizing: border-box;
+}
+
+body.case-study-page.cs-v2.ui-design-page .ui-design-gallery .cs-v2-phase .ui-design-tags li {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-body) !important;
+  font-weight: 400 !important;
+  line-height: var(--lh-body) !important;
+  color: var(--ink) !important;
+  letter-spacing: normal !important;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 14px;
+}
+
+/* ── “See more” carousel: UI design pages are not listed in CASE_STUDIES — hide injected thumbnails ── */
+body.case-study-page.ui-design-page .cs-more-section .cs-more__media {
+  display: none !important;
+}
+
+body.case-study-page.ui-design-page .cs-more-section .cs-more__card {
+  min-height: 0 !important;
+  padding-bottom: 24px !important;
+}
+
+/* ── Smart In-Store: lock visual-split hero image metrics (beat .ui-design-figure img { width: 100% }) ── */
+body.case-study-page.cs-v2.ui-design-page main.instore-sb-main .instore-visual-split__figure.ui-design-figure img {
+  width: auto !important;
+  max-width: min(630px, 69vw) !important;
+  height: auto !important;
+  object-fit: contain !important;
+  object-position: top center !important;
+}
+
+@media (max-width: 767.98px) {
+  body.case-study-page.cs-v2.ui-design-page main.instore-sb-main .instore-visual-split__figure.ui-design-figure img {
+    max-width: min(540px, 88vw) !important;
+  }
+}
