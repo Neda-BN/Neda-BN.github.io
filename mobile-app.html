@@ -244,7 +244,7 @@
 </div>
 
 <section class="hero">
-  <div class="hero-tag">Case Study · B2C · Retail · Mobile · 10 MIN READ</div>
+  <div class="hero-tag">Case Study · B2C · Retail · Mobile · 9 MIN READ</div>
   <h1>Mobile Customer Shopping App</h1>
   <div class="meta-strip cs-meta-strip">
     <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Product Designer</div></div>
@@ -283,7 +283,7 @@
         <div class="sb-glance__col sb-glance__col--decisions">
           <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">Key decisions</p></div>
           <ul class="sb-glance__list">
-            <li class="sb-glance__list-item--lead"><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Two checkout paths after 3 testers abandoned forced sign-up: sign up and pay in the app, or skip sign-up and scan a store QR code</li>
+            <li class="sb-glance__list-item--lead"><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Two checkout paths after 3 testers abandoned forced sign-up: sign up and pay in the app, or skip sign-up and scan the checkout QR code at the cashier area</li>
             <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Added visual, haptic and audio scan feedback after finding that the app was too silent: shoppers couldn't tell whether a scan had worked</li>
           </ul>
         </div>
@@ -314,7 +314,9 @@
     <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="cs-v2-phase-label">Introduction</span></div>
     <h2 class="cs-match-img cs-v2-heading">The challenge</h2>
     <p class="cs-match-img">For retailers, the whole idea depends on one thing: shoppers finishing checkout on their own phone. Every shopper who gives up halfway ends up back in the queue, or leaves without paying for what's in their cart.</p>
-    <p class="cs-match-img">In Swedish grocery stores like ICA and Coop, self-scanning means carrying a store scanner around, or standing in the queue at the till. Focalpay's app turns the shopper's own phone into the scanner: shoppers scan as they go, then signed-in shoppers check out in the app, while guests scan a QR code in the store to connect their cart to checkout, or send their cart to the cashier to pay with cash. It had to work with no new hardware, support cash, and let the store confirm payment at the exit without slowing honest shoppers down.</p>
+    <p class="cs-match-img">In Swedish grocery stores like ICA and Coop, self-scanning means carrying a store scanner around, or standing in the queue at the till. Focalpay's app turns the shopper's own phone into the scanner.</p>
+    <p class="cs-match-img">Shoppers scan as they go. Signed-in shoppers check out in the app, while guests scan the checkout QR code at the cashier area. Shoppers who want to pay with cash send their cart to the cashier.</p>
+    <p class="cs-match-img">It had to work with no new hardware, support cash, and let the store confirm payment at the exit without slowing honest shoppers down.</p>
     <div class="cs-match-img cs-v2-one-question">
       <p class="cs-v2-subtitle">The one question</p>
       <p class="cs-v2-one-question__lead">So every decision had to answer one question:</p>
@@ -391,9 +393,9 @@
     <p class="cs-match-img">Each finding pointed to a design direction:</p>
     <ul class="cs-match-img cs-v2-list">
       <li><strong>Store scanners need a free hand</strong> → the phone becomes the scanner, with the camera on from the start</li>
-      <li><strong>Queues</strong> → QR checkout from anywhere in the store</li>
+      <li><strong>Queues</strong> → a checkout QR code at the cashier area, scannable from up to 10 metres away</li>
       <li><strong>No way past a bad barcode</strong> → manual barcode entry and a Baked goods category</li>
-      <li><strong>Forced sign-up</strong> → two paths: sign up and check out in the app, or skip it and scan a QR code</li>
+      <li><strong>Forced sign-up</strong> → two paths: sign up and check out in the app, or skip it and scan the checkout QR code at the cashier area</li>
     </ul>
     <p class="cs-match-img cs-v2-subtitle">User journey</p>
     <div class="cs-match-img">
@@ -453,10 +455,10 @@
           </tr>
           <tr>
             <td><div class="mob-step-name">QR checkout</div></td>
-            <td>Taps “Go to payment”, scans store wall QR from distance</td>
+            <td>Taps “Go to payment”, scans the checkout QR at the cashier area from a distance</td>
             <td><span class="mob-emotion"><span class="mob-dot mob-dot--g"></span> Delighted</span></td>
-            <td><span class="mob-neutral">Expected a queue, and was surprised the QR code worked from 10 m away</span></td>
-            <td><span class="mob-oppty">Large QR code that can be scanned from a distance</span></td>
+            <td><span class="mob-neutral">Expected a queue, and was surprised the checkout QR code at the cashier area worked from 10 m away</span></td>
+            <td><span class="mob-oppty">Large checkout QR code at the cashier area that can be scanned from a distance</span></td>
           </tr>
           <tr>
             <td><div class="mob-step-name">Payment</div></td>
@@ -497,48 +499,13 @@
       </div>
     </div>
     </div>
-    <p class="cs-match-img">The low points were a damaged barcode and not knowing if a scan had worked. The high point was QR checkout working from across the store.</p>
-  </section>
-
-  <section class="section fade-in reveal cs-v2-phase" aria-labelledby="turning-point">
-    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h13l4-3-4-3z"/><path d="M12 11v10"/><path d="M9 21h6"/></svg><span class="cs-v2-phase-label">Turning point</span></div>
-    <div class="cs-match-img cs-turning">
-      <div class="cs-turning__column">
-        <h2 class="cs-v2-heading" id="turning-point">The scanner wasn't the problem. The silence was.</h2>
-        <div class="cs-turning__shift" aria-label="From first guess to what testing showed">
-          <div class="cs-turning__shift-box cs-turning__shift-box--plan">
-            <span class="cs-turning__shift-label">My first guess</span>
-            <p class="cs-turning__shift-text">The scanner is too slow</p>
-          </div>
-          <span class="cs-turning__shift-arrow cs-turning__shift-arrow--right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-          <span class="cs-turning__shift-arrow cs-turning__shift-arrow--down" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></span>
-          <div class="cs-turning__shift-box cs-turning__shift-box--highlight">
-            <span class="cs-turning__shift-label cs-turning__shift-label--accent">What testing showed</span>
-            <p class="cs-turning__shift-text cs-turning__shift-text--highlight">The app is too silent</p>
-          </div>
-        </div>
-        <div class="cs-turning__prose">
-          <p>After launch, I reviewed shopper behaviour with my PM. Many shoppers started scanning but never completed checkout. My first guess was the scanner, so the dev team optimised it, but the drop-off didn't go away.</p>
-          <p>So I went back to testing, and found the real problem: shoppers scanned a product, then stared at the screen, unsure if it had worked. Some scanned twice. With noise, trolleys and children around, a visual sign alone was easy to miss.</p>
-        </div>
-        <div class="cs-turning__callout-block">
-          <p class="cs-turning__callout-label"><span>The aha moment</span></p>
-          <p class="cs-v2-aha-text">Shoppers didn't need a faster scanner. They needed to know the scan had worked.</p>
-        </div>
-        <div class="cs-turning__prose">
-          <p>So every scan now gives three kinds of feedback: the product moves into the cart, the phone vibrates and a short sound plays, following the WCAG guidance that a change shouldn't rely on one sense.</p>
-          <figure class="mob-scan-feedback reveal reveal-media">
-            <img src="mobile-scan-three-layer-feedback.gif" alt="In-app demonstration of three-layer scan feedback: barcode scan on Coca-Cola, vibration and sound cues, and the product animating into the cart" width="800" height="695" loading="lazy" decoding="async">
-          </figure>
-          <p class="mob-scan-feedback-follow">In an A/B test with 10 real shoppers (5 on the silent version, 5 with feedback), checkout completion was 40% higher.</p>
-        </div>
-      </div>
-    </div>
+    <p class="cs-match-img">The low points were a damaged barcode and not knowing if a scan had worked. The high point was scanning the checkout QR code at the cashier area from a distance.</p>
   </section>
 
   <section class="section fade-in reveal cs-v2-phase" id="design">
     <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg><span class="cs-v2-phase-label">Design</span></div>
     <h2 class="cs-match-img cs-v2-heading">Four decisions</h2>
+    <p class="cs-match-img">These four decisions shaped the core flow before launch.</p>
 
     <div class="cs-v2-decision">
       <p class="cs-v2-decision__title">Decision 1 · Four steps before the first scan</p>
@@ -612,12 +579,12 @@
 
     <div class="cs-v2-decision">
       <p class="cs-v2-decision__title">Decision 3 · Two ways to check out, no forced sign-up</p>
-      <p>The first version asked shoppers to create an account before they could shop, and three testers gave up right there. So I designed two paths: shoppers who sign up can check out straight from the app, while those who skip sign-up scan a QR code in the store to connect their cart to checkout. It works from up to 10 metres away. In the next round, nobody gave up, and one participant chose to sign up.</p>
+      <p>The first version asked shoppers to create an account before they could shop, and three testers gave up right there. So I designed two paths: shoppers who sign up can check out straight from the app, while those who skip sign-up scan the checkout QR code at the cashier area to connect their cart to checkout. It can be scanned from up to 10 metres away. In the next round, nobody gave up, and one participant chose to sign up.</p>
       <div class="screens-section reveal reveal-media">
       <div class="screens-grid mob-screens-centered-one">
         <div class="screen-item">
           <div class="screen-wrap"><img src="mobile-userflow-07.png" alt="Scan checkout QR at cashier area with cart summary and Edit cart" width="472" height="1024" loading="lazy" decoding="async"></div>
-          <p class="screen-caption cs-caption">Guests scan a QR code in the store to continue to checkout.</p>
+          <p class="screen-caption cs-caption">Guests scan the checkout QR code at the cashier area to continue to checkout.</p>
         </div>
       </div>
     </div>
@@ -684,15 +651,51 @@
     </div>
   </section>
 
+  <section class="section fade-in reveal cs-v2-phase" aria-labelledby="turning-point">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h13l4-3-4-3z"/><path d="M12 11v10"/><path d="M9 21h6"/></svg><span class="cs-v2-phase-label">Turning point</span></div>
+    <div class="cs-match-img cs-turning">
+      <div class="cs-turning__column">
+        <h2 class="cs-v2-heading" id="turning-point">The scanner wasn't the problem. The silence was.</h2>
+        <div class="cs-turning__shift" aria-label="From first guess to what testing showed">
+          <div class="cs-turning__shift-box cs-turning__shift-box--plan">
+            <span class="cs-turning__shift-label">My first guess</span>
+            <p class="cs-turning__shift-text">The scanner is too slow</p>
+          </div>
+          <span class="cs-turning__shift-arrow cs-turning__shift-arrow--right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          <span class="cs-turning__shift-arrow cs-turning__shift-arrow--down" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></span>
+          <div class="cs-turning__shift-box cs-turning__shift-box--highlight">
+            <span class="cs-turning__shift-label cs-turning__shift-label--accent">What testing showed</span>
+            <p class="cs-turning__shift-text cs-turning__shift-text--highlight">The app is too silent</p>
+          </div>
+        </div>
+        <div class="cs-turning__prose">
+          <p>After launch, I reviewed shopper behaviour with my PM. Many shoppers started scanning but never completed checkout. My first guess was the scanner, so the dev team optimised it, but the drop-off didn't go away.</p>
+          <p>So I went back to testing, and found the real problem: shoppers scanned a product, then stared at the screen, unsure if it had worked. Some scanned twice. With noise, trolleys and children around, a visual sign alone was easy to miss.</p>
+        </div>
+        <div class="cs-turning__callout-block">
+          <p class="cs-turning__callout-label"><span>The aha moment</span></p>
+          <p class="cs-v2-aha-text">Shoppers didn't need a faster scanner. They needed to know the scan had worked.</p>
+        </div>
+        <div class="cs-turning__prose">
+          <p>So every scan now gives three kinds of feedback: the product moves into the cart, the phone vibrates and a short sound plays, following the WCAG guidance that a change shouldn't rely on one sense.</p>
+          <figure class="mob-scan-feedback reveal reveal-media">
+            <img src="mobile-scan-three-layer-feedback.gif" alt="In-app demonstration of three-layer scan feedback: barcode scan on Coca-Cola, vibration and sound cues, and the product animating into the cart" width="800" height="695" loading="lazy" decoding="async">
+          </figure>
+          <p class="mob-scan-feedback-follow">In an A/B test after launch, with 10 real shoppers (5 on the silent version, 5 with feedback), checkout completion was 40% higher.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section fade-in reveal cs-v2-phase" id="results">
     <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg><span class="cs-v2-phase-label">Results</span></div>
     <h2 class="cs-match-img cs-v2-heading">What changed</h2>
-    <p class="cs-match-img">The +40% comes from an A/B test after launch. The other results come from usability testing before launch.</p>
+    <p class="cs-match-img">Before launch, I tested the app in office workshops and in a real store. After launch, shoppers were giving up while scanning, which led to the scan feedback in the turning point, and an A/B test with 10 real shoppers measured its effect.</p>
     <div class="cs-match-img cs-v2-results-grid">
-      <div><p class="cs-v2-result-num">+40%</p><p class="cs-v2-result-label">checkout completion (A/B test, 10 shoppers)</p></div>
-      <div><p class="cs-v2-result-num">~30%</p><p class="cs-v2-result-label">better checkout task performance</p></div>
-      <div><p class="cs-v2-result-num">3 → 0</p><p class="cs-v2-result-label">abandonments at sign-up</p></div>
-      <div><p class="cs-v2-result-num">10 m</p><p class="cs-v2-result-label">QR checkout range, tested in a real store</p></div>
+      <div><p class="cs-v2-result-num">+40%</p><p class="cs-v2-result-label">checkout completion (A/B test after launch, 10 shoppers)</p></div>
+      <div><p class="cs-v2-result-num">~30%</p><p class="cs-v2-result-label">better checkout task performance (usability testing before launch, in-store session vs. the earlier round)</p></div>
+      <div><p class="cs-v2-result-num">3 → 0</p><p class="cs-v2-result-label">abandonments at sign-up (usability testing before launch)</p></div>
+      <div><p class="cs-v2-result-num">10 m</p><p class="cs-v2-result-label">QR checkout range (tested in a real store before launch)</p></div>
     </div>
     <div class="quote-block cs-quote cs-v2-quote cs-match-img">
       <p>“I used to dread grocery shopping with the kids. Now I just open the app, scan as I go, and I'm done before I even reach the exit.”</p>
