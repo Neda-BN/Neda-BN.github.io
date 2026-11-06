@@ -13,6 +13,11 @@
 <link rel="stylesheet" href="css/site-shared.css?v=ember2">
 <script src="js/page-transition.js?v=ember2"></script>
 <script src="js/site-nav.js?v=ember2"></script>
+<style>
+  /* Match backoffice.html base: no default body margin, clip horizontal overflow */
+  html { overflow-x: clip; }
+  body.hero-img-match { margin: 0; }
+</style>
 <title>Simple Booking Accounting Application · Neda Bagherinezhad</title>
 <meta name="description" content="Case study: redesigning Simple Booking, a developer-built accounting app, through workshops with its real users and AI-assisted implementation with Claude Code.">
 <link rel="stylesheet" href="css/scroll-reveal.css?v=ember2">
@@ -22,6 +27,7 @@
 <link rel="stylesheet" href="css/responsive.css?v=ember2">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=ember2">
 <link rel="stylesheet" href="css/cs-v2.css?v=ember2">
+<link rel="stylesheet" href="css/cs-hero-match.css?v=ember2">
 <link rel="preload" as="image" href="sb-hero.webp" type="image/webp" fetchpriority="high">
 <style>
   /* Before/after comparisons: keep slider layout; do not hide scroll/zoom wrappers */
@@ -116,7 +122,7 @@
     <link rel="stylesheet" href="css/theme.css?v=ember2">
   <script src="js/palette-preview.js?v=ember2"></script>
 </head>
-<body class="has-anna-nav case-study-page cs-design-page cs-v2">
+<body class="has-anna-nav case-study-page cs-design-page cs-v2 hero-img-match">
 
 <header class="anna-nav anna-nav--intro-visible" id="site-nav" aria-label="Primary">
   <div class="anna-nav__pill">
@@ -149,7 +155,7 @@
 </section>
 
 <div class="hero-image">
-  <picture><source srcset="sb-hero.webp" type="image/webp"><img class="cs-hero-img" src="sb-hero.png" width="2400" height="1300" alt="Redesigned Simple Booking: the dark-mode home page with tasks that need attention, and the light-mode receipts page with upload, inbox and previous receipts" fetchpriority="high" decoding="async"></picture>
+  <picture><source srcset="sb-hero.webp" type="image/webp"><img class="cs-hero-img--match" src="sb-hero.png" width="2400" height="1300" alt="Redesigned Simple Booking: the dark-mode home page with tasks that need attention, and the light-mode receipts page with upload, inbox and previous receipts" fetchpriority="high" decoding="async"></picture>
 </div>
 
 <div class="content case-main sb-case cs-v2-study">

@@ -1,0 +1,44 @@
+/**
+ * Hero image matched to backoffice.html effective layout:
+ * same 820px track as .case-study-page .hero / .hero-image (css/case-study.css),
+ * image 100% width of track, 16px radius, Back-office inline box-shadow.
+ * Loaded only on simplebooking, healthcare, mobile-app (body.hero-img-match).
+ * Does not apply to pos-app.html.
+ */
+
+/* Wrappers — no extra frame; width follows shared .hero-image track (max ~820px) */
+html body.case-study-page.hero-img-match .hero-image .hc-media-frame,
+html body.case-study-page.hero-img-match .hero-image .image-placeholder {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
+}
+
+html body.case-study-page.hero-img-match .hero-image .image-placeholder::before {
+  display: none !important;
+}
+
+/* Main hero asset — same visual treatment as backoffice inline .hero-image img */
+html body.case-study-page.hero-img-match .hero-image .cs-hero-img--match {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(26, 42, 90, 0.12);
+  object-fit: unset;
+  vertical-align: middle;
+}
+
+/* Caption under hero — Back-office inline */
+html body.case-study-page.hero-img-match .hero-image .screen-caption {
+  margin-top: 12px;
+  text-align: center;
+}
