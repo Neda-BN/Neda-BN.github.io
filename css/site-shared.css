@@ -169,8 +169,8 @@ h2.works-anna__heading {
   transform: translateY(0);
 }
 
-.site-footer,
-footer {
+/* Page shell only — not <footer> inside summary cards / articles */
+body > footer {
   padding: 28px 24px;
   max-width: 1440px;
   margin: 0 auto;
@@ -182,8 +182,7 @@ footer {
   border-top: 1px solid var(--border);
   background: var(--bg);
 }
-.site-footer p,
-footer p {
+body > footer p {
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 400;
@@ -283,8 +282,7 @@ footer p {
 }
 
 @media (max-width: 680px) {
-  .site-footer,
-  footer {
+  body > footer {
     padding: 24px max(16px, env(safe-area-inset-left, 0px));
     flex-direction: column;
     align-items: flex-start;
