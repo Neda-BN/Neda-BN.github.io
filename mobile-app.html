@@ -196,7 +196,16 @@
     margin-left: auto !important;
     margin-right: auto !important;
     margin-top: var(--space-block) !important;
-    margin-bottom: var(--space-block) !important;
+    margin-bottom: 0 !important;
+  }
+  /* Match GIF image width (figure has 1px border each side → inner = outer − 2px); beats cs-v2 .cs-turning__prose > p { width:100% } */
+  body.case-study-page.cs-design-page.cs-v2 .content.case-main.cs-v2-study.mob-case section[aria-labelledby="turning-point"] .cs-match-img.cs-turning .cs-turning__prose > p.mob-scan-feedback-follow {
+    text-align: center;
+    width: min(758px, calc(70% - 2px)) !important;
+    max-width: min(758px, calc(70% - 2px)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 19px !important;
   }
   body.case-study-page.cs-v2 .mob-case section[aria-labelledby="turning-point"] .mob-scan-feedback img {
     width: 100%;
@@ -208,6 +217,11 @@
     body.case-study-page.cs-v2 .mob-case section[aria-labelledby="turning-point"] .mob-scan-feedback {
       width: 100% !important;
       max-width: 100% !important;
+    }
+    body.case-study-page.cs-design-page.cs-v2 .content.case-main.cs-v2-study.mob-case section[aria-labelledby="turning-point"] .cs-match-img.cs-turning .cs-turning__prose > p.mob-scan-feedback-follow {
+      width: calc(100% - 2px) !important;
+      max-width: calc(100% - 2px) !important;
+      margin-top: 15px !important;
     }
   }
 </style>
@@ -516,7 +530,7 @@
           <figure class="mob-scan-feedback reveal reveal-media">
             <img src="mobile-scan-three-layer-feedback.gif" alt="In-app demonstration of three-layer scan feedback: barcode scan on Coca-Cola, vibration and sound cues, and the product animating into the cart" width="800" height="695" loading="lazy" decoding="async">
           </figure>
-          <p>In an A/B test with 10 real shoppers (5 on the silent version, 5 with feedback), checkout completion was 40% higher.</p>
+          <p class="mob-scan-feedback-follow">In an A/B test with 10 real shoppers (5 on the silent version, 5 with feedback), checkout completion was 40% higher.</p>
         </div>
       </div>
     </div>
