@@ -224,6 +224,19 @@
       margin-top: 15px !important;
     }
   }
+
+  /* Decision 1 onboarding — one row of four on narrow screens (global mob-screens-row--4 uses 2×2 below 640px) */
+  @media (max-width: 639.98px) {
+    body.case-study-page.cs-v2 .content.mob-case #design > .cs-v2-decision:nth-child(4) .screens-grid.mob-screens-row--4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    body.case-study-page.cs-v2 .content.mob-case #design > .cs-v2-decision:nth-child(4) .screens-grid.mob-screens-row--4 .screen-item {
+      width: 100% !important;
+      max-width: none !important;
+    }
+  }
 </style>
 </head>
 <body class="has-anna-nav case-study-page cs-design-page cs-v2">
@@ -511,7 +524,7 @@
       <p class="cs-v2-decision__title">Decision 1 · Four steps before the first scan</p>
       <p>A short, skippable carousel explains the store flow in four plain steps: scan, pay, get the receipt and exit.</p>
       <div class="screens-section reveal reveal-media">
-      <div class="screens-grid col-3">
+      <div class="screens-grid mob-screens-row--4">
         <div class="screen-item">
           <div class="screen-wrap"><img src="mobile-onboarding-01.png" alt="Onboarding step 1 — How to shop in 3 steps: add product to cart by scanning the barcode with the camera" width="472" height="1024" loading="lazy" decoding="async"></div>
           <p class="screen-caption cs-caption">Step 1 · Add product to cart</p>
@@ -524,10 +537,6 @@
           <div class="screen-wrap"><img src="mobile-onboarding-03.png" alt="Onboarding step 3 — pay and get a digital receipt" width="472" height="1024" loading="lazy" decoding="async"></div>
           <p class="screen-caption cs-caption">Step 3 · Pay and get receipt</p>
         </div>
-      </div>
-    </div>
-      <div class="screens-section reveal reveal-media">
-      <div class="screens-grid mob-screens-centered-one">
         <div class="screen-item">
           <div class="screen-wrap"><img src="mobile-onboarding-04.png" alt="Onboarding step 4 — Done: exit the store with a barcode at the gate; Start shopping" width="472" height="1024" loading="lazy" decoding="async"></div>
           <p class="screen-caption cs-caption">Step 4 · Done — start shopping</p>
