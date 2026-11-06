@@ -416,3 +416,73 @@ body.case-study-page.cs-v2.ui-design-page main.instore-sb-main .instore-visual-s
     max-width: min(540px, 88vw) !important;
   }
 }
+
+/* ── ATG App (ui-design-03 only): align overview + hero with 820px content column ──
+   Root cause of overflow: css/cs-v2.css gives every `.cs-match-img` a ~1200px wide-track
+   (`width` / `margin-left: calc((100% - var(--cs-wide-track)) / 2))`) which is wider than
+   `main`’s `--cs-track` (820px), so copy shifts right and overflows. ui-design-cs-v2.css also
+   forced phase rows + tags onto that wide track. Scoped to `body.ui-design-page--atg`. */
+
+body.case-study-page.cs-v2.ui-design-page--atg .ui-design-hero .sb-hero-text {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Overview: same horizontal bounds as headings (full main column, no wide-track offset) */
+body.case-study-page.cs-v2.ui-design-page--atg.ui-design-page
+  .ui-design-gallery.cs-v2-study
+  > .section.cs-v2-phase
+  .cs-match-img {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Body copy + phase headings: use full text width of column (matches cs-v2 section paragraphs) */
+body.case-study-page.cs-v2.ui-design-page--atg.ui-design-page
+  .ui-design-gallery.cs-v2-study
+  > .section.cs-v2-phase
+  :is(h2.cs-match-img, p.cs-match-img) {
+  max-width: 100% !important;
+}
+
+/* Space between the two overview paragraphs (--space-text, same as case study body rhythm) */
+body.case-study-page.cs-v2.ui-design-page--atg.ui-design-page
+  .ui-design-gallery
+  .ui-design-intro
+  p.cs-match-img
+  + p.cs-match-img {
+  margin-top: var(--space-text) !important;
+}
+
+/* Tags: content left edge, --space-block above (pill look unchanged in base rules) */
+body.case-study-page.cs-v2.ui-design-page--atg.ui-design-page
+  .ui-design-gallery
+  .cs-v2-phase
+  .ui-design-tags {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: var(--space-block) !important;
+  box-sizing: border-box !important;
+}
+
+/* Drop duplicate wide-track pull from the block above when both selectors apply */
+body.case-study-page.cs-v2.ui-design-page--atg.ui-design-page
+  .ui-design-gallery.cs-v2-study
+  .cs-v2-phase
+  .cs-match-img.cs-v2-phase-label-row,
+body.case-study-page.cs-v2.ui-design-page--atg.ui-design-page
+  .ui-design-gallery.cs-v2-study
+  .cs-v2-phase
+  h2.cs-match-img.cs-v2-heading {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
