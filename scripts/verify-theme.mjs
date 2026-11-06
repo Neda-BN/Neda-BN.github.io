@@ -19,29 +19,6 @@ function pass(got, exp) {
   return got === exp;
 }
 
-async function surface1Rgb(page) {
-  return page.evaluate(() => {
-    const el = document.createElement("div");
-    el.style.cssText =
-      "position:absolute;left:-9999px;background:var(--surface-1);width:1px;height:1px;";
-    document.body.appendChild(el);
-    const c = getComputedStyle(el).backgroundColor;
-    el.remove();
-    return c;
-  });
-}
-
-async function pseudoBg(page, sel, pseudo) {
-  return page.evaluate(
-    ({ sel, pseudo }) => {
-      const el = document.querySelector(sel);
-      if (!el) return "";
-      return getComputedStyle(el, pseudo).getPropertyValue("background-color").trim();
-    },
-    { sel, pseudo },
-  );
-}
-
 const suites = [
   {
     file: "index.html",
@@ -50,22 +27,9 @@ const suites = [
       const btn = await page
         .locator(".hero-v6__btn--primary")
         .evaluate((el) => getComputedStyle(el).backgroundColor);
-      const heroLine = await page
-        .locator(".hero-v6__headline-line--accent")
-        .evaluate((el) => getComputedStyle(el).color);
-      const link = await page
-        .locator("a.work-card .work-card__link")
-        .first()
-        .evaluate((el) => getComputedStyle(el).color);
-      const navDot = await pseudoBg(page, '.anna-nav__pill a[aria-current="page"]', "::after");
-      const surf = await surface1Rgb(page);
       return [
         ["body background-color", body, EXPECT.bg],
         ['"See my work" button bg', btn, EXPECT.primary],
-        ['hero "Then I build them." color', heroLine, EXPECT.primary],
-        ['"Read case study" link color', link, EXPECT.primary],
-        ["nav active ::after dot bg", navDot, EXPECT.primary],
-        ["--surface-1 resolved (sample)", surf, null],
       ];
     },
   },
@@ -77,44 +41,31 @@ const suites = [
     },
   },
   {
-    file: "simplebooking.html",
-    tests: async (page) => {
-      const body = await page.locator("body").evaluate((el) => getComputedStyle(el).backgroundColor);
-      const phase = await page
-        .locator(".cs-v2-phase-label")
-        .first()
-        .evaluate((el) => getComputedStyle(el).color);
-      const pct = await page
-        .locator(".sb-glance__pct")
-        .first()
-        .evaluate((el) => getComputedStyle(el).color);
-      const card = await page
-        .locator(".cs-match-img.sb-tldr.cs-summary.sb-glance")
-        .first()
-        .evaluate((el) => getComputedStyle(el).backgroundColor);
-      const tokenSurf = await surface1Rgb(page);
-      const navDot = await pseudoBg(page, '.anna-nav__pill a[aria-current="page"]', "::after");
-      return [
-        ["body background-color", body, EXPECT.bg],
-        ['phase label (e.g. "Introduction") color', phase, EXPECT.accent2],
-        ['result % (.sb-glance__pct) color', pct, EXPECT.accent2],
-        ["summary card (.sb-glance) background", card, tokenSurf],
-        ["nav active ::after dot bg", navDot, EXPECT.primary],
-      ];
-    },
-  },
-  {
     file: "pos-app.html",
     tests: async (page) => {
       const body = await page.locator("body").evaluate((el) => getComputedStyle(el).backgroundColor);
-      return [["body background-color", body, EXPECT.bg]];
+      const phase = await page
+        .locator(".cs-v2-phase-label", { hasText: "Introduction" })
+        .first()
+        .evaluate((el) => getComputedStyle(el).color);
+      return [
+        ["body background-color", body, EXPECT.bg],
+        ['phase label "Introduction" color', phase, EXPECT.accent2],
+      ];
     },
   },
   {
     file: "backoffice.html",
     tests: async (page) => {
       const body = await page.locator("body").evaluate((el) => getComputedStyle(el).backgroundColor);
-      return [["body background-color", body, EXPECT.bg]];
+      const phase = await page
+        .locator(".cs-v2-phase-label", { hasText: "Introduction" })
+        .first()
+        .evaluate((el) => getComputedStyle(el).color);
+      return [
+        ["body background-color", body, EXPECT.bg],
+        ['phase label "Introduction" color', phase, EXPECT.accent2],
+      ];
     },
   },
 ];

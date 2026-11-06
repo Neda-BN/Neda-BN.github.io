@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Move theme.css + palette-preview.js to end of <head>, add ?v=ember1 to local stylesheets + scripts."""
+"""Move theme.css + palette-preview.js to end of <head>, add ?v=ember2 to local stylesheets + scripts."""
 
 from __future__ import annotations
 
@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VQ = "ember1"
+VQ = "ember2"
 
 THEME_LINK_RE = re.compile(
     r"<link\s[^>]*href=[\"'][^\"']*theme\.css[^\"']*[\"'][^>]*>\s*",
