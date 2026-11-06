@@ -9,12 +9,10 @@
 <script>document.documentElement.classList.add('js');</script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
 <title>404 · Product not found · Neda Bagherinezhad</title>
-<link rel="stylesheet" href="/css/theme.css?v=20261106">
-<script src="/js/palette-preview.js?v=20261106"></script>
-<link rel="stylesheet" href="/css/tokens.css">
-<link rel="stylesheet" href="/css/site-shared.css?v=20261101">
-<link rel="stylesheet" href="/css/case-study.css">
-<script src="/js/site-nav.js"></script>
+<link rel="stylesheet" href="/css/tokens.css?v=ember1">
+<link rel="stylesheet" href="/css/site-shared.css?v=ember1">
+<link rel="stylesheet" href="/css/case-study.css?v=ember1">
+<script src="/js/site-nav.js?v=ember1"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -92,7 +90,7 @@
     flex-wrap: nowrap;
     justify-content: center;
     padding: calc(24px + env(safe-area-inset-top, 0px)) 20px 24px;
-    background: rgba(11, 12, 16, 0.82);
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
@@ -234,7 +232,7 @@
     padding: 6px 12px 6px 10px;
     border-radius: 999px;
     border: 1px solid var(--border);
-    background: rgba(11, 12, 16, 0.55);
+    background: color-mix(in srgb, var(--bg) 55%, transparent);
     font-family: var(--font-mono);
     font-size: 11px;
     letter-spacing: 0.06em;
@@ -442,7 +440,7 @@
     margin-top: 16px;
     padding: 8px 16px;
     border-radius: 999px;
-    background: rgba(11, 12, 16, 0.65);
+    background: color-mix(in srgb, var(--bg) 65%, transparent);
     border: 1px solid var(--border);
     font-family: var(--font-mono);
     font-size: 13px;
@@ -496,7 +494,7 @@
   }
 
   .hero-v6__btn--secondary {
-    background: rgba(11, 12, 16, 0.35);
+    background: color-mix(in srgb, var(--bg) 35%, transparent);
     color: var(--text);
     border: 1px solid var(--border);
   }
@@ -534,7 +532,7 @@
     padding: 7px 14px;
     border-radius: 999px;
     border: 1px solid var(--border);
-    background: rgba(11, 12, 16, 0.45);
+    background: color-mix(in srgb, var(--bg) 45%, transparent);
     font-family: var(--font-body);
     font-size: 14px;
     color: var(--text);
@@ -624,6 +622,8 @@
     }
   }
 </style>
+    <link rel="stylesheet" href="/css/theme.css?v=ember1">
+  <script src="/js/palette-preview.js?v=ember1"></script>
 </head>
 <body class="has-anna-nav case-study-page page-404">
 

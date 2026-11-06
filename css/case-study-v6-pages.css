@@ -5,7 +5,6 @@ body.case-study-page {
   --cs-negative: var(--status-danger);
   --cs-warning: var(--status-warning);
   --cs-text-max: 720px;
-  --accent-light: var(--primary-soft);
   --dark: var(--text);
   --mid: var(--muted);
   --light: var(--muted);

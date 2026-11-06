@@ -519,12 +519,12 @@ body.has-anna-nav.case-study-page main.sb-case {
   margin: 0;
   padding: 0;
   border: 0;
-  background: rgba(11, 12, 16, 0.94);
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
   color: var(--text);
 }
 
 .sb-lightbox::backdrop {
-  background: rgba(11, 12, 16, 0.72);
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
 }
 
 .sb-lightbox-bar {
@@ -536,7 +536,7 @@ body.has-anna-nav.case-study-page main.sb-case {
   justify-content: space-between;
   gap: 16px;
   padding: 12px 16px;
-  background: rgba(11, 12, 16, 0.9);
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
   font-family: var(--font-body);
   font-size: 15px;
 }

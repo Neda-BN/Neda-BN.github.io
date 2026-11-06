@@ -133,13 +133,15 @@ a.work-card:not(.work-card--compact):focus-visible {
   font-family: var(--font-mono);
   font-size: 15px;
   font-weight: 400;
-  color: var(--text);
+  color: var(--primary);
   text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--primary) 55%, transparent);
   text-underline-offset: 6px;
   text-decoration-thickness: 1px;
 }
 .work-card:hover .work-card__link,
 .work-card:focus-visible .work-card__link {
+  color: var(--primary-hover);
   text-decoration-color: var(--primary);
 }
 .work-card__arrow {
