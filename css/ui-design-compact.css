@@ -1,16 +1,23 @@
 /**
  * UI Design gallery compact layout — only pages with body.ui-compact load this file.
  * Scales wide showcase figures to 85% of the cs-v2 wide track at ≥768px; mobile unchanged.
+ *
+ * Centre fix: global `.case-study-page .wide` uses `margin-left: calc((100% - var(--cs-wide-track)) / 2)`
+ * and `margin-right: 0`. Narrowing the figure without updating that formula skews placement. Using
+ * `margin: auto` does not centre a block wider than its parent (both margins compute to 0), so at
+ * 1440px a 1020px-wide figure stayed left-aligned in the 820px column. Use symmetric horizontal
+ * margins from the figure’s own width so it stays centred on the content column (`100%` = main).
  */
 @media (min-width: 768px) {
   body.ui-compact.case-study-page.cs-v2.ui-design-page
     .ui-design-main.cs-v2-study.ui-design-gallery
     .ui-design-figure.wide {
+    --ui-compact-figure-w: min(1020px, calc((100vw - 64px) * 0.85));
     /* 85% of min(1200px, 100vw - 64px) — same cap as ui-design-cs-v2.css wide track */
-    width: min(1020px, calc((100vw - 64px) * 0.85));
-    max-width: min(1020px, calc((100vw - 64px) * 0.85));
-    margin-left: auto;
-    margin-right: auto;
+    width: var(--ui-compact-figure-w);
+    max-width: var(--ui-compact-figure-w);
+    margin-left: calc((100% - var(--ui-compact-figure-w)) / 2) !important;
+    margin-right: calc((100% - var(--ui-compact-figure-w)) / 2) !important;
   }
 
   body.ui-compact.case-study-page.cs-v2.ui-design-page
