@@ -2840,17 +2840,6 @@ body.case-study-page .hc-tldr p:last-child {
 
 /* At a glance (.sb-glance): typography comes from cs-design.css — do not blanket-reset p */
 
-/* Viewport scrolling follows html, not body — smooth in-page jumps (e.g. Back-office Problem 1/2) */
-html:has(body.case-study-page) {
-  scroll-behavior: smooth;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html:has(body.case-study-page) {
-    scroll-behavior: auto;
-  }
-}
-
 body.case-study-page #results,
 body.case-study-page #results-replenishment,
 body.case-study-page #results-campaigns,
