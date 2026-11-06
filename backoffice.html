@@ -49,7 +49,7 @@
     border-radius: 16px;
     box-shadow: 0 4px 24px rgba(26, 42, 90, 0.12);
   }
-  .hero-image .screen-caption { margin-top: 14px; text-align: center; }
+  .hero-image .screen-caption { margin-top: 12px; text-align: center; }
 
   body.case-study-page.cs-design-page .pos-summary-shell.sb-case {
     max-width: none;
@@ -105,8 +105,7 @@
     box-shadow: 0 8px 28px rgba(26, 26, 26, 0.07);
     image-rendering: auto;
   }
-  .ds-sheet-figure { margin: 0 0 24px 0; }
-  .ds-sheet-figure:last-child { margin-bottom: 0; }
+  .ds-sheet-figure { margin: 0; }
   .ds-sheet-figure.ds-cap-10050 { max-width: min(100%, 10050px); margin-left: auto; margin-right: auto; }
   .ds-sheet-figure .ds-img {
     width: 100%;
@@ -328,8 +327,248 @@
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=20261027a">
 <link rel="stylesheet" href="css/cs-v2.css?v=20261105w">
+<style>
+  /* Back-office only: vertical spacing system (overrides shared case-study.css after load) */
+  body.backoffice-spacing-v1 {
+    --bo-gap-caption: 12px;
+    --bo-gap-p-media: 32px;
+    --bo-gap-media-media: 48px;
+    --bo-gap-media-text: 48px;
+    --bo-gap-decisions: 80px;
+  }
+  @media (max-width: 767px) {
+    body.backoffice-spacing-v1 {
+      --bo-gap-p-media: 24px;
+      --bo-gap-media-media: 32px;
+      --bo-gap-media-text: 32px;
+      --bo-gap-decisions: 56px;
+    }
+  }
+
+  /* Kill shared “content column” sibling margin-top inside main sections */
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > * + *,
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > * + :is(
+    figure, table, .data-table, .cs-table, .reveal-media, .reveal.reveal-media,
+    div:has(.ds-theme-row), .ds-theme-row, .ds-sheet-figure, .case-study-figure,
+    .screens-section, .screens-grid, .quote-block, .cs-quote
+  ),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > :is(
+    figure, table, .data-table, .cs-table, .reveal-media, .reveal.reveal-media,
+    div:has(.ds-theme-row), .ds-sheet-figure, .case-study-figure, .screens-section
+  ) + * {
+    margin-top: 0 !important;
+  }
+
+  /* Base: no stray vertical margins on section flow (we set margin-bottom only) */
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > :is(
+    p, ul, ol, .cs-match-img, .cs-v2-one-question, .cs-turning, .cs-structure, .cs-flow,
+    .screens-section, .reveal.reveal-media, table, figure, .content--design-system
+  ) {
+    margin-top: 0 !important;
+  }
+
+  /* Paragraph → paragraph (same as current cs-v2 rhythm) */
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > p.cs-match-img:has(+ p.cs-match-img) {
+    margin-bottom: 16px !important;
+  }
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > p.cs-match-img:has(+ ul.cs-v2-list),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > p.cs-match-img:has(+ ol.cs-v2-list) {
+    margin-bottom: 16px !important;
+  }
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > ul.cs-v2-list:has(+ p.cs-match-img),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > ol.cs-v2-list:has(+ p.cs-match-img) {
+    margin-bottom: 16px !important;
+  }
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study .cs-v2-decision > p:not(.cs-v2-decision__title):has(+ p:not(.cs-v2-decision__title)) {
+    margin-bottom: 16px !important;
+  }
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study .cs-v2-decision > p:not(.cs-v2-decision__title) {
+    margin-bottom: var(--space-block, 24px) !important;
+  }
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study .cs-v2-decision > p:not(.cs-v2-decision__title):has(+ .screens-section),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study .cs-v2-decision > p:not(.cs-v2-decision__title):has(+ .reveal.reveal-media),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study .cs-v2-decision > p:not(.cs-v2-decision__title):has(+ .cs-flow),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study .cs-v2-decision > p:not(.cs-v2-decision__title):has(+ table) {
+    margin-bottom: var(--bo-gap-p-media) !important;
+  }
+
+  /* Paragraph / list → next image block, table, or coded visual */
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > p.cs-match-img:has(+ .screens-section),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > p.cs-match-img:has(+ .reveal.reveal-media),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > p.cs-match-img:has(+ .cs-structure),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > p.cs-match-img:has(+ .cs-flow),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > p.cs-match-img:has(+ table),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > p.cs-match-img:has(+ figure),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > p.cs-match-img:has(+ .content--design-system),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > ul.cs-match-img:has(+ .cs-structure),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > ol.cs-match-img:has(+ .cs-structure) {
+    margin-bottom: var(--bo-gap-p-media) !important;
+  }
+
+  /* Connect: subtitle “How I structured…” then intro line → structure diagram */
+  body.case-study-page.backoffice-spacing-v1 #replenishment-connect p.cs-v2-subtitle:has(+ p.cs-match-img) {
+    margin-bottom: 12px !important;
+  }
+  body.case-study-page.backoffice-spacing-v1 #replenishment-connect p.cs-match-img:has(+ .cs-structure) {
+    margin-bottom: var(--bo-gap-p-media) !important;
+    margin-top: 0 !important;
+  }
+
+  /* Media / table blocks → next media / table */
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > .screens-section:has(+ .screens-section),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > .screens-section:has(+ .reveal.reveal-media),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > .screens-section:has(+ table),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > .screens-section:has(+ figure),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > .reveal.reveal-media:has(+ figure.ds-sheet-figure),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > figure.ds-sheet-figure:has(+ figure.ds-sheet-figure),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > .cs-structure:has(+ .screens-section),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study .cs-v2-decision > .screens-section:has(+ .screens-section),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study .cs-v2-decision > .screens-section:has(+ table),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study .cs-v2-decision > .reveal.reveal-media:has(+ figure) {
+    margin-bottom: var(--bo-gap-media-media) !important;
+  }
+
+  /* Media / table → next paragraph, subtitle, or decision title */
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > .screens-section:has(+ p),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > .screens-section:has(+ h2),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > table:has(+ p),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > .cs-structure:has(+ p),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study > .section > figure.ds-sheet-figure:has(+ p),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study .cs-v2-decision > .screens-section:has(+ p.cs-v2-decision__title),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study .cs-v2-decision > table:has(+ p.cs-v2-decision__title),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study .cs-v2-decision > .screens-section:has(+ p:not(.cs-v2-decision__title)),
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study .cs-v2-decision > table:has(+ p:not(.cs-v2-decision__title)) {
+    margin-bottom: var(--bo-gap-media-text) !important;
+  }
+
+  /* Design section: intro “Three decisions” / “Two decisions” → first decision block */
+  body.case-study-page.backoffice-spacing-v1 #replenishment-design > h2.cs-match-img:has(+ .cs-v2-decision),
+  body.case-study-page.backoffice-spacing-v1 #campaigns-design > h2.cs-match-img:has(+ .cs-v2-decision) {
+    margin-bottom: var(--bo-gap-media-text) !important;
+  }
+
+  /* End of one decision → next decision */
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study .cs-v2-decision + .cs-v2-decision {
+    margin-top: 0 !important;
+  }
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study .cs-v2-decision:has(+ .cs-v2-decision) > :last-child {
+    margin-bottom: var(--bo-gap-decisions) !important;
+  }
+
+  /* First Replenishment decision: intro paragraph → before/after flow */
+  body.case-study-page.backoffice-spacing-v1 #replenishment-design .cs-v2-decision:first-child > p:has(+ .cs-flow) {
+    margin-bottom: var(--bo-gap-p-media) !important;
+  }
+  /* Decision title — keep cs-v2 */
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study .cs-v2-decision > .cs-v2-decision__title {
+    margin: 0 0 var(--space-text, 16px) !important;
+  }
+
+  /* Remove extra rules that fought this page */
+  body.case-study-page.backoffice-spacing-v1 .cs-v2-study .cs-v2-decision + .cs-v2-decision {
+    margin-top: 0 !important;
+  }
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study .cs-v2-decision .screens-section {
+    margin-top: 0 !important;
+  }
+  /* Flex column: avoids margin collapse so paragraph margin-bottom matches spec */
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study .cs-v2-decision {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study .cs-v2-decision > * ~ * {
+    margin-top: 0 !important;
+  }
+  /* Scroll-reveal: static layout inside decisions (transform was adding ~20px to measured gaps) */
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study .cs-v2-decision .reveal,
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study .cs-v2-decision .fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  /* Hero: image → caption 12px */
+  body.case-study-page.backoffice-spacing-v1 .hero-image .screen-caption {
+    margin-top: var(--bo-gap-caption) !important;
+  }
+
+  /* Image + caption as one block: spacing on wrapper; caption under image, width matches image */
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study .cs-v2-decision .screens-section .screen-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study .cs-v2-decision .screens-section .screen-item .screen-wrap {
+    width: 100%;
+    max-width: min(754px, 100%);
+    margin: 0 auto !important;
+  }
+  body.case-study-page.backoffice-spacing-v1 .content.case-main.sb-case.cs-v2-study .cs-v2-decision .screens-section .screen-item .screen-caption {
+    display: block;
+    width: 100%;
+    max-width: min(754px, 100%);
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: var(--bo-gap-caption) !important;
+    margin-bottom: 0 !important;
+    padding: 0 4px !important;
+    box-sizing: border-box;
+    text-align: center !important;
+  }
+
+  /* Design system: caption below image; sheet figure as one block */
+  body.case-study-page.backoffice-spacing-v1 #design-system figure.ds-sheet-figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  body.case-study-page.backoffice-spacing-v1 #design-system figure.ds-sheet-figure .ds-img {
+    width: 100%;
+    max-width: min(100%, 10050px);
+    margin: 0 !important;
+  }
+  body.case-study-page.backoffice-spacing-v1 #design-system figure.ds-sheet-figure > figcaption.cs-caption {
+    order: 2;
+    width: 100%;
+    max-width: min(100%, 10050px);
+    margin: var(--bo-gap-caption) 0 0 !important;
+    padding: 0 4px !important;
+    box-sizing: border-box;
+    text-align: center !important;
+    font-style: italic !important;
+    font-weight: 300 !important;
+    color: var(--meta, #9a9aa5) !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+  }
+  body.case-study-page.backoffice-spacing-v1 #design-system .content--design-system > .reveal.reveal-media + figure.ds-sheet-figure {
+    margin-top: 0 !important;
+  }
+  body.case-study-page.backoffice-spacing-v1 #design-system p.cs-match-img:has(+ .content--design-system) {
+    margin-bottom: var(--bo-gap-p-media) !important;
+  }
+
+  /* Templates table: full width of wide track */
+  body.case-study-page.backoffice-spacing-v1 #campaigns-design table.cs-table.data-table.wide {
+    display: table !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+</style>
 </head>
-<body class="has-anna-nav case-study-page cs-design-page cs-v2">
+<body class="has-anna-nav case-study-page cs-design-page cs-v2 backoffice-spacing-v1">
 
 <header class="anna-nav anna-nav--intro-visible" id="site-nav" aria-label="Primary">
   <div class="anna-nav__pill">
@@ -814,16 +1053,16 @@
         </div>
       </div>
       <figure class="ds-sheet-figure ds-cap-10050 reveal reveal-media">
-        <figcaption class="cs-caption cs-caption">Sheet 01 — Foundations · Colour, typography, spacing, radius</figcaption>
         <img class="ds-img" src="backoffice-ds-01-foundations.png" srcset="backoffice-ds-01-foundations.png 10050w" sizes="(max-width: 640px) calc(100vw - 48px), min(1024px, 100vw - 96px)" alt="Design system foundations: brand and semantic colours, typography scale, spacing scale, border radius" width="10050" height="10857" loading="lazy" decoding="async">
+        <figcaption class="cs-caption cs-caption">Sheet 01 — Foundations · Colour, typography, spacing, radius</figcaption>
       </figure>
       <figure class="ds-sheet-figure ds-cap-10050 reveal reveal-media">
-        <figcaption class="cs-caption cs-caption">Sheet 02 — Buttons · Primary, secondary, tertiary, states, sizes</figcaption>
         <img class="ds-img" src="backoffice-ds-02-buttons.png" srcset="backoffice-ds-02-buttons.png 10050w" sizes="(max-width: 640px) calc(100vw - 48px), min(1024px, 100vw - 96px)" alt="Design system: button components — primary, secondary, tertiary, all states and sizes" width="10050" height="11136" loading="lazy" decoding="async">
+        <figcaption class="cs-caption cs-caption">Sheet 02 — Buttons · Primary, secondary, tertiary, states, sizes</figcaption>
       </figure>
       <figure class="ds-sheet-figure ds-cap-10050 reveal reveal-media">
-        <figcaption class="cs-caption cs-caption">Sheet 03 — Forms · Text input, checkbox, radio, keypad, pagination, tabs, breadcrumb</figcaption>
         <img class="ds-img" src="backoffice-ds-03-forms.png" srcset="backoffice-ds-03-forms.png 10050w" sizes="(max-width: 640px) calc(100vw - 48px), min(1024px, 100vw - 96px)" alt="Design system: form inputs, checkboxes, radio, keypad, pagination, tabs, breadcrumb" width="10050" height="11665" loading="lazy" decoding="async">
+        <figcaption class="cs-caption cs-caption">Sheet 03 — Forms · Text input, checkbox, radio, keypad, pagination, tabs, breadcrumb</figcaption>
       </figure>
     </div>
   </section>
