@@ -187,6 +187,29 @@
     body.case-study-page.cs-v2 #prototype .proto-frame { aspect-ratio: 3 / 4; max-height: none; }
     body.case-study-page.cs-v2 #prototype .proto-play { width: 56px; height: 56px; }
   }
+
+  /* Turning point — scan feedback GIF size (this section only; overrides mob-case full-bleed width) */
+  body.case-study-page.cs-v2 .mob-case section[aria-labelledby="turning-point"] .mob-scan-feedback {
+    display: block;
+    width: 70%;
+    max-width: min(760px, 800px);
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: var(--space-block) !important;
+    margin-bottom: var(--space-block) !important;
+  }
+  body.case-study-page.cs-v2 .mob-case section[aria-labelledby="turning-point"] .mob-scan-feedback img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  @media (max-width: 767.98px) {
+    body.case-study-page.cs-v2 .mob-case section[aria-labelledby="turning-point"] .mob-scan-feedback {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+  }
 </style>
 </head>
 <body class="has-anna-nav case-study-page cs-design-page cs-v2">
