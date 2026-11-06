@@ -26,6 +26,7 @@
   img, video { max-width: 100%; height: auto; }
   a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
+  /* Hero + meta — same as pos-app.html */
   .hero { max-width: 820px; margin: 80px auto 0; padding: 0 48px; }
   .hero-tag { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dark); background: var(--accent-light); padding: 6px 14px; border-radius: 4px; margin-bottom: 24px; }
   .hero h1 { font-family: var(--page-title); font-size: clamp(40px, 4.2vw, 60px); line-height: 1.1; letter-spacing: -0.003em; font-weight: 400; color: #000; margin-bottom: 24px; }
@@ -38,6 +39,18 @@
   .meta-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin-bottom: 6px; }
   .meta-value { font-size: 14px; font-weight: 500; color: var(--dark); }
 
+  .hero-image { max-width: min(1100px, 100%); margin: 0 auto 80px; padding: 0 48px; }
+  .hero-image picture { display: block; }
+  .hero-image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(26, 42, 90, 0.12);
+  }
+  .hero-image .screen-caption { margin-top: 14px; text-align: center; }
+
   body.case-study-page.cs-design-page .pos-summary-shell.sb-case {
     max-width: none;
     margin: 0;
@@ -46,42 +59,13 @@
   body.case-study-page.cs-design-page .pos-summary-shell .sb-tldr.cs-summary.sb-glance {
     text-align: left;
   }
-  body.case-study-page.cs-design-page .content.case-main section[aria-labelledby="turning-point"] .cs-turning__column > .cs-turning__eyebrow {
-    display: flex !important;
-    align-items: center;
-    gap: 10px;
-    margin: 0 0 16px;
-    font-family: "Poppins", sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    text-transform: none;
-    color: var(--yellow);
-  }
 
-  body.case-study-page.cs-v2 .hero-image {
-    max-width: min(1200px, calc(100vw - 40px)) !important;
-    margin: 0 auto 80px;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body.case-study-page.cs-v2 .hero-image :is(picture, img) {
-    display: block;
-    width: 100%;
-    max-width: min(1136px, calc(100vw - 40px));
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(26, 42, 90, 0.12);
-  }
-  @media (min-width: 769px) and (max-width: 1024px) {
-    body.case-study-page.cs-v2 .hero-image :is(picture, img) {
-      max-width: min(1136px, calc(100vw - 80px));
-    }
-  }
-  body.case-study-page.cs-v2 .hero-image .screen-caption {
-    margin-top: 14px;
-    text-align: center;
+  .content {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 48px 64px;
+    perspective: 1600px;
+    transform-style: preserve-3d;
   }
 
   .screen-wrap.screen-wrap--natural-photo { width: 100%; }
@@ -105,13 +89,6 @@
     }
   }
 
-  .content {
-    max-width: 820px;
-    margin: 0 auto;
-    padding: 0 48px 64px;
-    perspective: 1600px;
-    transform-style: preserve-3d;
-  }
   .content--design-system { max-width: min(100%, 1024px); }
   .content--design-system img { transform: none; filter: none; }
   .ds-theme-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 8px; }
@@ -154,27 +131,56 @@
   }
 
   body.case-study-page.cs-v2 .sb-case .cs-v2-decision figure.sb-ds-sheet,
-  body.case-study-page.cs-v2 .sb-case #design figure.ds-sheet-figure {
+  body.case-study-page.cs-v2 .sb-case #design-system figure.ds-sheet-figure {
     opacity: 1 !important;
     transform: none !important;
     animation: none !important;
   }
 
-  /* Flow label: Poppins 600, body size — yellow + ink via cs-design .cs-flow-eyebrow */
-  body.case-study-page.cs-v2 .sb-case .cs-flow-eyebrow.bo-flow-label {
-    margin: 0;
+  /* Problem banner — full-width track like .cs-v2-decision */
+  body.case-study-page.cs-v2 .sb-case .bo-problem-banner-wrap {
+    --bo-wide: min(1200px, calc(100vw - 64px));
+    width: var(--bo-wide);
+    max-width: var(--bo-wide);
+    margin-left: calc((100% - var(--bo-wide)) / 2);
+    margin-right: 0;
+    margin-top: var(--cs-v2-phase-gap, 80px);
+    border-top: 1px solid var(--frame-line, var(--border));
+    padding-top: var(--space-text, 16px);
+    margin-bottom: 0;
+    box-sizing: border-box;
+  }
+  /* One phase-gap between banner content and first phase (no second hairline) */
+  body.case-study-page.cs-v2 .sb-case .bo-problem-banner-wrap + .section.cs-v2-phase {
+    margin-top: var(--cs-v2-phase-gap, 80px);
+    padding-top: 0;
+    border-top: none;
+  }
+  body.case-study-page.cs-v2 .sb-case .bo-problem-banner__label {
     font-family: "Poppins", sans-serif;
     font-size: var(--fs-body, 17px);
     font-weight: 600;
-    line-height: 1.45;
+    line-height: var(--lh-body, 1.7);
+    color: var(--yellow);
+    margin: 0 0 var(--space-text, 16px);
   }
-  body.case-study-page.cs-v2 .sb-case .bo-flow-label {
-    display: block;
-    margin-top: var(--space-block, 24px);
-    margin-bottom: var(--space-text, 16px);
+  body.case-study-page.cs-v2 .sb-case .bo-problem-banner__title {
+    font-family: "Poppins", sans-serif;
+    font-size: var(--fs-large, clamp(26px, 2.6vw, 32px));
+    font-weight: 600;
+    line-height: var(--lh-large, 1.25);
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 0 0 var(--space-text, 16px);
   }
-  body.case-study-page.cs-v2 .sb-case .bo-flow-label--first {
-    margin-top: var(--space-text, 16px);
+  body.case-study-page.cs-v2 .sb-case .bo-problem-banner__line {
+    font-family: "Poppins", sans-serif;
+    font-size: var(--fs-body, 17px);
+    font-weight: 400;
+    line-height: var(--lh-body, 1.7);
+    color: var(--body);
+    margin: 0;
+    max-width: var(--cs-v2-col, 720px);
   }
 
   body.case-study-page.cs-v2 .sb-case .fs-note {
@@ -185,9 +191,18 @@
     margin: 0 0 12px;
     max-width: var(--cs-v2-col, 720px);
   }
-  body.case-study-page.cs-v2 .sb-case #reflection .cs-v2-list li .fs-note {
-    margin-top: 10px;
-    margin-bottom: 0;
+
+  body.case-study-page.cs-v2 .sb-case .pos-summary-shell .cs-platform-note.fs-note {
+    margin-top: var(--space-block, 24px);
+  }
+
+  @media (max-width: 767px) {
+    body.case-study-page.cs-v2 .sb-case .bo-problem-banner-wrap {
+      margin-top: var(--cs-v2-phase-gap, 56px);
+    }
+    body.case-study-page.cs-v2 .sb-case .bo-problem-banner-wrap + .section.cs-v2-phase {
+      margin-top: var(--cs-v2-phase-gap, 56px);
+    }
   }
 
   @media (max-width: 640px) {
@@ -260,7 +275,7 @@
           <div class="cs-summary__flow-grid">
             <article class="cs-summary__flow-card sb-glance__col">
               <header class="cs-summary__flow-card-head">
-                <p class="cs-summary__flow-card-title"><span class="cs-summary__flow-card-num">Flow 1</span><span class="cs-summary__flow-card-name"> · Replenishment</span></p>
+                <p class="cs-summary__flow-card-title"><span class="cs-summary__flow-card-num">Problem 1</span><span class="cs-summary__flow-card-name"> · Replenishment</span></p>
               </header>
               <div class="cs-summary__flow-card-body">
                 <div class="cs-summary__flow-block">
@@ -288,12 +303,12 @@
                 </div>
               </div>
               <footer class="cs-summary__flow-card-foot">
-                <a class="cs-summary-jump__link" href="#results-replenishment">Flow 1 results <span class="cs-summary-jump__arrow" aria-hidden="true">↓</span></a>
+                <a class="cs-summary-jump__link" href="#results-replenishment">Problem 1 results <span class="cs-summary-jump__arrow" aria-hidden="true">↓</span></a>
               </footer>
             </article>
             <article class="cs-summary__flow-card sb-glance__col">
               <header class="cs-summary__flow-card-head">
-                <p class="cs-summary__flow-card-title"><span class="cs-summary__flow-card-num">Flow 2</span><span class="cs-summary__flow-card-name"> · Campaigns</span></p>
+                <p class="cs-summary__flow-card-title"><span class="cs-summary__flow-card-num">Problem 2</span><span class="cs-summary__flow-card-name"> · Campaigns</span></p>
               </header>
               <div class="cs-summary__flow-card-body">
                 <div class="cs-summary__flow-block">
@@ -320,55 +335,61 @@
                 </div>
               </div>
               <footer class="cs-summary__flow-card-foot">
-                <a class="cs-summary-jump__link" href="#results-campaigns">Flow 2 results <span class="cs-summary-jump__arrow" aria-hidden="true">↓</span></a>
+                <a class="cs-summary-jump__link" href="#results-campaigns">Problem 2 results <span class="cs-summary-jump__arrow" aria-hidden="true">↓</span></a>
               </footer>
             </article>
           </div>
         </div>
-        <p class="cs-platform-note fade-in reveal cs-match-img">Part of the Focalpay platform: products and prices set up here power the <a href="pos-app.html">Cashier POS</a> and the <a href="mobile-app.html">Mobile shopping app</a>.</p>
+        <p class="cs-platform-note fs-note fade-in reveal cs-match-img">Part of the Focalpay platform: products and prices set up here power the <a href="pos-app.html">Cashier POS</a> and the <a href="mobile-app.html">Mobile shopping app</a>.</p>
       </div>
     </div>
   </section>
 
-  <section class="section fade-in reveal cs-v2-phase" id="introduction">
+  <section class="section fade-in reveal cs-v2-phase" id="backoffice-product">
     <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="cs-v2-phase-label">Introduction</span></div>
-    <h2 class="cs-match-img cs-v2-heading">The challenge</h2>
+    <h2 class="cs-match-img cs-v2-heading">The product</h2>
     <p class="cs-match-img">The Focalpay Back-office is where retailers manage everything the POS and the shopping app use: products, stock, prices and campaigns. Customers ranged from the footwear brand Icebug to supermarket chains like Matrebellerna and Matvärlden.</p>
-    <p class="cs-match-img">I owned two flows in it, Replenishment and Campaigns, and both had the same problem: the system left the remembering, the checking and the maths to store managers.</p>
-    <div class="cs-match-img cs-v2-one-question">
-      <p class="cs-v2-subtitle">The one question</p>
-      <p class="cs-v2-one-question__lead">So every decision had to answer one question:</p>
-      <p class="cs-v2-one-question__q">does the system do the remembering and the maths, instead of the store manager?</p>
-    </div>
+    <p class="cs-match-img">The POS and the shopping app only work if every product, price and stock level is right, so the Back-office is where retailers keep them right. But in two important areas, the system left the remembering, the checking and the maths to store managers.</p>
     <p class="cs-match-img cs-v2-subtitle">My role</p>
     <ul class="cs-match-img cs-v2-list">
       <li>Joined midway as one of two designers, and owned Replenishment, Campaigns and the design system.</li>
       <li>When my colleague moved on, I became the only designer on the team.</li>
-      <li>Working closely with the PM and engineering.</li>
+      <li>Interviewed 6 managers from 6 customer businesses, and worked closely with the PM and engineering.</li>
     </ul>
   </section>
 
-  <section class="section fade-in reveal cs-v2-phase" id="discover">
+  <div class="bo-problem-banner-wrap" id="problem-replenishment">
+    <div class="bo-problem-banner">
+      <p class="bo-problem-banner__label">Problem 1 of 2</p>
+      <h2 class="bo-problem-banner__title">Replenishment</h2>
+      <p class="bo-problem-banner__line">From empty shelves to early warnings</p>
+    </div>
+  </div>
+
+  <section class="section fade-in reveal cs-v2-phase" id="replenishment-introduction">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="cs-v2-phase-label">Introduction</span></div>
+    <h2 class="cs-match-img cs-v2-heading">The challenge</h2>
+    <p class="cs-match-img">Store managers had no warning before a product ran out. They found out when the shelf was already empty, and then ordering took seven manual steps.</p>
+    <div class="cs-match-img cs-v2-one-question">
+      <p class="cs-v2-subtitle">The one question</p>
+      <p class="cs-v2-one-question__lead">So every decision had to answer one question:</p>
+      <p class="cs-v2-one-question__q">does the manager know about low stock before the shelf is empty?</p>
+    </div>
+  </section>
+
+  <section class="section fade-in reveal cs-v2-phase" id="replenishment-discover">
     <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span class="cs-v2-phase-label">Discover</span></div>
     <h2 class="cs-match-img cs-v2-heading">What we found</h2>
-    <p class="cs-match-img">I interviewed 6 managers from 6 customer businesses, covering both flows. They did real tasks while thinking aloud, and I followed up with questions.</p>
-    <p class="cs-match-img cs-flow-eyebrow bo-flow-label bo-flow-label--first"><span class="cs-flow-eyebrow__flow">Flow 1 of 2</span><span class="cs-flow-eyebrow__name"> · Replenishment</span></p>
-    <ul class="cs-match-img cs-v2-list">
-      <li><strong>No warning before a product ran out.</strong> Managers checked their best-selling products one by one, and still found out when the shelf was empty. <span class="cs-v2-meta">— Interviews</span></li>
+    <p class="cs-match-img">In interviews, managers did real replenishment tasks while thinking aloud, and I followed up with questions. Two findings shaped the work:</p>
+    <ol class="cs-match-img cs-v2-list cs-v2-findings">
+      <li><strong>No warning before a product ran out.</strong> To prevent it, managers checked their best-selling products one by one, and still found out when the shelf was empty. <span class="cs-v2-meta">— Interviews</span></li>
       <li><strong>Ordering was done by hand, every time:</strong> finding the supplier, working out quantity and cost, and writing the order email. <span class="cs-v2-meta">— Interviews</span></li>
-    </ul>
-    <p class="cs-match-img cs-flow-eyebrow bo-flow-label"><span class="cs-flow-eyebrow__flow">Flow 2 of 2</span><span class="cs-flow-eyebrow__name"> · Campaigns</span></p>
-    <ul class="cs-match-img cs-v2-list">
-      <li><strong>Weighted campaigns were calculated and typed in by hand.</strong> Discounts on products sold by weight were slow to set up and easy to get wrong. <span class="cs-v2-meta">— Interviews</span></li>
-      <li><strong>Prices and campaigns drifted apart.</strong> "Every time base prices change, I'm double-checking campaigns by hand." 4 of 6 managers reported inconsistencies between catalogue data and campaign rules. <span class="cs-v2-meta">— Interviews</span></li>
-    </ul>
+    </ol>
   </section>
 
-  <section class="section fade-in reveal cs-v2-phase" id="connect">
+  <section class="section fade-in reveal cs-v2-phase" id="replenishment-connect">
     <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg><span class="cs-v2-phase-label">Connect</span></div>
     <h2 class="cs-match-img cs-v2-heading">From findings to directions</h2>
-    <p class="cs-match-img">Each finding pointed to a design direction.</p>
-    <p class="cs-match-img cs-flow-eyebrow bo-flow-label bo-flow-label--first"><span class="cs-flow-eyebrow__flow">Flow 1 of 2</span><span class="cs-flow-eyebrow__name"> · Replenishment</span></p>
     <ul class="cs-match-img cs-v2-list">
       <li><strong>No warning</strong> → alerts that sort themselves by urgency</li>
       <li><strong>Ordering by hand</strong> → orders with supplier, stock levels and cost filled in</li>
@@ -416,51 +437,11 @@
         </div>
       </div>
     </div>
-    <p class="cs-match-img cs-flow-eyebrow bo-flow-label"><span class="cs-flow-eyebrow__flow">Flow 2 of 2</span><span class="cs-flow-eyebrow__name"> · Campaigns</span></p>
-    <ul class="cs-match-img cs-v2-list">
-      <li><strong>Maths by hand</strong> → ready-made templates for the most common campaigns</li>
-      <li><strong>Database words</strong> → the store's own words</li>
-    </ul>
   </section>
 
-  <section class="section fade-in reveal cs-v2-phase" aria-labelledby="turning-point">
-    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h13l4-3-4-3z"/><path d="M12 11v10"/><path d="M9 21h6"/></svg><span class="cs-v2-phase-label">Turning point</span></div>
-    <div class="cs-match-img cs-turning">
-      <div class="cs-turning__column">
-        <p class="cs-match-img cs-flow-eyebrow bo-flow-label bo-flow-label--first"><span class="cs-flow-eyebrow__flow">Flow 2 of 2</span><span class="cs-flow-eyebrow__name"> · Campaigns</span></p>
-        <h2 class="section-chapter" id="turning-point">The interviews said it was painful. The data said why.</h2>
-        <div class="cs-turning__shift" aria-label="From interviews to campaign data">
-          <div class="cs-turning__shift-box cs-turning__shift-box--plan">
-            <span class="cs-turning__shift-label">What managers told me</span>
-            <p class="cs-turning__shift-text">Campaigns take too long</p>
-          </div>
-          <span class="cs-turning__shift-arrow cs-turning__shift-arrow--right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-          <span class="cs-turning__shift-arrow cs-turning__shift-arrow--down" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></span>
-          <div class="cs-turning__shift-box cs-turning__shift-box--highlight">
-            <span class="cs-turning__shift-label cs-turning__shift-label--accent">What the data showed</span>
-            <p class="cs-turning__shift-text cs-turning__shift-text--highlight">94% follow just two patterns</p>
-          </div>
-        </div>
-        <div class="cs-turning__prose">
-          <p>Managers told me campaigns were slow, but not why. So I asked our supermarket customers for their last three months of campaign data and analysed it myself.</p>
-          <p>94% of weighted campaigns followed one of two patterns.</p>
-        </div>
-        <div class="cs-turning__callout-block">
-          <p class="cs-turning__callout-label">
-            <svg class="cs-turning__callout-label-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .962L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
-            <span>The aha moment</span>
-          </p>
-          <p class="cs-turning__callout">Managers didn't need a more flexible form. <span class="cs-turning__callout-accent">They needed the two campaigns they ran all the time, ready to use.</span></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section fade-in reveal cs-v2-phase" id="design">
+  <section class="section fade-in reveal cs-v2-phase" id="replenishment-design">
     <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg><span class="cs-v2-phase-label">Design</span></div>
-    <h2 class="cs-match-img cs-v2-heading">Five decisions</h2>
-
-    <p class="cs-match-img cs-flow-eyebrow bo-flow-label bo-flow-label--first"><span class="cs-flow-eyebrow__flow">Flow 1 of 2</span><span class="cs-flow-eyebrow__name"> · Replenishment</span></p>
+    <h2 class="cs-match-img cs-v2-heading">Three decisions</h2>
     <div class="cs-v2-decision">
       <p class="cs-match-img">Before, ordering stock took seven steps, and the first one was a surprise.</p>
       <div class="cs-flow wide" aria-label="Stock ordering before and after redesign">
@@ -558,11 +539,96 @@
         </div>
       </div>
     </div>
+  </section>
 
-    <p class="cs-match-img cs-flow-eyebrow bo-flow-label"><span class="cs-flow-eyebrow__flow">Flow 2 of 2</span><span class="cs-flow-eyebrow__name"> · Campaigns</span></p>
-    <p class="cs-match-img">The turning point showed that 94% of weighted campaigns followed two patterns. So the builder was designed around them.</p>
+  <section class="section fade-in reveal cs-v2-phase" id="results-replenishment">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg><span class="cs-v2-phase-label">Results</span></div>
+    <h2 class="cs-match-img cs-v2-heading">What changed</h2>
+    <div class="cs-match-img cs-v2-results-grid">
+      <div><p class="cs-v2-result-num">7 → 2</p><p class="cs-v2-result-label">steps to order stock</p></div>
+      <div><p class="cs-v2-result-num">35%</p><p class="cs-v2-result-label">less operational friction, assessed in a workshop with 5 store managers</p></div>
+    </div>
+    <div class="quote-block cs-quote cs-v2-quote cs-match-img">
+      <p>"Moving stock level to the top sounds like a small thing. For us, it saves 20 minutes a day."</p>
+      <cite>— Assistant Manager, Matvärlden</cite>
+    </div>
+  </section>
+
+  <div class="bo-problem-banner-wrap" id="problem-campaigns">
+    <div class="bo-problem-banner">
+      <p class="bo-problem-banner__label">Problem 2 of 2</p>
+      <h2 class="bo-problem-banner__title">Campaigns</h2>
+      <p class="bo-problem-banner__line">From maths to templates</p>
+    </div>
+  </div>
+
+  <section class="section fade-in reveal cs-v2-phase" id="campaigns-introduction">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="cs-v2-phase-label">Introduction</span></div>
+    <h2 class="cs-match-img cs-v2-heading">The challenge</h2>
+    <p class="cs-match-img">Weighted campaigns, for products sold by weight like fruit or deli items, were set up by hand. Managers calculated each discount and typed it in, which was slow and easy to get wrong.</p>
+    <div class="cs-match-img cs-v2-one-question">
+      <p class="cs-v2-subtitle">The one question</p>
+      <p class="cs-v2-one-question__lead">So every decision had to answer one question:</p>
+      <p class="cs-v2-one-question__q">can a manager set up a weighted campaign without doing the maths?</p>
+    </div>
+  </section>
+
+  <section class="section fade-in reveal cs-v2-phase" id="campaigns-discover">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span class="cs-v2-phase-label">Discover</span></div>
+    <h2 class="cs-match-img cs-v2-heading">What we found</h2>
+    <p class="cs-match-img">In the same interviews, managers set up campaigns while thinking aloud. Two findings shaped the work:</p>
+    <ol class="cs-match-img cs-v2-list cs-v2-findings">
+      <li><strong>Every weighted campaign meant doing the maths.</strong> Discounts on products sold by weight were calculated and typed in by hand. <span class="cs-v2-meta">— Interviews</span></li>
+      <li><strong>Prices and campaigns drifted apart.</strong> "Every time base prices change, I'm double-checking campaigns by hand." 4 of 6 managers reported inconsistencies between catalogue data and campaign rules. <span class="cs-v2-meta">— Interviews</span></li>
+    </ol>
+  </section>
+
+  <section class="section fade-in reveal cs-v2-phase" id="campaigns-connect">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg><span class="cs-v2-phase-label">Connect</span></div>
+    <h2 class="cs-match-img cs-v2-heading">From findings to directions</h2>
+    <ul class="cs-match-img cs-v2-list">
+      <li><strong>Maths by hand</strong> → ready-made templates for the most common campaigns</li>
+      <li><strong>Database words</strong> → the store's own words</li>
+    </ul>
+  </section>
+
+  <section class="section fade-in reveal cs-v2-phase" aria-labelledby="turning-point">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h13l4-3-4-3z"/><path d="M12 11v10"/><path d="M9 21h6"/></svg><span class="cs-v2-phase-label">Turning point</span></div>
+    <div class="cs-match-img cs-turning">
+      <div class="cs-turning__column">
+        <h2 class="section-chapter" id="turning-point">The interviews said it was painful. The data said why.</h2>
+        <div class="cs-turning__shift" aria-label="From interviews to campaign data">
+          <div class="cs-turning__shift-box cs-turning__shift-box--plan">
+            <span class="cs-turning__shift-label">What managers told me</span>
+            <p class="cs-turning__shift-text">Campaigns take too long</p>
+          </div>
+          <span class="cs-turning__shift-arrow cs-turning__shift-arrow--right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          <span class="cs-turning__shift-arrow cs-turning__shift-arrow--down" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></span>
+          <div class="cs-turning__shift-box cs-turning__shift-box--highlight">
+            <span class="cs-turning__shift-label cs-turning__shift-label--accent">What the data showed</span>
+            <p class="cs-turning__shift-text cs-turning__shift-text--highlight">94% follow just two patterns</p>
+          </div>
+        </div>
+        <div class="cs-turning__prose">
+          <p>Managers told me campaigns were slow, but not why. So I asked our supermarket customers for their last three months of campaign data and analysed it myself.</p>
+          <p>94% of weighted campaigns followed one of two patterns.</p>
+        </div>
+        <div class="cs-turning__callout-block">
+          <p class="cs-turning__callout-label">
+            <svg class="cs-turning__callout-label-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .962L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
+            <span>The aha moment</span>
+          </p>
+          <p class="cs-turning__callout">Managers didn't need a more flexible form. <span class="cs-turning__callout-accent">They needed the two campaigns they ran all the time, ready to use.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade-in reveal cs-v2-phase" id="campaigns-design">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg><span class="cs-v2-phase-label">Design</span></div>
+    <h2 class="cs-match-img cs-v2-heading">Two decisions</h2>
     <div class="cs-v2-decision">
-      <p class="cs-v2-decision__title">Decision 4 · A three-step builder with two weight templates</p>
+      <p class="cs-v2-decision__title">Decision 1 · A three-step builder with two weight templates</p>
       <p>Instead of a form where every campaign meant doing the maths, I designed a three-step builder: About → Terms → Products. In Terms, managers choose a campaign type in plain words, including two ready-made weight templates, and each type shows only the fields it needs. Templates are less flexible, but covering 94% of weighted campaigns in a few clicks was worth more than a form that could do everything, slowly.</p>
       <div class="screens-section reveal reveal-media">
         <div class="screen-item">
@@ -590,7 +656,7 @@
     </div>
 
     <div class="cs-v2-decision">
-      <p class="cs-v2-decision__title">Decision 5 · Using the store's words</p>
+      <p class="cs-v2-decision__title">Decision 2 · Using the store's words</p>
       <p>In one session, a manager wasn't sure what "Base unit price" meant, and others with similar businesses agreed: their everyday words were clearer than field names from the database. So the builder speaks the way stores talk.</p>
       <div class="screens-section reveal reveal-media">
         <div class="screen-item">
@@ -601,8 +667,25 @@
         </div>
       </div>
     </div>
+  </section>
 
-    <p class="cs-match-img cs-v2-subtitle">Design system</p>
+  <section class="section fade-in reveal cs-v2-phase" id="results-campaigns">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg><span class="cs-v2-phase-label">Results</span></div>
+    <h2 class="cs-match-img cs-v2-heading">What changed</h2>
+    <p class="cs-match-img">I gave 5 store managers the same campaign tasks in the old and new versions, and measured time and errors.</p>
+    <div class="cs-match-img cs-v2-results-grid">
+      <div><p class="cs-v2-result-num">25%</p><p class="cs-v2-result-label">faster campaign creation (4m 20s → 3m 14s)</p></div>
+      <div><p class="cs-v2-result-num">78%</p><p class="cs-v2-result-label">fewer errors (3.6 → 0.8 per session)</p></div>
+    </div>
+    <div class="quote-block cs-quote cs-v2-quote cs-match-img">
+      <p>"The campaign builder finally speaks our language."</p>
+      <cite>— Store Manager, Icebug</cite>
+    </div>
+  </section>
+
+  <section class="section fade-in reveal cs-v2-phase" id="design-system">
+    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg><span class="cs-v2-phase-label">Design system</span></div>
+    <h2 class="cs-match-img cs-v2-heading">One design system for both</h2>
     <p class="cs-match-img">I built a design system with a light and a dark theme. Both share the same components, spacing and interactions; only the colours change, so store teams can choose what works in their lighting. Below: foundations, buttons, and inputs and forms.</p>
     <div class="content--design-system wide">
       <div class="reveal reveal-media">
@@ -630,56 +713,6 @@
         <img class="ds-img" src="backoffice-ds-03-forms.png" srcset="backoffice-ds-03-forms.png 10050w" sizes="(max-width: 640px) calc(100vw - 48px), min(1024px, 100vw - 96px)" alt="Design system: form inputs, checkboxes, radio, keypad, pagination, tabs, breadcrumb" width="10050" height="11665" loading="lazy" decoding="async">
       </figure>
     </div>
-  </section>
-
-  <section class="section fade-in reveal cs-v2-phase" id="results">
-    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg><span class="cs-v2-phase-label">Results</span></div>
-    <h2 class="cs-match-img cs-v2-heading">What changed</h2>
-    <p class="cs-match-img">The redesign is live in several stores.</p>
-
-    <p class="cs-match-img cs-flow-eyebrow bo-flow-label bo-flow-label--first"><span class="cs-flow-eyebrow__flow">Flow 1 of 2</span><span class="cs-flow-eyebrow__name"> · Replenishment</span></p>
-    <div class="cs-match-img" id="results-replenishment">
-      <div class="cs-v2-results-grid">
-        <div><p class="cs-v2-result-num">7 → 2</p><p class="cs-v2-result-label">steps to order stock</p></div>
-        <div><p class="cs-v2-result-num">35%</p><p class="cs-v2-result-label">less operational friction, assessed in a workshop with 5 store managers</p></div>
-      </div>
-      <div class="quote-block cs-quote cs-v2-quote">
-        <p>"Moving stock level to the top sounds like a small thing. For us, it saves 20 minutes a day."</p>
-        <cite>— Assistant Manager, Matvärlden</cite>
-      </div>
-    </div>
-
-    <p class="cs-match-img cs-flow-eyebrow bo-flow-label"><span class="cs-flow-eyebrow__flow">Flow 2 of 2</span><span class="cs-flow-eyebrow__name"> · Campaigns</span></p>
-    <div class="cs-match-img" id="results-campaigns">
-      <p class="cs-match-img">I gave 5 store managers the same campaign tasks in the old and new versions, and measured time and errors.</p>
-      <div class="cs-v2-results-grid">
-        <div><p class="cs-v2-result-num">25%</p><p class="cs-v2-result-label">faster campaign creation (4m 20s → 3m 14s)</p></div>
-        <div><p class="cs-v2-result-num">78%</p><p class="cs-v2-result-label">fewer errors (3.6 → 0.8 per session)</p></div>
-      </div>
-      <div class="quote-block cs-quote cs-v2-quote">
-        <p>"The campaign builder finally speaks our language."</p>
-        <cite>— Store Manager, Icebug</cite>
-      </div>
-    </div>
-  </section>
-
-  <section class="section fade-in reveal cs-v2-phase" id="reflection">
-    <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg><span class="cs-v2-phase-label">Reflection</span></div>
-    <h2 class="cs-match-img cs-v2-heading">What I learned</h2>
-    <ul class="cs-match-img cs-v2-list">
-      <li>
-        <p><strong>Use the words your users use.</strong> Part of what made the template builder work was the vocabulary. It used the words store managers already used every day. When an interface uses database names, it feels like a tool for the system. When it uses the words from people's jobs, it feels like a tool for them.</p>
-        <p class="fs-note">From Flow 2 · Campaigns</p>
-      </li>
-      <li>
-        <p><strong>Alerts beat checklists.</strong> Managers shouldn't have to remember to check. When the system warns them early, they act before the shelf is empty.</p>
-        <p class="fs-note">From Flow 1 · Replenishment</p>
-      </li>
-      <li>
-        <p><span class="cs-v2-reflect-yellow">What I'd do differently:</span> I'd ask for the campaign data at the start, alongside the interviews. The data explained the problem much faster than another round of conversations could.</p>
-        <p class="fs-note">From Flow 2 · Campaigns</p>
-      </li>
-    </ul>
   </section>
 
   <section class="section cs-more-section" aria-labelledby="cs-more-heading">
