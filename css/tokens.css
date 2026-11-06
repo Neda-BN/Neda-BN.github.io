@@ -13,6 +13,12 @@
   --attention: #E8B86D;
   --attention-soft: rgba(232, 184, 109, 0.12);
   --attention-border: rgba(232, 184, 109, 0.45);
+  /* “My design idea” tags only — not used for links, headings, or UI chrome */
+  --idea-tag: #A78BFA;
+  --idea-tag-text: #EDE5FF;
+  --idea-tag-soft: rgba(167, 139, 250, 0.2);
+  --idea-tag-border: rgba(167, 139, 250, 0.62);
+  --idea-tag-glow: rgba(167, 139, 250, 0.22);
   --accent-text: var(--accent);
   --font-stack: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-display: var(--font-stack);
