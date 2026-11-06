@@ -650,7 +650,7 @@
   outline-offset: 4px;
 }
 
-footer {
+body > footer {
   box-sizing: border-box;
   width: 100%;
   max-width: 1200px;
@@ -665,7 +665,7 @@ footer {
   background: var(--bg);
 }
 
-footer p {
+body > footer p {
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 400;
@@ -678,7 +678,7 @@ footer p {
     padding: 56px 32px 72px;
   }
 
-  footer {
+  body > footer {
     padding: 24px 32px;
     flex-direction: column;
     align-items: flex-start;
@@ -736,12 +736,12 @@ footer p {
   font-size: 17px;
 }
 
-footer {
+body > footer {
   border-top: none;
   position: relative;
 }
 
-footer::before {
+body > footer::before {
   content: "";
   position: absolute;
   top: 0;

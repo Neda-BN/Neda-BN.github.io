@@ -156,12 +156,13 @@ h2.works-anna__heading,
 .footer-strip__cta:hover {
   background: var(--accent-strong);
 }
-footer,
+/* Page shell only — case study cards use <footer> for jump links */
+body > footer,
 .site-footer {
   background: var(--bg);
   border-top-color: var(--border);
 }
-footer p,
+body > footer p,
 .site-footer p {
   color: var(--muted);
 }
