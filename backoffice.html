@@ -137,22 +137,22 @@
     animation: none !important;
   }
 
-  /* Problem banner — full-width track like .cs-v2-decision */
+  /* Problem banner — phase token (--space-phase matches cs-v2 phase rhythm) */
   body.case-study-page.cs-v2 .sb-case .bo-problem-banner-wrap {
-    --bo-wide: min(1200px, calc(100vw - 64px));
-    width: var(--bo-wide);
-    max-width: var(--bo-wide);
-    margin-left: calc((100% - var(--bo-wide)) / 2);
+    --space-phase: var(--cs-v2-phase-gap, 80px);
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
     margin-right: 0;
-    margin-top: var(--cs-v2-phase-gap, 80px);
+    margin-top: calc(2 * var(--space-phase));
     border-top: 1px solid var(--frame-line, var(--border));
     padding-top: var(--space-text, 16px);
     margin-bottom: 0;
     box-sizing: border-box;
   }
-  /* One phase-gap between banner content and first phase (no second hairline) */
+  /* One phase-gap between banner last line and first phase label (no extra hairline) */
   body.case-study-page.cs-v2 .sb-case .bo-problem-banner-wrap + .section.cs-v2-phase {
-    margin-top: var(--cs-v2-phase-gap, 80px);
+    margin-top: var(--space-phase);
     padding-top: 0;
     border-top: none;
   }
@@ -198,10 +198,11 @@
 
   @media (max-width: 767px) {
     body.case-study-page.cs-v2 .sb-case .bo-problem-banner-wrap {
-      margin-top: var(--cs-v2-phase-gap, 56px);
+      --space-phase: var(--cs-v2-phase-gap, 56px);
+      margin-top: calc(1.5 * var(--space-phase));
     }
     body.case-study-page.cs-v2 .sb-case .bo-problem-banner-wrap + .section.cs-v2-phase {
-      margin-top: var(--cs-v2-phase-gap, 56px);
+      margin-top: var(--space-phase);
     }
   }
 
