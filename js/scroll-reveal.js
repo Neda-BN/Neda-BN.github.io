@@ -68,7 +68,7 @@
       var fig = hero.querySelector('figure');
       if (fig) fig.classList.add(REVEAL);
       else {
-        var img = hero.querySelector('.case-hero-img, picture, img');
+        var img = hero.querySelector('.cs-hero-img, picture, img');
         if (img) (img.closest('figure') || img).classList.add(REVEAL);
       }
     });

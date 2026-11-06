@@ -76,7 +76,7 @@ def is_hero(attrs: dict[str, str | None], filename: str, hero_used: bool, tag: s
     src = attrs.get("src") or ""
     if "hero-v6__photo" in cls or "hero-v6__photo" in tag:
         return True
-    if "case-hero-img" in cls or "case-hero-img" in tag:
+    if "cs-hero-img" in cls or "case-hero-img" in cls or "case-hero-img" in tag:
         return True
     if "hero-scroll-img" in cls or "hero-scroll-img" in tag:
         return True

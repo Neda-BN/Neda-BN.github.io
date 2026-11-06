@@ -11,6 +11,7 @@
 
 /* Case study layout — unified track aligned to mockup/image cards (Backoffice reference: 820px) */
 .case-study-page {
+  margin: 0;
   overflow-x: clip;
   --cs-content-below-nav: calc(env(safe-area-inset-top, 0px) + var(--nav-h) + 32px);
   --cs-track: min(100%, 820px);
@@ -76,6 +77,71 @@
 .case-study-page .hero-image {
   margin-bottom: var(--cs-section-space);
   padding: 0;
+}
+
+/* Main case-study hero visual — shared width/track as Back-office (820px max, 12px inset <860px via --cs-pad) */
+.case-study-page .hero-image picture:has(.cs-hero-img),
+.case-study-page .hero-image .cs-hero-img-inline {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.case-study-page img.cs-hero-img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  border-radius: var(--cs-radius-media);
+  box-shadow: 0 4px 24px rgba(26, 42, 90, 0.1);
+}
+
+.case-study-page .hero-image .hc-media-frame:has(.cs-hero-img),
+.case-study-page .hero-image .image-placeholder:has(.cs-hero-img) {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
+}
+
+.case-study-page .hero-image .hc-media-frame:has(.cs-hero-img) img {
+  border-radius: inherit;
+}
+
+/* POS case study: preview strip (not the main hero width) + full-width overview image */
+.case-study-page .pos-hero-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.case-study-page .pos-hero-strip__interaction {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  align-items: center;
+}
+
+.case-study-page .pos-hero-strip__interaction .screen-caption {
+  margin-top: 0;
+  text-align: center;
+}
+
+.case-study-page .hero-image .screen-caption.cs-caption {
+  margin-top: 12px;
+  text-align: center;
 }
 
 .case-study-page .content,
@@ -554,9 +620,8 @@
   max-width: min(100%, 320px);
 }
 
-.case-study-page .case-hero-img,
-.case-study-page .hero-image img,
-.case-study-page .hero-image picture,
+.case-study-page .cs-hero-img,
+.case-study-page .hero-image img:not(.cs-hero-img),
 .case-study-page .case-study-figure img,
 .case-study-page .case-study-figure picture,
 .case-study-page .case-study-figure picture img,
@@ -569,8 +634,6 @@
   border-radius: var(--cs-radius-media);
 }
 
-.case-study-page .case-hero-img,
-.case-study-page .hero-image .case-hero-img,
 .case-study-page .case-study-figure img,
 .case-study-page .case-study-figure picture img {
   display: block;
@@ -606,7 +669,6 @@
   max-width: 100%;
 }
 
-.case-study-page .hero-image picture,
 .case-study-page .case-study-figure,
 .case-study-page .case-study-figure picture {
   display: block;
@@ -1089,7 +1151,7 @@
 .case-study-page .wide img,
 .case-study-page .wide picture,
 .case-study-page .wide picture img,
-.case-study-page .wide .case-hero-img,
+.case-study-page .wide .cs-hero-img,
 .case-study-page .wide .ds-img,
 .case-study-page .wide .pos-transformation-img,
 .case-study-page .wide .hc-discover-fullbleed img,
@@ -2778,12 +2840,13 @@ body.case-study-page .hc-tldr p:last-child {
 
 /* At a glance (.sb-glance): typography comes from cs-design.css — do not blanket-reset p */
 
-body.case-study-page {
+/* Viewport scrolling follows html, not body — smooth in-page jumps (e.g. Back-office Problem 1/2) */
+html:has(body.case-study-page) {
   scroll-behavior: smooth;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body.case-study-page {
+  html:has(body.case-study-page) {
     scroll-behavior: auto;
   }
 }
@@ -2791,7 +2854,9 @@ body.case-study-page {
 body.case-study-page #results,
 body.case-study-page #results-replenishment,
 body.case-study-page #results-campaigns,
-body.case-study-page #where-it-is-now {
+body.case-study-page #where-it-is-now,
+body.case-study-page #problem-replenishment,
+body.case-study-page #problem-campaigns {
   scroll-margin-top: calc(var(--nav-h) + 24px);
 }
 

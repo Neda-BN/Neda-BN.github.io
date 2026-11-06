@@ -37,18 +37,6 @@
   .meta-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin-bottom: 6px; }
   .meta-value { font-size: 14px; font-weight: 500; color: var(--dark); }
 
-  .hero-image { max-width: min(1100px, 100%); margin: 0 auto 80px; padding: 0 48px; }
-  .hero-image picture { display: block; }
-  .hero-image img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(26, 42, 90, 0.12);
-  }
-  .hero-image .screen-caption { margin-top: 12px; text-align: center; }
-
   body.case-study-page.cs-design-page .pos-summary-shell.sb-case {
     max-width: none;
     margin: 0;
@@ -312,7 +300,7 @@
   }
 
   @media (max-width: 640px) {
-    .hero, .hero-image, .content, .content--design-system, footer { padding-left: 24px; padding-right: 24px; }
+    .hero, .content, .content--design-system, footer { padding-left: 24px; padding-right: 24px; }
     .meta-strip { flex-direction: column; }
     .meta-item { border-right: none; border-bottom: 1px solid var(--border); }
     .meta-item:last-child { border-bottom: none; }
@@ -605,9 +593,8 @@
 <div class="hero-image reveal reveal-media" id="dashboard-overview">
   <picture>
     <source type="image/webp" srcset="backoffice-dashboard-hero.webp">
-    <img class="case-hero-img" src="backoffice-dashboard-hero.png" alt="Focalpay Back-office — dashboard on laptop and mobile in a grocery retail setting" width="1024" height="512" decoding="async" fetchpriority="high">
+    <img class="cs-hero-img" src="backoffice-dashboard-hero.png" alt="Focalpay Back-office — dashboard on laptop and mobile in a grocery retail setting" width="1024" height="512" decoding="async" fetchpriority="high">
   </picture>
-  <p class="screen-caption cs-caption">Focalpay Back-office · dashboard overview</p>
 </div>
 
 <div class="content case-main sb-case cs-v2-study">

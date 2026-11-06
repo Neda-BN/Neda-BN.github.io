@@ -719,6 +719,12 @@ body.case-study-page.cs-v2 .cs-v2-study cite {
   }
 }
 
+/* Hero captions: match shared case-study.css spacing (Back-office reference) over generic cs-v2 .screen-caption */
+body.case-study-page.cs-v2 .hero-image > p.screen-caption.cs-caption {
+  margin-top: 12px !important;
+  text-align: center !important;
+}
+
 body.case-study-page.cs-v2 .content.case-main.cs-v2-study .section-chapter,
 body.case-study-page.cs-v2 .content.case-main.cs-v2-study .cs-turning h2.section-chapter {
   font-family: "Poppins", sans-serif !important;

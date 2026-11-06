@@ -86,7 +86,6 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     text-transform: none;
     color: var(--yellow);
   }
-  .hero-image { max-width: min(1100px, 100%); margin: 0 auto 80px; padding: 0 48px; }
   .image-placeholder { width: 100%; aspect-ratio: 16/8; background: linear-gradient(135deg, #0F0F0F 0%, #1A1A1A 40%, #2A2A2A 70%, #404040 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
   .image-placeholder.image-placeholder--screen { aspect-ratio: 572 / 1024; border-radius: 0; }
   .screen-wrap > .image-placeholder.image-placeholder--screen { min-height: 0; }
@@ -94,23 +93,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .image-placeholder img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; display: block; position: relative; z-index: 1; }
   .image-label { font-family: var(--serif); font-size: clamp(12px, 2.2vw, 18px); color: rgba(255,255,255,0.7); text-align: center; z-index: 1; position: relative; padding: 8px; line-height: 1.25; }
 
-  /* Hero: scroll loop (left) + empty frame (right, image later) */
-  .hero-media {
-    display: grid;
-    grid-template-columns: minmax(0, clamp(232px, 30%, 320px)) minmax(0, 1fr);
-    gap: 20px;
-    align-items: stretch;
-  }
-  .hero-media__video {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    min-width: 0;
-    height: 100%;
-  }
-  .hero-media__video .screen-caption {
-    margin-top: auto;
-  }
+  /* Hero: interaction preview (narrow) + main overview image (full shared track — case-study.css .pos-hero-strip) */
   .screen-wrap.screen-wrap--hero-video {
     border: none;
     background: transparent;
@@ -179,49 +162,6 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   @media (prefers-reduced-motion: reduce) {
     .hero-video-wrap .scroll-viewport--hero-loop img.hero-scroll-img { transform: none; }
   }
-  .hero-media__placeholder {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    min-width: 0;
-    height: 100%;
-  }
-  .hero-media__placeholder .screen-wrap {
-    flex: 1;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-  }
-  .screen-wrap.screen-wrap--hero-placeholder {
-    flex: 1;
-    width: 100%;
-    min-height: min(52vh, 560px);
-    background: var(--surface);
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
-  }
-  .hero-overview {
-    flex: 1;
-    min-height: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-    box-sizing: border-box;
-  }
-  .hero-overview__img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    object-position: center;
-    display: block;
-    border-radius: 12px;
-  }
-
   .content {
     max-width: 820px;
     margin: 0 auto;
@@ -676,7 +616,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .reveal-soft { transition-delay: 0.08s; }
   .reveal-media .screen-wrap,
   .reveal-media .screen-wrap--natural-photo,
-  .reveal-media .hero-overview__img,
+  .reveal-media .cs-hero-img,
   .reveal-media .ds-img {
     transition: transform 0.85s var(--ease-spring), box-shadow 0.85s var(--ease-soft);
   }
@@ -685,13 +625,13 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     transform: translateY(0) translateZ(8px);
     box-shadow: 0 16px 44px rgba(26, 26, 26, 0.1);
   }
-  .reveal-media.is-visible .hero-overview__img { transform: translateZ(6px); }
+  .reveal-media.is-visible .cs-hero-img { transform: translateZ(6px); }
   .reveal-media.is-visible .ds-img { box-shadow: 0 14px 40px rgba(26, 26, 26, 0.09); }
 
   @media (prefers-reduced-motion: reduce) {
     .reveal-media .screen-wrap,
     .reveal-media .screen-wrap--natural-photo,
-    .reveal-media .hero-overview__img,
+    .reveal-media .cs-hero-img,
     .reveal-media .ds-img {
       transform: none !important;
       transition: none !important;
@@ -712,7 +652,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   }
 
   @media (max-width: 640px) {
-.back-top, .hero, .hero-image, .content, .content--pos-ds, .bottom-back, footer { padding-left: 24px; padding-right: 24px; }
+.back-top, .hero, .content, .content--pos-ds, .bottom-back, footer { padding-left: 24px; padding-right: 24px; }
     .section-header { flex-direction: column; align-items: flex-start; gap: 14px; padding: 0 0 24px 0; }
     .section-icon { width: 52px; height: 52px; }
     .section-icon svg { width: 24px; height: 24px; }
@@ -735,9 +675,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
       max-width: none;
     }
     .screens-grid.col-3 { grid-template-columns: 1fr 1fr; }
-    .hero-media { grid-template-columns: 1fr; gap: 24px; }
     .hero-video-wrap { max-width: min(320px, 88vw); }
-    .screen-wrap.screen-wrap--hero-placeholder { min-height: min(45vh, 420px); }
     .screens-grid.col-2 { grid-template-columns: 1fr; justify-content: stretch; }
     .ab-grid { grid-template-columns: 1fr; }
     .meta-strip { flex-direction: column; }
@@ -851,8 +789,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 </section>
 
 <div class="hero-image">
-  <div class="hero-media">
-    <div class="hero-media__video">
+  <div class="pos-hero-strip">
+    <div class="pos-hero-strip__interaction">
       <div class="screen-wrap screen-wrap--hero-video">
         <div class="hero-video-wrap">
           <!-- HD/4K: export screen recording as H.264 MP4 (e.g. 1080×1920 or 2160×3840 @ 9:16). Name files to match sources below. -->
@@ -891,21 +829,15 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
       </div>
       <p class="screen-caption cs-caption">Cashier POS — interaction preview</p>
     </div>
-    <div class="hero-media__placeholder">
-      <div class="screen-wrap screen-wrap--hero-placeholder">
-        <div class="hero-overview">
-          <img
-            class="hero-overview__img"
-            src="pos-hero-overview.png"
-            width="1024"
-            height="854"
-            alt="Cashier POS on handheld devices — discount flow and cart with items"
-            loading="lazy"
-            decoding="async"
-          >
-        </div>
-      </div>
-    </div>
+    <img
+      class="cs-hero-img"
+      src="pos-hero-overview.png"
+      width="1024"
+      height="854"
+      alt="Cashier POS on handheld devices — discount flow and cart with items"
+      loading="lazy"
+      decoding="async"
+    >
   </div>
 </div>
 

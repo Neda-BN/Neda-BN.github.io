@@ -27,35 +27,6 @@
   body.case-study-page.cs-design-page .pos-summary-shell.sb-case{max-width:none;margin:0;padding:0;}
   body.case-study-page.cs-design-page .pos-summary-shell .sb-tldr.cs-summary.sb-glance{text-align:left;}
   @media (max-width:640px){body.case-study-page.cs-design-page .pos-summary-shell .sb-glance__pct{font-size:clamp(26px,7.5vw,40px);white-space:nowrap;}}
-  body.case-study-page.cs-v2 .hero-image {
-    max-width: min(1200px, calc(100vw - 40px)) !important;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body.case-study-page.cs-v2 .hero-image :is(picture, img, .image-placeholder, .image-placeholder img) {
-    display: block;
-    width: 100%;
-    max-width: min(1136px, calc(100vw - 40px));
-    margin-left: auto;
-    margin-right: auto;
-  }
-  @media (min-width: 769px) and (max-width: 1024px) {
-    body.case-study-page.cs-v2 .hero-image :is(picture, img, .image-placeholder, .image-placeholder img) {
-      max-width: min(1136px, calc(100vw - 80px));
-    }
-  }
-  body.case-study-page.cs-v2 .hero-image .image-placeholder {
-    background: transparent;
-    border-radius: 16px;
-    overflow: visible;
-  }
-  body.case-study-page.cs-v2 .hero-image .image-placeholder::before { display: none; }
-  body.case-study-page.cs-v2 .hero-image .image-placeholder img {
-    width: 100%;
-    height: auto;
-    object-fit: unset;
-    border-radius: 16px;
-  }
   body.case-study-page.cs-v2 .mob-case .reveal-media,body.case-study-page.cs-v2 .mob-case .reveal-media img,body.case-study-page.cs-v2 .mob-case .mob-scan-feedback img{opacity:1!important;transform:none!important;animation:none!important;filter:none!important;}
   /* Interactive prototype — same as pos-app.html (scoped; overrides cs-v2 wide breakout + case-study embed skins) */
   body.case-study-page.cs-v2 #prototype .proto-embed {
@@ -274,7 +245,7 @@
 
 <div class="hero-image">
   <div class="image-placeholder">
-    <img src="mobile-customer-shopping-app.png" alt="Shopper in a grocery aisle holding a phone showing the Focalpay cart — line items, swipe-to-delete, nine products and total in kr, and Go to payment on a dark UI" width="1024" height="682" decoding="async" fetchpriority="high">
+    <img class="cs-hero-img" src="mobile-customer-shopping-app.png" alt="Shopper in a grocery aisle holding a phone showing the Focalpay cart — line items, swipe-to-delete, nine products and total in kr, and Go to payment on a dark UI" width="1024" height="682" decoding="async" fetchpriority="high">
   </div>
 </div>
 

@@ -446,7 +446,7 @@ body.case-study-page .hc-case-study-media {
 }
 
 body.case-study-page .screen-wrap img,
-body.case-study-page .hero-image img,
+body.case-study-page .hero-image img:not(.cs-hero-img),
 body.case-study-page .case-study-figure img,
 body.case-study-page .ds-img {
   width: 100%;

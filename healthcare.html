@@ -60,30 +60,6 @@
   body.case-study-page #discover .hc-persona-table td{font-family:var(--font-body,'Poppins',sans-serif)!important;font-size:15px!important;padding:12px 20px!important;color:var(--muted)!important;border-color:var(--border)!important;}
   body.case-study-page #discover .hc-persona-table{background:var(--surface)!important;border-color:var(--border)!important;}
   body.case-study-page.cs-v2 .hc-case .fs-note{font-size:13px;color:var(--meta,#9a9aa5);font-style:italic;font-weight:400;}
-  /* Hero image — same rules as simplebooking.html */
-  body.case-study-page.cs-v2 .hero-image {
-    max-width: min(1200px, calc(100vw - 40px)) !important;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body.case-study-page.cs-v2 .hero-image :is(picture, img, .hc-media-frame, .hc-media-frame img) {
-    display: block;
-    width: 100%;
-    max-width: min(1136px, calc(100vw - 40px));
-    margin-left: auto;
-    margin-right: auto;
-  }
-  @media (min-width: 769px) and (max-width: 1024px) {
-    body.case-study-page.cs-v2 .hero-image :is(picture, img, .hc-media-frame, .hc-media-frame img) {
-      max-width: min(1136px, calc(100vw - 80px));
-    }
-  }
-  body.case-study-page.cs-v2 .hero-image .hc-media-frame {
-    border: none;
-    background: transparent;
-    border-radius: 0;
-    overflow: visible;
-  }
   body.case-study-page.cs-v2 .hc-case .hc-figure-process-board.wide{width:min(1200px,calc(100vw - 64px));max-width:min(1200px,calc(100vw - 64px));margin-left:calc((100% - min(1200px,calc(100vw - 64px)))/2);margin-right:auto;}
   body.case-study-page.cs-v2 .hc-case .hc-figure-process-board.wide img{max-width:min(1200px,100%);}
   body.case-study-page.cs-v2 .hc-case .hc-discover-fullbleed-wrap.wide{width:min(1200px,calc(100vw - 64px));max-width:min(1200px,calc(100vw - 64px));margin-left:calc((100% - min(1200px,calc(100vw - 64px)))/2);margin-right:auto;}
@@ -128,9 +104,8 @@
 
 <div class="hero-image" id="hc-overview">
   <div class="hc-media-frame">
-    <img src="healthcare-survey-platform-overview.png?v=20260324" alt="Colleagues in an office reviewing a healthcare survey platform dashboard on a monitor, with charts and response metrics on screen." width="1024" height="682" decoding="async" fetchpriority="high">
+    <img class="cs-hero-img" src="healthcare-survey-platform-overview.png?v=20260324" alt="Colleagues in an office reviewing a healthcare survey platform dashboard on a monitor, with charts and response metrics on screen." width="1024" height="682" decoding="async" fetchpriority="high">
   </div>
-  <p class="screen-caption cs-caption">Healthcare Survey Platform · Overview</p>
 </div>
 
 <div class="content case-main hc-case cs-v2-study">
@@ -385,13 +360,12 @@
       </div>
     </div>
   </div>
+    <p class="cs-match-img">The high points were the guided steps with clear feedback. The low points were choosing recipients by hand and waiting for answers without knowing who had replied.</p>
     <div class="hc-discover-fullbleed-wrap wide reveal reveal-media">
       <figure class="hc-discover-fullbleed">
         <img src="monitors.png" alt="Healthcare Provider Survey Management platform shown on two laptop screens — sign-in and survey sent confirmation views." width="1451" height="482" loading="lazy" decoding="async" sizes="100vw">
       </figure>
     </div>
-    <p class="cs-match-img screen-caption cs-caption">Healthcare Provider Survey Management platform on two laptop screens.</p>
-    <p class="cs-match-img">The high points were the guided steps with clear feedback. The low points were choosing recipients by hand and waiting for answers without knowing who had replied.</p>
   </section>
   <section class="section fade-in reveal cs-v2-phase" aria-labelledby="turning-point">
     <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h13l4-3-4-3z"/><path d="M12 11v10"/><path d="M9 21h6"/></svg><span class="cs-v2-phase-label">Turning point</span></div>
@@ -534,7 +508,7 @@
       <thead><tr><th>Status</th><th>Meaning</th><th>Action</th></tr></thead>
       <tbody>
         <tr><td><strong style="color:#1A7A4A;">Good performance</strong></td><td>Above target on all key indicators.</td><td>No action needed.</td></tr>
-        <tr><td><strong style="color:#92400E;">Needs attention</strong></td><td>Close to the limit, with a risk of falling below target.</td><td>Keep an eye on it and plan a follow-up.</td></tr>
+        <tr><td><strong style="color:#FACC15;">Needs attention</strong></td><td>Close to the limit, with a risk of falling below target.</td><td>Keep an eye on it and plan a follow-up.</td></tr>
         <tr><td><strong style="color:#B91C1C;">Critical</strong></td><td>Below the acceptable level.</td><td>Needs action now.</td></tr>
       </tbody>
     </table>

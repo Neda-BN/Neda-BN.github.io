@@ -72,24 +72,6 @@
     transform: none !important;
     image-rendering: auto;
   }
-  /* IMAGE LOCK (pre-restructure rendered sizes; scoped to Simple Booking) */
-  body.case-study-page.cs-v2 .hero-image {
-    max-width: min(1200px, calc(100vw - 40px)) !important;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body.case-study-page.cs-v2 .hero-image :is(picture, img) {
-    display: block;
-    width: 100%;
-    max-width: min(1136px, calc(100vw - 40px));
-    margin-left: auto;
-    margin-right: auto;
-  }
-  @media (min-width: 769px) and (max-width: 1024px) {
-    body.case-study-page.cs-v2 .hero-image :is(picture, img) {
-      max-width: min(1136px, calc(100vw - 80px));
-    }
-  }
   body.case-study-page.cs-v2 .sb-case .sb-ds-sheets.wide {
     --cs-wide-track: min(1200px, calc(100vw - 64px));
     width: var(--cs-wide-track) !important;
@@ -167,7 +149,7 @@
 </section>
 
 <div class="hero-image">
-  <picture><source srcset="sb-hero.webp" type="image/webp"><img src="sb-hero.png" width="2400" height="1300" alt="Redesigned Simple Booking: the dark-mode home page with tasks that need attention, and the light-mode receipts page with upload, inbox and previous receipts" fetchpriority="high" decoding="async"></picture>
+  <picture><source srcset="sb-hero.webp" type="image/webp"><img class="cs-hero-img" src="sb-hero.png" width="2400" height="1300" alt="Redesigned Simple Booking: the dark-mode home page with tasks that need attention, and the light-mode receipts page with upload, inbox and previous receipts" fetchpriority="high" decoding="async"></picture>
 </div>
 
 <div class="content case-main sb-case cs-v2-study">
