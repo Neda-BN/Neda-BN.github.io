@@ -161,12 +161,20 @@
   }
 
   /* Flow label: Poppins 600, body size — yellow + ink via cs-design .cs-flow-eyebrow */
-  body.case-study-page.cs-v2 .sb-case .cs-flow-eyebrow {
-    margin: 0 0 12px;
+  body.case-study-page.cs-v2 .sb-case .cs-flow-eyebrow.bo-flow-label {
+    margin: 0;
     font-family: "Poppins", sans-serif;
     font-size: var(--fs-body, 17px);
     font-weight: 600;
     line-height: 1.45;
+  }
+  body.case-study-page.cs-v2 .sb-case .bo-flow-label {
+    display: block;
+    margin-top: var(--space-block, 24px);
+    margin-bottom: var(--space-text, 16px);
+  }
+  body.case-study-page.cs-v2 .sb-case .bo-flow-label--first {
+    margin-top: var(--space-text, 16px);
   }
 
   body.case-study-page.cs-v2 .sb-case .fs-note {
@@ -176,6 +184,10 @@
     font-weight: 400 !important;
     margin: 0 0 12px;
     max-width: var(--cs-v2-col, 720px);
+  }
+  body.case-study-page.cs-v2 .sb-case #reflection .cs-v2-list li .fs-note {
+    margin-top: 10px;
+    margin-bottom: 0;
   }
 
   @media (max-width: 640px) {
@@ -339,24 +351,27 @@
   <section class="section fade-in reveal cs-v2-phase" id="discover">
     <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span class="cs-v2-phase-label">Discover</span></div>
     <h2 class="cs-match-img cs-v2-heading">What we found</h2>
-    <p class="cs-match-img">I interviewed 6 managers from 6 customer businesses, covering both flows. They did real tasks while thinking aloud, and I followed up with questions. Four findings shaped the work:</p>
-    <ol class="cs-match-img cs-v2-list cs-v2-findings">
-      <li><strong>No warning before a product ran out.</strong> Managers checked their best-selling products one by one, and still found out when the shelf was empty. <span class="cs-v2-meta">— Interviews · Flow 1</span></li>
-      <li><strong>Ordering was done by hand, every time:</strong> finding the supplier, working out quantity and cost, and writing the order email. <span class="cs-v2-meta">— Interviews · Flow 1</span></li>
-      <li><strong>Weighted campaigns were calculated and typed in by hand.</strong> Discounts on products sold by weight were slow to set up and easy to get wrong. <span class="cs-v2-meta">— Interviews · Flow 2</span></li>
-      <li><strong>Prices and campaigns drifted apart.</strong> "Every time base prices change, I'm double-checking campaigns by hand." 4 of 6 managers reported inconsistencies between catalogue data and campaign rules. <span class="cs-v2-meta">— Interviews · Flow 2</span></li>
-    </ol>
+    <p class="cs-match-img">I interviewed 6 managers from 6 customer businesses, covering both flows. They did real tasks while thinking aloud, and I followed up with questions.</p>
+    <p class="cs-match-img cs-flow-eyebrow bo-flow-label bo-flow-label--first"><span class="cs-flow-eyebrow__flow">Flow 1 of 2</span><span class="cs-flow-eyebrow__name"> · Replenishment</span></p>
+    <ul class="cs-match-img cs-v2-list">
+      <li><strong>No warning before a product ran out.</strong> Managers checked their best-selling products one by one, and still found out when the shelf was empty. <span class="cs-v2-meta">— Interviews</span></li>
+      <li><strong>Ordering was done by hand, every time:</strong> finding the supplier, working out quantity and cost, and writing the order email. <span class="cs-v2-meta">— Interviews</span></li>
+    </ul>
+    <p class="cs-match-img cs-flow-eyebrow bo-flow-label"><span class="cs-flow-eyebrow__flow">Flow 2 of 2</span><span class="cs-flow-eyebrow__name"> · Campaigns</span></p>
+    <ul class="cs-match-img cs-v2-list">
+      <li><strong>Weighted campaigns were calculated and typed in by hand.</strong> Discounts on products sold by weight were slow to set up and easy to get wrong. <span class="cs-v2-meta">— Interviews</span></li>
+      <li><strong>Prices and campaigns drifted apart.</strong> "Every time base prices change, I'm double-checking campaigns by hand." 4 of 6 managers reported inconsistencies between catalogue data and campaign rules. <span class="cs-v2-meta">— Interviews</span></li>
+    </ul>
   </section>
 
   <section class="section fade-in reveal cs-v2-phase" id="connect">
     <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg><span class="cs-v2-phase-label">Connect</span></div>
     <h2 class="cs-match-img cs-v2-heading">From findings to directions</h2>
-    <p class="cs-match-img">Each finding pointed to a design direction:</p>
+    <p class="cs-match-img">Each finding pointed to a design direction.</p>
+    <p class="cs-match-img cs-flow-eyebrow bo-flow-label bo-flow-label--first"><span class="cs-flow-eyebrow__flow">Flow 1 of 2</span><span class="cs-flow-eyebrow__name"> · Replenishment</span></p>
     <ul class="cs-match-img cs-v2-list">
       <li><strong>No warning</strong> → alerts that sort themselves by urgency</li>
       <li><strong>Ordering by hand</strong> → orders with supplier, stock levels and cost filled in</li>
-      <li><strong>Maths by hand</strong> → ready-made templates for the most common campaigns</li>
-      <li><strong>Database words</strong> → the store's own words</li>
     </ul>
     <p class="cs-match-img cs-v2-subtitle">How I structured Replenishment</p>
     <p class="cs-match-img">One overview, four clear paths, and notifications that point to each of them.</p>
@@ -401,13 +416,18 @@
         </div>
       </div>
     </div>
+    <p class="cs-match-img cs-flow-eyebrow bo-flow-label"><span class="cs-flow-eyebrow__flow">Flow 2 of 2</span><span class="cs-flow-eyebrow__name"> · Campaigns</span></p>
+    <ul class="cs-match-img cs-v2-list">
+      <li><strong>Maths by hand</strong> → ready-made templates for the most common campaigns</li>
+      <li><strong>Database words</strong> → the store's own words</li>
+    </ul>
   </section>
 
   <section class="section fade-in reveal cs-v2-phase" aria-labelledby="turning-point">
     <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h13l4-3-4-3z"/><path d="M12 11v10"/><path d="M9 21h6"/></svg><span class="cs-v2-phase-label">Turning point</span></div>
     <div class="cs-match-img cs-turning">
       <div class="cs-turning__column">
-        <p class="fs-note cs-match-img">Flow 2 · Campaigns</p>
+        <p class="cs-match-img cs-flow-eyebrow bo-flow-label bo-flow-label--first"><span class="cs-flow-eyebrow__flow">Flow 2 of 2</span><span class="cs-flow-eyebrow__name"> · Campaigns</span></p>
         <h2 class="section-chapter" id="turning-point">The interviews said it was painful. The data said why.</h2>
         <div class="cs-turning__shift" aria-label="From interviews to campaign data">
           <div class="cs-turning__shift-box cs-turning__shift-box--plan">
@@ -440,7 +460,7 @@
     <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg><span class="cs-v2-phase-label">Design</span></div>
     <h2 class="cs-match-img cs-v2-heading">Five decisions</h2>
 
-    <p class="cs-match-img cs-flow-eyebrow"><span class="cs-flow-eyebrow__flow">Flow 1 of 2</span><span class="cs-flow-eyebrow__name"> · Replenishment</span></p>
+    <p class="cs-match-img cs-flow-eyebrow bo-flow-label bo-flow-label--first"><span class="cs-flow-eyebrow__flow">Flow 1 of 2</span><span class="cs-flow-eyebrow__name"> · Replenishment</span></p>
     <div class="cs-v2-decision">
       <p class="cs-match-img">Before, ordering stock took seven steps, and the first one was a surprise.</p>
       <div class="cs-flow wide" aria-label="Stock ordering before and after redesign">
@@ -539,7 +559,8 @@
       </div>
     </div>
 
-    <p class="cs-match-img cs-flow-eyebrow"><span class="cs-flow-eyebrow__flow">Flow 2 of 2</span><span class="cs-flow-eyebrow__name"> · Campaigns</span></p>
+    <p class="cs-match-img cs-flow-eyebrow bo-flow-label"><span class="cs-flow-eyebrow__flow">Flow 2 of 2</span><span class="cs-flow-eyebrow__name"> · Campaigns</span></p>
+    <p class="cs-match-img">The turning point showed that 94% of weighted campaigns followed two patterns. So the builder was designed around them.</p>
     <div class="cs-v2-decision">
       <p class="cs-v2-decision__title">Decision 4 · A three-step builder with two weight templates</p>
       <p>Instead of a form where every campaign meant doing the maths, I designed a three-step builder: About → Terms → Products. In Terms, managers choose a campaign type in plain words, including two ready-made weight templates, and each type shows only the fields it needs. Templates are less flexible, but covering 94% of weighted campaigns in a few clicks was worth more than a form that could do everything, slowly.</p>
@@ -616,7 +637,7 @@
     <h2 class="cs-match-img cs-v2-heading">What changed</h2>
     <p class="cs-match-img">The redesign is live in several stores.</p>
 
-    <p class="cs-match-img cs-flow-eyebrow"><span class="cs-flow-eyebrow__flow">Flow 1 of 2</span><span class="cs-flow-eyebrow__name"> · Replenishment</span></p>
+    <p class="cs-match-img cs-flow-eyebrow bo-flow-label bo-flow-label--first"><span class="cs-flow-eyebrow__flow">Flow 1 of 2</span><span class="cs-flow-eyebrow__name"> · Replenishment</span></p>
     <div class="cs-match-img" id="results-replenishment">
       <div class="cs-v2-results-grid">
         <div><p class="cs-v2-result-num">7 → 2</p><p class="cs-v2-result-label">steps to order stock</p></div>
@@ -628,7 +649,7 @@
       </div>
     </div>
 
-    <p class="cs-match-img cs-flow-eyebrow"><span class="cs-flow-eyebrow__flow">Flow 2 of 2</span><span class="cs-flow-eyebrow__name"> · Campaigns</span></p>
+    <p class="cs-match-img cs-flow-eyebrow bo-flow-label"><span class="cs-flow-eyebrow__flow">Flow 2 of 2</span><span class="cs-flow-eyebrow__name"> · Campaigns</span></p>
     <div class="cs-match-img" id="results-campaigns">
       <p class="cs-match-img">I gave 5 store managers the same campaign tasks in the old and new versions, and measured time and errors.</p>
       <div class="cs-v2-results-grid">
@@ -646,9 +667,18 @@
     <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg><span class="cs-v2-phase-label">Reflection</span></div>
     <h2 class="cs-match-img cs-v2-heading">What I learned</h2>
     <ul class="cs-match-img cs-v2-list">
-      <li><strong>Use the words your users use.</strong> Part of what made the template builder work was the vocabulary. It used the words store managers already used every day. When an interface uses database names, it feels like a tool for the system. When it uses the words from people's jobs, it feels like a tool for them.</li>
-      <li><strong>Alerts beat checklists.</strong> Managers shouldn't have to remember to check. When the system warns them early, they act before the shelf is empty.</li>
-      <li><span class="cs-v2-reflect-yellow">What I'd do differently:</span> I'd ask for the campaign data at the start, alongside the interviews. The data explained the problem much faster than another round of conversations could.</li>
+      <li>
+        <p><strong>Use the words your users use.</strong> Part of what made the template builder work was the vocabulary. It used the words store managers already used every day. When an interface uses database names, it feels like a tool for the system. When it uses the words from people's jobs, it feels like a tool for them.</p>
+        <p class="fs-note">From Flow 2 · Campaigns</p>
+      </li>
+      <li>
+        <p><strong>Alerts beat checklists.</strong> Managers shouldn't have to remember to check. When the system warns them early, they act before the shelf is empty.</p>
+        <p class="fs-note">From Flow 1 · Replenishment</p>
+      </li>
+      <li>
+        <p><span class="cs-v2-reflect-yellow">What I'd do differently:</span> I'd ask for the campaign data at the start, alongside the interviews. The data explained the problem much faster than another round of conversations could.</p>
+        <p class="fs-note">From Flow 2 · Campaigns</p>
+      </li>
     </ul>
   </section>
 
