@@ -699,8 +699,8 @@
   <section class="section fade-in reveal cs-v2-phase" id="backoffice-product">
     <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="cs-v2-phase-label">Introduction</span></div>
     <h2 class="cs-match-img cs-v2-heading">The product</h2>
-    <p class="cs-match-img">The Focalpay Back-office is where retailers manage everything the POS and the shopping app use: products, stock, prices and campaigns. Customers ranged from the footwear brand Icebug to supermarket chains like Matrebellerna and Matvärlden.</p>
-    <p class="cs-match-img">The Focalpay platform merges checkout, payments and back-office into one system. The Back-office is its control centre: the place where retailers, from single stores to chains, manage the products, prices, campaigns and payment methods that every checkout uses. Focalpay built it to support stores, empower staff and protect margins, by helping teams act early instead of reacting. That made two areas critical: knowing when stock runs low, and setting up campaigns correctly. In both, the system still left the remembering, the checking and the maths to store managers.</p>
+    <p class="cs-match-img">The Focalpay platform merges checkout, payments and back-office into one system. The Back-office is its control centre: the place where retailers, from single stores to chains, manage the products, stock, prices, campaigns and payment methods that every checkout uses. Customers ranged from the footwear brand Icebug to supermarket chains like Matrebellerna and Matvärlden.</p>
+    <p class="cs-match-img">Focalpay built it to support stores, empower staff and protect margins, by helping teams act early instead of reacting. That made two areas critical: knowing when stock runs low, and setting up campaigns correctly. In both, the system still left the remembering, the checking and the maths to store managers.</p>
     <p class="cs-match-img cs-v2-subtitle">My role</p>
     <ul class="cs-match-img cs-v2-list">
       <li>Joined midway as one of two designers, and owned Replenishment, Campaigns and the design system.</li>
@@ -920,7 +920,7 @@
   <section class="section fade-in reveal cs-v2-phase" id="campaigns-introduction">
     <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="cs-v2-phase-label">Introduction</span></div>
     <h2 class="cs-match-img cs-v2-heading">The challenge</h2>
-    <p class="cs-match-img">Weighted campaigns, for products sold by weight like fruit or deli items, were set up by hand. Managers calculated each discount and typed it in, which was slow and easy to get wrong.</p>
+    <p class="cs-match-img">Weighted campaigns, for products sold by weight like fruit or deli items, were slow to set up and easy to get wrong.</p>
     <div class="cs-match-img cs-v2-one-question">
       <p class="cs-v2-subtitle">The one question</p>
       <p class="cs-v2-one-question__lead">So every decision had to answer one question:</p>
@@ -931,10 +931,11 @@
   <section class="section fade-in reveal cs-v2-phase" id="campaigns-discover">
     <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span class="cs-v2-phase-label">Discover</span></div>
     <h2 class="cs-match-img cs-v2-heading">What we found</h2>
-    <p class="cs-match-img">In the same interviews, managers set up campaigns while thinking aloud. Two findings shaped the work:</p>
+    <p class="cs-match-img">In the same interviews, managers set up campaigns while thinking aloud. Three findings shaped the work:</p>
     <ol class="cs-match-img cs-v2-list cs-v2-findings">
-      <li><strong>Every weighted campaign meant doing the maths.</strong> Discounts on products sold by weight were calculated and typed in by hand. <span class="cs-v2-meta">— Interviews</span></li>
+      <li><strong>Every weighted campaign meant doing the maths.</strong> Managers calculated each discount by hand and typed it in. <span class="cs-v2-meta">— Interviews</span></li>
       <li><strong>Prices and campaigns drifted apart.</strong> "Every time base prices change, I'm double-checking campaigns by hand." 4 of 6 managers reported inconsistencies between catalogue data and campaign rules. <span class="cs-v2-meta">— Interviews</span></li>
+      <li><strong>The system spoke the database's language.</strong> A manager wasn't sure what "Base unit price" meant, and others with similar businesses agreed: their everyday words were clearer. <span class="cs-v2-meta">— Interviews</span></li>
     </ol>
   </section>
 
@@ -951,7 +952,7 @@
     <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h13l4-3-4-3z"/><path d="M12 11v10"/><path d="M9 21h6"/></svg><span class="cs-v2-phase-label">Turning point</span></div>
     <div class="cs-match-img cs-turning">
       <div class="cs-turning__column">
-        <h2 class="section-chapter" id="turning-point">The interviews said it was painful. The data said why.</h2>
+        <h2 class="section-chapter" id="turning-point">The interviews said it was painful. The data showed the way out.</h2>
         <div class="cs-turning__shift" aria-label="From interviews to campaign data">
           <div class="cs-turning__shift-box cs-turning__shift-box--plan">
             <span class="cs-turning__shift-label">What managers told me</span>
@@ -965,7 +966,7 @@
           </div>
         </div>
         <div class="cs-turning__prose">
-          <p>Managers told me campaigns were slow, but not why. So I asked our supermarket customers for their last three months of campaign data and analysed it myself.</p>
+          <p>Managers told me campaigns were slow, but not what most campaigns had in common. So I asked our supermarket customers for their last three months of campaign data and analysed it myself.</p>
           <p>94% of weighted campaigns followed one of two patterns.</p>
         </div>
         <div class="cs-turning__callout-block">
@@ -1012,7 +1013,7 @@
 
     <div class="cs-v2-decision">
       <p class="cs-v2-decision__title">Decision 2 · Using the store's words</p>
-      <p>In one session, a manager wasn't sure what "Base unit price" meant, and others with similar businesses agreed: their everyday words were clearer than field names from the database. So the builder speaks the way stores talk.</p>
+      <p>So the builder uses the words stores already use, instead of field names from the database. Managers don't have to translate before they can act.</p>
       <div class="screens-section reveal reveal-media">
         <div class="screen-item">
           <div class="screen-wrap screen-wrap--natural-photo">
@@ -1041,7 +1042,7 @@
   <section class="section fade-in reveal cs-v2-phase" id="design-system">
     <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg><span class="cs-v2-phase-label">Design system</span></div>
     <h2 class="cs-match-img cs-v2-heading">One design system for both</h2>
-    <p class="cs-match-img">I built a design system with a light and a dark theme. Both share the same components, spacing and interactions; only the colours change, so store teams can choose what works in their lighting. Below: foundations, buttons, and inputs and forms.</p>
+    <p class="cs-match-img">I built a design system with a light and a dark theme. Both share the same components, spacing and interactions; only the colours change, so store teams can choose what works in their lighting.</p>
     <div class="content--design-system wide">
       <div class="reveal reveal-media">
         <div class="ds-theme-row" role="group" aria-label="Product detail screen in dark and light themes">
