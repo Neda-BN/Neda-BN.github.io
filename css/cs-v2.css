@@ -612,6 +612,28 @@ body.case-study-page.cs-v2 .content.case-main.cs-v2-study > .section > ol.cs-mat
   margin-right: 0 !important;
 }
 
+/*
+ * UI design gallery pages (02 / 03 / 11): `main` is capped at `--cs-track` (820px) like Back-office.
+ * The rules above size `.cs-match-img` to `--cs-wide-track` (~1200px) with a centering margin — wider
+ * than the parent — which shifts overview copy and tags right and overflows the viewport.
+ */
+body.case-study-page.cs-v2 main.content.case-main.ui-design-gallery.cs-v2-study .cs-match-img {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+body.case-study-page.cs-v2 main.content.case-main.ui-design-gallery.cs-v2-study > .section > p.cs-match-img:not(.section-subtitle):not(.hc-results-impact-lede):not(.cs-caption):not(.cs-aside):not(.cs-callout):not(.cs-structure__title):not(.cs-structure__line),
+body.case-study-page.cs-v2 main.content.case-main.ui-design-gallery.cs-v2-study > .section > h2.cs-match-img,
+body.case-study-page.cs-v2 main.content.case-main.ui-design-gallery.cs-v2-study > .section > ul.cs-match-img,
+body.case-study-page.cs-v2 main.content.case-main.ui-design-gallery.cs-v2-study > .section > ol.cs-match-img {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
 /* Inside cards/frames: no wide-track breakout (frame only uses .cs-match-img) */
 body.case-study-page.cs-v2 .cs-match-img.cs-turning :is(.cs-turning__column, .cs-turning__prose, .cs-turning__prose p, .cs-turning__shift, .cs-turning__callout-block, .cs-v2-aha-text, h2.section-chapter),
 body.case-study-page.cs-v2 .cs-match-img.cs-v2-one-question :is(p),

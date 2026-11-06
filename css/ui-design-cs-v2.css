@@ -85,16 +85,6 @@ body.case-study-page.cs-v2 .ui-design-main.cs-v2-study .section-icon {
   display: none !important;
 }
 
-/* Phase label + heading: wide track (same as other cs-v2 pages) */
-body.case-study-page.cs-v2 .ui-design-main.cs-v2-study .cs-v2-phase .cs-match-img.cs-v2-phase-label-row,
-body.case-study-page.cs-v2 .ui-design-main.cs-v2-study .cs-v2-phase h2.cs-match-img.cs-v2-heading {
-  width: var(--cs-wide-track);
-  max-width: var(--cs-wide-track);
-  margin-left: calc((100% - var(--cs-wide-track)) / 2);
-  margin-right: 0;
-  box-sizing: border-box;
-}
-
 /*
  * In-store `main` needs `.content.case-main` so the More carousel matches backoffice.html, but the
  * global `.case-study-page .content` max-width would shrink the 1200px intro — keep full width here.
@@ -127,6 +117,14 @@ body.case-study-page.cs-v2.ui-design-page main.content.case-main.sb-case > .sect
     padding-left: var(--cs-pad);
     padding-right: var(--cs-pad);
   }
+}
+
+/* Hero: fill `main` column (820px); match Back-office `section.hero` horizontal bounds */
+body.case-study-page.cs-v2.ui-design-page main.ui-design-gallery .ui-design-hero .sb-hero-text {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 /* Hero + ui-design-hero: match cs-v2 / case-study hero strip */
@@ -209,6 +207,11 @@ body.case-study-page.cs-v2.ui-design-page .ui-design-gallery .ui-design-intro p 
 /* Beat case-study.css `.ui-design-intro p { color: var(--muted) }` on cs-v2 pages */
 body.case-study-page.cs-v2.ui-design-page .ui-design-gallery .ui-design-intro p.cs-match-img {
   color: var(--body) !important;
+}
+
+/* Overview: paragraph spacing matches case-study body rhythm */
+body.case-study-page.cs-v2.ui-design-page .ui-design-gallery .ui-design-intro p.cs-match-img + p.cs-match-img {
+  margin-top: var(--space-text) !important;
 }
 
 body.case-study-page.cs-v2.ui-design-page .cs-v2-study p.cs-match-img {
@@ -380,12 +383,13 @@ body.case-study-page.cs-v2.ui-design-page .instore-sb-main .cs-v2-phase .ui-desi
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin: var(--cs-stack-lg, 24px) 0 0;
+  margin: var(--space-block) 0 0;
   padding: 0;
   list-style: none;
-  max-width: var(--cs-wide-track);
-  width: var(--cs-wide-track);
-  margin-left: calc((100% - var(--cs-wide-track)) / 2);
+  max-width: 100%;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
   box-sizing: border-box;
 }
 
@@ -415,74 +419,4 @@ body.case-study-page.cs-v2.ui-design-page main.instore-sb-main .instore-visual-s
   body.case-study-page.cs-v2.ui-design-page main.instore-sb-main .instore-visual-split__figure.ui-design-figure img {
     max-width: min(540px, 88vw) !important;
   }
-}
-
-/* ── ATG App (ui-design-03 only): align overview + hero with 820px content column ──
-   Root cause of overflow: css/cs-v2.css gives every `.cs-match-img` a ~1200px wide-track
-   (`width` / `margin-left: calc((100% - var(--cs-wide-track)) / 2))`) which is wider than
-   `main`’s `--cs-track` (820px), so copy shifts right and overflows. ui-design-cs-v2.css also
-   forced phase rows + tags onto that wide track. Scoped to `body.ui-design-page--atg`. */
-
-body.case-study-page.cs-v2.ui-design-page--atg .ui-design-hero .sb-hero-text {
-  max-width: 100% !important;
-  width: 100% !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-/* Overview: same horizontal bounds as headings (full main column, no wide-track offset) */
-body.case-study-page.cs-v2.ui-design-page--atg.ui-design-page
-  .ui-design-gallery.cs-v2-study
-  > .section.cs-v2-phase
-  .cs-match-img {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  box-sizing: border-box !important;
-}
-
-/* Body copy + phase headings: use full text width of column (matches cs-v2 section paragraphs) */
-body.case-study-page.cs-v2.ui-design-page--atg.ui-design-page
-  .ui-design-gallery.cs-v2-study
-  > .section.cs-v2-phase
-  :is(h2.cs-match-img, p.cs-match-img) {
-  max-width: 100% !important;
-}
-
-/* Space between the two overview paragraphs (--space-text, same as case study body rhythm) */
-body.case-study-page.cs-v2.ui-design-page--atg.ui-design-page
-  .ui-design-gallery
-  .ui-design-intro
-  p.cs-match-img
-  + p.cs-match-img {
-  margin-top: var(--space-text) !important;
-}
-
-/* Tags: content left edge, --space-block above (pill look unchanged in base rules) */
-body.case-study-page.cs-v2.ui-design-page--atg.ui-design-page
-  .ui-design-gallery
-  .cs-v2-phase
-  .ui-design-tags {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  margin-top: var(--space-block) !important;
-  box-sizing: border-box !important;
-}
-
-/* Drop duplicate wide-track pull from the block above when both selectors apply */
-body.case-study-page.cs-v2.ui-design-page--atg.ui-design-page
-  .ui-design-gallery.cs-v2-study
-  .cs-v2-phase
-  .cs-match-img.cs-v2-phase-label-row,
-body.case-study-page.cs-v2.ui-design-page--atg.ui-design-page
-  .ui-design-gallery.cs-v2-study
-  .cs-v2-phase
-  h2.cs-match-img.cs-v2-heading {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
 }
