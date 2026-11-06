@@ -1,0 +1,22 @@
+/**
+ * UI Design gallery compact layout — only pages with body.ui-compact load this file.
+ * Scales wide showcase figures to 85% of the cs-v2 wide track at ≥768px; mobile unchanged.
+ */
+@media (min-width: 768px) {
+  body.ui-compact.case-study-page.cs-v2.ui-design-page
+    .ui-design-main.cs-v2-study.ui-design-gallery
+    .ui-design-figure.wide {
+    /* 85% of min(1200px, 100vw - 64px) — same cap as ui-design-cs-v2.css wide track */
+    width: min(1020px, calc((100vw - 64px) * 0.85));
+    max-width: min(1020px, calc((100vw - 64px) * 0.85));
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  body.ui-compact.case-study-page.cs-v2.ui-design-page
+    .ui-design-main.cs-v2-study.ui-design-gallery
+    .ui-design-figure.wide
+    figcaption {
+    text-align: center;
+  }
+}
