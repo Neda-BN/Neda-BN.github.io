@@ -56,6 +56,137 @@
     border-radius: 16px;
   }
   body.case-study-page.cs-v2 .mob-case .reveal-media,body.case-study-page.cs-v2 .mob-case .reveal-media img,body.case-study-page.cs-v2 .mob-case .mob-scan-feedback img{opacity:1!important;transform:none!important;animation:none!important;filter:none!important;}
+  /* Interactive prototype — same as pos-app.html (scoped; overrides cs-v2 wide breakout + case-study embed skins) */
+  body.case-study-page.cs-v2 #prototype .proto-embed {
+    display: block;
+    margin-top: 28px;
+    max-width: min(820px, 100%) !important;
+    width: 100%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  body.case-study-page.cs-v2 #prototype .proto-frame {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    max-height: 72vh;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 72% 62% at 50% 40%, rgba(59, 130, 246, 0.07) 0%, transparent 62%),
+      var(--surface);
+  }
+  body.case-study-page.cs-v2 #prototype .proto-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+  body.case-study-page.cs-v2 #prototype .proto-poster {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    text-align: center;
+    padding: 32px;
+    width: 100%;
+    cursor: pointer;
+    background: transparent !important;
+    border: 0 !important;
+    font-family: var(--sans);
+    color: var(--dark);
+    margin: 0 !important;
+    transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  body.case-study-page.cs-v2 #prototype .proto-poster:hover { background: rgba(245, 235, 227, 0.30) !important; }
+  body.case-study-page.cs-v2 #prototype .proto-poster:focus-visible { outline: 2px solid var(--accent); outline-offset: -4px; }
+  body.case-study-page.cs-v2 #prototype .proto-play {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.32);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    flex-shrink: 0;
+  }
+  body.case-study-page.cs-v2 #prototype .proto-poster:hover .proto-play { transform: scale(1.06); }
+  body.case-study-page.cs-v2 #prototype .proto-play svg {
+    width: 26px !important;
+    height: 26px !important;
+    max-width: 26px !important;
+    max-height: 26px !important;
+    margin-left: 3px;
+    fill: currentColor;
+    display: block;
+  }
+  body.case-study-page.cs-v2 #prototype .proto-poster-t {
+    font-family: var(--serif) !important;
+    font-size: var(--fs-body) !important;
+    font-weight: 600 !important;
+    color: var(--dark) !important;
+    line-height: var(--lh-body) !important;
+  }
+  body.case-study-page.cs-v2 #prototype .proto-poster-h {
+    font-family: var(--sans) !important;
+    font-size: var(--fs-body) !important;
+    color: var(--mid) !important;
+    font-weight: 300 !important;
+    max-width: 32em;
+    line-height: 1.55;
+    margin: 0;
+  }
+  body.case-study-page.cs-v2 #prototype .proto-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+  }
+  body.case-study-page.cs-v2 #prototype .proto-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--sans) !important;
+    font-size: var(--fs-body) !important;
+    font-weight: 500 !important;
+    color: var(--mid) !important;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1), gap 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  body.case-study-page.cs-v2 #prototype .proto-link:hover,
+  body.case-study-page.cs-v2 #prototype .proto-link:focus-visible {
+    color: var(--accent) !important;
+    gap: 9px;
+  }
+  body.case-study-page.cs-v2 #prototype .proto-note {
+    font-family: var(--sans) !important;
+    font-size: var(--fs-body) !important;
+    color: var(--light) !important;
+    font-weight: 400 !important;
+    margin: 0;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    body.case-study-page.cs-v2 #prototype .proto-poster,
+    body.case-study-page.cs-v2 #prototype .proto-play,
+    body.case-study-page.cs-v2 #prototype .proto-link { transition: none !important; }
+    body.case-study-page.cs-v2 #prototype .proto-poster:hover .proto-play { transform: none !important; }
+  }
+  @media (max-width: 640px) {
+    body.case-study-page.cs-v2 #prototype .proto-frame { aspect-ratio: 3 / 4; max-height: none; }
+    body.case-study-page.cs-v2 #prototype .proto-play { width: 56px; height: 56px; }
+  }
 </style>
 </head>
 <body class="has-anna-nav case-study-page cs-design-page cs-v2">
@@ -501,7 +632,6 @@
     <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg><span class="cs-v2-phase-label">Prototype</span></div>
     <h2 class="cs-match-img cs-v2-heading">Try it yourself</h2>
     <p class="cs-match-img">Click through the prototype to scan, add products to the cart and check out like a shopper would.</p>
-    <div class="cs-match-img">
     <div class="proto-embed reveal reveal-media">
       <div class="proto-frame">
         <button type="button" class="proto-poster" data-embed="https://embed.figma.com/proto/PL87ABRLiYVHUmikDvnsF3/PORTFOLIO?page-id=790%3A2&amp;node-id=790-31644&amp;viewport=-116%2C138%2C0.26&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=790%3A31644&amp;embed-host=share" data-title="Mobile shopping app — interactive Figma prototype" aria-label="Launch the interactive Mobile shopping app prototype">
@@ -514,7 +644,6 @@
         <a class="proto-link" href="https://www.figma.com/proto/PL87ABRLiYVHUmikDvnsF3/PORTFOLIO?page-id=790%3A2&amp;node-id=790-31644&amp;viewport=-116%2C138%2C0.26&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=790%3A31644" target="_blank" rel="noopener noreferrer">Open in Figma ↗</a>
         <p class="proto-note">Opens the full prototype in a new tab.</p>
       </div>
-    </div>
     </div>
   </section>
 
