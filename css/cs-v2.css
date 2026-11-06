@@ -1293,3 +1293,136 @@ body.case-study-page.cs-v2 .hc-case #discover .hc-persona-table th[scope="row"] 
   min-width: 0 !important;
 }
 
+/* Mobile case study — phone hi-fi (same 242px frames + 14px gap as POS col-3) */
+body.case-study-page.cs-v2 .mob-case .cs-v2-decision .screens-section > .screens-grid {
+  display: grid;
+  gap: 14px;
+  width: fit-content;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  justify-items: center;
+}
+
+body.case-study-page.cs-v2 .content.mob-case #design {
+  --mob-phone-w: 242px;
+}
+
+/* Second row in same decision: tighter gap from first row */
+body.case-study-page.cs-v2 .mob-case .cs-v2-decision .screens-section + .screens-section {
+  margin-top: var(--space-text) !important;
+}
+
+/* Same frame for every phone mock (onboarding and userflow assets) */
+body.case-study-page.cs-v2 .mob-case .cs-v2-decision .screen-item {
+  width: var(--mob-phone-w);
+  max-width: 100%;
+}
+
+body.case-study-page.cs-v2 .mob-case .cs-v2-decision .screen-wrap {
+  width: 100%;
+  aspect-ratio: 472 / 1024;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+body.case-study-page.cs-v2 .mob-case .cs-v2-decision .screen-wrap img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  display: block !important;
+}
+
+@media (min-width: 860px) {
+  body.case-study-page.cs-v2 .mob-case .cs-v2-decision .screens-grid.col-3 {
+    grid-template-columns: repeat(3, 242px);
+  }
+
+  body.case-study-page.cs-v2 .mob-case .cs-v2-decision .screens-grid.mob-screens-row--4 {
+    grid-template-columns: repeat(4, 242px);
+  }
+
+  body.case-study-page.cs-v2 .mob-case .cs-v2-decision .screens-grid.col-3 .screen-wrap,
+  body.case-study-page.cs-v2 .mob-case .cs-v2-decision .screens-grid.mob-screens-row--4 .screen-wrap {
+    max-width: none;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 859.98px) {
+  body.case-study-page.cs-v2 .content.mob-case #design {
+    --mob-phone-w: calc((min(1006px, calc(100vw - 64px)) - 42px) / 4);
+  }
+
+  body.case-study-page.cs-v2 .content.mob-case #design .cs-v2-decision .screens-grid.col-3 {
+    grid-template-columns: repeat(3, var(--mob-phone-w)) !important;
+    width: fit-content !important;
+    max-width: calc(3 * var(--mob-phone-w) + 28px) !important;
+  }
+
+  body.case-study-page.cs-v2 .content.mob-case #design .cs-v2-decision .screens-grid.mob-screens-row--4 {
+    grid-template-columns: repeat(4, var(--mob-phone-w)) !important;
+    width: fit-content !important;
+    max-width: calc(4 * var(--mob-phone-w) + 42px) !important;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 639.98px) {
+  body.case-study-page.cs-v2 .content.mob-case #design {
+    --mob-phone-w: calc((min(100vw, 100%) - 48px - 14px) / 2);
+  }
+
+  body.case-study-page.cs-v2 .content.mob-case #design .cs-v2-decision .screens-grid.col-3 {
+    grid-template-columns: repeat(3, var(--mob-phone-w)) !important;
+    width: fit-content !important;
+    max-width: calc(3 * var(--mob-phone-w) + 28px) !important;
+  }
+
+  body.case-study-page.cs-v2 .content.mob-case #design .cs-v2-decision .screens-grid.mob-screens-row--4 {
+    grid-template-columns: repeat(2, var(--mob-phone-w)) !important;
+    width: fit-content !important;
+    max-width: calc(2 * var(--mob-phone-w) + 14px) !important;
+  }
+}
+
+@media (max-width: 375.98px) {
+  body.case-study-page.cs-v2 .content.mob-case #design {
+    --mob-phone-w: calc((100vw - 48px - 14px) / 2);
+  }
+
+  body.case-study-page.cs-v2 .content.mob-case #design .cs-v2-decision .screens-grid.col-3 {
+    grid-template-columns: repeat(2, var(--mob-phone-w)) !important;
+    width: fit-content !important;
+    max-width: calc(2 * var(--mob-phone-w) + 14px) !important;
+  }
+
+  body.case-study-page.cs-v2 .content.mob-case #design .cs-v2-decision .screens-grid.mob-screens-row--4 {
+    grid-template-columns: repeat(2, var(--mob-phone-w)) !important;
+    width: fit-content !important;
+    max-width: calc(2 * var(--mob-phone-w) + 14px) !important;
+  }
+}
+
+/* Single phone screen, centred (same 242px track as POS on desktop) */
+body.case-study-page.cs-v2 .mob-case .cs-v2-decision .screens-grid.mob-screens-centered-one {
+  display: grid;
+  gap: 14px;
+  width: fit-content;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 860px) {
+  body.case-study-page.cs-v2 .mob-case .cs-v2-decision .screens-grid.mob-screens-centered-one {
+    grid-template-columns: 242px;
+  }
+}
+

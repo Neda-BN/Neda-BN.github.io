@@ -20,9 +20,8 @@
 <link rel="stylesheet" href="css/cs-design.css?v=20261102g">
 <link rel="stylesheet" href="css/responsive.css?v=20260638">
 <link rel="stylesheet" href="css/case-study-v6-pages.css?v=20260402">
-<link rel="stylesheet" href="css/cs-v2.css?v=20261105w">
+<link rel="stylesheet" href="css/cs-v2.css?v=20261106c">
 <link rel="stylesheet" href="css/mob-case.css?v=20261106">
-<link rel="stylesheet" href="css/mob-image-lock.css?v=20261106">
 <style>
   body.case-study-page.cs-design-page .pos-summary-shell.sb-case{max-width:none;margin:0;padding:0;}
   body.case-study-page.cs-design-page .pos-summary-shell .sb-tldr.cs-summary.sb-glance{text-align:left;}
@@ -56,14 +55,6 @@
     object-fit: unset;
     border-radius: 16px;
   }
-  .mob-screens-collapsed{margin-top:calc(var(--space-block,24px)*2);border:none;border-radius:0;padding:0;background:transparent;}
-  .mob-screens-collapsed summary{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;max-width:min(880px,calc(100vw - 64px));margin:0 auto;padding:16px 28px;cursor:pointer;font-family:var(--font-body,'Poppins',sans-serif);font-size:clamp(15px,1.2vw,17px);font-weight:600;line-height:1.35;color:var(--accent);list-style:none;text-align:center;background:var(--accent-soft);border:1px solid rgba(138,164,214,.55);border-radius:12px;box-shadow:0 0 0 0 rgba(138,164,214,0);transition:background .2s ease,border-color .2s ease,box-shadow .2s ease,transform .15s ease;}
-  .mob-screens-collapsed summary:hover{background:rgba(138,164,214,.22);border-color:var(--accent);box-shadow:0 4px 20px rgba(138,164,214,.18);}
-  .mob-screens-collapsed summary:active{transform:translateY(1px);}
-  .mob-screens-collapsed summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
-  .mob-screens-collapsed summary::-webkit-details-marker{display:none;}
-  .mob-screens-collapsed[open] summary{margin-bottom:24px;border-radius:12px 12px 8px 8px;}
-  .mob-screens-collapsed .screens-section{margin-top:0;padding-top:8px;border-top:1px solid var(--border);}
   body.case-study-page.cs-v2 .mob-case .reveal-media,body.case-study-page.cs-v2 .mob-case .reveal-media img,body.case-study-page.cs-v2 .mob-case .mob-scan-feedback img{opacity:1!important;transform:none!important;animation:none!important;filter:none!important;}
 </style>
 </head>
@@ -398,6 +389,10 @@
           <div class="screen-wrap"><img src="mobile-onboarding-03.png" alt="Onboarding step 3 — pay and get a digital receipt" width="472" height="1024" loading="lazy" decoding="async"></div>
           <p class="screen-caption cs-caption">Step 3 · Pay and get receipt</p>
         </div>
+      </div>
+    </div>
+      <div class="screens-section reveal reveal-media">
+      <div class="screens-grid mob-screens-centered-one">
         <div class="screen-item">
           <div class="screen-wrap"><img src="mobile-onboarding-04.png" alt="Onboarding step 4 — Done: exit the store with a barcode at the gate; Start shopping" width="472" height="1024" loading="lazy" decoding="async"></div>
           <p class="screen-caption cs-caption">Step 4 · Done — start shopping</p>
@@ -410,21 +405,37 @@
       <p class="cs-v2-decision__title">Decision 2 · A camera-first home for one free hand</p>
       <p>When the app opens, the camera is already on and the cart is visible, so the phone is the only device a shopper needs. Shortcuts cover what scanning can't: a bag, a Baked goods category for items without barcodes, and manual barcode entry for damaged ones.</p>
       <div class="screens-section reveal reveal-media">
+      <div class="screens-grid mob-screens-row--4">
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-userflow-00.png" alt="Focalpay splash — app preview card with Open action" width="393" height="852" loading="lazy" decoding="async"></div>
+          <p class="screen-caption cs-caption">Splash</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-userflow-01.png" alt="Scanner with empty cart and Go to payment" width="393" height="852" loading="lazy" decoding="async"></div>
+          <p class="screen-caption cs-caption">Empty cart, camera ready</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-userflow-02.png" alt="Live scan with product in frame and cart with line items" width="393" height="852" loading="lazy" decoding="async"></div>
+          <p class="screen-caption cs-caption">Scanner + cart</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-userflow-06.png" alt="Cart with line items, quantity controls, swipe to delete, discounts, and Go to payment" width="472" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption cs-caption">Full cart, swipe to delete</p>
+        </div>
+      </div>
+    </div>
+      <div class="screens-section reveal reveal-media">
       <div class="screens-grid col-3">
         <div class="screen-item">
-          <div class="screen-wrap"><img src="Shop.png" alt="Focalpay — camera scanning a product with cart sheet, product list, and Go to payment" width="472" height="1024" loading="lazy" decoding="async"></div>
-          <p class="screen-caption cs-caption">Home · scanner + cart</p>
+          <div class="screen-wrap"><img src="mobile-userflow-05.png" alt="Need a bag? bag types with prices and Continue" width="393" height="852" loading="lazy" decoding="async"></div>
+          <p class="screen-caption cs-caption">Add bag</p>
         </div>
         <div class="screen-item">
-          <div class="screen-wrap"><img src="Add_bag.png" alt="Bag flow — choose paper, plastic, or eco bag with prices and Continue" width="393" height="852" loading="lazy" decoding="async"></div>
-          <p class="screen-caption cs-caption">Add bag flow</p>
-        </div>
-        <div class="screen-item">
-          <div class="screen-wrap"><img src="Shop-1.png" alt="Baked goods category — search, product list with thumbnails, Add to cart" width="472" height="1024" loading="lazy" decoding="async"></div>
+          <div class="screen-wrap"><img src="mobile-userflow-04.png" alt="Baked goods category list with search and add to cart" width="472" height="1024" loading="lazy" decoding="async"></div>
           <p class="screen-caption cs-caption">Baked goods category</p>
         </div>
         <div class="screen-item">
-          <div class="screen-wrap"><img src="Add_bag-Prototype.png" alt="Manual barcode entry — numeric keypad and matched product" width="393" height="852" loading="lazy" decoding="async"></div>
+          <div class="screen-wrap"><img src="mobile-userflow-03.png" alt="Manual barcode entry with keypad and matched product" width="393" height="852" loading="lazy" decoding="async"></div>
           <p class="screen-caption cs-caption">Manual barcode entry</p>
         </div>
       </div>
@@ -434,90 +445,56 @@
     <div class="cs-v2-decision">
       <p class="cs-v2-decision__title">Decision 3 · Sign-up made optional</p>
       <p>The first version asked shoppers to create an account before checkout, and three testers gave up right there. I moved sign-up to the end and made it optional: shoppers check out as guests with their card and get the receipt by email. In the next round, nobody gave up, and one participant chose to sign up.</p>
+      <p>Shoppers who skip sign-up scan a QR code in the store to connect their cart to checkout. It works from up to 10 metres away.</p>
+      <div class="screens-section reveal reveal-media">
+      <div class="screens-grid mob-screens-centered-one">
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-userflow-07.png" alt="Scan checkout QR at cashier area with cart summary and Edit cart" width="472" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption cs-caption">Guests scan a QR code in the store to continue to checkout.</p>
+        </div>
+      </div>
+    </div>
     </div>
 
     <div class="cs-v2-decision">
-      <p class="cs-v2-decision__title">Decision 4 · Checkout and payment from anywhere</p>
-      <p>Shoppers tap "Go to payment" and scan a large QR code on the store wall, which works from up to 10 metres away. They pay with Apple Pay, Swish, card or cash; cash users send their cart to the nearest cashier with one tap. After paying, the receipt shows a QR code for the exit gate.</p>
+      <p class="cs-v2-decision__title">Decision 4 · Payment, receipt and exit</p>
+      <p>Shoppers see a payment summary and pay with card, Apple Pay, Swish or cash; cash users send their cart to the nearest cashier with one tap. When payment is complete, the phone shows a barcode to open the exit gate, so the store can confirm payment without slowing honest shoppers down. The receipt and every past purchase are saved in the app.</p>
       <div class="screens-section reveal reveal-media">
-      <div class="screens-grid col-2">
+      <div class="screens-grid mob-screens-row--4">
         <div class="screen-item">
-          <div class="screen-wrap"><img src="Payment_summary.png" alt="Payment summary — totals, discounts, and pay with card or Apple Pay" width="472" height="1024" loading="lazy" decoding="async"></div>
+          <div class="screen-wrap"><img src="mobile-userflow-08.png" alt="Checkout summary with Pay with card, Apple Pay, and pay by cash" width="472" height="1024" loading="lazy" decoding="async"></div>
           <p class="screen-caption cs-caption">Payment summary</p>
         </div>
         <div class="screen-item">
-          <div class="screen-wrap"><img src="Purchase-_receipt.png" alt="Digital receipt — full transaction receipt with line items and totals" width="473" height="1024" loading="lazy" decoding="async"></div>
-          <p class="screen-caption cs-caption">Digital receipt</p>
+          <div class="screen-wrap"><img src="mobile-userflow-09.png" alt="Add card form with card number, expiry, CVC, and Make payment" width="472" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption cs-caption">Add card</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-userflow-10.png" alt="Pay with card — saved Visa selected and Make payment" width="467" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption cs-caption">Card on file</p>
+        </div>
+        <div class="screen-item">
+          <div class="screen-wrap"><img src="mobile-userflow-11.png" alt="Payment complete with exit barcode and Open purchase" width="472" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption cs-caption">Payment complete, with the exit barcode</p>
         </div>
       </div>
     </div>
-    <details class="mob-screens-collapsed reveal reveal-media">
-      <summary>See all screens</summary>
-    <div class="screens-section">
+      <div class="screens-section reveal reveal-media">
       <div class="screens-grid col-3">
         <div class="screen-item">
-          <div class="screen-wrap"><img src="mobile-userflow-00.png" alt="Screen 0 — Focal Pay app preview card with Open action" width="393" height="852" loading="lazy" decoding="async"></div>
-          <p class="screen-caption cs-caption">0 · Splash</p>
+          <div class="screen-wrap"><img src="mobile-userflow-12.png" alt="Past purchase detail with Purchase and Products tabs, total, and return QR" width="472" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption cs-caption">Purchase detail</p>
         </div>
         <div class="screen-item">
-          <div class="screen-wrap"><img src="mobile-userflow-01.png" alt="Screen 1 — Scanner with empty cart and Go to payment" width="393" height="852" loading="lazy" decoding="async"></div>
-          <p class="screen-caption cs-caption">1 · Empty cart</p>
+          <div class="screen-wrap"><img src="mobile-userflow-13.png" alt="Digital receipt with line items and share" width="473" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption cs-caption">Digital receipt</p>
         </div>
         <div class="screen-item">
-          <div class="screen-wrap"><img src="mobile-userflow-02.png" alt="Screen 2 — Live scan with product in frame and cart with line items" width="393" height="852" loading="lazy" decoding="async"></div>
-          <p class="screen-caption cs-caption">2 · Scanner + cart</p>
-        </div>
-        <div class="screen-item">
-          <div class="screen-wrap"><img src="mobile-userflow-03.png" alt="Screen 3 — Manual barcode entry with keypad and matched product" width="393" height="852" loading="lazy" decoding="async"></div>
-          <p class="screen-caption cs-caption">3 · Manual barcode</p>
-        </div>
-        <div class="screen-item">
-          <div class="screen-wrap"><img src="mobile-userflow-04.png" alt="Screen 4 — Baked goods category list with search and add to cart" width="472" height="1024" loading="lazy" decoding="async"></div>
-          <p class="screen-caption cs-caption">4 · Baked goods</p>
-        </div>
-        <div class="screen-item">
-          <div class="screen-wrap"><img src="mobile-userflow-05.png" alt="Screen 5 — Need a bag? bag types with prices and Continue" width="393" height="852" loading="lazy" decoding="async"></div>
-          <p class="screen-caption cs-caption">5 · Add bag</p>
-        </div>
-        <div class="screen-item">
-          <div class="screen-wrap"><img src="mobile-userflow-06.png" alt="Screen 6 — Cart with line items, quantity controls, discounts, and Go to payment" width="472" height="1024" loading="lazy" decoding="async"></div>
-          <p class="screen-caption cs-caption">6 · Cart</p>
-        </div>
-        <div class="screen-item">
-          <div class="screen-wrap"><img src="mobile-userflow-07.png" alt="Screen 7 — Scan checkout QR at cashier area with cart summary and Edit cart" width="472" height="1024" loading="lazy" decoding="async"></div>
-          <p class="screen-caption cs-caption">7 · Scan QR to checkout</p>
-        </div>
-        <div class="screen-item">
-          <div class="screen-wrap"><img src="mobile-userflow-08.png" alt="Screen 8 — Checkout summary with Pay with card, Apple Pay, and pay by cash" width="472" height="1024" loading="lazy" decoding="async"></div>
-          <p class="screen-caption cs-caption">8 · Payment summary</p>
-        </div>
-        <div class="screen-item">
-          <div class="screen-wrap"><img src="mobile-userflow-09.png" alt="Screen 9 — Add card form with card number, expiry, CVC, and Make payment" width="472" height="1024" loading="lazy" decoding="async"></div>
-          <p class="screen-caption cs-caption">9 · Add card</p>
-        </div>
-        <div class="screen-item">
-          <div class="screen-wrap"><img src="mobile-userflow-10.png" alt="Screen 10 — Pay with card — saved Visa selected and Make payment" width="467" height="1024" loading="lazy" decoding="async"></div>
-          <p class="screen-caption cs-caption">10 · Card on file</p>
-        </div>
-        <div class="screen-item">
-          <div class="screen-wrap"><img src="mobile-userflow-11.png" alt="Screen 11 — Payment complete with exit barcode and Open purchase" width="472" height="1024" loading="lazy" decoding="async"></div>
-          <p class="screen-caption cs-caption">11 · Payment complete</p>
-        </div>
-        <div class="screen-item">
-          <div class="screen-wrap"><img src="mobile-userflow-12.png" alt="Screen 12 — Past purchase detail with Purchase and Products tabs and summary" width="472" height="1024" loading="lazy" decoding="async"></div>
-          <p class="screen-caption cs-caption">12 · Purchase detail</p>
-        </div>
-        <div class="screen-item">
-          <div class="screen-wrap"><img src="mobile-userflow-13.png" alt="Screen 13 — Digital receipt with line items and share" width="473" height="1024" loading="lazy" decoding="async"></div>
-          <p class="screen-caption cs-caption">13 · Digital receipt</p>
-        </div>
-        <div class="screen-item">
-          <div class="screen-wrap"><img src="mobile-userflow-14.png" alt="Screen 14 — Purchases history grouped by month" width="470" height="1024" loading="lazy" decoding="async"></div>
-          <p class="screen-caption cs-caption">14 · Purchases</p>
+          <div class="screen-wrap"><img src="mobile-userflow-14.png" alt="Purchases history grouped by month" width="470" height="1024" loading="lazy" decoding="async"></div>
+          <p class="screen-caption cs-caption">Purchase history</p>
         </div>
       </div>
     </div>
-    </details>
     </div>
   </section>
 
