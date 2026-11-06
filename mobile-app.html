@@ -115,7 +115,7 @@
         <div class="sb-glance__col sb-glance__col--decisions">
           <div class="sb-glance__label-head"><span class="sb-glance__label-mark" aria-hidden="true"></span><p class="sb-label">Key decisions</p></div>
           <ul class="sb-glance__list">
-            <li class="sb-glance__list-item--lead"><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Made sign-up optional after 3 testers abandoned at registration</li>
+            <li class="sb-glance__list-item--lead"><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Two checkout paths after 3 testers abandoned forced sign-up: sign up and pay in the app, or skip sign-up and scan a store QR code</li>
             <li><svg class="sb-glance__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Added visual, haptic and audio scan feedback after finding that the app was too silent: shoppers couldn't tell whether a scan had worked</li>
           </ul>
         </div>
@@ -146,7 +146,7 @@
     <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="cs-v2-phase-label">Introduction</span></div>
     <h2 class="cs-match-img cs-v2-heading">The challenge</h2>
     <p class="cs-match-img">For retailers, the whole idea depends on one thing: shoppers finishing checkout on their own phone. Every shopper who gives up halfway ends up back in the queue, or leaves without paying for what's in their cart.</p>
-    <p class="cs-match-img">In Swedish grocery stores like ICA and Coop, self-scanning means carrying a store scanner around, or standing in the queue at the till. Focalpay's app turns the shopper's own phone into the scanner: shoppers scan as they go, pay by scanning a QR code on the store wall, or send their cart to the cashier to pay with cash. It had to work with no new hardware, support cash, and let the store confirm payment at the exit without slowing honest shoppers down.</p>
+    <p class="cs-match-img">In Swedish grocery stores like ICA and Coop, self-scanning means carrying a store scanner around, or standing in the queue at the till. Focalpay's app turns the shopper's own phone into the scanner: shoppers scan as they go, then signed-in shoppers check out in the app, while guests scan a QR code in the store to connect their cart to checkout, or send their cart to the cashier to pay with cash. It had to work with no new hardware, support cash, and let the store confirm payment at the exit without slowing honest shoppers down.</p>
     <div class="cs-match-img cs-v2-one-question">
       <p class="cs-v2-subtitle">The one question</p>
       <p class="cs-v2-one-question__lead">So every decision had to answer one question:</p>
@@ -225,7 +225,7 @@
       <li><strong>Store scanners need a free hand</strong> → the phone becomes the scanner, with the camera on from the start</li>
       <li><strong>Queues</strong> → QR checkout from anywhere in the store</li>
       <li><strong>No way past a bad barcode</strong> → manual barcode entry and a Baked goods category</li>
-      <li><strong>Forced sign-up</strong> → check out as a guest, sign up only if you want to</li>
+      <li><strong>Forced sign-up</strong> → two paths: sign up and check out in the app, or skip it and scan a QR code</li>
     </ul>
     <p class="cs-match-img cs-v2-subtitle">User journey</p>
     <div class="cs-match-img">
@@ -443,9 +443,8 @@
     </div>
 
     <div class="cs-v2-decision">
-      <p class="cs-v2-decision__title">Decision 3 · Sign-up made optional</p>
-      <p>The first version asked shoppers to create an account before checkout, and three testers gave up right there. I moved sign-up to the end and made it optional: shoppers check out as guests with their card and get the receipt by email. In the next round, nobody gave up, and one participant chose to sign up.</p>
-      <p>Shoppers who skip sign-up scan a QR code in the store to connect their cart to checkout. It works from up to 10 metres away.</p>
+      <p class="cs-v2-decision__title">Decision 3 · Two ways to check out, no forced sign-up</p>
+      <p>The first version asked shoppers to create an account before they could shop, and three testers gave up right there. So I designed two paths: shoppers who sign up can check out straight from the app, while those who skip sign-up scan a QR code in the store to connect their cart to checkout. It works from up to 10 metres away. In the next round, nobody gave up, and one participant chose to sign up.</p>
       <div class="screens-section reveal reveal-media">
       <div class="screens-grid mob-screens-centered-one">
         <div class="screen-item">
