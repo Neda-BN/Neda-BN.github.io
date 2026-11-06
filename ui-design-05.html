@@ -50,7 +50,7 @@
   <a class="back-btn" href="index.html#ui-design"><svg class="back-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Back</a>
 </div>
 
-<main class="sb-case ui-design-main instore-sb-main cs-v2-study content case-main" id="instore-case-study-main">
+<main class="content case-main sb-case ui-design-main instore-sb-main cs-v2-study" id="instore-case-study-main">
   <header class="sb-hero hero ui-design-hero">
     <div class="sb-wrap">
       <div class="sb-hero-text">
@@ -78,15 +78,17 @@
         </table>
       </div>
 
-      <div class="instore-hero-grid">
-        <figure class="ui-design-figure"><img src="instore-hifi-list.png?v=20261030c" alt="Scan &amp; Go screen with a shopping list over a live product scan in a grocery aisle" width="428" height="868" decoding="async" fetchpriority="high"></figure>
-        <figure class="ui-design-figure"><img src="instore-hifi-ar.png?v=20261030c" alt="Store map in AR orientation mode with a red path on the floor and turn instruction" width="428" height="868" decoding="async" fetchpriority="high"></figure>
-      </div>
+      <div class="instore-hero-phones-block">
+        <div class="instore-hero-grid">
+          <figure class="ui-design-figure"><img src="instore-hifi-list.png?v=20261030c" alt="Scan &amp; Go screen with a shopping list over a live product scan in a grocery aisle" width="428" height="868" decoding="async" fetchpriority="high"></figure>
+          <figure class="ui-design-figure"><img src="instore-hifi-ar.png?v=20261030c" alt="Store map in AR orientation mode with a red path on the floor and turn instruction" width="428" height="868" decoding="async" fetchpriority="high"></figure>
+        </div>
 
-      <div class="instore-hero-copy">
-        <p class="cs-match-img">Scan &amp; Go with the shopping list, and AR orientation in the store map.</p>
-        <p class="cs-match-img">Based on a design challenge brief from a Nordic retail-tech company.</p>
-        <p class="cs-match-img">The company's name has been removed, and the store brand shown is fictional.</p>
+        <div class="instore-hero-caption" aria-label="Hero caption">
+          <p class="instore-hero-caption__line instore-hero-caption__line--lead">Scan &amp; Go with the shopping list, and AR orientation in the store map.</p>
+          <p class="instore-hero-caption__line instore-hero-caption__line--note">Based on a design challenge brief from a Nordic retail-tech company.</p>
+          <p class="instore-hero-caption__line instore-hero-caption__line--note">The company's name has been removed, and the store brand shown is fictional.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -106,11 +108,15 @@
     <div class="cs-match-img cs-v2-phase-label-row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="cs-v2-phase-label">Introduction</span></div>
     <h2 class="cs-match-img cs-v2-heading" id="instore-question">The real question</h2>
     <p class="cs-match-img">Why would anyone open an app inside a store? Honestly, most people don't. Including me. When I walk into a store, I usually ask someone where the oat milk is.</p>
-    <p class="aside-note aside-note--bubble aside-note--bubble-shape-2 cs-aside aside-note--bubble-prefer-right instore-oat-bubble"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2h8"/><path d="M9 2v2.79a6 6 0 0 0 5 5V9a2 2 0 0 1 4 0v.79a6 6 0 0 0 5-5V2"/><path d="M8 11v2.4a4 4 0 0 0 4 4 4 4 0 0 0 4-4V11"/></svg></span><span class="aside-note__bubble-text">Most people don't open a store app. They ask someone where the oat milk is.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="instore-arrow-milk" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(255, 138, 101)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(255, 138, 101)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#instore-arrow-milk)"/><path d="M40 11 L34 8" stroke="url(#instore-arrow-milk)"/><path d="M40 11 L34 14" stroke="url(#instore-arrow-milk)"/></svg></span></span></span></p>
     <p class="cs-match-img">So the real design problem became: <strong class="instore-lead-question">how do I give people a reason to keep the app open during the whole trip?</strong> I built the solution on two anchors that weren't in the brief.</p>
-    <div class="instore-anchor-grid">
-      <div class="role-block cs-card"><h4>Scan &amp; Go</h4><p>A real need: scan to build your cart and pay without queueing. It puts the phone in your hand.</p></div>
-      <div class="role-block cs-card"><h4>Your List</h4><p>The weekly shopping list lives in the app, not on paper or in a chat. It brings you back every time.</p></div>
+    <div class="instore-anchor-bubble-wrap">
+      <div class="instore-anchor-bubble-wrap__anchors">
+        <div class="instore-anchor-grid">
+          <div class="role-block cs-card"><h4>Scan &amp; Go</h4><p>A real need: scan to build your cart and pay without queueing. It puts the phone in your hand.</p></div>
+          <div class="role-block cs-card"><h4>Your List</h4><p>The weekly shopping list lives in the app, not on paper or in a chat. It brings you back every time.</p></div>
+        </div>
+      </div>
+      <p class="aside-note aside-note--bubble aside-note--bubble-shape-2 cs-aside aside-note--bubble-prefer-right instore-oat-bubble instore-oat-bubble--paired" data-instore-bubble-anchor="1"><span class="aside-note__bubble"><span class="aside-note__bubble-float"><span class="aside-note__bubble-shape"><span class="aside-note__icon-chip"><svg class="aside-note__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2h8"/><path d="M9 2v2.79a6 6 0 0 0 5 5V9a2 2 0 0 1 4 0v.79a6 6 0 0 0 5-5V2"/><path d="M8 11v2.4a4 4 0 0 0 4 4 4 4 0 0 0 4-4V11"/></svg></span><span class="aside-note__bubble-text">Most people don't open a store app. They ask someone where the oat milk is.</span><svg class="aside-note__arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 40 24" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="instore-arrow-milk" x1="0" y1="12" x2="40" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="rgb(255, 138, 101)" stop-opacity="0.85"/><stop offset="1" stop-color="rgb(255, 138, 101)" stop-opacity="0.45"/></linearGradient></defs><path d="M0 12 C10 12 22 9 40 11" stroke="url(#instore-arrow-milk)"/><path d="M40 11 L34 8" stroke="url(#instore-arrow-milk)"/><path d="M40 11 L34 14" stroke="url(#instore-arrow-milk)"/></svg></span></span></span></p>
     </div>
     <p class="cs-match-img">Without them, the rest of the features would never reach anyone.</p>
   </section>
@@ -126,12 +132,12 @@
     <h2 class="cs-match-img cs-v2-heading" id="instore-research">Research</h2>
     <p class="cs-match-img">In a short competitor scan of four Nordic retail-tech vendors, nobody offered a joined-up, customer-facing in-store app. That was the gap.</p>
     <p class="cs-match-img">I then framed shoppers' needs as jobs to be done:</p>
-    <ol class="instore-jtbd-list cs-match-img cs-v2-list" aria-label="Jobs to be done">
-      <li><span class="instore-jtbd-list__num">01</span><p class="instore-jtbd-list__text">Help me find this item fast.</p></li>
-      <li><span class="instore-jtbd-list__num">02</span><p class="instore-jtbd-list__text">Show me deals I can actually use.</p></li>
-      <li><span class="instore-jtbd-list__num">03</span><p class="instore-jtbd-list__text">Help me not forget anything.</p></li>
-      <li><span class="instore-jtbd-list__num">04</span><p class="instore-jtbd-list__text">Let me pay and leave without queueing.</p></li>
-      <li><span class="instore-jtbd-list__num">05</span><p class="instore-jtbd-list__text">Make me feel like a loyal customer.</p></li>
+    <ol class="instore-jtbd-list instore-jtbd-list--plain cs-match-img" aria-label="Jobs to be done">
+      <li><span class="instore-jtbd-list__num" aria-hidden="true">01</span><span class="instore-jtbd-list__text">Help me find this item fast.</span></li>
+      <li><span class="instore-jtbd-list__num" aria-hidden="true">02</span><span class="instore-jtbd-list__text">Show me deals I can actually use.</span></li>
+      <li><span class="instore-jtbd-list__num" aria-hidden="true">03</span><span class="instore-jtbd-list__text">Help me not forget anything.</span></li>
+      <li><span class="instore-jtbd-list__num" aria-hidden="true">04</span><span class="instore-jtbd-list__text">Let me pay and leave without queueing.</span></li>
+      <li><span class="instore-jtbd-list__num" aria-hidden="true">05</span><span class="instore-jtbd-list__text">Make me feel like a loyal customer.</span></li>
     </ol>
   </section>
 
@@ -225,12 +231,12 @@
     <figure class="ui-design-figure wide"><img src="instore-sketches-screens.jpg" alt="Paper sketches of Home, Scan and Go, Store map and Profile screens" width="1024" height="420" loading="lazy" decoding="async"><figcaption class="image-caption instore-paper-center screen-caption">First screens on paper: Home, Scan &amp; Go, Store map and Profile.</figcaption></figure>
     <div class="instore-paper-wireframes">
       <p class="cs-match-img instore-paper-center instore-paper-wireframes__lead">10 low-fidelity wireframes covering the whole flow, from Home and store detection to scanning, the map, checkout and profile.</p>
-      <div class="instore-wireframes-row wide" aria-label="Wireframe scroll views">
-        <p class="cs-match-img instore-wireframes-row__copy">Full scrollable views of the Home and Profile screens.</p>
-        <div class="instore-wireframes-row__figures">
+      <div class="instore-wireframes-pair wide" aria-label="Wireframe scroll views">
+        <div class="instore-wireframes-pair__figures">
           <figure class="ui-design-figure"><img src="instore-wireframes-1.png" alt="Low-fidelity wireframes one through five: Home, store detection and Scan and Go" width="288" height="1024" loading="lazy" decoding="async"></figure>
           <figure class="ui-design-figure"><img src="instore-wireframes-2.png" alt="Low-fidelity wireframes six through ten: offers, map, AR, cart and profile" width="286" height="1024" loading="lazy" decoding="async"></figure>
         </div>
+        <p class="instore-wireframes-pair__caption image-caption screen-caption">Full scrollable views of the Home and Profile screens.</p>
       </div>
     </div>
   </section>
@@ -270,13 +276,13 @@
 
   <section class="section cs-more-section" aria-labelledby="cs-more-heading">
     <div class="cs-more-mount" data-current-page="ui-design-05.html">
-      <a href="index.html#ui-design">See all case studies</a>
+      <a href="index.html#projects">See all case studies</a>
     </div>
   </section>
 </main>
 
 <div class="back-btn-wrap back-btn-wrap--bottom">
-  <a class="back-btn" href="index.html#ui-design"><svg class="back-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Back</a>
+  <a class="back-btn" href="index.html#projects"><svg class="back-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Back</a>
 </div>
 
 <footer>

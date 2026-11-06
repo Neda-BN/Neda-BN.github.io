@@ -141,15 +141,27 @@
   .instore-info-table tr:last-child th,
   .instore-info-table tr:last-child td { border-bottom: none; }
 
+  .instore-hero-stack .instore-hero-phones-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+  }
   .instore-hero-stack .instore-hero-grid {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-end;
-    gap: 0;
+    gap: var(--instore-hero-phone-gap, 64px);
     width: 100%;
     max-width: none;
     margin: 0;
+  }
+  @media (max-width: 1023.98px) {
+    .instore-hero-stack .instore-hero-grid {
+      --instore-hero-phone-gap: 48px;
+    }
   }
   .instore-hero-stack .instore-hero-grid .ui-design-figure {
     margin: 0;
@@ -164,25 +176,149 @@
     margin: 0 auto;
     object-fit: contain;
   }
-  .instore-hero-stack .instore-hero-copy {
+  /* Hero caption: 16px below phones comes from .instore-hero-phones-block gap */
+  .instore-hero-stack .instore-hero-caption {
     width: 100%;
-    max-width: none;
-    margin: 0;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
     text-align: center;
   }
-  .instore-hero-stack .instore-hero-copy p {
-    margin: 0;
+  .instore-hero-stack .instore-hero-caption__line {
+    margin: 0 !important;
+    padding: 0;
     font-family: var(--font-body);
-    font-size: 14px;
-    line-height: 1.55;
-    color: var(--muted);
+    line-height: 1.5;
   }
-  .instore-hero-stack .instore-hero-copy p + p {
-    margin-top: 6px;
+  .instore-hero-stack .instore-hero-caption__line + .instore-hero-caption__line {
+    margin-top: 6px !important;
   }
-  .instore-hero-stack .instore-hero-copy p:first-child {
-    color: var(--text);
-    font-size: 14px;
+  .instore-hero-stack .instore-hero-caption__line--lead {
+    font-size: var(--fs-body);
+    font-weight: 400;
+    color: var(--meta);
+    font-style: normal;
+  }
+  .instore-hero-stack .instore-hero-caption__line--note {
+    font-size: var(--fs-note, 13px);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--meta);
+  }
+
+  /* Anchor cards + oat-milk bubble (wide: side-by-side; narrow: stacked) */
+  main.instore-sb-main .instore-anchor-bubble-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: clamp(20px, 3vw, 28px);
+    margin-top: var(--cs-gap, 24px);
+    width: 100%;
+    max-width: var(--cs-wide-track, min(1200px, calc(100vw - 64px)));
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+  main.instore-sb-main .instore-anchor-bubble-wrap__anchors {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+  @media (min-width: 900px) {
+    main.instore-sb-main .instore-anchor-bubble-wrap {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: clamp(24px, 3vw, 40px);
+    }
+    main.instore-sb-main .instore-anchor-bubble-wrap__anchors {
+      flex: 1 1 min(0, 62%);
+      max-width: min(720px, 62%);
+    }
+    main.instore-sb-main .instore-anchor-bubble-wrap .instore-oat-bubble--paired {
+      flex: 0 0 188px;
+      align-self: center;
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      height: auto !important;
+      min-height: 0 !important;
+    }
+    main.instore-sb-main .instore-anchor-bubble-wrap .instore-oat-bubble--paired .aside-note__bubble {
+      position: relative !important;
+      right: auto !important;
+      left: auto !important;
+      top: auto !important;
+      margin: 0 auto;
+    }
+    main.instore-sb-main .instore-anchor-bubble-wrap .instore-oat-bubble--paired .aside-note__bubble-shape {
+      rotate: 0deg;
+    }
+  }
+  @media (max-width: 899.98px) {
+    main.instore-sb-main .instore-anchor-bubble-wrap .instore-oat-bubble--paired {
+      order: 2;
+      align-self: center;
+      width: 100%;
+      max-width: 280px;
+      margin-top: 0 !important;
+      height: auto !important;
+    }
+    main.instore-sb-main .instore-anchor-bubble-wrap .instore-oat-bubble--paired .aside-note__bubble {
+      position: relative !important;
+      right: auto !important;
+      left: auto !important;
+      top: auto !important;
+      margin: 0 auto;
+    }
+  }
+
+  /* Beat case-study.css margin-bubble rules (<1320px uses display:contents on bubble guts) */
+  @media (max-width: 1319.98px) {
+    body.case-study-page.instore-page
+      main.instore-sb-main
+      .instore-anchor-bubble-wrap
+      .instore-oat-bubble--paired.aside-note--bubble {
+      position: relative !important;
+      z-index: auto !important;
+      display: block !important;
+      height: auto !important;
+      min-height: 0 !important;
+      padding: 0 !important;
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      overflow: visible !important;
+      border: none !important;
+      background: transparent !important;
+      color: var(--text) !important;
+      font-size: var(--fs-body) !important;
+      line-height: 1.5 !important;
+      gap: 0 !important;
+    }
+    body.case-study-page.instore-page main.instore-sb-main .instore-anchor-bubble-wrap .instore-oat-bubble--paired .aside-note__bubble {
+      display: block !important;
+      position: relative !important;
+      width: 188px !important;
+      height: auto !important;
+      min-height: 180px !important;
+      right: auto !important;
+      left: auto !important;
+      top: auto !important;
+    }
+    body.case-study-page.instore-page main.instore-sb-main .instore-anchor-bubble-wrap .instore-oat-bubble--paired .aside-note__bubble-float {
+      display: block !important;
+      width: 100% !important;
+      height: 100% !important;
+    }
+    body.case-study-page.instore-page main.instore-sb-main .instore-anchor-bubble-wrap .instore-oat-bubble--paired .aside-note__bubble-shape {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+    body.case-study-page.instore-page main.instore-sb-main .instore-anchor-bubble-wrap .instore-oat-bubble--paired .aside-note__icon-chip {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
   }
 
   .instore-brief-stack {
@@ -240,11 +376,6 @@
     }
   }
 
-  @media (min-width: 1320px) {
-    main.instore-sb-main .instore-oat-bubble.aside-note--bubble {
-      margin-top: 0 !important;
-    }
-  }
 
   main.instore-sb-main .instore-lead-question {
     color: var(--accent) !important;
@@ -582,47 +713,119 @@
     }
   }
 
+  /* Jobs-to-be-done: plain numbered rows (no box / brown column) */
   .instore-jtbd-list {
     list-style: none;
     margin: 20px 0 0;
     padding: 0;
+  }
+  .instore-jtbd-list--plain {
+    border: none;
+    border-radius: 0;
+    background: none;
+    overflow: visible;
+    display: block;
+    list-style: none;
+    list-style-type: none;
+    padding-left: 0;
+  }
+  .instore-jtbd-list--plain li {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 16px;
+    padding: 18px 0;
+    margin: 0;
+    border-bottom: 1px solid var(--border);
+    box-sizing: border-box;
+  }
+  .instore-jtbd-list--plain li:first-child {
+    border-top: 1px solid var(--border);
+  }
+  .instore-jtbd-list--plain .instore-jtbd-list__num {
+    flex: 0 0 auto;
+    font-family: "Poppins", sans-serif;
+    font-size: var(--fs-body);
+    font-weight: 600;
+    color: var(--accent-2);
+    letter-spacing: normal;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    min-width: 2.25rem;
+  }
+  .instore-jtbd-list--plain .instore-jtbd-list__text {
+    flex: 1 1 auto;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+
+  main.instore-sb-main .instore-paper-wireframes .instore-wireframes-row {
+    margin-top: 0;
+  }
+  main.instore-sb-main .instore-wireframes-pair {
     display: flex;
     flex-direction: column;
-    gap: 0;
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    overflow: hidden;
-    background: var(--surface);
-  }
-  .instore-jtbd-list li {
-    display: grid;
-    grid-template-columns: 3.25rem minmax(0, 1fr);
-    gap: 0;
-    align-items: stretch;
-    border-bottom: 1px solid var(--border);
-  }
-  .instore-jtbd-list li:last-child { border-bottom: none; }
-  .instore-jtbd-list__num {
-    display: flex;
     align-items: center;
-    justify-content: center;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.06em;
-    color: var(--accent);
-    background: color-mix(in srgb, var(--primary) 8%, transparent);
-    border-right: 1px solid var(--border);
-    padding: 14px 8px;
+    gap: 12px;
+    width: var(--cs-wide-track, min(1200px, calc(100vw - 64px)));
+    max-width: var(--cs-wide-track, min(1200px, calc(100vw - 64px)));
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
   }
-  .instore-jtbd-list__text {
+  main.instore-sb-main .instore-wireframes-pair__figures {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--instore-hero-phone-gap, 64px);
+    width: 100%;
+  }
+  main.instore-sb-main .instore-wireframes-pair__figures .ui-design-figure {
     margin: 0;
-    padding: 14px 18px;
-    font-family: var(--font-body);
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1.45;
-    color: var(--text);
+    flex: 0 0 auto;
+  }
+  main.instore-sb-main .instore-wireframes-pair__figures .ui-design-figure img {
+    width: auto !important;
+    max-width: none !important;
+    height: auto !important;
+    display: block;
+  }
+  main.instore-sb-main .instore-wireframes-pair__caption {
+    margin: 0;
+    padding: 0 16px;
+    box-sizing: border-box;
+    max-width: min(720px, 100%);
+    text-align: center;
+  }
+  @media (max-width: 1023.98px) {
+    main.instore-sb-main .instore-wireframes-pair__figures {
+      gap: 48px;
+    }
+  }
+  @media (max-width: 767.98px) {
+    main.instore-sb-main .instore-wireframes-pair {
+      width: 100%;
+      max-width: 720px;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    main.instore-sb-main .instore-wireframes-pair__figures {
+      justify-content: center;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 4px;
+    }
   }
 
   .instore-persona {

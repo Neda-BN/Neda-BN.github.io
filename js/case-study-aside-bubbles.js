@@ -3,7 +3,8 @@
   if (!document.body.classList.contains('case-study-page')) return;
 
   var bubbleMq = window.matchMedia('(min-width: 1320px)');
-  var bubbleNotes = document.querySelectorAll('.aside-note--bubble');
+  /* Paired in-flow bubbles (e.g. Smart In-Store anchor row) are positioned by layout CSS */
+  var bubbleNotes = document.querySelectorAll('.aside-note--bubble:not(.instore-oat-bubble--paired)');
   if (!bubbleNotes.length) return;
 
   var BUBBLE_W = 188;

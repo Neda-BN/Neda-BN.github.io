@@ -96,9 +96,8 @@ body.case-study-page.cs-v2 .ui-design-main.cs-v2-study .cs-v2-phase h2.cs-match-
 }
 
 /*
- * Smart In-Store: pre–cs-v2 <main> was not `.content`, so it did not get the shared case-study
- * column (max-width: var(--cs-track) / 820px). Adding `.content` narrowed the whole page and
- * shifted hero images — neutralise that on this page only (sections keep their own tracks).
+ * In-store `main` needs `.content.case-main` so the More carousel matches backoffice.html, but the
+ * global `.case-study-page .content` max-width would shrink the 1200px intro — keep full width here.
  */
 body.case-study-page.cs-v2.ui-design-page main.instore-sb-main.content.case-main {
   max-width: none;
@@ -108,6 +107,26 @@ body.case-study-page.cs-v2.ui-design-page main.instore-sb-main.content.case-main
   padding-left: 0;
   padding-right: 0;
   box-sizing: border-box;
+}
+
+/*
+ * "More case studies" carousel uses full-bleed viewport maths; it must sit in the same
+ * 820px content column as backoffice.html (main has max-width: none on this page).
+ */
+body.case-study-page.cs-v2.ui-design-page main.content.case-main.sb-case > .section.cs-more-section {
+  max-width: var(--cs-track);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 859.98px) {
+  body.case-study-page.cs-v2.ui-design-page main.content.case-main.sb-case > .section.cs-more-section {
+    max-width: 100%;
+    padding-left: var(--cs-pad);
+    padding-right: var(--cs-pad);
+  }
 }
 
 /* Hero + ui-design-hero: match cs-v2 / case-study hero strip */
@@ -198,17 +217,25 @@ body.case-study-page.cs-v2.ui-design-page .cs-v2-study p.cs-match-img {
 
 /* ── Instore page (05): layout + project-info table typography stay in css/instore-page.css (font sizes affect table width → hero image x). ── */
 
-body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-hero-stack .instore-hero-copy p {
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-hero-caption__line--lead {
   font-family: "Poppins", sans-serif !important;
   font-size: var(--fs-body) !important;
-  line-height: var(--lh-body) !important;
   font-weight: 400 !important;
-  color: var(--body) !important;
+  font-style: normal !important;
+  line-height: var(--lh-body) !important;
+  letter-spacing: normal !important;
+  color: var(--meta) !important;
+  text-align: center !important;
 }
 
-body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-hero-stack .instore-hero-copy p:first-child {
-  color: var(--body) !important;
-  font-size: var(--fs-body) !important;
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-hero-caption__line--note {
+  font-family: "Poppins", sans-serif !important;
+  font-size: var(--fs-note, 13px) !important;
+  font-weight: 400 !important;
+  font-style: italic !important;
+  line-height: 1.5 !important;
+  letter-spacing: normal !important;
+  color: var(--meta) !important;
 }
 
 body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-wireframes-row__copy {
@@ -240,19 +267,19 @@ body.case-study-page.cs-v2.ui-design-page .instore-sb-main .mob-methods-grid .fi
   color: var(--body) !important;
 }
 
-body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-jtbd-list__num {
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-jtbd-list--plain .instore-jtbd-list__num {
   font-family: "Poppins", sans-serif !important;
-  font-size: 11px !important;
+  font-size: var(--fs-body) !important;
   font-weight: 600 !important;
-  letter-spacing: 0.06em !important;
+  letter-spacing: normal !important;
   color: var(--accent-2) !important;
 }
 
-body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-jtbd-list__text {
+body.case-study-page.cs-v2.ui-design-page .instore-sb-main .instore-jtbd-list--plain .instore-jtbd-list__text {
   font-family: "Poppins", sans-serif !important;
   font-size: var(--fs-body) !important;
-  line-height: var(--lh-body) !important;
-  font-weight: 500 !important;
+  line-height: 1.5 !important;
+  font-weight: 400 !important;
   color: var(--ink) !important;
 }
 
@@ -373,16 +400,6 @@ body.case-study-page.cs-v2.ui-design-page .ui-design-gallery .cs-v2-phase .ui-de
   border: 1px solid var(--border);
   border-radius: 999px;
   padding: 6px 14px;
-}
-
-/* ── “See more” carousel: UI design pages are not listed in CASE_STUDIES — hide injected thumbnails ── */
-body.case-study-page.ui-design-page .cs-more-section .cs-more__media {
-  display: none !important;
-}
-
-body.case-study-page.ui-design-page .cs-more-section .cs-more__card {
-  min-height: 0 !important;
-  padding-bottom: 24px !important;
 }
 
 /* ── Smart In-Store: lock visual-split hero image metrics (beat .ui-design-figure img { width: 100% }) ── */
