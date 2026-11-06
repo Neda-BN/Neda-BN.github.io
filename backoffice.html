@@ -208,6 +208,7 @@
     border-top: 1px solid var(--yellow-line, rgba(232, 184, 109, 0.55));
     margin-bottom: 96px;
     box-sizing: border-box;
+    scroll-margin-top: calc(var(--nav-h, 85px) + 24px);
   }
   body.case-study-page.cs-v2 .sb-case .bo-problem-banner-wrap .bo-problem-banner {
     padding-top: 24px;
@@ -263,6 +264,40 @@
 
   body.case-study-page.cs-v2 .sb-case .pos-summary-shell .cs-platform-note.fs-note {
     margin-top: var(--space-block, 24px);
+  }
+
+  /* At a glance: jump to each problem banner (not results); plain link, no footer chrome */
+  body.case-study-page.cs-v2 .sb-case #overview .cs-summary__flow-card-jump {
+    margin-top: 20px;
+    padding: 0;
+    text-align: left;
+    background: none !important;
+    border: none !important;
+    min-height: 0 !important;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  body.case-study-page.cs-v2 .sb-case #overview .cs-summary__flow-card-jump .cs-summary-jump__link {
+    font-family: "Poppins", sans-serif !important;
+    font-size: var(--fs-body) !important;
+    line-height: var(--lh-body) !important;
+    font-weight: 400 !important;
+    color: var(--blue) !important;
+    text-decoration: underline !important;
+    text-decoration-thickness: 1px !important;
+    text-underline-offset: 4px !important;
+    letter-spacing: normal !important;
+  }
+  /* Result headline numbers — match large yellow summary stats */
+  body.case-study-page.cs-v2 .sb-case #overview .cs-summary__flow-block--result .cs-summary__flow-stat {
+    font-family: "Poppins", sans-serif !important;
+    font-size: var(--fs-large) !important;
+    line-height: var(--lh-large) !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.02em !important;
+    color: var(--yellow) !important;
+    white-space: nowrap !important;
   }
 
   @media (max-width: 1023px) and (min-width: 768px) {
@@ -376,9 +411,9 @@
                   <p class="cs-summary__flow-stat-meta">Assessed in a workshop with 5 store managers</p>
                 </div>
               </div>
-              <footer class="cs-summary__flow-card-foot">
-                <a class="cs-summary-jump__link" href="#results-replenishment">Problem 1 results <span class="cs-summary-jump__arrow" aria-hidden="true">↓</span></a>
-              </footer>
+              <div class="cs-summary__flow-card-jump">
+                <a class="cs-summary-jump__link" href="#problem-replenishment">Problem 1</a>
+              </div>
             </article>
             <article class="cs-summary__flow-card sb-glance__col">
               <header class="cs-summary__flow-card-head">
@@ -408,9 +443,9 @@
                   <p class="cs-summary__flow-stat-meta">Tested with 5 store managers, old vs new version</p>
                 </div>
               </div>
-              <footer class="cs-summary__flow-card-foot">
-                <a class="cs-summary-jump__link" href="#results-campaigns">Problem 2 results <span class="cs-summary-jump__arrow" aria-hidden="true">↓</span></a>
-              </footer>
+              <div class="cs-summary__flow-card-jump">
+                <a class="cs-summary-jump__link" href="#problem-campaigns">Problem 2</a>
+              </div>
             </article>
           </div>
         </div>
