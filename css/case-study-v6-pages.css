@@ -1,19 +1,11 @@
 /* V6 dark case-study restyle — healthcare, POS, mobile, backoffice (not Simple Booking) */
 
 body.case-study-page {
-  --cs-positive: #7fc8a9;
-  --cs-negative: #e08a8a;
-  --cs-warning: #e3c07a;
+  --cs-positive: var(--status-success);
+  --cs-negative: var(--status-danger);
+  --cs-warning: var(--status-warning);
   --cs-text-max: 720px;
-  --bg: #0b0c10;
-  --surface: #16161c;
-  --surface-2: #1e1e26;
-  --text: #ededf0;
-  --muted: #9a9aa5;
-  --border: rgba(255, 255, 255, 0.08);
-  --accent: #8aa4d6;
-  --accent-soft: rgba(138, 164, 214, 0.14);
-  --accent-light: var(--accent-soft);
+  --accent-light: var(--primary-soft);
   --dark: var(--text);
   --mid: var(--muted);
   --light: var(--muted);
@@ -92,7 +84,7 @@ body.case-study-page .section-headings .section-subtitle {
   font-weight: 400;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-2);
 }
 
 body.case-study-page .meta-strip {
@@ -195,8 +187,8 @@ body.case-study-page .case-inline-subsection {
 }
 
 body.case-study-page .quote-block {
-  border-left-color: var(--accent);
-  background: var(--accent-soft);
+  border-left-color: var(--accent-2);
+  background: var(--accent-2-soft);
 }
 
 body.case-study-page .quote-block p {
@@ -327,12 +319,12 @@ body.case-study-page .pos-ujm-y-label {
 }
 
 body.case-study-page .pos-ujm-persona-pill {
-  background: var(--accent-soft);
+  background: var(--accent-2-soft);
   border-color: var(--border);
 }
 
 body.case-study-page .pos-ujm-persona-avatar {
-  background: var(--accent-strong, #6f8bc4);
+  background: var(--primary-hover);
   color: var(--text);
 }
 
@@ -341,22 +333,22 @@ body.case-study-page .pos-ujm-persona-name {
 }
 
 body.case-study-page .pos-ujm-persona-role {
-  color: var(--accent);
+  color: var(--accent-2);
 }
 
 body.case-study-page .pos-ujm-y-emoji--happy {
   border-color: var(--cs-positive);
-  background: rgba(127, 200, 169, 0.12);
+  background: color-mix(in srgb, var(--status-success) 12%, transparent);
 }
 
 body.case-study-page .pos-ujm-y-emoji--neutral {
   border-color: var(--cs-warning);
-  background: rgba(227, 192, 122, 0.12);
+  background: color-mix(in srgb, var(--status-warning) 12%, transparent);
 }
 
 body.case-study-page .pos-ujm-y-emoji--sad {
   border-color: var(--cs-negative);
-  background: rgba(224, 138, 138, 0.12);
+  background: color-mix(in srgb, var(--status-danger) 12%, transparent);
 }
 
 body.case-study-page .pos-ujm-label-box {
@@ -443,7 +435,7 @@ body.case-study-page .proto-note {
 }
 
 body.case-study-page .proto-link {
-  color: var(--accent);
+  color: var(--primary);
 }
 
 /* Media frames */
@@ -495,7 +487,7 @@ body.case-study-page .section p.aside-note {
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0;
-  color: var(--accent);
+  color: var(--accent-2);
 }
 
 body.case-study-page .content p.aside-note svg,
@@ -527,5 +519,5 @@ body.case-study-page .cs-learn h4 {
 
 body.case-study-page .cs-flow__label--accent,
 body.case-study-page .cs-learn-eyebrow {
-  color: var(--accent) !important;
+  color: var(--accent-2) !important;
 }

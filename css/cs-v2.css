@@ -126,11 +126,11 @@ body.cs-v2 .cs-v2-study .cs-v2-quote p {
 
 body.cs-v2 .cs-v2-study .cs-v2-phase-label {
   font-weight: 600;
-  color: var(--yellow);
+  color: var(--accent-2);
 }
 
 body.cs-v2 .cs-v2-study .cs-v2-result-num {
-  color: var(--yellow) !important;
+  color: var(--accent-2) !important;
 }
 
 body.cs-v2 .cs-v2-study a:not(.back-btn):not(.anna-nav a):not(.footer-built__link):not(.footer-social a) {
@@ -139,7 +139,7 @@ body.cs-v2 .cs-v2-study a:not(.back-btn):not(.anna-nav a):not(.footer-built__lin
 
 body.cs-v2 .cs-v2-study .cs-v2-reflect-yellow {
   font-weight: 600;
-  color: var(--yellow);
+  color: var(--accent-2);
 }
 
 /* Hide old section chrome */
@@ -174,7 +174,7 @@ body.cs-v2 .cs-v2-study .cs-v2-phase-label-row svg {
   width: 20px;
   height: 20px;
   flex-shrink: 0;
-  stroke: var(--yellow);
+  stroke: var(--accent-2);
 }
 
 body.cs-v2 .cs-v2-study .cs-v2-heading {
@@ -224,7 +224,7 @@ body.cs-v2 .cs-v2-study .cs-v2-findings li::before {
   position: absolute;
   left: 0;
   font-weight: 600;
-  color: var(--yellow);
+  color: var(--accent-2);
 }
 
 body.cs-v2 .cs-v2-study .cs-v2-findings li + li {
@@ -282,7 +282,7 @@ body.cs-v2 .cs-v2-study .cs-v2-aha-text {
 body.cs-v2 .cs-v2-study .cs-turning__callout-label {
   font-size: var(--fs-body) !important;
   font-weight: 600;
-  color: var(--yellow);
+  color: var(--accent-2);
 }
 
 /* Results grid */
@@ -555,7 +555,7 @@ body.cs-v2 .pos-summary-shell .sb-glance__pct {
   line-height: var(--lh-large) !important;
   font-weight: 600 !important;
   letter-spacing: -0.02em !important;
-  color: var(--yellow) !important;
+  color: var(--accent-2) !important;
   white-space: normal !important;
   overflow: visible !important;
   text-overflow: unset !important;
@@ -566,7 +566,7 @@ body.case-study-page.cs-v2 .pos-summary-shell .sb-glance__statement {
 }
 
 body.cs-v2 .cs-v2-study .cs-v2-result-num {
-  color: var(--yellow) !important;
+  color: var(--accent-2) !important;
 }
 
 body.cs-v2 .cs-v2-study .cs-v2-quote p {
@@ -632,7 +632,7 @@ body.case-study-page.cs-v2 .cs-match-img.sb-glance .sb-glance__pct {
   line-height: var(--lh-large) !important;
   font-weight: 600 !important;
   letter-spacing: -0.02em !important;
-  color: var(--yellow) !important;
+  color: var(--accent-2) !important;
 }
 
 body.case-study-page.cs-v2 .cs-v2-study p.cs-v2-result-num {
@@ -641,7 +641,7 @@ body.case-study-page.cs-v2 .cs-v2-study p.cs-v2-result-num {
   line-height: var(--lh-large) !important;
   font-weight: 600 !important;
   letter-spacing: -0.02em !important;
-  color: var(--yellow) !important;
+  color: var(--accent-2) !important;
 }
 
 body.case-study-page.cs-design-page.cs-v2 .content.case-main .cs-turning .cs-turning__prose > p,
@@ -748,7 +748,7 @@ body.case-study-page.cs-v2 .cs-match-img.cs-v2-one-question {
   border-radius: 0 !important;
   overflow: visible !important;
   box-sizing: border-box !important;
-  background-image: linear-gradient(var(--yellow), var(--yellow)) !important;
+  background-image: linear-gradient(var(--accent-2), var(--accent-2)) !important;
   background-size: 3px 100% !important;
   background-repeat: no-repeat !important;
   background-position: 0 0 !important;
@@ -765,7 +765,7 @@ body.case-study-page.cs-v2 .cs-v2-one-question > .cs-v2-subtitle {
   font-size: var(--fs-body) !important;
   line-height: var(--lh-body) !important;
   font-weight: 600 !important;
-  color: var(--yellow) !important;
+  color: var(--accent-2) !important;
 }
 
 body.case-study-page.cs-v2 #introduction .cs-v2-one-question + .cs-v2-subtitle {
@@ -922,7 +922,7 @@ body.case-study-page.cs-design-page.cs-v2 .content.case-main.cs-v2-study p.cs-v2
   line-height: var(--lh-large) !important;
   font-weight: 600 !important;
   letter-spacing: -0.02em !important;
-  color: var(--yellow) !important;
+  color: var(--accent-2) !important;
 }
 
 body.case-study-page.cs-design-page.cs-v2 .content.case-main.cs-v2-study .cs-match-img.cs-turning .cs-turning__prose > p {
@@ -1019,7 +1019,7 @@ body.cs-v2 .cs-v2-compare-title {
   font-family: "Poppins", sans-serif;
   font-size: var(--fs-body);
   font-weight: 600;
-  color: var(--yellow);
+  color: var(--accent-2);
   line-height: var(--lh-body);
   margin: 0 0 12px;
 }
@@ -1120,11 +1120,11 @@ body.case-study-page.cs-v2 .sb-case #design figure.sb-ds-sheet > figcaption.cs-c
 }
 
 body.case-study-page.cs-v2 .cs-v2-study .cs-v2-compare-title {
-  color: var(--yellow) !important;
+  color: var(--accent-2) !important;
 }
 
 body.case-study-page.cs-v2 .cs-v2-study .cs-customer-view__label {
-  color: var(--yellow) !important;
+  color: var(--accent-2) !important;
 }
 
 /* ── Healthcare (healthcare.html) ── */
@@ -1201,7 +1201,7 @@ body.case-study-page.cs-v2 .hc-case .hc-wizard-step-card__num {
   font-size: var(--fs-body) !important;
   font-weight: 600 !important;
   line-height: var(--lh-body) !important;
-  color: var(--yellow) !important;
+  color: var(--accent-2) !important;
   margin: 0 0 8px;
 }
 

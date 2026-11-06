@@ -2,20 +2,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-body.cs-design-page,
-body.sb-design-page {
-
-  --ink: #f3f1ec;
-  --body: rgba(243, 241, 236, 0.84);
-  --meta: rgba(243, 241, 236, 0.56);
-  --yellow: #e8b86d;
-  --yellow-soft: rgba(232, 184, 109, 0.14);
-  --yellow-line: rgba(232, 184, 109, 0.55);
-  --blue: var(--accent);
-  --frame-bg: var(--surface);
-  --frame-line: var(--border);
-
-}
 body.cs-design-page .cs-read-progress, .sb-read-progress,
 body.sb-design-page .cs-read-progress, .sb-read-progress {
 
@@ -25,7 +11,7 @@ body.sb-design-page .cs-read-progress, .sb-read-progress {
   z-index: 90;
   height: 2px;
   width: 0;
-  background: var(--yellow);
+  background: var(--accent-2);
   pointer-events: none;
 
 }
@@ -93,7 +79,7 @@ body.sb-design-page .sb-case .cs-label, .sb-label {
   font-weight: 500;
   font-size: 13px;
   letter-spacing: 0.04em;
-  color: var(--yellow);
+  color: var(--accent-2);
   text-transform: none;
 
 }
@@ -105,8 +91,8 @@ body.sb-design-page .sb-case .ink {
   color: var(--ink);
   background: linear-gradient(
     transparent 62%,
-    var(--yellow-soft) 62%,
-    var(--yellow-soft) 92%,
+    var(--accent-2-soft) 62%,
+    var(--accent-2-soft) 92%,
     transparent 92%
   );
   padding: 0 2px;
@@ -117,7 +103,7 @@ body.sb-design-page .sb-case .cs-em-yellow, .sb-highlight-yellow {
 
   font-family: "Poppins", sans-serif;
   font-weight: 600;
-  color: var(--yellow);
+  color: var(--accent-2);
 
 }
 body.cs-design-page .sb-case .cs-sec-eyebrow, .sb-sec-eyebrow,
@@ -136,7 +122,7 @@ body.sb-design-page .sb-case .cs-sec-num, .sb-sec-num {
   font-weight: 600;
   font-size: 14px;
   line-height: 1;
-  color: var(--yellow);
+  color: var(--accent-2);
   font-variant-numeric: tabular-nums;
 
 }
@@ -146,7 +132,7 @@ body.sb-design-page .sb-case .cs-sec-line, .sb-sec-line {
   display: block;
   width: 24px;
   height: 1px;
-  background: var(--yellow-line);
+  background: var(--accent-2-line);
   flex-shrink: 0;
 
 }
@@ -174,7 +160,7 @@ body.cs-design-page .sb-case .cs-glance, .sb-glance .cs-label, .sb-label,
 body.sb-design-page .sb-case .cs-glance, .sb-glance .cs-label, .sb-label {
 
   margin-bottom: 0 !important;
-  color: var(--yellow) !important;
+  color: var(--accent-2) !important;
   font-family: "Poppins", sans-serif !important;
   font-weight: 500 !important;
   font-size: 15px !important;
@@ -203,7 +189,7 @@ body.sb-design-page .sb-case .cs-glance__label-mark, .sb-glance__label-mark {
   display: block;
   width: 16px;
   height: 1px;
-  background: var(--yellow-line);
+  background: var(--accent-2-line);
   flex-shrink: 0;
 
 }
@@ -292,7 +278,7 @@ body.cs-design-page .sb-case .cs-summary__problem-num,
 body.sb-design-page .sb-case .cs-summary__problem-num {
 
   font-weight: 600;
-  color: var(--yellow);
+  color: var(--accent-2);
 
 }
 body.cs-design-page .sb-case .cs-summary__problem-name,
@@ -415,7 +401,7 @@ body.cs-design-page .sb-case .cs-summary__flow-card-num,
 body.sb-design-page .sb-case .cs-summary__flow-card-num {
 
   font-weight: 600;
-  color: var(--yellow);
+  color: var(--accent-2);
 
 }
 body.cs-design-page .sb-case .cs-summary__flow-card-name,
@@ -460,7 +446,7 @@ body.sb-design-page .sb-case .cs-summary__flow-stat {
   font-weight: 600;
   font-size: 44px;
   line-height: 1.05;
-  color: var(--yellow);
+  color: var(--accent-2);
   white-space: nowrap;
 
 }
@@ -509,7 +495,7 @@ body.cs-design-page .sb-case .cs-summary__flow-card-foot .cs-summary-jump__link,
 body.sb-design-page .sb-case .cs-summary__flow-card-foot .cs-summary-jump__link {
 
   font-family: "Poppins", sans-serif !important;
-  color: var(--blue) !important;
+  color: var(--primary) !important;
   font-size: 13px;
   letter-spacing: 0.04em;
   text-decoration: underline;
@@ -529,7 +515,7 @@ body.cs-design-page .content.case-main .cs-flow-eyebrow__flow,
 body.sb-design-page .sb-case .cs-flow-eyebrow__flow {
 
   font-weight: 600;
-  color: var(--yellow);
+  color: var(--accent-2);
 
 }
 body.cs-design-page .content.case-main .cs-flow-eyebrow__name,
@@ -568,7 +554,7 @@ body.sb-design-page .sb-case .cs-problem-divider::before {
   width: 4px;
   height: 40px;
   transform: translateY(-50%);
-  background: var(--yellow);
+  background: var(--accent-2);
   border-radius: 2px;
 
 }
@@ -585,7 +571,7 @@ body.cs-design-page .sb-case .cs-problem-divider__num,
 body.sb-design-page .sb-case .cs-problem-divider__num {
 
   font-weight: 600;
-  color: var(--yellow);
+  color: var(--accent-2);
 
 }
 body.cs-design-page .sb-case .cs-problem-divider__name,
@@ -671,7 +657,7 @@ body.sb-design-page .sb-case #results-campaigns .result-card__stat {
 
   font-family: "Poppins", sans-serif !important;
   font-weight: 600 !important;
-  color: var(--yellow) !important;
+  color: var(--accent-2) !important;
 
 }
 body.cs-design-page .sb-case #results-campaigns > p,
@@ -735,7 +721,7 @@ body.cs-design-page .sb-case .cs-glance__col--result, .sb-glance__col--result,
 body.sb-design-page .sb-case .cs-glance__col--result, .sb-glance__col--result {
 
   grid-column: 1 / -1;
-  border-left: 3px solid var(--yellow);
+  border-left: 3px solid var(--accent-2);
   padding-left: 25px;
   display: grid;
   grid-template-columns: minmax(180px, auto) 1fr;
@@ -845,7 +831,7 @@ body.sb-design-page .sb-case .cs-glance__check, .sb-glance__check {
   height: 15px;
   flex-shrink: 0;
   margin-top: 3px;
-  stroke: var(--yellow);
+  stroke: var(--accent-2);
 
 }
 body.cs-design-page .sb-case .sb-glance .sb-glance__pct,
@@ -858,7 +844,7 @@ body.sb-design-page .sb-case .cs-glance .cs-glance__pct {
   font-weight: 600;
   font-size: 48px;
   line-height: 1.05;
-  color: var(--yellow);
+  color: var(--accent-2);
   white-space: nowrap;
 
 }
@@ -879,7 +865,7 @@ body.sb-design-page .sb-case .cs-glance__status-fill, .sb-glance__status-fill {
   height: 100%;
   width: 0;
   border-radius: 999px;
-  background: var(--yellow);
+  background: var(--accent-2);
   transition: width 900ms ease-out;
 
 }
@@ -949,7 +935,7 @@ body.cs-design-page .sb-case .cs-glance, .sb-glance .cs-summary-jump__link,
 body.sb-design-page .sb-case .cs-glance, .sb-glance .cs-summary-jump__link {
 
   font-family: "Poppins", sans-serif !important;
-  color: var(--blue) !important;
+  color: var(--primary) !important;
   font-size: 13px;
   letter-spacing: 0.04em;
   text-transform: none;
@@ -1043,7 +1029,7 @@ body.sb-design-page .sb-case .cs-question, .sb-question-frame::before {
   width: 4px;
   height: 40px;
   transform: translateY(-50%);
-  background: var(--yellow);
+  background: var(--accent-2);
   border-radius: 2px;
 
 }
@@ -1103,7 +1089,7 @@ body.sb-design-page .sb-case .cs-process-frame__fill, .sb-process-frame__fill {
   display: block;
   height: 2px;
   width: 0;
-  background: var(--yellow);
+  background: var(--accent-2);
   transition: width 800ms ease-out;
 
 }
@@ -1158,7 +1144,7 @@ body.sb-design-page .sb-case .cs-process-frame, .sb-process-frame .cs-process, .
   font-weight: 600;
   font-size: 28px;
   line-height: 1;
-  color: var(--yellow);
+  color: var(--accent-2);
   font-variant-numeric: tabular-nums;
 
 }
@@ -1361,7 +1347,7 @@ body.sb-design-page .cs-turning__eyebrow {
   font-weight: 500;
   letter-spacing: 0.04em;
   text-transform: none;
-  color: var(--yellow);
+  color: var(--accent-2);
   margin: 0 0 16px;
 }
 
@@ -1395,7 +1381,7 @@ body.cs-design-page .cs-turning__shift-label--accent {
 }
 
 body.cs-design-page .cs-turning__shift-label--accent {
-  color: var(--yellow);
+  color: var(--accent-2);
 }
 
 body.cs-design-page .cs-turning__shift-text {
@@ -1414,8 +1400,8 @@ body.cs-design-page .cs-turning__shift-box--plan {
 }
 
 body.cs-design-page .cs-turning__shift-box--highlight {
-  background: var(--yellow-soft);
-  border: 1px solid var(--yellow-line);
+  background: var(--accent-2-soft);
+  border: 1px solid var(--accent-2-line);
   opacity: 1;
   box-shadow: none;
 }
@@ -1425,11 +1411,11 @@ body.cs-design-page .cs-turning.is-shift-revealed .cs-turning__shift-box.cs-turn
 }
 
 body.cs-design-page .cs-turning__shift-bulb {
-  stroke: var(--yellow);
+  stroke: var(--accent-2);
 }
 
 body.cs-design-page .cs-turning__shift-arrow {
-  color: var(--yellow);
+  color: var(--accent-2);
 }
 
 body.cs-design-page .cs-turning__callout-label {
@@ -1438,11 +1424,11 @@ body.cs-design-page .cs-turning__callout-label {
   font-weight: 500;
   letter-spacing: 0.04em;
   text-transform: none;
-  color: var(--yellow);
+  color: var(--accent-2);
 }
 
 body.cs-design-page .cs-turning__callout-label-icon {
-  stroke: var(--yellow);
+  stroke: var(--accent-2);
 }
 
 body.cs-design-page .cs-turning__callout {
@@ -1457,7 +1443,7 @@ body.cs-design-page .cs-turning__callout {
 }
 
 body.cs-design-page .cs-turning__callout-accent {
-  color: var(--yellow);
+  color: var(--accent-2);
 }
 
 body.cs-design-page.case-study-page .content.case-main .section-chapter {
@@ -1530,7 +1516,7 @@ body.sb-design-page .cs-platform-note {
 
 body.cs-design-page .cs-platform-note a,
 body.sb-design-page .cs-platform-note a {
-  color: var(--blue) !important;
+  color: var(--primary) !important;
   font-weight: 400 !important;
   text-decoration: underline !important;
   text-decoration-thickness: 1px;

@@ -7,7 +7,7 @@ body.editorial-case {
   --text-strong: #f4f4f6;
   --text-body: rgba(237, 237, 240, 0.8);
   --c-decision: var(--accent);
-  --c-problem: #e8b86d;
+  --c-problem: var(--accent-2);
   --c-outcome: #5cc48a;
 }
 
@@ -52,7 +52,7 @@ body.editorial-case .sb-case .cs-learn-eyebrow {
 
 /* ── Emphasis utilities ── */
 body.editorial-case .hl-mark {
-  background: linear-gradient(transparent 60%, rgba(138, 164, 214, 0.28) 60%);
+  background: linear-gradient(transparent 60%, color-mix(in srgb, var(--primary) 28%, transparent) 60%);
   color: var(--text-strong);
   font-weight: 600;
   padding: 0 2px;
@@ -223,7 +223,7 @@ body.editorial-case .sb-case .sb-changes li b {
   font-weight: 400;
   color: var(--c-problem);
   text-decoration: line-through;
-  text-decoration-color: rgba(232, 184, 109, 0.5);
+  text-decoration-color: color-mix(in srgb, var(--accent-2) 50%, transparent);
 }
 
 body.editorial-case .sb-case .sb-changes .cs-list-tag {

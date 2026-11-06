@@ -12,6 +12,7 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#121011">
 <meta name="description" content="Neda Bagherinezhad, Senior Product Designer in Stockholm. UX research, information architecture, UI craft, design systems and AI-assisted builds for fintech, retail and healthcare.">
 <meta name="color-scheme" content="dark">
 <script>document.documentElement.classList.add('js');</script>
@@ -20,6 +21,8 @@
 <title>Neda Bagherinezhad · Senior Product Designer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/theme.css?v=20261106">
+<script src="js/palette-preview.js?v=20261106"></script>
 <link rel="stylesheet" href="css/tokens.css?v=20260401">
 <link rel="stylesheet" href="css/site-shared.css?v=20261101">
 <link rel="stylesheet" href="css/home-v6.css?v=20261106a">
@@ -179,7 +182,7 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
     content: '';
     position: absolute; inset: 0; z-index: 0;
     background-image:
-      radial-gradient(circle at 1px 1px, rgba(59, 130, 246,0.16) 1px, transparent 0);
+      radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--primary) 16%, transparent) 1px, transparent 0);
     background-size: 14px 14px;
     opacity: 0.45;
   }
@@ -214,7 +217,7 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
     position: absolute; left: 18px; right: 18px; bottom: 16px; z-index: 3;
     font-family: var(--font-body);
     font-size: 13px; font-weight: 500; line-height: 1.35;
-    color: #ffffff;
+    color: var(--ink);
     letter-spacing: 0.005em;
     text-shadow: 0 1px 8px rgba(0,0,0,0.35);
     transition: transform 0.45s var(--ease-spring);
@@ -234,7 +237,7 @@ a:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
   .vc-card:focus-visible {
     transform: translateY(-4px);
     box-shadow: 0 18px 38px rgba(26, 26, 26, 0.12);
-    border-color: rgba(59, 130, 246, 0.35);
+    border-color: color-mix(in srgb, var(--primary) 35%, transparent);
   }
   .vc-card:hover .vc-card__img,
   .vc-card:focus-visible .vc-card__img { transform: scale(1.045); }

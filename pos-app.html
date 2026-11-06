@@ -3,11 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#121011">
 <meta name="color-scheme" content="dark">
 <script>document.documentElement.classList.add('js');</script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/theme.css?v=20261106">
+<script src="js/palette-preview.js?v=20261106"></script>
 <link rel="stylesheet" href="css/tokens.css?v=20260401">
 <link rel="stylesheet" href="css/site-shared.css?v=20261101">
 <script src="js/page-transition.js?v=20260633"></script>
@@ -18,7 +21,7 @@
     --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
     --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
     --shadow-cv: 0 6px 20px rgba(0, 0, 0, 0.35);
-    --shadow-cv-hover: 0 16px 36px rgba(0, 0, 0, 0.4), 0 6px 16px rgba(138, 164, 214, 0.12);
+    --shadow-cv-hover: 0 16px 36px rgba(0, 0, 0, 0.4), 0 6px 16px color-mix(in srgb, var(--primary) 12%, transparent);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { color-scheme: dark; overflow-x: clip; }
@@ -758,7 +761,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     border-radius: 14px;
     overflow: hidden;
     background:
-      radial-gradient(ellipse 72% 62% at 50% 40%, rgba(59, 130, 246, 0.07) 0%, transparent 62%),
+      radial-gradient(ellipse 72% 62% at 50% 40%, color-mix(in srgb, var(--primary) 7%, transparent) 0%, transparent 62%),
       var(--surface);
   }
   .proto-frame iframe {
@@ -782,7 +785,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     width: 64px; height: 64px; border-radius: 50%;
     background: var(--accent); color: #fff;
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.32);
+    box-shadow: 0 12px 30px color-mix(in srgb, var(--primary) 32%, transparent);
     transition: transform 0.4s var(--ease-spring);
   }
   .proto-poster:hover .proto-play { transform: scale(1.06); }

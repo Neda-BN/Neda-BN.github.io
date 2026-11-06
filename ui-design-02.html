@@ -3,8 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#121011">
 <meta name="color-scheme" content="dark">
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
+<link rel="stylesheet" href="css/theme.css?v=20261106">
+<script src="js/palette-preview.js?v=20261106"></script>
 <link rel="stylesheet" href="css/tokens.css?v=20260405">
 <link rel="stylesheet" href="css/site-shared.css?v=20261101">
 <script src="js/page-transition.js?v=20260633"></script>
@@ -23,12 +26,12 @@
   #ring {
     position: fixed; z-index: 9998; pointer-events: none;
     width: 36px; height: 36px; border-radius: 50%;
-    border: 1.5px solid rgba(138, 164, 214, 0.35);
+    border: 1.5px solid color-mix(in srgb, var(--primary) 35%, transparent);
     transform: translate(-50%, -50%);
     transition: width 0.35s, height 0.35s, border-color 0.3s;
   }
   body.lh #dot { transform: translate(-50%, -50%) scale(2); opacity: 0.5; }
-  body.lh #ring { width: 60px; height: 60px; border-color: rgba(138, 164, 214, 0.55); }
+  body.lh #ring { width: 60px; height: 60px; border-color: color-mix(in srgb, var(--primary) 55%, transparent); }
   @media (prefers-reduced-motion: reduce) {
     body.hero-cursor-none { cursor: auto; }
     #dot, #ring { display: none !important; }

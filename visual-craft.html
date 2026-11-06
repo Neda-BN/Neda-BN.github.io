@@ -3,12 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#121011">
 <meta name="color-scheme" content="dark">
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/lithium-typeface-lt" rel="stylesheet">
+<link rel="stylesheet" href="css/theme.css?v=20261106">
+<script src="js/palette-preview.js?v=20261106"></script>
 <link rel="stylesheet" href="fonts/destine.css">
 <link rel="stylesheet" href="css/site-shared.css?v=20261101">
 <script src="js/page-transition.js?v=20260633"></script>
@@ -20,8 +23,8 @@
 <style>
   :root {
     --bg: #ffffff; --surface: #FFFFFF; --dark: #1A1A1A; --mid: #555555; --light: #999999;
-    --accent: #3B82F6; --accent-light: #F5EBE3; --border: #E8E4DC;
-    --bg2: #EFECE6; --line: #E8E4DC; --ink: #1A1A1A; --ink2: #555555; --ink3: #A8A299; --warm: #3B82F6;
+    --accent: var(--primary); --accent-light: #F5EBE3; --border: #E8E4DC;
+    --bg2: #EFECE6; --line: #E8E4DC; --ink: #1A1A1A; --ink2: #555555; --ink3: #A8A299; --warm: var(--primary);
     --display: 'Sora', sans-serif; --serif: var(--display); --sans: 'Open Sans', sans-serif;
     --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
     --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
@@ -44,11 +47,11 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   #ring {
     position: fixed; z-index: 9998; pointer-events: none;
     width: 36px; height: 36px; border-radius: 50%;
-    border: 1.5px solid rgba(59, 130, 246, 0.3); transform: translate(-50%, -50%);
+    border: 1.5px solid color-mix(in srgb, var(--primary) 30%, transparent); transform: translate(-50%, -50%);
     transition: width 0.35s, height 0.35s, border-color 0.3s;
   }
   body.lh #dot { transform: translate(-50%, -50%) scale(2); opacity: 0.5; }
-  body.lh #ring { width: 60px; height: 60px; border-color: rgba(59, 130, 246, 0.5); }
+  body.lh #ring { width: 60px; height: 60px; border-color: color-mix(in srgb, var(--primary) 50%, transparent); }
 
   /* ── PAGE LAYOUT ── */
   main {
@@ -156,7 +159,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     content: '';
     position: absolute; inset: 0; z-index: 0;
     background-image:
-      radial-gradient(circle at 1px 1px, rgba(59, 130, 246,0.16) 1px, transparent 0);
+      radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--primary) 16%, transparent) 1px, transparent 0);
     background-size: 14px 14px;
     opacity: 0.45;
   }
@@ -237,7 +240,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .vc-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 18px 38px rgba(26, 26, 26, 0.12);
-    border-color: rgba(59, 130, 246, 0.35);
+    border-color: color-mix(in srgb, var(--primary) 35%, transparent);
   }
   .vc-card:hover .vc-card__img { transform: scale(1.045); }
   .vc-card:hover .vc-card__veil { opacity: 1; height: 62%; }
@@ -276,7 +279,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   button.vc-card:focus-visible {
     transform: translateY(-4px);
     box-shadow: 0 18px 38px rgba(26, 26, 26, 0.12);
-    border-color: rgba(59, 130, 246, 0.35);
+    border-color: color-mix(in srgb, var(--primary) 35%, transparent);
     outline: none;
   }
   a.vc-card:focus-visible .vc-card__img,

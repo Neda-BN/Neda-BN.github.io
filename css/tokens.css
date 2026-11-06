@@ -1,48 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Poppins:wght@400;500;600&display=swap');
 
+/* Typography tokens only — colours live in theme.css */
+
 :root {
-  --bg: #0B0C10;
-  --surface: #16161C;
-  --surface-2: #1E1E26;
-  --text: #EDEDF0;
-  --muted: #9A9AA5;
-  --border: rgba(255, 255, 255, 0.08);
-  --accent: #8AA4D6;
-  --accent-strong: #6F8BC4;
-  --accent-soft: rgba(138, 164, 214, 0.14);
-  --attention: #E8B86D;
-  --attention-soft: rgba(232, 184, 109, 0.12);
-  --attention-border: rgba(232, 184, 109, 0.45);
-  /* “My design idea” tags only — not used for links, headings, or UI chrome */
-  --idea-tag: #A78BFA;
-  --idea-tag-text: #EDE5FF;
-  --idea-tag-soft: rgba(167, 139, 250, 0.2);
-  --idea-tag-border: rgba(167, 139, 250, 0.62);
-  --idea-tag-glow: rgba(167, 139, 250, 0.22);
-  --accent-text: var(--accent);
   --font-stack: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-display: var(--font-stack);
   --font-body: var(--font-stack);
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
   --font-accent: var(--font-stack);
-  /* Legacy aliases */
-  --page-bg: var(--bg);
   --page-title: var(--font-stack);
   --display: var(--font-stack);
   --serif: var(--font-stack);
   --sans: var(--font-body);
-  --ink: var(--text);
-  --ink2: var(--muted);
-  --ink3: #6e6e78;
-  --warm: var(--accent);
-  --line: var(--border);
-  --line2: rgba(255, 255, 255, 0.04);
-  --text-muted: var(--muted);
-  --accent-light: var(--accent-soft);
-  --bg2: var(--surface);
-  --bg3: var(--surface-2);
-  --surface-card: var(--surface);
-  --dark: var(--text);
-  --mid: var(--muted);
-  --light: var(--muted);
 }

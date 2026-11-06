@@ -1,0 +1,149 @@
+/**
+ * Global colour system — single source of truth.
+ * Default: Ember. Switch preview: ?palette=sage|citrus|rose|original
+ */
+
+/* ── Palette bases ── */
+:root,
+html[data-palette='ember'] {
+  --c-bg: #121011;
+  --c-primary: #ff8a65;
+  --c-accent: #f3d9a4;
+}
+
+html[data-palette='sage'] {
+  --c-bg: #0f1210;
+  --c-primary: #a8d5ba;
+  --c-accent: #e9a178;
+}
+
+html[data-palette='citrus'] {
+  --c-bg: #0e0f13;
+  --c-primary: #c6f36b;
+  --c-accent: #f2eee6;
+}
+
+html[data-palette='rose'] {
+  --c-bg: #110f14;
+  --c-primary: #f29cb7;
+  --c-accent: #e8c07a;
+}
+
+html[data-palette='original'] {
+  --c-bg: #0b0c10;
+  --c-primary: #8aa4d6;
+  --c-accent: #e8b86d;
+}
+
+/* ── Derived tokens (from bases + fixed neutrals) ── */
+:root {
+  --bg: var(--c-bg);
+  --surface-1: color-mix(in srgb, var(--c-bg) 94%, #fff);
+  --surface-2: color-mix(in srgb, var(--c-bg) 90%, #fff);
+  --border: color-mix(in srgb, #fff 9%, transparent);
+  --border-strong: color-mix(in srgb, #fff 16%, transparent);
+
+  --ink: #f3f1ec;
+  --body: color-mix(in srgb, #f3f1ec 84%, transparent);
+  --meta: color-mix(in srgb, #f3f1ec 58%, transparent);
+
+  --primary: var(--c-primary);
+  --primary-hover: color-mix(in srgb, var(--c-primary) 85%, #fff);
+  --primary-soft: color-mix(in srgb, var(--c-primary) 12%, transparent);
+  --primary-line: color-mix(in srgb, var(--c-primary) 45%, transparent);
+  --primary-glow: color-mix(in srgb, var(--c-primary) 22%, transparent);
+  --on-primary: var(--c-bg);
+  /* Ladder stops for decorative gradients (replaces old blue tints) */
+  --primary-tint-light: color-mix(in srgb, var(--primary) 45%, #fff);
+  --primary-tint-mid: color-mix(in srgb, var(--primary) 72%, #fff);
+
+  --accent-2: var(--c-accent);
+  --accent-2-soft: color-mix(in srgb, var(--c-accent) 12%, transparent);
+  --accent-2-line: color-mix(in srgb, var(--c-accent) 45%, transparent);
+
+  /* Semantic — fixed across palettes */
+  --status-danger: #e5726a;
+  --status-success: #5cc48a;
+  --status-warning: #e8a23d;
+  --status-info: #7fa8e0;
+
+  /* ── Backward compatibility (entire site) ── */
+  --accent: var(--primary);
+  --accent-strong: var(--primary-hover);
+  --accent-soft: var(--primary-soft);
+  --accent-text: var(--primary);
+  --blue: var(--primary);
+
+  --yellow: var(--accent-2);
+  --yellow-soft: var(--accent-2-soft);
+  --yellow-line: var(--accent-2-line);
+
+  --attention: var(--status-warning);
+  --attention-soft: color-mix(in srgb, var(--status-warning) 12%, transparent);
+  --attention-border: color-mix(in srgb, var(--status-warning) 45%, transparent);
+
+  --text: var(--ink);
+  --muted: var(--meta);
+
+  --surface: var(--surface-1);
+  --page-bg: var(--bg);
+  --bg2: var(--surface-1);
+  --bg3: var(--surface-2);
+  --surface-card: var(--surface-1);
+  --accent-light: var(--primary-soft);
+
+  --line: var(--border);
+  --line2: color-mix(in srgb, #fff 4%, transparent);
+  --text-muted: var(--meta);
+  --warm: var(--primary);
+
+  --ink2: var(--meta);
+  --ink3: color-mix(in srgb, #f3f1ec 45%, transparent);
+  --dark: var(--ink);
+  --mid: var(--meta);
+  --light: var(--meta);
+
+  --frame-bg: var(--surface-1);
+  --frame-line: var(--border);
+
+  --idea-tag: var(--accent-2);
+  --idea-tag-text: color-mix(in srgb, var(--accent-2) 28%, var(--ink));
+  --idea-tag-soft: var(--accent-2-soft);
+  --idea-tag-border: var(--accent-2-line);
+  --idea-tag-glow: color-mix(in srgb, var(--accent-2) 22%, transparent);
+}
+
+/* ── Base colour application ── */
+html {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+::selection {
+  background: var(--primary-soft);
+  color: var(--ink);
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-track {
+  background: var(--surface-1);
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--primary-line);
+  border-radius: 6px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--primary) 55%, transparent);
+}
+
+*:focus-visible {
+  outline-color: var(--primary);
+}

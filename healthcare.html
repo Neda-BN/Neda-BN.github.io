@@ -3,11 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#121011">
 <meta name="color-scheme" content="dark">
 <script>document.documentElement.classList.add('js');</script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/theme.css?v=20261106">
+<script src="js/palette-preview.js?v=20261106"></script>
 <link rel="stylesheet" href="css/tokens.css?v=20260401">
 <link rel="stylesheet" href="css/site-shared.css?v=20261101">
 <script src="js/page-transition.js?v=20260633"></script>
@@ -40,8 +43,8 @@
   body.case-study-page.cs-v2 .hc-case .reveal-media,body.case-study-page.cs-v2 .hc-case .reveal-media img,body.case-study-page.cs-v2 .hc-case .hc-media-frame img,body.case-study-page.cs-v2 .hc-case .hc-figure-process-board img,body.case-study-page.cs-v2 .hc-case .hc-discover-fullbleed img,body.case-study-page.cs-v2 .hc-case .hc-wizard-shot__frame img{opacity:1!important;transform:none!important;animation:none!important;filter:none!important;}
   .hc-wizard-gallery{display:flex;flex-direction:column;gap:var(--space-block,24px);}
   .mob-screens-collapsed{margin-top:calc(var(--space-block,24px)*2);border:none;border-radius:0;padding:0;background:transparent;}
-  .mob-screens-collapsed summary{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;max-width:min(880px,calc(100vw - 64px));margin:0 auto;padding:16px 28px;cursor:pointer;font-family:var(--font-body,'Poppins',sans-serif);font-size:clamp(15px,1.2vw,17px);font-weight:600;line-height:1.35;color:var(--accent);list-style:none;text-align:center;background:var(--accent-soft);border:1px solid rgba(138,164,214,.55);border-radius:12px;box-shadow:0 0 0 0 rgba(138,164,214,0);transition:background .2s ease,border-color .2s ease,box-shadow .2s ease,transform .15s ease;}
-  .mob-screens-collapsed summary:hover{background:rgba(138,164,214,.22);border-color:var(--accent);box-shadow:0 4px 20px rgba(138,164,214,.18);}
+  .mob-screens-collapsed summary{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;max-width:min(880px,calc(100vw - 64px));margin:0 auto;padding:16px 28px;cursor:pointer;font-family:var(--font-body,'Poppins',sans-serif);font-size:clamp(15px,1.2vw,17px);font-weight:600;line-height:1.35;color:var(--accent);list-style:none;text-align:center;background:var(--accent-soft);border:1px solid color-mix(in srgb, var(--primary) 55%, transparent);border-radius:12px;box-shadow:0 0 0 0 color-mix(in srgb, var(--primary) 1%, transparent);transition:background .2s ease,border-color .2s ease,box-shadow .2s ease,transform .15s ease;}
+  .mob-screens-collapsed summary:hover{background:color-mix(in srgb, var(--primary) 22%, transparent);border-color:var(--accent);box-shadow:0 4px 20px color-mix(in srgb, var(--primary) 18%, transparent);}
   .mob-screens-collapsed summary:active{transform:translateY(1px);}
   .mob-screens-collapsed summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
   .mob-screens-collapsed summary::-webkit-details-marker{display:none;}
@@ -323,7 +326,7 @@
                 <line x1="960" y1="30" x2="960" y2="305" stroke="#EEF2F7" stroke-width="1" stroke-dasharray="3 6"/>
                 <line x1="1080" y1="30" x2="1080" y2="305" stroke="#EEF2F7" stroke-width="1" stroke-dasharray="3 6"/>
                 <polygon points="60,180 180,120 300,85 420,265 540,100 660,255 780,150 900,80 1020,90 1140,70 1140,310 60,310" fill="#EEF2F7" opacity="0.6"/>
-                <polyline points="60,180 180,120 300,85 420,265 540,100 660,255 780,150 900,80 1020,90 1140,70" fill="none" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+                <polyline points="60,180 180,120 300,85 420,265 540,100 660,255 780,150 900,80 1020,90 1140,70" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
                 <line x1="60" y1="189" x2="60" y2="298" stroke="#B0BDD0" stroke-width="1" stroke-dasharray="3 4"/>
                 <line x1="180" y1="111" x2="180" y2="52" stroke="#B0BDD0" stroke-width="1" stroke-dasharray="3 4"/>
                 <line x1="300" y1="76" x2="300" y2="22" stroke="#B0BDD0" stroke-width="1" stroke-dasharray="3 4"/>

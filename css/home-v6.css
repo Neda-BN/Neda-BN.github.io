@@ -3,8 +3,6 @@
 #hero { scroll-margin-top: 72px; }
 
 .hero-v6 {
-  --body: rgba(237, 237, 240, 0.84);
-
   position: relative;
   isolation: isolate;
   padding: 120px 24px 96px;
@@ -230,7 +228,7 @@
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: var(--accent);
+  background: var(--accent-2);
   flex-shrink: 0;
   margin-left: 40px;
 }
@@ -457,7 +455,7 @@
 }
 
 #ui-design a.work-card--compact:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--primary);
   outline-offset: 8px;
   border-radius: 20px;
 }
@@ -469,7 +467,7 @@
 
 #ui-design .work-card--compact:hover .work-card__title,
 #ui-design a.work-card--compact:hover .work-card__title {
-  color: var(--accent);
+  color: var(--primary);
 }
 
 @media (max-width: 899.98px) {
@@ -501,7 +499,7 @@
   }
 
   #ui-design .work-card--compact:hover .work-card__title {
-    color: var(--text);
+    color: var(--ink);
   }
 }
 
@@ -571,7 +569,7 @@
   font-weight: 600;
   line-height: 1.05;
   letter-spacing: -0.02em;
-  color: var(--accent);
+  color: var(--accent-2);
 }
 
 .proof-strip__label {
@@ -811,7 +809,7 @@ body > footer::before {
 
 .proof-stat-stroke {
   fill: none;
-  stroke: rgba(138, 164, 214, 0.6);
+  stroke: color-mix(in srgb, var(--primary) 60%, transparent);
   stroke-width: 1;
   stroke-linecap: round;
   stroke-dasharray: 1;

@@ -31,7 +31,7 @@
   --cs-icon-gap: clamp(12px, 1.6vw, 16px);
   --cs-radius-media: 16px;
   background: var(--bg, #0E0E12);
-  color: var(--text, #EDEDF0);
+  color: var(--text, var(--ink));
   font-family: var(--font-body, 'Poppins', sans-serif);
   font-size: var(--cs-body);
   line-height: 1.2;
@@ -293,7 +293,7 @@
   font-weight: 400;
   line-height: 0.95;
   letter-spacing: -0.02em;
-  color: var(--text, #EDEDF0);
+  color: var(--text, var(--ink));
   text-transform: none;
   font-style: normal;
   text-align: left;
@@ -348,7 +348,7 @@
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 12px;
   overflow: hidden;
-  background: var(--surface, #16161C);
+  background: var(--surface, var(--surface-1));
   margin-bottom: var(--cs-section-space);
 }
 
@@ -381,7 +381,7 @@
   font-weight: 500;
   letter-spacing: -0.02em;
   line-height: 1.35;
-  color: var(--text, #EDEDF0);
+  color: var(--text, var(--ink));
 }
 
 .case-study-page .section-header {
@@ -400,7 +400,7 @@
   margin-top: 0.1em;
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.12);
-  background: var(--surface, #16161C);
+  background: var(--surface, var(--surface-1));
   color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
@@ -459,7 +459,7 @@
 
 .case-study-page .content p strong,
 .case-study-page .role-list li::before {
-  color: var(--text, #EDEDF0);
+  color: var(--text, var(--ink));
 }
 
 /* In-content subheadings (no icons) */
@@ -490,7 +490,7 @@
   margin-bottom: clamp(10px, 1.5vw, 14px);
   font-size: clamp(18px, 1.75vw, 22px);
   font-weight: 600;
-  color: var(--text, #EDEDF0);
+  color: var(--text, var(--ink));
   letter-spacing: -0.03em;
   white-space: nowrap;
   overflow: hidden;
@@ -513,7 +513,7 @@
   letter-spacing: -0.05em;
   line-height: 1.2;
   text-transform: none;
-  color: var(--text, #EDEDF0);
+  color: var(--text, var(--ink));
 }
 
 .case-study-page .quote-block {
@@ -537,7 +537,7 @@
 .case-study-page .lesson-item {
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 6px;
-  background: var(--surface, #16161C);
+  background: var(--surface, var(--surface-1));
 }
 
 .case-study-page .divider {
@@ -592,7 +592,7 @@
 .case-study-page .screen-wrap {
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  background: var(--surface, #16161C);
+  background: var(--surface, var(--surface-1));
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
@@ -758,9 +758,9 @@
 
 /* ── Simple Booking · V6 (homepage-aligned) ── */
 .case-study-page .sb-case {
-  --cs-positive: #7FC8A9;
-  --cs-negative: #E08A8A;
-  --cs-warning: #E3C07A;
+  --cs-positive: var(--status-success);
+  --cs-negative: var(--status-danger);
+  --cs-warning: var(--status-warning);
   --cs-text-max: 720px;
   --cs-wide-max: 1200px;
   background: var(--bg);
@@ -1245,7 +1245,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--accent-strong, #6f8bc4);
+  background: var(--primary-hover);
   color: var(--text);
   font-size: 15px;
   font-weight: 700;
@@ -1574,7 +1574,7 @@
 }
 
 .case-study-page .hc-persona-panel::before {
-  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-strong, #6f8bc4) 100%);
+  background: linear-gradient(180deg, var(--primary) 0%, var(--primary-hover) 100%);
 }
 
 .case-study-page .hc-persona-panel__kicker,
@@ -1906,7 +1906,7 @@ body.case-study-page.about-page .content a {
   font-weight: 500;
   text-decoration: underline;
   text-underline-offset: 3px;
-  text-decoration-color: rgba(138, 164, 214, 0.45);
+  text-decoration-color: color-mix(in srgb, var(--primary) 45%, transparent);
 }
 
 body.case-study-page.about-page .content a:hover,
@@ -2810,7 +2810,7 @@ body.case-study-page .cs-summary-jump__link {
   color: var(--accent);
   text-decoration: underline;
   text-decoration-thickness: 1px;
-  text-decoration-color: rgba(138, 164, 214, 0.5);
+  text-decoration-color: color-mix(in srgb, var(--primary) 50%, transparent);
   text-underline-offset: 4px;
   transition: text-decoration-color 0.2s ease;
 }
@@ -4326,13 +4326,13 @@ body.case-study-page .aside-note__arrow {
       radial-gradient(70% 55% at 18% 12%, rgba(255, 255, 255, 0.06) 0%, transparent 72%),
       radial-gradient(
         120% 120% at 25% 20%,
-        rgba(138, 164, 214, 0.3) 0%,
-        rgba(138, 164, 214, 0.12) 45%,
-        rgba(138, 164, 214, 0.05) 100%
+        color-mix(in srgb, var(--primary) 30%, transparent) 0%,
+        color-mix(in srgb, var(--primary) 12%, transparent) 45%,
+        color-mix(in srgb, var(--primary) 5%, transparent) 100%
       );
     box-shadow:
       0 24px 60px rgba(0, 0, 0, 0.35),
-      0 0 56px rgba(138, 164, 214, 0.16),
+      0 0 56px color-mix(in srgb, var(--primary) 16%, transparent),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -4368,8 +4368,8 @@ body.case-study-page .aside-note__arrow {
     border-radius: inherit;
     background: linear-gradient(
       135deg,
-      rgba(138, 164, 214, 0.7) 0%,
-      rgba(138, 164, 214, 0.15) 100%
+      color-mix(in srgb, var(--primary) 70%, transparent) 0%,
+      color-mix(in srgb, var(--primary) 15%, transparent) 100%
     );
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
@@ -4390,7 +4390,7 @@ body.case-study-page .aside-note__arrow {
     height: 36px;
     flex-shrink: 0;
     border-radius: 12px;
-    background: rgba(138, 164, 214, 0.14);
+    background: color-mix(in srgb, var(--primary) 14%, transparent);
     translate: 0 0;
     rotate: 0deg;
     transition:
@@ -4447,7 +4447,7 @@ body.case-study-page .aside-note__arrow {
     scale: 1.035;
     box-shadow:
       0 28px 64px rgba(0, 0, 0, 0.38),
-      0 0 68px rgba(138, 164, 214, 0.24),
+      0 0 68px color-mix(in srgb, var(--primary) 24%, transparent),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
@@ -4706,14 +4706,14 @@ body.case-study-page .cs-flow__step {
   align-items: flex-start;
   padding: 16px;
   border-radius: 12px;
-  border: 1px solid rgba(138, 164, 214, 0.45);
+  border: 1px solid color-mix(in srgb, var(--primary) 45%, transparent);
   background:
     radial-gradient(70% 55% at 18% 12%, rgba(255, 255, 255, 0.05) 0%, transparent 72%),
     radial-gradient(
       120% 120% at 25% 20%,
-      rgba(138, 164, 214, 0.28) 0%,
-      rgba(138, 164, 214, 0.1) 45%,
-      rgba(138, 164, 214, 0.04) 100%
+      color-mix(in srgb, var(--primary) 28%, transparent) 0%,
+      color-mix(in srgb, var(--primary) 10%, transparent) 45%,
+      color-mix(in srgb, var(--primary) 4%, transparent) 100%
     );
 }
 
@@ -4759,7 +4759,7 @@ body.case-study-page .cs-flow__note {
 /* Back-office: replenishment structure map (D2)
    Scale tokens — bump sizes together (type, cards, icons, gaps) to keep proportions. */
 body.case-study-page .cs-structure {
-  --cs-structure-line: rgba(138, 164, 214, 0.52);
+  --cs-structure-line: color-mix(in srgb, var(--primary) 52%, transparent);
   --cs-structure-stem: 16px;
   --cs-structure-gap: 12px;
   --cs-structure-vlink: 14px;
@@ -4830,7 +4830,7 @@ body.case-study-page .cs-structure__card {
 body.case-study-page .cs-structure__card--hub {
   max-width: var(--cs-structure-card-w-hub);
   padding: var(--cs-structure-pad-hub-y) var(--cs-structure-pad-hub-x);
-  border-color: rgba(138, 164, 214, 0.42);
+  border-color: color-mix(in srgb, var(--primary) 42%, transparent);
   background: color-mix(in srgb, var(--surface) 88%, #0f1424);
   box-shadow: none;
 }
@@ -4843,14 +4843,14 @@ body.case-study-page .cs-structure__icon-chip {
   height: var(--cs-structure-icon-chip);
   margin: 0 auto var(--cs-structure-icon-gap);
   border-radius: 10px;
-  background: rgba(138, 164, 214, 0.1);
-  border: 1px solid rgba(138, 164, 214, 0.32);
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 32%, transparent);
 }
 
 body.case-study-page .cs-structure__icon-chip--hub {
   width: var(--cs-structure-icon-chip-hub);
   height: var(--cs-structure-icon-chip-hub);
-  background: rgba(138, 164, 214, 0.14);
+  background: color-mix(in srgb, var(--primary) 14%, transparent);
 }
 
 body.case-study-page .cs-structure__icon {
@@ -4901,7 +4901,7 @@ body.case-study-page .cs-structure__card--branch {
   padding: var(--cs-structure-pad-branch-y) var(--cs-structure-pad-branch-x)
     calc(var(--cs-structure-pad-branch-y) + 1px);
   position: relative;
-  border-top: 2px solid rgba(138, 164, 214, 0.4);
+  border-top: 2px solid color-mix(in srgb, var(--primary) 40%, transparent);
   align-self: start;
 }
 
@@ -5268,7 +5268,7 @@ body.case-study-page .cs-more .cs-more__media {
 
 body.case-study-page .cs-more a.cs-more__card:hover .cs-more__media,
 body.case-study-page .cs-more a.cs-more__card:focus-visible .cs-more__media {
-  box-shadow: 0 16px 40px rgba(138, 164, 214, 0.18);
+  box-shadow: 0 16px 40px color-mix(in srgb, var(--primary) 18%, transparent);
 }
 
 body.case-study-page .cs-more .cs-more__picture {
@@ -5432,8 +5432,8 @@ body.case-study-page .cs-icon-chip {
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: rgba(138, 164, 214, 0.1);
-  border: 1px solid rgba(138, 164, 214, 0.32);
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 32%, transparent);
   flex-shrink: 0;
 }
 
@@ -5472,7 +5472,7 @@ body.case-study-page .cs-turning::before {
   height: 100%;
   background: radial-gradient(
     ellipse 100% 80% at 0% 0%,
-    rgba(138, 164, 214, 0.22) 0%,
+    color-mix(in srgb, var(--primary) 22%, transparent) 0%,
     transparent 72%
   );
   pointer-events: none;
@@ -5549,10 +5549,10 @@ body.case-study-page .cs-turning__shift-box--plan {
 body.case-study-page .cs-turning__shift-box--highlight {
   background: linear-gradient(
     135deg,
-    rgba(138, 164, 214, 0.22) 0%,
-    rgba(138, 164, 214, 0.06) 100%
+    color-mix(in srgb, var(--primary) 22%, transparent) 0%,
+    color-mix(in srgb, var(--primary) 6%, transparent) 100%
   );
-  border: 1px solid rgba(138, 164, 214, 0.6);
+  border: 1px solid color-mix(in srgb, var(--primary) 60%, transparent);
   opacity: 0.6;
   box-shadow: none;
   transition:
@@ -5655,7 +5655,7 @@ body.case-study-page .sb-case .cs-turning .cs-turning__prose.sb-text {
 
 body.case-study-page .cs-turning.is-shift-revealed .cs-turning__shift-box.cs-turning__shift-box--highlight {
   opacity: 1;
-  box-shadow: 0 0 32px rgba(138, 164, 214, 0.18);
+  box-shadow: 0 0 32px color-mix(in srgb, var(--primary) 18%, transparent);
 }
 
 body.case-study-page .sb-case .cs-turning .cs-turning__prose.sb-text > p {
@@ -5703,7 +5703,7 @@ body.case-study-page .cs-turning__callout {
   margin: 0;
   padding: 32px 36px 32px 40px;
   border-radius: 16px;
-  border: 1px solid rgba(138, 164, 214, 0.5);
+  border: 1px solid color-mix(in srgb, var(--primary) 50%, transparent);
   border-left: 4px solid var(--accent);
   font-family: var(--font-body, 'Poppins', sans-serif);
   font-weight: 600;
@@ -5712,11 +5712,11 @@ body.case-study-page .cs-turning__callout {
   color: var(--text);
   background: linear-gradient(
     135deg,
-    rgba(138, 164, 214, 0.2) 0%,
-    rgba(138, 164, 214, 0.05) 60%,
+    color-mix(in srgb, var(--primary) 20%, transparent) 0%,
+    color-mix(in srgb, var(--primary) 5%, transparent) 60%,
     transparent 100%
   );
-  box-shadow: 0 0 48px rgba(138, 164, 214, 0.15);
+  box-shadow: 0 0 48px color-mix(in srgb, var(--primary) 15%, transparent);
 }
 
 body.case-study-page .cs-turning__callout-accent {
@@ -5762,7 +5762,7 @@ body.case-study-page .cs-feature {
 }
 
 body.case-study-page .cs-feature:hover {
-  border-color: rgba(138, 164, 214, 0.45);
+  border-color: color-mix(in srgb, var(--primary) 45%, transparent);
   transform: translateY(-2px);
 }
 
@@ -5881,7 +5881,7 @@ body.case-study-page .cs-feature__text {
   body.case-study-page .cs-turning__shift-box--highlight {
     transition: none;
     opacity: 1;
-    box-shadow: 0 0 32px rgba(138, 164, 214, 0.18);
+    box-shadow: 0 0 32px color-mix(in srgb, var(--primary) 18%, transparent);
   }
 
   body.case-study-page .cs-turning.is-shift-revealed .cs-turning__shift-arrow--right svg,
@@ -6158,8 +6158,8 @@ body.case-study-page .cs-research-note {
   margin: 24px 0;
   padding: 16px 20px;
   border-radius: 12px;
-  background: rgba(138, 164, 214, 0.08);
-  border: 1px solid rgba(138, 164, 214, 0.35);
+  background: color-mix(in srgb, var(--primary) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
 }
 
 body.case-study-page .cs-research-note__icon-chip {
@@ -6170,7 +6170,7 @@ body.case-study-page .cs-research-note__icon-chip {
   height: 32px;
   flex-shrink: 0;
   border-radius: 10px;
-  background: rgba(138, 164, 214, 0.12);
+  background: color-mix(in srgb, var(--primary) 12%, transparent);
 }
 
 body.case-study-page .cs-research-note__icon-chip svg {
@@ -6207,7 +6207,7 @@ body.case-study-page .cs-list-tag {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--accent);
-  border: 1px solid rgba(138, 164, 214, 0.45);
+  border: 1px solid color-mix(in srgb, var(--primary) 45%, transparent);
   border-radius: 999px;
   padding: 2px 8px;
 }
@@ -6241,7 +6241,7 @@ body.case-study-page .cs-customer-view__panel {
   border-radius: 20px;
   background: var(--surface);
   border: 1px solid var(--border);
-  box-shadow: 0 0 48px rgba(138, 164, 214, 0.12);
+  box-shadow: 0 0 48px color-mix(in srgb, var(--primary) 12%, transparent);
 }
 
 body.case-study-page .cs-customer-view__figure {

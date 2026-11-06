@@ -7,9 +7,9 @@ body.has-anna-nav.case-study-page main.sb-case {
 }
 
 .sb-case {
-  --sb-before: #E08A8A;
-  --sb-after: #7FC8A9;
-  --sb-warn: #E3C07A;
+  --sb-before: var(--status-danger);
+  --sb-after: var(--status-success);
+  --sb-warn: var(--status-warning);
   --sb-gutter: 32px;
   -webkit-font-smoothing: antialiased;
 }
