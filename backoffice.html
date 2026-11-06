@@ -137,22 +137,42 @@
     animation: none !important;
   }
 
-  /* Problem banner — phase token (--space-phase matches cs-v2 phase rhythm) */
-  body.case-study-page.cs-v2 .sb-case .bo-problem-banner-wrap {
-    --space-phase: var(--cs-v2-phase-gap, 80px);
+  /* Problem banners: same wide track as .wide / cs-match-img; text aligns with phase label row (icon 20px + gap 10px) */
+  body.case-study-page.cs-v2 .sb-case .bo-problem-banner-spacer {
+    display: block;
     width: 100%;
-    max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: calc(2 * var(--space-phase));
-    border-top: 1px solid var(--frame-line, var(--border));
-    padding-top: var(--space-text, 16px);
-    margin-bottom: 0;
+    height: 160px;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
     box-sizing: border-box;
   }
-  /* One phase-gap between banner last line and first phase label (no extra hairline) */
+  body.case-study-page.cs-v2 .sb-case .bo-problem-banner-wrap {
+    --cs-wide-track: min(1200px, calc(100vw - 64px));
+    width: var(--cs-wide-track);
+    max-width: var(--cs-wide-track);
+    margin-left: calc((100% - var(--cs-wide-track)) / 2);
+    margin-right: 0;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 1px solid var(--yellow-line, rgba(232, 184, 109, 0.55));
+    margin-bottom: 96px;
+    box-sizing: border-box;
+  }
+  body.case-study-page.cs-v2 .sb-case .bo-problem-banner-wrap .bo-problem-banner {
+    padding-top: 24px;
+    padding-left: 30px;
+    box-sizing: border-box;
+  }
+  body.case-study-page.cs-v2 .sb-case #backoffice-product > ul.cs-v2-list:last-child {
+    margin-bottom: 0 !important;
+  }
+  body.case-study-page.cs-v2 .sb-case #results-replenishment > .cs-match-img.cs-v2-quote {
+    margin-bottom: 0 !important;
+  }
   body.case-study-page.cs-v2 .sb-case .bo-problem-banner-wrap + .section.cs-v2-phase {
-    margin-top: var(--space-phase);
+    margin-top: 0;
     padding-top: 0;
     border-top: none;
   }
@@ -196,13 +216,17 @@
     margin-top: var(--space-block, 24px);
   }
 
-  @media (max-width: 767px) {
-    body.case-study-page.cs-v2 .sb-case .bo-problem-banner-wrap {
-      --space-phase: var(--cs-v2-phase-gap, 56px);
-      margin-top: calc(1.5 * var(--space-phase));
+  @media (max-width: 1023px) and (min-width: 768px) {
+    body.case-study-page.cs-v2 .sb-case .bo-problem-banner-spacer {
+      height: 128px;
     }
-    body.case-study-page.cs-v2 .sb-case .bo-problem-banner-wrap + .section.cs-v2-phase {
-      margin-top: var(--space-phase);
+  }
+  @media (max-width: 767px) {
+    body.case-study-page.cs-v2 .sb-case .bo-problem-banner-spacer {
+      height: 96px;
+    }
+    body.case-study-page.cs-v2 .sb-case .bo-problem-banner-wrap {
+      margin-bottom: 64px;
     }
   }
 
@@ -358,6 +382,8 @@
       <li>Interviewed 6 managers from 6 customer businesses, and worked closely with the PM and engineering.</li>
     </ul>
   </section>
+
+  <div class="bo-problem-banner-spacer" aria-hidden="true"></div>
 
   <div class="bo-problem-banner-wrap" id="problem-replenishment">
     <div class="bo-problem-banner">
@@ -554,6 +580,8 @@
       <cite>— Assistant Manager, Matvärlden</cite>
     </div>
   </section>
+
+  <div class="bo-problem-banner-spacer" aria-hidden="true"></div>
 
   <div class="bo-problem-banner-wrap" id="problem-campaigns">
     <div class="bo-problem-banner">
