@@ -99,17 +99,16 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     display: grid;
     grid-template-columns: minmax(0, clamp(232px, 30%, 320px)) minmax(0, 1fr);
     gap: 20px;
-    align-items: stretch;
+    align-items: start;
   }
   .hero-media__video {
     display: flex;
     flex-direction: column;
     gap: 10px;
     min-width: 0;
-    height: 100%;
   }
   .hero-media__video .screen-caption {
-    margin-top: auto;
+    margin-top: 0;
   }
   .screen-wrap.screen-wrap--hero-video {
     border: none;
@@ -184,31 +183,30 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     flex-direction: column;
     gap: 10px;
     min-width: 0;
-    height: 100%;
   }
   .hero-media__placeholder .screen-wrap {
-    flex: 1;
+    flex: none;
     min-height: 0;
     display: flex;
     flex-direction: column;
   }
   .screen-wrap.screen-wrap--hero-placeholder {
-    flex: 1;
+    flex: none;
     width: 100%;
-    min-height: min(52vh, 560px);
-    background: var(--surface);
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    min-height: 0;
+    background: transparent;
+    border-radius: 0;
+    overflow: visible;
+    border: none;
+    box-shadow: none;
   }
   .hero-overview {
-    flex: 1;
+    flex: none;
     min-height: 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0;
     box-sizing: border-box;
   }
   .hero-overview__img {
@@ -220,6 +218,14 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     object-position: center;
     display: block;
     border-radius: 12px;
+  }
+
+  /* case-study.css gives every .screen-wrap a card frame — strip it for POS hero overview only */
+  body.page-pos.case-study-page .hero-image .screen-wrap.screen-wrap--hero-placeholder {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
   }
 
   .content {
@@ -737,7 +743,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     .screens-grid.col-3 { grid-template-columns: 1fr 1fr; }
     .hero-media { grid-template-columns: 1fr; gap: 24px; }
     .hero-video-wrap { max-width: min(320px, 88vw); }
-    .screen-wrap.screen-wrap--hero-placeholder { min-height: min(45vh, 420px); }
+    .screen-wrap.screen-wrap--hero-placeholder { min-height: 0; }
     .screens-grid.col-2 { grid-template-columns: 1fr; justify-content: stretch; }
     .ab-grid { grid-template-columns: 1fr; }
     .meta-strip { flex-direction: column; }
